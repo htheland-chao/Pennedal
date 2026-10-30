@@ -94,9 +94,9 @@ async function hentLyd(tekst, figur, model, udtale) {
       return { data: Buffer.from(lyd.data, 'base64'), mime: lyd.mime_type || lyd.mimeType || '' };
     }
     if (svar.status === 429) {
-      if (/per ?day|perday|daily/i.test(tekstSvar)) throw new KvoteBrugt(tekstSvar.slice(0, 300));
+      if (/per ?day|perday|daily/i.test(tekstSvar)) throw new KvoteBrugt(tekstSvar.slice(0, 1500));
       const sek = ventetid(tekstSvar) ?? 20 * forsoeg;
-      if (sek > 120) throw new KvoteBrugt(tekstSvar.slice(0, 300));
+      if (sek > 120) throw new KvoteBrugt(tekstSvar.slice(0, 1500));
       await vent(sek * 1000);
       continue;
     }
@@ -162,6 +162,7 @@ async function main() {
   const lavet = [];
   const fejl = [];
   let stop = '';
+  let googleSvar = '';
   let fatal = false;
 
   if (!kunStatus && mangler.length > 0) {
@@ -187,6 +188,7 @@ async function main() {
         } catch (e) {
           if (e instanceof KvoteBrugt) {
             stop = 'Dagens kvote hos Google er brugt. Resten bliver lavet ved næste kørsel.';
+            googleSvar = e.message;
             break;
           }
           if (e instanceof StopFejl) {
@@ -216,6 +218,8 @@ async function main() {
     `- Mangler: ${m.mangler}`,
   ];
   if (stop) linjer.push('', `**Stoppet:** ${stop}`);
+  // Googles egen besked fortæller, hvilken grænse der er ramt (pr. minut eller pr. dag). Den indeholder ingen nøgle.
+  if (googleSvar) linjer.push('', 'Googles svar:', '', '```', googleSvar.replace(/```/g, ''), '```');
   if (fejl.length) linjer.push('', '**Fejl:**', ...fejl.map((f) => `- ${f}`));
   if (lavet.length) {
     linjer.push('', 'Lyt dem igennem på siden med `?lyd=1` efter adressen, før du godkender.', '', '| Figur | Tekst | Nøgle |', '| --- | --- | --- |');
