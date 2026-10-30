@@ -51,7 +51,7 @@ Opdatér kun en version efter at have slået den op i npm og kørt alle tests.
 
 ## Grafik
 
-Pixelgrafik i 16-bit-stil (se `grafikstil` i designlærredet). Pixelskrift må kun bruges til navne og overskrifter. Brødtekst står altid i Atkinson Hyperlegible eller den skrift, eleven har valgt.
+16-bit pixelgrafik set skråt oppefra, hvor man går frit (valgt 30. oktober 2026). Mål, palet og lys står i `docs/grafik.md` og gælder for al ny grafik. Ingen bogstaver i grafikken. Pixelskrift må kun bruges til navne og overskrifter. Brødtekst står altid i Atkinson Hyperlegible eller den skrift, eleven har valgt.
 
 ## Arbejdsform
 
