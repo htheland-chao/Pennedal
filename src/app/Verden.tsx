@@ -38,6 +38,14 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
 
   const aktivtObjekt = trin && !aktivtTrin ? trin.objekt : null;
   const objektNavn = sted.objekter.find((o) => o.id === aktivtObjekt)?.navn;
+  // Objekter, der er forsvundet, fordi kapitlet er nået forbi deres skjulFra-trin.
+  const skjulte = sted.objekter
+    .filter((o) => {
+      if (!o.skjulFra) return false;
+      const nr = kapitel.trin.findIndex((t) => t.id === o.skjulFra);
+      return nr >= 0 && spil.trin >= nr;
+    })
+    .map((o) => o.id);
 
   const startTrin = useCallback(
     (t: Trin) => {
@@ -111,6 +119,8 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
           sted={sted}
           aktiv={aktivtObjekt}
           avatarUri={avatarUri}
+          avatar={spil.avatar}
+          skjulte={skjulte}
           laast={laast}
           mindreUhygge={indstillinger.mindreUhygge}
           forskraekSignal={forskraek}

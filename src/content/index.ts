@@ -36,12 +36,21 @@ export type StedObjekt = {
   h: number;
   form: string;
   farve: string;
+  /** Feltet på kortet, hvis stedet har et kort (pixelgrafik). x, y, w og h bruges kun af steder uden kort. */
+  felt?: [number, number];
+  /** Objektet forsvinder fra dette trin og frem, fx når Klatten er løbet sin vej. */
+  skjulFra?: string;
+  /** Objektet lyser om natten, fx en lanterne. */
+  lys?: boolean;
 };
 
 export type Sted = {
   navn: string;
   tema: string;
   start: { x: number; y: number };
+  /** Kort i felter (se src/game/kort.ts). Steder med kort tegnes i pixelgrafik set oppefra. */
+  kort?: string[];
+  startFelt?: [number, number];
   objekter: StedObjekt[];
 };
 
@@ -91,7 +100,8 @@ export type Kapitel = {
   trin: Trin[];
 };
 
-export const kapitler: Kapitel[] = [kapitel1Data as Kapitel];
+// JSON giver tal-lister som number[]. Testene i kapitel.test.ts tjekker, at felterne har to tal.
+export const kapitler: Kapitel[] = [kapitel1Data as unknown as Kapitel];
 
 export function hentKapitel(nr: number): Kapitel | undefined {
   return kapitler.find((k) => k.kapitel === nr);
