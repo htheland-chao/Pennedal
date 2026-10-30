@@ -12,13 +12,13 @@ Prototypen, der viser stilen: "Pennedal set oppefra" (Claude-artefakt). Den er t
 | Tekst tegnet på canvas kan ikke læses op af AppWriter og IntoWords | Ingen bogstaver i grafikken. Skilte har kun streger. Al tekst står i HTML |
 | Eleven farer vild eller går forbi en figur | Kort i panelet, og teksten nederst siger, når man er tæt på noget, man kan undersøge |
 | For mørkt eller uhyggeligt | Nattelyset følger "Mindre uhygge": lysere grundtone og ingen forskrækkelser |
-| For tungt på Chromebook Gen 2 | Intern opløsning 256 x 160, grund tegnet én gang, kun synlige ting tegnes, mål 60 og aldrig under 30 billeder pr. sekund |
+| For tungt på Chromebook Gen 2 | Intern opløsning 320 x 180, grund tegnet én gang, kun synlige ting tegnes, mål 60 og aldrig under 30 billeder pr. sekund |
 | Grafikken ligner noget kendt | Kun egne figurer og egen palet. Licens for alt i `LICENSER.md` |
 | Uens stil, når der kommer mere til | Paletten og målene herunder bruges til alt nyt |
 
 ## Mål
 
-- Intern opløsning: **256 x 160** (16:10). Skaleres op med `image-rendering: pixelated`.
+- Intern opløsning: **320 x 180** (16:9). Spillet er 960 x 540, så pixelgrafikken forstørres præcis 3 gange.
 - Felter: **16 x 16 px**.
 - Hovedperson: 16 x 24 px, 4 retninger (venstre er spejlet højre), 3 gangbilleder.
 - Klatten: 14 x 17 px. Æseløre: 16 x 10 px og flyver efter hovedpersonen.
