@@ -2,7 +2,7 @@ import Phaser from 'phaser';
 import { useEffect, useRef, type MutableRefObject } from 'react';
 import type { Sted } from '../content';
 import type { Avatar } from '../engine/gem';
-import { KortScene } from './KortScene';
+import { KortScene, VIS_B, VIS_H } from './KortScene';
 import { BREDDE, HOEJDE } from './tegn';
 import { VerdenScene, type VerdenKroge } from './VerdenScene';
 
@@ -37,6 +37,7 @@ export function PhaserVerden(props: Props) {
   const sceneNoegle = (s: Sted) => (s.kort ? 'kort' : 'verden');
   const aktivNoegle = useRef(sceneNoegle(props.sted));
   const scene = () => spil.current?.scene.getScene(aktivNoegle.current) as VerdenScene | KortScene | undefined;
+  const stoerrelse = (noegle: string): [number, number] => (noegle === 'kort' ? [VIS_B, VIS_H] : [BREDDE, HOEJDE]);
   const sceneData = () => ({ sted: props.sted, aktiv: props.aktiv, mindreUhygge: props.mindreUhygge, skjulte: props.skjulte });
 
   // Opret spillet én gang.
@@ -45,8 +46,8 @@ export function PhaserVerden(props: Props) {
     const game = new Phaser.Game({
       type: Phaser.AUTO,
       parent: beholder.current,
-      width: BREDDE,
-      height: HOEJDE,
+      width: stoerrelse(aktivNoegle.current)[0],
+      height: stoerrelse(aktivNoegle.current)[1],
       backgroundColor: '#1f2a44',
       scale: { mode: Phaser.Scale.FIT, autoCenter: Phaser.Scale.CENTER_BOTH },
       input: { keyboard: { target: beholder.current } },
@@ -87,7 +88,10 @@ export function PhaserVerden(props: Props) {
     const g = spil.current;
     if (!g) return;
     const ny = sceneNoegle(props.sted);
-    if (ny !== aktivNoegle.current) g.scene.stop(aktivNoegle.current);
+    if (ny !== aktivNoegle.current) {
+      g.scene.stop(aktivNoegle.current);
+      g.scale.resize(...stoerrelse(ny));
+    }
     aktivNoegle.current = ny;
     g.scene.start(ny, sceneData());
     // eslint-disable-next-line react-hooks/exhaustive-deps

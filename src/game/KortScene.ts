@@ -6,10 +6,12 @@ import { grundtone, hash, lavLys, lavSkygge, tegnGrund, tegnkortTilLerred, tegnV
 import { avatarPixel, BLADE, FUGL, fyrtaarn, KLATTEN, LANTERNE, papirtrae, PIL, PLANKE, SKILT, STOLPE, voksen, type Retning, type Tegnkort } from './pixel/sprites';
 import type { VerdenData, VerdenKroge } from './VerdenScene';
 
-/** Spillet er 960 x 540. Pixelgrafikken tegnes i 320 x 180 og forstørres 3 gange. */
-export const ZOOM = 3;
-const VIS_B = 320;
-const VIS_H = 180;
+/**
+ * Pixelgrafikken tegnes i 320 x 180. Spillets lærred skifter til den størrelse, når et sted har kort,
+ * og browseren forstørrer det med skarpe pixel. Det er 9 gange færre pixel at tegne end 960 x 540.
+ */
+export const VIS_B = 320;
+export const VIS_H = 180;
 const FART = 70; // pixel pr. sekund i pixelverdenen
 const NAER = 24;
 const FASTE_FORMER = new Set(['gnom', 'skilt', 'person']);
@@ -44,6 +46,8 @@ export class KortScene extends Phaser.Scene {
   private naer: string | null = null;
   private laast = false;
   private kam = { x: 0, y: 0 };
+  /** Lyset tegnes kun forfra, når noget har flyttet sig. Det sparer meget på langsomme computere. */
+  private sidsteLys = '';
 
   constructor() {
     super('kort');
@@ -51,6 +55,7 @@ export class KortScene extends Phaser.Scene {
 
   init(data: VerdenData) {
     this.data_ = data;
+    this.sidsteLys = '';
     this.vej = [];
     this.naer = null;
     this.objektBilleder = new Map();
@@ -180,7 +185,7 @@ export class KortScene extends Phaser.Scene {
     this.lysLag = this.add.image(0, 0, 'px-lys').setOrigin(0).setDepth(1_000_000).setBlendMode(Phaser.BlendModes.MULTIPLY);
 
     const cam = this.cameras.main;
-    cam.setZoom(ZOOM).setBounds(0, 0, W, H).setRoundPixels(true);
+    cam.setZoom(1).setBounds(0, 0, W, H).setRoundPixels(true);
     this.kam = { x: start.x, y: start.y - 10 };
     this.flytKamera(1);
 
@@ -401,7 +406,8 @@ export class KortScene extends Phaser.Scene {
     this.fugl.setDepth(this.fugl.y).setDisplayOrigin(8, 10 + 18 - svaev);
 
     // Vand og planker.
-    this.vand.setTexture(`px-vand-${this.data_.sted.tema}-${Math.floor(this.ur * 2.5) % 3}`);
+    const vandNoegle = `px-vand-${this.data_.sted.tema}-${Math.floor(this.ur * 2.5) % 3}`;
+    if (this.vand.texture.key !== vandNoegle) this.vand.setTexture(vandNoegle);
     this.planker.forEach((p, i) => p.setY((p.getData('y0') as number) + (Math.sin(this.ur * 1.6 + i * 2) > 0.3 ? 1 : 0)));
 
     // Pil over det, eleven skal undersøge.
@@ -416,16 +422,20 @@ export class KortScene extends Phaser.Scene {
 
     // Kamera og lys.
     const { vx, vy } = this.flytKamera(0.12);
+    this.lysLag.setPosition(vx, vy);
+    const fyrRamme = Math.floor(this.ur * 1.2) % 2;
+    const noegle = `${vx},${vy},${Math.round(this.spiller.x)},${Math.round(this.spiller.y)},${fyrRamme},${this.lyskilder.length},${this.data_.mindreUhygge}`;
+    if (noegle === this.sidsteLys) return;
+    this.sidsteLys = noegle;
     const ctx = this.lysTekstur.context;
     const tone = grundtone(this.data_.mindreUhygge);
     ctx.globalCompositeOperation = 'source-over';
     ctx.fillStyle = `rgb(${tone[0]}, ${tone[1]}, ${tone[2]})`;
     ctx.fillRect(0, 0, VIS_B, VIS_H);
     const tegnLys = (x: number, y: number, c: HTMLCanvasElement) => ctx.drawImage(c, Math.round(x - vx - c.width / 2), Math.round(y - vy - c.height / 2));
-    for (const l of this.fyrLamper) tegnLys(l.x, l.y, this.fyrlys[Math.floor(this.ur * 1.2) % 2]);
+    for (const l of this.fyrLamper) tegnLys(l.x, l.y, this.fyrlys[fyrRamme]);
     for (const l of this.lyskilder) tegnLys(l.x, l.y, l.billede);
     tegnLys(this.spiller.x, this.spiller.y - 12, this.lygte);
     this.lysTekstur.refresh();
-    this.lysLag.setPosition(vx, vy);
   }
 }
