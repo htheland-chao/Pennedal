@@ -1,0 +1,30 @@
+{
+  "model": "gemini-3.8-flash-tts",
+  "figurer": {
+    "fortaeller": {
+      "stemme": "Vindemiatrix",
+      "stil": "Read this like a calm storyteller reading a fantasy book aloud to children, with gentle suspense. Native Danish."
+    },
+    "aeseloere": {
+      "stemme": "Puck",
+      "stil": "Say this in a dry, quick, slightly sarcastic but warm tone, like a small clever paper bird. Native Danish."
+    },
+    "klatten": {
+      "stemme": "Fenrir",
+      "stil": "Say this like a small silly gnome trying hard to sound scary, voice cracking when he shouts. Funny, never frightening. Native Danish."
+    },
+    "holm": {
+      "stemme": "Algenib",
+      "stil": "Say this slowly and softly, like a kind, slightly worried old librarian. Native Danish."
+    },
+    "lanterne": {
+      "stemme": "Sulafat",
+      "stil": "Say this warmly and calmly, like a motherly lighthouse keeper with a hint of sadness. Native Danish."
+    },
+    "ord": {
+      "stemme": "Vindemiatrix",
+      "stil": "Say this single Danish word clearly and naturally at a calm pace, like a teacher reading a spelling word aloud. Native Danish."
+    }
+  },
+  "udtale": {}
+}

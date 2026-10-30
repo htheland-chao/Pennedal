@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { t } from '../content';
 import type { Indstillinger } from '../engine/gem';
+import { useLydManifest } from './lyd';
 import { Modal } from './Modal';
 import { danskeStemmer, naarStemmerErKlar } from './tale';
 
@@ -9,6 +10,8 @@ type Props = { indstillinger: Indstillinger; onSkift: (i: Indstillinger) => void
 export function IndstillingerVindue({ indstillinger: i, onSkift, onLuk }: Props) {
   const [stemmer, setStemmer] = useState<SpeechSynthesisVoice[]>(() => danskeStemmer());
   useEffect(() => naarStemmerErKlar(() => setStemmer(danskeStemmer())), []);
+  const { manifest } = useLydManifest();
+  const harKlip = !!manifest && Object.keys(manifest.filer).length > 0;
   return (
     <Modal titel={t('indst.titel')} onLuk={onLuk}>
       <h2>{t('indst.titel')}</h2>
@@ -17,10 +20,27 @@ export function IndstillingerVindue({ indstillinger: i, onSkift, onLuk }: Props)
           <input
             type="checkbox"
             checked={i.oplaesning}
-            disabled={stemmer.length === 0}
+            disabled={stemmer.length === 0 && !harKlip}
             onChange={(e) => onSkift({ ...i, oplaesning: e.target.checked })}
           />
           {t('indst.oplaesning')}
+        </label>
+        <label className="afkryds">
+          <input type="checkbox" checked={i.indtalt} onChange={(e) => onSkift({ ...i, indtalt: e.target.checked })} />
+          {t('indst.indtalt')}
+        </label>
+        <p className="lille-tekst">{t('indst.indtalt.forklaring')}</p>
+        <label>
+          {t('indst.styrke')}
+          <input
+            type="range"
+            min={0}
+            max={100}
+            step={10}
+            value={i.taleStyrke}
+            aria-valuetext={`${i.taleStyrke} %`}
+            onChange={(e) => onSkift({ ...i, taleStyrke: Number(e.target.value) })}
+          />
         </label>
         {stemmer.length === 0 ? (
           <p className="lille-tekst">{t('indst.stemme.ingen')}</p>

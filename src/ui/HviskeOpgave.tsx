@@ -1,15 +1,21 @@
 import { useState } from 'react';
 import { t } from '../content';
 import { tjekHviske, visHviske, type HviskeOpgave as Opgave } from '../mechanics/hviske';
+import { useApp } from './Kontekst';
+import { lydUrl, useLydManifest } from './lyd';
 import type { OpgaveApi } from './OpgaveRamme';
 import { LaesOpKnap, useStemmeFindes } from './Tekst';
 
 export function HviskeOpgave({ opgave, api }: { opgave: Opgave; api: OpgaveApi }) {
   const [svar, setSvar] = useState<string[]>(() => opgave.huller.map(() => ''));
   const [helt, setHelt] = useState('');
-  const stemme = useStemmeFindes();
+  const { indstillinger } = useApp();
+  const { manifest } = useLydManifest();
   const visning = visHviske(opgave);
   const { ord, form } = opgave;
+  // Kan eleven høre ordet? Enten et indtalt klip eller computerens egen stemme.
+  const harKlip = indstillinger.indtalt && lydUrl(manifest, 'ord', ord.ord) !== null;
+  const stemme = useStemmeFindes() || harKlip;
 
   const instruks =
     form === 'vaelg3' || form === 'vaelg5'
@@ -48,7 +54,7 @@ export function HviskeOpgave({ opgave, api }: { opgave: Opgave; api: OpgaveApi }
         <span className="hviske-ord-i-saetning">{ordSkjult}</span>
         {efter}
       </p>
-      <LaesOpKnap tekst={ord.ord} etiket={t('hviske.hoer')} />
+      <LaesOpKnap tekst={ord.ord} etiket={t('hviske.hoer')} figur="ord" />
       {form === 'helt' && !stemme && !api.loest && (
         <p className="lille-tekst">
           {t('hviske.ingen.stemme', { bogstaver: [...ord.ord].sort().join(', ') })}

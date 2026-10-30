@@ -30,7 +30,7 @@ export function DialogBoks({ replikker, onFaerdig }: { replikker: Replik[]; onFa
         </div>
       </div>
       <div className="knaprad">
-        <LaesOpKnap tekst={r.tekst} auto key={nr} />
+        <LaesOpKnap tekst={r.tekst} figur={r.taler} auto key={nr} />
         <button
           type="button"
           className="knap knap-primaer"

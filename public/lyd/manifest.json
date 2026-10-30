@@ -1,0 +1,7 @@
+{
+  "version": 1,
+  "filer": {},
+  "model": "gemini-3.8-flash-tts",
+  "i_alt": 96,
+  "mangler": 96
+}

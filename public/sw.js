@@ -17,7 +17,8 @@ self.addEventListener('fetch', (e) => {
   e.respondWith(
     fetch(req)
       .then((svar) => {
-        if (svar.ok) {
+        // Kun hele svar (200). Lyd kan komme i bidder (206), og dem kan cachen ikke gemme.
+        if (svar.status === 200) {
           const kopi = svar.clone();
           caches.open(CACHE).then((c) => c.put(req, kopi));
         }

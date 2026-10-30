@@ -16,6 +16,8 @@
     "test:e2e": "playwright test",
     "stavetjek": "node scripts/stavetjek.mjs",
     "korrektur": "node scripts/korrektur.mjs",
+    "lyd": "node scripts/lav-lyd.mjs",
+    "lyd:status": "node scripts/lav-lyd.mjs --kun-status",
     "tjek": "npm run typecheck && npm run test && npm run stavetjek && npm run build"
   },
   "dependencies": {

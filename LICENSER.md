@@ -1,6 +1,7 @@
 # Licenser for grafik, skrifttyper og pakker
 
 - **Grafik:** Al grafik i version 0.1 er pladsholdere tegnet med kode i projektet (`src/game/tegn.ts` og `src/ui/avatarSvg.ts`). Billeder i ordkort og opgaver er emoji, som computerens egen skrifttype tegner. De er også pladsholdere.
+- **Stemmer:** Lydklippene i `public/lyd` er lavet med Google Gemini TTS (model og stemmer står i `src/content/stemmer.json`). Google gør ikke krav på det genererede indhold, jf. Gemini API Additional Terms of Service. Klippene laves kun ud fra spillets egne tekster.
 - **Atkinson Hyperlegible** (standardskrift): SIL Open Font License 1.1, via @fontsource.
 - **OpenDyslexic** (ordblindevenlig skrift): SIL Open Font License 1.1, via @fontsource.
 - **Phaser, React, Vite, qrcode:** MIT-licens.

@@ -71,6 +71,10 @@ export type Indstillinger = {
   skrift: 'standard' | 'ordblind' | 'system';
   stoerrelse: 1 | 2 | 3;
   mindreUhygge: boolean;
+  /** Brug spillets indtalte stemmer, når der findes et klip. */
+  indtalt: boolean;
+  /** Lydstyrke for oplæsning, 0-100. */
+  taleStyrke: number;
 };
 
 export const STANDARD_INDSTILLINGER: Indstillinger = {
@@ -79,6 +83,8 @@ export const STANDARD_INDSTILLINGER: Indstillinger = {
   skrift: 'standard',
   stoerrelse: 1,
   mindreUhygge: false,
+  indtalt: true,
+  taleStyrke: 80,
 };
 
 export const GEM_NOEGLE = 'pennedal.gemtspil.v1';
@@ -195,6 +201,8 @@ export function hentIndstillinger(lager: Storage | undefined = globalThis.localS
       skrift: d.skrift === 'ordblind' || d.skrift === 'system' ? d.skrift : 'standard',
       stoerrelse: d.stoerrelse === 2 || d.stoerrelse === 3 ? d.stoerrelse : 1,
       mindreUhygge: typeof d.mindreUhygge === 'boolean' ? d.mindreUhygge : false,
+      indtalt: typeof d.indtalt === 'boolean' ? d.indtalt : true,
+      taleStyrke: erTal(d.taleStyrke, 0, 100) ? d.taleStyrke : 80,
     };
   } catch {
     return { ...STANDARD_INDSTILLINGER };
