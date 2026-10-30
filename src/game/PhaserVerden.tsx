@@ -1,6 +1,8 @@
 import Phaser from 'phaser';
 import { useEffect, useRef, type MutableRefObject } from 'react';
 import type { Sted } from '../content';
+import type { Avatar } from '../engine/gem';
+import { KortScene, VIS_B, VIS_H } from './KortScene';
 import { BREDDE, HOEJDE } from './tegn';
 import { VerdenScene, type VerdenKroge } from './VerdenScene';
 
@@ -9,6 +11,10 @@ type Props = {
   sted: Sted;
   aktiv: string | null;
   avatarUri: string;
+  /** Bruges til hovedpersonen i pixelgrafik på steder med kort. */
+  avatar: Avatar;
+  /** Objekter, der ikke vises lige nu. */
+  skjulte: string[];
   laast: boolean;
   mindreUhygge: boolean;
   forskraekSignal: number;
@@ -28,7 +34,11 @@ export function PhaserVerden(props: Props) {
   const laegAvatarInd = useRef<(() => void) | null>(null);
   kroge.current = props.kroge;
 
-  const scene = () => spil.current?.scene.getScene('verden') as VerdenScene | undefined;
+  const sceneNoegle = (s: Sted) => (s.kort ? 'kort' : 'verden');
+  const aktivNoegle = useRef(sceneNoegle(props.sted));
+  const scene = () => spil.current?.scene.getScene(aktivNoegle.current) as VerdenScene | KortScene | undefined;
+  const stoerrelse = (noegle: string): [number, number] => (noegle === 'kort' ? [VIS_B, VIS_H] : [BREDDE, HOEJDE]);
+  const sceneData = () => ({ sted: props.sted, aktiv: props.aktiv, mindreUhygge: props.mindreUhygge, skjulte: props.skjulte });
 
   // Opret spillet én gang.
   useEffect(() => {
@@ -36,8 +46,8 @@ export function PhaserVerden(props: Props) {
     const game = new Phaser.Game({
       type: Phaser.AUTO,
       parent: beholder.current,
-      width: BREDDE,
-      height: HOEJDE,
+      width: stoerrelse(aktivNoegle.current)[0],
+      height: stoerrelse(aktivNoegle.current)[1],
       backgroundColor: '#1f2a44',
       scale: { mode: Phaser.Scale.FIT, autoCenter: Phaser.Scale.CENTER_BOTH },
       input: { keyboard: { target: beholder.current } },
@@ -50,11 +60,10 @@ export function PhaserVerden(props: Props) {
       onInteraktion: (id: string) => kroge.current.onInteraktion(id),
       onNaer: (id: string | null) => kroge.current.onNaer(id),
     } satisfies VerdenKroge);
-    game.scene.add('verden', VerdenScene, true, {
-      sted: props.sted,
-      aktiv: props.aktiv,
-      mindreUhygge: props.mindreUhygge,
-    });
+    game.registry.set('avatar', props.avatar);
+    const foerste = aktivNoegle.current;
+    game.scene.add('verden', VerdenScene, foerste === 'verden', sceneData());
+    game.scene.add('kort', KortScene, foerste === 'kort', sceneData());
     spil.current = game;
     game.events.once(Phaser.Core.Events.READY, () => {
       klar.current = true;
@@ -76,13 +85,35 @@ export function PhaserVerden(props: Props) {
       foersteSted.current = false;
       return;
     }
-    spil.current?.scene.start('verden', { sted: props.sted, aktiv: props.aktiv, mindreUhygge: props.mindreUhygge });
+    const g = spil.current;
+    if (!g) return;
+    const ny = sceneNoegle(props.sted);
+    if (ny !== aktivNoegle.current) {
+      g.scene.stop(aktivNoegle.current);
+      g.scale.resize(...stoerrelse(ny));
+    }
+    aktivNoegle.current = ny;
+    g.scene.start(ny, sceneData());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.stedId, props.mindreUhygge]);
 
   useEffect(() => {
     scene()?.saetAktiv(props.aktiv);
   }, [props.aktiv]);
+
+  useEffect(() => {
+    scene()?.saetSkjulte(props.skjulte);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [props.skjulte.join(',')]);
+
+  useEffect(() => {
+    const g = spil.current;
+    if (!g) return;
+    g.registry.set('avatar', props.avatar);
+    const s = scene();
+    if (s instanceof KortScene && s.sys.isActive()) s.byggAvatar();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [props.avatar]);
 
   useEffect(() => {
     scene()?.laas(props.laast);
@@ -107,8 +138,7 @@ export function PhaserVerden(props: Props) {
   useEffect(() => {
     if (props.gaaTilRef) {
       props.gaaTilRef.current = (id: string) => {
-        const o = props.sted.objekter.find((x) => x.id === id);
-        if (o) scene()?.gaaTil(o.x, o.y + o.h / 2 + 30, true);
+        scene()?.gaaTilObjekt(id);
       };
     }
   });
@@ -116,7 +146,7 @@ export function PhaserVerden(props: Props) {
   return (
     <div
       ref={beholder}
-      className="spilflade"
+      className={props.sted.kort ? 'spilflade spilflade-pixel' : 'spilflade'}
       tabIndex={0}
       role="application"
       aria-label={props.label}

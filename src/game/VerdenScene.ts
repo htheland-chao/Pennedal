@@ -11,6 +11,8 @@ export type VerdenData = {
   sted: Sted;
   aktiv: string | null;
   mindreUhygge: boolean;
+  /** Objekter, der ikke skal vises lige nu, fx Klatten, når han er løbet. */
+  skjulte?: string[];
 };
 
 const FART = 230; // pixels pr. sekund
@@ -123,6 +125,15 @@ export class VerdenScene extends Phaser.Scene {
     this.data_ = { ...this.data_, aktiv: id };
     if (this.markering) this.tegnMarkering();
     this.opdaterNaer(true);
+  }
+
+  /** Steder uden kort har ingen objekter, der forsvinder. */
+  saetSkjulte(_skjulte: string[]) {}
+
+  /** Går hen til et objekt og undersøger det. */
+  gaaTilObjekt(id: string) {
+    const o = this.data_.sted.objekter.find((x) => x.id === id);
+    if (o) this.gaaTil(o.x, o.y + o.h / 2 + 30, true);
   }
 
   laas(laast: boolean) {

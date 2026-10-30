@@ -281,6 +281,9 @@ legend {
   width: 100%;
   height: 100%;
 }
+.spilflade-pixel canvas {
+  image-rendering: pixelated;
+}
 .spilflade:focus-visible {
   outline-offset: -4px;
 }
