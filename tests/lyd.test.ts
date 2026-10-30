@@ -114,7 +114,9 @@ describe('lydklip', () => {
       expect(ogg).toHaveLength(2);
       const probe = spawnSync('ffprobe', ['-v', 'error', '-show_entries', 'stream=codec_name', '-of', 'csv=p=0', join(mappe, ogg[0])]);
       expect(probe.stdout.toString().trim()).toBe('opus');
-      expect(readFileSync(join(mappe, 'status.md'), 'utf8')).toContain('kvote');
+      const status = readFileSync(join(mappe, 'status.md'), 'utf8');
+      expect(status).toContain('kvote');
+      expect(status).toContain('requests per day');
       // Kun spillets egne tekster, med figurens stemme og stil, bliver sendt.
       const gyldige = new Map(poster.map((p) => [p.tekst, p]));
       for (const r of modtaget) {
