@@ -1,0 +1,58 @@
+{
+  "faerdighed": "fort.struktur",
+  "traek": ["problem", "portal", "verden", "konflikt", "loesning", "hjemkomst"],
+  "historier": [
+    {
+      "id": "bro-froeen",
+      "titel": "Frøen, der ikke kunne sove",
+      "planker": {
+        "problem": "Frøen Kvak kan ikke sove, fordi nogen har stjålet månens lys.",
+        "portal": "Han hopper ned i en vandpyt og falder ind i en verden under vandet.",
+        "verden": "Her er fiskene lavet af glas, og tangen lyser i mørket.",
+        "konflikt": "En sur krabbe har gemt månelyset i sin skal og vil ikke give det fra sig.",
+        "loesning": "Kvak synger en sang, der er så smuk, at krabben græder og åbner skallen.",
+        "hjemkomst": "Kvak hopper hjem med lyset, og den nat sover hele dammen godt."
+      },
+      "fremmed": "En stor fisk kommer svømmende og henter lyset for Kvak."
+    },
+    {
+      "id": "bro-musen",
+      "titel": "Musen og de forsvundne bogstaver",
+      "planker": {
+        "problem": "Musen Pip er ked af det, fordi alle bogstaverne i hendes yndlingsbog er forsvundet.",
+        "portal": "Hun kravler ind i et musehul bag reolen og kommer ud et helt andet sted.",
+        "verden": "Her vokser bogstaverne på træer, og floderne er lavet af blæk.",
+        "konflikt": "En grådig skade har samlet alle bogstaverne i sin rede og vogter dem.",
+        "loesning": "Pip bygger en stige af tændstikker og henter bogstaverne, mens skaden sover.",
+        "hjemkomst": "Pip kravler hjem igen og læser sin bog fra første til sidste side."
+      },
+      "fremmed": "Pips far kommer og jager skaden væk for hende."
+    },
+    {
+      "id": "bro-raeven",
+      "titel": "Ræven, der mistede sin stemme",
+      "planker": {
+        "problem": "Ræven Rød har mistet sin stemme og kan ikke synge til forårsfesten.",
+        "portal": "Hun følger et ekko ind i en hule, der bliver smallere og smallere.",
+        "verden": "Inde i hulen bor ekkoerne, og de gentager alt, hvad man siger.",
+        "konflikt": "Det stærkeste ekko har taget hendes stemme og nægter at give den tilbage.",
+        "loesning": "Rød narrer ekkoet til at sige: \"Jeg giver stemmen tilbage.\"",
+        "hjemkomst": "Rød løber hjem og synger så højt, at hele skoven danser."
+      },
+      "fremmed": "En klog ugle tryller stemmen tilbage til Rød."
+    },
+    {
+      "id": "bro-graevlingen",
+      "titel": "Grævlingen og de blanke skilte",
+      "planker": {
+        "problem": "Grævlingen Bjarke kan ikke finde vej hjem, fordi alle skiltene i skoven er blanke.",
+        "portal": "Han går gennem en hul træstamme og kommer ud i en skov af papir.",
+        "verden": "Træerne er skrevet med blæk, og bladene rasler som sider i en bog.",
+        "konflikt": "En skygge sletter skiltene, lige så snart nogen skriver dem.",
+        "loesning": "Bjarke lægger sten på jorden, så de viser vejen, og dem kan skyggen ikke slette.",
+        "hjemkomst": "Han følger stenene tilbage og når hjem, lige da det bliver mørkt."
+      },
+      "fremmed": "Hans mor finder ham og bærer ham hjem."
+    }
+  ]
+}

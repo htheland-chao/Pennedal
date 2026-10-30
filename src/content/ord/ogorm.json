@@ -1,0 +1,18 @@
+{
+  "faerdighed": "tegn.punktum_stort",
+  "forklaring": "Markering: og{s} skal blive til punktum, og{b} skal blive stående, {n} er et navn.",
+  "tekster": [
+    { "id": "og-1a", "niveau": 1, "tekst": "Æseløre{n} fløj op i træet og{s} han kiggede ud over Pennedal{n}." },
+    { "id": "og-1b", "niveau": 1, "tekst": "Klatten{n} drypper blæk overalt og{s} hans sko er helt sorte." },
+    { "id": "og-1c", "niveau": 1, "tekst": "Skuffen hviskede igen og{s} lyden kom nærmere." },
+    { "id": "og-2a", "niveau": 2, "tekst": "Vi gik ned ad stien og{s} bladene knasede under vores fødder og{s} en ugle tudede i mørket." },
+    { "id": "og-2b", "niveau": 2, "tekst": "Klatten{n} snublede over en rod og{s} hatten fløj af hans hoved og{s} den landede i floden." },
+    { "id": "og-3a", "niveau": 3, "tekst": "Æseløre{n} og{b} Klatten{n} skændtes om vejen og{s} ingen af dem ville give sig og{s} til sidst gik de hver sin vej." },
+    { "id": "og-3b", "niveau": 3, "tekst": "Månerne lyste gult og{b} hvidt over dalen og{s} papirtræerne raslede i vinden og{s} et sted langt væk hviskede nogen." },
+    { "id": "og-4a", "niveau": 4, "tekst": "På markedet købte de brød og{b} ost og{s} så satte de sig ved floden og{b} spiste." },
+    { "id": "og-4b", "niveau": 4, "tekst": "Det blev mørkt i skoven og{s} træerne begyndte at hviske og{s} Æseløre{n} krøb ind under din jakke og{s} han rystede som et blad." },
+    { "id": "og-5a", "niveau": 5, "tekst": "Klatten{n} ville være frygtelig og{s} han øvede sig i at brøle foran en vandpyt og{s} en lille frø grinede ad ham og{s} så blev han rød i hovedet og{b} gik hjem." },
+    { "id": "og-5b", "niveau": 5, "tekst": "Pennedal{n} har tre måner og{s} de hedder Blæk{n}, Papir{n} og{b} Pen{n} og{s} de lyser hver sin farve." },
+    { "id": "og-5c", "niveau": 5, "tekst": "Floden løb hurtigt og{s} vandet var koldt og{b} klart og{s} midt i floden stod en sten og{s} på stenen sad en frø." }
+  ]
+}

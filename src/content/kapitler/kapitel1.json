@@ -1,0 +1,288 @@
+{
+  "kapitel": 1,
+  "titel": "Den glemte skuffe",
+  "steder": {
+    "bibliotek": {
+      "navn": "Skolebiblioteket",
+      "tema": "bibliotek",
+      "start": { "x": 480, "y": 440 },
+      "objekter": [
+        { "id": "holm", "navn": "hr. Holm", "x": 300, "y": 300, "w": 60, "h": 100, "form": "person", "farve": "#7a5c3e" },
+        { "id": "logbog", "navn": "logbogen på disken", "x": 520, "y": 250, "w": 90, "h": 50, "form": "bog", "farve": "#c9a46a" },
+        { "id": "kaeldertrappe", "navn": "trappen til kælderen", "x": 820, "y": 360, "w": 90, "h": 120, "form": "doer", "farve": "#3b2f2a" }
+      ]
+    },
+    "kaelder": {
+      "navn": "Kælderen",
+      "tema": "kaelder",
+      "start": { "x": 160, "y": 430 },
+      "objekter": [
+        { "id": "skuffe", "navn": "kartoteksskabet", "x": 700, "y": 280, "w": 130, "h": 170, "form": "skab", "farve": "#6b4a2b" }
+      ]
+    },
+    "pennedal": {
+      "navn": "Pennedal",
+      "tema": "pennedal",
+      "start": { "x": 150, "y": 420 },
+      "objekter": [
+        { "id": "klatten", "navn": "Klatten", "x": 560, "y": 380, "w": 50, "h": 70, "form": "gnom", "farve": "#1b1b3a" },
+        { "id": "skilt", "navn": "Klattens skilt", "x": 680, "y": 330, "w": 80, "h": 90, "form": "skilt", "farve": "#e8dcc0" },
+        { "id": "sti", "navn": "stien mod floden", "x": 880, "y": 420, "w": 80, "h": 120, "form": "sti", "farve": "#c2a878" }
+      ]
+    },
+    "floden": {
+      "navn": "Floden",
+      "tema": "floden",
+      "start": { "x": 140, "y": 430 },
+      "objekter": [
+        { "id": "bro", "navn": "den brudte bro", "x": 520, "y": 330, "w": 200, "h": 80, "form": "bro", "farve": "#8a6a45" }
+      ]
+    },
+    "fyrtaarn": {
+      "navn": "Mor Lanternes fyrtårn",
+      "tema": "fyrtaarn",
+      "start": { "x": 200, "y": 430 },
+      "objekter": [
+        { "id": "lanterne", "navn": "Mor Lanterne", "x": 600, "y": 380, "w": 60, "h": 100, "form": "person", "farve": "#b0413e" }
+      ]
+    }
+  },
+  "trin": [
+    {
+      "id": "k1-holm",
+      "type": "dialog",
+      "del": 1,
+      "sted": "bibliotek",
+      "objekt": "holm",
+      "opgavetekst": "Tal med hr. Holm.",
+      "replikker": [
+        { "taler": "holm", "tekst": "Godt, at du kom. Der sker noget mærkeligt med bøgerne." },
+        { "taler": "holm", "tekst": "Hver morgen mangler der flere ord. Nogle bøger stopper midt i en sætning." },
+        { "taler": "holm", "tekst": "Jeg har skrevet det hele ned i min {{logbog}}. Den ligger på disken. Vil du læse den?" }
+      ]
+    },
+    {
+      "id": "k1-logbog",
+      "type": "bevisjagt",
+      "del": 1,
+      "sted": "bibliotek",
+      "objekt": "logbog",
+      "opgavetekst": "Læs logbogen på disken.",
+      "faerdighed": "laes.praecision",
+      "forforstaaelse": ["logbog", "falmet", "paa-klem"],
+      "titel": "Hr. Holms logbog",
+      "saetninger": [
+        "Mandag: Tre bøger manglede deres sidste side.",
+        "Tirsdag: En ordbog havde mistet alle sine punktummer.",
+        "Onsdag: Bogstaverne på skiltet ved døren var {{falmet}}.",
+        "Torsdag: Jeg hørte en lyd fra kælderen. Det lød, som om nogen hviskede.",
+        "Fredag: Døren til kælderen stod {{på klem|paa-klem}}."
+      ],
+      "spoergsmaal": [
+        {
+          "id": "k1-logbog-1",
+          "tekst": "Hvad skete der med ordbogen?",
+          "svar": 1,
+          "forkert": {
+            "0": "Den sætning handler om bøger, der mangler en side. Find sætningen, der nævner ordbogen.",
+            "2": "Den sætning handler om skiltet ved døren. Find sætningen, der nævner ordbogen."
+          },
+          "standard": "Læs sætningerne én ad gangen, og find den, der nævner ordbogen."
+        },
+        {
+          "id": "k1-logbog-2",
+          "tekst": "Hvad hørte hr. Holm fra kælderen?",
+          "svar": 3,
+          "forkert": {
+            "4": "Den sætning handler om døren, ikke om lyden. Find sætningen, der fortæller, hvad hr. Holm hørte."
+          },
+          "standard": "Find sætningen, hvor hr. Holm fortæller, hvad han hørte."
+        }
+      ]
+    },
+    {
+      "id": "k1-holm-2",
+      "type": "dialog",
+      "del": 1,
+      "sted": "bibliotek",
+      "objekt": "holm",
+      "opgavetekst": "Fortæl hr. Holm, hvad du fandt i logbogen.",
+      "replikker": [
+        { "taler": "holm", "tekst": "Hviskede? Fra kælderen? Det har jeg ikke lagt mærke til." },
+        { "taler": "holm", "tekst": "Jeg tør ærlig talt ikke gå derned alene. Vil du se, hvad der er i kælderen?" }
+      ]
+    },
+    {
+      "id": "k1-til-kaelder",
+      "type": "skift",
+      "del": 1,
+      "sted": "bibliotek",
+      "objekt": "kaeldertrappe",
+      "opgavetekst": "Gå ned ad trappen til kælderen.",
+      "tilSted": "kaelder"
+    },
+    {
+      "id": "k1-kaelder",
+      "type": "dialog",
+      "del": 1,
+      "sted": "kaelder",
+      "objekt": null,
+      "uhygge": true,
+      "replikker": [
+        { "taler": "fortaeller", "tekst": "Kælderen lugter af støv og gammelt papir. Bagerst står et {{kartoteksskab}} med mange små skuffer." },
+        { "taler": "fortaeller", "tekst": "Det er helt stille. Så hører du det. Den nederste skuffe hvisker." }
+      ]
+    },
+    {
+      "id": "k1-aeseloere",
+      "type": "dialog",
+      "del": 1,
+      "sted": "kaelder",
+      "objekt": "skuffe",
+      "opgavetekst": "Træk den nederste skuffe ud.",
+      "replikker": [
+        { "taler": "fortaeller", "tekst": "Du trækker skuffen ud. Det lugter af blæk og regnvejr, og en lille papirfugl flyver op i dit ansigt." },
+        { "taler": "aeseloere", "tekst": "Endelig. Du har været længe om det." },
+        { "taler": "aeseloere", "tekst": "Jeg hedder Æseløre. Jeg er foldet af en side fra en meget gammel ordbog, så jeg ved alt om ord. Næsten alt." },
+        { "taler": "aeseloere", "tekst": "Skuffen er en dør til Pennedal. Men den åbner kun for hviskeformularer." },
+        { "taler": "aeseloere", "tekst": "En hviskeformular er et ord med et stumt bogstav. Bogstavet siger ingenting, men det skal med. Ellers virker formularen ikke." }
+      ]
+    },
+    {
+      "id": "k1-hviske",
+      "type": "opgave",
+      "del": 1,
+      "sted": "kaelder",
+      "objekt": "skuffe",
+      "opgavetekst": "Stav seks hviskeformularer, så skuffen åbner sig.",
+      "mekanik": "hviske",
+      "faerdighed": "stav.stumme",
+      "antal": 6
+    },
+    {
+      "id": "k1-fald",
+      "type": "dialog",
+      "del": 1,
+      "sted": "kaelder",
+      "objekt": null,
+      "slutDel": 1,
+      "tilSted": "pennedal",
+      "replikker": [
+        { "taler": "aeseloere", "tekst": "Seks formularer. Ikke dårligt for et menneske." },
+        { "taler": "fortaeller", "tekst": "Skuffen bliver større og større. Et hvidt lys fylder hele kælderen, og pludselig falder du." }
+      ]
+    },
+    {
+      "id": "k1-ankomst",
+      "type": "dialog",
+      "del": 2,
+      "sted": "pennedal",
+      "objekt": null,
+      "replikker": [
+        { "taler": "fortaeller", "tekst": "Du lander blødt i en bunke visne blade. Over dig hænger tre måner, og træerne har blade af papir." },
+        { "taler": "aeseloere", "tekst": "Velkommen til Pennedal. Her blev alt skrevet til live engang. Også mig, desværre." },
+        { "taler": "aeseloere", "tekst": "Hov. Der står nogen på stien. Gå hen og se, hvem det er." }
+      ]
+    },
+    {
+      "id": "k1-klatten",
+      "type": "dialog",
+      "del": 2,
+      "sted": "pennedal",
+      "objekt": "klatten",
+      "opgavetekst": "Gå hen til skikkelsen på stien.",
+      "replikker": [
+        { "taler": "klatten", "tekst": "Stop! Ingen kommer forbi Klatten den Frygtelige!" },
+        { "taler": "aeseloere", "tekst": "Han er ikke frygtelig. Han er bare klattet." },
+        { "taler": "klatten", "tekst": "Jeg har skrevet en ny vejviser og den er perfekt og den er lang og den slutter aldrig og ...", "bevidstFejl": true },
+        { "taler": "aeseloere", "tekst": "Det er Og-ormen. Hver gang nogen binder sætninger sammen med \"og\", bliver den længere. Til sidst spærrer den hele vejen." },
+        { "taler": "aeseloere", "tekst": "Klip den over med punktummer. Og husk: Ordet efter et punktum vågner kun, hvis det får stort begyndelsesbogstav." }
+      ]
+    },
+    {
+      "id": "k1-ogorm",
+      "type": "opgave",
+      "del": 2,
+      "sted": "pennedal",
+      "objekt": "skilt",
+      "opgavetekst": "Klip Og-ormen over på Klattens skilt.",
+      "mekanik": "ogorm",
+      "faerdighed": "tegn.punktum_stort",
+      "antal": 3
+    },
+    {
+      "id": "k1-klatten-flygter",
+      "type": "dialog",
+      "del": 2,
+      "sted": "pennedal",
+      "objekt": null,
+      "slutDel": 2,
+      "laaserOp": ["toej.kappe"],
+      "replikker": [
+        { "taler": "klatten", "tekst": "Min orm! Den var jo så flot." },
+        { "taler": "klatten", "tekst": "Det her skal jeg fortælle til ... Nej. Det må jeg ikke sige." },
+        { "taler": "fortaeller", "tekst": "Klatten løber sin vej og efterlader en lang stribe blæk på stien. Bag skiltet ligger en kappe, som han har tabt." },
+        { "taler": "aeseloere", "tekst": "Tag den bare. Han har alligevel aldrig vasket den." }
+      ]
+    },
+    {
+      "id": "k1-til-floden",
+      "type": "skift",
+      "del": 3,
+      "sted": "pennedal",
+      "objekt": "sti",
+      "opgavetekst": "Følg stien mod floden.",
+      "tilSted": "floden"
+    },
+    {
+      "id": "k1-floden",
+      "type": "dialog",
+      "del": 3,
+      "sted": "floden",
+      "objekt": null,
+      "replikker": [
+        { "taler": "fortaeller", "tekst": "Stien ender ved en flod. Broen er brudt, og plankerne driver rundt i vandet." },
+        { "taler": "aeseloere", "tekst": "Hver planke er en del af en historie. Læg dem i den rigtige rækkefølge, så holder broen." },
+        { "taler": "aeseloere", "tekst": "Og nej, jeg kan ikke bare flyve dig over. Jeg er lavet af papir. Har du nogensinde set papir bære et menneske?" }
+      ]
+    },
+    {
+      "id": "k1-bro",
+      "type": "opgave",
+      "del": 3,
+      "sted": "floden",
+      "objekt": "bro",
+      "opgavetekst": "Byg broen ved at lægge plankerne i rækkefølge.",
+      "mekanik": "historiebro",
+      "faerdighed": "fort.struktur",
+      "antal": 2
+    },
+    {
+      "id": "k1-over-floden",
+      "type": "skift",
+      "del": 3,
+      "sted": "floden",
+      "objekt": "bro",
+      "opgavetekst": "Gå over broen.",
+      "tilSted": "fyrtaarn"
+    },
+    {
+      "id": "k1-lanterne",
+      "type": "dialog",
+      "del": 3,
+      "sted": "fyrtaarn",
+      "objekt": null,
+      "uhygge": true,
+      "slutKapitel": true,
+      "laaserOp": ["tilbehoer.lanterne"],
+      "replikker": [
+        { "taler": "fortaeller", "tekst": "På den anden side af floden står et fyrtårn. Lyset er svagt, som om det er ved at gå ud." },
+        { "taler": "lanterne", "tekst": "Kom ind, kom ind. Jeg er Mor Lanterne. Mit tårn lyser kun af færdige historier." },
+        { "taler": "lanterne", "tekst": "Men nogen stjæler slutningerne. Hver nat bliver lyset lidt svagere." },
+        { "taler": "lanterne", "tekst": "Her, tag den her lanterne. Du får brug for den." },
+        { "taler": "fortaeller", "tekst": "Ude i mørket hvisker en stemme: \"Og så ...\"" },
+        { "taler": "aeseloere", "tekst": "Det lød ikke godt. Det lød slet ikke godt." }
+      ]
+    }
+  ]
+}
