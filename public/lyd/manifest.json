@@ -1,7 +1,15 @@
 {
   "version": 1,
-  "filer": {},
+  "filer": {
+    "07e8c290c513c7": {
+      "figur": "holm",
+      "tekst": "Godt, at du kom. Der sker noget mærkeligt med bøgerne.",
+      "fil": "07e8c290c513c7.ogg",
+      "kilde": "Kapitel 1 / k1-holm.1",
+      "lavet": "2026-10-30"
+    }
+  },
   "model": "gemini-3.8-flash-tts",
   "i_alt": 96,
-  "mangler": 96
+  "mangler": 95
 }
