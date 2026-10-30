@@ -1,0 +1,6 @@
+{
+  "logbog": { "ord": "logbog", "forklaring": "En bog, hvor man hver dag skriver ned, hvad der er sket.", "eksempel": "Hr. Holm skriver i sin logbog hver morgen.", "billede": "📓" },
+  "falmet": { "ord": "falmet", "forklaring": "Når en farve er blevet bleg og svag med tiden.", "eksempel": "Bogstaverne på det gamle skilt er falmet.", "billede": "🌫️" },
+  "paa-klem": { "ord": "på klem", "forklaring": "Når en dør står en lille smule åben.", "eksempel": "Døren står på klem, så katten kan komme ind.", "billede": "🚪" },
+  "kartoteksskab": { "ord": "kartoteksskab", "forklaring": "Et skab med mange små skuffer, hvor man gemmer kort og papirer i orden.", "eksempel": "Biblioteket har et gammelt kartoteksskab i kælderen.", "billede": "🗄️" }
+}

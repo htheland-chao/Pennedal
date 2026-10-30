@@ -1,0 +1,13 @@
+{
+  "hud": { "farver": ["#f6d7c3", "#eec1a0", "#e0a982", "#c98d63", "#a96e48", "#8a5536", "#6b3f27", "#4a2b1b"] },
+  "krop": { "valg": ["Smal", "Mellem", "Bred"] },
+  "oejne": { "valg": ["Runde", "Smalle", "Glade", "Store"] },
+  "mund": { "valg": ["Smil", "Stort smil", "Rolig", "Overrasket"] },
+  "haar": { "valg": ["Kort", "Langt", "Krøller", "Fletninger", "Afro", "Hestehale", "Knold", "Meget kort"] },
+  "haarfarve": { "valg": ["Sort", "Mørkebrun", "Brun", "Rødbrun", "Lys", "Grå", "Blå", "Lilla"], "farver": ["#1c1a1a", "#3b2618", "#6a4428", "#8e3b1f", "#d9b56f", "#9a9a9a", "#3a6ad1", "#7d4bc2"] },
+  "hoved": { "valg": ["Intet", "Tørklæde", "Hue", "Kasket"], "laast": { "3": "hoved.kasket" } },
+  "hovedfarve": { "valg": ["Rød", "Orange", "Gul", "Grøn", "Blå", "Lilla", "Grå", "Sort"], "farver": ["#c0392b", "#e67e22", "#e5c03a", "#2e8b57", "#2c6fbb", "#7b4bb3", "#8a8a8a", "#222222"] },
+  "toej": { "valg": ["T-shirt", "Hættetrøje", "Kjole", "Kappe"], "laast": { "3": "toej.kappe" } },
+  "toejfarve": { "valg": ["Rød", "Orange", "Gul", "Grøn", "Blå", "Lilla", "Grå", "Sort"], "farver": ["#c0392b", "#e67e22", "#e5c03a", "#2e8b57", "#2c6fbb", "#7b4bb3", "#8a8a8a", "#222222"] },
+  "tilbehoer": { "valg": ["Intet", "Briller", "Halstørklæde", "Lanterne"], "laast": { "3": "tilbehoer.lanterne" } }
+}

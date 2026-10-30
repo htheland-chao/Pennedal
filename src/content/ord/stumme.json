@@ -1,0 +1,38 @@
+{
+  "faerdighed": "stav.stumme",
+  "regler": {
+    "d": "Efter l, n og r kan d være stumt. Du kan ikke høre d'et, men det skal med.",
+    "h": "Foran v og j kan h være stumt. Du kan ikke høre h'et, men det skal med.",
+    "v": "Efter l kan v være stumt. Du kan ikke høre v'et, men det skal med."
+  },
+  "ord": [
+    { "ord": "kold", "stumt": 3, "type": "d", "svaerhed": 1, "saetning": "Det er en kold dag i Pennedal.", "billede": "🧊", "forklaring": "Ikke varm. Sne og is er kolde." },
+    { "ord": "mand", "stumt": 3, "type": "d", "svaerhed": 1, "saetning": "En gammel mand sidder ved floden.", "billede": "👨", "forklaring": "En voksen person, der før var en dreng." },
+    { "ord": "hund", "stumt": 3, "type": "d", "svaerhed": 1, "saetning": "En hund gør ad de tre måner.", "billede": "🐕", "forklaring": "Et dyr, der siger vov." },
+    { "ord": "land", "stumt": 3, "type": "d", "svaerhed": 1, "saetning": "Pennedal er et land af papir.", "billede": "🗺️", "forklaring": "Et stort område med egne grænser, fx Danmark." },
+    { "ord": "sand", "stumt": 3, "type": "d", "svaerhed": 1, "saetning": "Der er varmt sand på stranden.", "billede": "🏖️", "forklaring": "Små korn, som en strand er lavet af." },
+    { "ord": "bord", "stumt": 3, "type": "d", "svaerhed": 1, "saetning": "Logbogen ligger på et bord.", "billede": "🍽️", "forklaring": "Et møbel, man spiser eller skriver ved." },
+    { "ord": "hvid", "stumt": 0, "type": "h", "svaerhed": 1, "saetning": "Papirfuglen er hvid.", "billede": "🕊️", "forklaring": "Farven på sne og papir." },
+    { "ord": "hvem", "stumt": 0, "type": "h", "svaerhed": 1, "saetning": "Hvem hvisker i mørket?", "billede": "❓", "forklaring": "Et spørgeord. Man spørger efter en person." },
+    { "ord": "hvad", "stumt": 0, "type": "h", "svaerhed": 1, "saetning": "Hvad står der på skiltet?", "billede": "❓", "forklaring": "Et spørgeord. Man spørger efter en ting." },
+    { "ord": "hvor", "stumt": 0, "type": "h", "svaerhed": 1, "saetning": "Hvor er bogens slutning?", "billede": "📍", "forklaring": "Et spørgeord. Man spørger efter et sted." },
+    { "ord": "hjem", "stumt": 0, "type": "h", "svaerhed": 1, "saetning": "Til sidst kommer hun hjem igen.", "billede": "🏠", "forklaring": "Det sted, hvor man bor." },
+    { "ord": "jord", "stumt": 3, "type": "d", "svaerhed": 2, "saetning": "Planten vokser i sort jord.", "billede": "🌱", "forklaring": "Det brune, som planter vokser i." },
+    { "ord": "guld", "stumt": 3, "type": "d", "svaerhed": 2, "saetning": "Skatten er af rent guld.", "billede": "🪙", "forklaring": "Et gult, skinnende metal, der er meget værd." },
+    { "ord": "strand", "stumt": 5, "type": "d", "svaerhed": 2, "saetning": "Det er varmt på en strand om sommeren.", "billede": "🏖️", "forklaring": "Der, hvor land og hav mødes." },
+    { "ord": "rund", "stumt": 3, "type": "d", "svaerhed": 2, "saetning": "Månen er rund i nat.", "billede": "🌕", "forklaring": "Formet som en cirkel eller en bold." },
+    { "ord": "ild", "stumt": 2, "type": "d", "svaerhed": 2, "saetning": "Klatten tænder en lille ild.", "billede": "🔥", "forklaring": "Flammer, der er varme og lyser." },
+    { "ord": "hjul", "stumt": 0, "type": "h", "svaerhed": 2, "saetning": "Vognen har et løst hjul.", "billede": "🛞", "forklaring": "En rund ting, der drejer rundt under en cykel eller en bil." },
+    { "ord": "hjerte", "stumt": 0, "type": "h", "svaerhed": 2, "saetning": "Mor Lanterne har et stort hjerte.", "billede": "❤️", "forklaring": "Det, der pumper blodet rundt i kroppen. At have et stort hjerte betyder at være god og venlig." },
+    { "ord": "hjælpe", "stumt": 0, "type": "h", "svaerhed": 2, "saetning": "Vil du hjælpe Æseløre?", "billede": "🤝", "forklaring": "At gøre noget for en anden." },
+    { "ord": "hvisker", "stumt": 0, "type": "h", "svaerhed": 2, "saetning": "Skuffen hvisker dit navn.", "billede": "🤫", "forklaring": "Taler meget stille." },
+    { "ord": "selv", "stumt": 3, "type": "v", "svaerhed": 2, "saetning": "Du skal selv løse problemet.", "billede": "🙋", "forklaring": "Uden hjælp fra andre." },
+    { "ord": "halv", "stumt": 3, "type": "v", "svaerhed": 2, "saetning": "Klatten spiste en halv bog.", "billede": "🌗", "forklaring": "Den ene af to lige store dele." },
+    { "ord": "vild", "stumt": 3, "type": "d", "svaerhed": 3, "saetning": "Skoven er vild og mørk.", "billede": "🐺", "forklaring": "Ikke tam. Et vildt dyr bor ude i naturen." },
+    { "ord": "held", "stumt": 3, "type": "d", "svaerhed": 3, "saetning": "Held og lykke på rejsen!", "billede": "🍀", "forklaring": "Når noget går godt, uden at man selv har gjort noget for det." },
+    { "ord": "hvalp", "stumt": 0, "type": "h", "svaerhed": 3, "saetning": "En lille hvalp leger i bladene.", "billede": "🐶", "forklaring": "En hundeunge." },
+    { "ord": "gulv", "stumt": 3, "type": "v", "svaerhed": 3, "saetning": "Kælderen har et koldt gulv.", "billede": "🧹", "forklaring": "Det, man går på inde i et hus." },
+    { "ord": "sølv", "stumt": 3, "type": "v", "svaerhed": 3, "saetning": "Månen skinner som sølv.", "billede": "🥈", "forklaring": "Et gråt, skinnende metal." },
+    { "ord": "tolv", "stumt": 3, "type": "v", "svaerhed": 3, "saetning": "Klokken slår tolv.", "billede": "🕛", "forklaring": "Tallet 12." }
+  ]
+}

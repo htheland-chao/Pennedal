@@ -1,0 +1,503 @@
+# Korrekturliste - Pennedal
+
+Lavet 2026-10-30. 458 tekster.
+
+Sæt kryds, når en tekst er læst. Bevidste fejl står under "Bevidste fejl" og skal ikke rettes.
+Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), så læs hele teksten.
+
+## Brugerflade
+
+- [ ] `app.titel`: Pennedal
+- [ ] `app.undertitel`: Et eventyr om ord, der forsvinder
+- [ ] `app.pladsholder`: Testudgave. Grafikken er pladsholdere, og spillet har endnu ingen lyd.
+- [ ] `start.nyt`: Start et nyt eventyr
+- [ ] `start.fortsaet`: Fortsæt eventyret
+- [ ] `start.indlaes`: Fortsæt med en gemmekode
+- [ ] `start.laererkig`: Lærerkig
+- [ ] `start.indstillinger`: Indstillinger
+- [ ] `start.overskriv`: Der er allerede et gemt eventyr på denne computer. Hvis du starter forfra, bliver det slettet.
+- [ ] `start.overskriv.ja`: Ja, start forfra
+- [ ] `start.overskriv.nej`: Nej, gå tilbage
+- [ ] `taler.holm`: Hr. Holm
+- [ ] `taler.aeseloere`: Æseløre
+- [ ] `taler.klatten`: Klatten
+- [ ] `taler.lanterne`: Mor Lanterne
+- [ ] `taler.fortaeller`: Fortæller
+- [ ] `avatar.titel`: Skab din hovedperson
+- [ ] `avatar.navn`: Dit navn i Pennedal
+- [ ] `avatar.navn.forklaring`: Vælg et ord fra hver liste.
+- [ ] `avatar.adjektiv`: Første ord
+- [ ] `avatar.dyr`: Andet ord
+- [ ] `avatar.hud`: Hudfarve
+- [ ] `avatar.krop`: Krop
+- [ ] `avatar.oejne`: Øjne
+- [ ] `avatar.mund`: Mund
+- [ ] `avatar.haar`: Frisure
+- [ ] `avatar.haarfarve`: Hårfarve
+- [ ] `avatar.hoved`: På hovedet
+- [ ] `avatar.hovedfarve`: Farve på hovedet
+- [ ] `avatar.toej`: Tøj
+- [ ] `avatar.toejfarve`: Tøjfarve
+- [ ] `avatar.tilbehoer`: Tilbehør
+- [ ] `avatar.nummer`: Nummer {nr} af {antal}
+- [ ] `avatar.laast`: {valg} er låst. Du finder den senere i spillet.
+- [ ] `avatar.forrige`: Forrige
+- [ ] `avatar.naeste`: Næste
+- [ ] `avatar.faerdig`: Klar til eventyret
+- [ ] `avatar.gem`: Gem ændringerne
+- [ ] `avatar.annuller`: Fortryd
+- [ ] `avatar.billede`: Sådan ser din hovedperson ud
+- [ ] `verden.naeste`: Det næste, du skal gøre:
+- [ ] `verden.undersoeg`: Undersøg {navn}
+- [ ] `verden.tryk.enter`: Tryk på Enter for at undersøge {navn}.
+- [ ] `verden.styring`: Gå med piletasterne, eller tryk et sted på billedet. Du kan også bruge knapperne.
+- [ ] `verden.pladsholder`: Pladsholdergrafik
+- [ ] `verden.menu`: Menu
+- [ ] `verden.sted`: Du er her: {sted}
+- [ ] `menu.titel`: Menu
+- [ ] `menu.gemmekode`: Vis gemmekode
+- [ ] `menu.samling`: Din samling
+- [ ] `menu.avatar`: Skift udseende
+- [ ] `menu.indstillinger`: Indstillinger
+- [ ] `menu.forside`: Til forsiden
+- [ ] `menu.luk`: Luk menuen
+- [ ] `dialog.videre`: Videre
+- [ ] `dialog.laes.op`: Læs op
+- [ ] `dialog.stop`: Stop oplæsning
+- [ ] `feedback.regel`: Regel
+- [ ] `feedback.eksempel`: Eksempel
+- [ ] `opgave.tjek`: Tjek
+- [ ] `opgave.videre`: Videre
+- [ ] `opgave.pause`: Pause
+- [ ] `opgave.ros.1`: Rigtigt!
+- [ ] `opgave.ros.2`: Flot klaret.
+- [ ] `opgave.ros.3`: Præcis!
+- [ ] `opgave.ros.4`: Sådan!
+- [ ] `opgave.ros.foersteforsoeg`: Rigtigt i første forsøg. Æseløre er imponeret, men han siger det ikke højt.
+- [ ] `opgave.proev.igen`: Prøv igen.
+- [ ] `opgave.vaelg.regel`: Hvilken regel passer her? Vælg den, før du prøver igen.
+- [ ] `opgave.regel.forkert`: Ikke den. Læs reglerne igen.
+- [ ] `opgave.regel.rigtig`: Ja, det er den regel. Prøv nu igen.
+- [ ] `opgave.niveau.op`: Æseløre gør opgaverne lidt sværere.
+- [ ] `opgave.niveau.ned`: Æseløre gør opgaverne lidt lettere, mens du øver dig.
+- [ ] `opgave.fremskridt`: Opgave {nr} af {antal}
+- [ ] `hviske.titel`: Hviskeformular
+- [ ] `hviske.instruks.vaelg`: Hvilket stumt bogstav mangler? Vælg det.
+- [ ] `hviske.instruks.skriv`: Skriv det stumme bogstav, der mangler.
+- [ ] `hviske.instruks.to`: Skriv de to bogstaver, der mangler. Det ene er stumt.
+- [ ] `hviske.instruks.helt`: Skriv hele ordet. Du kan høre det, og du kan se det i sætningen.
+- [ ] `hviske.felt.bogstav`: Bogstav
+- [ ] `hviske.felt.bogstav.nr`: Bogstav nummer {nr}
+- [ ] `hviske.felt.ord`: Ordet
+- [ ] `hviske.hoer`: Hør ordet
+- [ ] `hviske.ingen.stemme`: Ordet består af disse bogstaver: {bogstaver}
+- [ ] `hviske.eksempel`: Andre ord med samme regel: {ord}
+- [ ] `bevisjagt.titel`: Bevisjagt
+- [ ] `bevisjagt.foer`: Før du læser: Kender du de her ord? Tryk på et ord for at se en forklaring.
+- [ ] `bevisjagt.til.teksten`: Læs teksten
+- [ ] `bevisjagt.instruks`: Læs spørgsmålet. Tryk derefter på den sætning, der beviser svaret.
+- [ ] `bevisjagt.spoergsmaal`: Spørgsmål {nr} af {antal}
+- [ ] `bevisjagt.eksempel`: Spørgsmål: Hvilken farve har papirfuglen? Bevis: "Papirfuglen er hvid."
+- [ ] `bevisjagt.vaelg`: Vælg
+- [ ] `bevisjagt.vaelg.saetning`: sætning {nr}
+- [ ] `bevisjagt.regel`: Svaret står i teksten. Læs sætningerne én ad gangen, og find den, der passer præcist til spørgsmålet.
+- [ ] `ogorm.titel`: Og-ormen
+- [ ] `ogorm.instruks`: Tryk på et "og", der står mellem to hele sætninger, for at lave det om til et punktum. Et "og" mellem to ord, fx "brød og smør", skal blive. Tryk på et ord for at skifte mellem stort og lille begyndelsesbogstav.
+- [ ] `ogorm.laengde`: Ormen har {antal} led tilbage.
+- [ ] `ogorm.punktum`: punktum
+- [ ] `ogorm.fortryd`: Lav punktummet om til "og" igen
+- [ ] `ogorm.fejl.mangler`: Ormen er stadig for lang. Find et "og", der står mellem to hele sætninger, og sæt punktum dér.
+- [ ] `ogorm.fejl.bliv`: Her binder "og" to ting sammen i samme sætning, fx "brød og smør". Det "og" skal blive.
+- [ ] `ogorm.fejl.stort`: Efter et punktum starter en ny sætning. Den skal have stort begyndelsesbogstav.
+- [ ] `ogorm.fejl.lille`: Midt i en sætning skal ordet have lille begyndelsesbogstav. Kun navne og ordet efter et punktum har stort.
+- [ ] `ogorm.fejl.navn`: Navne har altid stort begyndelsesbogstav.
+- [ ] `ogorm.regel`: Når en tanke er færdig, sætter du punktum. Den næste sætning starter med stort begyndelsesbogstav.
+- [ ] `ogorm.eksempel`: Klatten snublede. Hatten fløj af.
+- [ ] `bro.titel`: Historiebroen
+- [ ] `bro.instruks`: Læg plankerne i den rækkefølge, de sker i historien. Brug knapperne til at flytte en planke op eller ned.
+- [ ] `bro.instruks.fremmed`: En af plankerne passer ikke i en god fantasyfortælling. Læg den til side.
+- [ ] `bro.op`: Flyt op
+- [ ] `bro.ned`: Flyt ned
+- [ ] `bro.til.side`: Læg til side
+- [ ] `bro.tilbage`: Læg på broen
+- [ ] `bro.planke`: Planke {nr}
+- [ ] `bro.sidebunke`: Planker, du har lagt til side:
+- [ ] `bro.fejl.placering`: Planke {nr} står forkert. {hint}
+- [ ] `bro.fejl.fremmed`: En af plankerne passer ikke. Her løser en anden end hovedpersonen problemet.
+- [ ] `bro.fejl.fjernet`: Den planke hører til historien. Læg den tilbage på broen.
+- [ ] `bro.hint.problem`: Hvad er problemet i begyndelsen?
+- [ ] `bro.hint.portal`: Hvordan kommer hovedpersonen ind i den magiske verden?
+- [ ] `bro.hint.verden`: Hvad ser hovedpersonen, når den magiske verden begynder?
+- [ ] `bro.hint.konflikt`: Hvem eller hvad står i vejen?
+- [ ] `bro.hint.loesning`: Hvordan løser hovedpersonen selv problemet?
+- [ ] `bro.hint.hjemkomst`: Hvordan ender historien?
+- [ ] `bro.traek.problem`: Problem
+- [ ] `bro.traek.portal`: Portal
+- [ ] `bro.traek.verden`: Magisk verden
+- [ ] `bro.traek.konflikt`: Konflikt
+- [ ] `bro.traek.loesning`: Løsning
+- [ ] `bro.traek.hjemkomst`: Hjemkomst
+- [ ] `bro.regel`: En fantasyfortælling har et problem, en portal, en magisk verden, en konflikt, en løsning og en hjemkomst. Hovedpersonen løser selv problemet.
+- [ ] `bro.eksempel`: Problem: Lyset er stjålet. Hjemkomst: Frøen hopper hjem med lyset.
+- [ ] `gem.titel`: Din gemmekode
+- [ ] `gem.del.slut`: Du har klaret del {nr}. Godt gået!
+- [ ] `gem.forklaring`: Spillet er gemt på denne computer. Vil du fortsætte på en anden computer, så skriv koden ned eller tag et billede af QR-koden.
+- [ ] `gem.qr`: QR-kode med din gemmekode
+- [ ] `gem.kopier`: Kopiér koden
+- [ ] `gem.kopieret`: Koden er kopieret.
+- [ ] `gem.fil`: Gem som fil
+- [ ] `gem.videre`: Spil videre
+- [ ] `gem.indlaes.titel`: Fortsæt med en gemmekode
+- [ ] `gem.indlaes.forklaring`: Skriv koden. Du behøver ikke at skrive bindestregerne.
+- [ ] `gem.indlaes.felt`: Gemmekode
+- [ ] `gem.indlaes.knap`: Fortsæt
+- [ ] `gem.indlaes.fil`: Åbn en gemmefil
+- [ ] `gem.indlaes.tilbage`: Tilbage
+- [ ] `gem.fejl.laengde`: Koden skal have {laengde} tegn. Du har skrevet {antal}.
+- [ ] `gem.fejl.tegn`: Koden indeholder et tegn, der ikke kan bruges: {tegn}
+- [ ] `gem.fejl.kontrol`: Koden passer ikke. Måske er der en tastefejl. Tjek koden én gang til.
+- [ ] `gem.fejl.indhold`: Koden er ikke fra denne udgave af spillet.
+- [ ] `gem.fejl.fil`: Filen kunne ikke læses som en gemmefil.
+- [ ] `samling.titel`: Din samling
+- [ ] `samling.fyrtaarn`: Mor Lanternes fyrtårn
+- [ ] `samling.lys`: Lyset i fyrtårnet: {antal} af {max} færdige historier
+- [ ] `samling.ordkort`: Ordkort, du har samlet
+- [ ] `samling.ingen.ordkort`: Du har ikke samlet nogen ordkort endnu.
+- [ ] `samling.ting`: Ting, du har fundet
+- [ ] `samling.ingen.ting`: Du har ikke fundet noget endnu.
+- [ ] `samling.ting.toej.kappe`: Klattens kappe
+- [ ] `samling.ting.tilbehoer.lanterne`: Mor Lanternes lanterne
+- [ ] `samling.kapitel.slut`: Kapitel 1 er slut. Kapitel 2 er på vej.
+- [ ] `samling.tilbage`: Tilbage
+- [ ] `samling.spil.igen`: Spil kapitel 1 igen
+- [ ] `ordkort.titel`: Ordkort
+- [ ] `ordkort.hoer`: Hør ordet
+- [ ] `ordkort.eksempel`: Eksempel
+- [ ] `ordkort.billede`: Billedet er en pladsholder.
+- [ ] `ordkort.luk`: Luk
+- [ ] `laerer.titel`: Lærerkig
+- [ ] `laerer.kode`: Lærerkode
+- [ ] `laerer.aabn`: Åbn
+- [ ] `laerer.forkert`: Forkert kode.
+- [ ] `laerer.forklaring`: Her ser du, hvordan eleven på denne computer klarer sig. Data ligger kun på denne computer.
+- [ ] `laerer.ingen`: Der er ikke noget gemt eventyr på denne computer.
+- [ ] `laerer.elev`: Avatarnavn
+- [ ] `laerer.fremskridt`: Fremskridt: kapitel {kapitel}, trin {trin} af {antal}
+- [ ] `laerer.tabel.faerdighed`: Færdighed
+- [ ] `laerer.tabel.niveau`: Niveau (1-5)
+- [ ] `laerer.tabel.rigtige`: Rigtige i første forsøg
+- [ ] `laerer.tabel.fejl`: Fejl
+- [ ] `laerer.ikke.oevet`: Ikke øvet endnu
+- [ ] `laerer.csv`: Hent som CSV
+- [ ] `laerer.nyt.navn`: Giv eleven et nyt avatarnavn
+- [ ] `laerer.nyt.navn.ok`: Eleven hedder nu {navn}.
+- [ ] `laerer.slet`: Slet det gemte eventyr
+- [ ] `laerer.slet.bekraeft`: Er du sikker? Det gemte eventyr på denne computer bliver slettet.
+- [ ] `laerer.slet.ja`: Ja, slet det
+- [ ] `laerer.slet.nej`: Nej
+- [ ] `laerer.slettet`: Det gemte eventyr er slettet.
+- [ ] `laerer.note`: Hvis eleven har fortsat med en gemmekode, starter tallene for rigtige svar og fejl forfra. Niveauerne følger med.
+- [ ] `laerer.luk`: Luk
+- [ ] `indst.titel`: Indstillinger
+- [ ] `indst.oplaesning`: Læs tekster op automatisk
+- [ ] `indst.stemme`: Stemme
+- [ ] `indst.stemme.ingen`: Der er ingen dansk stemme på denne computer. Brug din egen oplæsning, fx AppWriter eller IntoWords.
+- [ ] `indst.skrift`: Skrifttype
+- [ ] `indst.skrift.standard`: Standard
+- [ ] `indst.skrift.ordblind`: OpenDyslexic
+- [ ] `indst.skrift.system`: Computerens egen
+- [ ] `indst.stoerrelse`: Skriftstørrelse
+- [ ] `indst.stoerrelse.1`: Normal
+- [ ] `indst.stoerrelse.2`: Stor
+- [ ] `indst.stoerrelse.3`: Ekstra stor
+- [ ] `indst.uhygge`: Mindre uhygge
+- [ ] `indst.uhygge.forklaring`: Fjerner forskrækkelser og gør mørke steder lysere.
+- [ ] `indst.lyd`: Spillet har ingen lyd endnu. Når der kommer lyd, vises den også som tekst.
+- [ ] `indst.luk`: Luk
+- [ ] `uhygge.ryst`: Pludselig bliver alt mørkt et øjeblik.
+- [ ] `debug.fps`: Billeder pr. sekund
+- [ ] `debug.hukommelse`: Hukommelse
+- [ ] `faerdighed.stav.stumme`: Stumme bogstaver
+- [ ] `faerdighed.stav.bortfald`: Særlige bortfald
+- [ ] `faerdighed.stav.navneord_endelse`: Navneords endelser
+- [ ] `faerdighed.stav.verbum_datid`: Udsagnsord og datid
+- [ ] `faerdighed.stav.vokal_dobbeltkonsonant`: Vokaler og dobbeltkonsonant
+- [ ] `faerdighed.sprog.bestemt_form`: Bestemt form
+- [ ] `faerdighed.sprog.en_et`: En og et
+- [ ] `faerdighed.sprog.sin_hendes`: Sin, sit og hans, hendes
+- [ ] `faerdighed.tegn.punktum_stort`: Punktum og stort bogstav
+- [ ] `faerdighed.tegn.replik`: Citationstegn og replikker
+- [ ] `faerdighed.tegn.stort_I`: Stort I ved tiltale
+- [ ] `faerdighed.fort.struktur`: Fortællingens opbygning
+- [ ] `faerdighed.fort.fortaeller_tid`: Én fortæller og én tid
+- [ ] `faerdighed.fort.tidsord_afsnit`: Tidsord og afsnit
+- [ ] `faerdighed.fort.dansk_ord`: Danske ord frem for engelske
+- [ ] `faerdighed.laes.praecision`: Præcis læsning
+- [ ] `faerdighed.laes.ordforraad`: Ordforråd
+- [ ] `faerdighed.laes.forstaaelse`: Læseforståelse
+
+## Kapitel 1
+
+- [ ] `titel`: Den glemte skuffe
+- [ ] `sted.bibliotek`: Skolebiblioteket
+- [ ] `objekt.holm`: hr. Holm
+- [ ] `objekt.logbog`: logbogen på disken
+- [ ] `objekt.kaeldertrappe`: trappen til kælderen
+- [ ] `sted.kaelder`: Kælderen
+- [ ] `objekt.skuffe`: kartoteksskabet
+- [ ] `sted.pennedal`: Pennedal
+- [ ] `objekt.klatten`: Klatten
+- [ ] `objekt.skilt`: Klattens skilt
+- [ ] `objekt.sti`: stien mod floden
+- [ ] `sted.floden`: Floden
+- [ ] `objekt.bro`: den brudte bro
+- [ ] `sted.fyrtaarn`: Mor Lanternes fyrtårn
+- [ ] `objekt.lanterne`: Mor Lanterne
+- [ ] `k1-holm.opgavetekst`: Tal med hr. Holm.
+- [ ] `k1-holm.1 (holm)`: Godt, at du kom. Der sker noget mærkeligt med bøgerne.
+- [ ] `k1-holm.2 (holm)`: Hver morgen mangler der flere ord. Nogle bøger stopper midt i en sætning.
+- [ ] `k1-holm.3 (holm)`: Jeg har skrevet det hele ned i min logbog. Den ligger på disken. Vil du læse den?
+- [ ] `k1-logbog.opgavetekst`: Læs logbogen på disken.
+- [ ] `k1-logbog.titel`: Hr. Holms logbog
+- [ ] `k1-logbog.saetning.0`: Mandag: Tre bøger manglede deres sidste side.
+- [ ] `k1-logbog.saetning.1`: Tirsdag: En ordbog havde mistet alle sine punktummer.
+- [ ] `k1-logbog.saetning.2`: Onsdag: Bogstaverne på skiltet ved døren var falmet.
+- [ ] `k1-logbog.saetning.3`: Torsdag: Jeg hørte en lyd fra kælderen. Det lød, som om nogen hviskede.
+- [ ] `k1-logbog.saetning.4`: Fredag: Døren til kælderen stod på klem.
+- [ ] `k1-logbog-1`: Hvad skete der med ordbogen?
+- [ ] `k1-logbog-1.standard`: Læs sætningerne én ad gangen, og find den, der nævner ordbogen.
+- [ ] `k1-logbog-1.forkert.0`: Den sætning handler om bøger, der mangler en side. Find sætningen, der nævner ordbogen.
+- [ ] `k1-logbog-1.forkert.2`: Den sætning handler om skiltet ved døren. Find sætningen, der nævner ordbogen.
+- [ ] `k1-logbog-2`: Hvad hørte hr. Holm fra kælderen?
+- [ ] `k1-logbog-2.standard`: Find sætningen, hvor hr. Holm fortæller, hvad han hørte.
+- [ ] `k1-logbog-2.forkert.4`: Den sætning handler om døren, ikke om lyden. Find sætningen, der fortæller, hvad hr. Holm hørte.
+- [ ] `k1-holm-2.opgavetekst`: Fortæl hr. Holm, hvad du fandt i logbogen.
+- [ ] `k1-holm-2.1 (holm)`: Hviskede? Fra kælderen? Det har jeg ikke lagt mærke til.
+- [ ] `k1-holm-2.2 (holm)`: Jeg tør ærlig talt ikke gå derned alene. Vil du se, hvad der er i kælderen?
+- [ ] `k1-til-kaelder.opgavetekst`: Gå ned ad trappen til kælderen.
+- [ ] `k1-kaelder.1 (fortaeller)`: Kælderen lugter af støv og gammelt papir. Bagerst står et kartoteksskab med mange små skuffer.
+- [ ] `k1-kaelder.2 (fortaeller)`: Det er helt stille. Så hører du det. Den nederste skuffe hvisker.
+- [ ] `k1-aeseloere.opgavetekst`: Træk den nederste skuffe ud.
+- [ ] `k1-aeseloere.1 (fortaeller)`: Du trækker skuffen ud. Det lugter af blæk og regnvejr, og en lille papirfugl flyver op i dit ansigt.
+- [ ] `k1-aeseloere.2 (aeseloere)`: Endelig. Du har været længe om det.
+- [ ] `k1-aeseloere.3 (aeseloere)`: Jeg hedder Æseløre. Jeg er foldet af en side fra en meget gammel ordbog, så jeg ved alt om ord. Næsten alt.
+- [ ] `k1-aeseloere.4 (aeseloere)`: Skuffen er en dør til Pennedal. Men den åbner kun for hviskeformularer.
+- [ ] `k1-aeseloere.5 (aeseloere)`: En hviskeformular er et ord med et stumt bogstav. Bogstavet siger ingenting, men det skal med. Ellers virker formularen ikke.
+- [ ] `k1-hviske.opgavetekst`: Stav seks hviskeformularer, så skuffen åbner sig.
+- [ ] `k1-fald.1 (aeseloere)`: Seks formularer. Ikke dårligt for et menneske.
+- [ ] `k1-fald.2 (fortaeller)`: Skuffen bliver større og større. Et hvidt lys fylder hele kælderen, og pludselig falder du.
+- [ ] `k1-ankomst.1 (fortaeller)`: Du lander blødt i en bunke visne blade. Over dig hænger tre måner, og træerne har blade af papir.
+- [ ] `k1-ankomst.2 (aeseloere)`: Velkommen til Pennedal. Her blev alt skrevet til live engang. Også mig, desværre.
+- [ ] `k1-ankomst.3 (aeseloere)`: Hov. Der står nogen på stien. Gå hen og se, hvem det er.
+- [ ] `k1-klatten.opgavetekst`: Gå hen til skikkelsen på stien.
+- [ ] `k1-klatten.1 (klatten)`: Stop! Ingen kommer forbi Klatten den Frygtelige!
+- [ ] `k1-klatten.2 (aeseloere)`: Han er ikke frygtelig. Han er bare klattet.
+- [ ] `k1-klatten.4 (aeseloere)`: Det er Og-ormen. Hver gang nogen binder sætninger sammen med "og", bliver den længere. Til sidst spærrer den hele vejen.
+- [ ] `k1-klatten.5 (aeseloere)`: Klip den over med punktummer. Og husk: Ordet efter et punktum vågner kun, hvis det får stort begyndelsesbogstav.
+- [ ] `k1-ogorm.opgavetekst`: Klip Og-ormen over på Klattens skilt.
+- [ ] `k1-klatten-flygter.1 (klatten)`: Min orm! Den var jo så flot.
+- [ ] `k1-klatten-flygter.2 (klatten)`: Det her skal jeg fortælle til ... Nej. Det må jeg ikke sige.
+- [ ] `k1-klatten-flygter.3 (fortaeller)`: Klatten løber sin vej og efterlader en lang stribe blæk på stien. Bag skiltet ligger en kappe, som han har tabt.
+- [ ] `k1-klatten-flygter.4 (aeseloere)`: Tag den bare. Han har alligevel aldrig vasket den.
+- [ ] `k1-til-floden.opgavetekst`: Følg stien mod floden.
+- [ ] `k1-floden.1 (fortaeller)`: Stien ender ved en flod. Broen er brudt, og plankerne driver rundt i vandet.
+- [ ] `k1-floden.2 (aeseloere)`: Hver planke er en del af en historie. Læg dem i den rigtige rækkefølge, så holder broen.
+- [ ] `k1-floden.3 (aeseloere)`: Og nej, jeg kan ikke bare flyve dig over. Jeg er lavet af papir. Har du nogensinde set papir bære et menneske?
+- [ ] `k1-bro.opgavetekst`: Byg broen ved at lægge plankerne i rækkefølge.
+- [ ] `k1-over-floden.opgavetekst`: Gå over broen.
+- [ ] `k1-lanterne.1 (fortaeller)`: På den anden side af floden står et fyrtårn. Lyset er svagt, som om det er ved at gå ud.
+- [ ] `k1-lanterne.2 (lanterne)`: Kom ind, kom ind. Jeg er Mor Lanterne. Mit tårn lyser kun af færdige historier.
+- [ ] `k1-lanterne.3 (lanterne)`: Men nogen stjæler slutningerne. Hver nat bliver lyset lidt svagere.
+- [ ] `k1-lanterne.4 (lanterne)`: Her, tag den her lanterne. Du får brug for den.
+- [ ] `k1-lanterne.5 (fortaeller)`: Ude i mørket hvisker en stemme: "Og så ..."
+- [ ] `k1-lanterne.6 (aeseloere)`: Det lød ikke godt. Det lød slet ikke godt.
+
+## Stumme bogstaver
+
+- [ ] `regel.d`: Efter l, n og r kan d være stumt. Du kan ikke høre d'et, men det skal med.
+- [ ] `regel.h`: Foran v og j kan h være stumt. Du kan ikke høre h'et, men det skal med.
+- [ ] `regel.v`: Efter l kan v være stumt. Du kan ikke høre v'et, men det skal med.
+- [ ] `kold.ord`: kold
+- [ ] `kold.saetning`: Det er en kold dag i Pennedal.
+- [ ] `kold.forklaring`: Ikke varm. Sne og is er kolde.
+- [ ] `mand.ord`: mand
+- [ ] `mand.saetning`: En gammel mand sidder ved floden.
+- [ ] `mand.forklaring`: En voksen person, der før var en dreng.
+- [ ] `hund.ord`: hund
+- [ ] `hund.saetning`: En hund gør ad de tre måner.
+- [ ] `hund.forklaring`: Et dyr, der siger vov.
+- [ ] `land.ord`: land
+- [ ] `land.saetning`: Pennedal er et land af papir.
+- [ ] `land.forklaring`: Et stort område med egne grænser, fx Danmark.
+- [ ] `sand.ord`: sand
+- [ ] `sand.saetning`: Der er varmt sand på stranden.
+- [ ] `sand.forklaring`: Små korn, som en strand er lavet af.
+- [ ] `bord.ord`: bord
+- [ ] `bord.saetning`: Logbogen ligger på et bord.
+- [ ] `bord.forklaring`: Et møbel, man spiser eller skriver ved.
+- [ ] `hvid.ord`: hvid
+- [ ] `hvid.saetning`: Papirfuglen er hvid.
+- [ ] `hvid.forklaring`: Farven på sne og papir.
+- [ ] `hvem.ord`: hvem
+- [ ] `hvem.saetning`: Hvem hvisker i mørket?
+- [ ] `hvem.forklaring`: Et spørgeord. Man spørger efter en person.
+- [ ] `hvad.ord`: hvad
+- [ ] `hvad.saetning`: Hvad står der på skiltet?
+- [ ] `hvad.forklaring`: Et spørgeord. Man spørger efter en ting.
+- [ ] `hvor.ord`: hvor
+- [ ] `hvor.saetning`: Hvor er bogens slutning?
+- [ ] `hvor.forklaring`: Et spørgeord. Man spørger efter et sted.
+- [ ] `hjem.ord`: hjem
+- [ ] `hjem.saetning`: Til sidst kommer hun hjem igen.
+- [ ] `hjem.forklaring`: Det sted, hvor man bor.
+- [ ] `jord.ord`: jord
+- [ ] `jord.saetning`: Planten vokser i sort jord.
+- [ ] `jord.forklaring`: Det brune, som planter vokser i.
+- [ ] `guld.ord`: guld
+- [ ] `guld.saetning`: Skatten er af rent guld.
+- [ ] `guld.forklaring`: Et gult, skinnende metal, der er meget værd.
+- [ ] `strand.ord`: strand
+- [ ] `strand.saetning`: Det er varmt på en strand om sommeren.
+- [ ] `strand.forklaring`: Der, hvor land og hav mødes.
+- [ ] `rund.ord`: rund
+- [ ] `rund.saetning`: Månen er rund i nat.
+- [ ] `rund.forklaring`: Formet som en cirkel eller en bold.
+- [ ] `ild.ord`: ild
+- [ ] `ild.saetning`: Klatten tænder en lille ild.
+- [ ] `ild.forklaring`: Flammer, der er varme og lyser.
+- [ ] `hjul.ord`: hjul
+- [ ] `hjul.saetning`: Vognen har et løst hjul.
+- [ ] `hjul.forklaring`: En rund ting, der drejer rundt under en cykel eller en bil.
+- [ ] `hjerte.ord`: hjerte
+- [ ] `hjerte.saetning`: Mor Lanterne har et stort hjerte.
+- [ ] `hjerte.forklaring`: Det, der pumper blodet rundt i kroppen. At have et stort hjerte betyder at være god og venlig.
+- [ ] `hjælpe.ord`: hjælpe
+- [ ] `hjælpe.saetning`: Vil du hjælpe Æseløre?
+- [ ] `hjælpe.forklaring`: At gøre noget for en anden.
+- [ ] `hvisker.ord`: hvisker
+- [ ] `hvisker.saetning`: Skuffen hvisker dit navn.
+- [ ] `hvisker.forklaring`: Taler meget stille.
+- [ ] `selv.ord`: selv
+- [ ] `selv.saetning`: Du skal selv løse problemet.
+- [ ] `selv.forklaring`: Uden hjælp fra andre.
+- [ ] `halv.ord`: halv
+- [ ] `halv.saetning`: Klatten spiste en halv bog.
+- [ ] `halv.forklaring`: Den ene af to lige store dele.
+- [ ] `vild.ord`: vild
+- [ ] `vild.saetning`: Skoven er vild og mørk.
+- [ ] `vild.forklaring`: Ikke tam. Et vildt dyr bor ude i naturen.
+- [ ] `held.ord`: held
+- [ ] `held.saetning`: Held og lykke på rejsen!
+- [ ] `held.forklaring`: Når noget går godt, uden at man selv har gjort noget for det.
+- [ ] `hvalp.ord`: hvalp
+- [ ] `hvalp.saetning`: En lille hvalp leger i bladene.
+- [ ] `hvalp.forklaring`: En hundeunge.
+- [ ] `gulv.ord`: gulv
+- [ ] `gulv.saetning`: Kælderen har et koldt gulv.
+- [ ] `gulv.forklaring`: Det, man går på inde i et hus.
+- [ ] `sølv.ord`: sølv
+- [ ] `sølv.saetning`: Månen skinner som sølv.
+- [ ] `sølv.forklaring`: Et gråt, skinnende metal.
+- [ ] `tolv.ord`: tolv
+- [ ] `tolv.saetning`: Klokken slår tolv.
+- [ ] `tolv.forklaring`: Tallet 12.
+
+## Og-ormen
+
+
+## Historiebroen
+
+- [ ] `bro-froeen.titel`: Frøen, der ikke kunne sove
+- [ ] `bro-froeen.problem`: Frøen Kvak kan ikke sove, fordi nogen har stjålet månens lys.
+- [ ] `bro-froeen.portal`: Han hopper ned i en vandpyt og falder ind i en verden under vandet.
+- [ ] `bro-froeen.verden`: Her er fiskene lavet af glas, og tangen lyser i mørket.
+- [ ] `bro-froeen.konflikt`: En sur krabbe har gemt månelyset i sin skal og vil ikke give det fra sig.
+- [ ] `bro-froeen.loesning`: Kvak synger en sang, der er så smuk, at krabben græder og åbner skallen.
+- [ ] `bro-froeen.hjemkomst`: Kvak hopper hjem med lyset, og den nat sover hele dammen godt.
+- [ ] `bro-froeen.fremmed`: En stor fisk kommer svømmende og henter lyset for Kvak. _(Bevidst forkert planke: Her løser en anden problemet.)_
+- [ ] `bro-musen.titel`: Musen og de forsvundne bogstaver
+- [ ] `bro-musen.problem`: Musen Pip er ked af det, fordi alle bogstaverne i hendes yndlingsbog er forsvundet.
+- [ ] `bro-musen.portal`: Hun kravler ind i et musehul bag reolen og kommer ud et helt andet sted.
+- [ ] `bro-musen.verden`: Her vokser bogstaverne på træer, og floderne er lavet af blæk.
+- [ ] `bro-musen.konflikt`: En grådig skade har samlet alle bogstaverne i sin rede og vogter dem.
+- [ ] `bro-musen.loesning`: Pip bygger en stige af tændstikker og henter bogstaverne, mens skaden sover.
+- [ ] `bro-musen.hjemkomst`: Pip kravler hjem igen og læser sin bog fra første til sidste side.
+- [ ] `bro-musen.fremmed`: Pips far kommer og jager skaden væk for hende. _(Bevidst forkert planke: Her løser en anden problemet.)_
+- [ ] `bro-raeven.titel`: Ræven, der mistede sin stemme
+- [ ] `bro-raeven.problem`: Ræven Rød har mistet sin stemme og kan ikke synge til forårsfesten.
+- [ ] `bro-raeven.portal`: Hun følger et ekko ind i en hule, der bliver smallere og smallere.
+- [ ] `bro-raeven.verden`: Inde i hulen bor ekkoerne, og de gentager alt, hvad man siger.
+- [ ] `bro-raeven.konflikt`: Det stærkeste ekko har taget hendes stemme og nægter at give den tilbage.
+- [ ] `bro-raeven.loesning`: Rød narrer ekkoet til at sige: "Jeg giver stemmen tilbage."
+- [ ] `bro-raeven.hjemkomst`: Rød løber hjem og synger så højt, at hele skoven danser.
+- [ ] `bro-raeven.fremmed`: En klog ugle tryller stemmen tilbage til Rød. _(Bevidst forkert planke: Her løser en anden problemet.)_
+- [ ] `bro-graevlingen.titel`: Grævlingen og de blanke skilte
+- [ ] `bro-graevlingen.problem`: Grævlingen Bjarke kan ikke finde vej hjem, fordi alle skiltene i skoven er blanke.
+- [ ] `bro-graevlingen.portal`: Han går gennem en hul træstamme og kommer ud i en skov af papir.
+- [ ] `bro-graevlingen.verden`: Træerne er skrevet med blæk, og bladene rasler som sider i en bog.
+- [ ] `bro-graevlingen.konflikt`: En skygge sletter skiltene, lige så snart nogen skriver dem.
+- [ ] `bro-graevlingen.loesning`: Bjarke lægger sten på jorden, så de viser vejen, og dem kan skyggen ikke slette.
+- [ ] `bro-graevlingen.hjemkomst`: Han følger stenene tilbage og når hjem, lige da det bliver mørkt.
+- [ ] `bro-graevlingen.fremmed`: Hans mor finder ham og bærer ham hjem. _(Bevidst forkert planke: Her løser en anden problemet.)_
+
+## Ordkort
+
+- [ ] `logbog.ord`: logbog
+- [ ] `logbog.forklaring`: En bog, hvor man hver dag skriver ned, hvad der er sket.
+- [ ] `logbog.eksempel`: Hr. Holm skriver i sin logbog hver morgen.
+- [ ] `falmet.ord`: falmet
+- [ ] `falmet.forklaring`: Når en farve er blevet bleg og svag med tiden.
+- [ ] `falmet.eksempel`: Bogstaverne på det gamle skilt er falmet.
+- [ ] `paa-klem.ord`: på klem
+- [ ] `paa-klem.forklaring`: Når en dør står en lille smule åben.
+- [ ] `paa-klem.eksempel`: Døren står på klem, så katten kan komme ind.
+- [ ] `kartoteksskab.ord`: kartoteksskab
+- [ ] `kartoteksskab.forklaring`: Et skab med mange små skuffer, hvor man gemmer kort og papirer i orden.
+- [ ] `kartoteksskab.eksempel`: Biblioteket har et gammelt kartoteksskab i kælderen.
+
+## Avatar
+
+- [ ] `adjektiver`: Modig, Klog, Rolig, Venlig, Glad, Stille, Nysgerrig, Kvik, Snild, Stærk, Munter, Flittig, Vild, Frisk, Blid, Ivrig, Kæk, Sej, Fri, Lys, Tapper, Trofast, Rask, Hemmelig, Gylden, Hurtig, Listig, Drømmende, Eventyrlysten, Opfindsom, Fredelig, Mægtig
+- [ ] `dyr`: Ugle, Ræv, Odder, Ravn, Grævling, Los, Hjort, Bæver, Mus, Sæl, Hval, Delfin, Panda, Tiger, Ulv, Bjørn, Hare, Kat, Ged, Svane, Krage, Spurv, Falk, Ørn, Haj, Blæksprutte, Skildpadde, Frø, Salamander, Drage, Enhjørning, Myre
+- [ ] `krop.valg`: Smal, Mellem, Bred
+- [ ] `oejne.valg`: Runde, Smalle, Glade, Store
+- [ ] `mund.valg`: Smil, Stort smil, Rolig, Overrasket
+- [ ] `haar.valg`: Kort, Langt, Krøller, Fletninger, Afro, Hestehale, Knold, Meget kort
+- [ ] `haarfarve.valg`: Sort, Mørkebrun, Brun, Rødbrun, Lys, Grå, Blå, Lilla
+- [ ] `hoved.valg`: Intet, Tørklæde, Hue, Kasket
+- [ ] `hovedfarve.valg`: Rød, Orange, Gul, Grøn, Blå, Lilla, Grå, Sort
+- [ ] `toej.valg`: T-shirt, Hættetrøje, Kjole, Kappe
+- [ ] `toejfarve.valg`: Rød, Orange, Gul, Grøn, Blå, Lilla, Grå, Sort
+- [ ] `tilbehoer.valg`: Intet, Briller, Halstørklæde, Lanterne
+
+## Fælles Mål
+
+- [ ] `maal.json`: Citeret ordret fra ministeriet. Ikke rettet. _(Tjekkes ikke)_
+
+## Bevidste fejl
+
+- [ ] `k1-klatten.3 (klatten)` (Kapitel 1): Jeg har skrevet en ny vejviser og den er perfekt og den er lang og den slutter aldrig og ...
+- [ ] `og-1a` (Og-ormen): Æseløre fløj op i træet og han kiggede ud over Pennedal.
+  - Facit: Æseløre fløj op i træet. Han kiggede ud over Pennedal.
+- [ ] `og-1b` (Og-ormen): Klatten drypper blæk overalt og hans sko er helt sorte.
+  - Facit: Klatten drypper blæk overalt. Hans sko er helt sorte.
+- [ ] `og-1c` (Og-ormen): Skuffen hviskede igen og lyden kom nærmere.
+  - Facit: Skuffen hviskede igen. Lyden kom nærmere.
+- [ ] `og-2a` (Og-ormen): Vi gik ned ad stien og bladene knasede under vores fødder og en ugle tudede i mørket.
+  - Facit: Vi gik ned ad stien. Bladene knasede under vores fødder. En ugle tudede i mørket.
+- [ ] `og-2b` (Og-ormen): Klatten snublede over en rod og hatten fløj af hans hoved og den landede i floden.
+  - Facit: Klatten snublede over en rod. Hatten fløj af hans hoved. Den landede i floden.
+- [ ] `og-3a` (Og-ormen): Æseløre og Klatten skændtes om vejen og ingen af dem ville give sig og til sidst gik de hver sin vej.
+  - Facit: Æseløre og Klatten skændtes om vejen. Ingen af dem ville give sig. Til sidst gik de hver sin vej.
+- [ ] `og-3b` (Og-ormen): Månerne lyste gult og hvidt over dalen og papirtræerne raslede i vinden og et sted langt væk hviskede nogen.
+  - Facit: Månerne lyste gult og hvidt over dalen. Papirtræerne raslede i vinden. Et sted langt væk hviskede nogen.
+- [ ] `og-4a` (Og-ormen): På markedet købte de brød og ost og så satte de sig ved floden og spiste.
+  - Facit: På markedet købte de brød og ost. Så satte de sig ved floden og spiste.
+- [ ] `og-4b` (Og-ormen): Det blev mørkt i skoven og træerne begyndte at hviske og Æseløre krøb ind under din jakke og han rystede som et blad.
+  - Facit: Det blev mørkt i skoven. Træerne begyndte at hviske. Æseløre krøb ind under din jakke. Han rystede som et blad.
+- [ ] `og-5a` (Og-ormen): Klatten ville være frygtelig og han øvede sig i at brøle foran en vandpyt og en lille frø grinede ad ham og så blev han rød i hovedet og gik hjem.
+  - Facit: Klatten ville være frygtelig. Han øvede sig i at brøle foran en vandpyt. En lille frø grinede ad ham. Så blev han rød i hovedet og gik hjem.
+- [ ] `og-5b` (Og-ormen): Pennedal har tre måner og de hedder Blæk, Papir og Pen og de lyser hver sin farve.
+  - Facit: Pennedal har tre måner. De hedder Blæk, Papir og Pen. De lyser hver sin farve.
+- [ ] `og-5c` (Og-ormen): Floden løb hurtigt og vandet var koldt og klart og midt i floden stod en sten og på stenen sad en frø.
+  - Facit: Floden løb hurtigt. Vandet var koldt og klart. Midt i floden stod en sten. På stenen sad en frø.
