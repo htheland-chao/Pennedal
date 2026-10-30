@@ -11,7 +11,7 @@ export function OrdkortVindue({ id, onLuk }: { id: string; onLuk: () => void }) 
         {kort.billede}
       </p>
       <h2>{kort.ord}</h2>
-      <LaesOpKnap tekst={kort.ord} etiket={t('ordkort.hoer')} />
+      <LaesOpKnap tekst={kort.ord} etiket={t('ordkort.hoer')} figur="ord" />
       <p>{kort.forklaring}</p>
       <p>
         <strong>{t('ordkort.eksempel')}:</strong> {kort.eksempel}

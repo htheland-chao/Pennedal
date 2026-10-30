@@ -1,0 +1,94 @@
+name: Lyd
+
+# Laver indtalte lydklip med Google Gemini TTS og lægger dem i en pull request.
+# Kører hver nat, indtil alle klip er lavet, og kan startes i hånden under Actions > Lyd > Run workflow.
+# Kun spillets faste tekster fra src/content sendes til Google. Aldrig elevtekster.
+
+on:
+  workflow_dispatch:
+    inputs:
+      maks:
+        description: Højst så mange nye lydklip i denne kørsel
+        default: '40'
+      omgoer:
+        description: Nøgler på lydklip, der skal laves om (adskil med komma). Nøglen står på siden ?lyd=1
+        default: ''
+  schedule:
+    - cron: '23 2 * * *'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: lyd
+  cancel-in-progress: false
+
+jobs:
+  lyd:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      BASE: ${{ github.ref_name }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Fortsæt på den åbne lydgren, hvis den findes
+        id: gren
+        run: |
+          gren="lyd/auto-${BASE//\//-}"
+          echo "navn=$gren" >> "$GITHUB_OUTPUT"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git ls-remote --exit-code --heads origin "$gren" > /dev/null; then
+            git fetch origin "$gren"
+            git checkout -B "$gren" "origin/$gren"
+            git merge --no-edit "origin/$BASE"
+          else
+            git checkout -B "$gren"
+          fi
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Installér ffmpeg
+        run: command -v ffmpeg || (sudo apt-get update && sudo apt-get install -y ffmpeg)
+
+      - run: npm ci
+
+      - name: Lav lydklip
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          LYD_MAKS: ${{ inputs.maks || '40' }}
+          LYD_OMGOER: ${{ inputs.omgoer || '' }}
+        run: node scripts/lav-lyd.mjs
+
+      - name: Tjek at alt stadig er grønt
+        run: |
+          npm run typecheck
+          npm test
+
+      - name: Gem klippene og lav pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GREN: ${{ steps.gren.outputs.navn }}
+        run: |
+          git add public/lyd
+          if ! git diff --cached --quiet; then
+            git commit -m "Lyd: nye lydklip"
+          fi
+          if [ "$(git rev-list --count "origin/$BASE..HEAD")" = "0" ]; then
+            echo "Ingen nye lydklip."
+            exit 0
+          fi
+          git push origin "$GREN"
+          if [ -z "$(gh pr list --head "$GREN" --state open --json number --jq '.[].number')" ]; then
+            gh pr create --base "$BASE" --head "$GREN" --title "Nye lydklip" --body-file lyd-status.md \
+              || echo "::warning::Kunne ikke lave pull request. Slå 'Allow GitHub Actions to create and approve pull requests' til under Settings > Actions > General, eller lav den selv fra grenen $GREN."
+          else
+            gh pr comment "$GREN" --body-file lyd-status.md || true
+          fi

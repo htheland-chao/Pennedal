@@ -771,6 +771,41 @@ legend {
   font-family: system-ui, sans-serif;
 }
 
+.lydkorrektur {
+  max-width: 60rem;
+  margin: 1rem auto;
+  padding: 1.5rem 1.25rem 3rem;
+  background: var(--papir);
+  color: var(--tekst);
+  border-radius: 8px;
+}
+.lydkorrektur a {
+  color: var(--blaek-lys);
+}
+.lydliste {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.lydliste li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--papir-moerk);
+}
+.lydliste-tekst {
+  flex: 1 1 20rem;
+  min-width: 0;
+}
+.lydliste-noegle {
+  font-size: 0.85em;
+  color: var(--tekst-svag);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

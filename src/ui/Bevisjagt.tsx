@@ -38,7 +38,7 @@ export function Bevisjagt({ trin, nr, api }: { trin: BevisjagtTrin; nr: number; 
   return (
     <div className="bevisjagt" data-spoergsmaal-id={spg.id}>
       <h3>{trin.titel}</h3>
-      <LaesOpKnap tekst={trin.saetninger.map(renTekst).join(' ')} />
+      <LaesOpKnap tekst={trin.saetninger.map(renTekst).join(' ')} figur="fortaeller" />
       <p className="instruks">{t('bevisjagt.instruks')}</p>
       <p className="spoergsmaal">
         <span className="lille-tekst">{t('bevisjagt.spoergsmaal', { nr: nr + 1, antal: trin.spoergsmaal.length })}: </span>

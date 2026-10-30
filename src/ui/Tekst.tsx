@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { delTekst, renTekst, t } from '../content';
 import { useApp } from './Kontekst';
+import { type Figur, lydUrl, spilLyd, stopLyd, useLydManifest } from './lyd';
 import { danskeStemmer, naarStemmerErKlar, sig, stopTale } from './tale';
 
 /** Viser tekst, hvor {{ord}} bliver til knapper, der åbner et ordkort. */
@@ -27,21 +28,47 @@ export function useStemmeFindes(): boolean {
   return findes;
 }
 
-type LaesOpProps = { tekst: string; kunLokal?: boolean; etiket?: string; auto?: boolean };
+type LaesOpProps = {
+  tekst: string;
+  kunLokal?: boolean;
+  etiket?: string;
+  auto?: boolean;
+  /** Hvem der siger teksten. Med en figur bruges spillets indtalte klip, hvis det findes. */
+  figur?: Figur;
+};
 
-/** Knap, der læser en tekst op. Vises kun, hvis computeren har en dansk stemme. */
-export function LaesOpKnap({ tekst, kunLokal, etiket, auto }: LaesOpProps) {
+/**
+ * Knap, der læser en tekst op. Bruger spillets indtalte klip, hvis det findes,
+ * ellers computerens danske stemme. Vises ikke, hvis ingen af delene findes.
+ */
+export function LaesOpKnap({ tekst, kunLokal, etiket, auto, figur }: LaesOpProps) {
   const { indstillinger } = useApp();
   const findes = useStemmeFindes();
+  const { manifest, klar } = useLydManifest();
   const [taler, setTaler] = useState(false);
   const ren = renTekst(tekst);
+  const url = !kunLokal && figur && indstillinger.indtalt ? lydUrl(manifest, figur, ren) : null;
+  const styrke = indstillinger.taleStyrke;
+
+  const start = () => {
+    stopTale();
+    stopLyd();
+    const slut = () => setTaler(false);
+    if (url) setTaler(spilLyd(url, styrke, slut));
+    else setTaler(sig(ren, { stemme: indstillinger.stemme, kunLokal, styrke, vedSlut: slut }));
+  };
+
   useEffect(() => {
-    if (auto && indstillinger.oplaesning && findes) {
-      setTaler(sig(ren, { stemme: indstillinger.stemme, kunLokal, vedSlut: () => setTaler(false) }));
-    }
-    return () => stopTale();
-  }, [ren, auto, findes, indstillinger.oplaesning, indstillinger.stemme, kunLokal]);
-  if (!findes) return null;
+    if (auto && indstillinger.oplaesning && klar && (url || findes)) start();
+    return () => {
+      stopTale();
+      stopLyd();
+    };
+    // start bruger kun værdierne herunder.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [ren, auto, klar, url, findes, indstillinger.oplaesning, indstillinger.stemme, kunLokal]);
+
+  if (!findes && !url) return null;
   return (
     <button
       type="button"
@@ -50,10 +77,9 @@ export function LaesOpKnap({ tekst, kunLokal, etiket, auto }: LaesOpProps) {
       onClick={() => {
         if (taler) {
           stopTale();
+          stopLyd();
           setTaler(false);
-        } else {
-          setTaler(sig(ren, { stemme: indstillinger.stemme, kunLokal, vedSlut: () => setTaler(false) }));
-        }
+        } else start();
       }}
     >
       <span aria-hidden="true">🔊 </span>

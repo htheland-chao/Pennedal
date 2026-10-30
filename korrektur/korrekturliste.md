@@ -1,6 +1,6 @@
 # Korrekturliste - Pennedal
 
-Lavet 2026-10-30. 458 tekster.
+Lavet 2026-10-30. 472 tekster.
 
 Sæt kryds, når en tekst er læst. Bevidste fejl står under "Bevidste fejl" og skal ikke rettes.
 Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), så læs hele teksten.
@@ -9,7 +9,7 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 
 - [ ] `app.titel`: Pennedal
 - [ ] `app.undertitel`: Et eventyr om ord, der forsvinder
-- [ ] `app.pladsholder`: Testudgave. Grafikken er pladsholdere, og spillet har endnu ingen lyd.
+- [ ] `app.pladsholder`: Testudgave. Grafikken er pladsholdere, og lyden er ikke færdig.
 - [ ] `start.nyt`: Start et nyt eventyr
 - [ ] `start.fortsaet`: Fortsæt eventyret
 - [ ] `start.indlaes`: Fortsæt med en gemmekode
@@ -200,7 +200,10 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `laerer.luk`: Luk
 - [ ] `indst.titel`: Indstillinger
 - [ ] `indst.oplaesning`: Læs tekster op automatisk
-- [ ] `indst.stemme`: Stemme
+- [ ] `indst.indtalt`: Brug spillets indtalte stemmer
+- [ ] `indst.indtalt.forklaring`: Figurerne har hver sin stemme. Slår du det fra, bruger spillet computerens egen stemme.
+- [ ] `indst.styrke`: Lydstyrke for oplæsning
+- [ ] `indst.stemme`: Computerens stemme
 - [ ] `indst.stemme.ingen`: Der er ingen dansk stemme på denne computer. Brug din egen oplæsning, fx AppWriter eller IntoWords.
 - [ ] `indst.skrift`: Skrifttype
 - [ ] `indst.skrift.standard`: Standard
@@ -212,7 +215,7 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `indst.stoerrelse.3`: Ekstra stor
 - [ ] `indst.uhygge`: Mindre uhygge
 - [ ] `indst.uhygge.forklaring`: Fjerner forskrækkelser og gør mørke steder lysere.
-- [ ] `indst.lyd`: Spillet har ingen lyd endnu. Når der kommer lyd, vises den også som tekst.
+- [ ] `indst.lyd`: Al tale står også som tekst på skærmen.
 - [ ] `indst.luk`: Luk
 - [ ] `uhygge.ryst`: Pludselig bliver alt mørkt et øjeblik.
 - [ ] `debug.fps`: Billeder pr. sekund
@@ -235,6 +238,17 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `faerdighed.laes.praecision`: Præcis læsning
 - [ ] `faerdighed.laes.ordforraad`: Ordforråd
 - [ ] `faerdighed.laes.forstaaelse`: Læseforståelse
+- [ ] `lyd.titel`: Korrektur af lydklip
+- [ ] `lyd.intro`: Lyt alle klip igennem. Lyder et klip forkert, så kopiér nøglen. Kør derefter jobbet Lyd på GitHub og skriv nøglen i feltet til klip, der skal laves om.
+- [ ] `lyd.status`: {lavet} af {i_alt} klip er lavet.
+- [ ] `lyd.henter`: Henter lydklip …
+- [ ] `lyd.ingen`: Der er ingen lydklip endnu.
+- [ ] `lyd.afspil`: Afspil
+- [ ] `lyd.stop`: Stop
+- [ ] `lyd.kopier`: Kopiér nøgle
+- [ ] `lyd.kopieret`: Kopieret
+- [ ] `lyd.figur.ord`: Enkelte ord
+- [ ] `lyd.tilbage`: Tilbage til spillet
 
 ## Kapitel 1
 

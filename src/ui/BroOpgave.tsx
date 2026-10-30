@@ -67,7 +67,7 @@ export function BroOpgave({ bro, api }: { bro: Bro; api: OpgaveApi }) {
               {tekst(id)}
             </div>
             <div className="planke-knapper">
-              <LaesOpKnap tekst={tekst(id)} etiket={t('dialog.laes.op')} />
+              <LaesOpKnap tekst={tekst(id)} etiket={t('dialog.laes.op')} figur="fortaeller" />
               <button
                 type="button"
                 className="knap knap-lille"

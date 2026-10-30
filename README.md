@@ -18,7 +18,7 @@ Et danskfagligt fantasy-læringsspil til 5. klasse. Spillet kører i Chrome, ogs
 ## Hvad er ikke med endnu
 
 - Login, lobby og et samlet lærerpanel. De kræver, at elevdata gemmes på en server, og det venter, til kommunens databeskyttelsesrådgiver har godkendt det.
-- Rigtig grafik og lyd.
+- Rigtig grafik, musik og lydeffekter. De indtalte stemmer bliver lavet løbende (se Lyd og stemmer).
 - Kapitel 2 og frem.
 
 ## Databeskyttelse i version 0.1
@@ -55,6 +55,7 @@ Tilføj `?debug=1` til adressen for at se ydelsesmåleren (billeder pr. sekund o
 | `npm run stavetjek` | Stavetjekker al dansk tekst |
 | `npm run korrektur` | Laver `korrektur/korrekturliste.md` med al tekst til gennemlæsning |
 | `npm run build` | Bygger spillet til `dist/` |
+| `npm run lyd:status` | Tæller, hvor mange lydklip der mangler, og fjerner forældede klip |
 
 ## Lægge spillet online med Firebase Hosting (engangsopsætning)
 
@@ -64,6 +65,27 @@ Firebase Hosting er gratis på Spark-planen og kræver intet kreditkort. Du får
 2. Installér Firebase-værktøjet: `npm install -g firebase-tools` og log ind med `firebase login`.
 3. I projektmappen: `firebase init hosting:github`. Vælg dit projekt og repoet `htheland-chao/pennedal`. Brug den eksisterende `firebase.json`. Byggekommandoen er `npm ci && npm run build`.
 4. Værktøjet opretter selv en hemmelig nøgle på GitHub og to workflows, der lægger spillet online, når en pull request bliver merget.
+
+## Lyd og stemmer
+
+Figurerne har hver sin stemme, lavet med Google Gemini TTS. Stemmer og stilinstruktioner står i `src/content/stemmer.json`.
+
+**Det kan gå galt, og sådan er det forebygget:**
+
+- Elevtekster må aldrig sendes til Google. Kun tekster fra `src/content` bliver lavet til lyd, og en test tjekker det.
+- Nøglen må ikke komme i koden eller i chatten. Den ligger kun som hemmelighed på GitHub.
+- Dansk er en prøveversion hos Google, så udtalen kan være forkert. Lyt alle nye klip igennem, før du merger.
+- Mangler et klip, læser spillet op med computerens egen stemme. Al tale står også som tekst.
+
+**Engangsopsætning:**
+
+1. Lav en API-nøgle i [Google AI Studio](https://aistudio.google.com) med din private konto.
+2. På GitHub: Settings > Secrets and variables > Actions > New repository secret. Navn: `GEMINI_API_KEY`.
+3. På GitHub: Settings > Actions > General > Workflow permissions. Slå "Allow GitHub Actions to create and approve pull requests" til.
+
+**Sådan laves klippene:** Jobbet Lyd kører hver nat og laver op til 40 nye klip, indtil alle findes. Du kan også starte det selv under Actions > Lyd > Run workflow. Klippene kommer som en pull request.
+
+**Sådan lytter du:** Skriv `?lyd=1` efter spillets adresse. Lyder et klip forkert, så kopiér nøglen og kør jobbet Lyd med nøglen i feltet til klip, der skal laves om. Bliver et navn udtalt forkert, kan der skrives en udtalehjælp i `udtale` i `stemmer.json`.
 
 ## Indhold og tekst
 
@@ -77,6 +99,7 @@ Al dansk tekst ligger i `src/content/`:
 | `ord/ogorm.json` | Tekster til Og-ormen |
 | `ord/historiebro.json` | Historier til Historiebroen |
 | `ordkort.json` | Ordkort med forklaring og eksempel |
+| `stemmer.json` | Stemme og stilinstruktion til hver figur |
 | `maal.json` | Koblingen til Fælles Mål. Skiftes ud, når fagplanerne kommer i 2027 |
 
 Ord, som stavetjekket ikke kender, men som er rigtige, skrives i `scripts/egne-ord.txt`.
