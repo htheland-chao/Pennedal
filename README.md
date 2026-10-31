@@ -29,7 +29,9 @@ Der gemmes ingen navne, ingen e-mail og ingen elevtekster. Hostingudbyderen (Fir
 
 ## For Henrik: sådan prøver du spillet
 
-Spillet bliver lagt online automatisk, når Firebase er sat op (se herunder). Indtil da kan du køre det på din egen computer:
+**Testlink:** Den nyeste udgave af `main` ligger altid på https://htheland-chao.github.io/Pennedal/ (bliver opdateret, når testene er grønne). Linket er offentligt, så del det ikke med eleverne, før spillet er klar.
+
+Til eleverne skal spillet senere ligge på Firebase (se herunder). Du kan også køre det på din egen computer:
 
 1. Installér Node.js (LTS-udgaven) fra [nodejs.org](https://nodejs.org).
 2. Hent koden: Tryk på den grønne knap **Code** på GitHub og vælg **Download ZIP**. Pak den ud.
