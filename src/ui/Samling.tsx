@@ -3,16 +3,28 @@ import { FYRTAARN_MAKS } from '../config';
 import type { GemtSpil } from '../engine/gem';
 import { useApp } from './Kontekst';
 
-type Props = { spil: GemtSpil; kapitelSlut: boolean; onTilbage: () => void; onSpilIgen: () => void };
+type Props = {
+  spil: GemtSpil;
+  kapitelSlut: boolean;
+  onTilbage: () => void;
+  onSpilIgen: () => void;
+  /** Nummeret på næste kapitel, hvis det findes. */
+  naesteNr?: number;
+  onNaeste?: () => void;
+};
 
-export function Samling({ spil, kapitelSlut, onTilbage, onSpilIgen }: Props) {
+export function Samling({ spil, kapitelSlut, onTilbage, onSpilIgen, naesteNr, onNaeste }: Props) {
   const { visOrdkort } = useApp();
   const lys = Math.min(spil.faerdigeHistorier, FYRTAARN_MAKS);
   const styrke = lys / FYRTAARN_MAKS;
   return (
     <main className="side">
       <h1>{kapitelSlut ? t('samling.fyrtaarn') : t('samling.titel')}</h1>
-      {kapitelSlut && <p className="stor-ros">{t('samling.kapitel.slut')}</p>}
+      {kapitelSlut && (
+        <p className="stor-ros">
+          {t('samling.kapitel.slut', { nr: spil.kapitel })} {!naesteNr && t('samling.kapitel.paa.vej', { nr: spil.kapitel + 1 })}
+        </p>
+      )}
       <div className="samling-layout">
         <figure className="fyrtaarn">
           <svg viewBox="0 0 160 240" width="160" height="240" aria-hidden="true">
@@ -60,10 +72,15 @@ export function Samling({ spil, kapitelSlut, onTilbage, onSpilIgen }: Props) {
       <div className="knaprad">
         {kapitelSlut && (
           <button type="button" className="knap" onClick={onSpilIgen}>
-            {t('samling.spil.igen')}
+            {t('samling.spil.igen', { nr: spil.kapitel })}
           </button>
         )}
-        <button type="button" className="knap knap-primaer" onClick={onTilbage} autoFocus>
+        {naesteNr && onNaeste && (
+          <button type="button" className="knap knap-primaer" onClick={onNaeste} autoFocus>
+            {t('samling.naeste', { nr: naesteNr })}
+          </button>
+        )}
+        <button type="button" className={`knap ${naesteNr ? '' : 'knap-primaer'}`} onClick={onTilbage} autoFocus={!naesteNr}>
           {t('samling.tilbage')}
         </button>
       </div>

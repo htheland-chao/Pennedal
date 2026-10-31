@@ -37,3 +37,24 @@ export function spilVed(kapitel: Kapitel, maal: string, start: GemtSpil): GemtSp
   while (spil.trin < nr) spil = afslutTrin(spil, kapitel);
   return spil;
 }
+
+/**
+ * Til test: som spilVed, men leder i alle kapitler. Kapitlerne før er spillet færdige,
+ * så ting fra tidligere kapitler (fx Klattens kappe) også er låst op.
+ */
+export function spilVedIKapitler(kapitler: Kapitel[], maal: string, start: GemtSpil): GemtSpil | null {
+  let spil = start;
+  for (const k of [...kapitler].sort((a, b) => a.kapitel - b.kapitel)) {
+    const her = spilVed(k, maal, { ...spil, kapitel: k.kapitel, trin: 0, trinFremskridt: 0 });
+    if (her) return her;
+    let s = { ...spil, kapitel: k.kapitel, trin: 0, trinFremskridt: 0 };
+    while (!kapitelSlut(s, k)) s = afslutTrin(s, k);
+    spil = s;
+  }
+  return null;
+}
+
+/** Det næste kapitel efter det, eleven er i, hvis det findes. */
+export function naesteKapitel(kapitler: Kapitel[], nr: number): Kapitel | undefined {
+  return kapitler.find((k) => k.kapitel === nr + 1);
+}

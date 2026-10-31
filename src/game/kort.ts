@@ -17,6 +17,11 @@
  *   S  trappe ned                  U  trappe op
  *   d  dør ud                      t  tæppe (kan gås på)
  * Alle indendørs tegn undtagen '.' og 't' kan ikke gås på.
+ *
+ * Byen (kapitel 2):
+ *   o  brosten                     :  brosten med blækpletter (Klattens spor)
+ *   ;  græs med blomster           H  hus: tag ovenfra, facade nederst (kan ikke gås på)
+ *   w  bymur (kan ikke gås på)     f  springvand, 2 x 2 felter (kan ikke gås på)
  */
 export const FELT = 16;
 
@@ -39,8 +44,9 @@ export function laesKort(raekker: string[]): Kort {
 }
 
 export const erSti = (c: string) => c === '.' || c === 'L';
+export const erBrosten = (c: string) => c === 'o' || c === ':';
 export const erVand = (c: string) => c === '~' || c === 'M' || c === 'q';
-const INDE_FAST = new Set([...'KVvWRrDBPkSUd']);
+const INDE_FAST = new Set([...'KVvWRrDBPkSUdHwf']);
 export const erFastTegn = (c: string) => c === '#' || erVand(c) || c === 'p' || c === 'F' || INDE_FAST.has(c);
 
 /** Feltet, en pixelposition ligger i. */

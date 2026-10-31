@@ -1,7 +1,9 @@
 import da from './tekster/da.json';
 import kapitel1Data from './kapitler/kapitel1.json';
+import kapitel2Data from './kapitler/kapitel2.json';
 import stummeData from './ord/stumme.json';
 import ogormData from './ord/ogorm.json';
+import raaberData from './ord/raaber.json';
 import broData from './ord/historiebro.json';
 import ordkortData from './ordkort.json';
 import navneData from './avatar/navne.json';
@@ -23,7 +25,7 @@ export function harTekst(id: string): id is TekstId {
   return id in da;
 }
 
-export type Taler = 'holm' | 'aeseloere' | 'klatten' | 'lanterne' | 'fortaeller';
+export type Taler = 'holm' | 'aeseloere' | 'klatten' | 'lanterne' | 'fortaeller' | 'portvagt' | 'raaber' | 'borgmester' | 'ufaerdige';
 
 export type Replik = { taler: Taler; tekst: string; bevidstFejl?: boolean };
 
@@ -40,6 +42,10 @@ export type StedObjekt = {
   felt?: [number, number];
   /** Objektet forsvinder fra dette trin og frem, fx når Klatten er løbet sin vej. */
   skjulFra?: string;
+  /** Objektet er skjult, indtil kapitlet når dette trin. */
+  visFra?: string;
+  /** Pynt: byens folk, der står og snakker. Man kan ikke undersøge dem. */
+  snakker?: boolean;
   /** Objektet lyser om natten, fx en lanterne. */
   lys?: boolean;
 };
@@ -51,6 +57,8 @@ export type Sted = {
   /** Kort i felter (se src/game/kort.ts). Steder med kort tegnes i pixelgrafik set oppefra. */
   kort?: string[];
   startFelt?: [number, number];
+  /** Platformbane set fra siden (se src/game/bane.ts). Et sted har enten kort eller bane. */
+  bane?: string[];
   objekter: StedObjekt[];
 };
 
@@ -65,13 +73,15 @@ type FaellesTrin = {
   tilSted?: string;
   laaserOp?: string[];
   uhygge?: boolean;
+  /** Mørket: Den Ufærdige er til stede. Farverne forsvinder, og musikken skifter. */
+  moerke?: boolean;
 };
 
 export type DialogTrin = FaellesTrin & { type: 'dialog'; replikker: Replik[] };
 export type SkiftTrin = FaellesTrin & { type: 'skift'; tilSted: string };
 export type OpgaveTrin = FaellesTrin & {
   type: 'opgave';
-  mekanik: 'hviske' | 'ogorm' | 'historiebro';
+  mekanik: 'hviske' | 'ogorm' | 'historiebro' | 'raaber';
   faerdighed: string;
   antal: number;
 };
@@ -91,7 +101,40 @@ export type BevisjagtTrin = FaellesTrin & {
   spoergsmaal: BevisSpoergsmaal[];
 };
 
-export type Trin = DialogTrin | SkiftTrin | OpgaveTrin | BevisjagtTrin;
+/** En ting, man kan finde i et escape room-rum. */
+export type RumFund = {
+  objekt: string;
+  /** Det, der kommer i tasken. Uden ting er fundet kun noget at læse, fx en seddel. */
+  ting?: string;
+  /** Tingens navn i tasken. */
+  tingNavn?: string;
+  /** Det, fortælleren siger, når man undersøger stedet. */
+  tekst: string;
+  /** En længere tekst, eleven kan læse, fx en seddel. Vises som rigtig tekst. */
+  laesning?: string[];
+};
+
+/** Escape room: find tingene, og åbn låsen med en kode, man finder ved at læse. */
+export type RumTrin = FaellesTrin & {
+  type: 'rum';
+  objekt: null;
+  faerdighed: string;
+  fund: RumFund[];
+  laas: {
+    objekt: string;
+    /** Ting, der skal være i tasken, før man kan prøve koden. */
+    kraever: string[];
+    mangler: string;
+    gaade: string;
+    /** Rigtige svar (store og små bogstaver og mellemrum tæller ikke). */
+    svar: string[];
+    regel: string;
+    eksempel: string;
+    aabnet: string;
+  };
+};
+
+export type Trin = DialogTrin | SkiftTrin | OpgaveTrin | BevisjagtTrin | RumTrin;
 
 export type Kapitel = {
   kapitel: number;
@@ -103,7 +146,7 @@ export type Kapitel = {
 };
 
 // JSON giver tal-lister som number[]. Testene i kapitel.test.ts tjekker, at felterne har to tal.
-export const kapitler: Kapitel[] = [kapitel1Data as unknown as Kapitel];
+export const kapitler: Kapitel[] = [kapitel1Data as unknown as Kapitel, kapitel2Data as unknown as Kapitel];
 
 export function hentKapitel(nr: number): Kapitel | undefined {
   return kapitler.find((k) => k.kapitel === nr);
@@ -122,6 +165,7 @@ export const stumme = stummeData as { faerdighed: string; regler: Record<'d' | '
 
 export type OgTekst = { id: string; niveau: number; tekst: string };
 export const ogorm = ogormData as { faerdighed: string; tekster: OgTekst[] };
+export const raaber = raaberData as { faerdighed: string; saetninger: { id: string; niveau: number; tekst: string; tegn: '.' | '?' | '!' }[] };
 
 export type Traek = 'problem' | 'portal' | 'verden' | 'konflikt' | 'loesning' | 'hjemkomst';
 export type Historie = { id: string; titel: string; planker: Record<Traek, string>; fremmed: string };

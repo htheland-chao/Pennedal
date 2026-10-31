@@ -2,7 +2,7 @@ import Phaser from 'phaser';
 import type { StedObjekt } from '../content';
 import type { Avatar } from '../engine/gem';
 import { erFastTegn, FELT, feltMidte, feltVed, felterVed, findVej, laesKort, type Felt, type Kort } from './kort';
-import { bordflade, erInde, HOLM, KARTOTEK, KASSE, LOGBOG, PLANTE, reol, tegnRum, trappe, vindueslys } from './pixel/inde';
+import { bordflade, erInde, HOLM, KARTOTEK, KASSE, LOGBOG, PLANTE, PORT, PRESSE, reol, SPRINGVAND, STIGE, tegnRum, trappe, vindueslys } from './pixel/inde';
 import { belysning, hash, lavLys, lavSkygge, lysOpsaetning, tegnGrund, tegnkortTilLerred, tegnVand, VARMT, type Farve } from './pixel/lerred';
 import { avatarPixel, BLADE, FUGL, fyrtaarn, KLATTEN, LANTERNE, papirtrae, PIL, PLANKE, SKILT, STOLPE, TALEBOBLE, voksen, type Retning, type Tegnkort } from './pixel/sprites';
 import type { VerdenData, VerdenKroge } from './VerdenScene';
@@ -15,11 +15,11 @@ export const VIS_B = 320;
 export const VIS_H = 180;
 const FART = 70; // pixel pr. sekund i pixelverdenen
 const NAER = 24;
-const FASTE_FORMER = new Set(['gnom', 'skilt', 'person', 'skab']);
+const FASTE_FORMER = new Set(['gnom', 'skilt', 'person', 'skab', 'port', 'kasse', 'presse', 'borger', 'doer', 'stige']);
 /** Figurer med deres eget pixelbillede i stedet for en almindelig voksen. */
 const PERSONER: Record<string, Tegnkort> = { holm: HOLM };
 /** Hvor højt over feltets midte pilen svæver for hver form. */
-const PIL_HOEJDE: Record<string, number> = { gnom: 20, person: 27, skilt: 16, bog: 12, doer: 20, skab: 24 };
+const PIL_HOEJDE: Record<string, number> = { gnom: 20, person: 27, skilt: 16, bog: 12, doer: 22, skab: 24, port: 22, kasse: 14, presse: 16, stige: 24 };
 
 type Lyskilde = { x: number; y: number; billede: HTMLCanvasElement };
 
@@ -36,6 +36,7 @@ export class KortScene extends Phaser.Scene {
   private lysTekstur!: Phaser.Textures.CanvasTexture;
   private objektBilleder = new Map<string, Phaser.GameObjects.Image[]>();
   private planker: Phaser.GameObjects.Image[] = [];
+  private snakkebobler: Phaser.GameObjects.Image[] = [];
   private faste = new Set<string>();
   private lyskilder: Lyskilde[] = [];
   private fyrLamper: { x: number; y: number }[] = [];
@@ -78,6 +79,7 @@ export class KortScene extends Phaser.Scene {
     this.naer = null;
     this.objektBilleder = new Map();
     this.planker = [];
+    this.snakkebobler = [];
     this.taler = null;
     this.zoom = 1;
     this.zoomMaal = 1;
@@ -170,6 +172,9 @@ export class KortScene extends Phaser.Scene {
           const y = (ty + 1) * FELT - 1;
           this.add.image(tx * FELT + 8, y, 'px-fyr').setOrigin(0.5, 1).setDepth(y);
           this.fyrLamper.push({ x: tx * FELT + 8, y: y - 44 });
+        } else if (c === 'f' && this.kort.tegn(tx - 1, ty) !== 'f' && this.kort.tegn(tx, ty - 1) !== 'f') {
+          const y = (ty + 2) * FELT;
+          this.add.image(tx * FELT, y, this.tekstur('px-springvand', SPRINGVAND)).setOrigin(0, 1).setDepth(y - 1);
         } else if (inde) this.moebel(c, tx, ty, tema === 'kaelder');
       }
 
@@ -183,16 +188,28 @@ export class KortScene extends Phaser.Scene {
       else if (o.form === 'skilt') noegle = 'px-skilt';
       else if (o.form === 'person') noegle = PERSONER[o.id] ? this.tekstur(`px-person-${o.id}`, PERSONER[o.id]) : this.tekstur(`px-person-${o.farve}`, voksen(o.farve));
       else if (o.form === 'skab') noegle = this.tekstur('px-kartotek', KARTOTEK);
+      else if (o.form === 'port' || o.form === 'doer') noegle = this.tekstur('px-port', PORT);
+      else if (o.form === 'kasse') noegle = this.tekstur('px-kasse', KASSE);
+      else if (o.form === 'presse') noegle = this.tekstur('px-presse', PRESSE);
+      else if (o.form === 'stige') noegle = this.tekstur('px-stige', STIGE);
+      else if (o.form === 'borger') noegle = this.tekstur(`px-person-${o.farve}`, voksen(o.farve, o.lys ? '#3a2a20' : '#6b4a2b'));
       else if (o.form === 'bog') {
         // Bogen ligger fladt på disken og tegnes oven på den.
         billeder.push(this.add.image(o.felt[0] * FELT + 2, o.felt[1] * FELT + 2, this.tekstur('px-logbog', LOGBOG)).setOrigin(0).setDepth(o.felt[1] * FELT + 16));
       }
       if (noegle) {
-        if (o.form !== 'skilt' && o.form !== 'skab') billeder.push(this.add.image(midte.x, midte.y, 'px-skygge').setOrigin(0.5, 0.5).setDepth(midte.y - 1));
+        if (['gnom', 'person', 'borger'].includes(o.form)) billeder.push(this.add.image(midte.x, midte.y, 'px-skygge').setOrigin(0.5, 0.5).setDepth(midte.y - 1));
         billeder.push(this.add.image(midte.x, midte.y, noegle).setOrigin(0.5, 1).setDepth(midte.y).setData('y0', midte.y));
       }
       if (o.lys) {
         billeder.push(this.add.image(midte.x + 7, midte.y - 9, 'px-lanterne').setOrigin(0.5, 1).setDepth(midte.y + 1));
+      }
+      if (o.snakker) {
+        // Byens folk snakker i munden på hinanden: små talebobler, der kommer og går.
+        const b = this.add.image(midte.x + 4, midte.y - 28, 'px-boble').setOrigin(0.5, 1).setDepth(2_000_000).setVisible(false);
+        b.setData('snak', hash(o.felt[0] * 13, o.felt[1] * 7) * 6).setData('id', o.id);
+        this.snakkebobler.push(b);
+        billeder.push(b);
       }
       this.objektBilleder.set(o.id, billeder);
     }
@@ -246,9 +263,10 @@ export class KortScene extends Phaser.Scene {
       if (this.laast) return;
       const punkt = this.cameras.main.getWorldPoint(p.x, p.y);
       const [tx, ty] = feltVed(punkt.x, punkt.y);
-      const aktiv = this.aktivtObjekt();
-      if (aktiv?.felt && Math.abs(aktiv.felt[0] - tx) <= 1 && Math.abs(aktiv.felt[1] - ty) <= 1) {
-        this.gaaTilObjekt(aktiv.id);
+      // Trykker man på (eller lige ved) noget, man kan undersøge, går hovedpersonen derhen og undersøger det.
+      const ramt = this.kanUndersoeges().find((o) => o.felt && Math.abs(o.felt[0] - tx) <= 1 && Math.abs(o.felt[1] - ty) <= 1);
+      if (ramt) {
+        this.gaaTilObjekt(ramt.id);
         return;
       }
       if (!this.erFast(tx, ty)) this.saetVej([tx, ty], false);
@@ -297,6 +315,17 @@ export class KortScene extends Phaser.Scene {
 
   private aktivtObjekt(): StedObjekt | undefined {
     return this.data_.sted.objekter.find((o) => o.id === this.data_.aktiv);
+  }
+
+  /** Det, man kan undersøge lige nu: det aktive objekt eller alt i et escape room. */
+  private kanUndersoeges(): StedObjekt[] {
+    const ids = this.data_.aktive?.length ? this.data_.aktive : this.data_.aktiv ? [this.data_.aktiv] : [];
+    return this.data_.sted.objekter.filter((o) => ids.includes(o.id) && !(this.data_.skjulte ?? []).includes(o.id));
+  }
+
+  saetAktive(aktive: string[]) {
+    this.data_ = { ...this.data_, aktive };
+    this.opdaterNaer(true);
   }
 
   saetAktiv(id: string | null) {
@@ -447,12 +476,18 @@ export class KortScene extends Phaser.Scene {
   }
 
   private opdaterNaer(tving = false) {
-    const o = this.aktivtObjekt();
     let ny: string | null = null;
-    if (o?.felt && this.spiller) {
-      const m = feltMidte(o.felt);
-      if (Phaser.Math.Distance.Between(this.spiller.x, this.spiller.y, m.x, m.y) <= NAER) ny = o.id;
-    }
+    let bedst = NAER + 0.01;
+    if (this.spiller)
+      for (const o of this.kanUndersoeges()) {
+        if (!o.felt) continue;
+        const m = feltMidte(o.felt);
+        const d = Phaser.Math.Distance.Between(this.spiller.x, this.spiller.y, m.x, m.y);
+        if (d < bedst) {
+          bedst = d;
+          ny = o.id;
+        }
+      }
     if (ny !== this.naer || tving) {
       this.naer = ny;
       this.kroge?.onNaer(ny);
@@ -610,6 +645,13 @@ export class KortScene extends Phaser.Scene {
       const h = tp.billede === this.fugl ? 12 : tp.billede?.height ?? 24;
       this.boble.setVisible(true).setPosition(tp.x, tp.y - h - 3 - (tp.billede === this.fugl ? Math.sin(this.ur * 4) * 2 : 0));
     } else this.boble.setVisible(false);
+
+    // Byens folk snakker uden pause (taleboblerne blinker skiftevis).
+    if (!this.roligt)
+      for (const b of this.snakkebobler) {
+        const skjult = (this.data_.skjulte ?? []).includes(b.getData('id') as string) || !!this.taler;
+        b.setVisible(!skjult && Math.sin(this.ur * 2.2 + (b.getData('snak') as number)) > 0.1);
+      }
 
     // Pil over det, eleven skal undersøge.
     const aktiv = this.aktivtObjekt();
