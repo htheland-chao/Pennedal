@@ -6,7 +6,7 @@ Danskfagligt fantasy-læringsspil til en 5. klasse. Ejer: Henrik (klasselærer o
 
 - Skriv på dansk, kort og konkret. Brug bindestreg (-), aldrig tankestreg.
 - Spørg hellere end at gætte.
-- Start hver ny opgave med én linje: hvilken Claude-model der passer (Henrik vil spare forbrug uden at slække på kvaliteten). Sonnet til indhold, tekster, CSS, nye steder efter samme opskrift og små rettelser. Opus til ny motor eller arkitektur, svære fejl, Phaser-kamera og lys. Skriv også tænkningen: lav, middel eller høj (lav til rutine, middel til almindelige opgaver, høj kun når det er svært), fx "Model: Sonnet, lav".
+- Start hver ny opgave med én linje: hvilken Claude-model der passer (Henrik vil spare forbrug uden at slække på kvaliteten). Skriv altid den fulde betegnelse med versionsnummer, fx "Claude Sonnet 5.5" eller "Claude Opus 5.5" - aldrig bare "Sonnet" eller "Opus", da der findes flere versioner. Sonnet til indhold, tekster, CSS, nye steder efter samme opskrift og små rettelser. Opus til ny motor eller arkitektur, svære fejl, Phaser-kamera og lys. Skriv også tænkningen: lav, middel eller høj (lav til rutine, middel til almindelige opgaver, høj kun når det er svært), fx "Model: Claude Sonnet 5.5, lav".
 - Ved vigtige valg: beskriv først, hvordan det kan gå galt, og giv derefter en konkret anbefaling.
 - Påstå aldrig, at noget virker, uden at have kørt og tjekket det. Sig tydeligt, hvad der ikke er testet.
 
