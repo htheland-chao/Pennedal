@@ -31,6 +31,7 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
   const sted = kapitel.steder[stedId];
   const [aktivtTrin, setAktivtTrin] = useState<Trin | null>(null);
   const [naer, setNaer] = useState<string | null>(null);
+  const [hint, setHint] = useState<{ x: number; y: number } | null>(null);
   const [forskraek, setForskraek] = useState(0);
   /** Den, der taler i dialogen lige nu. Kameraet zoomer ind på dem. */
   const [taler, setTaler] = useState<string | null>(null);
@@ -42,13 +43,16 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
   const aktivtObjekt = trin && !aktivtTrin ? trin.objekt : null;
   const objektNavn = sted.objekter.find((o) => o.id === aktivtObjekt)?.navn;
   // Objekter, der er forsvundet, fordi kapitlet er nået forbi deres skjulFra-trin.
-  const skjulte = sted.objekter
+  const skjulteObjekter = sted.objekter
     .filter((o) => {
       if (!o.skjulFra) return false;
       const nr = kapitel.trin.findIndex((t) => t.id === o.skjulFra);
       return nr >= 0 && spil.trin >= nr;
     })
     .map((o) => o.id);
+  // Æseløre er skjult, indtil eleven har fundet ham (kapitlets fuglFra-trin).
+  const fuglNr = kapitel.fuglFra ? kapitel.trin.findIndex((t) => t.id === kapitel.fuglFra) : -1;
+  const skjulte = fuglNr >= 0 && spil.trin < fuglNr ? [...skjulteObjekter, 'aeseloere'] : skjulteObjekter;
 
   const startTrin = useCallback(
     (t: Trin) => {
@@ -128,10 +132,23 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
           mindreUhygge={indstillinger.mindreUhygge}
           forskraekSignal={forskraek}
           taler={taler}
-          kroge={{ onInteraktion: interaktion, onNaer: setNaer }}
+          kroge={{ onInteraktion: interaktion, onNaer: setNaer, onHint: setHint }}
           label={t('verden.sted', { sted: sted.navn })}
           fpsRef={fpsRef}
         />
+        {hint && naer && objektNavn && !laast && (
+          // Lille hint over tingen: tryk E. På en touchskærm kan man trykke på hintet.
+          <button
+            type="button"
+            className="tast-hint"
+            tabIndex={-1}
+            style={{ left: `${hint.x}%`, top: `${hint.y}%` }}
+            aria-label={t('verden.undersoeg', { navn: objektNavn })}
+            onClick={() => interaktion(naer)}
+          >
+            <kbd>{t('verden.tast.e')}</kbd>
+          </button>
+        )}
         <span className="pladsholder-maerke">{t('verden.pladsholder')}</span>
         {DEBUG && <Ydelse fps={() => fpsRef.current()} />}
       </div>

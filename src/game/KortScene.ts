@@ -45,7 +45,9 @@ export class KortScene extends Phaser.Scene {
   private faesteLys: Lyskilde[] = [];
   private fyrlys: HTMLCanvasElement[] = [];
   private objektlys!: HTMLCanvasElement;
-  private taster?: Record<'op' | 'ned' | 'venstre' | 'hoejre' | 'w' | 'a' | 's' | 'd' | 'enter' | 'mellemrum', Phaser.Input.Keyboard.Key>;
+  private taster?: Record<'op' | 'ned' | 'venstre' | 'hoejre' | 'w' | 'a' | 's' | 'd' | 'e' | 'enter' | 'mellemrum', Phaser.Input.Keyboard.Key>;
+  /** Sidst sendte placering af E-hintet, så React kun får besked, når det flytter sig. */
+  private sidsteHint = '';
   private vej: Felt[] = [];
   private interagerVedMaal = false;
   private retning: Retning = 'op';
@@ -203,7 +205,7 @@ export class KortScene extends Phaser.Scene {
     this.spiller = this.add.image(start.x, start.y, 'px-spiller-op-0').setOrigin(0.5, 1);
     this.lanterne = this.add.image(start.x, start.y, 'px-lanterne').setOrigin(0.5, 1);
     this.lanterne.setVisible((this.registry.get('avatar') as Avatar | undefined)?.tilbehoer === 3);
-    this.fugl = this.add.image(start.x - 14, start.y + 4, 'px-fugl').setOrigin(0.5, 1);
+    this.fugl = this.add.image(start.x - 14, start.y + 4, 'px-fugl').setOrigin(0.5, 1).setVisible(!(this.data_.skjulte ?? []).includes('aeseloere'));
     this.pil = this.add.image(0, 0, 'px-pil').setOrigin(0.5, 1).setDepth(2_000_000).setVisible(false);
     this.boble = this.add.image(0, 0, 'px-boble').setOrigin(0.5, 1).setDepth(2_000_001).setVisible(false);
 
@@ -234,6 +236,7 @@ export class KortScene extends Phaser.Scene {
         a: kb.addKey(K.A),
         s: kb.addKey(K.S),
         d: kb.addKey(K.D),
+        e: kb.addKey(K.E),
         enter: kb.addKey(K.ENTER),
         mellemrum: kb.addKey(K.SPACE),
       };
@@ -303,6 +306,7 @@ export class KortScene extends Phaser.Scene {
 
   saetSkjulte(skjulte: string[]) {
     this.data_ = { ...this.data_, skjulte };
+    if (this.fugl?.scene) this.fugl.setVisible(!skjulte.includes('aeseloere'));
     this.faste.clear();
     for (const o of this.data_.sted.objekter) {
       const skjult = skjulte.includes(o.id);
@@ -374,7 +378,7 @@ export class KortScene extends Phaser.Scene {
   /** Hvor den, der taler, står. Æseløre er fuglen, de andre er objekter på stedet med samme id. */
   private talerPunkt(): { x: number; y: number; billede?: Phaser.GameObjects.Image } | null {
     if (!this.taler || this.taler === 'fortaeller') return null;
-    if (this.taler === 'aeseloere') return { x: this.fugl.x, y: this.fugl.y, billede: this.fugl };
+    if (this.taler === 'aeseloere') return this.fugl.visible ? { x: this.fugl.x, y: this.fugl.y, billede: this.fugl } : null;
     const o = this.data_.sted.objekter.find((x) => x.id === this.taler && x.felt);
     if (!o?.felt || this.data_.skjulte?.includes(o.id)) return null;
     const m = feltMidte(o.felt);
@@ -455,6 +459,24 @@ export class KortScene extends Phaser.Scene {
     }
   }
 
+  /** Hvor E-hintet skal stå: over det, eleven kan undersøge, i procent af spilfladen. */
+  private sendHint() {
+    let pos: { x: number; y: number } | null = null;
+    const o = this.naer && !this.laast && !this.taler ? this.data_.sted.objekter.find((x) => x.id === this.naer) : undefined;
+    if (o?.felt) {
+      const m = feltMidte(o.felt);
+      const h = PIL_HOEJDE[o.form] ?? 6;
+      const cam = this.cameras.main;
+      const sx = (m.x - cam.worldView.x) * cam.zoom;
+      const sy = (m.y - h - 4 - cam.worldView.y) * cam.zoom;
+      pos = { x: Math.round((sx / VIS_B) * 1000) / 10, y: Math.round((sy / VIS_H) * 1000) / 10 };
+    }
+    const noegle = pos ? `${pos.x},${pos.y}` : '';
+    if (noegle === this.sidsteHint) return;
+    this.sidsteHint = noegle;
+    this.kroge?.onHint?.(pos);
+  }
+
   private flytKamera(f: number) {
     const [lx, ly] = { op: [0, -1], ned: [0, 1], venstre: [-1, 0], hoejre: [1, 0] }[this.retning];
     let mx = this.spiller.x + lx * 22;
@@ -524,7 +546,8 @@ export class KortScene extends Phaser.Scene {
         }
         gaar = true;
       }
-      if (t && this.naer && (Phaser.Input.Keyboard.JustDown(t.enter) || Phaser.Input.Keyboard.JustDown(t.mellemrum))) {
+      // E undersøger. Enter og mellemrum virker også, så tastaturbrugere ikke skal lære noget nyt.
+      if (t && this.naer && (Phaser.Input.Keyboard.JustDown(t.e) || Phaser.Input.Keyboard.JustDown(t.enter) || Phaser.Input.Keyboard.JustDown(t.mellemrum))) {
         this.kroge?.onInteraktion(this.naer);
       }
     } else if (this.gaarTilTaler && this.vej.length > 0) {
@@ -597,6 +620,7 @@ export class KortScene extends Phaser.Scene {
     } else this.pil.setVisible(false);
 
     this.opdaterNaer();
+    this.sendHint();
 
     // Kamera og lys. Zoomen glider ind og ud.
     const k2 = this.roligt ? 1 : 1 - Math.pow(0.02, dt);

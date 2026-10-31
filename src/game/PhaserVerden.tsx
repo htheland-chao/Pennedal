@@ -61,6 +61,7 @@ export function PhaserVerden(props: Props) {
     game.registry.set('kroge', {
       onInteraktion: (id: string) => kroge.current.onInteraktion(id),
       onNaer: (id: string | null) => kroge.current.onNaer(id),
+      onHint: (pos: { x: number; y: number } | null) => kroge.current.onHint?.(pos),
     } satisfies VerdenKroge);
     game.registry.set('avatar', props.avatar);
     const foerste = aktivNoegle.current;
