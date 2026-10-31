@@ -73,7 +73,7 @@ export function OpgaveRamme(props: Props) {
     if (rigtigt) {
       const tekst =
         forsoeg === 1 && Math.random() < 0.3 ? t('opgave.ros.foersteforsoeg') : t(ROS[Math.floor(Math.random() * ROS.length)]);
-      setBesked({ tekst, slags: 'god' });
+      setBesked({ tekst, slags: 'god', visRegel: true });
       setFase('rigtig');
       return;
     }
