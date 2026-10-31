@@ -23,3 +23,17 @@ export function afslutTrin(spil: GemtSpil, kapitel: Kapitel): GemtSpil {
   for (const id of t.laaserOp ?? []) if (!laasteOp.includes(id)) laasteOp.push(id);
   return { ...spil, trin: spil.trin + 1, trinFremskridt: 0, laasteOp };
 }
+
+/**
+ * Til test: et spil, der står ved et bestemt trin. Maal er et trins id (fx "k1-kaelder")
+ * eller et steds id (fx "kaelder", så bruges det første trin på stedet).
+ * Trinnene før springes over med afslutTrin, så ting, der låses op undervejs, også er låst op.
+ */
+export function spilVed(kapitel: Kapitel, maal: string, start: GemtSpil): GemtSpil | null {
+  let nr = kapitel.trin.findIndex((t) => t.id === maal);
+  if (nr < 0) nr = kapitel.trin.findIndex((t) => t.sted === maal);
+  if (nr < 0) return null;
+  let spil = start;
+  while (spil.trin < nr) spil = afslutTrin(spil, kapitel);
+  return spil;
+}

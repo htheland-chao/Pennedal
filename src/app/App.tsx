@@ -10,7 +10,7 @@ import {
   type GemtSpil,
   type Indstillinger,
 } from '../engine/gem';
-import { kapitelSlut } from '../engine/kapitel';
+import { kapitelSlut, spilVed } from '../engine/kapitel';
 import { AvatarDesigner } from '../ui/AvatarDesigner';
 import { GemmekodeVindue, IndlaesSide } from '../ui/Gemmekode';
 import { IndstillingerVindue } from '../ui/IndstillingerVindue';
@@ -21,11 +21,19 @@ import { OrdkortVindue } from '../ui/OrdkortVindue';
 import { Samling } from '../ui/Samling';
 import { Verden } from './Verden';
 
-type Skaerm = 'start' | 'ny-avatar' | 'ret-avatar' | 'verden' | 'indlaes' | 'laerer' | 'samling';
+type Skaerm = 'start' | 'ny-avatar' | 'ret-avatar' | 'verden' | 'indlaes' | 'laerer' | 'samling' | 'hop';
+
+/**
+ * Til test: ?hop viser en liste over steder, ?hop=kaelder (et sted eller et trins id) starter direkte der.
+ * Et hop-spil bliver aldrig gemt, så et rigtigt spil i browseren ikke bliver overskrevet.
+ */
+const HOP = typeof location !== 'undefined' ? new URLSearchParams(location.search).get('hop') : null;
+const HOP_KAPITEL = hentKapitel(1);
+const HOP_SPIL = HOP && HOP_KAPITEL ? spilVed(HOP_KAPITEL, HOP, nytSpil(STANDARD_AVATAR, { adjektiv: 0, dyr: 0 })) : null;
 
 export function App() {
-  const [skaerm, setSkaerm] = useState<Skaerm>('start');
-  const [spil, setSpil] = useState<GemtSpil | null>(() => hentGemtSpil());
+  const [skaerm, setSkaerm] = useState<Skaerm>(HOP_SPIL ? 'verden' : HOP !== null ? 'hop' : 'start');
+  const [spil, setSpil] = useState<GemtSpil | null>(() => HOP_SPIL ?? hentGemtSpil());
   const [indstillinger, setIndstillinger] = useState<Indstillinger>(() => hentIndstillinger());
   const [ordkort, setOrdkort] = useState<string | null>(null);
   const [visIndstillinger, setVisIndstillinger] = useState(false);
@@ -42,7 +50,7 @@ export function App() {
 
   function opdater(s: GemtSpil) {
     setSpil(s);
-    gemSpil(s);
+    if (!HOP_SPIL) gemSpil(s);
   }
 
   function skiftIndstillinger(i: Indstillinger) {
@@ -99,6 +107,23 @@ export function App() {
         </main>
       )}
 
+      {skaerm === 'hop' && HOP_KAPITEL && (
+        <main className="side start">
+          <h1 className="titel">{t('hop.overskrift')}</h1>
+          <p>{t('hop.forklaring')}</p>
+          <ul className="hop-liste">
+            {Object.entries(HOP_KAPITEL.steder).map(([id, sted]) => (
+              <li key={id}>
+                <a className="knap" href={`?hop=${id}`}>
+                  {sted.navn}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <a href="./">{t('hop.forside')}</a>
+        </main>
+      )}
+
       {skaerm === 'ny-avatar' && (
         <AvatarDesigner
           ny
@@ -128,6 +153,12 @@ export function App() {
             setSkaerm('verden');
           }}
         />
+      )}
+
+      {skaerm === 'verden' && spil && HOP_SPIL && (
+        <p className="hop-banner" role="status">
+          {t('hop.test')}
+        </p>
       )}
 
       {skaerm === 'verden' && spil && (
