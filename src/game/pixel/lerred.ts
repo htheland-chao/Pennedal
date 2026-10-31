@@ -5,6 +5,9 @@ import type { Tegnkort } from './sprites';
 const BAYER = [0, 8, 2, 10, 12, 4, 14, 6, 3, 11, 1, 9, 15, 7, 13, 5].map((v) => v / 16);
 const bay = (x: number, y: number) => BAYER[(y & 3) * 4 + (x & 3)];
 
+/** Lysstyrke 0-1 rundet til 4 trin med Bayer-dither, så der ikke er bløde overgange. */
+export const lysTrin = (s: number, x: number, y: number) => Math.floor(s * 4 + bay(x, y)) / 4;
+
 export function hash(x: number, y: number): number {
   let n = (Math.imul(x | 0, 374761393) + Math.imul(y | 0, 668265263)) | 0;
   n = Math.imul(n ^ (n >>> 13), 1274126177);
@@ -130,14 +133,32 @@ export function tegnVand(kort: Kort, ramme: number): HTMLCanvasElement {
   return c;
 }
 
+export type Farve = [number, number, number];
+
 /** Nattens grundtone. Lyset ganges på billedet, så alt bliver blåligt undtagen der, hvor noget lyser. */
-export function grundtone(mindreUhygge: boolean): [number, number, number] {
+export function grundtone(mindreUhygge: boolean): Farve {
   return mindreUhygge ? [205, 210, 238] : [140, 148, 217];
 }
-const VARMT: [number, number, number] = [255, 250, 219];
+export const VARMT: Farve = [255, 250, 219];
+
+/**
+ * Lyset på et sted. Grundtonen ganges på hele billedet. Hovedpersonens lygte har radius spillerLys (0 = ingen).
+ *   nat:    udendørs om natten (Pennedal, floden, fyrtårnet)
+ *   morgen: skolebiblioteket med morgensol gennem vinduerne
+ *   moerke: kælderen, hvor kun lygten og lyset fra trappen lyser
+ */
+export type Belysning = 'nat' | 'morgen' | 'moerke';
+export function belysning(tema: string): Belysning {
+  return tema === 'bibliotek' ? 'morgen' : tema === 'kaelder' ? 'moerke' : 'nat';
+}
+export function lysOpsaetning(b: Belysning, mindreUhygge: boolean): { tone: Farve; spillerLys: number } {
+  if (b === 'morgen') return { tone: [236, 222, 200], spillerLys: 0 };
+  if (b === 'moerke') return mindreUhygge ? { tone: [150, 148, 184], spillerLys: 80 } : { tone: [64, 62, 96], spillerLys: 70 };
+  return { tone: grundtone(mindreUhygge), spillerLys: 76 };
+}
 
 /** En lyskegle i 4 trin med Bayer-dither. Gennemsigtig uden for keglen. */
-export function lavLys(r: number, styrke: number, tone: [number, number, number]): HTMLCanvasElement {
+export function lavLys(r: number, styrke: number, tone: Farve, farve: Farve = VARMT): HTMLCanvasElement {
   const c = lerred(r * 2, r * 2);
   const g = c.getContext('2d')!;
   const img = g.createImageData(r * 2, r * 2);
@@ -145,11 +166,10 @@ export function lavLys(r: number, styrke: number, tone: [number, number, number]
   for (let y = 0; y < r * 2; y++)
     for (let x = 0; x < r * 2; x++) {
       const d = Math.hypot(x + 0.5 - r, (y + 0.5 - r) * 1.25);
-      let s = Math.pow(Math.max(0, 1 - d / r), 1.1) * styrke;
-      s = Math.floor(s * 4 + bay(x, y)) / 4;
+      const s = lysTrin(Math.pow(Math.max(0, 1 - d / r), 1.1) * styrke, x, y);
       if (s <= 0) continue;
       const o = (y * r * 2 + x) * 4;
-      for (let k = 0; k < 3; k++) p[o + k] = tone[k] + s * (VARMT[k] - tone[k]);
+      for (let k = 0; k < 3; k++) p[o + k] = tone[k] + s * (farve[k] - tone[k]);
       p[o + 3] = 255;
     }
   g.putImageData(img, 0, 0);

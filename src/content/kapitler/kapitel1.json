@@ -6,18 +6,48 @@
       "navn": "Skolebiblioteket",
       "tema": "bibliotek",
       "start": { "x": 480, "y": 440 },
+      "kort": [
+        "KVVVvvVVVVVVVVvvVVVK",
+        "KVVVvvVVVVVVVVvvVVVK",
+        "KRRR..RRRRRRRR..RRRK",
+        "K..................K",
+        "K..BB.....DDDD.....K",
+        "K..BB..............K",
+        "K......tttttt......K",
+        "K......tttttt..rr..K",
+        "K..BB..tttttt..rr..K",
+        "K..BB.............SK",
+        "K...P..............K",
+        "KKKKKKKKKddKKKKKKKKK"
+      ],
+      "startFelt": [9, 10],
       "objekter": [
-        { "id": "holm", "navn": "hr. Holm", "x": 300, "y": 300, "w": 60, "h": 100, "form": "person", "farve": "#7a5c3e" },
-        { "id": "logbog", "navn": "logbogen på disken", "x": 520, "y": 250, "w": 90, "h": 50, "form": "bog", "farve": "#c9a46a" },
-        { "id": "kaeldertrappe", "navn": "trappen til kælderen", "x": 820, "y": 360, "w": 90, "h": 120, "form": "doer", "farve": "#3b2f2a" }
+        { "id": "holm", "navn": "hr. Holm", "x": 300, "y": 300, "w": 60, "h": 100, "form": "person", "farve": "#7a5c3e", "felt": [10, 5] },
+        { "id": "logbog", "navn": "logbogen på disken", "x": 520, "y": 250, "w": 90, "h": 50, "form": "bog", "farve": "#c9a46a", "felt": [12, 4] },
+        { "id": "kaeldertrappe", "navn": "trappen til kælderen", "x": 820, "y": 360, "w": 90, "h": 120, "form": "doer", "farve": "#3b2f2a", "felt": [18, 9] }
       ]
     },
     "kaelder": {
       "navn": "Kælderen",
       "tema": "kaelder",
       "start": { "x": 160, "y": 430 },
+      "kort": [
+        "KWWWWWWWWWWWWWWWWWWWWK",
+        "KWWWWWWWWWWWWWWWWWWWWK",
+        "KRRRR..RRRRRR.......RK",
+        "K....................K",
+        "K..kk.......rr.......K",
+        "K...........rr...kk..K",
+        "K....................K",
+        "K......rr............K",
+        "K......rr.......k....K",
+        "KU...................K",
+        "K...k.........k......K",
+        "KKKKKKKKKKKKKKKKKKKKKK"
+      ],
+      "startFelt": [2, 9],
       "objekter": [
-        { "id": "skuffe", "navn": "kartoteksskabet", "x": 700, "y": 280, "w": 130, "h": 170, "form": "skab", "farve": "#6b4a2b" }
+        { "id": "skuffe", "navn": "kartoteksskabet", "x": 700, "y": 280, "w": 130, "h": 170, "form": "skab", "farve": "#6b4a2b", "felt": [16, 2] }
       ]
     },
     "pennedal": {

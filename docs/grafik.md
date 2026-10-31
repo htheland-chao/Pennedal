@@ -47,6 +47,14 @@ Prototypen, der viser stilen: "Pennedal set oppefra" (Claude-artefakt). Den er t
 - Nat: hele billedet ganges med grundtonen `rgb(140, 148, 217)`.
 - Lanternen og fyrtårnet lyser op med `rgb(255, 250, 219)` i 4 trin med Bayer-dither, ingen bløde overgange.
 - "Mindre uhygge": grundtonen bliver lysere, fx `rgb(200, 205, 235)`.
+- Indendørs gælder tonen for stedet i stedet for nattens grundtone. Biblioteket: morgensol `rgb(236, 222, 200)` med lys skråt ind fra vinduerne og en lampe på disken. Kælderen: mørk `rgb(64, 62, 96)`, kun lygten og lyset fra trappen lyser. Med "Mindre uhygge" er kælderen `rgb(150, 148, 184)`.
+- Lys lægges oven på hinanden med "lighten", så det stærkeste vinder, hvor to lys mødes.
+
+## Indendørs
+
+- Kortets tegn står i `src/game/kort.ts`. Møbler er figurer med fodpunkt, så man kan gå bag om reoler og borde.
+- Væg i biblioteket: træpanel `#8a5a3a` `#7a4e33`, liste `#3a2a20`. Kældervæg: sten `#5b5663` `#4f4a57`. Kældergulv: fliser `#7a7468` `#716b60`, så gulv og væg ikke ligner hinanden.
+- Bogrygge har farver, men aldrig bogstaver.
 
 ## Skrift
 

@@ -2,9 +2,10 @@ import { describe, expect, it } from 'vitest';
 import { kapitler } from '../content';
 import { STANDARD_AVATAR } from '../engine/gem';
 import { erFastTegn, felterVed, findVej, laesKort, type Felt } from './kort';
+import { HOLM, KARTOTEK, KASSE, LOGBOG, PLANTE } from './pixel/inde';
 import { avatarPixel, BLADE, FUGL, fyrtaarn, KLATTEN, LANTERNE, papirtrae, PIL, PLANKE, SKILT, STOLPE, voksen, type Tegnkort } from './pixel/sprites';
 
-const FASTE_FORMER = new Set(['gnom', 'skilt', 'person']);
+const FASTE_FORMER = new Set(['gnom', 'skilt', 'person', 'skab']);
 
 describe('kort', () => {
   it('finder den korteste vej uden om skov', () => {
@@ -20,7 +21,7 @@ describe('kort', () => {
         if (!sted.kort) continue;
         const k = laesKort(sted.kort);
         expect(new Set(sted.kort.map((r) => r.length)).size, `${id}: lige lange rækker`).toBe(1);
-        expect(sted.kort.join('').replace(/[#,.L~Mpq F]/g, ''), `${id}: ukendte tegn`).toBe('');
+        expect(sted.kort.join('').replace(/[#,.L~Mpq FKVvWRrDBPkSUdt]/g, ''), `${id}: ukendte tegn`).toBe('');
         const faste = new Set(sted.objekter.filter((o) => o.felt && FASTE_FORMER.has(o.form)).map((o) => `${o.felt![0]},${o.felt![1]}`));
         const fast = (x: number, y: number) => erFastTegn(k.tegn(x, y)) || faste.has(`${x},${y}`);
         const start = sted.startFelt as Felt;
@@ -51,6 +52,7 @@ describe('pixelfigurer', () => {
     const alle: [string, Tegnkort][] = [
       ['fugl', FUGL], ['klatten', KLATTEN], ['skilt', SKILT], ['lanterne', LANTERNE], ['blade', BLADE], ['stolpe', STOLPE],
       ['planke', PLANKE], ['pil', PIL], ['fyrtårn', fyrtaarn()], ['voksen', voksen('#b0413e')], ['træ', papirtrae(30)],
+      ['hr. Holm', HOLM], ['kartotek', KARTOTEK], ['kasse', KASSE], ['logbog', LOGBOG], ['plante', PLANTE],
     ];
     for (const [n, t] of alle) tjek(n, t);
   });

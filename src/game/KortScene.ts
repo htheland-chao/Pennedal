@@ -2,7 +2,8 @@ import Phaser from 'phaser';
 import type { StedObjekt } from '../content';
 import type { Avatar } from '../engine/gem';
 import { erFastTegn, FELT, feltMidte, feltVed, felterVed, findVej, laesKort, type Felt, type Kort } from './kort';
-import { grundtone, hash, lavLys, lavSkygge, tegnGrund, tegnkortTilLerred, tegnVand } from './pixel/lerred';
+import { bordflade, erInde, HOLM, KARTOTEK, KASSE, LOGBOG, PLANTE, reol, tegnRum, trappe, vindueslys } from './pixel/inde';
+import { belysning, hash, lavLys, lavSkygge, lysOpsaetning, tegnGrund, tegnkortTilLerred, tegnVand, VARMT, type Farve } from './pixel/lerred';
 import { avatarPixel, BLADE, FUGL, fyrtaarn, KLATTEN, LANTERNE, papirtrae, PIL, PLANKE, SKILT, STOLPE, voksen, type Retning, type Tegnkort } from './pixel/sprites';
 import type { VerdenData, VerdenKroge } from './VerdenScene';
 
@@ -14,7 +15,11 @@ export const VIS_B = 320;
 export const VIS_H = 180;
 const FART = 70; // pixel pr. sekund i pixelverdenen
 const NAER = 24;
-const FASTE_FORMER = new Set(['gnom', 'skilt', 'person']);
+const FASTE_FORMER = new Set(['gnom', 'skilt', 'person', 'skab']);
+/** Figurer med deres eget pixelbillede i stedet for en almindelig voksen. */
+const PERSONER: Record<string, Tegnkort> = { holm: HOLM };
+/** Hvor højt over feltets midte pilen svæver for hver form. */
+const PIL_HOEJDE: Record<string, number> = { gnom: 20, person: 27, skilt: 16, bog: 12, doer: 20, skab: 24 };
 
 type Lyskilde = { x: number; y: number; billede: HTMLCanvasElement };
 
@@ -34,7 +39,10 @@ export class KortScene extends Phaser.Scene {
   private faste = new Set<string>();
   private lyskilder: Lyskilde[] = [];
   private fyrLamper: { x: number; y: number }[] = [];
-  private lygte!: HTMLCanvasElement;
+  private lygte: HTMLCanvasElement | null = null;
+  private tone: Farve = [255, 255, 255];
+  /** Lys, der ikke flytter sig: vinduer, lampen på disken og lyset fra trappen. */
+  private faesteLys: Lyskilde[] = [];
   private fyrlys: HTMLCanvasElement[] = [];
   private objektlys!: HTMLCanvasElement;
   private taster?: Record<'op' | 'ned' | 'venstre' | 'hoejre' | 'w' | 'a' | 's' | 'd' | 'enter' | 'mellemrum', Phaser.Input.Keyboard.Key>;
@@ -62,6 +70,7 @@ export class KortScene extends Phaser.Scene {
     this.planker = [];
     this.lyskilder = [];
     this.fyrLamper = [];
+    this.faesteLys = [];
   }
 
   private get kroge(): VerdenKroge {
@@ -112,8 +121,13 @@ export class KortScene extends Phaser.Scene {
     this.tekstur('px-skygge', lavSkygge(12));
     this.byggAvatar();
 
-    // Jorden og vandet for dette sted.
-    this.add.image(0, 0, this.tekstur(`px-grund-${tema}`, tegnGrund(this.kort), true)).setOrigin(0).setDepth(-100000);
+    const inde = erInde(this.kort);
+    const lys = lysOpsaetning(belysning(tema), mindreUhygge);
+    this.tone = lys.tone;
+
+    // Jorden og vandet for dette sted. Indendørs: gulv og vægge.
+    const grund = inde ? tegnRum(this.kort, tema === 'kaelder' ? 'sten' : 'trae') : tegnGrund(this.kort);
+    this.add.image(0, 0, this.tekstur(`px-grund-${tema}`, grund, true)).setOrigin(0).setDepth(-100000);
     for (let i = 0; i < 3; i++) this.tekstur(`px-vand-${tema}-${i}`, tegnVand(this.kort, i), true);
     this.vand = this.add.image(0, 0, `px-vand-${tema}-0`).setOrigin(0).setDepth(-99999);
 
@@ -142,7 +156,7 @@ export class KortScene extends Phaser.Scene {
           const y = (ty + 1) * FELT - 1;
           this.add.image(tx * FELT + 8, y, 'px-fyr').setOrigin(0.5, 1).setDepth(y);
           this.fyrLamper.push({ x: tx * FELT + 8, y: y - 44 });
-        }
+        } else if (inde) this.moebel(c, tx, ty, tema === 'kaelder');
       }
 
     // Objekter: Klatten, skilte og personer.
@@ -153,9 +167,14 @@ export class KortScene extends Phaser.Scene {
       let noegle: string | null = null;
       if (o.form === 'gnom') noegle = 'px-klatten';
       else if (o.form === 'skilt') noegle = 'px-skilt';
-      else if (o.form === 'person') noegle = this.tekstur(`px-person-${o.farve}`, voksen(o.farve));
+      else if (o.form === 'person') noegle = PERSONER[o.id] ? this.tekstur(`px-person-${o.id}`, PERSONER[o.id]) : this.tekstur(`px-person-${o.farve}`, voksen(o.farve));
+      else if (o.form === 'skab') noegle = this.tekstur('px-kartotek', KARTOTEK);
+      else if (o.form === 'bog') {
+        // Bogen ligger fladt på disken og tegnes oven på den.
+        billeder.push(this.add.image(o.felt[0] * FELT + 2, o.felt[1] * FELT + 2, this.tekstur('px-logbog', LOGBOG)).setOrigin(0).setDepth(o.felt[1] * FELT + 16));
+      }
       if (noegle) {
-        if (o.form !== 'skilt') billeder.push(this.add.image(midte.x, midte.y, 'px-skygge').setOrigin(0.5, 0.5).setDepth(midte.y - 1));
+        if (o.form !== 'skilt' && o.form !== 'skab') billeder.push(this.add.image(midte.x, midte.y, 'px-skygge').setOrigin(0.5, 0.5).setDepth(midte.y - 1));
         billeder.push(this.add.image(midte.x, midte.y, noegle).setOrigin(0.5, 1).setDepth(midte.y));
       }
       if (o.lys) {
@@ -163,7 +182,7 @@ export class KortScene extends Phaser.Scene {
       }
       this.objektBilleder.set(o.id, billeder);
     }
-    this.objektlys = lavLys(46, 0.9, grundtone(mindreUhygge));
+    this.objektlys = lavLys(46, 0.9, this.tone);
     this.saetSkjulte(this.data_.skjulte ?? []);
 
     // Hovedpersonen og Æseløre.
@@ -176,9 +195,10 @@ export class KortScene extends Phaser.Scene {
     this.pil = this.add.image(0, 0, 'px-pil').setOrigin(0.5, 1).setDepth(2_000_000).setVisible(false);
 
     // Nattelys: et lag, der ganges på billedet. Lanternen og fyrtårnet lyser op.
-    const tone = grundtone(mindreUhygge);
-    this.lygte = lavLys(76, 0.95, tone);
+    const tone = this.tone;
+    this.lygte = lys.spillerLys > 0 ? lavLys(lys.spillerLys, 0.95, tone) : null;
     this.fyrlys = [lavLys(34, 0.75, tone), lavLys(40, 0.85, tone)];
+    if (inde) this.lavFaesteLys();
     if (this.textures.exists('px-lys')) this.textures.remove('px-lys');
     this.lysTekstur = this.textures.createCanvas('px-lys', VIS_B, VIS_H)!;
     this.lysTekstur.setFilter(Phaser.Textures.FilterMode.NEAREST);
@@ -221,6 +241,42 @@ export class KortScene extends Phaser.Scene {
     this.events.on(Phaser.Scenes.Events.SHUTDOWN, () => {
       this.input.off('pointerdown');
     });
+  }
+
+  /** Et møbel fra kortet. Fodpunktet bestemmer dybden, så man kan gå bag om det. */
+  private moebel(c: string, tx: number, ty: number, kaelder: boolean) {
+    const k = this.kort;
+    const saet = (noegle: string, x: number, bund: number) => this.add.image(x, bund, noegle).setOrigin(0, 1).setDepth(bund - 1);
+    if (c === 'R') saet(this.tekstur(`px-reol-v-${kaelder}`, reol(26, kaelder)), tx * FELT, ty * FELT + 16);
+    else if (c === 'r' && k.tegn(tx, ty - 1) !== 'r') saet(this.tekstur(`px-reol-f-${kaelder}`, reol(30, kaelder)), tx * FELT, (ty + 2) * FELT);
+    else if (c === 'P') saet(this.tekstur('px-plante', PLANTE), tx * FELT + 3, ty * FELT + 15);
+    else if (c === 'k') saet(this.tekstur('px-kasse', KASSE), tx * FELT + 1, ty * FELT + 15);
+    else if (c === 'S' || c === 'U') saet(this.tekstur(`px-trappe-${c}`, trappe(c === 'U')), tx * FELT, ty * FELT + 16);
+    else if (c === 'D' && k.tegn(tx - 1, ty) !== 'D') {
+      let n = 0;
+      while (k.tegn(tx + n, ty) === 'D') n++;
+      saet(this.tekstur(`px-disk-${n}`, bordflade(n * FELT, 14, '#a07a4a', '#6b4a2b')), tx * FELT, ty * FELT + 16);
+    } else if (c === 'B' && k.tegn(tx - 1, ty) !== 'B' && k.tegn(tx, ty - 1) !== 'B') {
+      let n = 0;
+      while (k.tegn(tx + n, ty) === 'B') n++;
+      saet(this.tekstur(`px-bord-${n}`, bordflade(n * FELT, 30, '#b98b5a', '#7a5636')), tx * FELT, (ty + 2) * FELT);
+    }
+  }
+
+  /** Lys indendørs: morgensol gennem vinduerne, en lampe på disken og lys fra trappen op. */
+  private lavFaesteLys() {
+    const k = this.kort;
+    const morgensol: Farve = [255, 252, 240];
+    const sol = vindueslys(this.tone, morgensol);
+    const lampe = lavLys(40, 0.7, this.tone, [255, 246, 222]);
+    const trappelys = lavLys(34, 0.8, this.tone, VARMT);
+    for (let ty = 0; ty < k.hoejde; ty++)
+      for (let tx = 0; tx < k.bredde; tx++) {
+        const c = k.tegn(tx, ty);
+        if (c === 'v' && ty === 0 && k.tegn(tx - 1, ty) !== 'v') this.faesteLys.push({ x: tx * FELT + 30, y: 2 * FELT + 48, billede: sol });
+        else if (c === 'D' && k.tegn(tx + 1, ty) !== 'D') this.faesteLys.push({ x: tx * FELT, y: ty * FELT, billede: lampe });
+        else if (c === 'U' && k.tegn(tx, ty - 1) !== 'U') this.faesteLys.push({ x: tx * FELT + 8, y: ty * FELT + 8, billede: trappelys });
+      }
   }
 
   private aktivtObjekt(): StedObjekt | undefined {
@@ -414,7 +470,7 @@ export class KortScene extends Phaser.Scene {
     const aktiv = this.aktivtObjekt();
     if (aktiv?.felt && !this.laast) {
       const m = feltMidte(aktiv.felt);
-      const hoejde = aktiv.form === 'gnom' ? 20 : aktiv.form === 'person' ? 27 : aktiv.form === 'skilt' ? 16 : 6;
+      const hoejde = PIL_HOEJDE[aktiv.form] ?? 6;
       this.pil.setVisible(true).setPosition(m.x, m.y - hoejde - 2 - (Math.sin(this.ur * 5) > 0 ? 1 : 0));
     } else this.pil.setVisible(false);
 
@@ -428,14 +484,18 @@ export class KortScene extends Phaser.Scene {
     if (noegle === this.sidsteLys) return;
     this.sidsteLys = noegle;
     const ctx = this.lysTekstur.context;
-    const tone = grundtone(this.data_.mindreUhygge);
+    const tone = this.tone;
     ctx.globalCompositeOperation = 'source-over';
     ctx.fillStyle = `rgb(${tone[0]}, ${tone[1]}, ${tone[2]})`;
     ctx.fillRect(0, 0, VIS_B, VIS_H);
+    // "lighten": hvor to lys mødes, vinder det stærkeste, i stedet for at det sidste dækker.
+    ctx.globalCompositeOperation = 'lighten';
     const tegnLys = (x: number, y: number, c: HTMLCanvasElement) => ctx.drawImage(c, Math.round(x - vx - c.width / 2), Math.round(y - vy - c.height / 2));
     for (const l of this.fyrLamper) tegnLys(l.x, l.y, this.fyrlys[fyrRamme]);
+    for (const l of this.faesteLys) tegnLys(l.x, l.y, l.billede);
     for (const l of this.lyskilder) tegnLys(l.x, l.y, l.billede);
-    tegnLys(this.spiller.x, this.spiller.y - 12, this.lygte);
+    if (this.lygte) tegnLys(this.spiller.x, this.spiller.y - 12, this.lygte);
+    ctx.globalCompositeOperation = 'source-over';
     this.lysTekstur.refresh();
   }
 }
