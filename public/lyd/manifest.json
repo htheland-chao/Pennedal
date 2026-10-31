@@ -1,6 +1,13 @@
 {
   "version": 1,
   "filer": {
+    "002afb9c4f9454": {
+      "figur": "aeseloere",
+      "tekst": "Men hør. Plejer de ikke at holde en lille pause en gang imellem?",
+      "fil": "002afb9c4f9454.ogg",
+      "kilde": "Kapitel 2 / k2-ankomst.4",
+      "lavet": "2026-10-31"
+    },
     "008824dff8ca28": {
       "figur": "aeseloere",
       "tekst": "Skuffen er en dør til Pennedal. Men den åbner kun for hviskeformularer.",
@@ -15,11 +22,158 @@
       "kilde": "Kapitel 1 / k1-holm-2.2",
       "lavet": "2026-10-31"
     },
+    "016d2d7cc47411": {
+      "figur": "portvagt",
+      "tekst": "I nat forsvandt alle byens tegn. Punktummer, spørgsmålstegn og udråbstegn. Nu snakker alle i munden på hinanden.",
+      "fil": "016d2d7cc47411.ogg",
+      "kilde": "Kapitel 2 / k2-port-aaben.2",
+      "lavet": "2026-10-31"
+    },
+    "0227f0383529ee": {
+      "figur": "ufaerdige",
+      "tekst": "Ved du, hvordan det er at stoppe midt i en",
+      "fil": "0227f0383529ee.ogg",
+      "kilde": "Kapitel 2 / k2-moerke.7",
+      "lavet": "2026-10-31"
+    },
+    "027206d2bd858a": {
+      "figur": "ufaerdige",
+      "tekst": "Næsten. Alt er altid næsten.",
+      "fil": "027206d2bd858a.ogg",
+      "kilde": "Kapitel 2 / k2-moerke.4",
+      "lavet": "2026-10-31"
+    },
+    "02ab8318887bba": {
+      "figur": "ord",
+      "tekst": "mand",
+      "fil": "02ab8318887bba.ogg",
+      "kilde": "Stumme bogstaver / mand",
+      "lavet": "2026-10-31"
+    },
+    "02afbcb20e8ef4": {
+      "figur": "aeseloere",
+      "tekst": "Han er ikke frygtelig. Han er bare klattet.",
+      "fil": "02afbcb20e8ef4.ogg",
+      "kilde": "Kapitel 1 / k1-klatten.2",
+      "lavet": "2026-10-31"
+    },
+    "03271b55ea04a5": {
+      "figur": "fortaeller",
+      "tekst": "Skyggen folder sig om Klatten som en side, der bliver vendt. Så er de væk. Begge to.",
+      "fil": "03271b55ea04a5.ogg",
+      "kilde": "Kapitel 2 / k2-moerke.10",
+      "lavet": "2026-10-31"
+    },
+    "033ebb5f5825f4": {
+      "figur": "raaber",
+      "tekst": "Hør, hør! Nu kan jeg råbe igen! Tusind tak!",
+      "fil": "033ebb5f5825f4.ogg",
+      "kilde": "Kapitel 2 / k2-raaber-tak.1",
+      "lavet": "2026-10-31"
+    },
+    "0344d25b326b25": {
+      "figur": "ord",
+      "tekst": "hjem",
+      "fil": "0344d25b326b25.ogg",
+      "kilde": "Stumme bogstaver / hjem",
+      "lavet": "2026-10-31"
+    },
+    "0346d48463aa5f": {
+      "figur": "fortaeller",
+      "tekst": "Langs væggen står et stort typeskab. Midt på lågen er der tre tomme huller og en lås med tal.",
+      "fil": "0346d48463aa5f.ogg",
+      "kilde": "Kapitel 2 / k2-trykkeri.2",
+      "lavet": "2026-10-31"
+    },
+    "034e7232b5c7b1": {
+      "figur": "fortaeller",
+      "tekst": "Gennem lemmen kan du høre fodtrin på tagstenene. Hurtige, små fodtrin.",
+      "fil": "034e7232b5c7b1.ogg",
+      "kilde": "Kapitel 2 / k2-lem.1",
+      "lavet": "2026-10-31"
+    },
+    "0374dc91b58ac4": {
+      "figur": "ord",
+      "tekst": "jord",
+      "fil": "0374dc91b58ac4.ogg",
+      "kilde": "Stumme bogstaver / jord",
+      "lavet": "2026-10-31"
+    },
+    "037d5ef70daa8f": {
+      "figur": "ord",
+      "tekst": "hvid",
+      "fil": "037d5ef70daa8f.ogg",
+      "kilde": "Stumme bogstaver / hvid",
+      "lavet": "2026-10-31"
+    },
+    "03882e9e254352": {
+      "figur": "ufaerdige",
+      "tekst": "De gav mig en begyndelse. De gav mig en midte. Men ingen gav mig en slutning. Så tager jeg deres.",
+      "fil": "03882e9e254352.ogg",
+      "kilde": "Kapitel 2 / k2-moerke.9",
+      "lavet": "2026-10-31"
+    },
+    "03925d5d1293df": {
+      "figur": "fortaeller",
+      "tekst": "For første gang i lang tid bliver der stille på torvet. Folk lytter.",
+      "fil": "03925d5d1293df.ogg",
+      "kilde": "Kapitel 2 / k2-raaber-tak.2",
+      "lavet": "2026-10-31"
+    },
+    "04b909e448f021": {
+      "figur": "aeseloere",
+      "tekst": "Velkommen til Pennedal. Her blev alt skrevet til live engang. Også mig, desværre.",
+      "fil": "04b909e448f021.ogg",
+      "kilde": "Kapitel 1 / k1-ankomst.2",
+      "lavet": "2026-10-31"
+    },
+    "04e31e7a64baba": {
+      "figur": "aeseloere",
+      "tekst": "Seks formularer. Ikke dårligt for et menneske.",
+      "fil": "04e31e7a64baba.ogg",
+      "kilde": "Kapitel 1 / k1-fald.1",
+      "lavet": "2026-10-31"
+    },
+    "056456a51d12f2": {
+      "figur": "ord",
+      "tekst": "hjul",
+      "fil": "056456a51d12f2.ogg",
+      "kilde": "Stumme bogstaver / hjul",
+      "lavet": "2026-10-31"
+    },
+    "0579d5df8a064a": {
+      "figur": "fortaeller",
+      "tekst": "Vinden river i dit tøj. Byen ligger under dig, og de tre måner hænger lavt over tagene.",
+      "fil": "0579d5df8a064a.ogg",
+      "kilde": "Kapitel 2 / k2-jagt.1",
+      "lavet": "2026-10-31"
+    },
+    "05a64ed4bb0534": {
+      "figur": "aeseloere",
+      "tekst": "En hviskeformular er et ord med et stumt bogstav. Bogstavet siger ingenting, men det skal med. Ellers virker formularen ikke.",
+      "fil": "05a64ed4bb0534.ogg",
+      "kilde": "Kapitel 1 / k1-aeseloere.5",
+      "lavet": "2026-10-31"
+    },
+    "05add3cd6442c1": {
+      "figur": "lanterne",
+      "tekst": "Her, tag den her lanterne. Du får brug for den.",
+      "fil": "05add3cd6442c1.ogg",
+      "kilde": "Kapitel 1 / k1-lanterne.4",
+      "lavet": "2026-10-31"
+    },
     "05d573d8176505": {
       "figur": "aeseloere",
       "tekst": "Jeg hedder Æseløre. Jeg er foldet af en side fra en meget gammel ordbog, så jeg ved alt om ord. Næsten alt.",
       "fil": "05d573d8176505.ogg",
       "kilde": "Kapitel 1 / k1-aeseloere.3",
+      "lavet": "2026-10-31"
+    },
+    "06ccf3eb6b9f06": {
+      "figur": "fortaeller",
+      "tekst": "Morgensolen står op over en eng fuld af blomster. Græsset dufter af blæk og honning.",
+      "fil": "06ccf3eb6b9f06.ogg",
+      "kilde": "Kapitel 2 / k2-ankomst.1",
       "lavet": "2026-10-31"
     },
     "0702537b302218": {
@@ -36,11 +190,242 @@
       "kilde": "Kapitel 1 / k1-holm.1",
       "lavet": "2026-10-30"
     },
+    "092483afabd966": {
+      "figur": "klatten",
+      "tekst": "Øv. Øv, øv, øv. Der er ikke flere tage.",
+      "fil": "092483afabd966.ogg",
+      "kilde": "Kapitel 2 / k2-fanget.1",
+      "lavet": "2026-10-31"
+    },
+    "09ca786540dab3": {
+      "figur": "fortaeller",
+      "tekst": "Stien ender ved en flod. Broen er brudt, og plankerne driver rundt i vandet.",
+      "fil": "09ca786540dab3.ogg",
+      "kilde": "Kapitel 1 / k1-floden.1",
+      "lavet": "2026-10-31"
+    },
+    "09ff9fb53d4ffc": {
+      "figur": "ufaerdige",
+      "tekst": "Du er kommet langt for at finde noget, der ikke er dit.",
+      "fil": "09ff9fb53d4ffc.ogg",
+      "kilde": "Kapitel 2 / k2-moerke.6",
+      "lavet": "2026-10-31"
+    },
+    "0a0ae21bd6ba58": {
+      "figur": "fortaeller",
+      "tekst": "Stemmen holder op midt i sætningen. Stilheden bagefter er værre end ordene.",
+      "fil": "0a0ae21bd6ba58.ogg",
+      "kilde": "Kapitel 2 / k2-moerke.8",
+      "lavet": "2026-10-31"
+    },
+    "0abda7c81aefeb": {
+      "figur": "klatten",
+      "tekst": "Min orm! Den var jo så flot.",
+      "fil": "0abda7c81aefeb.ogg",
+      "kilde": "Kapitel 1 / k1-klatten-flygter.1",
+      "lavet": "2026-10-31"
+    },
+    "0b19acea315bec": {
+      "figur": "fortaeller",
+      "tekst": "Midt på torvet står et springvand. Det er helt tørt, og bunden er plettet af noget sort.",
+      "fil": "0b19acea315bec.ogg",
+      "kilde": "Kapitel 2 / k2-torvet.2",
+      "lavet": "2026-10-31"
+    },
+    "0b81eefcc22ead": {
+      "figur": "fortaeller",
+      "tekst": "Pludselig bliver alt stille. Byens larm forsvinder, som når man smækker en bog i.",
+      "fil": "0b81eefcc22ead.ogg",
+      "kilde": "Kapitel 2 / k2-moerke.1",
+      "lavet": "2026-10-31"
+    },
+    "0c4f0da51d985c": {
+      "figur": "aeseloere",
+      "tekst": "Han er en og-orm på to ben. Nogen har stjålet hans punktummer.",
+      "fil": "0c4f0da51d985c.ogg",
+      "kilde": "Kapitel 2 / k2-portvagt.2",
+      "lavet": "2026-10-31"
+    },
+    "0c915d23778b68": {
+      "figur": "aeseloere",
+      "tekst": "Og nej, jeg kan ikke bare flyve dig over. Jeg er lavet af papir. Har du nogensinde set papir bære et menneske?",
+      "fil": "0c915d23778b68.ogg",
+      "kilde": "Kapitel 1 / k1-floden.3",
+      "lavet": "2026-10-31"
+    },
+    "0d6b7d45dff1aa": {
+      "figur": "ord",
+      "tekst": "bord",
+      "fil": "0d6b7d45dff1aa.ogg",
+      "kilde": "Stumme bogstaver / bord",
+      "lavet": "2026-10-31"
+    },
+    "0da7fb69334d29": {
+      "figur": "aeseloere",
+      "tekst": "Følg pletterne. Og gå ikke for hurtigt. Jeg bliver blød, hvis jeg falder i en vandpyt.",
+      "fil": "0da7fb69334d29.ogg",
+      "kilde": "Kapitel 2 / k2-smoeger.2",
+      "lavet": "2026-10-31"
+    },
+    "0e085335c1e617": {
+      "figur": "klatten",
+      "tekst": "Det her skal jeg fortælle til ... Nej. Det må jeg ikke sige.",
+      "fil": "0e085335c1e617.ogg",
+      "kilde": "Kapitel 1 / k1-klatten-flygter.2",
+      "lavet": "2026-10-31"
+    },
+    "0e0fc1144aad40": {
+      "figur": "ord",
+      "tekst": "hjælpe",
+      "fil": "0e0fc1144aad40.ogg",
+      "kilde": "Stumme bogstaver / hjælpe",
+      "lavet": "2026-10-31"
+    },
+    "0e1a3e8bc99b2b": {
+      "figur": "aeseloere",
+      "tekst": "En lille, sort skikkelse med en sæk. Jeg tør vædde mine bedste sider på, at det er Klatten.",
+      "fil": "0e1a3e8bc99b2b.ogg",
+      "kilde": "Kapitel 2 / k2-spor.1",
+      "lavet": "2026-10-31"
+    },
+    "0ea4d28f3e6f2a": {
+      "figur": "aeseloere",
+      "tekst": "Her har de trykt byens bøger i hundrede år. Og nogen har haft travlt i nat.",
+      "fil": "0ea4d28f3e6f2a.ogg",
+      "kilde": "Kapitel 2 / k2-trykkeri.3",
+      "lavet": "2026-10-31"
+    },
+    "0ee6b9c21b64ae": {
+      "figur": "fortaeller",
+      "tekst": "Smøgerne er så smalle, at husene næsten rører hinanden. Larmen fra torvet bliver svagere og svagere.",
+      "fil": "0ee6b9c21b64ae.ogg",
+      "kilde": "Kapitel 2 / k2-smoeger.1",
+      "lavet": "2026-10-31"
+    },
+    "0f32cc49049ea1": {
+      "figur": "aeseloere",
+      "tekst": "Klip den over med punktummer. Og husk: Ordet efter et punktum vågner kun, hvis det får stort begyndelsesbogstav.",
+      "fil": "0f32cc49049ea1.ogg",
+      "kilde": "Kapitel 1 / k1-klatten.5",
+      "lavet": "2026-10-31"
+    },
+    "0f462db3eb9509": {
+      "figur": "aeseloere",
+      "tekst": "Jeg har læst mange historier. Ingen af dem havde en stemme, der var så kold.",
+      "fil": "0f462db3eb9509.ogg",
+      "kilde": "Kapitel 2 / k2-moerke.12",
+      "lavet": "2026-10-31"
+    },
+    "10548e93687f4c": {
+      "figur": "fortaeller",
+      "tekst": "Skuffen bliver større og større. Et hvidt lys fylder hele kælderen, og pludselig falder du.",
+      "fil": "10548e93687f4c.ogg",
+      "kilde": "Kapitel 1 / k1-fald.2",
+      "lavet": "2026-10-31"
+    },
+    "1123f080cc143d": {
+      "figur": "fortaeller",
+      "tekst": "På den anden side af floden står et fyrtårn. Lyset er svagt, som om det er ved at gå ud.",
+      "fil": "1123f080cc143d.ogg",
+      "kilde": "Kapitel 1 / k1-lanterne.1",
+      "lavet": "2026-10-31"
+    },
+    "113cb50ea8f4cd": {
+      "figur": "borgmester",
+      "tekst": "Uden tegn ved ingen, om man spørger om noget, råber noget eller bare fortæller noget.",
+      "fil": "113cb50ea8f4cd.ogg",
+      "kilde": "Kapitel 2 / k2-borgmester.2",
+      "lavet": "2026-10-31"
+    },
+    "1150419eba3dc1": {
+      "figur": "fortaeller",
+      "tekst": "Klatten løber sin vej og efterlader en lang stribe blæk på stien. Bag skiltet ligger en kappe, som han har tabt.",
+      "fil": "1150419eba3dc1.ogg",
+      "kilde": "Kapitel 1 / k1-klatten-flygter.3",
+      "lavet": "2026-10-31"
+    },
+    "11547ec4b5f889": {
+      "figur": "ord",
+      "tekst": "hvem",
+      "fil": "11547ec4b5f889.ogg",
+      "kilde": "Stumme bogstaver / hvem",
+      "lavet": "2026-10-31"
+    },
+    "11db1522d9fcdf": {
+      "figur": "ord",
+      "tekst": "guld",
+      "fil": "11db1522d9fcdf.ogg",
+      "kilde": "Stumme bogstaver / guld",
+      "lavet": "2026-10-31"
+    },
+    "11ebde23e1ff86": {
+      "figur": "klatten",
+      "tekst": "I kan aldrig fange mig! Jeg er den hurtigste gnom i hele Pennedal!",
+      "fil": "11ebde23e1ff86.ogg",
+      "kilde": "Kapitel 2 / k2-jagt.2",
+      "lavet": "2026-10-31"
+    },
+    "11ffa6a9b86580": {
+      "figur": "ord",
+      "tekst": "sand",
+      "fil": "11ffa6a9b86580.ogg",
+      "kilde": "Stumme bogstaver / sand",
+      "lavet": "2026-10-31"
+    },
+    "120f3be69fc55c": {
+      "figur": "lanterne",
+      "tekst": "Kom ind, kom ind. Jeg er Mor Lanterne. Mit tårn lyser kun af færdige historier.",
+      "fil": "120f3be69fc55c.ogg",
+      "kilde": "Kapitel 1 / k1-lanterne.2",
+      "lavet": "2026-10-31"
+    },
+    "123218c519f53b": {
+      "figur": "fortaeller",
+      "tekst": "Døren knirker. Indenfor er det mørkt og koldt, og luften smager af metal og gammelt blæk.",
+      "fil": "123218c519f53b.ogg",
+      "kilde": "Kapitel 2 / k2-trykkeri.1",
+      "lavet": "2026-10-31"
+    },
+    "128f7709abbe0a": {
+      "figur": "ord",
+      "tekst": "halv",
+      "fil": "128f7709abbe0a.ogg",
+      "kilde": "Stumme bogstaver / halv",
+      "lavet": "2026-10-31"
+    },
     "12c52b20a36f9c": {
       "figur": "fortaeller",
       "tekst": "Kælderen lugter af støv og gammelt papir. Bagerst står et kartoteksskab med mange små skuffer.",
       "fil": "12c52b20a36f9c.ogg",
       "kilde": "Kapitel 1 / k1-kaelder.1",
+      "lavet": "2026-10-31"
+    },
+    "136de469832728": {
+      "figur": "aeseloere",
+      "tekst": "Hver planke er en del af en historie. Læg dem i den rigtige rækkefølge, så holder broen.",
+      "fil": "136de469832728.ogg",
+      "kilde": "Kapitel 1 / k1-floden.2",
+      "lavet": "2026-10-31"
+    },
+    "13bbfe9ee8599e": {
+      "figur": "ord",
+      "tekst": "hvor",
+      "fil": "13bbfe9ee8599e.ogg",
+      "kilde": "Stumme bogstaver / hvor",
+      "lavet": "2026-10-31"
+    },
+    "14251a961f7971": {
+      "figur": "fortaeller",
+      "tekst": "Ude i mørket hvisker en stemme: \"Og så ...\"",
+      "fil": "14251a961f7971.ogg",
+      "kilde": "Kapitel 1 / k1-lanterne.5",
+      "lavet": "2026-10-31"
+    },
+    "1499352442dc5c": {
+      "figur": "ord",
+      "tekst": "hund",
+      "fil": "1499352442dc5c.ogg",
+      "kilde": "Stumme bogstaver / hund",
       "lavet": "2026-10-31"
     },
     "14bb0a58bb94a9": {
@@ -57,6 +442,132 @@
       "kilde": "Kapitel 1 / k1-aeseloere.2",
       "lavet": "2026-10-31"
     },
+    "1523824fc47538": {
+      "figur": "fortaeller",
+      "tekst": "Langt væk over tagene hvisker det stadig: \"Og så ...\"",
+      "fil": "1523824fc47538.ogg",
+      "kilde": "Kapitel 2 / k2-moerke.13",
+      "lavet": "2026-10-31"
+    },
+    "1562dae1f9f022": {
+      "figur": "ord",
+      "tekst": "kold",
+      "fil": "1562dae1f9f022.ogg",
+      "kilde": "Stumme bogstaver / kold",
+      "lavet": "2026-10-31"
+    },
+    "15f59678cf20ca": {
+      "figur": "ord",
+      "tekst": "land",
+      "fil": "15f59678cf20ca.ogg",
+      "kilde": "Stumme bogstaver / land",
+      "lavet": "2026-10-31"
+    },
+    "1629034926a18d": {
+      "figur": "ord",
+      "tekst": "selv",
+      "fil": "1629034926a18d.ogg",
+      "kilde": "Stumme bogstaver / selv",
+      "lavet": "2026-10-31"
+    },
+    "1673a66a77fbc8": {
+      "figur": "aeseloere",
+      "tekst": "Han skriver lige så dårligt, som han løber. Det hedder landede. Efter ham!",
+      "fil": "1673a66a77fbc8.ogg",
+      "kilde": "Kapitel 2 / k2-lem.3",
+      "lavet": "2026-10-31"
+    },
+    "16855b43f1ecf3": {
+      "figur": "fortaeller",
+      "tekst": "Ved kanten af torvet ser du det: små, sorte pletter, der forsvinder ind i en smal smøge.",
+      "fil": "16855b43f1ecf3.ogg",
+      "kilde": "Kapitel 2 / k2-spor.2",
+      "lavet": "2026-10-31"
+    },
+    "1691089b82a855": {
+      "figur": "fortaeller",
+      "tekst": "Til alle i Sætningsbyen. I nat blev alle byens tegn stjålet fra trykkeriet. Nattevagten så en lille, sort skikkelse løbe over torvet med en tung sæk. Skikkelsen efterlod sorte pletter på brostenene. Pletterne fører ned i smøgen mod øst. Har du set noget, så kontakt byrådet.",
+      "fil": "1691089b82a855.ogg",
+      "kilde": "Kapitel 2 / k2-opslag.saetninger",
+      "lavet": "2026-10-31"
+    },
+    "16dcf1584781b5": {
+      "figur": "ord",
+      "tekst": "rund",
+      "fil": "16dcf1584781b5.ogg",
+      "kilde": "Stumme bogstaver / rund",
+      "lavet": "2026-10-31"
+    },
+    "1706baa260ba82": {
+      "figur": "raaber",
+      "tekst": "Byrådet har hængt et opslag op. Det handler om tyveriet. Læs det!",
+      "fil": "1706baa260ba82.ogg",
+      "kilde": "Kapitel 2 / k2-raaber-tak.3",
+      "lavet": "2026-10-31"
+    },
+    "1746c81487479d": {
+      "figur": "lanterne",
+      "tekst": "Men nogen stjæler slutningerne. Hver nat bliver lyset lidt svagere.",
+      "fil": "1746c81487479d.ogg",
+      "kilde": "Kapitel 1 / k1-lanterne.3",
+      "lavet": "2026-10-31"
+    },
+    "1777486ab60d4d": {
+      "figur": "fortaeller",
+      "tekst": "Over dig knirker loftet. Nogen går på taget.",
+      "fil": "1777486ab60d4d.ogg",
+      "kilde": "Kapitel 2 / k2-trykkeri.4",
+      "lavet": "2026-10-31"
+    },
+    "17aea59c3821ea": {
+      "figur": "fortaeller",
+      "tekst": "Klatten snubler over sine egne fødder. Sækken flyver op i luften, og tegnene regner ned over tagstenene.",
+      "fil": "17aea59c3821ea.ogg",
+      "kilde": "Kapitel 2 / k2-fanget.2",
+      "lavet": "2026-10-31"
+    },
+    "17db3dc83abb6c": {
+      "figur": "portvagt",
+      "tekst": "Kan du klippe mine sætninger over og så åbner porten sig og så kan jeg måske få vejret og ...",
+      "fil": "17db3dc83abb6c.ogg",
+      "kilde": "Kapitel 2 / k2-portvagt.3",
+      "lavet": "2026-10-31"
+    },
+    "1803622d1606a7": {
+      "figur": "portvagt",
+      "tekst": "Goddag og velkommen og porten er lukket og jeg kan ikke åbne den og jeg kan ikke holde op med at snakke og det er ret trættende og nu har jeg glemt, hvad jeg ville sige.",
+      "fil": "1803622d1606a7.ogg",
+      "kilde": "Kapitel 2 / k2-portvagt.1",
+      "lavet": "2026-10-31"
+    },
+    "1826d9ac61264f": {
+      "figur": "klatten",
+      "tekst": "Nej. Nej, nej. Det var ikke meningen. Jeg tog dem jo. Næsten alle sammen.",
+      "fil": "1826d9ac61264f.ogg",
+      "kilde": "Kapitel 2 / k2-moerke.3",
+      "lavet": "2026-10-31"
+    },
+    "1867194b6d836f": {
+      "figur": "fortaeller",
+      "tekst": "Farverne løber ud af tagene. Månerne slukker, én efter én.",
+      "fil": "1867194b6d836f.ogg",
+      "kilde": "Kapitel 2 / k2-moerke.2",
+      "lavet": "2026-10-31"
+    },
+    "186cd82b0a6849": {
+      "figur": "aeseloere",
+      "tekst": "Saml dem op, og sæt dem tilbage i byens brev. Så kan Råberen læse det op i aften.",
+      "fil": "186cd82b0a6849.ogg",
+      "kilde": "Kapitel 2 / k2-fanget.3",
+      "lavet": "2026-10-31"
+    },
+    "189f99152f2281": {
+      "figur": "portvagt",
+      "tekst": "Åh. En pause. Tak. Jeg havde glemt, hvor rart det er at stoppe en sætning.",
+      "fil": "189f99152f2281.ogg",
+      "kilde": "Kapitel 2 / k2-port-aaben.1",
+      "lavet": "2026-10-31"
+    },
     "18ccdc8ab18111": {
       "figur": "holm",
       "tekst": "Hver morgen mangler der flere ord. Nogle bøger stopper midt i en sætning.",
@@ -64,11 +575,123 @@
       "kilde": "Kapitel 1 / k1-holm.2",
       "lavet": "2026-10-30"
     },
+    "18d00445b3fd31": {
+      "figur": "fortaeller",
+      "tekst": "Torvet er fyldt med mennesker. Alle taler på én gang, og ingen lytter.",
+      "fil": "18d00445b3fd31.ogg",
+      "kilde": "Kapitel 2 / k2-torvet.1",
+      "lavet": "2026-10-31"
+    },
+    "18e6bae4d478a9": {
+      "figur": "borgmester",
+      "tekst": "Endelig én, der står stille. Jeg er byens borgmester, og jeg har aldrig set så meget rod.",
+      "fil": "18e6bae4d478a9.ogg",
+      "kilde": "Kapitel 2 / k2-borgmester.1",
+      "lavet": "2026-10-31"
+    },
+    "18e79a8805ec15": {
+      "figur": "ord",
+      "tekst": "hjerte",
+      "fil": "18e79a8805ec15.ogg",
+      "kilde": "Stumme bogstaver / hjerte",
+      "lavet": "2026-10-31"
+    },
+    "18ee972c39dd96": {
+      "figur": "fortaeller",
+      "tekst": "Et sted derinde griner nogen. Det lyder som en, der prøver at være uhyggelig og ikke helt kan.",
+      "fil": "18ee972c39dd96.ogg",
+      "kilde": "Kapitel 2 / k2-spor.3",
+      "lavet": "2026-10-31"
+    },
     "1941a19abf438e": {
       "figur": "fortaeller",
       "tekst": "Du trækker skuffen ud. Det lugter af blæk og regnvejr, og en lille papirfugl flyver op i dit ansigt.",
       "fil": "1941a19abf438e.ogg",
       "kilde": "Kapitel 1 / k1-aeseloere.1",
+      "lavet": "2026-10-31"
+    },
+    "195c24522c7f3b": {
+      "figur": "borgmester",
+      "tekst": "Vores Råber står ved springvandet. Han skal læse byens nyheder op, men han kan ikke finde ud af, hvordan han skal sige dem.",
+      "fil": "195c24522c7f3b.ogg",
+      "kilde": "Kapitel 2 / k2-borgmester.3",
+      "lavet": "2026-10-31"
+    },
+    "19904363ca28a1": {
+      "figur": "ord",
+      "tekst": "hvad",
+      "fil": "19904363ca28a1.ogg",
+      "kilde": "Stumme bogstaver / hvad",
+      "lavet": "2026-10-31"
+    },
+    "1a17ace0ad9077": {
+      "figur": "aeseloere",
+      "tekst": "Hop over hullerne, og hold dig væk fra blækket. Falder du, starter du bare ved den sidste lanterne.",
+      "fil": "1a17ace0ad9077.ogg",
+      "kilde": "Kapitel 2 / k2-jagt.3",
+      "lavet": "2026-10-31"
+    },
+    "1a65ff866d02d1": {
+      "figur": "aeseloere",
+      "tekst": "Det er Og-ormen. Hver gang nogen binder sætninger sammen med \"og\", bliver den længere. Til sidst spærrer den hele vejen.",
+      "fil": "1a65ff866d02d1.ogg",
+      "kilde": "Kapitel 1 / k1-klatten.4",
+      "lavet": "2026-10-31"
+    },
+    "1a70f5927d7ebe": {
+      "figur": "klatten",
+      "tekst": "Stop! Ingen kommer forbi Klatten den Frygtelige!",
+      "fil": "1a70f5927d7ebe.ogg",
+      "kilde": "Kapitel 1 / k1-klatten.1",
+      "lavet": "2026-10-31"
+    },
+    "1a7e568bc88781": {
+      "figur": "aeseloere",
+      "tekst": "Hov. Der står nogen på stien. Gå hen og se, hvem det er.",
+      "fil": "1a7e568bc88781.ogg",
+      "kilde": "Kapitel 1 / k1-ankomst.3",
+      "lavet": "2026-10-31"
+    },
+    "1ae511e2503aa3": {
+      "figur": "fortaeller",
+      "tekst": "Du lander blødt i en bunke visne blade. Over dig hænger tre måner, og træerne har blade af papir.",
+      "fil": "1ae511e2503aa3.ogg",
+      "kilde": "Kapitel 1 / k1-ankomst.1",
+      "lavet": "2026-10-31"
+    },
+    "1c14d2e8e53841": {
+      "figur": "fortaeller",
+      "tekst": "Med et tungt suk glider porten op. Bag den summer byen som en bikube.",
+      "fil": "1c14d2e8e53841.ogg",
+      "kilde": "Kapitel 2 / k2-port-aaben.3",
+      "lavet": "2026-10-31"
+    },
+    "1c892a45e8b7ea": {
+      "figur": "aeseloere",
+      "tekst": "Blæk. Jeg kender den lugt. Den hører til en vis klodset gnom.",
+      "fil": "1c892a45e8b7ea.ogg",
+      "kilde": "Kapitel 2 / k2-torvet.3",
+      "lavet": "2026-10-31"
+    },
+    "1cf3df465cb5bf": {
+      "figur": "klatten",
+      "tekst": "Hi hi! Jeg landet lige på taget! Ingen kan fange mig!",
+      "fil": "1cf3df465cb5bf.ogg",
+      "kilde": "Kapitel 2 / k2-lem.2",
+      "lavet": "2026-10-31"
+    },
+    "1d1a6075152189": {
+      "figur": "aeseloere",
+      "tekst": "Sætningsbyen. Her bor de mest snakkesalige væsner i hele Pennedal.",
+      "fil": "1d1a6075152189.ogg",
+      "kilde": "Kapitel 2 / k2-ankomst.3",
+      "lavet": "2026-10-31"
+    },
+    "1dac2c6419b414": {
+      "figur": "ord",
+      "tekst": "strand",
+      "fil": "1dac2c6419b414.ogg",
+      "kilde": "Stumme bogstaver / strand",
       "lavet": "2026-10-31"
     },
     "1e0ee27d64dc5c": {
@@ -84,9 +707,65 @@
       "fil": "1e12c96895a22f.ogg",
       "kilde": "Kapitel 1 / k1-holm.3",
       "lavet": "2026-10-30"
+    },
+    "1e1647651a8f99": {
+      "figur": "ord",
+      "tekst": "ild",
+      "fil": "1e1647651a8f99.ogg",
+      "kilde": "Stumme bogstaver / ild",
+      "lavet": "2026-10-31"
+    },
+    "1ea87e1c11f523": {
+      "figur": "fortaeller",
+      "tekst": "Stemmen kommer ikke fra ét sted. Den kommer fra skyggerne mellem tagene, fra revnerne i stenene, fra lige bag dig.",
+      "fil": "1ea87e1c11f523.ogg",
+      "kilde": "Kapitel 2 / k2-moerke.5",
+      "lavet": "2026-10-31"
+    },
+    "1ebba1ce7f7c94": {
+      "figur": "fortaeller",
+      "tekst": "For enden af stien ligger en by bag en høj mur. Hustagene er røde, grønne og blå, og fra skorstenene stiger der små skyer af røg.",
+      "fil": "1ebba1ce7f7c94.ogg",
+      "kilde": "Kapitel 2 / k2-ankomst.2",
+      "lavet": "2026-10-31"
+    },
+    "1f123899ec71ba": {
+      "figur": "aeseloere",
+      "tekst": "Han kaldte ham chef. Klatten stjæler ikke for sig selv.",
+      "fil": "1f123899ec71ba.ogg",
+      "kilde": "Kapitel 2 / k2-moerke.11",
+      "lavet": "2026-10-31"
+    },
+    "1f27de0e278255": {
+      "figur": "klatten",
+      "tekst": "Jeg har skrevet en ny vejviser og den er perfekt og den er lang og den slutter aldrig og ...",
+      "fil": "1f27de0e278255.ogg",
+      "kilde": "Kapitel 1 / k1-klatten.3",
+      "lavet": "2026-10-31"
+    },
+    "1f5021d518fdff": {
+      "figur": "aeseloere",
+      "tekst": "Tag den bare. Han har alligevel aldrig vasket den.",
+      "fil": "1f5021d518fdff.ogg",
+      "kilde": "Kapitel 1 / k1-klatten-flygter.4",
+      "lavet": "2026-10-31"
+    },
+    "1f980097c2c6b6": {
+      "figur": "ord",
+      "tekst": "hvisker",
+      "fil": "1f980097c2c6b6.ogg",
+      "kilde": "Stumme bogstaver / hvisker",
+      "lavet": "2026-10-31"
+    },
+    "1ff186fae2b54f": {
+      "figur": "aeseloere",
+      "tekst": "Det lød ikke godt. Det lød slet ikke godt.",
+      "fil": "1ff186fae2b54f.ogg",
+      "kilde": "Kapitel 1 / k1-lanterne.6",
+      "lavet": "2026-10-31"
     }
   },
   "model": "gemini-3.8-flash-tts",
   "i_alt": 320,
-  "mangler": 308
+  "mangler": 211
 }
