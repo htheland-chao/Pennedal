@@ -55,5 +55,6 @@ Opdatér kun en version efter at have slået den op i npm og kørt alle tests.
 
 ## Arbejdsform
 
-- Arbejd på en gren og lav en pull request. Henrik merger.
+- Arbejd på en gren og lav en pull request.
+- Automatisk merge (Henrik, 31. oktober 2026, gælder indtil han siger andet): Claude merger sine egne pull requests, når testene på GitHub er grønne og der ikke er konflikter. Lydjobbet merger sine egne lyd-PR'er efter typecheck og test. Rød test eller konflikt: ret fejlen, merge aldrig rødt.
 - Hver leverance: tests skrevet og kørt, resultatet rapporteret ærligt, pladsholdere og manglende grafik eller lyd tydeligt markeret, korrekturliste opdateret.

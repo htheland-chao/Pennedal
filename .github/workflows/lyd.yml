@@ -72,7 +72,7 @@ jobs:
           npm run typecheck
           npm test
 
-      - name: Gem klippene og lav pull request
+      - name: Gem klippene, lav pull request og merge den
         env:
           GH_TOKEN: ${{ github.token }}
           GREN: ${{ steps.gren.outputs.navn }}
@@ -92,3 +92,7 @@ jobs:
           else
             gh pr comment "$GREN" --body-file lyd-status.md || true
           fi
+          # Henrik har bedt om automatisk merge (31. oktober 2026). Typecheck og test er kørt i trinnet før.
+          # Klippene kan høres bagefter på korrektursiden (?lyd=1).
+          gh pr merge "$GREN" --merge --delete-branch \
+            || echo "::warning::Kunne ikke merge lyd-PR'en automatisk. Merge den selv fra grenen $GREN."
