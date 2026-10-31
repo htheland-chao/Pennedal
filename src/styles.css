@@ -1107,3 +1107,13 @@ input[type='range'] {
     flex-shrink: 0;
   }
 }
+
+/* Pixelportrætter i dialogen. */
+.portraet .pixel-portraet {
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+}
+.portraet {
+  padding: 4px;
+}

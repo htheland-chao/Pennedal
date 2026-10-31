@@ -56,6 +56,14 @@ Prototypen, der viser stilen: "Pennedal set oppefra" (Claude-artefakt). Den er t
 - Væg i biblioteket: træpanel `#8a5a3a` `#7a4e33`, liste `#3a2a20`. Kældervæg: sten `#5b5663` `#4f4a57`. Kældergulv: fliser `#7a7468` `#716b60`, så gulv og væg ikke ligner hinanden.
 - Bogrygge har farver, men aldrig bogstaver.
 
+## Dialog
+
+- Når en figur taler, går hovedpersonen hen til den, og kameraet zoomer ind (højst 2 gange), så begge kan ses over dialogboksen.
+- De vender sig mod hinanden. Den, der taler, vipper lidt og har en lille taleboble med tre prikker (ingen bogstaver).
+- Fortælleren og figurer, der ikke er på stedet, zoomer kun lidt ind på hovedpersonen.
+- Med "Reducer bevægelse" i styresystemet skifter zoomen uden glidning og uden vippen.
+- Portrætter i dialogen: 24 x 24 pixel i `src/game/pixel/portraetter.ts`.
+
 ## Skrift
 
 Pixelskrift (Pixelify Sans) må kun bruges til navne og overskrifter. Brødtekst står altid i Atkinson Hyperlegible eller den skrift, eleven har valgt.

@@ -32,6 +32,8 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
   const [aktivtTrin, setAktivtTrin] = useState<Trin | null>(null);
   const [naer, setNaer] = useState<string | null>(null);
   const [forskraek, setForskraek] = useState(0);
+  /** Den, der taler i dialogen lige nu. Kameraet zoomer ind på dem. */
+  const [taler, setTaler] = useState<string | null>(null);
   const [uhyggeBesked, setUhyggeBesked] = useState('');
   const fpsRef = useRef<() => number>(() => 0);
   const spilRef = useRef(spil);
@@ -125,6 +127,7 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
           laast={laast}
           mindreUhygge={indstillinger.mindreUhygge}
           forskraekSignal={forskraek}
+          taler={taler}
           kroge={{ onInteraktion: interaktion, onNaer: setNaer }}
           label={t('verden.sted', { sted: sted.navn })}
           fpsRef={fpsRef}
@@ -175,7 +178,7 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
         </p>
       </aside>
 
-      {aktivtTrin?.type === 'dialog' && <DialogBoks replikker={aktivtTrin.replikker} onFaerdig={afslut} />}
+      {aktivtTrin?.type === 'dialog' && <DialogBoks replikker={aktivtTrin.replikker} onFaerdig={afslut} onTaler={setTaler} />}
       {aktivtTrin?.type === 'opgave' && (
         <OpgaveVindue
           trin={aktivtTrin}

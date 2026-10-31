@@ -4,7 +4,7 @@ import type { Avatar } from '../engine/gem';
 import { erFastTegn, FELT, feltMidte, feltVed, felterVed, findVej, laesKort, type Felt, type Kort } from './kort';
 import { bordflade, erInde, HOLM, KARTOTEK, KASSE, LOGBOG, PLANTE, reol, tegnRum, trappe, vindueslys } from './pixel/inde';
 import { belysning, hash, lavLys, lavSkygge, lysOpsaetning, tegnGrund, tegnkortTilLerred, tegnVand, VARMT, type Farve } from './pixel/lerred';
-import { avatarPixel, BLADE, FUGL, fyrtaarn, KLATTEN, LANTERNE, papirtrae, PIL, PLANKE, SKILT, STOLPE, voksen, type Retning, type Tegnkort } from './pixel/sprites';
+import { avatarPixel, BLADE, FUGL, fyrtaarn, KLATTEN, LANTERNE, papirtrae, PIL, PLANKE, SKILT, STOLPE, TALEBOBLE, voksen, type Retning, type Tegnkort } from './pixel/sprites';
 import type { VerdenData, VerdenKroge } from './VerdenScene';
 
 /**
@@ -56,6 +56,14 @@ export class KortScene extends Phaser.Scene {
   private kam = { x: 0, y: 0 };
   /** Lyset tegnes kun forfra, når noget har flyttet sig. Det sparer meget på langsomme computere. */
   private sidsteLys = '';
+  /** Dialog: hvem der taler, kameraets zoom og talebobben. */
+  private taler: string | null = null;
+  private zoom = 1;
+  private zoomMaal = 1;
+  /** Hovedpersonen går hen til den, der taler, når dialogen starter. */
+  private gaarTilTaler = false;
+  private boble!: Phaser.GameObjects.Image;
+  private roligt = typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
 
   constructor() {
     super('kort');
@@ -68,6 +76,9 @@ export class KortScene extends Phaser.Scene {
     this.naer = null;
     this.objektBilleder = new Map();
     this.planker = [];
+    this.taler = null;
+    this.zoom = 1;
+    this.zoomMaal = 1;
     this.lyskilder = [];
     this.fyrLamper = [];
     this.faesteLys = [];
@@ -116,6 +127,7 @@ export class KortScene extends Phaser.Scene {
     this.tekstur('px-planke', PLANKE);
     this.tekstur('px-pil', PIL);
     this.tekstur('px-fugl', FUGL);
+    this.tekstur('px-boble', TALEBOBLE);
     this.tekstur('px-fyr', fyrtaarn());
     this.tekstur('px-lanterne', LANTERNE);
     this.tekstur('px-skygge', lavSkygge(12));
@@ -175,7 +187,7 @@ export class KortScene extends Phaser.Scene {
       }
       if (noegle) {
         if (o.form !== 'skilt' && o.form !== 'skab') billeder.push(this.add.image(midte.x, midte.y, 'px-skygge').setOrigin(0.5, 0.5).setDepth(midte.y - 1));
-        billeder.push(this.add.image(midte.x, midte.y, noegle).setOrigin(0.5, 1).setDepth(midte.y));
+        billeder.push(this.add.image(midte.x, midte.y, noegle).setOrigin(0.5, 1).setDepth(midte.y).setData('y0', midte.y));
       }
       if (o.lys) {
         billeder.push(this.add.image(midte.x + 7, midte.y - 9, 'px-lanterne').setOrigin(0.5, 1).setDepth(midte.y + 1));
@@ -193,6 +205,7 @@ export class KortScene extends Phaser.Scene {
     this.lanterne.setVisible((this.registry.get('avatar') as Avatar | undefined)?.tilbehoer === 3);
     this.fugl = this.add.image(start.x - 14, start.y + 4, 'px-fugl').setOrigin(0.5, 1);
     this.pil = this.add.image(0, 0, 'px-pil').setOrigin(0.5, 1).setDepth(2_000_000).setVisible(false);
+    this.boble = this.add.image(0, 0, 'px-boble').setOrigin(0.5, 1).setDepth(2_000_001).setVisible(false);
 
     // Nattelys: et lag, der ganges på billedet. Lanternen og fyrtårnet lyser op.
     const tone = this.tone;
@@ -304,6 +317,71 @@ export class KortScene extends Phaser.Scene {
       });
   }
 
+  /**
+   * Dialog: kameraet zoomer ind på den, der taler, og hovedpersonen, og de vender sig mod hinanden.
+   * Fortælleren og figurer, der ikke er på stedet, zoomer kun lidt ind på hovedpersonen. null zoomer ud igen.
+   */
+  saetTaler(taler: string | null) {
+    const foer = this.taler;
+    this.taler = taler;
+    this.sidsteLys = '';
+    if (!taler) {
+      this.gaarTilTaler = false;
+      this.vej = [];
+      return;
+    }
+    // Står hovedpersonen langt fra den, der taler, går den derhen.
+    const o = this.data_.sted.objekter.find((x) => x.id === taler && x.felt && !this.data_.skjulte?.includes(x.id));
+    if (o?.felt && foer !== taler) {
+      const m = feltMidte(o.felt);
+      if (Phaser.Math.Distance.Between(this.spiller.x, this.spiller.y, m.x, m.y) > 34) {
+        const fra = feltVed(this.spiller.x, this.spiller.y - 2);
+        let bedst: Felt[] | null = null;
+        for (const f of felterVed(this.kort, o.felt, (x, y) => this.erFast(x, y))) {
+          const v = findVej(this.kort, fra, f, (x, y) => this.erFast(x, y));
+          if (v && (!bedst || v.length < bedst.length)) bedst = v;
+        }
+        if (bedst) {
+          this.vej = bedst;
+          this.interagerVedMaal = false;
+          this.gaarTilTaler = true;
+        }
+      }
+    }
+  }
+
+  /** Zoom under dialog: så tæt på som muligt, men begge skal kunne ses. Hovedpersonen kigger på den, der taler. */
+  private opdaterTalerZoom() {
+    if (!this.taler) {
+      this.zoomMaal = 1;
+      return;
+    }
+    const p = this.talerPunkt();
+    if (!p) {
+      this.zoomMaal = 1.5;
+      return;
+    }
+    const dx = Math.abs(p.x - this.spiller.x);
+    const dy = Math.abs(p.y - this.spiller.y);
+    this.zoomMaal = Math.max(1, Math.min(2, (VIS_B - 40) / (dx + 60), (VIS_H - 30) / (dy + 70)));
+    if (!this.gaarTilTaler && (dx > 2 || dy > 2)) {
+      const ax = p.x - this.spiller.x;
+      const ay = p.y - this.spiller.y;
+      this.retning = Math.abs(ax) > Math.abs(ay) ? (ax > 0 ? 'hoejre' : 'venstre') : ay > 0 ? 'ned' : 'op';
+    }
+  }
+
+  /** Hvor den, der taler, står. Æseløre er fuglen, de andre er objekter på stedet med samme id. */
+  private talerPunkt(): { x: number; y: number; billede?: Phaser.GameObjects.Image } | null {
+    if (!this.taler || this.taler === 'fortaeller') return null;
+    if (this.taler === 'aeseloere') return { x: this.fugl.x, y: this.fugl.y, billede: this.fugl };
+    const o = this.data_.sted.objekter.find((x) => x.id === this.taler && x.felt);
+    if (!o?.felt || this.data_.skjulte?.includes(o.id)) return null;
+    const m = feltMidte(o.felt);
+    const billeder = this.objektBilleder.get(o.id) ?? [];
+    return { x: m.x, y: m.y, billede: billeder.find((b) => b.getData('y0') !== undefined) };
+  }
+
   laas(laast: boolean) {
     this.laast = laast;
     this.vej = [];
@@ -379,15 +457,27 @@ export class KortScene extends Phaser.Scene {
 
   private flytKamera(f: number) {
     const [lx, ly] = { op: [0, -1], ned: [0, 1], venstre: [-1, 0], hoejre: [1, 0] }[this.retning];
-    const mx = this.spiller.x + lx * 22;
-    const my = this.spiller.y - 10 + ly * 26;
+    let mx = this.spiller.x + lx * 22;
+    let my = this.spiller.y - 10 + ly * 26;
+    if (this.taler) {
+      // Under dialog: midt imellem hovedpersonen og den, der taler.
+      const p = this.talerPunkt();
+      mx = p ? (this.spiller.x + p.x) / 2 : this.spiller.x;
+      // Kameraet sigter lidt under figurerne, så de står over dialogboksen nederst.
+      my = (p ? (this.spiller.y + p.y) / 2 : this.spiller.y) + 6;
+    }
     this.kam.x += (mx - this.kam.x) * f;
     this.kam.y += (my - this.kam.y) * f;
+    const z = this.zoom;
+    const bw = VIS_B / z;
+    const bh = VIS_H / z;
     const W = this.kort.bredde * FELT;
     const H = this.kort.hoejde * FELT;
-    const vx = Math.round(Phaser.Math.Clamp(this.kam.x - VIS_B / 2, 0, Math.max(0, W - VIS_B)));
-    const vy = Math.round(Phaser.Math.Clamp(this.kam.y - VIS_H / 2, 0, Math.max(0, H - VIS_H)));
-    this.cameras.main.centerOn(vx + VIS_B / 2, vy + VIS_H / 2);
+    const vx = Phaser.Math.Clamp(this.kam.x - bw / 2, 0, Math.max(0, W - bw));
+    const vy = Phaser.Math.Clamp(this.kam.y - bh / 2, 0, Math.max(0, H - bh));
+    const cam = this.cameras.main;
+    cam.setZoom(z);
+    cam.centerOn(vx + bw / 2, vy + bh / 2);
     return { vx, vy };
   }
 
@@ -437,7 +527,25 @@ export class KortScene extends Phaser.Scene {
       if (t && this.naer && (Phaser.Input.Keyboard.JustDown(t.enter) || Phaser.Input.Keyboard.JustDown(t.mellemrum))) {
         this.kroge?.onInteraktion(this.naer);
       }
+    } else if (this.gaarTilTaler && this.vej.length > 0) {
+      // Under dialog går hovedpersonen selv hen til den, der taler.
+      const skridt = FART * dt;
+      const m = feltMidte(this.vej[0]);
+      const ax = m.x - this.spiller.x;
+      const ay = m.y - this.spiller.y;
+      const l = Math.hypot(ax, ay);
+      if (l > 0.01) this.retning = Math.abs(ax) > Math.abs(ay) ? (ax > 0 ? 'hoejre' : 'venstre') : ay > 0 ? 'ned' : 'op';
+      if (l <= skridt) {
+        this.spiller.setPosition(m.x, m.y);
+        this.vej.shift();
+        if (this.vej.length === 0) this.gaarTilTaler = false;
+      } else {
+        this.spiller.x += (ax / l) * skridt;
+        this.spiller.y += (ay / l) * skridt;
+      }
+      gaar = true;
     }
+    this.opdaterTalerZoom();
 
     // Hovedpersonen: retning og gangbilleder.
     if (gaar) this.gaaTid += dt;
@@ -466,9 +574,23 @@ export class KortScene extends Phaser.Scene {
     if (this.vand.texture.key !== vandNoegle) this.vand.setTexture(vandNoegle);
     this.planker.forEach((p, i) => p.setY((p.getData('y0') as number) + (Math.sin(this.ur * 1.6 + i * 2) > 0.3 ? 1 : 0)));
 
+    // Den, der taler, vipper lidt op og ned, og en lille taleboble står over hovedet.
+    const tp = this.taler ? this.talerPunkt() : null;
+    for (const billeder of this.objektBilleder.values()) {
+      const hoved = billeder.find((b) => b.getData('y0') !== undefined);
+      if (!hoved) continue;
+      const taler = tp?.billede === hoved;
+      const hop = taler && !this.roligt ? (Math.sin(this.ur * 9) > 0.2 ? 1 : 0) : 0;
+      hoved.setY((hoved.getData('y0') as number) - hop);
+    }
+    if (tp && !this.roligt) {
+      const h = tp.billede === this.fugl ? 12 : tp.billede?.height ?? 24;
+      this.boble.setVisible(true).setPosition(tp.x, tp.y - h - 3 - (tp.billede === this.fugl ? Math.sin(this.ur * 4) * 2 : 0));
+    } else this.boble.setVisible(false);
+
     // Pil over det, eleven skal undersøge.
     const aktiv = this.aktivtObjekt();
-    if (aktiv?.felt && !this.laast) {
+    if (aktiv?.felt && !this.laast && !this.taler) {
       const m = feltMidte(aktiv.felt);
       const hoejde = PIL_HOEJDE[aktiv.form] ?? 6;
       this.pil.setVisible(true).setPosition(m.x, m.y - hoejde - 2 - (Math.sin(this.ur * 5) > 0 ? 1 : 0));
@@ -476,11 +598,15 @@ export class KortScene extends Phaser.Scene {
 
     this.opdaterNaer();
 
-    // Kamera og lys.
-    const { vx, vy } = this.flytKamera(0.12);
-    this.lysLag.setPosition(vx, vy);
+    // Kamera og lys. Zoomen glider ind og ud.
+    const k2 = this.roligt ? 1 : 1 - Math.pow(0.02, dt);
+    this.zoom += (this.zoomMaal - this.zoom) * k2;
+    if (Math.abs(this.zoom - this.zoomMaal) < 0.01) this.zoom = this.zoomMaal;
+    const { vx, vy } = this.flytKamera(this.taler ? 0.1 : 0.12);
+    const z = this.zoom;
+    this.lysLag.setPosition(vx, vy).setScale(1 / z);
     const fyrRamme = Math.floor(this.ur * 1.2) % 2;
-    const noegle = `${vx},${vy},${Math.round(this.spiller.x)},${Math.round(this.spiller.y)},${fyrRamme},${this.lyskilder.length},${this.data_.mindreUhygge}`;
+    const noegle = `${Math.round(vx * z)},${Math.round(vy * z)},${z.toFixed(3)},${Math.round(this.spiller.x)},${Math.round(this.spiller.y)},${fyrRamme},${this.lyskilder.length},${this.data_.mindreUhygge}`;
     if (noegle === this.sidsteLys) return;
     this.sidsteLys = noegle;
     const ctx = this.lysTekstur.context;
@@ -490,7 +616,10 @@ export class KortScene extends Phaser.Scene {
     ctx.fillRect(0, 0, VIS_B, VIS_H);
     // "lighten": hvor to lys mødes, vinder det stærkeste, i stedet for at det sidste dækker.
     ctx.globalCompositeOperation = 'lighten';
-    const tegnLys = (x: number, y: number, c: HTMLCanvasElement) => ctx.drawImage(c, Math.round(x - vx - c.width / 2), Math.round(y - vy - c.height / 2));
+    // Lyslaget dækker det, kameraet ser. Med zoom er hver verdenspixel z pixel i laget.
+    ctx.imageSmoothingEnabled = false;
+    const tegnLys = (x: number, y: number, c: HTMLCanvasElement) =>
+      ctx.drawImage(c, Math.round((x - vx - c.width / 2) * z), Math.round((y - vy - c.height / 2) * z), Math.round(c.width * z), Math.round(c.height * z));
     for (const l of this.fyrLamper) tegnLys(l.x, l.y, this.fyrlys[fyrRamme]);
     for (const l of this.faesteLys) tegnLys(l.x, l.y, l.billede);
     for (const l of this.lyskilder) tegnLys(l.x, l.y, l.billede);
