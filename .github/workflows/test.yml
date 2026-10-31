@@ -38,3 +38,35 @@ jobs:
             test-results/
             korrektur/korrekturliste.md
           retention-days: 14
+
+  # Når main er grøn, lægges spillet på GitHub Pages, så Henrik altid kan teste den nyeste udgave på ét fast link:
+  # https://htheland-chao.github.io/Pennedal/  (Henrik godkendte et offentligt testlink 31. oktober 2026)
+  # Kræver én gang: Settings > Pages > Source: GitHub Actions.
+  udgiv:
+    needs: test
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.udgiv.outputs.page_url }}
+    concurrency:
+      group: pages
+      cancel-in-progress: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Byg spillet
+        run: npx vite build --sourcemap false
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+      - id: udgiv
+        uses: actions/deploy-pages@v4
