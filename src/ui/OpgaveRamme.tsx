@@ -3,6 +3,7 @@ import { t } from '../content';
 import { bland } from '../engine/tilfaeldig';
 import { REGEL_EFTER_FORSOEG, type Haendelse } from '../engine/tilpasning';
 import { Modal } from './Modal';
+import { LaesOpKnap, type Del } from './Tekst';
 
 export type OpgaveApi = {
   /** Kaldes af mekanikken, når eleven har svaret. */
@@ -30,6 +31,26 @@ type Fase = 'svar' | 'regel' | 'rigtig';
 
 const ROS = ['opgave.ros.1', 'opgave.ros.2', 'opgave.ros.3', 'opgave.ros.4'] as const;
 
+/**
+ * Det, Æseløre læser op efter et svar: beskeden, reglen og eksemplet og til sidst en besked om niveauet.
+ * Teksterne skal stå præcis sådan i scripts/lydtekster.mjs, ellers findes der ikke et klip.
+ */
+export function beskedDele(
+  tekst: string,
+  regel: { regel: string; eksempel: string } | null,
+  niveau: string | null,
+  vaelgRegel: boolean,
+): Del[] {
+  const dele: Del[] = [{ tekst, figur: 'aeseloere' }];
+  if (regel) {
+    dele.push({ tekst: `${t('feedback.regel')}: ${regel.regel}`, figur: 'aeseloere' });
+    dele.push({ tekst: `${t('feedback.eksempel')}: ${regel.eksempel}`, figur: 'aeseloere' });
+  }
+  if (niveau) dele.push({ tekst: niveau, figur: 'aeseloere' });
+  if (vaelgRegel) dele.push({ tekst: t('opgave.vaelg.regel'), figur: 'aeseloere' });
+  return dele;
+}
+
 export function OpgaveRamme(props: Props) {
   const { titel, antal, loeste, regel, eksempel, andreRegler, onSvar, onLoest, onPause, children } = props;
   const [forsoeg, setForsoeg] = useState(1);
@@ -37,6 +58,8 @@ export function OpgaveRamme(props: Props) {
   const [fase, setFase] = useState<Fase>('svar');
   const [besked, setBesked] = useState<{ tekst: string; slags: 'god' | 'fejl' | 'info'; visRegel?: boolean } | null>(null);
   const [niveauBesked, setNiveauBesked] = useState<string | null>(null);
+  /** Tæller op for hver ny besked, så den samme besked to gange i træk også bliver læst op igen. */
+  const [beskedNr, setBeskedNr] = useState(0);
   const reglerAtVaelge = useMemo(
     () => bland([regel, ...andreRegler.filter((r) => r !== regel).slice(0, 2)], Math.random),
     [regel, andreRegler],
@@ -44,6 +67,7 @@ export function OpgaveRamme(props: Props) {
 
   function tjek(rigtigt: boolean, fejltekst?: string) {
     if (fase !== 'svar') return;
+    setBeskedNr((n) => n + 1);
     const haendelse = onSvar(rigtigt, forsoeg);
     setNiveauBesked(haendelse === 'op' ? t('opgave.niveau.op') : haendelse === 'ned' ? t('opgave.niveau.ned') : null);
     if (rigtigt) {
@@ -61,6 +85,7 @@ export function OpgaveRamme(props: Props) {
   }
 
   function vaelgRegel(r: string) {
+    setBeskedNr((n) => n + 1);
     if (r === regel) {
       setFase('svar');
       setFejlSidenRegel(0);
@@ -115,6 +140,13 @@ export function OpgaveRamme(props: Props) {
           </div>
         )}
         {niveauBesked && <p className="niveau-besked">{niveauBesked}</p>}
+        {besked && (
+          <LaesOpKnap
+            key={beskedNr}
+            auto
+            dele={beskedDele(besked.tekst, besked.visRegel ? { regel, eksempel } : null, niveauBesked, fase === 'regel')}
+          />
+        )}
       </div>
 
       {fase === 'regel' && (

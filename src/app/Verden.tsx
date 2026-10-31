@@ -7,6 +7,7 @@ import { registrerSvar, type Haendelse } from '../engine/tilpasning';
 import { PhaserVerden } from '../game/PhaserVerden';
 import { avatarDataUri } from '../ui/avatarSvg';
 import { DialogBoks } from '../ui/DialogBoks';
+import { LaesOpKnap } from '../ui/Tekst';
 import { Ydelse } from '../ui/Ydelse';
 import { BevisjagtVindue, OpgaveVindue } from './OpgaveVindue';
 
@@ -147,6 +148,7 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
             <>
               <p className="naeste-overskrift">{t('verden.naeste')}</p>
               <p className="naeste-tekst">{trin.opgavetekst}</p>
+              <LaesOpKnap tekst={trin.opgavetekst} figur="fortaeller" auto={!aktivtTrin && !andetVindueAabent} />
               {objektNavn && (
                 <button
                   type="button"

@@ -53,6 +53,13 @@ export function BroOpgave({ bro, api }: { bro: Bro; api: OpgaveApi }) {
     <div className="bro" data-historie-id={bro.historie.id}>
       <p className="instruks">{t('bro.instruks')}</p>
       {bro.medFremmed && <p className="instruks">{t('bro.instruks.fremmed')}</p>}
+      <LaesOpKnap
+        auto
+        dele={[
+          { tekst: t('bro.instruks'), figur: 'fortaeller' },
+          ...(bro.medFremmed ? [{ tekst: t('bro.instruks.fremmed'), figur: 'fortaeller' as const }] : []),
+        ]}
+      />
       <h3>{bro.historie.titel}</h3>
       <ol className={`planker ${api.loest ? 'planker-loest' : ''}`}>
         {paaBroen.map((id, i) => (
