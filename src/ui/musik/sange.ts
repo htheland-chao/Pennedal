@@ -283,8 +283,41 @@ const tage: Sang = {
   ],
 };
 
+/**
+ * Introen: en spilledåse i a-mol, langsom og lidt sørgmodig, med regn i baggrunden.
+ * De sidste takter løfter sig mod C-dur, så det slutter med en lille forventning.
+ */
+const intro: Sang = {
+  bpm: 66,
+  spor: [
+    { lyd: 'trekant', styrke: 0.26, noder: heleTakter(['A2', 'F2', 'C3', 'E2', 'A2', 'F2', 'G2', 'C3']) },
+    {
+      lyd: 'firkant',
+      styrke: 0.07,
+      noder:
+        'E6 - C6 - A5 - B5 C6 | A5 - - - . . . . | G5 - C6 - E6 - D6 C6 | B5 - - - G#5 - . . | ' +
+        'E6 - C6 - A5 - B5 C6 | A5 - - - . . F5 - | G5 - B5 - D6 - F6 - | E6 - - - - - - -',
+    },
+    {
+      lyd: 'trekant',
+      styrke: 0.09,
+      noder: arpeggio([
+        ['A3', 'C4', 'E4'], ['F3', 'A3', 'C4'], ['C4', 'E4', 'G4'], ['E3', 'G#3', 'B3'],
+        ['A3', 'C4', 'E4'], ['F3', 'A3', 'C4'], ['G3', 'B3', 'D4'], ['C4', 'E4', 'G4'],
+      ]),
+    },
+    {
+      lyd: 'stoej',
+      styrke: 0.025,
+      noder:
+        'C6 . C6 C6 . C6 . C6 | . C6 . C6 C6 . C6 . | C6 . C6 . C6 C6 . C6 | . C6 C6 . C6 . C6 . | ' +
+        'C6 . C6 C6 . C6 . C6 | . C6 . C6 C6 . C6 . | C6 . C6 . C6 C6 . C6 | . C6 C6 . C6 . C6 .',
+    },
+  ],
+};
+
 /** Forsiden og menuerne: Pennedals tema, roligere. */
 const forside: Sang = { ...pennedal, bpm: 76 };
 
 /** Sang pr. tema. Et tema uden sang får forsidens. */
-export const SANGE: Record<string, Sang> = { bibliotek, kaelder, pennedal, floden, fyrtaarn, eng, torv, smoeger, trykkeri, tage, forside, ufaerdige };
+export const SANGE: Record<string, Sang> = { bibliotek, kaelder, pennedal, floden, fyrtaarn, eng, torv, smoeger, trykkeri, tage, forside, ufaerdige, intro };

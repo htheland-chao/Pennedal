@@ -84,3 +84,5 @@ Rimfods
 Rimbjerget
 blækplet
 blækpletter
+# Introen (31. oktober 2026): studiets navn.
+Theland

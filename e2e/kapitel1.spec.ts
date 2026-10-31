@@ -114,6 +114,27 @@ test('kapitel 1 kan spilles fra start til slut, og gemmekoden virker', async ({ 
   await billede(page, '01-start');
 
   await page.getByRole('button', { name: 'Start et nyt eventyr' }).click();
+  // Introen: studiets navn, fem scener og titlen. Hver scene kan man gå videre fra.
+  await expect(page.getByText('Theland Studios', { exact: true })).toBeVisible();
+  await page.waitForTimeout(1600);
+  await billede(page, '01a-intro-studie');
+  for (const [nr, tekst] of [
+    [1, 'Nogle historier bliver aldrig skrevet færdige.'],
+    [2, 'De bliver lagt i en skuffe.'],
+    [3, 'Men et sted bag ordene'],
+    [4, 'Nu forsvinder slutningerne.'],
+    [5, 'Den hvisker til dig.'],
+  ] as const) {
+    await page.locator('.intro-knapper').getByRole('button', { name: 'Videre' }).click();
+    await expect(page.locator('.intro-tekst')).toContainText(tekst);
+    await page.waitForTimeout(3500);
+    await billede(page, `01b-intro-${nr}`);
+  }
+  await page.locator('.intro-knapper').getByRole('button', { name: 'Videre' }).click();
+  await expect(page.getByText('Et spil af Theland Studios')).toBeVisible();
+  await page.waitForTimeout(2000);
+  await billede(page, '01c-intro-titel');
+  await page.getByRole('button', { name: 'Begynd eventyret' }).click();
   await expect(page.getByRole('heading', { name: 'Skab din hovedperson' })).toBeVisible();
   await page.getByRole('button', { name: 'Næste På hovedet' }).click();
   await expect(page.getByText('Tørklæde', { exact: true })).toBeVisible();
@@ -257,6 +278,13 @@ test('intet går ud over kanten på en mobil, hverken stående eller liggende', 
     await page.goto('/');
     expect(await forBred(), `start ${viewport.width}`).toBe(false);
     await page.getByRole('button', { name: 'Start et nyt eventyr' }).click();
+    // Introen skal også passe på en mobil. Titelkortet og tekst og knapper skal være synlige.
+    await page.locator('.intro-knapper').getByRole('button', { name: 'Videre' }).tap();
+    await expect(page.locator('.intro-tekst')).toBeVisible();
+    expect(await forBred(), `intro ${viewport.width}`).toBe(false);
+    await expect(page.getByRole('button', { name: 'Spring introen over' })).toBeInViewport();
+    await page.screenshot({ path: `${BILLEDER}/01d-intro-mobil-${viewport.width}.png` });
+    await page.getByRole('button', { name: 'Spring introen over' }).tap();
     expect(await forBred(), `avatar ${viewport.width}`).toBe(false);
     await page.getByRole('button', { name: 'Klar til eventyret' }).tap();
     await expect(page.getByRole('button', { name: 'Undersøg hr. Holm' })).toBeVisible();
