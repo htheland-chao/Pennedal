@@ -48,6 +48,7 @@ Opdatér kun en version efter at have slået den op i npm og kørt alle tests.
 - Kun tekster fra `scripts/lydtekster.mjs` sendes til Google. Tilføj aldrig elevtekster eller noget, eleven skriver.
 - Nye steder med oplæsning: giv `LaesOpKnap` en `figur` og tilføj teksten i `scripts/lydtekster.mjs`.
 - Al tale vises også som tekst.
+- Baggrundsmusik: én original sang pr. tema i `src/ui/musik/sange.ts` (noder, ingen lydfiler). Nye steder skal have en sang (en test tjekker det). Musikken dæmpes under dialog og oplæsning med `daempMusik`.
 
 ## Grafik
 

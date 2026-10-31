@@ -77,6 +77,10 @@ export type Indstillinger = {
   taleStyrke: number;
   /** Dialogen går selv videre til næste replik, når oplæsningen er færdig. */
   autoVidere: boolean;
+  /** Baggrundsmusik til eller fra. */
+  musik: boolean;
+  /** Styrke for baggrundsmusikken, 0-100. */
+  musikStyrke: number;
 };
 
 export const STANDARD_INDSTILLINGER: Indstillinger = {
@@ -88,6 +92,8 @@ export const STANDARD_INDSTILLINGER: Indstillinger = {
   indtalt: true,
   taleStyrke: 80,
   autoVidere: true,
+  musik: true,
+  musikStyrke: 50,
 };
 
 export const GEM_NOEGLE = 'pennedal.gemtspil.v1';
@@ -207,6 +213,8 @@ export function hentIndstillinger(lager: Storage | undefined = globalThis.localS
       indtalt: typeof d.indtalt === 'boolean' ? d.indtalt : true,
       taleStyrke: erTal(d.taleStyrke, 0, 100) ? d.taleStyrke : 80,
       autoVidere: typeof d.autoVidere === 'boolean' ? d.autoVidere : true,
+      musik: typeof d.musik === 'boolean' ? d.musik : true,
+      musikStyrke: erTal(d.musikStyrke, 0, 100) ? d.musikStyrke : 50,
     };
   } catch {
     return { ...STANDARD_INDSTILLINGER };

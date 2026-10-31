@@ -1,6 +1,7 @@
 # Licenser for grafik, skrifttyper og pakker
 
 - **Pixelify Sans** (overskrifter og navne): SIL Open Font License 1.1, via `@fontsource/pixelify-sans`.
+- **Baggrundsmusik:** Komponeret til Pennedal og skrevet som noder i `src/ui/musik/sange.ts`. Tonerne laves i browseren, så der er ingen lydfiler og ingen fremmed licens.
 - **Grafik:** Al grafik er stadig pladsholdere tegnet med kode i projektet. Pixelgrafikken tegnes i `src/game/pixel/` ud fra tegnkort i `sprites.ts` (udendørs) og `inde.ts` (biblioteket og kælderen). Avataren i menuerne tegnes i `src/ui/avatarSvg.ts`. `src/game/tegn.ts` bruges kun til steder uden kort. Billeder i ordkort og opgaver er emoji, som computerens egen skrifttype tegner. De er også pladsholdere.
 - **Stemmer:** Lydklippene i `public/lyd` er lavet med Google Gemini TTS (model og stemmer står i `src/content/stemmer.json`). Google gør ikke krav på det genererede indhold, jf. Gemini API Additional Terms of Service. Klippene laves kun ud fra spillets egne tekster.
 - **Atkinson Hyperlegible** (standardskrift): SIL Open Font License 1.1, via @fontsource.

@@ -3,6 +3,7 @@ import '@fontsource/atkinson-hyperlegible/700.css';
 import '@fontsource/opendyslexic/400.css';
 import '@fontsource/opendyslexic/700.css';
 import '@fontsource/pixelify-sans/latin-600.css';
+import { laasOpMusik } from './ui/musik/afspiller';
 import './styles.css';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
@@ -26,3 +27,6 @@ if (import.meta.env.PROD && 'serviceWorker' in navigator) {
     });
   });
 }
+
+// Browsere tillader først lyd efter elevens første tryk eller tast.
+for (const type of ['pointerdown', 'keydown'] as const) document.addEventListener(type, laasOpMusik, { passive: true });
