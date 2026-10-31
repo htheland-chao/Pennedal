@@ -18,6 +18,8 @@ type Props = {
   laast: boolean;
   mindreUhygge: boolean;
   forskraekSignal: number;
+  /** Hvem der taler i dialogen. Kameraet zoomer ind på dem og hovedpersonen. */
+  taler?: string | null;
   kroge: VerdenKroge;
   label: string;
   fpsRef?: MutableRefObject<() => number>;
@@ -134,6 +136,12 @@ export function PhaserVerden(props: Props) {
   useEffect(() => {
     if (props.forskraekSignal > 0) scene()?.forskraek();
   }, [props.forskraekSignal]);
+
+  useEffect(() => {
+    const s = scene();
+    if (s instanceof KortScene && s.sys.isActive()) s.saetTaler(props.taler ?? null);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [props.taler]);
 
   useEffect(() => {
     if (props.gaaTilRef) {

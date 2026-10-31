@@ -3,26 +3,33 @@ import { useApp } from './Kontekst';
 import { daempMusik } from './musik/afspiller';
 import { t, type Replik, type TekstId } from '../content';
 import { Modal } from './Modal';
+import { PixelPortraet } from './PixelPortraet';
 import { LaesOpKnap, Tekst } from './Tekst';
 
-const PORTRAET: Record<Replik['taler'], string> = {
-  holm: '👓',
-  aeseloere: '🕊️',
-  klatten: '💧',
-  lanterne: '🏮',
-  fortaeller: '📖',
-};
 
 /** Pause efter en replik, før den næste starter, så eleven kan nå at se teksten. */
 const PAUSE_MS = 1200;
 
-export function DialogBoks({ replikker, onFaerdig }: { replikker: Replik[]; onFaerdig: () => void }) {
+type DialogProps = {
+  replikker: Replik[];
+  onFaerdig: () => void;
+  /** Hvem der taler lige nu, så kameraet kan zoome ind på dem. Kaldes med null, når dialogen lukker. */
+  onTaler?: (taler: Replik['taler'] | null) => void;
+};
+
+export function DialogBoks({ replikker, onFaerdig, onTaler }: DialogProps) {
   const [nr, setNr] = useState(0);
   const r = replikker[nr];
   const navn = t(`taler.${r.taler}` as TekstId);
   const sidste = nr === replikker.length - 1;
   const { indstillinger } = useApp();
   const [naeste, setNaeste] = useState<number | null>(null);
+
+  useEffect(() => {
+    onTaler?.(r.taler);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [r.taler, nr]);
+  useEffect(() => () => onTaler?.(null), [onTaler]);
 
   // Musikken skrues ned, så længe dialogen er åben.
   useEffect(() => {
@@ -42,7 +49,7 @@ export function DialogBoks({ replikker, onFaerdig }: { replikker: Replik[]; onFa
     <Modal titel={navn} klasse={`dialogboks taler-${r.taler}`}>
       <div className="dialog-indhold">
         <div className="portraet" aria-hidden="true">
-          {PORTRAET[r.taler]}
+          <PixelPortraet figur={r.taler} />
         </div>
         <div className="dialog-tekst">
           <p className="taler-navn">{navn}</p>
