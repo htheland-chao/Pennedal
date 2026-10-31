@@ -16,9 +16,22 @@ At gøre noget færdigt, selvom det ikke er perfekt. At ens fejl er en del af en
 
 Da avataren var mindre (omkring 8 år), skrev den en historie i et grønt kladdehæfte ved køkkenbordet. Historien handlede om en ensom skygge, der ledte efter et sted at høre til. Avataren skrev begyndelsen og midten med stor iver og mange stavefejl.
 
-Så læste nogen historien og sagde noget om stavefejlene (se åbent spørgsmål 1). Avataren blev flov, slog en tyk blækklat ud over siden, foldede hjørnet ned på den side, hvor den var nået til, og lagde hæftet i en skuffe. De sidste ord, den nåede at skrive, var: "Og så ..."
+Så fandt avatarens storesøster eller storebror hæftet, læste lidt og grinede: "Der er godt nok mange fejl." Det var ikke ondt ment, og søskendet tænkte ikke mere over det. Avataren blev flov, slog en tyk blækklat ud over siden, foldede hjørnet ned på den side, hvor den var nået til, og lagde hæftet i en skuffe. De sidste ord, den nåede at skrive, var: "Og så ..."
 
 Hæftet endte i skolebibliotekets kælder i det gamle kartoteksskab. Avataren glemte det. I Pennedal bliver det, man gemmer væk, til huller. Derfor er avatarens hukommelse hullet.
+
+### Hensyn til ordblinde elever (Henrik, 31. oktober 2026)
+
+Forhistorien handler om at blive grinet ad for sine stavefejl. Det kan ramme elever med ordblindhed hårdt, så disse regler gælder altid:
+
+1. **Problemet er grinet, ikke fejlene.** Spillet siger det tydeligt flere gange: stavefejl siger intet om, hvor god en historie er. At stave er noget, man øver. En historie er noget, man har.
+2. **Fejlene vises aldrig.** Tilbageblikket viser røde streger og en side, der bliver vendt om. Ordene med fejl kan ikke læses, og ingen læser dem højt. Søskendets replik siges én gang og gentages aldrig.
+3. **Ingen etiketter.** Spillet kalder aldrig avataren ordblind, dum eller dårlig til noget. Det nævner ingen diagnoser (krav 4).
+4. **Søskendet fortryder.** Et hukommelsesskår viser, at søskendet ledte efter hæftet bagefter. I den sande slutning ligger der en lille seddel i hæftet: "Den var faktisk god. Undskyld."
+5. **Klatten vokser.** Æseløre stopper med at håne Klattens fejl efter kapitel 6. Fra da af retter de dem sammen, og Klatten er stolt, når han lærer noget.
+6. **Mindre uhygge.** Med indstillingen slået til høres grinet ikke. I stedet lukkes en dør stille, og avataren tvivler selv.
+7. **Altid valgfrit.** Alle tilbageblik kan springes over. Henrik kan se dem i Lærerkig, før klassen spiller.
+8. **Hjælperne siger det højt.** Mor Lanterne i kapitel 4 (efter godnathistorien) og Holm i epilogen siger hver især, med deres egne ord, at de bedste historier tit har mange fejl i første udkast.
 
 ### Hvad alt i spillet i virkeligheden er
 
@@ -29,22 +42,22 @@ Hæftet endte i skolebibliotekets kælder i det gamle kartoteksskab. Avataren gl
 | Æseløre | Det nedfoldede hjørne (et æseløre) på den side, hvor avataren stoppede. Han er et bogmærke, ikke en ordbogsside. | "Endelig. Du har været længe om det." (k1). Han lyver om ordbogen. |
 | Klatten | Blækklatten fra den dag. Hans stavefejl er avatarens gamle stavefejl. | Han skriver forkert, han arbejder for "chefen". |
 | Den glemte skuffe | Skuffen, hæftet blev lagt i. | Kapitel 1's titel. Skuffen hvisker. |
-| Holm | Bibliotekaren, der fandt hæftet og gemte det, fordi han syntes, det var for godt til at smide ud. | "Godt, at du kom." (k1) Han ved mere, end han siger. |
+| Holm | Bibliotekaren, der fandt hæftet og gemte det, fordi han syntes, det var for godt til at smide ud. Han siger det først i epilogen (Henrik, 31. oktober 2026). | "Godt, at du kom." (k1) Han ved mere, end han siger. |
 | Mor Lanterne | Stemmen fra godnathistorier. Hun lyser af færdige historier. | Hun giver dig lanternen. |
 
 ## De to twists
 
-**Twist 1 (slutningen af kapitel 4): Den Ufærdige er din historie.** Tilbageblikket viser hånden, der skriver "Og så ...", og stopper. Den Ufærdige vender sig mod dig for første gang og siger: "Der er du jo." Spilleren har indtil nu troet, at Den Ufærdige var en fremmed skurk.
+**Twist 1 (slutningen af kapitel 5): Den Ufærdige er din historie.** Tilbageblikket viser hånden, der skriver "Og så ...", og stopper. Den Ufærdige vender sig mod dig for første gang og siger: "Der er du jo." Spilleren har indtil nu troet, at Den Ufærdige var en fremmed skurk.
 
-**Twist 2 (midt i kapitel 5): Æseløre har vidst det hele tiden.** Han er ikke fra en ordbog. Han er hjørnet, du foldede ned. Han har lokket dig hjem, fordi han kun kan blive glattet ud, hvis historien bliver færdig. Han indrømmer det selv, flovt og uden sin sædvanlige frækhed. Han har brug for, at du tilgiver ham, og spilleren kan vælge, hvad avataren svarer (alle svar fører videre, men Æseløres replikker ændrer sig resten af spillet).
+**Twist 2 (midt i kapitel 6): Æseløre har vidst det hele tiden.** Han er ikke fra en ordbog. Han er hjørnet, du foldede ned. Han har lokket dig hjem, fordi han kun kan blive glattet ud, hvis historien bliver færdig. Han indrømmer det selv, flovt og uden sin sædvanlige frækhed. Han har brug for, at du tilgiver ham, og spilleren kan vælge, hvad avataren svarer (alle svar fører videre, men Æseløres replikker ændrer sig resten af spillet).
 
-**Lille overraskelse (kapitel 5): Klatten er din klat.** Klattens fejl er dine gamle fejl. Hvis du har været venlig mod ham, bliver han din hjælper.
+**Lille overraskelse (kapitel 6): Klatten er din klat.** Klattens fejl er dine gamle fejl. Hvis du har været venlig mod ham, bliver han din hjælper.
 
 ## Slutningen
 
 Man besejrer ikke Den Ufærdige. Man skriver dens slutning. Det sidste kapitel er bygget af valg: hvilket sted Skyggen hører til, hvem der er der, og hvordan sætningen efter "Og så ..." lyder. Eleven sætter slutningen sammen af sætningsdele, som spillet tilbyder. Eleven skriver aldrig fritekst, der gemmes (krav 4).
 
-Bagefter vågner avataren i biblioteket. Holm rækker et nyt, tomt kladdehæfte frem. Ingen tale, kun billedet. Fru Fodnote har den allersidste replik nederst på skærmen.
+Bagefter vågner avataren i biblioteket. Holm fortæller kort, at det var ham, der fandt hæftet og gemte det, fordi det var for godt til at smide ud. Han rækker et nyt, tomt kladdehæfte frem. Fru Fodnote har den allersidste replik nederst på skærmen.
 
 **Den sande slutning:** Har man samlet alle hukommelsesskår og været venlig mod Klatten hele vejen, kommer der en ekstra scene: Skyggen får et navn, og det er avataren, der vælger det blandt nogle forslag.
 
@@ -52,14 +65,20 @@ Bagefter vågner avataren i biblioteket. Holm rækker et nyt, tomt kladdehæfte 
 
 Nye trin må kun tilføjes til sidst i et kapitel, ellers peger gamle gemmekoder forkert (se Regler).
 
+Spillet skal have fylde (Henrik, 31. oktober 2026). Otte kapitler, hver på cirka 45 til 90 minutter, plus sidemissioner, valgfrie udfordringer og hukommelsesskår. Samlet cirka 8 til 12 timer.
+
 | Kap. | Titel (arbejdstitel) | Sted og stemning | Danskfagligt | Ny hjælper | Tilbageblik | Twist |
 |---|---|---|---|---|---|---|
 | 1 | Den glemte skuffe (findes) | Bibliotek, kælder, skov, flod, fyrtårn | Stumme bogstaver, punktum, rækkefølge i en historie | Æseløre, Mor Lanterne | 1: Blæk og regn | Spor: "Og så ..." |
 | 2 | Byen uden punktummer (findes) | Sætningsbyen, tagene, mørket | Sætningstegn, læsepræcision | Portvagten, Råberen | 2: Røde streger | Den Ufærdige viser sig |
 | 3 | Viskeskoven | En skov, hvor ting bliver visket ud. Hvidt, stille, forkert. | Ordforråd, synonymer (ord, der kan erstatte de viskede) | Vims | 3: Køkkenbordet | Klatten fanget af sin egen chef. Første valg: hjælp ham eller lad ham være. |
-| 4 | Fodnoternes kælder | Et arkiv under siderne, hvor alle bøgers små kommentarer bor. Støvet og sjovt. | Fortæller og synsvinkel (jeg- og han/hun-fortæller) | Fru Fodnote | 4: Skyggen bliver tegnet | Twist 1 |
-| 5 | Blæksøen | Klattens hjem. En sø af blæk, en lille hytte af krøllede sider. | Retskrivning: find og ret dine egne fejl (korrektur) | Klatten (hvis venlig) | 5: Hjørnet bliver foldet | Twist 2 og Klattens hemmelighed |
-| 6 | Den sidste side | Den Ufærdiges verden. En halvt skrevet side, hvor ordene stopper midt i luften. | Komposition: begyndelse, midte og slutning. Skriv en slutning af sætningsdele. | Alle | 6: Skuffen | Slutningen |
+| 4 | Rimbjerget | Et bjerg, hvor alt taler på rim, og ekkoet svarer forkert. Koldt, blæsende og fjollet. | Digte: rim, rytme og billedsprog | Rimfod | 4: Godnathistorien | Den Ufærdige stjæler bjergets sidste vers |
+| 5 | Fodnoternes kælder | Et arkiv under siderne, hvor alle bøgers små kommentarer bor. Støvet og sjovt. | Fortæller og synsvinkel (jeg- og han/hun-fortæller) | Fru Fodnote | 5: Skyggen bliver tegnet | Twist 1 |
+| 6 | Blæksøen | Klattens hjem. En sø af blæk, en lille hytte af krøllede sider. | Retskrivning: find og ret dine egne fejl (korrektur) | Klatten (hvis venlig) | 6: Hjørnet bliver foldet | Twist 2 og Klattens hemmelighed |
+| 7 | De halve lande | Grænsen til Den Ufærdiges verden. Halvfærdige historier i alle genrer: et eventyr uden prins, en krimi uden opklaring, en gyser uden monster. | Genrer og deres kendetegn | Alle hjælpere samles | 7: Søskendet | Hjælperne skal vælge side |
+| 8 | Den sidste side | Den Ufærdiges verden. En halvt skrevet side, hvor ordene stopper midt i luften. | Komposition: begyndelse, midte og slutning. Skriv en slutning af sætningsdele. | Alle | 8: Skuffen | Slutningen |
+
+Hvert kapitel fra 3 og frem har mindst én sidemission (hjælp en beboer, find en tabt ting, løs en gåde) og én frivillig, svær udfordring.
 
 ### Kapitel 3: Viskeskoven
 
@@ -67,19 +86,31 @@ Avataren og Æseløre følger blæksporet efter Klatten ind i en skov, hvor farv
 
 Mekanikker: platformbaner, hvor dele af banen bliver visket ud og skal skrives tilbage (vælg det rigtige ord, så kommer planken igen). Lanternen fra kapitel 1 lyser vejen i den hvide tåge. Klatten sidder fanget i en ufærdig sætning. Første store valg: hjælp ham fri eller gå forbi. Begge valg virker, men spillet husker det.
 
-### Kapitel 4: Fodnoternes kælder
+### Kapitel 4: Rimbjerget
+
+Vejen fører op ad et bjerg, hvor alt taler på rim: stenene, vinden og en meget træt trold ved navn Rimfod. Han vil så gerne sige noget, der ikke rimer, men han kan ikke. Ekkoet i bjerget svarer med forkerte rim, og man skal finde de rigtige for at komme op. Øverst lå bjergets ældste digt, men det sidste vers er stjålet.
+
+Mekanikker: platformbaner op ad bjerget, rim- og rytmeopgaver, en kamp mod et ekko, der kun kan gentage. Sidemission: hjælp Rimfod med at sige én sætning uden rim (han græder af glæde). Tilbageblikket viser en godnathistorie: en stemme, der læser højt, og et barn, der falder i søvn og drømmer videre på historien. Stemmen lyder som Mor Lanterne.
+
+### Kapitel 5: Fodnoternes kælder
 
 Under siderne i alle bøger bor fodnoterne. Fru Fodnote er en meget lille dame med meget store meninger, som bor nederst på skærmen og kommenterer det, der sker. Hun er spillets mest bizarre humor: hun retter Æseløre, hun kommenterer gemmekoden, og hun har en fodnote til sin egen fodnote. Arkivet har en escape room-del og en "kamp" mod en sætning, der ikke kan bestemme sig for, hvem der fortæller.
 
 Kapitlet ender med twist 1. Fru Fodnote er den eneste, der ikke er overrasket. Hun har en fodnote om det.
 
-### Kapitel 5: Blæksøen
+### Kapitel 6: Blæksøen
 
 Klattens hjem. Han er hjemme, fordi chefen har smidt ham ud. Hvis man hjalp ham i kapitel 3 og har været venlig, inviterer han indenfor. Ellers må man snige sig ind (Klattens kappe fra kapitel 1 er en forklædning). I hytten ligger alle hans fejl samlet i kasser, og eleven kan se, at det er de samme fejl, som eleven selv kender. Korrekturopgaver, hvor man retter Klattens tekster, og Klatten lærer af det.
 
 Midt i kapitlet indrømmer Æseløre, hvad han er (twist 2).
 
-### Kapitel 6: Den sidste side
+### Kapitel 7: De halve lande
+
+Grænselandet, hvor alle ufærdige historier i Pennedal havner. Hvert område er en genre, der mangler det vigtigste: et eventyr uden en prins at redde, en krimi, hvor ingen kan finde opklaringen, en gyser, hvor monsteret er gået hjem. Eleven hjælper dem med det, de mangler, og lærer genrernes kendetegn. Den Ufærdiges væsner er overalt.
+
+Alle hjælpere samles. Den Ufærdige tilbyder hver af dem en slutning, hvis de forlader avataren. Hvor mange, der bliver, afhænger af, hvordan man har behandlet dem (Undertale-agtig konsekvens, men ingen bliver væk for altid). Tilbageblikket viser søskendet, der står ved skuffen og leder efter hæftet.
+
+### Kapitel 8: Den sidste side
 
 Den Ufærdige venter. Rolige kampe mod ufærdige sætninger, som man skriver færdige. Til sidst står Skyggen over for avataren. Eleven vælger slutningen.
 
@@ -93,7 +124,8 @@ Alle hjælpere er egne figurer. Hver får en stemme i `src/content/stemmer.json`
 | Mor Lanterne | Fyrtårnets vogter | Varm, langsom, ved meget | Lanterner er checkpoints. Hun giver lanternen. | Siger "kom ind, kom ind", også når man allerede er inde. |
 | Vims | Et lille, slidt viskelæder | Nervøs, undskylder hele tiden | Kan viske forhindringer ud. Kommer også til at viske ting ud, man skal bruge. | Undskylder for at undskylde. |
 | Fru Fodnote | En lille dame, der bor nederst på siderne | Pedantisk, venlig, meget sikker på sig selv | Giver ekstra viden og hints som fodnoter. Kan låse hemmelige rum op. | Kommenterer spillet selv, gemmekoden og Æseløres stavning. Nummererer sine replikker. |
-| Klatten | En blækklat med ben | Bralrende, ensom, vil gerne være frygtelig | Bliver hjælper i kapitel 5, hvis man har været venlig. Kan farve ting sorte, så de bliver usynlige. | Hans bevidste fejl. Han kalder sig "den Frygtelige" og ingen tror på det. |
+| Rimfod | En stor, træt trold af sten | Melankolsk og fjollet. Kan kun tale på rim, og det hader han. | Kan flytte sten, kan finde rim, når man sidder fast | Prøver desperat ikke at rime og fejler hver gang. |
+| Klatten | En blækklat med ben | Bralrende, ensom, vil gerne være frygtelig | Bliver hjælper i kapitel 6, hvis man har været venlig. Kan farve ting sorte, så de bliver usynlige. | Hans bevidste fejl. Han kalder sig "den Frygtelige" og ingen tror på det. |
 
 Fru Fodnotes replikker vises som rigtig HTML nederst på skærmen med et lille nummer (for eksempel ¹). Det er tekst, ikke grafik (krav 1).
 
@@ -108,15 +140,17 @@ Hvert kapitel har ét tilbageblik i historien og op til to ekstra, som kun låse
 ### Tilbageblik i historien
 
 1. **Blæk og regn** (kapitel 1, når skuffen åbnes). Kun et glimt. Lyden af regn mod en rude. En hånd, der holder en blyant for hårdt. Lugten af blæk. Så er det væk. Æseløre: "Hvad så du?" Avataren ved det ikke.
-2. **Røde streger** (kapitel 2, i trykkeriet ved typeskabet). En side fuld af ord med røde streger under. Nogen griner i et andet rum. En lille hånd, der vender siden om.
+2. **Røde streger** (kapitel 2, i trykkeriet ved typeskabet). En side med røde streger, som man ikke kan læse. Nogen griner i et andet rum (med "Mindre uhygge": en dør lukkes stille). En lille hånd, der vender siden om.
 3. **Køkkenbordet** (kapitel 3, når Vims visker et træ ud). Et køkkenbord, et grønt hæfte og en tegning af en skygge med store øjne. Du skriver ivrigt, og bogstaverne vælter. Du er glad.
-4. **Skyggen bliver tegnet** (kapitel 4, lige før twist 1). Hånden skriver: "Skyggen ledte efter et sted at høre til." Så skriver den: "Og så ..." Blyanten stopper. Tilbage i Pennedal står Den Ufærdige foran dig.
-5. **Hjørnet bliver foldet** (kapitel 5, twist 2). Du folder hjørnet på siden ned, så du kan finde den igen. Du kommer aldrig tilbage.
-6. **Skuffen** (kapitel 6, før det sidste valg). Hæftet ligger i skuffen. Skuffen bliver lukket. Mørke. Så bliver den åbnet igen, og det er dig, der åbner den.
+4. **Godnathistorien** (kapitel 4, på toppen af Rimbjerget). En stemme læser højt i mørket. Du falder i søvn og drømmer videre på historien. Det var den aften, du fandt på Skyggen.
+5. **Skyggen bliver tegnet** (kapitel 5, lige før twist 1). Hånden skriver: "Skyggen ledte efter et sted at høre til." Så skriver den: "Og så ..." Blyanten stopper. Tilbage i Pennedal står Den Ufærdige foran dig.
+6. **Hjørnet bliver foldet** (kapitel 6, twist 2). Du folder hjørnet på siden ned, så du kan finde den igen. Du kommer aldrig tilbage.
+7. **Søskendet** (kapitel 7). Nogen står ved din skuffe og leder. De finder ikke hæftet. De siger ikke noget, men de bliver stående længe.
+8. **Skuffen** (kapitel 8, før det sidste valg). Hæftet ligger i skuffen. Skuffen bliver lukket. Mørke. Så bliver den åbnet igen, og det er dig, der åbner den.
 
 ### Hukommelsesskår (valgfrie)
 
-Små lysende papirstumper, gemt i hvert kapitel (to pr. kapitel, typisk bag en svær platformbane eller en hemmelig dør). De låser ekstra tilbageblik op, som giver flere detaljer: hvordan Holm fandt hæftet, hvem der læste historien op, og at avataren tit tænkte på Skyggen bagefter. Alle skår giver den sande slutning.
+Små lysende papirstumper, gemt i hvert kapitel (to pr. kapitel, typisk bag en svær platformbane eller en hemmelig dør). De låser ekstra tilbageblik op, som giver flere detaljer: hvordan Holm fandt hæftet, at søskendet fortrød, og at avataren tit tænkte på Skyggen bagefter. Alle skår giver den sande slutning.
 
 ## Tasken
 
@@ -124,12 +158,13 @@ Tasken følger med gennem hele spillet og vises altid med et ikon i hjørnet. Hv
 
 | Ting | Findes | Bruges | Hvis den mangler |
 |---|---|---|---|
-| Lanternen | Kapitel 1, Mor Lanterne | Kapitel 3 (lyser i den hvide tåge), kapitel 6 | Mor Lanterne har en ekstra |
-| Klattens kappe | Kapitel 1, bag skiltet (findes allerede som oplåsning) | Kapitel 5 (forklædning) eller giv den tilbage til Klatten (venlighed) | Der findes en anden vej ind |
-| Et ekstra punktum | Kapitel 2, efter jagten på tagene (Råberen giver det som tak) | Kapitel 4 (stopper en sætning, der aldrig ender) | Fru Fodnote har et i en fodnote |
-| Holms logbog | Kapitel 1 (lånes) | Kapitel 4 (en side i logbogen passer til en side i arkivet) | Fru Fodnote har en kopi |
-| Vims' krummer | Kapitel 3 | Kapitel 5 (visker en lås på Klattens hytte ud) | Vims kommer selv |
-| Det grønne hæfte | Kapitel 6 | Slutningen | Kan ikke mangle |
+| Lanternen | Kapitel 1, Mor Lanterne | Kapitel 3 (lyser i den hvide tåge), kapitel 8 | Mor Lanterne har en ekstra |
+| Klattens kappe | Kapitel 1, bag skiltet (findes allerede som oplåsning) | Kapitel 6 (forklædning) eller giv den tilbage til Klatten (venlighed) | Der findes en anden vej ind |
+| Et ekstra punktum | Kapitel 2, efter jagten på tagene (Råberen giver det som tak) | Kapitel 5 (stopper en sætning, der aldrig ender) | Fru Fodnote har et i en fodnote |
+| Holms logbog | Kapitel 1 (lånes) | Kapitel 5 (en side i logbogen passer til en side i arkivet) | Fru Fodnote har en kopi |
+| Vims' krummer | Kapitel 3 | Kapitel 6 (visker en lås på Klattens hytte ud) |
+| Rimfods sten | Kapitel 4 | Kapitel 7 (bærer en bro i eventyrlandet) | Rimfod kommer selv | Vims kommer selv |
+| Det grønne hæfte | Kapitel 8 | Slutningen | Kan ikke mangle |
 
 Æseløre siger altid noget, når man står ved et sted, hvor en ting fra tasken kan bruges. En ting, der mangler, må aldrig gøre, at man sidder fast.
 
@@ -188,8 +223,8 @@ Hvert kapitel fra 3 og frem har en frivillig udfordring, der er svær med vilje:
 6. **Slutningen bygges af valg**, ikke fritekst. Intet, eleven vælger, sendes nogen steder hen.
 7. **Al tale vises også som tekst**, og alle nye replikker kommer med i `scripts/lydtekster.mjs`.
 
-## Åbne spørgsmål til Henrik
+## Afgjort af Henrik (31. oktober 2026)
 
-1. **Hvorfor gav avataren op?** Forslag A: en storesøster eller storebror læste historien og grinede ad stavefejlene. Forslag B: avataren sammenlignede sin historie med en bog og syntes, den var for dårlig. A rammer hårdere og passer til Klatten, men kan ramme elever med ordblindhed hårdt. Anbefaling: A, men mildt (et grin og "der er godt nok mange fejl"), og senere i spillet viser et skår, at søskendet fortrød.
-2. **Skal Holm vide det hele?** Forslag: ja, han fandt hæftet og gemte det. Han siger det først i epilogen.
-3. **Antal kapitler:** seks i alt (fire nye). Det kan godt blive flere, men seks giver en tæt historie.
+1. Avataren gav op, fordi et søskende grinede ad stavefejlene. Mildt, og med reglerne i "Hensyn til ordblinde elever".
+2. Holm fandt og gemte hæftet. Han siger det i epilogen.
+3. Spillet skal have fylde: otte kapitler med sidemissioner og valgfrie udfordringer.
