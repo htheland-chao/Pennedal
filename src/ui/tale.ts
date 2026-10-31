@@ -28,7 +28,8 @@ export type SigValg = {
   styrke?: number;
   /** Kaldes med tegnposition for det ord, der læses lige nu (hvis stemmen understøtter det). */
   vedOrd?: (start: number, laengde: number) => void;
-  vedSlut?: () => void;
+  /** true, når teksten er læst til ende, false ved fejl eller afbrydelse. */
+  vedSlut?: (fuldfoert: boolean) => void;
 };
 
 export function sig(tekst: string, valg: SigValg = {}): boolean {
@@ -46,8 +47,8 @@ export function sig(tekst: string, valg: SigValg = {}): boolean {
   u.onboundary = (e) => {
     if (e.name === 'word') valg.vedOrd?.(e.charIndex, e.charLength ?? 0);
   };
-  u.onend = () => valg.vedSlut?.();
-  u.onerror = () => valg.vedSlut?.();
+  u.onend = () => valg.vedSlut?.(true);
+  u.onerror = () => valg.vedSlut?.(false);
   s.speak(u);
   return true;
 }

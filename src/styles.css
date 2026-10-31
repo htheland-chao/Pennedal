@@ -843,3 +843,70 @@ legend {
   color: #1b1b24;
   font-size: 0.9rem;
 }
+
+/* Mobil: smalle skærme (telefoner). Intet må gå ud over kanten. */
+@media (max-width: 600px) {
+  .side {
+    margin: 0.5rem;
+    padding: 1rem;
+    border-radius: 14px;
+  }
+  .start {
+    margin-top: 2vh;
+  }
+  .titel {
+    font-size: 2.2rem;
+  }
+  .avatar-layout {
+    gap: 1rem;
+  }
+  .avatar-layout > * {
+    min-width: 0;
+  }
+  .avatar-billede svg {
+    max-height: 32vh;
+    width: auto;
+  }
+  /* Etiketten står over knapperne: [Forrige] værdi [Næste] */
+  .avatar-raekke {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    row-gap: 0.25rem;
+  }
+  .avatar-etiket {
+    grid-column: 1 / -1;
+  }
+  .avatar-valg select {
+    max-width: 100%;
+  }
+  .modal {
+    padding: 1rem;
+    width: 96vw;
+  }
+}
+
+/* Mobil liggende: lav skærm. Spillet og panelet står side om side, og spillet er aldrig højere end skærmen. */
+@media (max-height: 500px) and (orientation: landscape) {
+  .verden {
+    grid-template-columns: auto minmax(200px, 1fr);
+    padding: 0.5rem;
+    gap: 0.5rem;
+  }
+  .spilflade-ramme {
+    height: calc(100dvh - 1rem);
+    width: auto;
+    max-width: calc(100vw - 220px);
+  }
+  .verden > :last-child {
+    max-height: calc(100dvh - 1rem);
+    overflow-y: auto;
+    font-size: 0.9rem;
+    padding: 0.8rem;
+  }
+  /* Panelet kan rulle. Uden dette bliver knapperne klemt sammen i stedet. */
+  .panel > * {
+    flex-shrink: 0;
+  }
+  .naeste-tekst {
+    font-size: 1rem;
+  }
+}

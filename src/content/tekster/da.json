@@ -212,6 +212,7 @@
 
   "indst.titel": "Indstillinger",
   "indst.oplaesning": "Læs tekster op automatisk",
+  "indst.autovidere": "Gå selv videre, når en replik er læst op",
   "indst.indtalt": "Brug spillets indtalte stemmer",
   "indst.indtalt.forklaring": "Figurerne har hver sin stemme. Slår du det fra, bruger spillet computerens egen stemme.",
   "indst.styrke": "Lydstyrke for oplæsning",
