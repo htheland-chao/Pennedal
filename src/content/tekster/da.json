@@ -49,7 +49,8 @@
 
   "verden.naeste": "Det næste, du skal gøre:",
   "verden.undersoeg": "Undersøg {navn}",
-  "verden.tryk.enter": "Tryk på Enter for at undersøge {navn}.",
+  "verden.tryk.enter": "Tryk på E for at undersøge {navn}.",
+  "verden.tast.e": "E",
   "verden.styring": "Gå med piletasterne, eller tryk et sted på billedet. Du kan også bruge knapperne.",
   "verden.pladsholder": "Pladsholdergrafik",
   "verden.menu": "Menu",

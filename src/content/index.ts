@@ -96,6 +96,8 @@ export type Trin = DialogTrin | SkiftTrin | OpgaveTrin | BevisjagtTrin;
 export type Kapitel = {
   kapitel: number;
   titel: string;
+  /** Æseløre er først med fra dette trin (i kapitel 1 flyver han ud af skuffen). Uden feltet er han med fra start. */
+  fuglFra?: string;
   steder: Record<string, Sted>;
   trin: Trin[];
 };

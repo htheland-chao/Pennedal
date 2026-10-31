@@ -5,6 +5,8 @@ import { BREDDE, GULV_TOP, HOEJDE, tegnBaggrund, tegnObjekt } from './tegn';
 export type VerdenKroge = {
   onInteraktion: (objektId: string) => void;
   onNaer: (objektId: string | null) => void;
+  /** Placering af E-hintet over det, eleven kan undersøge, i procent af spilfladen. null skjuler det. */
+  onHint?: (pos: { x: number; y: number } | null) => void;
 };
 
 export type VerdenData = {

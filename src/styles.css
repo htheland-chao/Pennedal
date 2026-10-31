@@ -1117,3 +1117,39 @@ input[type='range'] {
 .portraet {
   padding: 4px;
 }
+
+/* E-hintet over det, eleven kan undersøge. Rigtig HTML, så det kan læses op og trykkes på. */
+.tast-hint {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  z-index: 5;
+  border: 0;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+  animation: hint-hop 1.2s steps(2) infinite;
+}
+.tast-hint kbd {
+  display: grid;
+  place-items: center;
+  min-width: 1.9rem;
+  height: 1.9rem;
+  padding: 0 0.3rem;
+  font-family: var(--skrift);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--blaek);
+  background: #fbf7ec;
+  border: 3px solid var(--blaek);
+  box-shadow: 0 3px 0 var(--blaek);
+}
+@keyframes hint-hop {
+  50% {
+    transform: translate(-50%, calc(-100% - 3px));
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tast-hint {
+    animation: none;
+  }
+}
