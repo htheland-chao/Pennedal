@@ -22,6 +22,8 @@ export const FAERDIGHEDER = [
   'laes.praecision',
   'laes.ordforraad',
   'laes.forstaaelse',
+  // Kapitel 2: punktum, spørgsmålstegn og udråbstegn (Råberens tegn).
+  'tegn.saetningstegn',
 ] as const;
 
 export type FaerdighedId = (typeof FAERDIGHEDER)[number];

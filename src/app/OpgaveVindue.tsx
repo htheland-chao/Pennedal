@@ -1,9 +1,11 @@
 import { useRef, useState } from 'react';
-import { historiebro, ogorm, stumme, t, type BevisjagtTrin, type OpgaveTrin } from '../content';
+import { historiebro, ogorm, raaber, stumme, t, type BevisjagtTrin, type OpgaveTrin } from '../content';
 import type { Haendelse, Niveau } from '../engine/tilpasning';
 import { lavHviskeOpgave, type HviskeOpgave as HOpgave } from '../mechanics/hviske';
 import { vaelgOgTekst } from '../mechanics/ogorm';
 import { lavBro } from '../mechanics/historiebro';
+import { lavRaaberOpgave, type RaaberSaetning } from '../mechanics/raaber';
+import { RaaberOpgave } from '../ui/RaaberOpgave';
 import { OpgaveRamme } from '../ui/OpgaveRamme';
 import { HviskeOpgave } from '../ui/HviskeOpgave';
 import { OgormOpgave } from '../ui/OgormOpgave';
@@ -20,7 +22,7 @@ type Faelles = {
 };
 
 /** Ord og tekster, der er brugt i denne session, så de ikke kommer igen med det samme. */
-const brugt = { hviske: [] as string[], og: [] as string[], bro: [] as string[] };
+const brugt = { hviske: [] as string[], og: [] as string[], bro: [] as string[], raab: [] as string[] };
 
 function husk(liste: string[], id: string, maks = 8) {
   liste.push(id);
@@ -53,6 +55,32 @@ function HviskeVindue({ trin, niveau, loeste, onSvar, onLoest, onPause }: Faelle
       }}
     >
       {(api) => <HviskeOpgave key={`${emne.ord.ord}-${loeste}`} opgave={emne} api={api} />}
+    </OpgaveRamme>
+  );
+}
+
+function RaaberVindue({ trin, niveau, loeste, onSvar, onLoest, onPause }: Faelles & { trin: OpgaveTrin }) {
+  const alle = raaber.saetninger as RaaberSaetning[];
+  const [s, setS] = useState(() => lavRaaberOpgave(alle, niveau, Math.random, brugt.raab));
+  const niveauRef = useRef(niveau);
+  niveauRef.current = niveau;
+  return (
+    <OpgaveRamme
+      titel={t('raaber.titel')}
+      antal={trin.antal}
+      loeste={loeste}
+      regel={t('raaber.regel')}
+      eksempel={t('raaber.eksempel')}
+      andreRegler={[t('ogorm.regel'), t('bevisjagt.regel')]}
+      onSvar={onSvar}
+      onPause={onPause}
+      onLoest={() => {
+        husk(brugt.raab, s.id);
+        onLoest();
+        setS(lavRaaberOpgave(alle, niveauRef.current, Math.random, brugt.raab));
+      }}
+    >
+      {(api) => <RaaberOpgave key={`${s.id}-${loeste}`} saetning={s} api={api} />}
     </OpgaveRamme>
   );
 }
@@ -110,6 +138,7 @@ function BroVindue({ trin, niveau, loeste, onSvar, onLoest, onPause }: Faelles &
 export function OpgaveVindue(props: Faelles & { trin: OpgaveTrin }) {
   if (props.trin.mekanik === 'hviske') return <HviskeVindue {...props} />;
   if (props.trin.mekanik === 'ogorm') return <OgormVindue {...props} />;
+  if (props.trin.mekanik === 'raaber') return <RaaberVindue {...props} />;
   return <BroVindue {...props} />;
 }
 

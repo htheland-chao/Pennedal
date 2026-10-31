@@ -259,3 +259,43 @@ export function vindueslys(tone: [number, number, number], farve: [number, numbe
   g.putImageData(img, 0, 0);
   return c;
 }
+
+/** Byporten: en tung trædør i muren med jernbeslag. */
+export const PORT: Tegnkort = {
+  raekker: [
+    '..KKKKKKKKKKKK..', '.KMMMMMMMMMMMMK.', 'KMWWWWWWWWWWWWMK', 'KMWwWWwWWwWWwWMK', 'KMWwWWwWWwWWwWMK', 'KMIIIIIIIIIIIIMK',
+    'KMWwWWwWWwWWwWMK', 'KMWwWWwWWwWWwWMK', 'KMWwWWwWWwWWwWMK', 'KMWwWWwWWwWYwWMK', 'KMWwWWwWWwWWwWMK', 'KMWwWWwWWwWWwWMK',
+    'KMIIIIIIIIIIIIMK', 'KMWwWWwWWwWWwWMK', 'KMWwWWwWWwWWwWMK', 'KMWwWWwWWwWWwWMK', 'KMWwWWwWWwWWwWMK', 'KMWwWWwWWwWWwWMK',
+    'KMWWWWWWWWWWWWMK', 'KKKKKKKKKKKKKKKK',
+  ],
+  palet: { K: '#2a170f', M: '#7f7a70', W: '#8a5a3a', w: '#6b4a2b', I: '#3a3d55', Y: '#e5b84c' },
+};
+
+/** Det tørre springvand på torvet, 32 x 28. */
+export const SPRINGVAND: Tegnkort = {
+  raekker: [
+    '..............KK................', '.............KSSK...............', '.............KSSK...............', '............KSSSSK..............',
+    '...........KKSSSSKK.............', '..........KSSSSSSSSK............', '...........KKSSSSKK.............', '.............KSSK...............',
+    '.............KSSK...............', '....KKKKKKKKKKSSKKKKKKKKKKKK....', '...KSSSSSSSSSSSSSSSSSSSSSSSSK...', '..KSssssssssssssssssssssssssSK..',
+    '.KSsddddddddddddddddddddddddsSK.', '.KSsddddddddddddddddddddddddsSK.', '.KSsddddddddddddddddddddddddsSK.', '.KSsddddddddddddddddddddddddsSK.',
+    '.KSsddddddddbbdddddddddddddsSK..', '.KSsddddddddddddddddddddddddsSK.', '.KSsddddddddddddddddddddddddsSK.', '..KSssssssssssssssssssssssssSK..',
+    '..KSSSSSSSSSSSSSSSSSSSSSSSSSSK..', '...KkkkkkkkkkkkkkkkkkkkkkkkkK...', '....KKKKKKKKKKKKKKKKKKKKKKKK....',
+  ].map((r) => r.padEnd(32, '.').slice(0, 32)),
+  palet: { K: '#3a3530', S: '#b3ab9e', s: '#8f8a80', d: '#6b6358', b: '#141629', k: '#7f7a70' },
+};
+
+/** En trykpresse i trykkeriet. */
+export const PRESSE: Tegnkort = {
+  raekker: [
+    '.KKKKKKKKKKKKK.', '.KMMMMMMMMMMMK.', '.KMKKKKKKKKKMK.', '.KMK.......KMK.', '.KMK..KKK..KMK.', '.KMK..KMK..KMK.',
+    'KKMKKKKMKKKKMKK', 'KWWWWWWWWWWWWWK', 'KWPPPPPPPPPPPWK', 'KWPPPPPPPPPPPWK', 'KWWWWWWWWWWWWWK', 'KWK.........KWK',
+    'KWK.........KWK', 'KKK.........KKK',
+  ],
+  palet: { K: '#1b1b24', M: '#3a3d55', W: '#6b4a2b', P: '#f4efe0' },
+};
+
+/** En stige op til lemmen i loftet. */
+export const STIGE: Tegnkort = {
+  raekker: ['K......K', 'KWWWWWWK', 'K......K', 'K......K', 'KWWWWWWK', 'K......K', 'K......K', 'KWWWWWWK', 'K......K', 'K......K', 'KWWWWWWK', 'K......K', 'K......K', 'KWWWWWWK', 'K......K', 'K......K', 'KWWWWWWK', 'K......K', 'K......K', 'KWWWWWWK', 'K......K', 'K......K'],
+  palet: { K: '#4a3426', W: '#a07a4a' },
+};

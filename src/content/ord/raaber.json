@@ -1,0 +1,150 @@
+{
+  "faerdighed": "tegn.saetningstegn",
+  "forklaring": "Hver sætning står uden tegn til sidst. tegn er det rigtige tegn: punktum, spørgsmålstegn eller udråbstegn.",
+  "saetninger": [
+    {
+      "id": "raab-1",
+      "niveau": 1,
+      "tekst": "Torvet er fuldt af mennesker",
+      "tegn": "."
+    },
+    {
+      "id": "raab-2",
+      "niveau": 1,
+      "tekst": "Hvor er punktummerne",
+      "tegn": "?"
+    },
+    {
+      "id": "raab-3",
+      "niveau": 1,
+      "tekst": "Stop tyven",
+      "tegn": "!"
+    },
+    {
+      "id": "raab-4",
+      "niveau": 1,
+      "tekst": "Springvandet er tørt",
+      "tegn": "."
+    },
+    {
+      "id": "raab-5",
+      "niveau": 1,
+      "tekst": "Hvem har set Klatten",
+      "tegn": "?"
+    },
+    {
+      "id": "raab-6",
+      "niveau": 1,
+      "tekst": "Pas på",
+      "tegn": "!"
+    },
+    {
+      "id": "raab-7",
+      "niveau": 2,
+      "tekst": "Bageren åbner sin butik klokken syv",
+      "tegn": "."
+    },
+    {
+      "id": "raab-8",
+      "niveau": 2,
+      "tekst": "Kan nogen hjælpe borgmesteren",
+      "tegn": "?"
+    },
+    {
+      "id": "raab-9",
+      "niveau": 2,
+      "tekst": "Hold op med at snakke i munden på hinanden",
+      "tegn": "!"
+    },
+    {
+      "id": "raab-10",
+      "niveau": 2,
+      "tekst": "Hvorfor er der blæk på brostenene",
+      "tegn": "?"
+    },
+    {
+      "id": "raab-11",
+      "niveau": 2,
+      "tekst": "Byens brev er blevet helt ulæseligt",
+      "tegn": "."
+    },
+    {
+      "id": "raab-12",
+      "niveau": 2,
+      "tekst": "Kom og hør",
+      "tegn": "!"
+    },
+    {
+      "id": "raab-13",
+      "niveau": 3,
+      "tekst": "Har du husket at lukke porten i aften",
+      "tegn": "?"
+    },
+    {
+      "id": "raab-14",
+      "niveau": 3,
+      "tekst": "Vagten fandt små, sorte fodspor ved springvandet",
+      "tegn": "."
+    },
+    {
+      "id": "raab-15",
+      "niveau": 3,
+      "tekst": "Sikke en larm",
+      "tegn": "!"
+    },
+    {
+      "id": "raab-16",
+      "niveau": 3,
+      "tekst": "Hvad skal vi gøre uden punktummer",
+      "tegn": "?"
+    },
+    {
+      "id": "raab-17",
+      "niveau": 4,
+      "tekst": "Borgmesteren spørger, om nogen har set tyven",
+      "tegn": "."
+    },
+    {
+      "id": "raab-18",
+      "niveau": 4,
+      "tekst": "Ingen ved, hvor sækken er blevet af",
+      "tegn": "."
+    },
+    {
+      "id": "raab-19",
+      "niveau": 4,
+      "tekst": "Hvor længe skal vi vente på tyven",
+      "tegn": "?"
+    },
+    {
+      "id": "raab-20",
+      "niveau": 4,
+      "tekst": "Råberen undrer sig over, hvem der har taget tegnene",
+      "tegn": "."
+    },
+    {
+      "id": "raab-21",
+      "niveau": 5,
+      "tekst": "Ved du, hvorfor Klatten løb op på tagene",
+      "tegn": "?"
+    },
+    {
+      "id": "raab-22",
+      "niveau": 5,
+      "tekst": "Jeg ved godt, hvem der tog dem",
+      "tegn": "."
+    },
+    {
+      "id": "raab-23",
+      "niveau": 5,
+      "tekst": "Giv os vores punktummer tilbage",
+      "tegn": "!"
+    },
+    {
+      "id": "raab-24",
+      "niveau": 5,
+      "tekst": "Spørg vagten, hvad han så i nat",
+      "tegn": "!"
+    }
+  ]
+}

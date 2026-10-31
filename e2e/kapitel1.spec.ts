@@ -191,7 +191,8 @@ test('kapitel 1 kan spilles fra start til slut, og gemmekoden virker', async ({ 
   }
   await undersoeg(page, 'den brudte bro');
   await laesDialog(page);
-  await expect(page.getByText('Kapitel 1 er slut. Kapitel 2 er på vej.')).toBeVisible();
+  await expect(page.getByText('Kapitel 1 er slut.')).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Fortsæt til kapitel 2' })).toBeVisible();
   await expect(page.getByText('Mor Lanternes lanterne')).toBeVisible();
   await billede(page, '11-fyrtaarn');
 

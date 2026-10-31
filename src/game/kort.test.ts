@@ -21,7 +21,7 @@ describe('kort', () => {
         if (!sted.kort) continue;
         const k = laesKort(sted.kort);
         expect(new Set(sted.kort.map((r) => r.length)).size, `${id}: lige lange rækker`).toBe(1);
-        expect(sted.kort.join('').replace(/[#,.L~Mpq FKVvWRrDBPkSUdt]/g, ''), `${id}: ukendte tegn`).toBe('');
+        expect(sted.kort.join('').replace(/[#,.L~Mpq FKVvWRrDBPkSUdtoHwf;:]/g, ''), `${id}: ukendte tegn`).toBe('');
         const faste = new Set(sted.objekter.filter((o) => o.felt && FASTE_FORMER.has(o.form)).map((o) => `${o.felt![0]},${o.felt![1]}`));
         const fast = (x: number, y: number) => erFastTegn(k.tegn(x, y)) || faste.has(`${x},${y}`);
         const start = sted.startFelt as Felt;

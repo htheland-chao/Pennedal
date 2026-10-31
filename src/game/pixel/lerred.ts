@@ -1,5 +1,5 @@
 /** Tegner pixelgrafik på canvas: figurer, jorden under et kort og lys. Kræver en browser. */
-import { erSti, erVand, FELT, type Kort } from '../kort';
+import { erBrosten, erSti, erVand, FELT, type Kort } from '../kort';
 import type { Tegnkort } from './sprites';
 
 const BAYER = [0, 8, 2, 10, 12, 4, 14, 6, 3, 11, 1, 9, 15, 7, 13, 5].map((v) => v / 16);
@@ -46,6 +46,55 @@ const VAND = { a: hx('#203a6b'), b: hx('#28467c'), krus: hx('#4f6fa8'), bred: hx
 const MAANER = ['#f3ead2', '#f0c45a', '#c9dcf2'].map(hx);
 const MAANE_R = [5, 3, 4];
 
+const BLOMST = ['#e5c03a', '#f4efe0', '#c0503e', '#7b4bb3', '#e8a0b8'].map(hx);
+const BROSTEN = { a: hx('#9c9488'), b: hx('#8a8276'), fuge: hx('#5f5a52'), lys: hx('#b3ab9e') };
+const BLAEKPLET = hx('#141629');
+const TAGFARVER = [['#b0413e', '#8e3428'], ['#2f7a6b', '#1f5a4e'], ['#2c6fbb', '#1f4f86'], ['#c97a3a', '#a05a28'], ['#7b4bb3', '#5a3488']].map((p) => p.map(hx));
+const FACADER = ['#e8dcc0', '#f0d0a0', '#d9e3f0', '#e8c0b0', '#f4efe0'].map(hx);
+const BJAELKE = hx('#4a3426');
+const RUDE = hx('#2a3a66');
+const RUDE_LYS = hx('#9ec3e6');
+const DOER = hx('#6b4a2b');
+const MURSTEN = { a: hx('#8f8a80'), b: hx('#7f7a70'), fuge: hx('#55514a'), top: hx('#a8a297') };
+
+/** Brosten i små, skæve sten. Med blæk er der en sort plet. */
+function brosten(X: number, Y: number, _r: number, blaek: boolean): [number, number, number] {
+  if (blaek) return BLAEKPLET;
+  const rk = Math.floor(Y / 5);
+  const sx = (X + (rk % 2) * 3) % 6;
+  if (Y % 5 === 4 || sx === 0) return BROSTEN.fuge;
+  if (sx === 1 && Y % 5 === 0) return BROSTEN.lys;
+  return hash(Math.floor((X + (rk % 2) * 3) / 6), rk) < 0.5 ? BROSTEN.a : BROSTEN.b;
+}
+
+/** Et hus set skråt oppefra: tag på de øverste felter, facade med bjælker, vindue og dør på det nederste. */
+function hus(kort: Kort, tx: number, ty: number, px: number, py: number, r: number): [number, number, number] {
+  const nr = Math.floor(tx / 3) + ty * 0;
+  const facade = kort.tegn(tx, ty + 1) !== 'H';
+  if (facade) {
+    if (px === 0 || px === FELT - 1 || py === FELT - 1 || py === 0) return BJAELKE;
+    const fc = FACADER[Math.floor(hash(nr, 11) * FACADER.length)];
+    const vindue = px >= 4 && px <= 11 && py >= 3 && py <= 9;
+    const doer = hash(tx, 31) > 0.7 && px >= 5 && px <= 10 && py >= 6;
+    if (doer) return px === 5 || px === 10 || py === 6 ? BJAELKE : DOER;
+    if (vindue) return px === 4 || px === 11 || py === 3 || py === 9 || px === 7 || py === 6 ? BJAELKE : px < 7 && py < 6 ? RUDE_LYS : RUDE;
+    return r < 0.04 ? BJAELKE : fc;
+  }
+  const [a, b] = TAGFARVER[Math.floor(hash(nr, 5) * TAGFARVER.length)];
+  const rk = Math.floor(py / 4);
+  if (py % 4 === 3) return b;
+  return hash(Math.floor((tx * FELT + px + (rk % 2) * 4) / 8), ty * 4 + rk) < 0.75 ? a : b;
+}
+
+/** Bymuren: grå sten i rækker med en lys kant foroven. */
+function mur(kort: Kort, tx: number, ty: number, X: number, Y: number, py: number): [number, number, number] {
+  if (kort.tegn(tx, ty - 1) !== 'w' && py < 3) return (X >> 2) % 2 === 0 ? MURSTEN.top : MURSTEN.fuge;
+  const rk = Math.floor(Y / 6);
+  const sx = (X + (rk % 2) * 5) % 10;
+  if (Y % 6 === 5 || sx === 0) return MURSTEN.fuge;
+  return hash(Math.floor((X + (rk % 2) * 5) / 10), rk) < 0.5 ? MURSTEN.a : MURSTEN.b;
+}
+
 /** Jorden under hele kortet: græs, skovbund og sti. Tegnes én gang pr. sted. */
 export function tegnGrund(kort: Kort): HTMLCanvasElement {
   const W = kort.bredde * FELT;
@@ -66,6 +115,11 @@ export function tegnGrund(kort: Kort): HTMLCanvasElement {
           const r = hash(X, Y);
           let col = skov ? SKOV[r < 0.7 ? 0 : r < 0.85 ? 1 : 2] : GRAES[r < 0.72 ? 0 : Math.min(3, Math.floor(((r - 0.72) / 0.28) * 3) + 1)];
           if (!skov && (hash(X, Y + 1) > 0.985 || hash(X, Y + 2) > 0.985)) col = STRAA;
+          if (c0 === ';' && hash(X >> 1, Y >> 1) > 0.93) col = BLOMST[Math.floor(hash(X >> 1, (Y >> 1) + 7) * BLOMST.length)];
+          if (erBrosten(c0)) col = brosten(X, Y, r, c0 === ':' && hash(tx * 3, ty * 5 + (X >> 2)) > 0.55 && (px - 8) ** 2 + (py - 8) ** 2 < 20);
+          if (c0 === 'H') col = hus(kort, tx, ty, px, py, r);
+          if (c0 === 'w') col = mur(kort, tx, ty, X, Y, py);
+          if (c0 === 'f') col = brosten(X, Y, r, false);
           if (sti(tx, ty)) {
             const u = px - 7.5;
             const v = py - 7.5;
@@ -147,12 +201,17 @@ export const VARMT: Farve = [255, 250, 219];
  *   morgen: skolebiblioteket med morgensol gennem vinduerne
  *   moerke: kælderen, hvor kun lygten og lyset fra trappen lyser
  */
-export type Belysning = 'nat' | 'morgen' | 'moerke';
+export type Belysning = 'nat' | 'morgen' | 'moerke' | 'dag';
+/** Byen i kapitel 2 ligger i varmt dagslys. Trykkeriet er mørkt som kælderen. */
 export function belysning(tema: string): Belysning {
-  return tema === 'bibliotek' ? 'morgen' : tema === 'kaelder' ? 'moerke' : 'nat';
+  if (tema === 'bibliotek') return 'morgen';
+  if (tema === 'kaelder' || tema === 'trykkeri') return 'moerke';
+  if (tema === 'eng' || tema === 'torv' || tema === 'smoeger') return 'dag';
+  return 'nat';
 }
 export function lysOpsaetning(b: Belysning, mindreUhygge: boolean): { tone: Farve; spillerLys: number } {
   if (b === 'morgen') return { tone: [236, 222, 200], spillerLys: 0 };
+  if (b === 'dag') return { tone: [255, 248, 232], spillerLys: 0 };
   if (b === 'moerke') return mindreUhygge ? { tone: [150, 148, 184], spillerLys: 80 } : { tone: [64, 62, 96], spillerLys: 70 };
   return { tone: grundtone(mindreUhygge), spillerLys: 76 };
 }

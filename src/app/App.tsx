@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { hentKapitel, navne, t } from '../content';
+import { hentKapitel, kapitler, navne, t } from '../content';
 import {
   gemIndstillinger,
   gemSpil,
@@ -10,7 +10,7 @@ import {
   type GemtSpil,
   type Indstillinger,
 } from '../engine/gem';
-import { aktueltSted, kapitelSlut, spilVed } from '../engine/kapitel';
+import { aktueltSted, kapitelSlut, naesteKapitel, spilVedIKapitler } from '../engine/kapitel';
 import { saetMusik } from '../ui/musik/afspiller';
 import { AvatarDesigner } from '../ui/AvatarDesigner';
 import { GemmekodeVindue, IndlaesSide } from '../ui/Gemmekode';
@@ -29,8 +29,7 @@ type Skaerm = 'start' | 'ny-avatar' | 'ret-avatar' | 'verden' | 'indlaes' | 'lae
  * Et hop-spil bliver aldrig gemt, så et rigtigt spil i browseren ikke bliver overskrevet.
  */
 const HOP = typeof location !== 'undefined' ? new URLSearchParams(location.search).get('hop') : null;
-const HOP_KAPITEL = hentKapitel(1);
-const HOP_SPIL = HOP && HOP_KAPITEL ? spilVed(HOP_KAPITEL, HOP, nytSpil(STANDARD_AVATAR, { adjektiv: 0, dyr: 0 })) : null;
+const HOP_SPIL = HOP ? spilVedIKapitler(kapitler, HOP, nytSpil(STANDARD_AVATAR, { adjektiv: 0, dyr: 0 })) : null;
 
 export function App() {
   const [skaerm, setSkaerm] = useState<Skaerm>(HOP_SPIL ? 'verden' : HOP !== null ? 'hop' : 'start');
@@ -114,19 +113,24 @@ export function App() {
         </main>
       )}
 
-      {skaerm === 'hop' && HOP_KAPITEL && (
+      {skaerm === 'hop' && (
         <main className="side start">
           <h1 className="titel">{t('hop.overskrift')}</h1>
           <p>{t('hop.forklaring')}</p>
-          <ul className="hop-liste">
-            {Object.entries(HOP_KAPITEL.steder).map(([id, sted]) => (
-              <li key={id}>
-                <a className="knap" href={`?hop=${id}`}>
-                  {sted.navn}
-                </a>
-              </li>
-            ))}
-          </ul>
+          {kapitler.map((k) => (
+            <section key={k.kapitel}>
+              <h2>{t('hop.kapitel', { nr: k.kapitel, titel: k.titel })}</h2>
+              <ul className="hop-liste">
+                {Object.entries(k.steder).map(([id, sted]) => (
+                  <li key={id}>
+                    <a className="knap" href={`?hop=${id}`}>
+                      {sted.navn}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ))}
           <a href="./">{t('hop.forside')}</a>
         </main>
       )}
@@ -187,6 +191,13 @@ export function App() {
           onTilbage={() => setSkaerm(slut ? 'start' : 'verden')}
           onSpilIgen={() => {
             opdater({ ...spil, trin: 0, trinFremskridt: 0 });
+            setSkaerm('verden');
+          }}
+          naesteNr={slut ? naesteKapitel(kapitler, spil.kapitel)?.kapitel : undefined}
+          onNaeste={() => {
+            const n = naesteKapitel(kapitler, spil.kapitel);
+            if (!n) return;
+            opdater({ ...spil, kapitel: n.kapitel, trin: 0, trinFremskridt: 0 });
             setSkaerm('verden');
           }}
         />

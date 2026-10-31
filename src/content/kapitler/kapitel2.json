@@ -1,0 +1,943 @@
+{
+  "kapitel": 2,
+  "titel": "Byen uden punktummer",
+  "steder": {
+    "byporten": {
+      "navn": "Byporten",
+      "tema": "eng",
+      "start": {
+        "x": 0,
+        "y": 0
+      },
+      "kort": [
+        "HHHHHHHHHHHHHHHHHHHHHHHHHH",
+        "HHHHHHHHHHHHHHHHHHHHHHHHHH",
+        "HHHHHHHHHHHooooHHHHHHHHHHH",
+        "wwwwwwwwwwwwowwwwwwwwwwwww",
+        "##,,;,,,,,,,o,,,,,,;,,,,##",
+        "#,,,,,,;,,,,o,,,,,,,,,,,,#",
+        "#,;,,,,,,,,,.,,,,;,,,,,;,#",
+        "#,,,,;,,,,,,.,,,,,,,,,,,,#",
+        "##,,,,,,,,;,.,,,,,,,;,,,##",
+        "##,,;,,,,,,,.,,,,,,,,,,,##",
+        "###,,,,,,,,,.,,,;,,,,,,###",
+        "###,,,,;,,,,.,,,,,,,,,,###",
+        "####,,,,,,,,.,,,,,,,,,####",
+        "#####,,,,,,,.,,,,;,,,#####",
+        "######,,,,,,.,,,,,,,######",
+        "########,,,,.,,,,,########"
+      ],
+      "startFelt": [
+        12,
+        14
+      ],
+      "objekter": [
+        {
+          "id": "port",
+          "navn": "byporten",
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "form": "port",
+          "farve": "#8a5a3a",
+          "felt": [
+            12,
+            3
+          ]
+        },
+        {
+          "id": "portvagt",
+          "navn": "Portvagten",
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "form": "person",
+          "farve": "#2c6fbb",
+          "felt": [
+            14,
+            4
+          ]
+        }
+      ]
+    },
+    "torvet": {
+      "navn": "Torvet i Sætningsbyen",
+      "tema": "torv",
+      "start": {
+        "x": 0,
+        "y": 0
+      },
+      "kort": [
+        "HHHHHHHHHHHHHHHHHHHHHHHHHH",
+        "HHHHHHHHHHHHHHHHHHHHHHHHHH",
+        "HHHHHHHHHHHHHHHHHHHHHHHHHH",
+        "HHHooooooooooooooooooooHHH",
+        "HHHooooooooooooooooooooHHH",
+        "HHHooooooooooooooooooooHHH",
+        "HHHoooooooooffooooooooooHH",
+        "HHHoooooooooffoooooooooooo",
+        "HHHooooooooooooooooooooooo",
+        "HHHoooooooooooooooooooooHH",
+        "HHHooooooooooooooooooooHHH",
+        "HHHooooooooooooooooooooHHH",
+        "HHHHHHHHHHooooHHHHHHHHHHHH",
+        "HHHHHHHHHHooooHHHHHHHHHHHH",
+        "HHHHHHHHHHooooHHHHHHHHHHHH",
+        "HHHHHHHHHHooooHHHHHHHHHHHH"
+      ],
+      "startFelt": [
+        12,
+        14
+      ],
+      "objekter": [
+        {
+          "id": "borgmester",
+          "navn": "Borgmesteren",
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "form": "person",
+          "farve": "#4f3a6b",
+          "felt": [
+            8,
+            8
+          ]
+        },
+        {
+          "id": "raaber",
+          "navn": "Råberen",
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "form": "person",
+          "farve": "#b0413e",
+          "felt": [
+            15,
+            5
+          ]
+        },
+        {
+          "id": "opslag",
+          "navn": "byrådets opslag",
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "form": "skilt",
+          "farve": "#e8dcc0",
+          "felt": [
+            5,
+            4
+          ]
+        },
+        {
+          "id": "smoege",
+          "navn": "smøgen mod øst",
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "form": "sti",
+          "farve": "#9c9488",
+          "felt": [
+            25,
+            8
+          ]
+        },
+        {
+          "id": "borger1",
+          "navn": "en borger",
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "form": "borger",
+          "farve": "#2f7a6b",
+          "felt": [
+            5,
+            9
+          ],
+          "snakker": true
+        },
+        {
+          "id": "borger2",
+          "navn": "en borger",
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "form": "borger",
+          "farve": "#e5c03a",
+          "felt": [
+            6,
+            10
+          ],
+          "snakker": true
+        },
+        {
+          "id": "borger3",
+          "navn": "en borger",
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "form": "borger",
+          "farve": "#c97a3a",
+          "felt": [
+            18,
+            10
+          ],
+          "snakker": true,
+          "lys": false
+        },
+        {
+          "id": "borger4",
+          "navn": "en borger",
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "form": "borger",
+          "farve": "#7b4bb3",
+          "felt": [
+            19,
+            4
+          ],
+          "snakker": true
+        },
+        {
+          "id": "borger5",
+          "navn": "en borger",
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "form": "borger",
+          "farve": "#2c6fbb",
+          "felt": [
+            20,
+            9
+          ],
+          "snakker": true
+        }
+      ]
+    },
+    "smoegerne": {
+      "navn": "Smøgerne",
+      "tema": "smoeger",
+      "start": {
+        "x": 0,
+        "y": 0
+      },
+      "kort": [
+        "HHHHHHHHHHHHHHHHHHHHHHHH",
+        "HHHHHHHHHHHHHHHHHHHHHHHH",
+        "HHHHHHHHHHHHHHHHHHHooHHH",
+        "HHHHHHHHHHHHHHHHHHH:oHHH",
+        "HHHHHHHHHHHHHHHHHHHo:HHH",
+        "HHHHHHHHHooooo:ooo:o:HHH",
+        "HHHHHHHHHo:HHHHHHHHHHHHH",
+        "HHHHHHHHHooHHHHHHHHHHHHH",
+        "ooooooo:oo:HHHHHHHHHHHHH",
+        "ooo:ooooooHHHHHHHHHHHHHH",
+        "HHHHHHHHHHHHHHHHHHHHHHHH",
+        "HHHHHHHHHHHHHHHHHHHHHHHH"
+      ],
+      "startFelt": [
+        1,
+        9
+      ],
+      "objekter": [
+        {
+          "id": "trykkeridoer",
+          "navn": "døren til det gamle trykkeri",
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "form": "doer",
+          "farve": "#6b4a2b",
+          "felt": [
+            20,
+            2
+          ]
+        }
+      ]
+    },
+    "trykkeriet": {
+      "navn": "Det gamle trykkeri",
+      "tema": "trykkeri",
+      "start": {
+        "x": 0,
+        "y": 0
+      },
+      "kort": [
+        "KVVVVVVVVVVVVVVVVK",
+        "KVVVVVVVVVVVVVVVVK",
+        "KRRRR....RRRR..RRK",
+        "K................K",
+        "K..k......BB.....K",
+        "K.........BB.....K",
+        "K................K",
+        "K..k.............K",
+        "K.........k......K",
+        "KU...............K",
+        "KKKKKKKKKKKKKKKKKK"
+      ],
+      "startFelt": [
+        8,
+        9
+      ],
+      "objekter": [
+        {
+          "id": "kasse1",
+          "navn": "en kasse med papir",
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "form": "kasse",
+          "farve": "#6b4a2b",
+          "felt": [
+            3,
+            6
+          ]
+        },
+        {
+          "id": "presse",
+          "navn": "trykpressen",
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "form": "presse",
+          "farve": "#3a3d55",
+          "felt": [
+            14,
+            6
+          ]
+        },
+        {
+          "id": "kasse2",
+          "navn": "en kasse under bordet",
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "form": "kasse",
+          "farve": "#6b4a2b",
+          "felt": [
+            13,
+            9
+          ]
+        },
+        {
+          "id": "seddel",
+          "navn": "en krøllet seddel",
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "form": "bog",
+          "farve": "#f4efe0",
+          "felt": [
+            10,
+            4
+          ]
+        },
+        {
+          "id": "typeskab",
+          "navn": "typeskabet",
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "form": "skab",
+          "farve": "#6b4a2b",
+          "felt": [
+            6,
+            2
+          ]
+        },
+        {
+          "id": "stige",
+          "navn": "stigen til loftslemmen",
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "form": "stige",
+          "farve": "#a07a4a",
+          "felt": [
+            15,
+            2
+          ],
+          "visFra": "k2-lem"
+        }
+      ]
+    },
+    "tagene": {
+      "navn": "Tagene over Sætningsbyen",
+      "tema": "tage",
+      "start": {
+        "x": 0,
+        "y": 0
+      },
+      "bane": [
+        "................................................................................",
+        "................................................................................",
+        "................................................................................",
+        ".................................................................M..............",
+        "....................C...............=====.............^....#####################",
+        "..................####.....^................C......######..#####################",
+        "..S...........K...####...######..........#######.=.######..#####################",
+        "#########...##########...######...#####..#######...######..#####################",
+        "#########...##########...######...#####..#######...######..#####################",
+        "#########~~~##########~~~######~~~#####~~#######~~~######~~#####################",
+        "#########~~~##########~~~######~~~#####~~#######~~~######~~#####################"
+      ],
+      "objekter": [
+        {
+          "id": "maal",
+          "navn": "lemmen ved skorstenen",
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "form": "maal",
+          "farve": "#e5b84c"
+        },
+        {
+          "id": "ufaerdige",
+          "navn": "Den Ufærdige",
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "form": "skygge",
+          "farve": "#07080f",
+          "felt": [
+            72,
+            3
+          ],
+          "visFra": "k2-moerke"
+        }
+      ]
+    }
+  },
+  "trin": [
+    {
+      "id": "k2-ankomst",
+      "type": "dialog",
+      "del": 1,
+      "sted": "byporten",
+      "objekt": null,
+      "replikker": [
+        {
+          "taler": "fortaeller",
+          "tekst": "Morgensolen står op over en eng fuld af blomster. Græsset dufter af blæk og honning."
+        },
+        {
+          "taler": "fortaeller",
+          "tekst": "For enden af stien ligger en by bag en høj mur. Hustagene er røde, grønne og blå, og fra skorstenene stiger der små skyer af røg."
+        },
+        {
+          "taler": "aeseloere",
+          "tekst": "Sætningsbyen. Her bor de mest snakkesalige væsner i hele Pennedal."
+        },
+        {
+          "taler": "aeseloere",
+          "tekst": "Men hør. Plejer de ikke at holde en lille pause en gang imellem?"
+        }
+      ]
+    },
+    {
+      "id": "k2-portvagt",
+      "type": "dialog",
+      "del": 1,
+      "sted": "byporten",
+      "objekt": "portvagt",
+      "opgavetekst": "Tal med Portvagten ved byporten.",
+      "replikker": [
+        {
+          "taler": "portvagt",
+          "tekst": "Goddag og velkommen og porten er lukket og jeg kan ikke åbne den og jeg kan ikke holde op med at snakke og det er ret trættende og nu har jeg glemt, hvad jeg ville sige."
+        },
+        {
+          "taler": "aeseloere",
+          "tekst": "Han er en og-orm på to ben. Nogen har stjålet hans punktummer."
+        },
+        {
+          "taler": "portvagt",
+          "tekst": "Kan du klippe mine sætninger over og så åbner porten sig og så kan jeg måske få vejret og ..."
+        }
+      ]
+    },
+    {
+      "id": "k2-ogorm",
+      "type": "opgave",
+      "del": 1,
+      "sted": "byporten",
+      "objekt": "port",
+      "opgavetekst": "Klip Portvagtens og-orme over, så porten åbner sig.",
+      "mekanik": "ogorm",
+      "faerdighed": "tegn.punktum_stort",
+      "antal": 3
+    },
+    {
+      "id": "k2-port-aaben",
+      "type": "dialog",
+      "del": 1,
+      "sted": "byporten",
+      "objekt": null,
+      "slutDel": 1,
+      "replikker": [
+        {
+          "taler": "portvagt",
+          "tekst": "Åh. En pause. Tak. Jeg havde glemt, hvor rart det er at stoppe en sætning."
+        },
+        {
+          "taler": "portvagt",
+          "tekst": "I nat forsvandt alle byens tegn. Punktummer, spørgsmålstegn og udråbstegn. Nu snakker alle i munden på hinanden."
+        },
+        {
+          "taler": "fortaeller",
+          "tekst": "Med et tungt suk glider porten op. Bag den summer byen som en bikube."
+        }
+      ]
+    },
+    {
+      "id": "k2-ind",
+      "type": "skift",
+      "del": 2,
+      "sted": "byporten",
+      "objekt": "port",
+      "opgavetekst": "Gå ind gennem porten.",
+      "tilSted": "torvet"
+    },
+    {
+      "id": "k2-torvet",
+      "type": "dialog",
+      "del": 2,
+      "sted": "torvet",
+      "objekt": null,
+      "replikker": [
+        {
+          "taler": "fortaeller",
+          "tekst": "Torvet er fyldt med mennesker. Alle taler på én gang, og ingen lytter."
+        },
+        {
+          "taler": "fortaeller",
+          "tekst": "Midt på torvet står et springvand. Det er helt tørt, og bunden er plettet af noget sort."
+        },
+        {
+          "taler": "aeseloere",
+          "tekst": "Blæk. Jeg kender den lugt. Den hører til en vis klodset gnom."
+        }
+      ]
+    },
+    {
+      "id": "k2-borgmester",
+      "type": "dialog",
+      "del": 2,
+      "sted": "torvet",
+      "objekt": "borgmester",
+      "opgavetekst": "Find Borgmesteren på torvet.",
+      "replikker": [
+        {
+          "taler": "borgmester",
+          "tekst": "Endelig én, der står stille. Jeg er byens borgmester, og jeg har aldrig set så meget rod."
+        },
+        {
+          "taler": "borgmester",
+          "tekst": "Uden tegn ved ingen, om man spørger om noget, råber noget eller bare fortæller noget."
+        },
+        {
+          "taler": "borgmester",
+          "tekst": "Vores Råber står ved springvandet. Han skal læse byens nyheder op, men han kan ikke finde ud af, hvordan han skal sige dem."
+        }
+      ]
+    },
+    {
+      "id": "k2-raaber",
+      "type": "opgave",
+      "del": 2,
+      "sted": "torvet",
+      "objekt": "raaber",
+      "opgavetekst": "Hjælp Råberen med at sætte de rigtige tegn.",
+      "mekanik": "raaber",
+      "faerdighed": "tegn.saetningstegn",
+      "antal": 6
+    },
+    {
+      "id": "k2-raaber-tak",
+      "type": "dialog",
+      "del": 2,
+      "sted": "torvet",
+      "objekt": null,
+      "replikker": [
+        {
+          "taler": "raaber",
+          "tekst": "Hør, hør! Nu kan jeg råbe igen! Tusind tak!"
+        },
+        {
+          "taler": "fortaeller",
+          "tekst": "For første gang i lang tid bliver der stille på torvet. Folk lytter."
+        },
+        {
+          "taler": "raaber",
+          "tekst": "Byrådet har hængt et opslag op. Det handler om tyveriet. Læs det!"
+        }
+      ]
+    },
+    {
+      "id": "k2-opslag",
+      "type": "bevisjagt",
+      "del": 2,
+      "sted": "torvet",
+      "objekt": "opslag",
+      "opgavetekst": "Læs byrådets opslag.",
+      "faerdighed": "laes.praecision",
+      "forforstaaelse": [
+        "byraad",
+        "opslag",
+        "smoege"
+      ],
+      "titel": "Byrådets opslag",
+      "saetninger": [
+        "Til alle i Sætningsbyen.",
+        "I nat blev alle byens tegn stjålet fra {{trykkeriet}}.",
+        "Nattevagten så en lille, sort skikkelse løbe over torvet med en tung sæk.",
+        "Skikkelsen efterlod sorte pletter på brostenene.",
+        "Pletterne fører ned i {{smøgen|smoege}} mod øst.",
+        "Har du set noget, så kontakt {{byrådet|byraad}}."
+      ],
+      "spoergsmaal": [
+        {
+          "id": "k2-opslag-1",
+          "tekst": "Hvad bar skikkelsen på?",
+          "svar": 2,
+          "forkert": {
+            "3": "Den sætning handler om pletterne. Find sætningen, der fortæller, hvad skikkelsen bar på.",
+            "1": "Den sætning fortæller, hvor tegnene blev stjålet fra. Find sætningen om skikkelsen."
+          },
+          "standard": "Find sætningen, hvor nattevagten fortæller, hvad han så."
+        },
+        {
+          "id": "k2-opslag-2",
+          "tekst": "Hvor fører sporet hen?",
+          "svar": 4,
+          "forkert": {
+            "3": "Den sætning fortæller, at der er pletter, men ikke hvor de fører hen. Læs den næste sætning.",
+            "2": "Den sætning handler om skikkelsen. Find sætningen, der siger, hvor pletterne fører hen."
+          },
+          "standard": "Find sætningen med ordet fører."
+        }
+      ]
+    },
+    {
+      "id": "k2-spor",
+      "type": "dialog",
+      "del": 2,
+      "sted": "torvet",
+      "objekt": null,
+      "slutDel": 2,
+      "replikker": [
+        {
+          "taler": "aeseloere",
+          "tekst": "En lille, sort skikkelse med en sæk. Jeg tør vædde mine bedste sider på, at det er Klatten."
+        },
+        {
+          "taler": "fortaeller",
+          "tekst": "Ved kanten af torvet ser du det: små, sorte pletter, der forsvinder ind i en smal smøge."
+        },
+        {
+          "taler": "fortaeller",
+          "tekst": "Et sted derinde griner nogen. Det lyder som en, der prøver at være uhyggelig og ikke helt kan."
+        }
+      ]
+    },
+    {
+      "id": "k2-til-smoeger",
+      "type": "skift",
+      "del": 3,
+      "sted": "torvet",
+      "objekt": "smoege",
+      "opgavetekst": "Følg blækpletterne ind i smøgen mod øst.",
+      "tilSted": "smoegerne"
+    },
+    {
+      "id": "k2-smoeger",
+      "type": "dialog",
+      "del": 3,
+      "sted": "smoegerne",
+      "objekt": null,
+      "replikker": [
+        {
+          "taler": "fortaeller",
+          "tekst": "Smøgerne er så smalle, at husene næsten rører hinanden. Larmen fra torvet bliver svagere og svagere."
+        },
+        {
+          "taler": "aeseloere",
+          "tekst": "Følg pletterne. Og gå ikke for hurtigt. Jeg bliver blød, hvis jeg falder i en vandpyt."
+        }
+      ]
+    },
+    {
+      "id": "k2-til-trykkeri",
+      "type": "skift",
+      "del": 3,
+      "sted": "smoegerne",
+      "objekt": "trykkeridoer",
+      "opgavetekst": "Følg sporet hen til døren for enden af smøgen.",
+      "tilSted": "trykkeriet"
+    },
+    {
+      "id": "k2-trykkeri",
+      "type": "dialog",
+      "del": 3,
+      "sted": "trykkeriet",
+      "objekt": null,
+      "replikker": [
+        {
+          "taler": "fortaeller",
+          "tekst": "Døren knirker. Indenfor er det mørkt og koldt, og luften smager af metal og gammelt blæk."
+        },
+        {
+          "taler": "fortaeller",
+          "tekst": "Langs væggen står et stort {{typeskab|typeskab}}. Midt på lågen er der tre tomme huller og en lås med tal."
+        },
+        {
+          "taler": "aeseloere",
+          "tekst": "Her har de trykt byens bøger i hundrede år. Og nogen har haft travlt i nat."
+        },
+        {
+          "taler": "fortaeller",
+          "tekst": "Over dig knirker loftet. Nogen går på taget."
+        }
+      ]
+    },
+    {
+      "id": "k2-rum",
+      "type": "rum",
+      "del": 3,
+      "sted": "trykkeriet",
+      "objekt": null,
+      "opgavetekst": "Find det, der passer i typeskabets tre huller, og find koden.",
+      "faerdighed": "laes.praecision",
+      "fund": [
+        {
+          "objekt": "kasse1",
+          "ting": "punktum",
+          "tingNavn": "Et punktum af bly",
+          "tekst": "Under en stak krøllet papir ligger et lille, rundt stykke bly. Det er et punktum. Du lægger det i tasken."
+        },
+        {
+          "objekt": "kasse2",
+          "ting": "spoergsmaalstegn",
+          "tingNavn": "Et spørgsmålstegn af bly",
+          "tekst": "Bag kassen ligger et spørgsmålstegn af bly. Det ligner en lille krog. Du lægger det i tasken."
+        },
+        {
+          "objekt": "presse",
+          "ting": "udraabstegn",
+          "tingNavn": "Et udråbstegn af bly",
+          "tekst": "I trykpressen sidder et udråbstegn i klemme. Du vrider det fri og lægger det i tasken."
+        },
+        {
+          "objekt": "seddel",
+          "tekst": "Du glatter sedlen ud. Den er skrevet med store, klodsede bogstaver og fuld af blækklatter.",
+          "laesning": [
+            "Kære chef.",
+            "Jeg har taget alle punktummerne.",
+            "Er det nok?",
+            "Skal jeg også tage spørgsmålstegnene?",
+            "Byen larmer helt vildt nu!",
+            "Jeg gemmer sækken på taget.",
+            "Hilsen K."
+          ]
+        }
+      ],
+      "laas": {
+        "objekt": "typeskab",
+        "kraever": [
+          "punktum",
+          "spoergsmaalstegn",
+          "udraabstegn"
+        ],
+        "mangler": "Typeskabet har tre tomme huller: et rundt, et som en krog og et langt og smalt. Der mangler noget, før du kan prøve låsen.",
+        "gaade": "Du sætter de tre tegn i hullerne. Så lyser tre tal-hjul op. Under dem står der: \"Punktum, spørgsmålstegn, udråbstegn. Tæl dem i det sidste brev.\"",
+        "svar": [
+          "421",
+          "4 2 1",
+          "4-2-1"
+        ],
+        "regel": "Tæl tegnene i Klattens seddel. Et punktum står efter en sætning, der fortæller noget. Et spørgsmålstegn står efter et spørgsmål. Et udråbstegn står efter et råb.",
+        "eksempel": "\"Er det nok?\" har ét spørgsmålstegn. \"Hilsen K.\" har ét punktum.",
+        "aabnet": "Tal-hjulene klikker på plads. Typeskabet glider til side, og bag det står en stige op til en lem i loftet."
+      }
+    },
+    {
+      "id": "k2-lem",
+      "type": "dialog",
+      "del": 3,
+      "sted": "trykkeriet",
+      "objekt": null,
+      "replikker": [
+        {
+          "taler": "fortaeller",
+          "tekst": "Gennem lemmen kan du høre fodtrin på tagstenene. Hurtige, små fodtrin."
+        },
+        {
+          "taler": "klatten",
+          "tekst": "Hi hi! Jeg landet lige på taget! Ingen kan fange mig!",
+          "bevidstFejl": true
+        },
+        {
+          "taler": "aeseloere",
+          "tekst": "Han skriver lige så dårligt, som han løber. Det hedder landede. Efter ham!"
+        }
+      ]
+    },
+    {
+      "id": "k2-til-tag",
+      "type": "skift",
+      "del": 3,
+      "sted": "trykkeriet",
+      "objekt": "stige",
+      "opgavetekst": "Kravl op ad stigen til taget.",
+      "tilSted": "tagene"
+    },
+    {
+      "id": "k2-jagt",
+      "type": "dialog",
+      "del": 3,
+      "sted": "tagene",
+      "objekt": null,
+      "replikker": [
+        {
+          "taler": "fortaeller",
+          "tekst": "Vinden river i dit tøj. Byen ligger under dig, og de tre måner hænger lavt over tagene."
+        },
+        {
+          "taler": "klatten",
+          "tekst": "I kan aldrig fange mig! Jeg er den hurtigste gnom i hele Pennedal!"
+        },
+        {
+          "taler": "aeseloere",
+          "tekst": "Hop over hullerne, og hold dig væk fra blækket. Falder du, starter du bare ved den sidste lanterne."
+        }
+      ]
+    },
+    {
+      "id": "k2-tagene",
+      "type": "skift",
+      "del": 3,
+      "sted": "tagene",
+      "objekt": "maal",
+      "opgavetekst": "Fang Klatten ved skorstenen på det sidste tag.",
+      "tilSted": "tagene"
+    },
+    {
+      "id": "k2-fanget",
+      "type": "dialog",
+      "del": 3,
+      "sted": "tagene",
+      "objekt": null,
+      "replikker": [
+        {
+          "taler": "klatten",
+          "tekst": "Øv. Øv, øv, øv. Der er ikke flere tage."
+        },
+        {
+          "taler": "fortaeller",
+          "tekst": "Klatten snubler over sine egne fødder. Sækken flyver op i luften, og tegnene regner ned over tagstenene."
+        },
+        {
+          "taler": "aeseloere",
+          "tekst": "Saml dem op, og sæt dem tilbage i byens brev. Så kan Råberen læse det op i aften."
+        }
+      ]
+    },
+    {
+      "id": "k2-brev",
+      "type": "opgave",
+      "del": 3,
+      "sted": "tagene",
+      "objekt": null,
+      "opgavetekst": "Sæt tegnene tilbage i byens brev.",
+      "mekanik": "raaber",
+      "faerdighed": "tegn.saetningstegn",
+      "antal": 4
+    },
+    {
+      "id": "k2-moerke",
+      "type": "dialog",
+      "del": 3,
+      "sted": "tagene",
+      "objekt": null,
+      "uhygge": true,
+      "moerke": true,
+      "slutKapitel": true,
+      "laaserOp": [],
+      "replikker": [
+        {
+          "taler": "fortaeller",
+          "tekst": "Pludselig bliver alt stille. Byens larm forsvinder, som når man smækker en bog i."
+        },
+        {
+          "taler": "fortaeller",
+          "tekst": "Farverne løber ud af tagene. Månerne slukker, én efter én."
+        },
+        {
+          "taler": "klatten",
+          "tekst": "Nej. Nej, nej. Det var ikke meningen. Jeg tog dem jo. Næsten alle sammen."
+        },
+        {
+          "taler": "ufaerdige",
+          "tekst": "Næsten. Alt er altid næsten."
+        },
+        {
+          "taler": "fortaeller",
+          "tekst": "Stemmen kommer ikke fra ét sted. Den kommer fra skyggerne mellem tagene, fra revnerne i stenene, fra lige bag dig."
+        },
+        {
+          "taler": "ufaerdige",
+          "tekst": "Du er kommet langt for at finde noget, der ikke er dit."
+        },
+        {
+          "taler": "ufaerdige",
+          "tekst": "Ved du, hvordan det er at stoppe midt i en"
+        },
+        {
+          "taler": "fortaeller",
+          "tekst": "Stemmen holder op midt i sætningen. Stilheden bagefter er værre end ordene."
+        },
+        {
+          "taler": "ufaerdige",
+          "tekst": "De gav mig en begyndelse. De gav mig en midte. Men ingen gav mig en slutning. Så tager jeg deres."
+        },
+        {
+          "taler": "fortaeller",
+          "tekst": "Skyggen folder sig om Klatten som en side, der bliver vendt. Så er de væk. Begge to."
+        },
+        {
+          "taler": "aeseloere",
+          "tekst": "Han kaldte ham chef. Klatten stjæler ikke for sig selv."
+        },
+        {
+          "taler": "aeseloere",
+          "tekst": "Jeg har læst mange historier. Ingen af dem havde en stemme, der var så kold."
+        },
+        {
+          "taler": "fortaeller",
+          "tekst": "Langt væk over tagene hvisker det stadig: \"Og så ...\""
+        }
+      ]
+    }
+  ]
+}

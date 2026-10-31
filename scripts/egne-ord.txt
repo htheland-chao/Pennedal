@@ -70,3 +70,10 @@ Bevisjagt
 spørgeord
 Tidsord
 dér
+# Kapitel 2 (sammensatte ord af ord fra Retskrivningsordbogen: port + vagt, type + skab)
+Portvagten
+portvagt
+portvagten
+typeskab
+typeskabet
+typeskabets

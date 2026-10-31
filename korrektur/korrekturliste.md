@@ -1,6 +1,6 @@
 # Korrekturliste - Pennedal
 
-Lavet 2026-10-30. 472 tekster.
+Lavet 2026-10-31. 531 tekster.
 
 Sæt kryds, når en tekst er læst. Bevidste fejl står under "Bevidste fejl" og skal ikke rettes.
 Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), så læs hele teksten.
@@ -15,6 +15,11 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `start.indlaes`: Fortsæt med en gemmekode
 - [ ] `start.laererkig`: Lærerkig
 - [ ] `start.indstillinger`: Indstillinger
+- [ ] `hop.overskrift`: Hop til et sted
+- [ ] `hop.forklaring`: Til test: Spillet starter direkte det valgte sted. Det bliver ikke gemt, så et rigtigt spil på denne computer bliver ikke rørt.
+- [ ] `hop.test`: Til test: Dette spil bliver ikke gemt.
+- [ ] `hop.forside`: Til forsiden
+- [ ] `hop.kapitel`: Kapitel {nr}: {titel}
 - [ ] `start.overskriv`: Der er allerede et gemt eventyr på denne computer. Hvis du starter forfra, bliver det slettet.
 - [ ] `start.overskriv.ja`: Ja, start forfra
 - [ ] `start.overskriv.nej`: Nej, gå tilbage
@@ -22,6 +27,10 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `taler.aeseloere`: Æseløre
 - [ ] `taler.klatten`: Klatten
 - [ ] `taler.lanterne`: Mor Lanterne
+- [ ] `taler.portvagt`: Portvagten
+- [ ] `taler.raaber`: Råberen
+- [ ] `taler.borgmester`: Borgmesteren
+- [ ] `taler.ufaerdige`: Den Ufærdige
 - [ ] `taler.fortaeller`: Fortæller
 - [ ] `avatar.titel`: Skab din hovedperson
 - [ ] `avatar.navn`: Dit navn i Pennedal
@@ -49,7 +58,24 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `avatar.billede`: Sådan ser din hovedperson ud
 - [ ] `verden.naeste`: Det næste, du skal gøre:
 - [ ] `verden.undersoeg`: Undersøg {navn}
-- [ ] `verden.tryk.enter`: Tryk på Enter for at undersøge {navn}.
+- [ ] `verden.tryk.enter`: Tryk på E for at undersøge {navn}.
+- [ ] `verden.tast.e`: E
+- [ ] `rum.luk`: Luk
+- [ ] `rum.kode`: Kode
+- [ ] `rum.proev`: Prøv koden
+- [ ] `rum.forkert`: Låsen sidder fast. Koden passer ikke endnu.
+- [ ] `rum.senere`: Kig dig omkring først
+- [ ] `rum.videre`: Videre
+- [ ] `rum.taske`: Din taske
+- [ ] `rum.taske.tom`: Tasken er tom.
+- [ ] `rum.udforsk`: Gå rundt, og undersøg rummet. Kommer du tæt på noget, viser et E, at du kan undersøge det.
+- [ ] `bane.maal`: Kom over tagene til lemmen.
+- [ ] `bane.styring`: Løb med pilene eller A og D. Hop med mellemrum, W eller pil op. Du kan også bruge knapperne på billedet.
+- [ ] `bane.hjaelp.tekst`: Æseløre: "Det er ingen skam at få et lift. Skal jeg bære dig til næste lanterne?"
+- [ ] `bane.hjaelp.knap`: Ja, bær mig over
+- [ ] `bane.knap.venstre`: Løb til venstre
+- [ ] `bane.knap.hoejre`: Løb til højre
+- [ ] `bane.knap.hop`: Hop
 - [ ] `verden.styring`: Gå med piletasterne, eller tryk et sted på billedet. Du kan også bruge knapperne.
 - [ ] `verden.pladsholder`: Pladsholdergrafik
 - [ ] `verden.menu`: Menu
@@ -113,6 +139,18 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `ogorm.fejl.navn`: Navne har altid stort begyndelsesbogstav.
 - [ ] `ogorm.regel`: Når en tanke er færdig, sætter du punktum. Den næste sætning starter med stort begyndelsesbogstav.
 - [ ] `ogorm.eksempel`: Klatten snublede. Hatten fløj af.
+- [ ] `raaber.titel`: Råberens tegn
+- [ ] `raaber.instruks`: Hvilket tegn skal sætningen slutte med? Vælg det, så Råberen kan råbe den rigtigt op.
+- [ ] `raaber.punktum`: Punktum
+- [ ] `raaber.spoergsmaal`: Spørgsmålstegn
+- [ ] `raaber.udraab`: Udråbstegn
+- [ ] `raaber.mangler`: Her mangler et tegn
+- [ ] `raaber.regel`: En fortælling eller besked slutter med punktum. Et spørgsmål slutter med spørgsmålstegn. Et råb eller en ordre slutter med udråbstegn.
+- [ ] `raaber.eksempel`: Sækken ligger på taget. Hvor er sækken? Stop tyven!
+- [ ] `raaber.fejl.punktum`: Sætningen fortæller noget. Den spørger ikke, og den råber ikke. Derfor skal den have punktum.
+- [ ] `raaber.fejl.indirekte`: Sætningen fortæller, at nogen spørger eller undrer sig. Selve sætningen er ikke et spørgsmål, man kan svare på. Derfor skal den have punktum.
+- [ ] `raaber.fejl.spoergsmaal`: Sætningen spørger om noget, man kan svare på. Derfor skal den have spørgsmålstegn.
+- [ ] `raaber.fejl.udraab`: Sætningen er et råb eller en ordre. Derfor skal den have udråbstegn.
 - [ ] `bro.titel`: Historiebroen
 - [ ] `bro.instruks`: Læg plankerne i den rækkefølge, de sker i historien. Brug knapperne til at flytte en planke op eller ned.
 - [ ] `bro.instruks.fremmed`: En af plankerne passer ikke i en god fantasyfortælling. Læg den til side.
@@ -167,9 +205,11 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `samling.ingen.ting`: Du har ikke fundet noget endnu.
 - [ ] `samling.ting.toej.kappe`: Klattens kappe
 - [ ] `samling.ting.tilbehoer.lanterne`: Mor Lanternes lanterne
-- [ ] `samling.kapitel.slut`: Kapitel 1 er slut. Kapitel 2 er på vej.
+- [ ] `samling.kapitel.slut`: Kapitel {nr} er slut.
+- [ ] `samling.kapitel.paa.vej`: Kapitel {nr} er på vej.
+- [ ] `samling.naeste`: Fortsæt til kapitel {nr}
 - [ ] `samling.tilbage`: Tilbage
-- [ ] `samling.spil.igen`: Spil kapitel 1 igen
+- [ ] `samling.spil.igen`: Spil kapitel {nr} igen
 - [ ] `ordkort.titel`: Ordkort
 - [ ] `ordkort.hoer`: Hør ordet
 - [ ] `ordkort.eksempel`: Eksempel
@@ -200,6 +240,10 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `laerer.luk`: Luk
 - [ ] `indst.titel`: Indstillinger
 - [ ] `indst.oplaesning`: Læs tekster op automatisk
+- [ ] `indst.autovidere`: Gå selv videre, når en replik er læst op
+- [ ] `indst.musik`: Baggrundsmusik
+- [ ] `indst.musik.styrke`: Lydstyrke for musik
+- [ ] `indst.musik.forklaring`: Musikken bliver skruet ned, mens nogen taler.
 - [ ] `indst.indtalt`: Brug spillets indtalte stemmer
 - [ ] `indst.indtalt.forklaring`: Figurerne har hver sin stemme. Slår du det fra, bruger spillet computerens egen stemme.
 - [ ] `indst.styrke`: Lydstyrke for oplæsning
@@ -468,6 +512,21 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `kartoteksskab.ord`: kartoteksskab
 - [ ] `kartoteksskab.forklaring`: Et skab med mange små skuffer, hvor man gemmer kort og papirer i orden.
 - [ ] `kartoteksskab.eksempel`: Biblioteket har et gammelt kartoteksskab i kælderen.
+- [ ] `trykkeriet.ord`: trykkeri
+- [ ] `trykkeriet.forklaring`: Et sted, hvor man laver bøger og aviser med en stor maskine, der trykker bogstaver på papir.
+- [ ] `trykkeriet.eksempel`: I trykkeriet lugter der af blæk og papir.
+- [ ] `smoege.ord`: smøge
+- [ ] `smoege.forklaring`: En meget smal gade mellem to huse.
+- [ ] `smoege.eksempel`: Klatten løb ind i en mørk smøge.
+- [ ] `byraad.ord`: byråd
+- [ ] `byraad.forklaring`: De mennesker, der bestemmer over en by sammen.
+- [ ] `byraad.eksempel`: Byrådet holder møde hver mandag.
+- [ ] `opslag.ord`: opslag
+- [ ] `opslag.forklaring`: En besked, der hænger på en tavle, så alle kan læse den.
+- [ ] `opslag.eksempel`: Der hænger et nyt opslag ved springvandet.
+- [ ] `typeskab.ord`: typeskab
+- [ ] `typeskab.forklaring`: Et skab med mange små rum til bogstaver og tegn af metal, som man brugte til at trykke bøger.
+- [ ] `typeskab.eksempel`: Punktummerne skulle ligge i typeskabet.
 
 ## Avatar
 

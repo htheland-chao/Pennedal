@@ -7,12 +7,18 @@ export type VerdenKroge = {
   onNaer: (objektId: string | null) => void;
   /** Placering af E-hintet over det, eleven kan undersøge, i procent af spilfladen. null skjuler det. */
   onHint?: (pos: { x: number; y: number } | null) => void;
+  /** Platformbane: true, når Æseløre skal tilbyde at bære hovedpersonen over. */
+  onHjaelp?: (vis: boolean) => void;
 };
 
 export type VerdenData = {
   sted: Sted;
   aktiv: string | null;
+  /** Escape room: alt det, man kan undersøge på én gang. Der vises ingen pil, kun E-hintet. */
+  aktive?: string[];
   mindreUhygge: boolean;
+  /** Platformbane: målet er allerede nået (eleven er længere i kapitlet). Så starter hovedpersonen ved målet. */
+  baneKlaret?: boolean;
   /** Objekter, der ikke skal vises lige nu, fx Klatten, når han er løbet. */
   skjulte?: string[];
 };
@@ -131,6 +137,8 @@ export class VerdenScene extends Phaser.Scene {
 
   /** Steder uden kort har ingen objekter, der forsvinder. */
   saetSkjulte(_skjulte: string[]) {}
+
+  saetAktive(_aktive: string[]) {}
 
   /** Går hen til et objekt og undersøger det. */
   gaaTilObjekt(id: string) {

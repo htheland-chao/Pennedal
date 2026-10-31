@@ -2,6 +2,7 @@ import Phaser from 'phaser';
 import { useEffect, useRef, type MutableRefObject } from 'react';
 import type { Sted } from '../content';
 import type { Avatar } from '../engine/gem';
+import { BaneScene } from './BaneScene';
 import { KortScene, VIS_B, VIS_H } from './KortScene';
 import { BREDDE, HOEJDE } from './tegn';
 import { VerdenScene, type VerdenKroge } from './VerdenScene';
@@ -10,6 +11,10 @@ type Props = {
   stedId: string;
   sted: Sted;
   aktiv: string | null;
+  /** Platformbane: målet er nået, så hovedpersonen starter ved målet. */
+  baneKlaret?: boolean;
+  /** Escape room: alt, der kan undersøges. */
+  aktive?: string[];
   avatarUri: string;
   /** Bruges til hovedpersonen i pixelgrafik på steder med kort. */
   avatar: Avatar;
@@ -25,6 +30,8 @@ type Props = {
   fpsRef?: MutableRefObject<() => number>;
   /** Kan kaldes for at gå hen til et objekt og undersøge det. */
   gaaTilRef?: MutableRefObject<((id: string) => void) | null>;
+  /** Platformbane: knapperne på skærmen og Æselørets hjælp. */
+  baneRef?: MutableRefObject<{ styr: (knap: 'venstre' | 'hoejre' | 'hop', nede: boolean) => void; baerOver: () => void } | null>;
 };
 
 export function PhaserVerden(props: Props) {
@@ -36,11 +43,11 @@ export function PhaserVerden(props: Props) {
   const laegAvatarInd = useRef<(() => void) | null>(null);
   kroge.current = props.kroge;
 
-  const sceneNoegle = (s: Sted) => (s.kort ? 'kort' : 'verden');
+  const sceneNoegle = (s: Sted) => (s.bane ? 'bane' : s.kort ? 'kort' : 'verden');
   const aktivNoegle = useRef(sceneNoegle(props.sted));
-  const scene = () => spil.current?.scene.getScene(aktivNoegle.current) as VerdenScene | KortScene | undefined;
-  const stoerrelse = (noegle: string): [number, number] => (noegle === 'kort' ? [VIS_B, VIS_H] : [BREDDE, HOEJDE]);
-  const sceneData = () => ({ sted: props.sted, aktiv: props.aktiv, mindreUhygge: props.mindreUhygge, skjulte: props.skjulte });
+  const scene = () => spil.current?.scene.getScene(aktivNoegle.current) as VerdenScene | KortScene | BaneScene | undefined;
+  const stoerrelse = (noegle: string): [number, number] => (noegle === 'kort' || noegle === 'bane' ? [VIS_B, VIS_H] : [BREDDE, HOEJDE]);
+  const sceneData = () => ({ sted: props.sted, aktiv: props.aktiv, aktive: props.aktive, mindreUhygge: props.mindreUhygge, skjulte: props.skjulte, baneKlaret: props.baneKlaret });
 
   // Opret spillet én gang.
   useEffect(() => {
@@ -62,11 +69,13 @@ export function PhaserVerden(props: Props) {
       onInteraktion: (id: string) => kroge.current.onInteraktion(id),
       onNaer: (id: string | null) => kroge.current.onNaer(id),
       onHint: (pos: { x: number; y: number } | null) => kroge.current.onHint?.(pos),
+      onHjaelp: (vis: boolean) => kroge.current.onHjaelp?.(vis),
     } satisfies VerdenKroge);
     game.registry.set('avatar', props.avatar);
     const foerste = aktivNoegle.current;
     game.scene.add('verden', VerdenScene, foerste === 'verden', sceneData());
     game.scene.add('kort', KortScene, foerste === 'kort', sceneData());
+    game.scene.add('bane', BaneScene, foerste === 'bane', sceneData());
     spil.current = game;
     game.events.once(Phaser.Core.Events.READY, () => {
       klar.current = true;
@@ -105,6 +114,11 @@ export function PhaserVerden(props: Props) {
   }, [props.aktiv]);
 
   useEffect(() => {
+    scene()?.saetAktive(props.aktive ?? []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [(props.aktive ?? []).join(',')]);
+
+  useEffect(() => {
     scene()?.saetSkjulte(props.skjulte);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.skjulte.join(',')]);
@@ -114,7 +128,7 @@ export function PhaserVerden(props: Props) {
     if (!g) return;
     g.registry.set('avatar', props.avatar);
     const s = scene();
-    if (s instanceof KortScene && s.sys.isActive()) s.byggAvatar();
+    if ((s instanceof KortScene || s instanceof BaneScene) && s.sys.isActive()) s.byggAvatar();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.avatar]);
 
@@ -145,6 +159,20 @@ export function PhaserVerden(props: Props) {
   }, [props.taler]);
 
   useEffect(() => {
+    if (props.baneRef)
+      props.baneRef.current = {
+        styr: (knap, nede) => {
+          const s = scene();
+          if (s instanceof BaneScene) s.styr(knap, nede);
+        },
+        baerOver: () => {
+          const s = scene();
+          if (s instanceof BaneScene) s.baerOver();
+        },
+      };
+  });
+
+  useEffect(() => {
     if (props.gaaTilRef) {
       props.gaaTilRef.current = (id: string) => {
         scene()?.gaaTilObjekt(id);
@@ -155,7 +183,7 @@ export function PhaserVerden(props: Props) {
   return (
     <div
       ref={beholder}
-      className={props.sted.kort ? 'spilflade spilflade-pixel' : 'spilflade'}
+      className={props.sted.kort || props.sted.bane ? 'spilflade spilflade-pixel' : 'spilflade'}
       tabIndex={0}
       role="application"
       aria-label={props.label}

@@ -1,6 +1,6 @@
 // Alle tekster, der skal have et indtalt lydklip, og hvilken figur der siger dem.
 // Kun spillets egne, faste tekster fra src/content. Elevtekster kommer aldrig med her.
-import { readFileSync } from 'node:fs';
+import { readdirSync, readFileSync } from 'node:fs';
 import { lydNoegle } from '../src/content/lydnoegle.mjs';
 import { renTekst } from './tekster.mjs';
 
@@ -24,12 +24,18 @@ export function alleLydtekster(stemmer = hentStemmer()) {
     ud.push({ noegle, figur, tekst, raa, kilde });
   };
 
-  const k1 = laes('kapitler/kapitel1.json');
-  for (const trin of k1.trin) {
-    (trin.replikker ?? []).forEach((r, i) => tilfoej(r.taler, r.tekst, `Kapitel 1 / ${trin.id}.${i + 1}`));
-    // Bevisjagten læser alle sætninger op i ét klip, ligesom knappen i spillet gør.
-    if (trin.saetninger) tilfoej('fortaeller', trin.saetninger.map(renTekst).join(' '), `Kapitel 1 / ${trin.id}.saetninger`);
-  }
+  // Alle kapitler i src/content/kapitler, i rækkefølge.
+  const kapitler = readdirSync(new URL('../src/content/kapitler/', import.meta.url))
+    .filter((f) => /^kapitel\d+\.json$/.test(f))
+    .map((f) => laes(`kapitler/${f}`))
+    .sort((a, b) => a.kapitel - b.kapitel);
+  for (const k of kapitler)
+    for (const trin of k.trin) {
+      const navn = `Kapitel ${k.kapitel}`;
+      (trin.replikker ?? []).forEach((r, i) => tilfoej(r.taler, r.tekst, `${navn} / ${trin.id}.${i + 1}`));
+      // Bevisjagten læser alle sætninger op i ét klip, ligesom knappen i spillet gør.
+      if (trin.saetninger) tilfoej('fortaeller', trin.saetninger.map(renTekst).join(' '), `${navn} / ${trin.id}.saetninger`);
+    }
 
   for (const o of laes('ord/stumme.json').ord) tilfoej('ord', o.ord, `Stumme bogstaver / ${o.ord}`);
   for (const [id, k] of Object.entries(laes('ordkort.json'))) tilfoej('ord', k.ord, `Ordkort / ${id}`);
@@ -41,14 +47,40 @@ export function alleLydtekster(stemmer = hentStemmer()) {
     if (!(id in da)) throw new Error(`Mangler tekst: ${id}`);
     return da[id].replace(/\{(\w+)\}/g, (_, k) => (k in v ? String(v[k]) : `{${k}}`));
   };
-  for (const trin of k1.trin) {
-    if (trin.opgavetekst) tilfoej('fortaeller', trin.opgavetekst, `Kapitel 1 / ${trin.id}.opgavetekst`);
+  for (const k of kapitler)
+  for (const trin of k.trin) {
+    if (trin.opgavetekst) tilfoej('fortaeller', trin.opgavetekst, `Kapitel ${k.kapitel} / ${trin.id}.opgavetekst`);
     for (const spg of trin.spoergsmaal ?? []) {
-      tilfoej('fortaeller', spg.tekst, `Kapitel 1 / ${trin.id}.${spg.id}`);
-      if (spg.standard) tilfoej('aeseloere', spg.standard, `Kapitel 1 / ${trin.id}.${spg.id}.standard`);
-      for (const [nr, tekst] of Object.entries(spg.forkert ?? {})) tilfoej('aeseloere', tekst, `Kapitel 1 / ${trin.id}.${spg.id}.forkert.${nr}`);
+      tilfoej('fortaeller', spg.tekst, `Kapitel ${k.kapitel} / ${trin.id}.${spg.id}`);
+      if (spg.standard) tilfoej('aeseloere', spg.standard, `Kapitel ${k.kapitel} / ${trin.id}.${spg.id}.standard`);
+      for (const [nr, tekst] of Object.entries(spg.forkert ?? {})) tilfoej('aeseloere', tekst, `Kapitel ${k.kapitel} / ${trin.id}.${spg.id}.forkert.${nr}`);
     }
   }
+  // Escape room: det, fortælleren siger ved hvert fund, sedler og låsen. Æseløre siger reglen ved forkert kode.
+  for (const k of kapitler)
+    for (const trin of k.trin) {
+      if (trin.type !== 'rum') continue;
+      const navn = `Kapitel ${k.kapitel} / ${trin.id}`;
+      for (const f of trin.fund) {
+        tilfoej('fortaeller', f.tekst, `${navn}.${f.objekt}`);
+        (f.laesning ?? []).forEach((l, i) => tilfoej('fortaeller', l, `${navn}.${f.objekt}.${i + 1}`));
+      }
+      for (const felt of ['mangler', 'gaade', 'aabnet']) tilfoej('fortaeller', trin.laas[felt], `${navn}.laas.${felt}`);
+      tilfoej('aeseloere', `${t('feedback.regel')}: ${trin.laas.regel}`, `${navn}.laas.regel`);
+      tilfoej('aeseloere', `${t('feedback.eksempel')}: ${trin.laas.eksempel}`, `${navn}.laas.eksempel`);
+    }
+  tilfoej('aeseloere', t('rum.forkert'), 'Beskeder / rum.forkert');
+  tilfoej('aeseloere', t('bane.hjaelp.tekst'), 'Beskeder / bane.hjaelp.tekst');
+
+  // Råberens tegn: hver sætning råbt op med det rigtige tegn, instruksen og beskederne.
+  const raaber = laes('ord/raaber.json');
+  for (const x of raaber.saetninger) tilfoej('raaber', `${x.tekst}${x.tegn}`, `Råberens tegn / ${x.id}`);
+  tilfoej('fortaeller', t('raaber.instruks'), 'Opgaver / raaber.instruks');
+  for (const id of ['raaber.fejl.punktum', 'raaber.fejl.indirekte', 'raaber.fejl.spoergsmaal', 'raaber.fejl.udraab'])
+    tilfoej('aeseloere', t(id), `Beskeder / ${id}`);
+  tilfoej('aeseloere', `${t('feedback.regel')}: ${t('raaber.regel')}`, 'Beskeder / raaber.regel');
+  tilfoej('aeseloere', `${t('feedback.eksempel')}: ${t('raaber.eksempel')}`, 'Beskeder / raaber.eksempel');
+
   for (const id of [
     'hviske.instruks.vaelg', 'hviske.instruks.skriv', 'hviske.instruks.to', 'hviske.instruks.helt',
     'ogorm.instruks', 'bro.instruks', 'bro.instruks.fremmed', 'bevisjagt.foer', 'bevisjagt.instruks',

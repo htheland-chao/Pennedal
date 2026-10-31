@@ -31,6 +31,13 @@ let nu: Afspilning | null = null;
 let ur: number | null = null;
 let oensket: { tema: string; til: boolean; styrke: number; mild: boolean } = { tema: 'forside', til: false, styrke: 50, mild: false };
 const daempAarsager = new Set<string>();
+/** Når Den Ufærdige er til stede, spiller hans sang i stedet for stedets. */
+let override: string | null = null;
+
+export function saetMusikOverride(tema: string | null): void {
+  override = tema;
+  if (ctx) anvend();
+}
 
 function lydFindes(): boolean {
   return typeof window !== 'undefined' && 'AudioContext' in window;
@@ -86,7 +93,8 @@ function anvend() {
   if (!ctx || !hoved) return;
   const styrke = oensket.til ? (Math.min(100, Math.max(0, oensket.styrke)) / 100) * MAKS : 0;
   hoved.gain.setTargetAtTime(styrke, ctx.currentTime, 0.3);
-  const tema = SANGE[oensket.tema] ? oensket.tema : 'forside';
+  const oensketTema = override ?? oensket.tema;
+  const tema = SANGE[oensketTema] ? oensketTema : 'forside';
   const noegle = `${tema}|${oensket.mild}`;
   if (!oensket.til) {
     stopSang();

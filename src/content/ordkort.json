@@ -1,6 +1,56 @@
 {
-  "logbog": { "ord": "logbog", "forklaring": "En bog, hvor man hver dag skriver ned, hvad der er sket.", "eksempel": "Hr. Holm skriver i sin logbog hver morgen.", "billede": "📓" },
-  "falmet": { "ord": "falmet", "forklaring": "Når en farve er blevet bleg og svag med tiden.", "eksempel": "Bogstaverne på det gamle skilt er falmet.", "billede": "🌫️" },
-  "paa-klem": { "ord": "på klem", "forklaring": "Når en dør står en lille smule åben.", "eksempel": "Døren står på klem, så katten kan komme ind.", "billede": "🚪" },
-  "kartoteksskab": { "ord": "kartoteksskab", "forklaring": "Et skab med mange små skuffer, hvor man gemmer kort og papirer i orden.", "eksempel": "Biblioteket har et gammelt kartoteksskab i kælderen.", "billede": "🗄️" }
+  "logbog": {
+    "ord": "logbog",
+    "forklaring": "En bog, hvor man hver dag skriver ned, hvad der er sket.",
+    "eksempel": "Hr. Holm skriver i sin logbog hver morgen.",
+    "billede": "📓"
+  },
+  "falmet": {
+    "ord": "falmet",
+    "forklaring": "Når en farve er blevet bleg og svag med tiden.",
+    "eksempel": "Bogstaverne på det gamle skilt er falmet.",
+    "billede": "🌫️"
+  },
+  "paa-klem": {
+    "ord": "på klem",
+    "forklaring": "Når en dør står en lille smule åben.",
+    "eksempel": "Døren står på klem, så katten kan komme ind.",
+    "billede": "🚪"
+  },
+  "kartoteksskab": {
+    "ord": "kartoteksskab",
+    "forklaring": "Et skab med mange små skuffer, hvor man gemmer kort og papirer i orden.",
+    "eksempel": "Biblioteket har et gammelt kartoteksskab i kælderen.",
+    "billede": "🗄️"
+  },
+  "trykkeriet": {
+    "ord": "trykkeri",
+    "forklaring": "Et sted, hvor man laver bøger og aviser med en stor maskine, der trykker bogstaver på papir.",
+    "eksempel": "I trykkeriet lugter der af blæk og papir.",
+    "billede": "🖨️"
+  },
+  "smoege": {
+    "ord": "smøge",
+    "forklaring": "En meget smal gade mellem to huse.",
+    "eksempel": "Klatten løb ind i en mørk smøge.",
+    "billede": "🏘️"
+  },
+  "byraad": {
+    "ord": "byråd",
+    "forklaring": "De mennesker, der bestemmer over en by sammen.",
+    "eksempel": "Byrådet holder møde hver mandag.",
+    "billede": "🏛️"
+  },
+  "opslag": {
+    "ord": "opslag",
+    "forklaring": "En besked, der hænger på en tavle, så alle kan læse den.",
+    "eksempel": "Der hænger et nyt opslag ved springvandet.",
+    "billede": "📋"
+  },
+  "typeskab": {
+    "ord": "typeskab",
+    "forklaring": "Et skab med mange små rum til bogstaver og tegn af metal, som man brugte til at trykke bøger.",
+    "eksempel": "Punktummerne skulle ligge i typeskabet.",
+    "billede": "🗄️"
+  }
 }

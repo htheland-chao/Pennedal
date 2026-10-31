@@ -172,3 +172,15 @@ export function fyrtaarn(): Tegnkort {
     palet: { R: '#7a2e1f', K: '#2a170f', Y: '#ffe9a8', W: '#6b4a2b', D: '#c0503e', r: '#8e3428', L: '#f4efe0', S: '#b9bfcf', b: '#3a2a20' },
   };
 }
+
+/** Den Ufærdige: en høj skygge med løse, ufærdige kanter og to blege øjne. */
+export const SKYGGE: Tegnkort = {
+  raekker: [
+    '......k..k......', '.....kUUUUk.....', '....kUUUUUUk....', '....UUUUUUUU....', '...kUOOUUOOUk...', '...UUUUUUUUUU...',
+    '...kUUUUUUUUk...', '....UUUkUUUU....', '...kUUUUUUUUk...', '..kUUUUUUUUUUk..', '..UUUUUUUUUUUU..', '.kUUUUUUUUUUUUk.',
+    '.UUUUUUUUUUUUUU.', '.UUUUUUkUUUUUUU.', 'kUUUUUUUUUUUUUUk', 'UUUUUUUUUUUUUUUU', 'UUUUkUUUUUUkUUUU', 'UUUUUUUUUUUUUUUU',
+    'kUUUUUUUUUUUUUUk', '.UUUUUUUUUUUUUU.', '.UUUkUUUUUUUUUU.', '.kUUUUUUUUkUUUk.', '..UUUUUUUUUUUU..', '..kUU.UUUU.UUk..',
+    '...UU.UUUU.UU...', '...k...UU...k...', '.......kk.......', '................',
+  ],
+  palet: { U: '#07080f', k: '#3a3d55', O: '#e8f0ff' },
+};

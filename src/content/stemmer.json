@@ -24,6 +24,22 @@
     "ord": {
       "stemme": "Vindemiatrix",
       "stil": "Say this single Danish word clearly and naturally at a calm pace, like a teacher reading a spelling word aloud. Native Danish."
+    },
+    "portvagt": {
+      "stemme": "Algieba",
+      "stil": "Say this cheerfully and almost without breathing, like a friendly gatekeeper who cannot stop talking, words tumbling into each other. Native Danish."
+    },
+    "raaber": {
+      "stemme": "Sadachbia",
+      "stil": "Say this loudly and clearly like a proud town crier announcing news on a market square, with big expressive intonation. Native Danish."
+    },
+    "borgmester": {
+      "stemme": "Gacrux",
+      "stil": "Say this like a worried but dignified old mayor who tries to stay calm. Native Danish."
+    },
+    "ufaerdige": {
+      "stemme": "Enceladus",
+      "stil": "Whisper this slowly and very close to the microphone, cold, sad and unsettling, with long pauses, like a shadow from a story that never got an ending. Never shout. Native Danish."
     }
   },
   "udtale": {}

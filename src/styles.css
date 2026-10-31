@@ -1153,3 +1153,160 @@ input[type='range'] {
     animation: none;
   }
 }
+
+/* Knapper på skærmen til platformbanen. Store nok til en finger. */
+.bane-knapper {
+  position: absolute;
+  inset: auto 0 0.6rem 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0.8rem;
+  pointer-events: none;
+  z-index: 4;
+}
+.bane-knap {
+  pointer-events: auto;
+  width: 3.4rem;
+  height: 3.4rem;
+  font-size: 1.4rem;
+  opacity: 0.85;
+  touch-action: none;
+  user-select: none;
+}
+.bane-knap-venstre {
+  margin-right: auto;
+}
+.bane-knap-hoejre {
+  margin-right: auto;
+  margin-left: 0.6rem;
+}
+
+/* Råberens tegn */
+.raaber-saetning {
+  font-size: 1.5rem;
+  margin: 1rem 0;
+}
+.raaber-hul {
+  display: inline-block;
+  width: 1.1em;
+  height: 1.1em;
+  margin-left: 0.15em;
+  vertical-align: -0.15em;
+  border: 3px dashed var(--blaek);
+  background: var(--guld-lys);
+}
+.raaber-knapper {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+.raaber-knap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 8rem;
+}
+.raaber-tegn {
+  font-size: 2.2rem;
+  line-height: 1;
+  font-weight: 700;
+}
+
+/* Escape room: sedler, kodelås og taske. */
+.seddel {
+  background: #fbf6e8;
+  border: 2px solid #d9d2bd;
+  box-shadow: 3px 3px 0 rgb(0 0 0 / 0.15);
+  padding: 0.8rem 1rem;
+  margin: 0.8rem 0;
+  transform: rotate(-0.6deg);
+}
+.seddel p {
+  margin: 0 0 0.3rem;
+}
+.kodelaas {
+  display: flex;
+  gap: 0.8rem;
+  align-items: end;
+  flex-wrap: wrap;
+  margin: 0.8rem 0;
+}
+.kodelaas label {
+  display: grid;
+  gap: 0.2rem;
+  font-weight: 700;
+}
+.kode-felt {
+  font: inherit;
+  font-size: 1.6rem;
+  letter-spacing: 0.3em;
+  width: 8ch;
+  padding: 0.2rem 0.4rem;
+  border: 3px solid var(--blaek);
+}
+.taske ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+/* ============================================================
+   Mørket: Den Ufærdige. Farverne løber ud, kanterne bliver sorte, og dialogen bliver kold.
+   Skal give et sug i maven, men aldrig være morbid. "Mindre uhygge" dæmper det.
+   ============================================================ */
+.spilflade-ramme canvas {
+  transition: filter 2.5s ease;
+}
+.verden.moerke .spilflade-ramme canvas {
+  filter: grayscale(1) brightness(0.5) contrast(1.5);
+}
+.verden.moerke .spilflade-ramme::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 50% 45%, transparent 25%, rgb(0 0 0 / 0.85) 80%);
+  animation: moerke-aande 5s ease-in-out infinite;
+}
+@keyframes moerke-aande {
+  50% {
+    opacity: 0.75;
+  }
+}
+.verden.moerke-mild .spilflade-ramme canvas {
+  filter: grayscale(0.6) brightness(0.8);
+}
+.verden.moerke-mild .spilflade-ramme::after {
+  animation: none;
+  opacity: 0.5;
+}
+.verden.moerke {
+  --stjerne: transparent;
+}
+.dialogboks.taler-ufaerdige {
+  border-image: none;
+  border: 3px solid #3a3d55;
+  background: #0b0c16;
+  color: #d9e3f0;
+  box-shadow: 0 0 40px rgb(0 0 0 / 0.9);
+}
+.dialogboks.taler-ufaerdige .taler-navn {
+  color: #8f98c0;
+  letter-spacing: 0.15em;
+}
+.dialogboks.taler-ufaerdige .portraet {
+  background: #05060b;
+  border-color: #3a3d55;
+  box-shadow: none;
+}
+.dialogboks.taler-ufaerdige .knap {
+  border-image-source: var(--knap-moerk);
+  color: #d9e3f0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .verden.moerke .spilflade-ramme::after {
+    animation: none;
+  }
+  .spilflade-ramme canvas {
+    transition: none;
+  }
+}
