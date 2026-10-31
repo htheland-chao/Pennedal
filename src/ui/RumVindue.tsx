@@ -136,7 +136,18 @@ export function KodeVindue({
       ) : (
         <>
           <p className="fortaeller besked-god">{laas.aabnet}</p>
-          <LaesOpKnap auto tekst={laas.aabnet} figur="fortaeller" />
+          <div className="regel">
+            <p>
+              <strong>{t('feedback.regel')}:</strong> {laas.regel}
+            </p>
+            <p>
+              <strong>{t('feedback.eksempel')}:</strong> {laas.eksempel}
+            </p>
+          </div>
+          <LaesOpKnap
+            auto
+            dele={[{ tekst: laas.aabnet, figur: 'fortaeller' }, ...beskedDele('', { regel: laas.regel, eksempel: laas.eksempel }, null, false).slice(1)]}
+          />
           <div className="knaprad">
             <button type="button" className="knap knap-primaer" onClick={onAaben} autoFocus>
               {t('rum.videre')}

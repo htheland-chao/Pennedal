@@ -43,6 +43,8 @@ test('kapitel 2: Råberens tegn, escape room, jagten over tagene og mørket', as
   await expect(page.locator('.besked-fejl .regel')).toContainText('Regel');
   await page.screenshot({ path: `${BILLEDER}/k2-01-raaber.png` });
   await opgave.getByRole('button', { name: NAVN[raaber.find((x) => x.id === id)!.tegn] }).click();
+  // Et rigtigt svar forklares også med en regel og et eksempel.
+  await expect(page.locator('.besked-god .regel')).toContainText('Eksempel');
   await page.locator('dialog.opgave').getByRole('button', { name: 'Videre' }).click();
   for (let i = 0; i < 5; i++) await loesRaaber(page);
   await laesDialog(page);
