@@ -1,14 +1,16 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { hentKapitel, t, type RumFund, type RumTrin, type Trin } from '../content';
+import { hentKapitel, kapitler, t, type RumFund, type RumTrin, type Trin } from '../content';
 import { erFaerdighed } from '../engine/faerdigheder';
 import type { GemtSpil, Indstillinger } from '../engine/gem';
 import { afslutTrin, aktueltSted, aktueltTrin, kapitelSlut } from '../engine/kapitel';
+import { nyeTing, taskeFor, type TingId } from '../engine/taske';
 import { registrerSvar, type Haendelse } from '../engine/tilpasning';
 import { PhaserVerden } from '../game/PhaserVerden';
 import { avatarDataUri } from '../ui/avatarSvg';
 import { DialogBoks } from '../ui/DialogBoks';
 import { saetMusikOverride } from '../ui/musik/afspiller';
 import { FundVindue, KodeVindue, ManglerVindue } from '../ui/RumVindue';
+import { NyTingBesked, TaskeVindue } from '../ui/TaskeVindue';
 import { LaesOpKnap } from '../ui/Tekst';
 import { Ydelse } from '../ui/Ydelse';
 import { BevisjagtVindue, OpgaveVindue } from './OpgaveVindue';
@@ -50,6 +52,18 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
   const [hjaelp, setHjaelp] = useState(false);
   const spilRef = useRef(spil);
   spilRef.current = spil;
+
+  // Tasken regnes ud fra, hvor langt eleven er (se src/engine/taske.ts).
+  const tingITasken = useMemo(() => taskeFor(spil, kapitler), [spil.kapitel, spil.trin]);
+  const [visTaske, setVisTaske] = useState(false);
+  const [nyTing, setNyTing] = useState<TingId | null>(null);
+  const forrigeTaske = useRef(tingITasken);
+  useEffect(() => {
+    const nye = nyeTing(forrigeTaske.current, tingITasken);
+    forrigeTaske.current = tingITasken;
+    if (nye.length > 0) setNyTing(nye[nye.length - 1]);
+  }, [tingITasken]);
+  const glemNyTing = useCallback(() => setNyTing(null), []);
 
   // Escape room: alt i rummet kan undersøges, og fundene kommer i tasken (gemt i spil.valg).
   const rum = trin?.type === 'rum' ? trin : null;
@@ -175,7 +189,7 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
   }
 
   const avatarUri = useMemo(() => avatarDataUri(spil.avatar), [spil.avatar]);
-  const laast = !!aktivtTrin || andetVindueAabent || !!rumVindue;
+  const laast = !!aktivtTrin || andetVindueAabent || !!rumVindue || visTaske;
 
   return (
     <main className={`verden${moerke ? ' moerke' : ''}${moerke && indstillinger.mindreUhygge ? ' moerke-mild' : ''}`}>
@@ -237,6 +251,7 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
             <kbd>{t('verden.tast.e')}</kbd>
           </button>
         )}
+        <NyTingBesked ting={nyTing} onFaerdig={glemNyTing} />
         <span className="pladsholder-maerke">{t('verden.pladsholder')}</span>
         {DEBUG && <Ydelse fps={() => fpsRef.current()} />}
       </div>
@@ -316,6 +331,9 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
           )
         )}
         <p className="lille-tekst">{t('verden.styring')}</p>
+        <button type="button" className="knap" onClick={() => setVisTaske(true)} disabled={!!aktivtTrin || !!rumVindue}>
+          {t('taske.knap')} ({tingITasken.length + taske.length})
+        </button>
         <button type="button" className="knap" onClick={onMenu}>
           <span aria-hidden="true">☰ </span>
           {t('verden.menu')}
@@ -325,6 +343,9 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
         </p>
       </aside>
 
+      {visTaske && (
+        <TaskeVindue ting={tingITasken} rumTing={taske.map((k) => spil.valg[`taske.${k}`])} onLuk={() => setVisTaske(false)} />
+      )}
       {rum && rumVindue?.type === 'fund' && (
         <FundVindue
           titel={sted.objekter.find((o) => o.id === rumVindue.fund.objekt)?.navn ?? ''}

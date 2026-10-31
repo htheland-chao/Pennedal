@@ -154,13 +154,13 @@ Små lysende papirstumper, gemt i hvert kapitel (to pr. kapitel, typisk bag en s
 
 ## Tasken
 
-Tasken følger med gennem hele spillet og vises altid med et ikon i hjørnet. Hver ting har et billede (uden bogstaver), et navn og en kort tekst. Tasken bygger videre på escape room-tasken fra kapitel 2, men ting kan nu blive i tasken mellem kapitler. Ting, der kun bruges i ét escape room, forsvinder stadig efter rummet.
+Tasken følger med gennem hele spillet. Knappen "Taske" står altid i panelet, og en lille besked viser, når der kommer en ny ting. Tasken gemmes ikke: den regnes ud fra, hvor langt eleven er kommet, med felterne `giver` og `bruger` på trinnene (`src/engine/taske.ts`). Derfor følger den med i gemmekoden uden ekstra tegn. Hver ting har et billede (uden bogstaver), et navn og en kort tekst. Tasken bygger videre på escape room-tasken fra kapitel 2, men ting kan nu blive i tasken mellem kapitler. Ting, der kun bruges i ét escape room, forsvinder stadig efter rummet.
 
 | Ting | Findes | Bruges | Hvis den mangler |
 |---|---|---|---|
 | Lanternen | Kapitel 1, Mor Lanterne | Kapitel 3 (lyser i den hvide tåge), kapitel 8 | Mor Lanterne har en ekstra |
 | Klattens kappe | Kapitel 1, bag skiltet (findes allerede som oplåsning) | Kapitel 6 (forklædning) eller giv den tilbage til Klatten (venlighed) | Der findes en anden vej ind |
-| Et ekstra punktum | Kapitel 2, efter jagten på tagene (Råberen giver det som tak) | Kapitel 5 (stopper en sætning, der aldrig ender) | Fru Fodnote har et i en fodnote |
+| Et ekstra punktum | Kapitel 2, på tagene, når Klatten taber sækken | Kapitel 5 (stopper en sætning, der aldrig ender) | Fru Fodnote har et i en fodnote |
 | Holms logbog | Kapitel 1 (lånes) | Kapitel 5 (en side i logbogen passer til en side i arkivet) | Fru Fodnote har en kopi |
 | Vims' krummer | Kapitel 3 | Kapitel 6 (visker en lås på Klattens hytte ud) |
 | Rimfods sten | Kapitel 4 | Kapitel 7 (bærer en bro i eventyrlandet) | Rimfod kommer selv | Vims kommer selv |

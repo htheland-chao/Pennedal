@@ -62,6 +62,10 @@ export type GemtSpil = {
   samling: string[];
   /** Antal færdige historier (lyset i fyrtårnet). */
   faerdigeHistorier: number;
+  /** Hukommelsesskår, eleven har fundet (id'er fra SKAAR i taske.ts). Tasken selv regnes ud, se taske.ts. */
+  skaar: string[];
+  /** Klattens venlighed, 0-7. Stiger, når eleven er venlig mod ham. */
+  venlighed: number;
   faerdigheder: Record<FaerdighedId, FaerdighedsStatus>;
 };
 
@@ -117,6 +121,8 @@ export function nytSpil(avatar: Avatar, avatarnavn: GemtSpil['avatarnavn']): Gem
     valg: {},
     samling: [],
     faerdigeHistorier: 0,
+    skaar: [],
+    venlighed: 0,
     faerdigheder: tommeFaerdigheder(),
   };
 }
@@ -167,6 +173,9 @@ export function validerGemtSpil(data: unknown): GemtSpil | null {
     valg: (d.valg && typeof d.valg === 'object' ? d.valg : {}) as Record<string, string>,
     samling: d.samling as string[],
     faerdigeHistorier: erTal(d.faerdigeHistorier, 0, 9999) ? d.faerdigeHistorier : 0,
+    // Felter fra efter tasken kom til (31. oktober 2026). Gamle gemte spil har dem ikke.
+    skaar: strengListe(d.skaar) ? (d.skaar as string[]) : [],
+    venlighed: erTal(d.venlighed, 0, 7) ? d.venlighed : 0,
     faerdigheder,
   };
 }

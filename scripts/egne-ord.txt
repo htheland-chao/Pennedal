@@ -77,3 +77,10 @@ portvagten
 typeskab
 typeskabet
 typeskabets
+# Tasken (31. oktober 2026): egennavne fra docs/historie.md og sammensætningen blækplet (blæk + plet).
+Sætningsbyen
+Rimfod
+Rimfods
+Rimbjerget
+blækplet
+blækpletter
