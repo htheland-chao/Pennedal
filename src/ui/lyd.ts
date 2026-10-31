@@ -67,18 +67,18 @@ export function stopLyd(): void {
   aktiv = null;
 }
 
-/** Afspiller et klip. styrke er 0-100. */
-export function spilLyd(url: string, styrke: number, vedSlut: () => void): boolean {
+/** Afspiller et klip. styrke er 0-100. vedSlut får true, når klippet er spillet til ende, og false ved fejl. */
+export function spilLyd(url: string, styrke: number, vedSlut: (fuldfoert: boolean) => void): boolean {
   stopLyd();
   const a = new Audio(url);
   a.volume = Math.min(1, Math.max(0, styrke / 100));
-  const slut = () => {
+  const slut = (fuldfoert: boolean) => {
     if (aktiv === a) aktiv = null;
-    vedSlut();
+    vedSlut(fuldfoert);
   };
-  a.onended = slut;
-  a.onerror = slut;
+  a.onended = () => slut(true);
+  a.onerror = () => slut(false);
   aktiv = a;
-  a.play().catch(slut);
+  a.play().catch(() => slut(false));
   return true;
 }

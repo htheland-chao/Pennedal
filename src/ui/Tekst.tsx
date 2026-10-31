@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { delTekst, renTekst, t } from '../content';
 import { useApp } from './Kontekst';
 import { type Figur, lydUrl, spilLyd, stopLyd, useLydManifest } from './lyd';
@@ -35,13 +35,15 @@ type LaesOpProps = {
   auto?: boolean;
   /** Hvem der siger teksten. Med en figur bruges spillets indtalte klip, hvis det findes. */
   figur?: Figur;
+  /** Kaldes, når oplæsningen er nået helt til ende (ikke ved stop eller fejl). */
+  vedFaerdig?: () => void;
 };
 
 /**
  * Knap, der læser en tekst op. Bruger spillets indtalte klip, hvis det findes,
  * ellers computerens danske stemme. Vises ikke, hvis ingen af delene findes.
  */
-export function LaesOpKnap({ tekst, kunLokal, etiket, auto, figur }: LaesOpProps) {
+export function LaesOpKnap({ tekst, kunLokal, etiket, auto, figur, vedFaerdig }: LaesOpProps) {
   const { indstillinger } = useApp();
   const findes = useStemmeFindes();
   const { manifest, klar } = useLydManifest();
@@ -49,11 +51,16 @@ export function LaesOpKnap({ tekst, kunLokal, etiket, auto, figur }: LaesOpProps
   const ren = renTekst(tekst);
   const url = !kunLokal && figur && indstillinger.indtalt ? lydUrl(manifest, figur, ren) : null;
   const styrke = indstillinger.taleStyrke;
+  const vedFaerdigRef = useRef(vedFaerdig);
+  vedFaerdigRef.current = vedFaerdig;
 
   const start = () => {
     stopTale();
     stopLyd();
-    const slut = () => setTaler(false);
+    const slut = (fuldfoert: boolean) => {
+      setTaler(false);
+      if (fuldfoert) vedFaerdigRef.current?.();
+    };
     if (url) setTaler(spilLyd(url, styrke, slut));
     else setTaler(sig(ren, { stemme: indstillinger.stemme, kunLokal, styrke, vedSlut: slut }));
   };

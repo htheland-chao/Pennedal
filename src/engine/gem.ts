@@ -75,16 +75,19 @@ export type Indstillinger = {
   indtalt: boolean;
   /** Lydstyrke for oplæsning, 0-100. */
   taleStyrke: number;
+  /** Dialogen går selv videre til næste replik, når oplæsningen er færdig. */
+  autoVidere: boolean;
 };
 
 export const STANDARD_INDSTILLINGER: Indstillinger = {
-  oplaesning: false,
+  oplaesning: true,
   stemme: null,
   skrift: 'standard',
   stoerrelse: 1,
   mindreUhygge: false,
   indtalt: true,
   taleStyrke: 80,
+  autoVidere: true,
 };
 
 export const GEM_NOEGLE = 'pennedal.gemtspil.v1';
@@ -196,13 +199,14 @@ export function hentIndstillinger(lager: Storage | undefined = globalThis.localS
     if (!tekst) return { ...STANDARD_INDSTILLINGER };
     const d = JSON.parse(tekst) as Partial<Indstillinger>;
     return {
-      oplaesning: typeof d.oplaesning === 'boolean' ? d.oplaesning : false,
+      oplaesning: typeof d.oplaesning === 'boolean' ? d.oplaesning : true,
       stemme: typeof d.stemme === 'string' ? d.stemme : null,
       skrift: d.skrift === 'ordblind' || d.skrift === 'system' ? d.skrift : 'standard',
       stoerrelse: d.stoerrelse === 2 || d.stoerrelse === 3 ? d.stoerrelse : 1,
       mindreUhygge: typeof d.mindreUhygge === 'boolean' ? d.mindreUhygge : false,
       indtalt: typeof d.indtalt === 'boolean' ? d.indtalt : true,
       taleStyrke: erTal(d.taleStyrke, 0, 100) ? d.taleStyrke : 80,
+      autoVidere: typeof d.autoVidere === 'boolean' ? d.autoVidere : true,
     };
   } catch {
     return { ...STANDARD_INDSTILLINGER };

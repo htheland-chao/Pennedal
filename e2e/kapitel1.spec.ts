@@ -238,3 +238,19 @@ test('indstillingerne skifter skrift og størrelse', async ({ page }) => {
   await page.getByRole('button', { name: 'Luk' }).click();
   await billede(page, '13-ordblind-skrift');
 });
+
+test('intet går ud over kanten på en mobil, hverken stående eller liggende', async ({ browser }) => {
+  for (const viewport of [{ width: 390, height: 844 }, { width: 844, height: 390 }]) {
+    const ctx = await browser.newContext({ viewport, hasTouch: true, isMobile: true });
+    const page = await ctx.newPage();
+    const forBred = () => page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth);
+    await page.goto('/');
+    expect(await forBred(), `start ${viewport.width}`).toBe(false);
+    await page.getByRole('button', { name: 'Start et nyt eventyr' }).click();
+    expect(await forBred(), `avatar ${viewport.width}`).toBe(false);
+    await page.getByRole('button', { name: 'Klar til eventyret' }).tap();
+    await expect(page.getByRole('button', { name: 'Undersøg hr. Holm' })).toBeVisible();
+    expect(await forBred(), `verden ${viewport.width}`).toBe(false);
+    await ctx.close();
+  }
+});
