@@ -61,6 +61,20 @@ Bagefter vågner avataren i biblioteket. Holm fortæller kort, at det var ham, d
 
 **Den sande slutning:** Har man samlet alle hukommelsesskår og været venlig mod Klatten hele vejen, kommer der en ekstra scene: Skyggen får et navn, og det er avataren, der vælger det blandt nogle forslag.
 
+## Introen
+
+Introen (`src/ui/Intro.tsx`, 31. oktober 2026) kommer, når man starter et nyt eventyr, og kan ses igen fra forsiden. Den skal vække nysgerrighed uden at afsløre forhistorien.
+
+1. Theland Studios præsenterer (studiets mærke: en fjerpen i et blækhus).
+2. Et mørkt værelse i regnvejr. En skuffe står åben, og man skimter noget grønt. "Nogle historier bliver aldrig skrevet færdige."
+3. Skuffen bliver lukket. "De bliver lagt i en skuffe. Og så bliver de glemt."
+4. Pennedal under tre måner. "Men et sted bag ordene ligger et land, hvor alt engang blev skrevet til live."
+5. Månerne slukker, og en skygge glider over landet. "Nu forsvinder slutningerne. Én efter én." Den Ufærdige hvisker: "Og så ..."
+6. Kartoteksskabet i kælderen. Den nederste skuffe lyser. "I en kælder under et skolebibliotek er der en skuffe, som er begyndt at hviske. Den hvisker til dig."
+7. Titlen, "Et spil af Theland Studios" og knappen "Begynd eventyret".
+
+Værelset og det grønne glimt er avatarens eget værelse og hæftet. Det bliver først klart ved twist 1.
+
 ## Kapitlerne
 
 Nye trin må kun tilføjes til sidst i et kapitel, ellers peger gamle gemmekoder forkert (se Regler).

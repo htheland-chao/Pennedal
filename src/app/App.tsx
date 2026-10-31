@@ -14,6 +14,7 @@ import { aktueltSted, kapitelSlut, naesteKapitel, spilVedIKapitler } from '../en
 import { saetMusik } from '../ui/musik/afspiller';
 import { AvatarDesigner } from '../ui/AvatarDesigner';
 import { GemmekodeVindue, IndlaesSide } from '../ui/Gemmekode';
+import { Intro } from '../ui/Intro';
 import { IndstillingerVindue } from '../ui/IndstillingerVindue';
 import { Kontekst } from '../ui/Kontekst';
 import { Laererkig } from '../ui/Laererkig';
@@ -22,7 +23,7 @@ import { OrdkortVindue } from '../ui/OrdkortVindue';
 import { Samling } from '../ui/Samling';
 import { Verden } from './Verden';
 
-type Skaerm = 'start' | 'ny-avatar' | 'ret-avatar' | 'verden' | 'indlaes' | 'laerer' | 'samling' | 'hop';
+type Skaerm = 'start' | 'intro' | 'ny-avatar' | 'ret-avatar' | 'verden' | 'indlaes' | 'laerer' | 'samling' | 'hop';
 
 /**
  * Til test: ?hop viser en liste over steder, ?hop=kaelder (et sted eller et trins id) starter direkte der.
@@ -41,6 +42,13 @@ export function App() {
   const [gemmekode, setGemmekode] = useState<{ del?: number } | null>(null);
   const [bekraeftNyt, setBekraeftNyt] = useState(false);
   const [ventendeIndlaes, setVentendeIndlaes] = useState<GemtSpil | null>(null);
+  /** Hvor introen fører hen: til et nyt spil eller tilbage til forsiden. */
+  const [efterIntro, setEfterIntro] = useState<'ny-avatar' | 'start'>('ny-avatar');
+
+  function visIntro(efter: 'ny-avatar' | 'start') {
+    setEfterIntro(efter);
+    setSkaerm('intro');
+  }
 
   useEffect(() => {
     const r = document.documentElement;
@@ -73,7 +81,12 @@ export function App() {
   const slut = !!(spil && kapitel && kapitelSlut(spil, kapitel));
 
   // Baggrundsmusik: stedets egen sang i verden, ellers forsidens.
-  const musikTema = skaerm === 'verden' && spil && kapitel ? kapitel.steder[aktueltSted(spil, kapitel)]?.tema ?? 'forside' : 'forside';
+  const musikTema =
+    skaerm === 'intro'
+      ? 'intro'
+      : skaerm === 'verden' && spil && kapitel
+        ? kapitel.steder[aktueltSted(spil, kapitel)]?.tema ?? 'forside'
+        : 'forside';
   useEffect(() => {
     saetMusik({ tema: musikTema, til: indstillinger.musik, styrke: indstillinger.musikStyrke, mild: indstillinger.mindreUhygge });
   }, [musikTema, indstillinger.musik, indstillinger.musikStyrke, indstillinger.mindreUhygge]);
@@ -94,7 +107,7 @@ export function App() {
             <button
               type="button"
               className={`knap ${spil ? '' : 'knap-primaer'}`}
-              onClick={() => (spil ? setBekraeftNyt(true) : setSkaerm('ny-avatar'))}
+              onClick={() => (spil ? setBekraeftNyt(true) : visIntro('ny-avatar'))}
               autoFocus={!spil}
             >
               {t('start.nyt')}
@@ -104,6 +117,9 @@ export function App() {
             </button>
             <button type="button" className="knap" onClick={() => setVisIndstillinger(true)}>
               {t('start.indstillinger')}
+            </button>
+            <button type="button" className="knap knap-diskret" onClick={() => visIntro('start')}>
+              {t('start.intro')}
             </button>
             <button type="button" className="knap knap-diskret" onClick={() => setSkaerm('laerer')}>
               {t('start.laererkig')}
@@ -134,6 +150,8 @@ export function App() {
           <a href="./">{t('hop.forside')}</a>
         </main>
       )}
+
+      {skaerm === 'intro' && <Intro onFaerdig={() => setSkaerm(efterIntro)} />}
 
       {skaerm === 'ny-avatar' && (
         <AvatarDesigner
@@ -231,7 +249,7 @@ export function App() {
               className="knap knap-fare"
               onClick={() => {
                 setBekraeftNyt(false);
-                setSkaerm('ny-avatar');
+                visIntro('ny-avatar');
               }}
             >
               {t('start.overskriv.ja')}

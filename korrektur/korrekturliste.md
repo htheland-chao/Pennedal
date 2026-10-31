@@ -1,6 +1,6 @@
 # Korrekturliste - Pennedal
 
-Lavet 2026-10-31. 531 tekster.
+Lavet 2026-10-31. 569 tekster.
 
 Sæt kryds, når en tekst er læst. Bevidste fejl står under "Bevidste fejl" og skal ikke rettes.
 Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), så læs hele teksten.
@@ -68,6 +68,43 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `rum.videre`: Videre
 - [ ] `rum.taske`: Din taske
 - [ ] `rum.taske.tom`: Tasken er tom.
+- [ ] `intro.studie`: Theland Studios
+- [ ] `intro.praesenterer`: præsenterer
+- [ ] `intro.1`: Nogle historier bliver aldrig skrevet færdige.
+- [ ] `intro.2`: De bliver lagt i en skuffe. Og så bliver de glemt.
+- [ ] `intro.3`: Men et sted bag ordene ligger et land, hvor alt engang blev skrevet til live.
+- [ ] `intro.4`: Nu forsvinder slutningerne. Én efter én.
+- [ ] `intro.4.hvisken`: Og så ...
+- [ ] `intro.5`: I en kælder under et skolebibliotek er der en skuffe, som er begyndt at hviske.
+- [ ] `intro.5.slut`: Den hvisker til dig.
+- [ ] `intro.af`: Et spil af Theland Studios
+- [ ] `intro.begynd`: Begynd eventyret
+- [ ] `intro.spring`: Spring introen over
+- [ ] `intro.videre`: Videre
+- [ ] `intro.titel`: Intro
+- [ ] `intro.styring`: Tryk Enter eller mellemrum for at gå videre.
+- [ ] `start.intro`: Se introen
+- [ ] `taske.knap`: Taske
+- [ ] `taske.titel`: Din taske
+- [ ] `taske.tom`: Der er ikke noget i tasken endnu.
+- [ ] `taske.intro`: Ting, du finder, bliver i tasken. Måske får du brug for dem senere.
+- [ ] `taske.ny`: Ny ting i tasken: {navn}.
+- [ ] `taske.luk`: Luk tasken
+- [ ] `taske.rum`: Det, du har fundet her
+- [ ] `ting.lanterne.navn`: Lanternen
+- [ ] `ting.lanterne.tekst`: Mor Lanternes lanterne. Den lyser af færdige historier og bliver aldrig helt mørk.
+- [ ] `ting.kappe.navn`: Klattens kappe
+- [ ] `ting.kappe.tekst`: En sort kappe med blækpletter. Den lugter lidt. Klatten tabte den, da han løb sin vej.
+- [ ] `ting.logbog.navn`: Holms logbog
+- [ ] `ting.logbog.tekst`: Hr. Holms logbog om de forsvundne ord. Han har skrevet alt ned, dag for dag.
+- [ ] `ting.punktum.navn`: Et ekstra punktum
+- [ ] `ting.punktum.tekst`: Et blankt, lidt varmt punktum fra tagene i Sætningsbyen. Det kan stoppe en sætning.
+- [ ] `ting.krummer.navn`: Vims' krummer
+- [ ] `ting.krummer.tekst`: Små grå krummer fra et viskelæder. De kan viske næsten alt ud.
+- [ ] `ting.rimsten.navn`: Rimfods sten
+- [ ] `ting.rimsten.tekst`: En glat sten fra Rimbjerget. Når man holder den, får man lyst til at rime.
+- [ ] `ting.haefte.navn`: Det grønne hæfte
+- [ ] `ting.haefte.tekst`: Et gammelt, grønt kladdehæfte. Et hjørne er foldet ned.
 - [ ] `rum.udforsk`: Gå rundt, og undersøg rummet. Kommer du tæt på noget, viser et E, at du kan undersøge det.
 - [ ] `bane.maal`: Kom over tagene til lemmen.
 - [ ] `bane.styring`: Løb med pilene eller A og D. Hop med mellemrum, W eller pil op. Du kan også bruge knapperne på billedet.
@@ -201,7 +238,7 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `samling.lys`: Lyset i fyrtårnet: {antal} af {max} færdige historier
 - [ ] `samling.ordkort`: Ordkort, du har samlet
 - [ ] `samling.ingen.ordkort`: Du har ikke samlet nogen ordkort endnu.
-- [ ] `samling.ting`: Ting, du har fundet
+- [ ] `samling.ting`: Tøj og pynt til din hovedperson
 - [ ] `samling.ingen.ting`: Du har ikke fundet noget endnu.
 - [ ] `samling.ting.toej.kappe`: Klattens kappe
 - [ ] `samling.ting.tilbehoer.lanterne`: Mor Lanternes lanterne
@@ -332,6 +369,7 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `k1-holm-2.opgavetekst`: Fortæl hr. Holm, hvad du fandt i logbogen.
 - [ ] `k1-holm-2.1 (holm)`: Hviskede? Fra kælderen? Det har jeg ikke lagt mærke til.
 - [ ] `k1-holm-2.2 (holm)`: Jeg tør ærlig talt ikke gå derned alene. Vil du se, hvad der er i kælderen?
+- [ ] `k1-holm-2.3 (holm)`: Tag min logbog med. Måske får du brug for den.
 - [ ] `k1-til-kaelder.opgavetekst`: Gå ned ad trappen til kælderen.
 - [ ] `k1-kaelder.1 (fortaeller)`: Kælderen lugter af støv og gammelt papir. Bagerst står et kartoteksskab med mange små skuffer.
 - [ ] `k1-kaelder.2 (fortaeller)`: Det er helt stille. Så hører du det. Den nederste skuffe hvisker.
