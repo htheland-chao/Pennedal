@@ -149,6 +149,8 @@ test('kapitel 1 kan spilles fra start til slut, og gemmekoden virker', async ({ 
 
   await undersoeg(page, 'trappen til kælderen');
   await laesDialog(page);
+  await page.waitForTimeout(800);
+  await billede(page, '05b-kaelder');
   await undersoeg(page, 'kartoteksskabet');
   await laesDialog(page);
   await undersoeg(page, 'kartoteksskabet');

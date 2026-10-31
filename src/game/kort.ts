@@ -7,6 +7,16 @@
  *   ~  vand (kan ikke gås på)      M  vand, hvor en af de tre måner spejler sig
  *   p  brostolpe (kan ikke gås på) q  planke, der driver i vandet
  *   F  fyrtårn (kan ikke gås på)
+ *
+ * Indendørs (kortet har K). Gulvet er '.', i kælderen af sten:
+ *   K  mørk ydervæg                V  væg          v  vindue i væggen
+ *   W  kældervæg af sten           R  reol ved væggen
+ *   r  fritstående reol (to felter høj, tegnes fra det øverste felt)
+ *   D  disk                        B  læsebord (2 x 2 felter)
+ *   P  plante                      k  trækasse
+ *   S  trappe ned                  U  trappe op
+ *   d  dør ud                      t  tæppe (kan gås på)
+ * Alle indendørs tegn undtagen '.' og 't' kan ikke gås på.
  */
 export const FELT = 16;
 
@@ -30,7 +40,8 @@ export function laesKort(raekker: string[]): Kort {
 
 export const erSti = (c: string) => c === '.' || c === 'L';
 export const erVand = (c: string) => c === '~' || c === 'M' || c === 'q';
-export const erFastTegn = (c: string) => c === '#' || erVand(c) || c === 'p' || c === 'F';
+const INDE_FAST = new Set([...'KVvWRrDBPkSUd']);
+export const erFastTegn = (c: string) => c === '#' || erVand(c) || c === 'p' || c === 'F' || INDE_FAST.has(c);
 
 /** Feltet, en pixelposition ligger i. */
 export const feltVed = (x: number, y: number): Felt => [Math.floor(x / FELT), Math.floor(y / FELT)];
