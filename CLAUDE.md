@@ -6,7 +6,7 @@ Danskfagligt fantasy-læringsspil til en 5. klasse. Ejer: Henrik (klasselærer o
 
 - Skriv på dansk, kort og konkret. Brug bindestreg (-), aldrig tankestreg.
 - Spørg hellere end at gætte.
-- Start hver ny opgave med én linje: hvilken Claude-model der passer (Henrik vil spare forbrug uden at slække på kvaliteten). Sonnet til indhold, tekster, CSS, nye steder efter samme opskrift og små rettelser. Opus til ny motor eller arkitektur, svære fejl, Phaser-kamera og lys. Lav eller medium tænkning til rutine, høj kun når det er svært.
+- Start hver ny opgave med én linje: hvilken Claude-model der passer (Henrik vil spare forbrug uden at slække på kvaliteten). Sonnet til indhold, tekster, CSS, nye steder efter samme opskrift og små rettelser. Opus til ny motor eller arkitektur, svære fejl, Phaser-kamera og lys. Skriv også tænkningen: lav, middel eller høj (lav til rutine, middel til almindelige opgaver, høj kun når det er svært), fx "Model: Sonnet, lav".
 - Ved vigtige valg: beskriv først, hvordan det kan gå galt, og giv derefter en konkret anbefaling.
 - Påstå aldrig, at noget virker, uden at have kørt og tjekket det. Sig tydeligt, hvad der ikke er testet.
 
@@ -21,6 +21,7 @@ Opdatér kun en version efter at have slået den op i npm og kørt alle tests.
 - `npm test` - enhedstests og stavetjek af al dansk tekst. Skal være grøn før hver pull request.
 - `npm run test:e2e` - spiller kapitel 1 igennem i Chrome.
 - `npm run typecheck`, `npm run build`, `npm run korrektur`.
+- Gemini er betalt (31. oktober 2026). Lydjobbet laver op til 300 klip pr. kørsel.
 - `npm run lyd:status` - opdaterer `public/lyd/manifest.json`. Selve lydklippene laves kun af GitHub-jobbet Lyd (`.github/workflows/lyd.yml`), fordi Googles API er blokeret i Claudes miljø.
 
 ## Ufravigelige krav
