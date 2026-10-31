@@ -7,9 +7,23 @@
       "fil": "07e8c290c513c7.ogg",
       "kilde": "Kapitel 1 / k1-holm.1",
       "lavet": "2026-10-30"
+    },
+    "18ccdc8ab18111": {
+      "figur": "holm",
+      "tekst": "Hver morgen mangler der flere ord. Nogle bøger stopper midt i en sætning.",
+      "fil": "18ccdc8ab18111.ogg",
+      "kilde": "Kapitel 1 / k1-holm.2",
+      "lavet": "2026-10-30"
+    },
+    "1e12c96895a22f": {
+      "figur": "holm",
+      "tekst": "Jeg har skrevet det hele ned i min logbog. Den ligger på disken. Vil du læse den?",
+      "fil": "1e12c96895a22f.ogg",
+      "kilde": "Kapitel 1 / k1-holm.3",
+      "lavet": "2026-10-30"
     }
   },
   "model": "gemini-3.8-flash-tts",
   "i_alt": 96,
-  "mangler": 95
+  "mangler": 93
 }
