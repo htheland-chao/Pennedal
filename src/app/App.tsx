@@ -10,7 +10,8 @@ import {
   type GemtSpil,
   type Indstillinger,
 } from '../engine/gem';
-import { kapitelSlut, spilVed } from '../engine/kapitel';
+import { aktueltSted, kapitelSlut, spilVed } from '../engine/kapitel';
+import { saetMusik } from '../ui/musik/afspiller';
 import { AvatarDesigner } from '../ui/AvatarDesigner';
 import { GemmekodeVindue, IndlaesSide } from '../ui/Gemmekode';
 import { IndstillingerVindue } from '../ui/IndstillingerVindue';
@@ -71,6 +72,12 @@ export function App() {
 
   const kapitel = spil ? hentKapitel(spil.kapitel) : undefined;
   const slut = !!(spil && kapitel && kapitelSlut(spil, kapitel));
+
+  // Baggrundsmusik: stedets egen sang i verden, ellers forsidens.
+  const musikTema = skaerm === 'verden' && spil && kapitel ? kapitel.steder[aktueltSted(spil, kapitel)]?.tema ?? 'forside' : 'forside';
+  useEffect(() => {
+    saetMusik({ tema: musikTema, til: indstillinger.musik, styrke: indstillinger.musikStyrke, mild: indstillinger.mindreUhygge });
+  }, [musikTema, indstillinger.musik, indstillinger.musikStyrke, indstillinger.mindreUhygge]);
   const vindueAabent = !!(ordkort || visIndstillinger || visMenu || gemmekode);
 
   return (

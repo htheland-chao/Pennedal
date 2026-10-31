@@ -46,6 +46,24 @@ export function IndstillingerVindue({ indstillinger: i, onSkift, onLuk }: Props)
             onChange={(e) => onSkift({ ...i, taleStyrke: Number(e.target.value) })}
           />
         </label>
+        <label className="afkryds">
+          <input type="checkbox" checked={i.musik} onChange={(e) => onSkift({ ...i, musik: e.target.checked })} />
+          {t('indst.musik')}
+        </label>
+        <label>
+          {t('indst.musik.styrke')}
+          <input
+            type="range"
+            min={0}
+            max={100}
+            step={10}
+            value={i.musikStyrke}
+            disabled={!i.musik}
+            aria-valuetext={`${i.musikStyrke} %`}
+            onChange={(e) => onSkift({ ...i, musikStyrke: Number(e.target.value) })}
+          />
+        </label>
+        <p className="lille-tekst">{t('indst.musik.forklaring')}</p>
         {stemmer.length === 0 ? (
           <p className="lille-tekst">{t('indst.stemme.ingen')}</p>
         ) : (

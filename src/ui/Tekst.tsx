@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { delTekst, renTekst, t } from '../content';
 import { useApp } from './Kontekst';
 import { type Figur, lydUrl, spilLyd, stopLyd, useLydManifest } from './lyd';
+import { daempMusik } from './musik/afspiller';
 import { danskeStemmer, naarStemmerErKlar, sig, stopTale } from './tale';
 
 /** Viser tekst, hvor {{ord}} bliver til knapper, der åbner et ordkort. */
@@ -57,8 +58,10 @@ export function LaesOpKnap({ tekst, kunLokal, etiket, auto, figur, vedFaerdig }:
   const start = () => {
     stopTale();
     stopLyd();
+    daempMusik('tale', true);
     const slut = (fuldfoert: boolean) => {
       setTaler(false);
+      daempMusik('tale', false);
       if (fuldfoert) vedFaerdigRef.current?.();
     };
     if (url) setTaler(spilLyd(url, styrke, slut));
@@ -70,6 +73,7 @@ export function LaesOpKnap({ tekst, kunLokal, etiket, auto, figur, vedFaerdig }:
     return () => {
       stopTale();
       stopLyd();
+      daempMusik('tale', false);
     };
     // start bruger kun værdierne herunder.
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -86,6 +90,7 @@ export function LaesOpKnap({ tekst, kunLokal, etiket, auto, figur, vedFaerdig }:
           stopTale();
           stopLyd();
           setTaler(false);
+          daempMusik('tale', false);
         } else start();
       }}
     >

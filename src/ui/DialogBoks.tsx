@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useApp } from './Kontekst';
+import { daempMusik } from './musik/afspiller';
 import { t, type Replik, type TekstId } from '../content';
 import { Modal } from './Modal';
 import { LaesOpKnap, Tekst } from './Tekst';
@@ -22,6 +23,12 @@ export function DialogBoks({ replikker, onFaerdig }: { replikker: Replik[]; onFa
   const sidste = nr === replikker.length - 1;
   const { indstillinger } = useApp();
   const [naeste, setNaeste] = useState<number | null>(null);
+
+  // Musikken skrues ned, så længe dialogen er åben.
+  useEffect(() => {
+    daempMusik('dialog', true);
+    return () => daempMusik('dialog', false);
+  }, []);
 
   // Når en replik er læst helt op, venter dialogen lidt og går så selv videre til den næste.
   // Den sidste replik lukker ikke selv, så eleven altid selv afslutter samtalen.
