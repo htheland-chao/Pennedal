@@ -9,6 +9,7 @@ export function Forforstaaelse({ trin, onVidere }: { trin: BevisjagtTrin; onVide
   return (
     <div className="forforstaaelse">
       <p className="instruks">{t('bevisjagt.foer')}</p>
+      <LaesOpKnap auto tekst={t('bevisjagt.foer')} figur="fortaeller" />
       <ul className="ordkort-liste">
         {trin.forforstaaelse.map((id) => {
           const k = findOrdkort(id);
@@ -40,6 +41,13 @@ export function Bevisjagt({ trin, nr, api }: { trin: BevisjagtTrin; nr: number; 
       <h3>{trin.titel}</h3>
       <LaesOpKnap tekst={trin.saetninger.map(renTekst).join(' ')} figur="fortaeller" />
       <p className="instruks">{t('bevisjagt.instruks')}</p>
+      <LaesOpKnap
+        auto
+        dele={[
+          { tekst: t('bevisjagt.instruks'), figur: 'fortaeller' },
+          { tekst: spg.tekst, figur: 'fortaeller' },
+        ]}
+      />
       <p className="spoergsmaal">
         <span className="lille-tekst">{t('bevisjagt.spoergsmaal', { nr: nr + 1, antal: trin.spoergsmaal.length })}: </span>
         <strong>{spg.tekst}</strong>

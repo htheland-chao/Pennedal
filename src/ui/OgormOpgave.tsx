@@ -55,6 +55,7 @@ export function OgormOpgave({ tekst, api }: { tekst: OgTekst; api: OpgaveApi }) 
   return (
     <div className="ogorm" data-tekst-id={tekst.id}>
       <p className="instruks">{t('ogorm.instruks')}</p>
+      <LaesOpKnap auto tekst={t('ogorm.instruks')} figur="fortaeller" />
       <div className="orm" aria-hidden="true">
         <span className="orm-hoved">🐛</span>
         {Array.from({ length: led }, (_, i) => (

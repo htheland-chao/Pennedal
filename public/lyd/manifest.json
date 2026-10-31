@@ -24,6 +24,6 @@
     }
   },
   "model": "gemini-3.8-flash-tts",
-  "i_alt": 96,
-  "mangler": 93
+  "i_alt": 195,
+  "mangler": 192
 }

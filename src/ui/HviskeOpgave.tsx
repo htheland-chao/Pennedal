@@ -46,6 +46,13 @@ export function HviskeOpgave({ opgave, api }: { opgave: Opgave; api: OpgaveApi }
   return (
     <div className="hviske">
       <p className="instruks">{instruks}</p>
+      <LaesOpKnap
+        auto
+        dele={[
+          { tekst: instruks, figur: 'fortaeller' },
+          { tekst: ord.ord, figur: 'ord' },
+        ]}
+      />
       <div className="hviske-billede" aria-hidden="true">
         {ord.billede}
       </div>
