@@ -29,7 +29,9 @@ Der gemmes ingen navne, ingen e-mail og ingen elevtekster. Hostingudbyderen (Fir
 
 ## For Henrik: sådan prøver du spillet
 
-Spillet bliver lagt online automatisk, når Firebase er sat op (se herunder). Indtil da kan du køre det på din egen computer:
+Spillet bliver lagt online automatisk, når Firebase er sat op (se herunder). Hop direkte til et sted: tilføj `?hop` til adressen for at få en liste over steder, eller fx `?hop=kaelder`. Et hop-spil bliver ikke gemt.
+
+Indtil da kan du køre det på din egen computer:
 
 1. Installér Node.js (LTS-udgaven) fra [nodejs.org](https://nodejs.org).
 2. Hent koden: Tryk på den grønne knap **Code** på GitHub og vælg **Download ZIP**. Pak den ud.

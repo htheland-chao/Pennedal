@@ -1,12 +1,24 @@
 import { describe, expect, it } from 'vitest';
 import { delTekst, findOrdkort, harTekst, hentKapitel, renTekst, type Trin } from '../content';
-import { afslutTrin, aktueltSted, kapitelSlut } from './kapitel';
+import { afslutTrin, aktueltSted, kapitelSlut, spilVed } from './kapitel';
 import { nytSpil, STANDARD_AVATAR } from './gem';
 import { erFaerdighed, OPLAASNINGER } from './faerdigheder';
 
 const k1 = hentKapitel(1)!;
 
 describe('kapitel 1', () => {
+  it('kan hoppe direkte til et sted eller et trin', () => {
+    const start = nytSpil(STANDARD_AVATAR, { adjektiv: 0, dyr: 0 });
+    const kaelder = spilVed(k1, 'kaelder', start)!;
+    expect(aktueltSted(kaelder, k1)).toBe('kaelder');
+    expect(k1.trin[kaelder.trin].id).toBe('k1-kaelder');
+    const fyr = spilVed(k1, 'fyrtaarn', start)!;
+    expect(aktueltSted(fyr, k1)).toBe('fyrtaarn');
+    expect(fyr.laasteOp).toContain('toej.kappe');
+    expect(spilVed(k1, 'findes-ikke', start)).toBeNull();
+    for (const id of Object.keys(k1.steder)) expect(spilVed(k1, id, start), id).not.toBeNull();
+  });
+
   it('kan spilles fra start til slut', () => {
     let spil = nytSpil(STANDARD_AVATAR, { adjektiv: 0, dyr: 0 });
     let skridt = 0;
