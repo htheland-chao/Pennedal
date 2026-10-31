@@ -1,6 +1,34 @@
 {
   "version": 1,
   "filer": {
+    "008824dff8ca28": {
+      "figur": "aeseloere",
+      "tekst": "Skuffen er en dør til Pennedal. Men den åbner kun for hviskeformularer.",
+      "fil": "008824dff8ca28.ogg",
+      "kilde": "Kapitel 1 / k1-aeseloere.4",
+      "lavet": "2026-10-31"
+    },
+    "00b254dfd52682": {
+      "figur": "holm",
+      "tekst": "Jeg tør ærlig talt ikke gå derned alene. Vil du se, hvad der er i kælderen?",
+      "fil": "00b254dfd52682.ogg",
+      "kilde": "Kapitel 1 / k1-holm-2.2",
+      "lavet": "2026-10-31"
+    },
+    "05d573d8176505": {
+      "figur": "aeseloere",
+      "tekst": "Jeg hedder Æseløre. Jeg er foldet af en side fra en meget gammel ordbog, så jeg ved alt om ord. Næsten alt.",
+      "fil": "05d573d8176505.ogg",
+      "kilde": "Kapitel 1 / k1-aeseloere.3",
+      "lavet": "2026-10-31"
+    },
+    "0702537b302218": {
+      "figur": "fortaeller",
+      "tekst": "Mandag: Tre bøger manglede deres sidste side. Tirsdag: En ordbog havde mistet alle sine punktummer. Onsdag: Bogstaverne på skiltet ved døren var falmet. Torsdag: Jeg hørte en lyd fra kælderen. Det lød, som om nogen hviskede. Fredag: Døren til kælderen stod på klem.",
+      "fil": "0702537b302218.ogg",
+      "kilde": "Kapitel 1 / k1-logbog.saetninger",
+      "lavet": "2026-10-31"
+    },
     "07e8c290c513c7": {
       "figur": "holm",
       "tekst": "Godt, at du kom. Der sker noget mærkeligt med bøgerne.",
@@ -8,12 +36,47 @@
       "kilde": "Kapitel 1 / k1-holm.1",
       "lavet": "2026-10-30"
     },
+    "12c52b20a36f9c": {
+      "figur": "fortaeller",
+      "tekst": "Kælderen lugter af støv og gammelt papir. Bagerst står et kartoteksskab med mange små skuffer.",
+      "fil": "12c52b20a36f9c.ogg",
+      "kilde": "Kapitel 1 / k1-kaelder.1",
+      "lavet": "2026-10-31"
+    },
+    "14bb0a58bb94a9": {
+      "figur": "holm",
+      "tekst": "Hviskede? Fra kælderen? Det har jeg ikke lagt mærke til.",
+      "fil": "14bb0a58bb94a9.ogg",
+      "kilde": "Kapitel 1 / k1-holm-2.1",
+      "lavet": "2026-10-31"
+    },
+    "14dcfcb5308805": {
+      "figur": "aeseloere",
+      "tekst": "Endelig. Du har været længe om det.",
+      "fil": "14dcfcb5308805.ogg",
+      "kilde": "Kapitel 1 / k1-aeseloere.2",
+      "lavet": "2026-10-31"
+    },
     "18ccdc8ab18111": {
       "figur": "holm",
       "tekst": "Hver morgen mangler der flere ord. Nogle bøger stopper midt i en sætning.",
       "fil": "18ccdc8ab18111.ogg",
       "kilde": "Kapitel 1 / k1-holm.2",
       "lavet": "2026-10-30"
+    },
+    "1941a19abf438e": {
+      "figur": "fortaeller",
+      "tekst": "Du trækker skuffen ud. Det lugter af blæk og regnvejr, og en lille papirfugl flyver op i dit ansigt.",
+      "fil": "1941a19abf438e.ogg",
+      "kilde": "Kapitel 1 / k1-aeseloere.1",
+      "lavet": "2026-10-31"
+    },
+    "1e0ee27d64dc5c": {
+      "figur": "fortaeller",
+      "tekst": "Det er helt stille. Så hører du det. Den nederste skuffe hvisker.",
+      "fil": "1e0ee27d64dc5c.ogg",
+      "kilde": "Kapitel 1 / k1-kaelder.2",
+      "lavet": "2026-10-31"
     },
     "1e12c96895a22f": {
       "figur": "holm",
@@ -25,5 +88,5 @@
   },
   "model": "gemini-3.8-flash-tts",
   "i_alt": 195,
-  "mangler": 192
+  "mangler": 183
 }
