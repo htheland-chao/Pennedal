@@ -341,5 +341,26 @@
   "lyd.kopier": "Kopiér nøgle",
   "lyd.kopieret": "Kopieret",
   "lyd.figur.ord": "Enkelte ord",
-  "lyd.tilbage": "Tilbage til spillet"
+  "lyd.tilbage": "Tilbage til spillet",
+
+  "minde.blaek.titel": "Et minde: Blæk og regn",
+  "minde.blaek.1": "Regnen trommer mod en rude. Det er aften, og lampen over bordet summer svagt.",
+  "minde.blaek.2": "En hånd holder om en blyant. Den holder alt for hårdt, så knoerne bliver helt hvide.",
+  "minde.blaek.3": "Det lugter af blæk. Du kender den lugt. Du ved bare ikke hvorfra.",
+  "minde.blaek.4": "Så er det væk.",
+  "minde.streger.titel": "Et minde: Røde streger",
+  "minde.streger.1": "En side i et hæfte. Den er fuld af ord skrevet med blyant, men du kan ikke læse dem. Hen over ordene er der røde streger.",
+  "minde.streger.2": "Inde fra et andet rum er der nogen, der griner.",
+  "minde.streger.2.mild": "Inde fra et andet rum lukker nogen en dør. Helt stille.",
+  "minde.streger.3": "En lille hånd vender siden om, så ingen kan se den.",
+  "minde.streger.4": "Det gør stadig lidt ondt. Du ved ikke hvorfor.",
+  "minde.videre": "Tilbage til Pennedal",
+  "minder.titel": "Minder",
+  "minder.intro": "Glimt af noget, du har glemt. Du kan se dem igen her.",
+  "minder.tom": "Du har ingen minder endnu. Måske kommer de tilbage.",
+  "minder.se": "Se mindet igen",
+  "laerer.minder.titel": "Minder i spillet",
+  "laerer.minder.forklaring": "Korte tilbageblik fra avatarens forhistorie. Du kan se dem her, før klassen spiller. Eleverne kan altid springe dem over.",
+  "laerer.minder.se": "Se",
+  "laerer.minder.kapitel": "Kapitel {kapitel}"
 }

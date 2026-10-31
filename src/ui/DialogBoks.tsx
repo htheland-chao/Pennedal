@@ -5,6 +5,8 @@ import { t, type Replik, type TekstId } from '../content';
 import { Modal } from './Modal';
 import { PixelPortraet } from './PixelPortraet';
 import { LaesOpKnap, Tekst } from './Tekst';
+import { erMinde } from '../content/minder';
+import { Tilbageblik } from './Tilbageblik';
 
 
 /** Pause efter en replik, før den næste starter, så eleven kan nå at se teksten. */
@@ -15,15 +17,19 @@ type DialogProps = {
   onFaerdig: () => void;
   /** Hvem der taler lige nu, så kameraet kan zoome ind på dem. Kaldes med null, når dialogen lukker. */
   onTaler?: (taler: Replik['taler'] | null) => void;
+  /** Et tilbageblik, der vises lige før replikken med nummer foer. */
+  tilbageblik?: { id: string; foer: number };
 };
 
-export function DialogBoks({ replikker, onFaerdig, onTaler }: DialogProps) {
+export function DialogBoks({ replikker, onFaerdig, onTaler, tilbageblik }: DialogProps) {
   const [nr, setNr] = useState(0);
   const r = replikker[nr];
   const navn = t(`taler.${r.taler}` as TekstId);
   const sidste = nr === replikker.length - 1;
   const { indstillinger } = useApp();
   const [naeste, setNaeste] = useState<number | null>(null);
+  const [mindeSet, setMindeSet] = useState(false);
+  const visMinde = !!tilbageblik && erMinde(tilbageblik.id) && nr === tilbageblik.foer && !mindeSet;
 
   useEffect(() => {
     onTaler?.(r.taler);
@@ -45,6 +51,7 @@ export function DialogBoks({ replikker, onFaerdig, onTaler }: DialogProps) {
     return () => window.clearTimeout(ur);
   }, [naeste]);
   const vedFaerdig = indstillinger.autoVidere && !sidste ? () => setNaeste(nr + 1) : undefined;
+  if (visMinde && tilbageblik && erMinde(tilbageblik.id)) return <Tilbageblik id={tilbageblik.id} onFaerdig={() => setMindeSet(true)} />;
   return (
     <Modal titel={navn} klasse={`dialogboks taler-${r.taler}`}>
       <div className="dialog-indhold">

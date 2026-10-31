@@ -86,6 +86,10 @@ export function alleLydtekster(stemmer = hentStemmer()) {
     tilfoej('fortaeller', t(id), `Introen / ${id}`);
   tilfoej('ufaerdige', t('intro.4.hvisken'), 'Introen / intro.4.hvisken');
 
+  // Minderne (src/ui/Tilbageblik.tsx, teksterne i src/content/minder.ts): hver del er et klip, også de milde udgaver.
+  for (const id of Object.keys(da).filter((k) => /^minde\.\w+\.\d+(\.mild)?$/.test(k)))
+    tilfoej('fortaeller', t(id), `Minder / ${id}`);
+
   // Tasken (src/ui/TaskeVindue.tsx): navn og tekst læses op sammen.
   for (const id of ['lanterne', 'kappe', 'logbog', 'punktum', 'krummer', 'rimsten', 'haefte'])
     tilfoej('fortaeller', `${t(`ting.${id}.navn`)}. ${t(`ting.${id}.tekst`)}`, `Tasken / ${id}`);

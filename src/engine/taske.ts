@@ -60,3 +60,14 @@ export function taskeFor(spil: Pick<GemtSpil, 'kapitel' | 'trin'>, kapitler: Kap
 export function nyeTing(foer: TingId[], efter: TingId[]): TingId[] {
   return efter.filter((id) => !foer.includes(id));
 }
+
+/**
+ * Minder (tilbageblik), eleven har mødt: dem i trin, eleven er kommet forbi. Ligesom tasken regnes de ud
+ * og gemmes ikke. Et minde, eleven sprang over, kan stadig ses i tasken.
+ */
+export function minderFor(spil: Pick<GemtSpil, 'kapitel' | 'trin'>, kapitler: Kapitel[]): string[] {
+  const ud: string[] = [];
+  for (const t of forbiTrin(spil, kapitler))
+    if (t.type === 'dialog' && t.tilbageblik && !ud.includes(t.tilbageblik.id)) ud.push(t.tilbageblik.id);
+  return ud;
+}

@@ -316,8 +316,22 @@ const intro: Sang = {
   ],
 };
 
+/** Et minde: Pennedals musik stopper, og der høres kun en enkelt, svag tone, der kommer og går. */
+const minde: Sang = {
+  bpm: 50,
+  spor: [
+    {
+      lyd: 'trekant',
+      styrke: 0.07,
+      noder:
+        'E5 - - - - - - - | . . . . . . . . | E5 - - - - - - - | . . . . . . . . | ' +
+        'E5 - - - - - - - | . . . . . . . . | D5 - - - - - - - | . . . . . . . .',
+    },
+  ],
+};
+
 /** Forsiden og menuerne: Pennedals tema, roligere. */
 const forside: Sang = { ...pennedal, bpm: 76 };
 
 /** Sang pr. tema. Et tema uden sang får forsidens. */
-export const SANGE: Record<string, Sang> = { bibliotek, kaelder, pennedal, floden, fyrtaarn, eng, torv, smoeger, trykkeri, tage, forside, ufaerdige, intro };
+export const SANGE: Record<string, Sang> = { bibliotek, kaelder, pennedal, floden, fyrtaarn, eng, torv, smoeger, trykkeri, tage, forside, ufaerdige, intro, minde };

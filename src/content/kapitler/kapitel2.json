@@ -702,6 +702,7 @@
       "del": 3,
       "sted": "trykkeriet",
       "objekt": null,
+      "tilbageblik": { "id": "streger", "foer": 2 },
       "replikker": [
         {
           "taler": "fortaeller",
@@ -710,6 +711,14 @@
         {
           "taler": "fortaeller",
           "tekst": "Langs væggen står et stort {{typeskab|typeskab}}. Midt på lågen er der tre tomme huller og en lås med tal."
+        },
+        {
+          "taler": "fortaeller",
+          "tekst": "Du blinker. Du står i trykkeriet igen, men du kan stadig mærke papiret mellem fingrene."
+        },
+        {
+          "taler": "aeseloere",
+          "tekst": "Du blev helt bleg. Er det typeskabet? Det giver også mig kuldegysninger."
         },
         {
           "taler": "aeseloere",

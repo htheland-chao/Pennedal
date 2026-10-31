@@ -3,7 +3,7 @@ import { hentKapitel, kapitler, t, type RumFund, type RumTrin, type Trin } from 
 import { erFaerdighed } from '../engine/faerdigheder';
 import type { GemtSpil, Indstillinger } from '../engine/gem';
 import { afslutTrin, aktueltSted, aktueltTrin, kapitelSlut } from '../engine/kapitel';
-import { nyeTing, taskeFor, type TingId } from '../engine/taske';
+import { minderFor, nyeTing, taskeFor, type TingId } from '../engine/taske';
 import { registrerSvar, type Haendelse } from '../engine/tilpasning';
 import { PhaserVerden } from '../game/PhaserVerden';
 import { avatarDataUri } from '../ui/avatarSvg';
@@ -344,7 +344,7 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
       </aside>
 
       {visTaske && (
-        <TaskeVindue ting={tingITasken} rumTing={taske.map((k) => spil.valg[`taske.${k}`])} onLuk={() => setVisTaske(false)} />
+        <TaskeVindue ting={tingITasken} minder={minderFor(spil, kapitler)} rumTing={taske.map((k) => spil.valg[`taske.${k}`])} onLuk={() => setVisTaske(false)} />
       )}
       {rum && rumVindue?.type === 'fund' && (
         <FundVindue
@@ -365,7 +365,7 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
           onLuk={() => setRumVindue(null)}
         />
       )}
-      {aktivtTrin?.type === 'dialog' && <DialogBoks replikker={aktivtTrin.replikker} onFaerdig={afslut} onTaler={setTaler} />}
+      {aktivtTrin?.type === 'dialog' && <DialogBoks replikker={aktivtTrin.replikker} tilbageblik={aktivtTrin.tilbageblik} onFaerdig={afslut} onTaler={setTaler} />}
       {aktivtTrin?.type === 'opgave' && (
         <OpgaveVindue
           trin={aktivtTrin}

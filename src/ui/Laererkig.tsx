@@ -5,6 +5,8 @@ import { lavCsv } from '../engine/csv';
 import { FAERDIGHEDER } from '../engine/faerdigheder';
 import { gemSpil, hentGemtSpil, sletGemtSpil, type GemtSpil } from '../engine/gem';
 import { filnavn, hentFil } from './Gemmekode';
+import { MINDER, MINDE_INFO, mindeTitel, type MindeId } from '../content/minder';
+import { Tilbageblik } from './Tilbageblik';
 
 export function Laererkig({ onLuk }: { onLuk: () => void }) {
   const [kode, setKode] = useState('');
@@ -173,11 +175,36 @@ export function Laererkig({ onLuk }: { onLuk: () => void }) {
         </>
       )}
       <p aria-live="polite">{spil ? besked : ''}</p>
+      <LaererMinder />
       <div className="knaprad">
         <button type="button" className="knap knap-primaer" onClick={onLuk}>
           {t('laerer.luk')}
         </button>
       </div>
     </main>
+  );
+}
+
+/** Alle minder i spillet, så læreren kan se dem, før klassen spiller (docs/historie.md, hensyn til ordblinde elever). */
+function LaererMinder() {
+  const [vis, setVis] = useState<MindeId | null>(null);
+  return (
+    <section>
+      <h2>{t('laerer.minder.titel')}</h2>
+      <p>{t('laerer.minder.forklaring')}</p>
+      <ul className="minder-liste">
+        {MINDER.map((id) => (
+          <li key={id}>
+            <span>
+              {t('laerer.minder.kapitel', { kapitel: MINDE_INFO[id].kapitel })}: {mindeTitel(id)}
+            </span>
+            <button type="button" className="knap" onClick={() => setVis(id)}>
+              {t('laerer.minder.se')}
+            </button>
+          </li>
+        ))}
+      </ul>
+      {vis && <Tilbageblik id={vis} onFaerdig={() => setVis(null)} />}
+    </section>
   );
 }

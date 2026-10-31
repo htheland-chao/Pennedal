@@ -56,6 +56,18 @@ test('kapitel 2: Råberens tegn, escape room, jagten over tagene og mørket', as
   // Escape room i trykkeriet.
   await page.goto('/?hop=k2-rum');
   await expect(page.getByText('Din taske')).toBeVisible();
+  // Minderne fra kapitel 1 og 2 kan ses igen i tasken.
+  await page.getByRole('button', { name: /^Taske/ }).click();
+  const taske = page.locator('dialog.taske-vindue');
+  await expect(taske).toContainText('Et minde: Blæk og regn');
+  await expect(taske).toContainText('Et minde: Røde streger');
+  await taske.getByRole('button', { name: 'Se mindet igen' }).nth(1).click();
+  await expect(page.locator('dialog.tilbageblik')).toContainText('nogen, der griner');
+  await page.waitForTimeout(1500);
+  await page.screenshot({ path: `${BILLEDER}/k2-00-minde.png` });
+  await page.locator('dialog.tilbageblik').getByRole('button', { name: 'Tilbage til Pennedal' }).click();
+  await expect(page.locator('dialog.tilbageblik')).toHaveCount(0);
+  await taske.getByRole('button', { name: 'Luk tasken' }).click();
   await gaaTil(page, 'typeskab');
   await expect(page.locator('dialog.rum-vindue')).toContainText('Der mangler noget');
   await page.locator('dialog.rum-vindue').getByRole('button', { name: 'Luk' }).click();

@@ -81,7 +81,12 @@ type FaellesTrin = {
   moerke?: boolean;
 };
 
-export type DialogTrin = FaellesTrin & { type: 'dialog'; replikker: Replik[] };
+export type DialogTrin = FaellesTrin & {
+  type: 'dialog';
+  replikker: Replik[];
+  /** Et tilbageblik (se src/content/minder.ts), der vises lige før replikken med nummer foer (fra 0). */
+  tilbageblik?: { id: string; foer: number };
+};
 export type SkiftTrin = FaellesTrin & { type: 'skift'; tilSted: string };
 export type OpgaveTrin = FaellesTrin & {
   type: 'opgave';
