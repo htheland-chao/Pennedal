@@ -42,6 +42,7 @@ Opdatér kun en version efter at have slået den op i npm og kørt alle tests.
 - `src/engine/` - ren logik (færdigheder, tilpasning, gemning, gemmekode). Ingen React eller Phaser her.
 - `src/mechanics/` - logikken i læringsmekanikkerne. `src/ui/` og `src/app/` - React. `src/game/` - Phaser.
 - Færdigheder har faste id'er i `src/engine/faerdigheder.ts`. Rækkefølgen bruges i gemmekoden: tilføj kun til sidst.
+- Historien, twists, hjælpere, tilbageblik, tasken og kampe står i `docs/historie.md`. Nye kapitler følger den.
 - Koblingen til Fælles Mål ligger kun i `src/content/maal.json`, så den kan skiftes, når fagplanerne træder i kraft 1. august 2027.
 
 ## Lyd
