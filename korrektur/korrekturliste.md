@@ -1,6 +1,6 @@
 # Korrekturliste - Pennedal
 
-Lavet 2026-10-31. 569 tekster.
+Lavet 2026-10-31. 591 tekster.
 
 Sæt kryds, når en tekst er læst. Bevidste fejl står under "Bevidste fejl" og skal ikke rettes.
 Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), så læs hele teksten.
@@ -330,6 +330,26 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `lyd.kopieret`: Kopieret
 - [ ] `lyd.figur.ord`: Enkelte ord
 - [ ] `lyd.tilbage`: Tilbage til spillet
+- [ ] `minde.blaek.titel`: Et minde: Blæk og regn
+- [ ] `minde.blaek.1`: Regnen trommer mod en rude. Det er aften, og lampen over bordet summer svagt.
+- [ ] `minde.blaek.2`: En hånd holder om en blyant. Den holder alt for hårdt, så knoerne bliver helt hvide.
+- [ ] `minde.blaek.3`: Det lugter af blæk. Du kender den lugt. Du ved bare ikke hvorfra.
+- [ ] `minde.blaek.4`: Så er det væk.
+- [ ] `minde.streger.titel`: Et minde: Røde streger
+- [ ] `minde.streger.1`: En side i et hæfte. Den er fuld af ord skrevet med blyant, men du kan ikke læse dem. Hen over ordene er der røde streger.
+- [ ] `minde.streger.2`: Inde fra et andet rum er der nogen, der griner.
+- [ ] `minde.streger.2.mild`: Inde fra et andet rum lukker nogen en dør. Helt stille.
+- [ ] `minde.streger.3`: En lille hånd vender siden om, så ingen kan se den.
+- [ ] `minde.streger.4`: Det gør stadig lidt ondt. Du ved ikke hvorfor.
+- [ ] `minde.videre`: Tilbage til Pennedal
+- [ ] `minder.titel`: Minder
+- [ ] `minder.intro`: Glimt af noget, du har glemt. Du kan se dem igen her.
+- [ ] `minder.tom`: Du har ingen minder endnu. Måske kommer de tilbage.
+- [ ] `minder.se`: Se mindet igen
+- [ ] `laerer.minder.titel`: Minder i spillet
+- [ ] `laerer.minder.forklaring`: Korte tilbageblik fra avatarens forhistorie. Du kan se dem her, før klassen spiller. Eleverne kan altid springe dem over.
+- [ ] `laerer.minder.se`: Se
+- [ ] `laerer.minder.kapitel`: Kapitel {kapitel}
 
 ## Kapitel 1
 
@@ -375,10 +395,12 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `k1-kaelder.2 (fortaeller)`: Det er helt stille. Så hører du det. Den nederste skuffe hvisker.
 - [ ] `k1-aeseloere.opgavetekst`: Træk den nederste skuffe ud.
 - [ ] `k1-aeseloere.1 (fortaeller)`: Du trækker skuffen ud. Det lugter af blæk og regnvejr, og en lille papirfugl flyver op i dit ansigt.
-- [ ] `k1-aeseloere.2 (aeseloere)`: Endelig. Du har været længe om det.
-- [ ] `k1-aeseloere.3 (aeseloere)`: Jeg hedder Æseløre. Jeg er foldet af en side fra en meget gammel ordbog, så jeg ved alt om ord. Næsten alt.
-- [ ] `k1-aeseloere.4 (aeseloere)`: Skuffen er en dør til Pennedal. Men den åbner kun for hviskeformularer.
-- [ ] `k1-aeseloere.5 (aeseloere)`: En hviskeformular er et ord med et stumt bogstav. Bogstavet siger ingenting, men det skal med. Ellers virker formularen ikke.
+- [ ] `k1-aeseloere.2 (aeseloere)`: Hallo? Du stod helt stille. Hvad så du?
+- [ ] `k1-aeseloere.3 (fortaeller)`: Du ved det ikke. Det er allerede væk, ligesom en drøm, når man vågner.
+- [ ] `k1-aeseloere.4 (aeseloere)`: Endelig. Du har været længe om det.
+- [ ] `k1-aeseloere.5 (aeseloere)`: Jeg hedder Æseløre. Jeg er foldet af en side fra en meget gammel ordbog, så jeg ved alt om ord. Næsten alt.
+- [ ] `k1-aeseloere.6 (aeseloere)`: Skuffen er en dør til Pennedal. Men den åbner kun for hviskeformularer.
+- [ ] `k1-aeseloere.7 (aeseloere)`: En hviskeformular er et ord med et stumt bogstav. Bogstavet siger ingenting, men det skal med. Ellers virker formularen ikke.
 - [ ] `k1-hviske.opgavetekst`: Stav seks hviskeformularer, så skuffen åbner sig.
 - [ ] `k1-fald.1 (aeseloere)`: Seks formularer. Ikke dårligt for et menneske.
 - [ ] `k1-fald.2 (fortaeller)`: Skuffen bliver større og større. Et hvidt lys fylder hele kælderen, og pludselig falder du.

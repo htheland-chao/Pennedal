@@ -1652,3 +1652,95 @@ input[type='range'] {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Minder (tilbageblik): lyst, kornet og varmt. Se src/ui/Tilbageblik.tsx. */
+.tilbageblik {
+  width: min(96vw, 900px);
+  max-height: 96vh;
+  background: #f3e7cc;
+  color: #3b2f24;
+  border: 0;
+  border-radius: 8px;
+  padding: 16px;
+  overflow: auto;
+}
+.tilbageblik::backdrop {
+  background: #fff6e2;
+  animation: minde-lys 1.2s ease-out;
+}
+.tilbageblik.mild::backdrop {
+  animation-duration: 2.5s;
+}
+@keyframes minde-lys {
+  from { background: #ffffff; }
+}
+.tilbageblik-billede {
+  position: relative;
+  width: min(100%, calc((96vh - 260px) * 16 / 9));
+  min-width: min(100%, 320px);
+  aspect-ratio: 16 / 9;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 6px;
+}
+.tilbageblik-billede img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+  filter: sepia(0.35) saturate(0.8) brightness(1.05);
+  animation: minde-svaev 14s ease-in-out infinite alternate;
+}
+.tilbageblik-korn {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-size: 100% 100%;
+  image-rendering: pixelated;
+  animation: minde-korn 0.5s steps(1) infinite;
+  box-shadow: inset 0 0 60px 20px rgba(255, 246, 226, 0.9);
+}
+.tilbageblik-tekst h2 {
+  margin: 12px 0 6px;
+  font-size: 1.1rem;
+}
+.tilbageblik-tekst p {
+  margin: 6px 0;
+  font-style: italic;
+  animation: minde-tekst 1.2s ease-out both;
+}
+@keyframes minde-svaev {
+  from { transform: scale(1.05); }
+  to { transform: scale(1.08) translate(-1%, -1%); }
+}
+@keyframes minde-korn {
+  0% { transform: translate(0, 0); }
+  33% { transform: translate(-1%, 1%) scaleX(-1); }
+  66% { transform: translate(1%, 0) scaleY(-1); }
+}
+@keyframes minde-tekst {
+  from { opacity: 0; transform: translateY(4px); }
+}
+.tilbageblik .knap:focus-visible {
+  outline: 3px solid #6e5440;
+  outline-offset: 2px;
+}
+.minder-liste {
+  list-style: none;
+  padding: 0;
+}
+.minder-liste li {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .tilbageblik::backdrop,
+  .tilbageblik-billede img,
+  .tilbageblik-korn,
+  .tilbageblik-tekst p {
+    animation: none;
+  }
+}

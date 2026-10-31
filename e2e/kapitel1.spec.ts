@@ -179,6 +179,16 @@ test('kapitel 1 kan spilles fra start til slut, og gemmekoden virker', async ({ 
   await page.waitForTimeout(800);
   await billede(page, '05b-kaelder');
   await undersoeg(page, 'kartoteksskabet');
+  // Første minde (tilbageblik) kommer lige efter første replik, når skuffen åbnes.
+  await page.locator('dialog.dialogboks').getByRole('button', { name: 'Videre' }).click();
+  const minde = page.locator('dialog.tilbageblik');
+  await expect(minde).toContainText('Et minde: Blæk og regn');
+  await expect(minde).toContainText('Så er det væk.');
+  await page.waitForTimeout(1500);
+  await billede(page, '05d-minde');
+  await minde.getByRole('button', { name: 'Tilbage til Pennedal' }).click();
+  await expect(minde).toHaveCount(0);
+  await expect(page.locator('dialog.dialogboks')).toContainText('Hvad så du?');
   await laesDialog(page);
   await undersoeg(page, 'kartoteksskabet');
   for (let i = 0; i < 6; i++) {

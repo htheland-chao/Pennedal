@@ -227,8 +227,11 @@
       "sted": "kaelder",
       "objekt": "skuffe",
       "opgavetekst": "Træk den nederste skuffe ud.",
+      "tilbageblik": { "id": "blaek", "foer": 1 },
       "replikker": [
         { "taler": "fortaeller", "tekst": "Du trækker skuffen ud. Det lugter af blæk og regnvejr, og en lille papirfugl flyver op i dit ansigt." },
+        { "taler": "aeseloere", "tekst": "Hallo? Du stod helt stille. Hvad så du?" },
+        { "taler": "fortaeller", "tekst": "Du ved det ikke. Det er allerede væk, ligesom en drøm, når man vågner." },
         { "taler": "aeseloere", "tekst": "Endelig. Du har været længe om det." },
         { "taler": "aeseloere", "tekst": "Jeg hedder Æseløre. Jeg er foldet af en side fra en meget gammel ordbog, så jeg ved alt om ord. Næsten alt." },
         { "taler": "aeseloere", "tekst": "Skuffen er en dør til Pennedal. Men den åbner kun for hviskeformularer." },

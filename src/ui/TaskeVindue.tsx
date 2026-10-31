@@ -4,6 +4,8 @@ import type { TingId } from '../engine/taske';
 import { Modal } from './Modal';
 import { TingIkon } from './PixelPortraet';
 import { LaesOpKnap } from './Tekst';
+import { erMinde, mindeTitel, type MindeId } from '../content/minder';
+import { Tilbageblik } from './Tilbageblik';
 
 export const tingNavn = (id: TingId) => t(`ting.${id}.navn` as TekstId);
 export const tingTekst = (id: TingId) => t(`ting.${id}.tekst` as TekstId);
@@ -27,13 +29,41 @@ export function TingListe({ ting }: { ting: TingId[] }) {
   );
 }
 
+/** Minderne (tilbageblik), eleven har mødt. Hvert kan ses igen. */
+export function MinderListe({ minder }: { minder: string[] }) {
+  const [vis, setVis] = useState<MindeId | null>(null);
+  const liste = minder.filter(erMinde);
+  return (
+    <>
+      <h3>{t('minder.titel')}</h3>
+      <p className="lille-tekst">{t('minder.intro')}</p>
+      {liste.length === 0 ? (
+        <p>{t('minder.tom')}</p>
+      ) : (
+        <ul className="minder-liste">
+          {liste.map((id) => (
+            <li key={id}>
+              <span>{mindeTitel(id)}</span>
+              <button type="button" className="knap" onClick={() => setVis(id)}>
+                {t('minder.se')}
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
+      {vis && <Tilbageblik id={vis} onFaerdig={() => setVis(null)} />}
+    </>
+  );
+}
+
 /** Tasken: alt, eleven har fundet og har med sig. Ting fra det escape room, man er i, står for sig. */
-export function TaskeVindue({ ting, rumTing, onLuk }: { ting: TingId[]; rumTing: string[]; onLuk: () => void }) {
+export function TaskeVindue({ ting, minder = [], rumTing, onLuk }: { ting: TingId[]; minder?: string[]; rumTing: string[]; onLuk: () => void }) {
   return (
     <Modal titel={t('taske.titel')} onLuk={onLuk} klasse="taske-vindue">
       <h2>{t('taske.titel')}</h2>
       <p className="lille-tekst">{t('taske.intro')}</p>
       <TingListe ting={ting} />
+      <MinderListe minder={minder} />
       {rumTing.length > 0 && (
         <>
           <h3>{t('taske.rum')}</h3>

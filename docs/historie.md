@@ -162,6 +162,14 @@ Hvert kapitel har ét tilbageblik i historien og op til to ekstra, som kun låse
 7. **Søskendet** (kapitel 7). Nogen står ved din skuffe og leder. De finder ikke hæftet. De siger ikke noget, men de bliver stående længe.
 8. **Skuffen** (kapitel 8, før det sidste valg). Hæftet ligger i skuffen. Skuffen bliver lukket. Mørke. Så bliver den åbnet igen, og det er dig, der åbner den.
 
+### Sådan er minderne bygget (31. oktober 2026)
+
+- Et minde hører til en dialog: feltet `tilbageblik: { id, foer }` på trinnet viser mindet lige før replikken med nummer `foer`. Bagefter spørger en hjælper, hvad avataren så.
+- Teksterne står i `tekster/da.json` som `minde.<id>.<nr>`, og en mildere udgave til "Mindre uhygge" som `minde.<id>.<nr>.mild`. Listen over minder står i `src/content/minder.ts` (rækkefølgen er fast).
+- Minderne gemmes ikke. Tasken regner ud, hvilke minder eleven er kommet forbi, også hvis de blev sprunget over.
+- Lærerkig viser alle minder, så Henrik kan se dem, før klassen spiller.
+- Bygget: 1 Blæk og regn (`k1-aeseloere`) og 2 Røde streger (`k2-trykkeri`). Hukommelsesskårene er ikke bygget endnu.
+
 ### Hukommelsesskår (valgfrie)
 
 Små lysende papirstumper, gemt i hvert kapitel (to pr. kapitel, typisk bag en svær platformbane eller en hemmelig dør). De låser ekstra tilbageblik op, som giver flere detaljer: hvordan Holm fandt hæftet, at søskendet fortrød, og at avataren tit tænkte på Skyggen bagefter. Alle skår giver den sande slutning.

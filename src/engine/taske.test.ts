@@ -2,7 +2,8 @@ import { describe, expect, it } from 'vitest';
 import { harTekst, kapitler, type Kapitel } from '../content';
 import { TING_IKONER } from '../game/pixel/ting';
 import { nytSpil, STANDARD_AVATAR } from './gem';
-import { erTing, nyeTing, taskeFor, TING } from './taske';
+import { erTing, minderFor, nyeTing, taskeFor, TING } from './taske';
+import { erMinde, MINDE_INFO, MINDER, mindeTekster } from '../content/minder';
 
 const spil = (kapitel: number, trin: number) => ({ ...nytSpil(STANDARD_AVATAR, { adjektiv: 0, dyr: 0 }), kapitel, trin });
 const trinNr = (k: number, id: string) => kapitler.find((x) => x.kapitel === k)!.trin.findIndex((t) => t.id === id);
@@ -53,5 +54,39 @@ describe('tasken', () => {
         for (const c of r) if (c !== '.') expect(ikon.palet[c], `${id}: ${c}`).toBeTruthy();
       }
     }
+  });
+});
+
+describe('minder (tilbageblik)', () => {
+  const allerTrin = kapitler.flatMap((k) => k.trin);
+
+  it('hvert minde i et kapitel findes i minder.ts, har tekst og kommer før en replik, der findes', () => {
+    for (const t of allerTrin) {
+      if (t.type !== 'dialog' || !t.tilbageblik) continue;
+      expect(erMinde(t.tilbageblik.id), t.id).toBe(true);
+      expect(t.tilbageblik.foer, t.id).toBeGreaterThanOrEqual(0);
+      expect(t.tilbageblik.foer, t.id).toBeLessThan(t.replikker.length);
+    }
+    for (const id of MINDER) {
+      expect(harTekst(`minde.${id}.titel`), id).toBe(true);
+      for (let nr = 1; nr <= MINDE_INFO[id].dele; nr++) expect(harTekst(`minde.${id}.${nr}`), `${id}.${nr}`).toBe(true);
+      for (const nr of MINDE_INFO[id].mild) expect(harTekst(`minde.${id}.${nr}.mild`), `${id}.${nr}.mild`).toBe(true);
+      expect(allerTrin.some((t) => t.type === 'dialog' && t.tilbageblik?.id === id), `${id} bruges i et kapitel`).toBe(true);
+    }
+  });
+
+  it('minder låses op, når eleven er forbi trinnet, også hvis mindet blev sprunget over', () => {
+    expect(minderFor({ kapitel: 1, trin: 0 }, kapitler)).toEqual([]);
+    const k1 = kapitler.find((k) => k.kapitel === 1)!;
+    const nr = k1.trin.findIndex((t) => t.id === 'k1-aeseloere');
+    expect(minderFor({ kapitel: 1, trin: nr }, kapitler)).toEqual([]);
+    expect(minderFor({ kapitel: 1, trin: nr + 1 }, kapitler)).toEqual(['blaek']);
+    expect(minderFor({ kapitel: 3, trin: 0 }, kapitler)).toEqual(['blaek', 'streger']);
+  });
+
+  it('"Mindre uhygge" bytter grinet ud med en dør, der lukkes', () => {
+    expect(mindeTekster('streger', false).join(' ')).toMatch(/griner/);
+    expect(mindeTekster('streger', true).join(' ')).not.toMatch(/griner/);
+    expect(mindeTekster('streger', true).join(' ')).toMatch(/dør/);
   });
 });

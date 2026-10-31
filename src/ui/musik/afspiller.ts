@@ -34,6 +34,11 @@ const daempAarsager = new Set<string>();
 /** Når Den Ufærdige er til stede, spiller hans sang i stedet for stedets. */
 let override: string | null = null;
 
+/** Den sang, der lige nu spiller i stedet for stedets (fx Den Ufærdiges eller et minde). */
+export function hentMusikOverride(): string | null {
+  return override;
+}
+
 export function saetMusikOverride(tema: string | null): void {
   override = tema;
   if (ctx) anvend();
