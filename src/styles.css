@@ -1078,3 +1078,32 @@ input[type='range'] {
 :root[data-skrift='system'] {
   --pixelskrift: var(--skrift);
 }
+
+/* ============================================================
+   Skærmplads (31. oktober 2026): spillet fylder skærmen.
+   Spilfladen er så stor, som højden og bredden tillader i 16:9, og panelet står smalt ved siden af.
+   ============================================================ */
+@media (min-width: 1101px) {
+  .verden {
+    --panel: clamp(240px, 18vw, 340px);
+    --luft: 0.75rem;
+    grid-template-columns: auto var(--panel);
+    justify-content: center;
+    max-width: none;
+    padding: var(--luft) calc(var(--luft) + 8px);
+    gap: calc(var(--luft) + 16px);
+    min-height: 100dvh;
+    align-content: center;
+  }
+  .spilflade-ramme {
+    /* 16 px til trærammen omkring spilfladen. */
+    width: min(calc(100vw - var(--panel) - 4 * var(--luft) - 48px), calc((100dvh - 2 * var(--luft) - 16px) * 16 / 9));
+  }
+  .verden > .panel {
+    max-height: calc(100dvh - 2 * var(--luft));
+    overflow-y: auto;
+  }
+  .verden > .panel > * {
+    flex-shrink: 0;
+  }
+}
