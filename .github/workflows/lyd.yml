@@ -9,7 +9,7 @@ on:
     inputs:
       maks:
         description: Højst så mange nye lydklip i denne kørsel
-        default: '40'
+        default: '300'
       omgoer:
         description: Nøgler på lydklip, der skal laves om (adskil med komma). Nøglen står på siden ?lyd=1
         default: ''
@@ -27,7 +27,7 @@ concurrency:
 jobs:
   lyd:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 120
     env:
       BASE: ${{ github.ref_name }}
     steps:
@@ -63,7 +63,9 @@ jobs:
       - name: Lav lydklip
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          LYD_MAKS: ${{ inputs.maks || '40' }}
+          LYD_MAKS: ${{ inputs.maks || '300' }}
+          # Betalt Gemini (31. oktober 2026): kortere pause mellem klip. Rammer vi alligevel loftet, venter jobbet og prøver igen.
+          LYD_PAUSE_MS: '4000'
           LYD_OMGOER: ${{ inputs.omgoer || '' }}
         run: node scripts/lav-lyd.mjs
 
