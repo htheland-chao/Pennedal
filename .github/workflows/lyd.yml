@@ -1,7 +1,7 @@
 name: Lyd
 
 # Laver indtalte lydklip med Google Gemini TTS og lægger dem i en pull request.
-# Kører hver nat, indtil alle klip er lavet, og kan startes i hånden under Actions > Lyd > Run workflow.
+# Kører hver morgen kl. 09.23 UTC (efter at Googles dagskvote er nulstillet), indtil alle klip er lavet, og kan startes i hånden under Actions > Lyd > Run workflow.
 # Kun spillets faste tekster fra src/content sendes til Google. Aldrig elevtekster.
 
 on:
@@ -14,7 +14,7 @@ on:
         description: Nøgler på lydklip, der skal laves om (adskil med komma). Nøglen står på siden ?lyd=1
         default: ''
   schedule:
-    - cron: '23 2 * * *'
+    - cron: '23 9 * * *'
 
 permissions:
   contents: write
