@@ -860,7 +860,18 @@
         {
           "taler": "aeseloere",
           "tekst": "Saml dem op, og sæt dem tilbage i byens brev. Så kan Råberen læse det op i aften."
+        },
+        {
+          "taler": "fortaeller",
+          "tekst": "Et enkelt punktum triller hen til dine fødder. Det er blankt og lidt varmt."
+        },
+        {
+          "taler": "aeseloere",
+          "tekst": "Gem det. Et ekstra punktum kan altid bruges."
         }
+      ],
+      "giver": [
+        "punktum"
       ]
     },
     {

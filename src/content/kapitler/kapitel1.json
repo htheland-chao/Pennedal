@@ -192,9 +192,11 @@
       "sted": "bibliotek",
       "objekt": "holm",
       "opgavetekst": "Fortæl hr. Holm, hvad du fandt i logbogen.",
+      "giver": ["logbog"],
       "replikker": [
         { "taler": "holm", "tekst": "Hviskede? Fra kælderen? Det har jeg ikke lagt mærke til." },
-        { "taler": "holm", "tekst": "Jeg tør ærlig talt ikke gå derned alene. Vil du se, hvad der er i kælderen?" }
+        { "taler": "holm", "tekst": "Jeg tør ærlig talt ikke gå derned alene. Vil du se, hvad der er i kælderen?" },
+        { "taler": "holm", "tekst": "Tag min logbog med. Måske får du brug for den." }
       ]
     },
     {
@@ -303,6 +305,7 @@
       "objekt": null,
       "slutDel": 2,
       "laaserOp": ["toej.kappe"],
+      "giver": ["kappe"],
       "replikker": [
         { "taler": "klatten", "tekst": "Min orm! Den var jo så flot." },
         { "taler": "klatten", "tekst": "Det her skal jeg fortælle til ... Nej. Det må jeg ikke sige." },
@@ -360,6 +363,7 @@
       "uhygge": true,
       "slutKapitel": true,
       "laaserOp": ["tilbehoer.lanterne"],
+      "giver": ["lanterne"],
       "replikker": [
         { "taler": "fortaeller", "tekst": "På den anden side af floden står et fyrtårn. Lyset er svagt, som om det er ved at gå ud." },
         { "taler": "lanterne", "tekst": "Kom ind, kom ind. Jeg er Mor Lanterne. Mit tårn lyser kun af færdige historier." },

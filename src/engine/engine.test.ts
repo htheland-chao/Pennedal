@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { FAERDIGHEDER } from './faerdigheder';
 import { registrerSvar, START_STATUS, type FaerdighedsStatus } from './tilpasning';
-import { KODE_LAENGDE, laesGemmekode, lavGemmekode, normaliserKode } from './gemmekode';
+import { KODE_LAENGDE, KODE_LAENGDE_V1, laesGemmekode, lavGemmekode, normaliserKode } from './gemmekode';
 import { gemSpil, hentGemtSpil, nytSpil, STANDARD_AVATAR, validerGemtSpil } from './gem';
 import { lavCsv } from './csv';
 
@@ -91,6 +91,32 @@ describe('gemmekode', () => {
     const r = laesGemmekode('ABC!', maks);
     expect(r.ok).toBe(false);
     if (!r.ok) expect(r.fejl).toBe('tegn');
+  });
+
+  it('gemmer hukommelsesskår, Klattens venlighed og vigtige valg (version 2)', () => {
+    const s2 = { ...spil, skaar: ['k1a', 'k3b', 'k8b'], venlighed: 5, valg: { 'klatten.hjulpet': 'ja', 'taske.noegle': 'Nøgle' } };
+    const r = laesGemmekode(lavGemmekode(s2), maks);
+    expect(r.ok).toBe(true);
+    if (!r.ok) return;
+    expect(r.spil.skaar).toEqual(['k1a', 'k3b', 'k8b']);
+    expect(r.spil.venlighed).toBe(5);
+    // Kun de vigtige valg følger med. Ting fra et escape room gør ikke.
+    expect(r.spil.valg).toEqual({ 'klatten.hjulpet': 'ja' });
+  });
+
+  it('kan stadig læse en gammel kode fra version 1', () => {
+    // Lavet med gemmekoden fra før version 2: kapitel 2, trin 9, kappe og lanterne låst op.
+    const r = laesGemmekode('4H7W-KM54-GKC0-0000-0000-0000-C42R', maks);
+    expect(r.ok).toBe(true);
+    if (!r.ok) return;
+    expect(KODE_LAENGDE_V1).toBe(28);
+    expect(r.spil.kapitel).toBe(2);
+    expect(r.spil.trin).toBe(9);
+    expect(r.spil.avatar.hud).toBe(7);
+    expect(r.spil.laasteOp).toEqual(['toej.kappe', 'tilbehoer.lanterne']);
+    expect(r.spil.faerdigheder['stav.stumme'].niveau).toBe(4);
+    expect(r.spil.skaar).toEqual([]);
+    expect(r.spil.venlighed).toBe(0);
   });
 
   it('afviser en kode med et trin, der ikke findes', () => {

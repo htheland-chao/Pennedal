@@ -1310,3 +1310,70 @@ input[type='range'] {
     transition: none;
   }
 }
+
+/* Tasken (se docs/historie.md): ting, der følger med gennem hele spillet. */
+.ting-ikon {
+  width: 36px;
+  height: 36px;
+  image-rendering: pixelated;
+  flex: none;
+  vertical-align: middle;
+}
+.ting-liste {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+  display: grid;
+  gap: 0.6rem;
+}
+.ting-liste .ting {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  background: rgba(255, 246, 208, 0.12);
+  border-radius: 6px;
+}
+.ting-liste .ting > div {
+  flex: 1;
+}
+.ting-navn {
+  font-weight: 700;
+  margin: 0;
+}
+.ting-tekst {
+  margin: 0.2rem 0 0;
+}
+.spilflade-ramme .ny-ting {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  pointer-events: none;
+  max-width: 90%;
+}
+.ny-ting p {
+  display: flex;
+  background-color: #f4f1ea;
+  color: #2b2433;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+  padding: 0.4rem 0.6rem;
+  border: 2px solid #e5b84c;
+  border-radius: 6px;
+  font-weight: 700;
+  animation: ny-ting-ind 0.4s ease-out;
+}
+@keyframes ny-ting-ind {
+  from {
+    transform: translateY(6px);
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ny-ting p {
+    animation: none;
+  }
+}

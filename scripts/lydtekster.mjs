@@ -81,6 +81,10 @@ export function alleLydtekster(stemmer = hentStemmer()) {
   tilfoej('aeseloere', `${t('feedback.regel')}: ${t('raaber.regel')}`, 'Beskeder / raaber.regel');
   tilfoej('aeseloere', `${t('feedback.eksempel')}: ${t('raaber.eksempel')}`, 'Beskeder / raaber.eksempel');
 
+  // Tasken (src/ui/TaskeVindue.tsx): navn og tekst læses op sammen.
+  for (const id of ['lanterne', 'kappe', 'logbog', 'punktum', 'krummer', 'rimsten', 'haefte'])
+    tilfoej('fortaeller', `${t(`ting.${id}.navn`)}. ${t(`ting.${id}.tekst`)}`, `Tasken / ${id}`);
+
   for (const id of [
     'hviske.instruks.vaelg', 'hviske.instruks.skriv', 'hviske.instruks.to', 'hviske.instruks.helt',
     'ogorm.instruks', 'bro.instruks', 'bro.instruks.fremmed', 'bevisjagt.foer', 'bevisjagt.instruks',

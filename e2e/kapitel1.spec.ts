@@ -146,6 +146,12 @@ test('kapitel 1 kan spilles fra start til slut, og gemmekoden virker', async ({ 
   await videre(page);
   await undersoeg(page, 'hr. Holm');
   await laesDialog(page);
+  // Holm giver sin logbog med. Den kommer i tasken.
+  await expect(page.locator('.ny-ting')).toContainText('Ny ting i tasken: Holms logbog.');
+  await page.getByRole('button', { name: /^Taske/ }).click();
+  await expect(page.locator('dialog.taske-vindue')).toContainText('Hr. Holms logbog om de forsvundne ord');
+  await billede(page, '05c-taske');
+  await page.locator('dialog.taske-vindue').getByRole('button', { name: 'Luk tasken' }).click();
 
   await undersoeg(page, 'trappen til kælderen');
   await laesDialog(page);
@@ -193,7 +199,10 @@ test('kapitel 1 kan spilles fra start til slut, og gemmekoden virker', async ({ 
   await laesDialog(page);
   await expect(page.getByText('Kapitel 1 er slut.')).toBeVisible();
   await expect(page.getByRole('button', { name: 'Fortsæt til kapitel 2' })).toBeVisible();
-  await expect(page.getByText('Mor Lanternes lanterne')).toBeVisible();
+  await expect(page.getByText('Mor Lanternes lanterne', { exact: true })).toBeVisible();
+  // Tasken på samlingssiden: alle tre ting fra kapitel 1.
+  for (const navn of ['Lanternen', 'Klattens kappe', 'Holms logbog'])
+    await expect(page.locator('.ting-liste')).toContainText(navn);
   await billede(page, '11-fyrtaarn');
 
   // Fremskridtet er gemt i browseren.

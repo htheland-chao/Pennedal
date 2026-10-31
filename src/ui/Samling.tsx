@@ -1,7 +1,9 @@
-import { findOrdkort, t, type TekstId } from '../content';
+import { findOrdkort, kapitler, t, type TekstId } from '../content';
 import { FYRTAARN_MAKS } from '../config';
 import type { GemtSpil } from '../engine/gem';
+import { taskeFor } from '../engine/taske';
 import { useApp } from './Kontekst';
+import { TingListe } from './TaskeVindue';
 
 type Props = {
   spil: GemtSpil;
@@ -57,6 +59,8 @@ export function Samling({ spil, kapitelSlut, onTilbage, onSpilIgen, naesteNr, on
               })}
             </ul>
           )}
+          <h2>{t('taske.titel')}</h2>
+          <TingListe ting={taskeFor(spil, kapitler)} />
           <h2>{t('samling.ting')}</h2>
           {spil.laasteOp.length === 0 ? (
             <p>{t('samling.ingen.ting')}</p>

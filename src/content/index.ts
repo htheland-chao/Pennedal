@@ -72,6 +72,10 @@ type FaellesTrin = {
   slutKapitel?: boolean;
   tilSted?: string;
   laaserOp?: string[];
+  /** Ting, der kommer i tasken, når trinnet er klaret (se src/engine/taske.ts). */
+  giver?: string[];
+  /** Ting fra tasken, der bliver brugt, når trinnet er klaret. */
+  bruger?: string[];
   uhygge?: boolean;
   /** Mørket: Den Ufærdige er til stede. Farverne forsvinder, og musikken skifter. */
   moerke?: boolean;
