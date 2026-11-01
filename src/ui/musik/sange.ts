@@ -330,8 +330,34 @@ const minde: Sang = {
   ],
 };
 
+/**
+ * Viskeskoven: hvid og stille. En spinkel melodi i D-dorisk, hvor nogle toner mangler,
+ * som om de er blevet visket ud. Lange pauser og en blød bas.
+ */
+const viskeskov: Sang = {
+  bpm: 72,
+  spor: [
+    { lyd: 'trekant', styrke: 0.24, noder: heleTakter(['D2', 'C2', 'G2', 'A2', 'D2', 'C2', 'G2', 'D2']) },
+    {
+      lyd: 'firkant',
+      styrke: 0.06,
+      noder:
+        'D5 - F5 - A5 - . . | G5 - - - E5 - . . | D5 - . . B4 - D5 - | E5 - - - . . . . | ' +
+        'F5 - A5 - C6 - . . | B5 - - - G5 - . . | A5 - . . F5 - E5 - | D5 - - - - - . .',
+    },
+    {
+      lyd: 'trekant',
+      styrke: 0.08,
+      noder: arpeggio([
+        ['D3', 'F3', 'A3'], ['C3', 'E3', 'G3'], ['G3', 'B3', 'D4'], ['A3', 'C4', 'E4'],
+        ['D3', 'F3', 'A3'], ['C3', 'E3', 'G3'], ['G3', 'B3', 'D4'], ['D3', 'F3', 'A3'],
+      ]),
+    },
+  ],
+};
+
 /** Forsiden og menuerne: Pennedals tema, roligere. */
 const forside: Sang = { ...pennedal, bpm: 76 };
 
 /** Sang pr. tema. Et tema uden sang får forsidens. */
-export const SANGE: Record<string, Sang> = { bibliotek, kaelder, pennedal, floden, fyrtaarn, eng, torv, smoeger, trykkeri, tage, forside, ufaerdige, intro, minde };
+export const SANGE: Record<string, Sang> = { bibliotek, kaelder, pennedal, floden, fyrtaarn, eng, torv, smoeger, trykkeri, tage, forside, ufaerdige, intro, minde, viskeskov };

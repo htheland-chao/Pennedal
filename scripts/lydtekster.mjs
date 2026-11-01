@@ -33,6 +33,10 @@ export function alleLydtekster(stemmer = hentStemmer()) {
     for (const trin of k.trin) {
       const navn = `Kapitel ${k.kapitel}`;
       (trin.replikker ?? []).forEach((r, i) => tilfoej(r.taler, r.tekst, `${navn} / ${trin.id}.${i + 1}`));
+      // Valg i en dialog: hver mulighed har sine egne replikker.
+      (trin.valg?.muligheder ?? []).forEach((m, j) =>
+        m.replikker.forEach((r, i) => tilfoej(r.taler, r.tekst, `${navn} / ${trin.id}.valg${j + 1}.${i + 1}`)),
+      );
       // Bevisjagten læser alle sætninger op i ét klip, ligesom knappen i spillet gør.
       if (trin.saetninger) tilfoej('fortaeller', trin.saetninger.map(renTekst).join(' '), `${navn} / ${trin.id}.saetninger`);
     }
@@ -89,6 +93,18 @@ export function alleLydtekster(stemmer = hentStemmer()) {
   // Minderne (src/ui/Tilbageblik.tsx, teksterne i src/content/minder.ts): hver del er et klip, også de milde udgaver.
   for (const id of Object.keys(da).filter((k) => /^minde\.\w+\.\d+(\.mild)?$/.test(k)))
     tilfoej('fortaeller', t(id), `Minder / ${id}`);
+
+  // Kampe (src/ui/KampVindue.tsx): væsnernes egne ord, sætningerne til knappen Læs og beskederne.
+  for (const v of ['tomordet', 'stumming']) {
+    tilfoej(v, t(`kamp.${v}.lyt`), `Kampe / kamp.${v}.lyt`);
+    tilfoej('fortaeller', t(`kamp.${v}.rolig`), `Kampe / kamp.${v}.rolig`);
+  }
+  tilfoej('vims', t('kamp.vims.visk'), 'Kampe / kamp.vims.visk');
+  tilfoej('vims', t('kamp.vims.ingen'), 'Kampe / kamp.vims.ingen');
+  tilfoej('aeseloere', `${t('feedback.regel')}: ${t('kamp.tomordet.regel')}`, 'Kampe / kamp.tomordet.regel');
+  tilfoej('aeseloere', `${t('feedback.eksempel')}: ${t('kamp.tomordet.eksempel')}`, 'Kampe / kamp.tomordet.eksempel');
+  for (const o of laes('ord/synonymer.json').ord) tilfoej('fortaeller', o.saetning, `Synonymer / ${o.id}`);
+  for (const o of laes('ord/stumme.json').ord) tilfoej('fortaeller', o.saetning, `Stumme bogstaver / ${o.ord}.saetning`);
 
   // Tasken (src/ui/TaskeVindue.tsx): navn og tekst læses op sammen.
   for (const id of ['lanterne', 'kappe', 'logbog', 'punktum', 'krummer', 'rimsten', 'haefte'])

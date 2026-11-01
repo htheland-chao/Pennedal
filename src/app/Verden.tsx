@@ -1,9 +1,11 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { hentKapitel, kapitler, t, type RumFund, type RumTrin, type Trin } from '../content';
+import { hentKapitel, kapitler, t, type KampTrin, type RumFund, type RumTrin, type Trin, type ValgMulighed } from '../content';
 import { erFaerdighed } from '../engine/faerdigheder';
 import type { GemtSpil, Indstillinger } from '../engine/gem';
 import { afslutTrin, aktueltSted, aktueltTrin, kapitelSlut } from '../engine/kapitel';
-import { minderFor, nyeTing, taskeFor, type TingId } from '../engine/taske';
+import { MAKS_VENLIGHED, minderFor, nyeTing, taskeFor, type TingId } from '../engine/taske';
+import { antalTure } from '../mechanics/kamp';
+import { KampVindue } from '../ui/KampVindue';
 import { registrerSvar, type Haendelse } from '../engine/tilpasning';
 import { PhaserVerden } from '../game/PhaserVerden';
 import { avatarDataUri } from '../ui/avatarSvg';
@@ -163,6 +165,26 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
     startTrin(trin);
   }
 
+  /** Et valg i en dialog: gemmes i spil.valg, og venlighed lægges til Klattens venlighed. */
+  function vaelg(m: ValgMulighed) {
+    const s = spilRef.current;
+    const nyt: GemtSpil = {
+      ...s,
+      valg: m.saet ? { ...s.valg, [m.saet]: 'ja' } : s.valg,
+      venlighed: Math.min(MAKS_VENLIGHED, s.venlighed + (m.venlighed ?? 0)),
+    };
+    spilRef.current = nyt;
+    opdater(nyt);
+  }
+
+  // Antal ture i en kamp lægges fast, når kampen starter, så det ikke skifter midt i den.
+  const kampAntal = useRef<Record<string, number>>({});
+  function antalIKamp(k: KampTrin): number {
+    const niveau = spil.faerdigheder[k.faerdighed as keyof GemtSpil['faerdigheder']]?.niveau ?? 1;
+    kampAntal.current[k.id] ??= Math.max(antalTure(k.antal, niveau), spil.trinFremskridt + 1);
+    return kampAntal.current[k.id];
+  }
+
   function onSvar(faerdighed: string, rigtigt: boolean, forsoeg: number): Haendelse {
     if (!erFaerdighed(faerdighed)) return null;
     const s = spilRef.current;
@@ -192,7 +214,7 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
   const laast = !!aktivtTrin || andetVindueAabent || !!rumVindue || visTaske;
 
   return (
-    <main className={`verden${moerke ? ' moerke' : ''}${moerke && indstillinger.mindreUhygge ? ' moerke-mild' : ''}`}>
+    <main className={`verden tema-${sted.tema}${moerke ? ' moerke' : ''}${moerke && indstillinger.mindreUhygge ? ' moerke-mild' : ''}`}>
       <div className="spilflade-ramme">
         <PhaserVerden
           stedId={stedId}
@@ -365,7 +387,7 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
           onLuk={() => setRumVindue(null)}
         />
       )}
-      {aktivtTrin?.type === 'dialog' && <DialogBoks replikker={aktivtTrin.replikker} tilbageblik={aktivtTrin.tilbageblik} onFaerdig={afslut} onTaler={setTaler} />}
+      {aktivtTrin?.type === 'dialog' && <DialogBoks replikker={aktivtTrin.replikker} tilbageblik={aktivtTrin.tilbageblik} valg={aktivtTrin.valg} onValg={vaelg} onFaerdig={afslut} onTaler={setTaler} />}
       {aktivtTrin?.type === 'opgave' && (
         <OpgaveVindue
           trin={aktivtTrin}
@@ -373,6 +395,17 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
           loeste={spil.trinFremskridt}
           onSvar={(r, f) => onSvar(aktivtTrin.faerdighed, r, f)}
           onLoest={(info) => onLoest(aktivtTrin.antal, info)}
+          onPause={() => setAktivtTrin(null)}
+        />
+      )}
+      {aktivtTrin?.type === 'kamp' && (
+        <KampVindue
+          trin={aktivtTrin}
+          niveau={spil.faerdigheder[aktivtTrin.faerdighed as keyof GemtSpil['faerdigheder']]?.niveau ?? 1}
+          loeste={spil.trinFremskridt}
+          antal={antalIKamp(aktivtTrin)}
+          onSvar={(r, f) => onSvar(aktivtTrin.faerdighed, r, f)}
+          onLoest={() => onLoest(antalIKamp(aktivtTrin))}
           onPause={() => setAktivtTrin(null)}
         />
       )}

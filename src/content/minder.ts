@@ -6,12 +6,13 @@ import { t, type TekstId } from './index';
  * (minde.<id>.<nr>.mild), som bruges med indstillingen "Mindre uhygge".
  * Rækkefølgen er fast: tilføj kun til sidst.
  */
-export const MINDER = ['blaek', 'streger'] as const;
+export const MINDER = ['blaek', 'streger', 'koekkenbord'] as const;
 export type MindeId = (typeof MINDER)[number];
 
 export const MINDE_INFO: Record<MindeId, { kapitel: number; dele: number; mild: number[] }> = {
   blaek: { kapitel: 1, dele: 4, mild: [] },
   streger: { kapitel: 2, dele: 4, mild: [2] },
+  koekkenbord: { kapitel: 3, dele: 4, mild: [] },
 };
 
 export function erMinde(id: string): id is MindeId {

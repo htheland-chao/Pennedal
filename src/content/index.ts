@@ -5,6 +5,8 @@ import stummeData from './ord/stumme.json';
 import ogormData from './ord/ogorm.json';
 import raaberData from './ord/raaber.json';
 import broData from './ord/historiebro.json';
+import synonymData from './ord/synonymer.json';
+import kapitel3Data from './kapitler/kapitel3.json';
 import ordkortData from './ordkort.json';
 import navneData from './avatar/navne.json';
 import deleData from './avatar/dele.json';
@@ -25,7 +27,7 @@ export function harTekst(id: string): id is TekstId {
   return id in da;
 }
 
-export type Taler = 'holm' | 'aeseloere' | 'klatten' | 'lanterne' | 'fortaeller' | 'portvagt' | 'raaber' | 'borgmester' | 'ufaerdige';
+export type Taler = 'holm' | 'aeseloere' | 'klatten' | 'lanterne' | 'fortaeller' | 'portvagt' | 'raaber' | 'borgmester' | 'ufaerdige' | 'vims' | 'tomordet' | 'stumming';
 
 export type Replik = { taler: Taler; tekst: string; bevidstFejl?: boolean };
 
@@ -86,6 +88,22 @@ export type DialogTrin = FaellesTrin & {
   replikker: Replik[];
   /** Et tilbageblik (se src/content/minder.ts), der vises lige før replikken med nummer foer (fra 0). */
   tilbageblik?: { id: string; foer: number };
+  /** Et valg efter den sidste replik. Begge veje virker, men spillet husker det (docs/historie.md). */
+  valg?: DialogValg;
+};
+
+/** En valgmulighed i en dialog. saet gemmes i spil.valg, og venlighed lægges til Klattens venlighed. */
+export type ValgMulighed = { tekst: string; saet?: string; venlighed?: number; replikker: Replik[] };
+export type DialogValg = { spoergsmaal: string; muligheder: ValgMulighed[] };
+
+/** En rolig kamp mod et væsen (src/mechanics/kamp.ts). antal er det mindste antal ture. */
+export type KampTrin = FaellesTrin & {
+  type: 'kamp';
+  vaesen: 'tomordet' | 'stumming';
+  faerdighed: string;
+  antal: number;
+  /** En hjælper, der kan bruge en tur på at hjælpe. */
+  hjaelper?: 'vims';
 };
 export type SkiftTrin = FaellesTrin & { type: 'skift'; tilSted: string };
 export type OpgaveTrin = FaellesTrin & {
@@ -143,7 +161,7 @@ export type RumTrin = FaellesTrin & {
   };
 };
 
-export type Trin = DialogTrin | SkiftTrin | OpgaveTrin | BevisjagtTrin | RumTrin;
+export type Trin = DialogTrin | SkiftTrin | OpgaveTrin | BevisjagtTrin | RumTrin | KampTrin;
 
 export type Kapitel = {
   kapitel: number;
@@ -155,7 +173,7 @@ export type Kapitel = {
 };
 
 // JSON giver tal-lister som number[]. Testene i kapitel.test.ts tjekker, at felterne har to tal.
-export const kapitler: Kapitel[] = [kapitel1Data as unknown as Kapitel, kapitel2Data as unknown as Kapitel];
+export const kapitler: Kapitel[] = [kapitel1Data as unknown as Kapitel, kapitel2Data as unknown as Kapitel, kapitel3Data as unknown as Kapitel];
 
 export function hentKapitel(nr: number): Kapitel | undefined {
   return kapitler.find((k) => k.kapitel === nr);
@@ -178,6 +196,9 @@ export const raaber = raaberData as { faerdighed: string; saetninger: { id: stri
 
 export type Traek = 'problem' | 'portal' | 'verden' | 'konflikt' | 'loesning' | 'hjemkomst';
 export type Historie = { id: string; titel: string; planker: Record<Traek, string>; fremmed: string };
+export type Synonym = { id: string; ord: string; saetning: string; svar: string; forkerte: string[]; svaerhed: number };
+export const synonymer = synonymData as { faerdighed: string; ord: Synonym[] };
+
 export const historiebro = broData as { faerdighed: string; traek: Traek[]; historier: Historie[] };
 
 export type Ordkort = { ord: string; forklaring: string; eksempel: string; billede: string };

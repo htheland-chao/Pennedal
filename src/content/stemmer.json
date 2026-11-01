@@ -40,6 +40,18 @@
     "ufaerdige": {
       "stemme": "Enceladus",
       "stil": "Whisper this slowly and very close to the microphone, cold, sad and unsettling, with long pauses, like a shadow from a story that never got an ending. Never shout. Native Danish."
+    },
+    "vims": {
+      "stemme": "Leda",
+      "stil": "Say this like a tiny, very nervous and polite eraser who apologizes all the time, quick and a bit breathless but sweet. Native Danish."
+    },
+    "tomordet": {
+      "stemme": "Umbriel",
+      "stil": "Say this slowly and hollowly, like a hungry but harmless creature made of nothing, a little sad and a little funny. Native Danish."
+    },
+    "stumming": {
+      "stemme": "Despina",
+      "stil": "Whisper this softly and secretively, like a shy little creature that collects silent letters. Gentle, never scary. Native Danish."
     }
   },
   "udtale": {}

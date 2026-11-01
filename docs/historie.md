@@ -100,6 +100,8 @@ Avataren og Æseløre følger blæksporet efter Klatten ind i en skov, hvor farv
 
 Mekanikker: platformbaner, hvor dele af banen bliver visket ud og skal skrives tilbage (vælg det rigtige ord, så kommer planken igen). Lanternen fra kapitel 1 lyser vejen i den hvide tåge. Klatten sidder fanget i en ufærdig sætning. Første store valg: hjælp ham fri eller gå forbi. Begge valg virker, men spillet husker det.
 
+**Bygget (1. november 2026):** Skovbrynet og Den hvide lysning. To rolige kampe: Tomordet (synonymer, `laes.ordforraad`) og Stummingen (stumme bogstaver, `stav.stumme`, med Vims som hjælper, der kan viske en forkert mulighed ud). Vims slutter sig til og giver sine krummer. Minde 3, Køkkenbordet. Klattens valg (hjælp ham fri med et punktum eller lad ham sidde) gemmes som `klatten.hjulpet` og giver venlighed. Kapitlet slutter med Den Ufærdige mellem træerne og et bjerg, der synger. **Mangler:** platformbanen med viskede planker, sidemissionen, den frivillige svære udfordring og de to hukommelsesskår.
+
 ### Kapitel 4: Rimbjerget
 
 Vejen fører op ad et bjerg, hvor alt taler på rim: stenene, vinden og en meget træt trold ved navn Rimfod. Han vil så gerne sige noget, der ikke rimer, men han kan ikke. Ekkoet i bjerget svarer med forkerte rim, og man skal finde de rigtige for at komme op. Øverst lå bjergets ældste digt, men det sidste vers er stjålet.

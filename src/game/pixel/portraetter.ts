@@ -3,8 +3,12 @@
  * Hvert bogstav er en farve i paletten, punktum er gennemsigtigt.
  */
 import type { Tegnkort } from './sprites';
+import { somPortraet, STUMMING, TOMORD, VIMS } from './viskeskov';
 
-export const PORTRAETTER: Record<'holm' | 'lanterne' | 'klatten' | 'aeseloere' | 'fortaeller' | 'portvagt' | 'raaber' | 'borgmester' | 'ufaerdige', Tegnkort> = {
+export const PORTRAETTER: Record<'holm' | 'lanterne' | 'klatten' | 'aeseloere' | 'fortaeller' | 'portvagt' | 'raaber' | 'borgmester' | 'ufaerdige' | 'vims' | 'tomordet' | 'stumming', Tegnkort> = {
+  vims: somPortraet(VIMS),
+  tomordet: somPortraet(TOMORD),
+  stumming: somPortraet(STUMMING),
   holm: {
     raekker: [
       '........................',

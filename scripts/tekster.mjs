@@ -1,5 +1,5 @@
 // Samler al dansk tekst i spillet ét sted, så den kan stavetjekkes og læses korrektur på.
-import { readFileSync } from 'node:fs';
+import { readdirSync, readFileSync } from 'node:fs';
 
 const laes = (sti) => JSON.parse(readFileSync(new URL(`../src/content/${sti}`, import.meta.url), 'utf8'));
 
@@ -16,23 +16,45 @@ export function alleTekster() {
   const da = laes('tekster/da.json');
   for (const [id, tekst] of Object.entries(da)) ud.push({ kilde: 'Brugerflade', id, tekst });
 
-  const k1 = laes('kapitler/kapitel1.json');
-  ud.push({ kilde: 'Kapitel 1', id: 'titel', tekst: k1.titel });
-  for (const [stedId, sted] of Object.entries(k1.steder)) {
-    ud.push({ kilde: 'Kapitel 1', id: `sted.${stedId}`, tekst: sted.navn });
-    for (const o of sted.objekter) ud.push({ kilde: 'Kapitel 1', id: `objekt.${o.id}`, tekst: o.navn });
-  }
-  for (const trin of k1.trin) {
-    if (trin.opgavetekst) ud.push({ kilde: 'Kapitel 1', id: `${trin.id}.opgavetekst`, tekst: trin.opgavetekst });
-    (trin.replikker ?? []).forEach((r, i) =>
-      ud.push({ kilde: 'Kapitel 1', id: `${trin.id}.${i + 1} (${r.taler})`, tekst: r.tekst, bevidstFejl: r.bevidstFejl }),
-    );
-    if (trin.titel) ud.push({ kilde: 'Kapitel 1', id: `${trin.id}.titel`, tekst: trin.titel });
-    (trin.saetninger ?? []).forEach((s, i) => ud.push({ kilde: 'Kapitel 1', id: `${trin.id}.saetning.${i}`, tekst: s }));
-    for (const spg of trin.spoergsmaal ?? []) {
-      ud.push({ kilde: 'Kapitel 1', id: spg.id, tekst: spg.tekst });
-      ud.push({ kilde: 'Kapitel 1', id: `${spg.id}.standard`, tekst: spg.standard });
-      for (const [nr, f] of Object.entries(spg.forkert)) ud.push({ kilde: 'Kapitel 1', id: `${spg.id}.forkert.${nr}`, tekst: f });
+  // Alle kapitler i src/content/kapitler, i rækkefølge.
+  const kapitler = readdirSync(new URL('../src/content/kapitler/', import.meta.url))
+    .filter((f) => /^kapitel\d+\.json$/.test(f))
+    .map((f) => laes(`kapitler/${f}`))
+    .sort((a, b) => a.kapitel - b.kapitel);
+  for (const k of kapitler) {
+    const kilde = `Kapitel ${k.kapitel}`;
+    const replik = (id, r) => ud.push({ kilde, id: `${id} (${r.taler})`, tekst: r.tekst, bevidstFejl: r.bevidstFejl });
+    ud.push({ kilde, id: 'titel', tekst: k.titel });
+    for (const [stedId, sted] of Object.entries(k.steder)) {
+      ud.push({ kilde, id: `sted.${stedId}`, tekst: sted.navn });
+      for (const o of sted.objekter) ud.push({ kilde, id: `objekt.${o.id}`, tekst: o.navn });
+    }
+    for (const trin of k.trin) {
+      if (trin.opgavetekst) ud.push({ kilde, id: `${trin.id}.opgavetekst`, tekst: trin.opgavetekst });
+      (trin.replikker ?? []).forEach((r, i) => replik(`${trin.id}.${i + 1}`, r));
+      if (trin.valg) {
+        ud.push({ kilde, id: `${trin.id}.valg`, tekst: trin.valg.spoergsmaal });
+        trin.valg.muligheder.forEach((m, j) => {
+          ud.push({ kilde, id: `${trin.id}.valg.${j + 1}`, tekst: m.tekst });
+          m.replikker.forEach((r, i) => replik(`${trin.id}.valg.${j + 1}.${i + 1}`, r));
+        });
+      }
+      if (trin.titel) ud.push({ kilde, id: `${trin.id}.titel`, tekst: trin.titel });
+      (trin.saetninger ?? []).forEach((s, i) => ud.push({ kilde, id: `${trin.id}.saetning.${i}`, tekst: s }));
+      for (const spg of trin.spoergsmaal ?? []) {
+        ud.push({ kilde, id: spg.id, tekst: spg.tekst });
+        ud.push({ kilde, id: `${spg.id}.standard`, tekst: spg.standard });
+        for (const [nr, f] of Object.entries(spg.forkert)) ud.push({ kilde, id: `${spg.id}.forkert.${nr}`, tekst: f });
+      }
+      for (const f of trin.fund ?? []) {
+        ud.push({ kilde, id: `${trin.id}.${f.objekt}`, tekst: f.tekst });
+        if (f.tingNavn) ud.push({ kilde, id: `${trin.id}.${f.objekt}.ting`, tekst: f.tingNavn });
+        (f.laesning ?? []).forEach((l, i) => ud.push({ kilde, id: `${trin.id}.${f.objekt}.${i + 1}`, tekst: l }));
+      }
+      if (trin.laas) {
+        for (const felt of ['mangler', 'gaade', 'aabnet', 'regel', 'eksempel'])
+          if (trin.laas[felt]) ud.push({ kilde, id: `${trin.id}.laas.${felt}`, tekst: trin.laas[felt] });
+      }
     }
   }
 
@@ -60,6 +82,14 @@ export function alleTekster() {
     ud.push({ kilde: 'Historiebroen', id: `${h.id}.titel`, tekst: h.titel });
     for (const [traek, tekst] of Object.entries(h.planker)) ud.push({ kilde: 'Historiebroen', id: `${h.id}.${traek}`, tekst });
     ud.push({ kilde: 'Historiebroen', id: `${h.id}.fremmed`, tekst: h.fremmed, note: 'Bevidst forkert planke: Her løser en anden problemet.' });
+  }
+
+  for (const x of laes('ord/raaber.json').saetninger)
+    ud.push({ kilde: 'Råberens tegn', id: x.id, tekst: `${x.tekst}${x.tegn}` });
+
+  for (const o of laes('ord/synonymer.json').ord) {
+    ud.push({ kilde: 'Synonymer (Tomordet)', id: `${o.id}.saetning`, tekst: o.saetning });
+    ud.push({ kilde: 'Synonymer (Tomordet)', id: `${o.id}.svar`, tekst: [o.ord, o.svar, ...o.forkerte].join(', '), note: `Synonym til ${o.ord}: ${o.svar}` });
   }
 
   for (const [id, k] of Object.entries(laes('ordkort.json'))) {

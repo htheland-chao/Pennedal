@@ -1,6 +1,6 @@
 # Korrekturliste - Pennedal
 
-Lavet 2026-10-31. 591 tekster.
+Lavet 2026-11-01. 899 tekster.
 
 Sæt kryds, når en tekst er læst. Bevidste fejl står under "Bevidste fejl" og skal ikke rettes.
 Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), så læs hele teksten.
@@ -350,6 +350,45 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `laerer.minder.forklaring`: Korte tilbageblik fra avatarens forhistorie. Du kan se dem her, før klassen spiller. Eleverne kan altid springe dem over.
 - [ ] `laerer.minder.se`: Se
 - [ ] `laerer.minder.kapitel`: Kapitel {kapitel}
+- [ ] `taler.vims`: Vims
+- [ ] `taler.tomordet`: Tomordet
+- [ ] `taler.stumming`: Stummingen
+- [ ] `minde.koekkenbord.titel`: Et minde: Køkkenbordet
+- [ ] `minde.koekkenbord.1`: Et køkkenbord med en voksdug. Lyset fra lampen er gult og varmt.
+- [ ] `minde.koekkenbord.2`: På bordet ligger et grønt hæfte. Du tegner en skygge med store, runde øjne.
+- [ ] `minde.koekkenbord.3`: Ved siden af tegningen skriver du, så hurtigt du kan. Bogstaverne vælter lidt, men det er lige meget. Du er glad.
+- [ ] `minde.koekkenbord.4`: Du har fundet på noget, som ingen andre har fundet på.
+- [ ] `kamp.titel`: Et væsen spærrer vejen
+- [ ] `kamp.ro`: Væsnet er roligt i {ro} af {antal} ture.
+- [ ] `kamp.lyt`: Lyt
+- [ ] `kamp.laes`: Læs
+- [ ] `kamp.skriv`: Skriv færdig
+- [ ] `kamp.gaa`: Gå væk
+- [ ] `kamp.hvad`: Hvad gør du?
+- [ ] `kamp.naeste`: Næste tur
+- [ ] `kamp.videre`: Videre
+- [ ] `kamp.forklaring`: Der er ingen tid, og du kan ikke tabe. Lyt og Læs giver hjælp. Gå væk, hvis du vil holde pause. Væsnet venter.
+- [ ] `kamp.vims`: Spørg Vims
+- [ ] `kamp.vims.visk`: Vims visker en forkert mulighed ud. Undskyld, hvis det var den, du ville vælge.
+- [ ] `kamp.vims.ingen`: Vims kigger på mulighederne. Der er ikke mere, han tør viske ud. Nu må du selv vælge.
+- [ ] `kamp.tomordet.navn`: Tomordet
+- [ ] `kamp.tomordet.angreb`: Tomordet æder et ord i sætningen.
+- [ ] `kamp.tomordet.spoergsmaal`: Hvilket ord betyder det samme som {ord}?
+- [ ] `kamp.tomordet.lyt`: Jeg er så sulten. Giv mig et ord, der betyder det samme. Prøv at sætte dit ord ind i sætningen. Lyder den stadig rigtig, er det godt.
+- [ ] `kamp.tomordet.rigtig`: Ja. Ordet {svar} betyder det samme som {ord}. Tomordet tygger tilfreds.
+- [ ] `kamp.tomordet.fejl`: Ordet {valgt} betyder ikke det samme som {ord}. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.
+- [ ] `kamp.tomordet.rolig`: Tomordet er mæt og helt roligt.
+- [ ] `kamp.tomordet.regel`: Synonymer er ord, der betyder det samme eller næsten det samme. Du kan bytte dem ud, uden at sætningen skifter betydning.
+- [ ] `kamp.tomordet.eksempel`: Hus og bolig er synonymer. Vi bor i et gult hus. Vi bor i en gul bolig.
+- [ ] `kamp.stumming.navn`: Stummingen
+- [ ] `kamp.stumming.angreb`: Stummingen har stjålet et bogstav, man ikke kan høre.
+- [ ] `kamp.stumming.spoergsmaal`: Hvilket stumt bogstav mangler i {vist}?
+- [ ] `kamp.stumming.lyt`: Hys. Jeg tager kun de bogstaver, der ikke siger noget. Kig på bogstaverne omkring hullet. Det stumme d kommer tit efter l, n og r. Det stumme h står foran v og j. Det stumme v kommer efter l.
+- [ ] `kamp.stumming.rigtig`: Ja. Der skal stå {ord}. Du kan ikke høre {svar}, men det skal med.
+- [ ] `kamp.stumming.fejl`: Der mangler ikke et {valgt} her. Kig på bogstavet lige før eller lige efter hullet.
+- [ ] `kamp.stumming.rolig`: Stummingen giver slip på bogstaverne og bliver helt stille.
+- [ ] `kamp.stumming.eksempel`: Andre ord med samme slags stumme bogstav: {ord}.
+- [ ] `valg.vaelg`: Vælg
 
 ## Kapitel 1
 
@@ -429,6 +468,209 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `k1-lanterne.4 (lanterne)`: Her, tag den her lanterne. Du får brug for den.
 - [ ] `k1-lanterne.5 (fortaeller)`: Ude i mørket hvisker en stemme: "Og så ..."
 - [ ] `k1-lanterne.6 (aeseloere)`: Det lød ikke godt. Det lød slet ikke godt.
+
+## Kapitel 2
+
+- [ ] `titel`: Byen uden punktummer
+- [ ] `sted.byporten`: Byporten
+- [ ] `objekt.port`: byporten
+- [ ] `objekt.portvagt`: Portvagten
+- [ ] `sted.torvet`: Torvet i Sætningsbyen
+- [ ] `objekt.borgmester`: Borgmesteren
+- [ ] `objekt.raaber`: Råberen
+- [ ] `objekt.opslag`: byrådets opslag
+- [ ] `objekt.smoege`: smøgen mod øst
+- [ ] `objekt.borger1`: en borger
+- [ ] `objekt.borger2`: en borger
+- [ ] `objekt.borger3`: en borger
+- [ ] `objekt.borger4`: en borger
+- [ ] `objekt.borger5`: en borger
+- [ ] `sted.smoegerne`: Smøgerne
+- [ ] `objekt.trykkeridoer`: døren til det gamle trykkeri
+- [ ] `sted.trykkeriet`: Det gamle trykkeri
+- [ ] `objekt.kasse1`: en kasse med papir
+- [ ] `objekt.presse`: trykpressen
+- [ ] `objekt.kasse2`: en kasse under bordet
+- [ ] `objekt.seddel`: en krøllet seddel
+- [ ] `objekt.typeskab`: typeskabet
+- [ ] `objekt.stige`: stigen til loftslemmen
+- [ ] `sted.tagene`: Tagene over Sætningsbyen
+- [ ] `objekt.maal`: lemmen ved skorstenen
+- [ ] `objekt.ufaerdige`: Den Ufærdige
+- [ ] `k2-ankomst.1 (fortaeller)`: Morgensolen står op over en eng fuld af blomster. Græsset dufter af blæk og honning.
+- [ ] `k2-ankomst.2 (fortaeller)`: For enden af stien ligger en by bag en høj mur. Hustagene er røde, grønne og blå, og fra skorstenene stiger der små skyer af røg.
+- [ ] `k2-ankomst.3 (aeseloere)`: Sætningsbyen. Her bor de mest snakkesalige væsner i hele Pennedal.
+- [ ] `k2-ankomst.4 (aeseloere)`: Men hør. Plejer de ikke at holde en lille pause en gang imellem?
+- [ ] `k2-portvagt.opgavetekst`: Tal med Portvagten ved byporten.
+- [ ] `k2-portvagt.1 (portvagt)`: Goddag og velkommen og porten er lukket og jeg kan ikke åbne den og jeg kan ikke holde op med at snakke og det er ret trættende og nu har jeg glemt, hvad jeg ville sige.
+- [ ] `k2-portvagt.2 (aeseloere)`: Han er en og-orm på to ben. Nogen har stjålet hans punktummer.
+- [ ] `k2-portvagt.3 (portvagt)`: Kan du klippe mine sætninger over og så åbner porten sig og så kan jeg måske få vejret og ...
+- [ ] `k2-ogorm.opgavetekst`: Klip Portvagtens og-orme over, så porten åbner sig.
+- [ ] `k2-port-aaben.1 (portvagt)`: Åh. En pause. Tak. Jeg havde glemt, hvor rart det er at stoppe en sætning.
+- [ ] `k2-port-aaben.2 (portvagt)`: I nat forsvandt alle byens tegn. Punktummer, spørgsmålstegn og udråbstegn. Nu snakker alle i munden på hinanden.
+- [ ] `k2-port-aaben.3 (fortaeller)`: Med et tungt suk glider porten op. Bag den summer byen som en bikube.
+- [ ] `k2-ind.opgavetekst`: Gå ind gennem porten.
+- [ ] `k2-torvet.1 (fortaeller)`: Torvet er fyldt med mennesker. Alle taler på én gang, og ingen lytter.
+- [ ] `k2-torvet.2 (fortaeller)`: Midt på torvet står et springvand. Det er helt tørt, og bunden er plettet af noget sort.
+- [ ] `k2-torvet.3 (aeseloere)`: Blæk. Jeg kender den lugt. Den hører til en vis klodset gnom.
+- [ ] `k2-borgmester.opgavetekst`: Find Borgmesteren på torvet.
+- [ ] `k2-borgmester.1 (borgmester)`: Endelig én, der står stille. Jeg er byens borgmester, og jeg har aldrig set så meget rod.
+- [ ] `k2-borgmester.2 (borgmester)`: Uden tegn ved ingen, om man spørger om noget, råber noget eller bare fortæller noget.
+- [ ] `k2-borgmester.3 (borgmester)`: Vores Råber står ved springvandet. Han skal læse byens nyheder op, men han kan ikke finde ud af, hvordan han skal sige dem.
+- [ ] `k2-raaber.opgavetekst`: Hjælp Råberen med at sætte de rigtige tegn.
+- [ ] `k2-raaber-tak.1 (raaber)`: Hør, hør! Nu kan jeg råbe igen! Tusind tak!
+- [ ] `k2-raaber-tak.2 (fortaeller)`: For første gang i lang tid bliver der stille på torvet. Folk lytter.
+- [ ] `k2-raaber-tak.3 (raaber)`: Byrådet har hængt et opslag op. Det handler om tyveriet. Læs det!
+- [ ] `k2-opslag.opgavetekst`: Læs byrådets opslag.
+- [ ] `k2-opslag.titel`: Byrådets opslag
+- [ ] `k2-opslag.saetning.0`: Til alle i Sætningsbyen.
+- [ ] `k2-opslag.saetning.1`: I nat blev alle byens tegn stjålet fra trykkeriet.
+- [ ] `k2-opslag.saetning.2`: Nattevagten så en lille, sort skikkelse løbe over torvet med en tung sæk.
+- [ ] `k2-opslag.saetning.3`: Skikkelsen efterlod sorte pletter på brostenene.
+- [ ] `k2-opslag.saetning.4`: Pletterne fører ned i smøgen mod øst.
+- [ ] `k2-opslag.saetning.5`: Har du set noget, så kontakt byrådet.
+- [ ] `k2-opslag-1`: Hvad bar skikkelsen på?
+- [ ] `k2-opslag-1.standard`: Find sætningen, hvor nattevagten fortæller, hvad han så.
+- [ ] `k2-opslag-1.forkert.1`: Den sætning fortæller, hvor tegnene blev stjålet fra. Find sætningen om skikkelsen.
+- [ ] `k2-opslag-1.forkert.3`: Den sætning handler om pletterne. Find sætningen, der fortæller, hvad skikkelsen bar på.
+- [ ] `k2-opslag-2`: Hvor fører sporet hen?
+- [ ] `k2-opslag-2.standard`: Find sætningen med ordet fører.
+- [ ] `k2-opslag-2.forkert.2`: Den sætning handler om skikkelsen. Find sætningen, der siger, hvor pletterne fører hen.
+- [ ] `k2-opslag-2.forkert.3`: Den sætning fortæller, at der er pletter, men ikke hvor de fører hen. Læs den næste sætning.
+- [ ] `k2-spor.1 (aeseloere)`: En lille, sort skikkelse med en sæk. Jeg tør vædde mine bedste sider på, at det er Klatten.
+- [ ] `k2-spor.2 (fortaeller)`: Ved kanten af torvet ser du det: små, sorte pletter, der forsvinder ind i en smal smøge.
+- [ ] `k2-spor.3 (fortaeller)`: Et sted derinde griner nogen. Det lyder som en, der prøver at være uhyggelig og ikke helt kan.
+- [ ] `k2-til-smoeger.opgavetekst`: Følg blækpletterne ind i smøgen mod øst.
+- [ ] `k2-smoeger.1 (fortaeller)`: Smøgerne er så smalle, at husene næsten rører hinanden. Larmen fra torvet bliver svagere og svagere.
+- [ ] `k2-smoeger.2 (aeseloere)`: Følg pletterne. Og gå ikke for hurtigt. Jeg bliver blød, hvis jeg falder i en vandpyt.
+- [ ] `k2-til-trykkeri.opgavetekst`: Følg sporet hen til døren for enden af smøgen.
+- [ ] `k2-trykkeri.1 (fortaeller)`: Døren knirker. Indenfor er det mørkt og koldt, og luften smager af metal og gammelt blæk.
+- [ ] `k2-trykkeri.2 (fortaeller)`: Langs væggen står et stort typeskab. Midt på lågen er der tre tomme huller og en lås med tal.
+- [ ] `k2-trykkeri.3 (fortaeller)`: Du blinker. Du står i trykkeriet igen, men du kan stadig mærke papiret mellem fingrene.
+- [ ] `k2-trykkeri.4 (aeseloere)`: Du blev helt bleg. Er det typeskabet? Det giver også mig kuldegysninger.
+- [ ] `k2-trykkeri.5 (aeseloere)`: Her har de trykt byens bøger i hundrede år. Og nogen har haft travlt i nat.
+- [ ] `k2-trykkeri.6 (fortaeller)`: Over dig knirker loftet. Nogen går på taget.
+- [ ] `k2-rum.opgavetekst`: Find det, der passer i typeskabets tre huller, og find koden.
+- [ ] `k2-rum.kasse1`: Under en stak krøllet papir ligger et lille, rundt stykke bly. Det er et punktum. Du lægger det i tasken.
+- [ ] `k2-rum.kasse1.ting`: Et punktum af bly
+- [ ] `k2-rum.kasse2`: Bag kassen ligger et spørgsmålstegn af bly. Det ligner en lille krog. Du lægger det i tasken.
+- [ ] `k2-rum.kasse2.ting`: Et spørgsmålstegn af bly
+- [ ] `k2-rum.presse`: I trykpressen sidder et udråbstegn i klemme. Du vrider det fri og lægger det i tasken.
+- [ ] `k2-rum.presse.ting`: Et udråbstegn af bly
+- [ ] `k2-rum.seddel`: Du glatter sedlen ud. Den er skrevet med store, klodsede bogstaver og fuld af blækklatter.
+- [ ] `k2-rum.seddel.1`: Kære chef.
+- [ ] `k2-rum.seddel.2`: Jeg har taget alle punktummerne.
+- [ ] `k2-rum.seddel.3`: Er det nok?
+- [ ] `k2-rum.seddel.4`: Skal jeg også tage spørgsmålstegnene?
+- [ ] `k2-rum.seddel.5`: Byen larmer helt vildt nu!
+- [ ] `k2-rum.seddel.6`: Jeg gemmer sækken på taget.
+- [ ] `k2-rum.seddel.7`: Hilsen K.
+- [ ] `k2-rum.laas.mangler`: Typeskabet har tre tomme huller: et rundt, et som en krog og et langt og smalt. Der mangler noget, før du kan prøve låsen.
+- [ ] `k2-rum.laas.gaade`: Du sætter de tre tegn i hullerne. Så lyser tre tal-hjul op. Under dem står der: "Punktum, spørgsmålstegn, udråbstegn. Tæl dem i det sidste brev."
+- [ ] `k2-rum.laas.aabnet`: Tal-hjulene klikker på plads. Typeskabet glider til side, og bag det står en stige op til en lem i loftet.
+- [ ] `k2-rum.laas.regel`: Tæl tegnene i Klattens seddel. Et punktum står efter en sætning, der fortæller noget. Et spørgsmålstegn står efter et spørgsmål. Et udråbstegn står efter et råb.
+- [ ] `k2-rum.laas.eksempel`: "Er det nok?" har ét spørgsmålstegn. "Hilsen K." har ét punktum.
+- [ ] `k2-lem.1 (fortaeller)`: Gennem lemmen kan du høre fodtrin på tagstenene. Hurtige, små fodtrin.
+- [ ] `k2-lem.3 (aeseloere)`: Han skriver lige så dårligt, som han løber. Det hedder landede. Efter ham!
+- [ ] `k2-til-tag.opgavetekst`: Kravl op ad stigen til taget.
+- [ ] `k2-jagt.1 (fortaeller)`: Vinden river i dit tøj. Byen ligger under dig, og de tre måner hænger lavt over tagene.
+- [ ] `k2-jagt.2 (klatten)`: I kan aldrig fange mig! Jeg er den hurtigste gnom i hele Pennedal!
+- [ ] `k2-jagt.3 (aeseloere)`: Hop over hullerne, og hold dig væk fra blækket. Falder du, starter du bare ved den sidste lanterne.
+- [ ] `k2-tagene.opgavetekst`: Fang Klatten ved skorstenen på det sidste tag.
+- [ ] `k2-fanget.1 (klatten)`: Øv. Øv, øv, øv. Der er ikke flere tage.
+- [ ] `k2-fanget.2 (fortaeller)`: Klatten snubler over sine egne fødder. Sækken flyver op i luften, og tegnene regner ned over tagstenene.
+- [ ] `k2-fanget.3 (aeseloere)`: Saml dem op, og sæt dem tilbage i byens brev. Så kan Råberen læse det op i aften.
+- [ ] `k2-fanget.4 (fortaeller)`: Et enkelt punktum triller hen til dine fødder. Det er blankt og lidt varmt.
+- [ ] `k2-fanget.5 (aeseloere)`: Gem det. Et ekstra punktum kan altid bruges.
+- [ ] `k2-brev.opgavetekst`: Sæt tegnene tilbage i byens brev.
+- [ ] `k2-moerke.1 (fortaeller)`: Pludselig bliver alt stille. Byens larm forsvinder, som når man smækker en bog i.
+- [ ] `k2-moerke.2 (fortaeller)`: Farverne løber ud af tagene. Månerne slukker, én efter én.
+- [ ] `k2-moerke.3 (klatten)`: Nej. Nej, nej. Det var ikke meningen. Jeg tog dem jo. Næsten alle sammen.
+- [ ] `k2-moerke.4 (ufaerdige)`: Næsten. Alt er altid næsten.
+- [ ] `k2-moerke.5 (fortaeller)`: Stemmen kommer ikke fra ét sted. Den kommer fra skyggerne mellem tagene, fra revnerne i stenene, fra lige bag dig.
+- [ ] `k2-moerke.6 (ufaerdige)`: Du er kommet langt for at finde noget, der ikke er dit.
+- [ ] `k2-moerke.7 (ufaerdige)`: Ved du, hvordan det er at stoppe midt i en
+- [ ] `k2-moerke.8 (fortaeller)`: Stemmen holder op midt i sætningen. Stilheden bagefter er værre end ordene.
+- [ ] `k2-moerke.9 (ufaerdige)`: De gav mig en begyndelse. De gav mig en midte. Men ingen gav mig en slutning. Så tager jeg deres.
+- [ ] `k2-moerke.10 (fortaeller)`: Skyggen folder sig om Klatten som en side, der bliver vendt. Så er de væk. Begge to.
+- [ ] `k2-moerke.11 (aeseloere)`: Han kaldte ham chef. Klatten stjæler ikke for sig selv.
+- [ ] `k2-moerke.12 (aeseloere)`: Jeg har læst mange historier. Ingen af dem havde en stemme, der var så kold.
+- [ ] `k2-moerke.13 (fortaeller)`: Langt væk over tagene hvisker det stadig: "Og så ..."
+
+## Kapitel 3
+
+- [ ] `titel`: Viskeskoven
+- [ ] `sted.skovbrynet`: Viskeskoven
+- [ ] `objekt.skilt`: det hvide skilt
+- [ ] `objekt.tomordet`: væsnet på stien
+- [ ] `objekt.vims`: den store svamp
+- [ ] `objekt.sti`: stien mod lysningen
+- [ ] `sted.lysningen`: Den hvide lysning
+- [ ] `objekt.stumming`: væsnet, der hvisker
+- [ ] `objekt.klatten`: Klatten
+- [ ] `k3-ankomst.1 (fortaeller)`: Blæksporet fører ind i en skov. Men noget er galt. Træerne er blege, som om nogen har prøvet at viske dem ud.
+- [ ] `k3-ankomst.2 (aeseloere)`: Viskeskoven. Her plejer der at være farver. Og fugle. Og ord på skiltene.
+- [ ] `k3-ankomst.3 (fortaeller)`: En fugl synger et par toner. Så stopper den midt i det hele.
+- [ ] `k3-ankomst.4 (aeseloere)`: Klattens spor fører den vej. Hold din lanterne frem. Den kan lyse sig igennem den hvide tåge.
+- [ ] `k3-skilt.opgavetekst`: Læs skiltet ved stien.
+- [ ] `k3-skilt.1 (fortaeller)`: Skiltet er helt hvidt. Der har stået noget, men ordene er visket ud. Kun to ord er tilbage: Pas på.
+- [ ] `k3-skilt.2 (aeseloere)`: Pas på hvad? Det er det dårligste skilt, jeg nogensinde har læst.
+- [ ] `k3-skilt.3 (fortaeller)`: Henne på stien står noget og vugger frem og tilbage. Det ligner et ord, men der er ingenting inden i det.
+- [ ] `k3-tomordet-moede.opgavetekst`: Gå hen til væsnet på stien.
+- [ ] `k3-tomordet-moede.1 (tomordet)`: Ord. Ord. Jeg er så sulten efter ord.
+- [ ] `k3-tomordet-moede.2 (aeseloere)`: Et Tomord. Det æder ord og efterlader huller. Det er derfor, skiltet er tomt.
+- [ ] `k3-tomordet-moede.3 (tomordet)`: Giv mig et ord, der betyder det samme. Så bliver jeg mæt. Måske.
+- [ ] `k3-tomordet-moede.4 (aeseloere)`: Det er ikke farligt. Bare sulten og lidt uhøfligt. Hver gang det æder et ord, finder du et andet ord, der betyder det samme. Så falder det til ro.
+- [ ] `k3-tomordet.opgavetekst`: Gør Tomordet roligt.
+- [ ] `k3-tomordet-slut.1 (tomordet)`: Åh. Ord, der betyder det samme. De smager dobbelt så godt.
+- [ ] `k3-tomordet-slut.2 (fortaeller)`: Tomordet bliver helt roligt. Det folder sig sammen til et lille, glad ord og hopper ind mellem træerne.
+- [ ] `k3-tomordet-slut.3 (aeseloere)`: Synonymer. Det er ord, der betyder det samme eller næsten det samme. Når et ord bliver væk, kan et andet tit tage dets plads.
+- [ ] `k3-tomordet-slut.4 (fortaeller)`: Under en stor svamp ved stien er der noget, der ryster.
+- [ ] `k3-vims.opgavetekst`: Kig under den store svamp.
+- [ ] `k3-vims.1 (vims)`: Undskyld! Undskyld, at jeg sidder her. Og undskyld, at jeg undskylder.
+- [ ] `k3-vims.2 (aeseloere)`: Et viskelæder. Selvfølgelig. Hvad laver du her?
+- [ ] `k3-vims.3 (vims)`: Jeg hedder Vims. Når jeg bliver bange, kommer jeg til at viske ting ud. Træer. Skilte. Næsten en hel fugl.
+- [ ] `k3-vims.4 (vims)`: Hov. Nu blev jeg bange igen.
+- [ ] `k3-vims.5 (fortaeller)`: Vims nyser. Et træ ved siden af dig bliver hvidt og forsvinder. Bag det står et køkkenbord, du kender.
+- [ ] `k3-vims.6 (aeseloere)`: Hallo? Du stod og stirrede ud i luften igen.
+- [ ] `k3-vims.7 (fortaeller)`: Du ryster på hovedet. Træet er væk, og køkkenbordet med.
+- [ ] `k3-vims.8 (vims)`: Var det mig? Undskyld. Jeg tror, jeg kom til at viske et hul i noget, der ikke var skoven.
+- [ ] `k3-vims.9 (vims)`: Må jeg komme med? Jeg kan godt være modig. Næsten. Og jeg har krummer med, hvis noget skal viskes ud.
+- [ ] `k3-vims.10 (aeseloere)`: Fint. Men hvis du visker mig ud, kommer jeg efter dig.
+- [ ] `k3-til-lysning.opgavetekst`: Følg stien mod lysningen.
+- [ ] `k3-lysning.1 (fortaeller)`: Stien ender i en lysning. Alt er hvidt her, også himlen.
+- [ ] `k3-lysning.2 (fortaeller)`: Midt i lysningen sidder Klatten. Han kan ikke komme væk. Han sidder fast i en sætning, der aldrig blev skrevet færdig.
+- [ ] `k3-lysning.4 (aeseloere)`: Det hedder sidder, med to d'er. Og jo, du sidder fast.
+- [ ] `k3-lysning.5 (vims)`: Der står noget mellem os og ham. Noget, der hvisker. Undskyld, det er ikke mig denne gang.
+- [ ] `k3-stumming-moede.opgavetekst`: Gå hen til det, der hvisker.
+- [ ] `k3-stumming-moede.1 (stumming)`: Hys. Jeg samler på bogstaver, man ikke kan høre. Dem savner ingen.
+- [ ] `k3-stumming-moede.2 (aeseloere)`: En Stumming. Den stjæler stumme bogstaver. Find det bogstav, der mangler, så giver den slip.
+- [ ] `k3-stumming-moede.3 (vims)`: Hvis du vil have hjælp, kan jeg viske en forkert mulighed ud. Bare spørg. Undskyld.
+- [ ] `k3-stumming.opgavetekst`: Gør Stummingen rolig.
+- [ ] `k3-stumming-slut.1 (stumming)`: Nå. Du kan høre dem, selvom de ikke siger noget. Så må du få dem tilbage.
+- [ ] `k3-stumming-slut.2 (fortaeller)`: Stummingen lægger bogstaverne fra sig og lister ind mellem træerne.
+- [ ] `k3-klatten.opgavetekst`: Gå hen til Klatten.
+- [ ] `k3-klatten.1 (klatten)`: Hvad glor du på? Jeg er den Frygtelige. Jeg har bare travlt med at sidde stille.
+- [ ] `k3-klatten.2 (fortaeller)`: Rundt om Klatten svæver to ord fra en halv sætning: Og så. De holder ham fast som et reb.
+- [ ] `k3-klatten.3 (aeseloere)`: Det er Den Ufærdige. Han efterlader altid noget, der ikke er færdigt.
+- [ ] `k3-klatten.4 (klatten)`: Han sagde, at jeg var en dårlig tjener. At jeg aldrig bliver færdig med noget.
+- [ ] `k3-klatten.5 (vims)`: Det var ikke pænt sagt. Undskyld, at jeg siger det.
+- [ ] `k3-klatten.valg`: Hvad gør du?
+- [ ] `k3-klatten.valg.1`: Hjælp Klatten fri
+- [ ] `k3-klatten.valg.1.1 (fortaeller)`: Du sætter et punktum efter de to ord. Nu er sætningen færdig, og rebet af ord falder af.
+- [ ] `k3-klatten.valg.1.2 (klatten)`: Hvad? Hvorfor gjorde du det? Jeg er jo din fjende.
+- [ ] `k3-klatten.valg.1.3 (klatten)`: Den Frygtelige siger aldrig tak. Aldrig. Men ... tak.
+- [ ] `k3-klatten.valg.1.4 (fortaeller)`: Klatten løber ind i skoven. Ved stien vender han sig om et kort øjeblik.
+- [ ] `k3-klatten.valg.2`: Lad ham sidde
+- [ ] `k3-klatten.valg.2.1 (aeseloere)`: Han har drillet os hele vejen. Lad ham bare sidde lidt.
+- [ ] `k3-klatten.valg.2.2 (klatten)`: Fint. Jeg gider heller ikke jeres hjælp.
+- [ ] `k3-klatten.valg.2.3 (fortaeller)`: Da I går, løsner ordene sig af sig selv. Klatten kommer fri, men han kigger ikke på dig.
+- [ ] `k3-moerke.1 (fortaeller)`: Så bliver det koldt. Det hvide i skoven bliver gråt, og alle lyde forsvinder.
+- [ ] `k3-moerke.2 (ufaerdige)`: Og så ...
+- [ ] `k3-moerke.3 (fortaeller)`: Mellem træerne står en skygge med store, runde øjne. Den kigger på dig, som om den kender dig.
+- [ ] `k3-moerke.4 (vims)`: Undskyld. Undskyld. Jeg tror, jeg skal viske mig selv ud nu.
+- [ ] `k3-moerke.5 (aeseloere)`: Ingen visker noget ud. Se, den er væk igen. Kom, vi følger sporet videre.
+- [ ] `k3-moerke.6 (fortaeller)`: Langt borte, over træerne, rejser et bjerg sig. Det lyder, som om det synger.
 
 ## Stumme bogstaver
 
@@ -558,6 +800,82 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `bro-graevlingen.hjemkomst`: Han følger stenene tilbage og når hjem, lige da det bliver mørkt.
 - [ ] `bro-graevlingen.fremmed`: Hans mor finder ham og bærer ham hjem. _(Bevidst forkert planke: Her løser en anden problemet.)_
 
+## Råberens tegn
+
+- [ ] `raab-1`: Torvet er fuldt af mennesker.
+- [ ] `raab-2`: Hvor er punktummerne?
+- [ ] `raab-3`: Stop tyven!
+- [ ] `raab-4`: Springvandet er tørt.
+- [ ] `raab-5`: Hvem har set Klatten?
+- [ ] `raab-6`: Pas på!
+- [ ] `raab-7`: Bageren åbner sin butik klokken syv.
+- [ ] `raab-8`: Kan nogen hjælpe borgmesteren?
+- [ ] `raab-9`: Hold op med at snakke i munden på hinanden!
+- [ ] `raab-10`: Hvorfor er der blæk på brostenene?
+- [ ] `raab-11`: Byens brev er blevet helt ulæseligt.
+- [ ] `raab-12`: Kom og hør!
+- [ ] `raab-13`: Har du husket at lukke porten i aften?
+- [ ] `raab-14`: Vagten fandt små, sorte fodspor ved springvandet.
+- [ ] `raab-15`: Sikke en larm!
+- [ ] `raab-16`: Hvad skal vi gøre uden punktummer?
+- [ ] `raab-17`: Borgmesteren spørger, om nogen har set tyven.
+- [ ] `raab-18`: Ingen ved, hvor sækken er blevet af.
+- [ ] `raab-19`: Hvor længe skal vi vente på tyven?
+- [ ] `raab-20`: Råberen undrer sig over, hvem der har taget tegnene.
+- [ ] `raab-21`: Ved du, hvorfor Klatten løb op på tagene?
+- [ ] `raab-22`: Jeg ved godt, hvem der tog dem.
+- [ ] `raab-23`: Giv os vores punktummer tilbage!
+- [ ] `raab-24`: Spørg vagten, hvad han så i nat!
+
+## Synonymer (Tomordet)
+
+- [ ] `glad.saetning`: Vims er glad, fordi solen skinner.
+- [ ] `glad.svar`: glad, munter, vred, træt _(Synonym til glad: munter)_
+- [ ] `sur.saetning`: Klatten er sur i dag.
+- [ ] `sur.svar`: sur, gnaven, venlig, glad _(Synonym til sur: gnaven)_
+- [ ] `smuk.saetning`: Skoven var smuk engang.
+- [ ] `smuk.svar`: smuk, køn, grim, kold _(Synonym til smuk: køn)_
+- [ ] `skoen.saetning`: Det er en skøn dag.
+- [ ] `skoen.svar`: skøn, dejlig, kedelig, våd _(Synonym til skøn: dejlig)_
+- [ ] `loebe.saetning`: Klatten vil løbe sin vej.
+- [ ] `loebe.svar`: løbe, rende, sove, synge _(Synonym til løbe: rende)_
+- [ ] `snakke.saetning`: Træerne kan ikke snakke mere.
+- [ ] `snakke.svar`: snakke, tale, vokse, sove _(Synonym til snakke: tale)_
+- [ ] `kigge.saetning`: Vims tør ikke kigge op.
+- [ ] `kigge.svar`: kigge, se, høre, gå _(Synonym til kigge: se)_
+- [ ] `bange.saetning`: Vims bliver bange, når det blæser.
+- [ ] `bange.svar`: bange, skræmt, modig, sulten _(Synonym til bange: skræmt)_
+- [ ] `stille.saetning`: Fuglen er helt stille.
+- [ ] `stille.svar`: stille, tavs, larmende, sulten _(Synonym til stille: tavs)_
+- [ ] `traet.saetning`: Æseløre er træt efter den lange tur.
+- [ ] `traet.svar`: træt, udmattet, frisk, sulten _(Synonym til træt: udmattet)_
+- [ ] `begynde.saetning`: Nu skal historien begynde.
+- [ ] `begynde.svar`: begynde, starte, slutte, sove _(Synonym til begynde: starte)_
+- [ ] `kaempestor.saetning`: Svampen er kæmpestor.
+- [ ] `kaempestor.svar`: kæmpestor, enorm, lillebitte, blød _(Synonym til kæmpestor: enorm)_
+- [ ] `modig.saetning`: Du er modig, siger Vims.
+- [ ] `modig.svar`: modig, tapper, bange, doven _(Synonym til modig: tapper)_
+- [ ] `moerk.saetning`: Stien er mørk under træerne.
+- [ ] `moerk.svar`: mørk, dunkel, lys, bred _(Synonym til mørk: dunkel)_
+- [ ] `beroemt.saetning`: Klatten vil være berømt.
+- [ ] `beroemt.svar`: berømt, kendt, glemt, sulten _(Synonym til berømt: kendt)_
+- [ ] `rolig.saetning`: Skoven var rolig før.
+- [ ] `rolig.svar`: rolig, fredelig, urolig, larmende _(Synonym til rolig: fredelig)_
+- [ ] `nervoes.saetning`: Vims er nervøs før turen.
+- [ ] `nervoes.svar`: nervøs, urolig, rolig, sulten _(Synonym til nervøs: urolig)_
+- [ ] `forsigtig.saetning`: Vær forsigtig ved floden.
+- [ ] `forsigtig.svar`: forsigtig, varsom, hurtig, sløset _(Synonym til forsigtig: varsom)_
+- [ ] `fjende.saetning`: Klatten er ikke din fjende.
+- [ ] `fjende.svar`: fjende, modstander, ven, nabo _(Synonym til fjende: modstander)_
+- [ ] `besked.saetning`: Råberen har en vigtig besked.
+- [ ] `besked.svar`: besked, meddelelse, hat, opgave _(Synonym til besked: meddelelse)_
+- [ ] `hemmelig.saetning`: Der er en hemmelig sti i skoven.
+- [ ] `hemmelig.svar`: hemmelig, skjult, kendt, bred _(Synonym til hemmelig: skjult)_
+- [ ] `opdager.saetning`: Du opdager et spor i den hvide tåge.
+- [ ] `opdager.svar`: opdager, finder, taber, skjuler _(Synonym til opdager: finder)_
+- [ ] `fortaelle.saetning`: Vims vil fortælle dig noget.
+- [ ] `fortaelle.svar`: fortælle, berette, skjule, glemme _(Synonym til fortælle: berette)_
+
 ## Ordkort
 
 - [ ] `logbog.ord`: logbog
@@ -610,6 +928,8 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 ## Bevidste fejl
 
 - [ ] `k1-klatten.3 (klatten)` (Kapitel 1): Jeg har skrevet en ny vejviser og den er perfekt og den er lang og den slutter aldrig og ...
+- [ ] `k2-lem.2 (klatten)` (Kapitel 2): Hi hi! Jeg landet lige på taget! Ingen kan fange mig!
+- [ ] `k3-lysning.3 (klatten)` (Kapitel 3): Jeg sider ikke fast! Jeg hviler mig bare. Med vilje.
 - [ ] `og-1a` (Og-ormen): Æseløre fløj op i træet og han kiggede ud over Pennedal.
   - Facit: Æseløre fløj op i træet. Han kiggede ud over Pennedal.
 - [ ] `og-1b` (Og-ormen): Klatten drypper blæk overalt og hans sko er helt sorte.

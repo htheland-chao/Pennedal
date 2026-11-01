@@ -1744,3 +1744,100 @@ input[type='range'] {
     animation: none;
   }
 }
+
+/* Rolige kampe (src/ui/KampVindue.tsx). */
+.kamp-ro {
+  display: flex;
+  gap: 6px;
+}
+.kamp-blaek {
+  width: 22px;
+  height: 12px;
+  border-radius: 6px;
+  background: #1a1e3c;
+  border: 2px solid var(--blaek);
+  transition: background 0.6s ease;
+}
+.kamp-blaek.rolig {
+  background: #dfe8f6;
+}
+.kamp-scene {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin: 8px 0;
+}
+.kamp-vaesen .pixel-portraet {
+  width: 96px;
+  height: 96px;
+  image-rendering: pixelated;
+}
+.kamp-vaesen {
+  animation: kamp-vugge 3s ease-in-out infinite;
+  transition: opacity 0.8s ease;
+}
+.kamp-vaesen[data-uro] {
+  animation: kamp-uro 0.5s ease-in-out 2, kamp-vugge 3s ease-in-out 1s infinite;
+}
+.kamp-vaesen.rolig {
+  animation: none;
+}
+@keyframes kamp-vugge {
+  50% { transform: translateY(-3px); }
+}
+@keyframes kamp-uro {
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+.kamp-angreb p {
+  margin: 4px 0;
+}
+.kamp-saetning {
+  font-size: 1.15em;
+}
+.kamp-saetning mark {
+  background: var(--guld-lys);
+  padding: 0 4px;
+  border-radius: 3px;
+  letter-spacing: 0.06em;
+}
+.kamp-valg,
+.dialog-valg {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  border: 0;
+  padding: 0;
+  margin: 8px 0;
+}
+.kamp-valg legend,
+.dialog-valg legend {
+  width: 100%;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+.kamp-muligheder {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 8px 0;
+}
+.kamp-mulighed {
+  min-width: 7em;
+  font-size: 1.1em;
+}
+.kamp-mulighed:disabled {
+  opacity: 0.45;
+  text-decoration: line-through;
+}
+.kamp-mulighed.rigtig:disabled {
+  opacity: 1;
+  text-decoration: none;
+  outline: 3px solid var(--groen);
+}
+@media (prefers-reduced-motion: reduce) {
+  .kamp-vaesen,
+  .kamp-vaesen[data-uro] {
+    animation: none;
+  }
+}
