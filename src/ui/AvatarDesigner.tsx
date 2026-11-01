@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { avatarDele, navne, t, type TekstId } from '../content';
 import { AVATAR_DELE, AVATAR_GRAENSER, type Avatar } from '../engine/gem';
-import { avatarDataUri } from './avatarSvg';
+import { avatarPixelUri } from './avatarPixelBillede';
 
 type Props = {
   avatar: Avatar;
@@ -41,7 +41,7 @@ export function AvatarDesigner({ avatar: start, navn: startNavn, laasteOp, ny, o
       <h1>{t('avatar.titel')}</h1>
       <div className="avatar-layout">
         <figure className="avatar-billede">
-          <img src={avatarDataUri(avatar)} alt={t('avatar.billede')} width={180} height={300} />
+          <img className="avatar-pixel" src={avatarPixelUri(avatar) ?? ''} alt={t('avatar.billede')} width={176} height={208} />
           <figcaption className="avatar-navn">
             {navne.adjektiver[navn.adjektiv]} {navne.dyr[navn.dyr]}
           </figcaption>

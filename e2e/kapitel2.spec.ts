@@ -37,7 +37,7 @@ test('kapitel 2: Råberens tegn, escape room, jagten over tagene og mørket', as
   await page.getByRole('button', { name: /^Taske/ }).click();
   for (const navn of ['Lanternen', 'Klattens kappe', 'Holms logbog']) await expect(page.locator('dialog.taske-vindue')).toContainText(navn);
   await page.locator('dialog.taske-vindue').getByRole('button', { name: 'Luk tasken' }).click();
-  await page.getByRole('button', { name: 'Undersøg Råberen' }).click();
+  await page.locator('.panel').getByRole('button', { name: 'Undersøg Råberen' }).click();
   // Et forkert svar giver en regel og et eksempel.
   const opgave = page.locator('dialog.opgave .raaber');
   const id = await opgave.getAttribute('data-saetning-id');
