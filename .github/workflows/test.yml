@@ -44,7 +44,8 @@ jobs:
   # Kræver én gang: Settings > Pages > Source: GitHub Actions.
   udgiv:
     needs: test
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    # workflow_dispatch: Lyd-jobbet starter en udgivelse efter sine egne klip (GitHub starter ikke jobs ud fra et jobs egne push).
+    if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
       pages: write
