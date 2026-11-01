@@ -19,6 +19,7 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  actions: write
 
 concurrency:
   group: lyd
@@ -98,3 +99,7 @@ jobs:
           # Klippene kan høres bagefter på korrektursiden (?lyd=1).
           gh pr merge "$GREN" --merge --delete-branch \
             || echo "::warning::Kunne ikke merge lyd-PR'en automatisk. Merge den selv fra grenen $GREN."
+          # Et merge lavet af jobbet starter ikke Test-jobbet, så spillet ville ikke blive lagt ud med de nye klip.
+          # Derfor startes Test (med udgivelse) her. Uden det hører eleverne browserens egen stemme.
+          gh workflow run test.yml --ref main \
+            || echo "::warning::Kunne ikke starte udgivelsen. Start Test-jobbet selv under Actions > Test > Run workflow."
