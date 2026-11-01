@@ -1303,6 +1303,13 @@
       "kilde": "Kapitel 2 / k2-port-aaben.3",
       "lavet": "2026-10-31"
     },
+    "1c23da6b128ee5": {
+      "figur": "introfortaeller",
+      "tekst": "Nogle historier bliver aldrig skrevet færdige.",
+      "fil": "1c23da6b128ee5.ogg",
+      "kilde": "Introen (gammel mand) / intro.1",
+      "lavet": "2026-11-01"
+    },
     "1c35ac3b04d4e0": {
       "figur": "fortaeller",
       "tekst": "Hvad skete der med ordbogen?",
@@ -1487,6 +1494,6 @@
     }
   },
   "model": "gemini-3.8-flash-tts",
-  "i_alt": 477,
-  "mangler": 265
+  "i_alt": 483,
+  "mangler": 270
 }
