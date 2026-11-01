@@ -1,6 +1,6 @@
 # Korrekturliste - Pennedal
 
-Lavet 2026-11-01. 899 tekster.
+Lavet 2026-11-01. 907 tekster.
 
 Sæt kryds, når en tekst er læst. Bevidste fejl står under "Bevidste fejl" og skal ikke rettes.
 Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), så læs hele teksten.
@@ -165,7 +165,13 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `bevisjagt.vaelg.saetning`: sætning {nr}
 - [ ] `bevisjagt.regel`: Svaret står i teksten. Læs sætningerne én ad gangen, og find den, der passer præcist til spørgsmålet.
 - [ ] `ogorm.titel`: Og-ormen
-- [ ] `ogorm.instruks`: Tryk på et "og", der står mellem to hele sætninger, for at lave det om til et punktum. Et "og" mellem to ord, fx "brød og smør", skal blive. Tryk på et ord for at skifte mellem stort og lille begyndelsesbogstav.
+- [ ] `ogorm.instruks`: Og-ormen har ædt punktummerne og sat "og" i stedet. Nu er teksten én lang sætning. Gør den til flere sætninger igen.
+- [ ] `ogorm.trin.1`: Læs teksten. Find steder, hvor én tanke slutter, og en ny begynder.
+- [ ] `ogorm.trin.2`: Tryk på "og" lige dér. Så bliver det til et punktum.
+- [ ] `ogorm.trin.3`: Tryk på ordet efter punktummet. Så får det stort begyndelsesbogstav.
+- [ ] `ogorm.pas.paa`: Pas på: Nogle "og" binder to ting sammen i samme sætning, fx "brød og smør". De skal blive stående.
+- [ ] `ogorm.saadan`: Sådan:
+- [ ] `ogorm.foer`: Klatten snublede og hatten fløj af.
 - [ ] `ogorm.laengde`: Ormen har {antal} led tilbage.
 - [ ] `ogorm.punktum`: punktum
 - [ ] `ogorm.fortryd`: Lav punktummet om til "og" igen
@@ -940,6 +946,10 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
   - Facit: Vi gik ned ad stien. Bladene knasede under vores fødder. En ugle tudede i mørket.
 - [ ] `og-2b` (Og-ormen): Klatten snublede over en rod og hatten fløj af hans hoved og den landede i floden.
   - Facit: Klatten snublede over en rod. Hatten fløj af hans hoved. Den landede i floden.
+- [ ] `og-2c` (Og-ormen): Du tog lanternen og kappen med og så gik du ud i natten.
+  - Facit: Du tog lanternen og kappen med. Så gik du ud i natten.
+- [ ] `og-2d` (Og-ormen): Vims fandt en blyant og et viskelæder og han stak dem i lommen.
+  - Facit: Vims fandt en blyant og et viskelæder. Han stak dem i lommen.
 - [ ] `og-3a` (Og-ormen): Æseløre og Klatten skændtes om vejen og ingen af dem ville give sig og til sidst gik de hver sin vej.
   - Facit: Æseløre og Klatten skændtes om vejen. Ingen af dem ville give sig. Til sidst gik de hver sin vej.
 - [ ] `og-3b` (Og-ormen): Månerne lyste gult og hvidt over dalen og papirtræerne raslede i vinden og et sted langt væk hviskede nogen.

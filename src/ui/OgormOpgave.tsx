@@ -55,7 +55,20 @@ export function OgormOpgave({ tekst, api }: { tekst: OgTekst; api: OpgaveApi }) 
   return (
     <div className="ogorm" data-tekst-id={tekst.id}>
       <p className="instruks">{t('ogorm.instruks')}</p>
-      <LaesOpKnap auto tekst={t('ogorm.instruks')} figur="fortaeller" />
+      <ol className="ogorm-trin">
+        <li>{t('ogorm.trin.1')}</li>
+        <li>{t('ogorm.trin.2')}</li>
+        <li>{t('ogorm.trin.3')}</li>
+      </ol>
+      <p className="lille-tekst">{t('ogorm.pas.paa')}</p>
+      <p className="ogorm-eksempel">
+        <strong>{t('ogorm.saadan')}</strong> <span className="ogorm-foer">{t('ogorm.foer')}</span> <span aria-hidden="true">→</span>{' '}
+        <span>{t('ogorm.eksempel')}</span>
+      </p>
+      <LaesOpKnap
+        auto
+        dele={(['ogorm.instruks', 'ogorm.trin.1', 'ogorm.trin.2', 'ogorm.trin.3', 'ogorm.pas.paa'] as const).map((id) => ({ tekst: t(id), figur: 'fortaeller' as const }))}
+      />
       <div className="orm" aria-hidden="true">
         <span className="orm-hoved">🐛</span>
         {Array.from({ length: led }, (_, i) => (

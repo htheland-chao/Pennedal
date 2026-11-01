@@ -66,14 +66,16 @@ export function DialogBoks({ replikker: grund, onFaerdig, onTaler, tilbageblik, 
           <PixelPortraet figur={r.taler} />
         </div>
         <div className="dialog-tekst">
-          <p className="taler-navn">{navn}</p>
+          <p className="taler-navn">
+            {navn}
+            <LaesOpKnap tekst={r.tekst} figur={r.taler} auto key={nr} vedFaerdig={vedFaerdig} ikon />
+          </p>
           <p className={r.taler === 'fortaeller' ? 'fortaeller' : ''} aria-live="polite">
             <Tekst tekst={r.tekst} />
           </p>
         </div>
       </div>
       <div className="knaprad">
-        <LaesOpKnap tekst={r.tekst} figur={r.taler} auto key={nr} vedFaerdig={vedFaerdig} />
         {skalVaelge && valg ? (
           <fieldset className="dialog-valg">
             <legend>{valg.spoergsmaal}</legend>

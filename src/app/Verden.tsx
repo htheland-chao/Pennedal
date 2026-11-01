@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { hentKapitel, kapitler, t, type KampTrin, type RumFund, type RumTrin, type Trin, type ValgMulighed } from '../content';
+import { hentKapitel, kapitler, t, type KampTrin, type Replik, type RumFund, type RumTrin, type Trin, type ValgMulighed } from '../content';
 import { erFaerdighed } from '../engine/faerdigheder';
 import type { GemtSpil, Indstillinger } from '../engine/gem';
 import { afslutTrin, aktueltSted, aktueltTrin, kapitelSlut } from '../engine/kapitel';
@@ -79,7 +79,6 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
   const maalNr = kapitel.trin.findIndex((x) => x.sted === stedId && x.objekt === 'maal');
   const baneKlaret = !!sted.bane && maalNr >= 0 && spil.trin > maalNr;
   const aktivtObjekt = trin && !aktivtTrin ? trin.objekt : null;
-  const objektNavn = sted.objekter.find((o) => o.id === (rum ? naer : aktivtObjekt))?.navn;
   // Objekter, der er forsvundet, fordi kapitlet er nået forbi deres skjulFra-trin.
   const skjulteObjekter = sted.objekter
     .filter((o) => {
@@ -96,6 +95,25 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
   // Æseløre er skjult, indtil eleven har fundet ham (kapitlets fuglFra-trin).
   const fuglNr = kapitel.fuglFra ? kapitel.trin.findIndex((t) => t.id === kapitel.fuglFra) : -1;
   const skjulte = fuglNr >= 0 && spil.trin < fuglNr ? [...skjulteObjekter, 'aeseloere'] : skjulteObjekter;
+
+  // Tal igen (Henrik, 1. november 2026): den, man har talt med på dette sted, kan man gå hen til igen
+  // og høre den seneste samtale. Et valg vises med den mulighed, eleven valgte.
+  const gentag = useMemo(() => {
+    const m: Record<string, Replik[]> = {};
+    for (const t of kapitel.trin.slice(0, spil.trin)) {
+      if (t.type !== 'dialog' || !t.objekt || t.sted !== stedId) continue;
+      const valgt = t.valg?.muligheder.find((v) => (v.saet ? spil.valg[v.saet] === 'ja' : false)) ?? t.valg?.muligheder.find((v) => !v.saet);
+      m[t.objekt] = valgt ? [...t.replikker, ...valgt.replikker] : t.replikker;
+    }
+    return m;
+  }, [kapitel, spil.trin, spil.valg, stedId]);
+  const [gentagelse, setGentagelse] = useState<Replik[] | null>(null);
+  const kanGentages = Object.keys(gentag).filter((id) => !skjulte.includes(id) && id !== trin?.objekt && sted.objekter.some((o) => o.id === id && o.felt));
+  const undersoegbare = aktive ?? (kanGentages.length && !slut ? [...(aktivtObjekt ? [aktivtObjekt] : []), ...kanGentages] : undefined);
+  /** Navnet på det, opgaven handler om (knappen i panelet). */
+  const aktivtNavn = sted.objekter.find((o) => o.id === aktivtObjekt)?.navn;
+  /** Navnet på det, hovedpersonen står ved og kan undersøge lige nu. */
+  const objektNavn = sted.objekter.find((o) => o.id === (rum || (naer && kanGentages.includes(naer)) ? naer : aktivtObjekt))?.navn;
 
   const startTrin = useCallback(
     (t: Trin) => {
@@ -161,7 +179,11 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
       rumHandling(rum, id);
       return;
     }
-    if (aktivtTrin || andetVindueAabent || !trin || trin.objekt !== id) return;
+    if (!aktivtTrin && !andetVindueAabent && !gentagelse && !rum && trin?.objekt !== id && gentag[id] && kanGentages.includes(id)) {
+      setGentagelse(gentag[id]);
+      return;
+    }
+    if (aktivtTrin || andetVindueAabent || gentagelse || !trin || trin.objekt !== id) return;
     startTrin(trin);
   }
 
@@ -211,7 +233,7 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
   }
 
   const avatarUri = useMemo(() => avatarDataUri(spil.avatar), [spil.avatar]);
-  const laast = !!aktivtTrin || andetVindueAabent || !!rumVindue || visTaske;
+  const laast = !!aktivtTrin || andetVindueAabent || !!rumVindue || visTaske || !!gentagelse;
 
   return (
     <main className={`verden tema-${sted.tema}${moerke ? ' moerke' : ''}${moerke && indstillinger.mindreUhygge ? ' moerke-mild' : ''}`}>
@@ -220,7 +242,7 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
           stedId={stedId}
           sted={sted}
           aktiv={aktivtObjekt}
-          aktive={aktive}
+          aktive={undersoegbare}
           baneKlaret={baneKlaret}
           avatarUri={avatarUri}
           avatar={spil.avatar}
@@ -336,14 +358,14 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
               <p className="naeste-overskrift">{t('verden.naeste')}</p>
               <p className="naeste-tekst">{trin.opgavetekst}</p>
               <LaesOpKnap tekst={trin.opgavetekst} figur="fortaeller" auto={!aktivtTrin && !andetVindueAabent} />
-              {objektNavn && (
+              {aktivtNavn && (
                 <button
                   type="button"
                   className="knap knap-primaer"
                   disabled={laast}
                   onClick={() => interaktion(trin.objekt!)}
                 >
-                  {t('verden.undersoeg', { navn: objektNavn })}
+                  {t('verden.undersoeg', { navn: aktivtNavn })}
                 </button>
               )}
               <p className="lille-tekst" aria-live="polite">
@@ -387,6 +409,7 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
           onLuk={() => setRumVindue(null)}
         />
       )}
+      {gentagelse && <DialogBoks replikker={gentagelse} onFaerdig={() => setGentagelse(null)} onTaler={setTaler} />}
       {aktivtTrin?.type === 'dialog' && <DialogBoks replikker={aktivtTrin.replikker} tilbageblik={aktivtTrin.tilbageblik} valg={aktivtTrin.valg} onValg={vaelg} onFaerdig={afslut} onTaler={setTaler} />}
       {aktivtTrin?.type === 'opgave' && (
         <OpgaveVindue
