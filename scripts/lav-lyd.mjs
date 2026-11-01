@@ -159,7 +159,7 @@ async function main() {
   }
 
   // Introen og tasken først: de ses af alle, og Google tillader kun 100 klip i døgnet på Tier 1.
-  const forrest = (p) => (/^(Introen|Tasken) \//.test(p.kilde) ? 0 : 1);
+  const forrest = (p) => (/^(Introen|Tasken)( \(gammel mand\))? \//.test(p.kilde) ? 0 : 1);
   const mangler = poster.filter((p) => !m.filer[p.noegle]).sort((a, b) => forrest(a) - forrest(b));
   const lavet = [];
   const fejl = [];

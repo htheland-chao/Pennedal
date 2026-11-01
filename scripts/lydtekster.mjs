@@ -86,8 +86,11 @@ export function alleLydtekster(stemmer = hentStemmer()) {
   tilfoej('aeseloere', `${t('feedback.eksempel')}: ${t('raaber.eksempel')}`, 'Beskeder / raaber.eksempel');
 
   // Introen (src/ui/Intro.tsx).
-  for (const id of ['intro.1', 'intro.2', 'intro.3', 'intro.4', 'intro.5', 'intro.5.slut'])
+  // Introen kan fortælles af to stemmer, så Henrik kan vælge: den nuværende og den dybe gamle mand.
+  for (const id of ['intro.1', 'intro.2', 'intro.3', 'intro.4', 'intro.5', 'intro.5.slut']) {
     tilfoej('fortaeller', t(id), `Introen / ${id}`);
+    tilfoej('introfortaeller', t(id), `Introen (gammel mand) / ${id}`);
+  }
   tilfoej('ufaerdige', t('intro.4.hvisken'), 'Introen / intro.4.hvisken');
 
   // Minderne (src/ui/Tilbageblik.tsx, teksterne i src/content/minder.ts): hver del er et klip, også de milde udgaver.

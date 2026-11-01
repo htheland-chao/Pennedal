@@ -151,7 +151,7 @@ export function App() {
         </main>
       )}
 
-      {skaerm === 'intro' && <Intro onFaerdig={() => setSkaerm(efterIntro)} />}
+      {skaerm === 'intro' && <Intro onFaerdig={() => setSkaerm(efterIntro)} onFortaeller={(v) => skiftIndstillinger({ ...indstillinger, introFortaeller: v })} />}
 
       {skaerm === 'ny-avatar' && (
         <AvatarDesigner

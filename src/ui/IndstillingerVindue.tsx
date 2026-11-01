@@ -30,6 +30,14 @@ export function IndstillingerVindue({ indstillinger: i, onSkift, onLuk }: Props)
           {t('indst.autovidere')}
         </label>
         <label className="afkryds">
+          <input
+            type="checkbox"
+            checked={i.introFortaeller === 'gammel'}
+            onChange={(e) => onSkift({ ...i, introFortaeller: e.target.checked ? 'gammel' : 'nuvaerende' })}
+          />
+          {t('indst.introgammel')}
+        </label>
+        <label className="afkryds">
           <input type="checkbox" checked={i.indtalt} onChange={(e) => onSkift({ ...i, indtalt: e.target.checked })} />
           {t('indst.indtalt')}
         </label>

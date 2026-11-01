@@ -81,6 +81,8 @@ export type Indstillinger = {
   taleStyrke: number;
   /** Dialogen går selv videre til næste replik, når oplæsningen er færdig. */
   autoVidere: boolean;
+  /** Hvem der fortæller i introen: den nuværende stemme eller en dyb, ildevarslende gammel mand. */
+  introFortaeller: 'nuvaerende' | 'gammel';
   /** Baggrundsmusik til eller fra. */
   musik: boolean;
   /** Styrke for baggrundsmusikken, 0-100. */
@@ -96,6 +98,7 @@ export const STANDARD_INDSTILLINGER: Indstillinger = {
   indtalt: true,
   taleStyrke: 80,
   autoVidere: true,
+  introFortaeller: 'nuvaerende',
   musik: true,
   musikStyrke: 50,
 };
@@ -222,6 +225,7 @@ export function hentIndstillinger(lager: Storage | undefined = globalThis.localS
       indtalt: typeof d.indtalt === 'boolean' ? d.indtalt : true,
       taleStyrke: erTal(d.taleStyrke, 0, 100) ? d.taleStyrke : 80,
       autoVidere: typeof d.autoVidere === 'boolean' ? d.autoVidere : true,
+      introFortaeller: d.introFortaeller === 'gammel' ? 'gammel' : 'nuvaerende',
       musik: typeof d.musik === 'boolean' ? d.musik : true,
       musikStyrke: erTal(d.musikStyrke, 0, 100) ? d.musikStyrke : 50,
     };
