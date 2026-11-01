@@ -1,0 +1,28 @@
+{
+  "faerdighed": "laes.ordforraad",
+  "ord": [
+    { "id": "glad", "ord": "glad", "saetning": "Vims er glad, fordi solen skinner.", "svar": "munter", "forkerte": ["vred", "træt"], "svaerhed": 1 },
+    { "id": "sur", "ord": "sur", "saetning": "Klatten er sur i dag.", "svar": "gnaven", "forkerte": ["venlig", "glad"], "svaerhed": 1 },
+    { "id": "smuk", "ord": "smuk", "saetning": "Skoven var smuk engang.", "svar": "køn", "forkerte": ["grim", "kold"], "svaerhed": 1 },
+    { "id": "skoen", "ord": "skøn", "saetning": "Det er en skøn dag.", "svar": "dejlig", "forkerte": ["kedelig", "våd"], "svaerhed": 1 },
+    { "id": "loebe", "ord": "løbe", "saetning": "Klatten vil løbe sin vej.", "svar": "rende", "forkerte": ["sove", "synge"], "svaerhed": 1 },
+    { "id": "snakke", "ord": "snakke", "saetning": "Træerne kan ikke snakke mere.", "svar": "tale", "forkerte": ["vokse", "sove"], "svaerhed": 1 },
+    { "id": "kigge", "ord": "kigge", "saetning": "Vims tør ikke kigge op.", "svar": "se", "forkerte": ["høre", "gå"], "svaerhed": 1 },
+    { "id": "bange", "ord": "bange", "saetning": "Vims bliver bange, når det blæser.", "svar": "skræmt", "forkerte": ["modig", "sulten"], "svaerhed": 1 },
+    { "id": "stille", "ord": "stille", "saetning": "Fuglen er helt stille.", "svar": "tavs", "forkerte": ["larmende", "sulten"], "svaerhed": 2 },
+    { "id": "traet", "ord": "træt", "saetning": "Æseløre er træt efter den lange tur.", "svar": "udmattet", "forkerte": ["frisk", "sulten"], "svaerhed": 2 },
+    { "id": "begynde", "ord": "begynde", "saetning": "Nu skal historien begynde.", "svar": "starte", "forkerte": ["slutte", "sove"], "svaerhed": 2 },
+    { "id": "kaempestor", "ord": "kæmpestor", "saetning": "Svampen er kæmpestor.", "svar": "enorm", "forkerte": ["lillebitte", "blød"], "svaerhed": 2 },
+    { "id": "modig", "ord": "modig", "saetning": "Du er modig, siger Vims.", "svar": "tapper", "forkerte": ["bange", "doven"], "svaerhed": 2 },
+    { "id": "moerk", "ord": "mørk", "saetning": "Stien er mørk under træerne.", "svar": "dunkel", "forkerte": ["lys", "bred"], "svaerhed": 2 },
+    { "id": "beroemt", "ord": "berømt", "saetning": "Klatten vil være berømt.", "svar": "kendt", "forkerte": ["glemt", "sulten"], "svaerhed": 2 },
+    { "id": "rolig", "ord": "rolig", "saetning": "Skoven var rolig før.", "svar": "fredelig", "forkerte": ["urolig", "larmende"], "svaerhed": 2 },
+    { "id": "nervoes", "ord": "nervøs", "saetning": "Vims er nervøs før turen.", "svar": "urolig", "forkerte": ["rolig", "sulten"], "svaerhed": 3 },
+    { "id": "forsigtig", "ord": "forsigtig", "saetning": "Vær forsigtig ved floden.", "svar": "varsom", "forkerte": ["hurtig", "sløset"], "svaerhed": 3 },
+    { "id": "fjende", "ord": "fjende", "saetning": "Klatten er ikke din fjende.", "svar": "modstander", "forkerte": ["ven", "nabo"], "svaerhed": 3 },
+    { "id": "besked", "ord": "besked", "saetning": "Råberen har en vigtig besked.", "svar": "meddelelse", "forkerte": ["hat", "opgave"], "svaerhed": 3 },
+    { "id": "hemmelig", "ord": "hemmelig", "saetning": "Der er en hemmelig sti i skoven.", "svar": "skjult", "forkerte": ["kendt", "bred"], "svaerhed": 3 },
+    { "id": "opdager", "ord": "opdager", "saetning": "Du opdager et spor i den hvide tåge.", "svar": "finder", "forkerte": ["taber", "skjuler"], "svaerhed": 3 },
+    { "id": "fortaelle", "ord": "fortælle", "saetning": "Vims vil fortælle dig noget.", "svar": "berette", "forkerte": ["skjule", "glemme"], "svaerhed": 3 }
+  ]
+}

@@ -3,8 +3,9 @@ import type { StedObjekt } from '../content';
 import type { Avatar } from '../engine/gem';
 import { erFastTegn, FELT, feltMidte, feltVed, felterVed, findVej, laesKort, type Felt, type Kort } from './kort';
 import { bordflade, erInde, HOLM, KARTOTEK, KASSE, LOGBOG, PLANTE, PORT, PRESSE, reol, SPRINGVAND, STIGE, tegnRum, trappe, vindueslys } from './pixel/inde';
-import { belysning, hash, lavLys, lavSkygge, lysOpsaetning, tegnGrund, tegnkortTilLerred, tegnVand, VARMT, type Farve } from './pixel/lerred';
+import { belysning, blegt, hash, lavLys, lavSkygge, lysOpsaetning, tegnGrund, tegnkortTilLerred, tegnVand, VARMT, type Farve } from './pixel/lerred';
 import { avatarPixel, BLADE, FUGL, fyrtaarn, KLATTEN, LANTERNE, papirtrae, PIL, PLANKE, SKILT, STOLPE, TALEBOBLE, voksen, type Retning, type Tegnkort } from './pixel/sprites';
+import { STUMMING, TOMORD, VIMS } from './pixel/viskeskov';
 import type { VerdenData, VerdenKroge } from './VerdenScene';
 
 /**
@@ -15,11 +16,11 @@ export const VIS_B = 320;
 export const VIS_H = 180;
 const FART = 70; // pixel pr. sekund i pixelverdenen
 const NAER = 24;
-const FASTE_FORMER = new Set(['gnom', 'skilt', 'person', 'skab', 'port', 'kasse', 'presse', 'borger', 'doer', 'stige']);
+const FASTE_FORMER = new Set(['gnom', 'skilt', 'person', 'skab', 'port', 'kasse', 'presse', 'borger', 'doer', 'stige', 'vims', 'tomord', 'stumming']);
 /** Figurer med deres eget pixelbillede i stedet for en almindelig voksen. */
 const PERSONER: Record<string, Tegnkort> = { holm: HOLM };
 /** Hvor højt over feltets midte pilen svæver for hver form. */
-const PIL_HOEJDE: Record<string, number> = { gnom: 20, person: 27, skilt: 16, bog: 12, doer: 22, skab: 24, port: 22, kasse: 14, presse: 16, stige: 24 };
+const PIL_HOEJDE: Record<string, number> = { gnom: 20, person: 27, skilt: 16, bog: 12, doer: 22, skab: 24, port: 22, kasse: 14, presse: 16, stige: 24, vims: 20, tomord: 18, stumming: 18 };
 
 type Lyskilde = { x: number; y: number; billede: HTMLCanvasElement };
 
@@ -142,7 +143,8 @@ export class KortScene extends Phaser.Scene {
     this.tone = lys.tone;
 
     // Jorden og vandet for dette sted. Indendørs: gulv og vægge.
-    const grund = inde ? tegnRum(this.kort, tema === 'kaelder' ? 'sten' : 'trae') : tegnGrund(this.kort);
+    const grund0 = inde ? tegnRum(this.kort, tema === 'kaelder' ? 'sten' : 'trae') : tegnGrund(this.kort);
+    const grund = tema === 'viskeskov' ? blegt(grund0, 0.8) : grund0;
     this.add.image(0, 0, this.tekstur(`px-grund-${tema}`, grund, true)).setOrigin(0).setDepth(-100000);
     for (let i = 0; i < 3; i++) this.tekstur(`px-vand-${tema}-${i}`, tegnVand(this.kort, i), true);
     this.vand = this.add.image(0, 0, `px-vand-${tema}-0`).setOrigin(0).setDepth(-99999);
@@ -192,13 +194,16 @@ export class KortScene extends Phaser.Scene {
       else if (o.form === 'kasse') noegle = this.tekstur('px-kasse', KASSE);
       else if (o.form === 'presse') noegle = this.tekstur('px-presse', PRESSE);
       else if (o.form === 'stige') noegle = this.tekstur('px-stige', STIGE);
+      else if (o.form === 'vims') noegle = this.tekstur('px-vims', VIMS);
+      else if (o.form === 'tomord') noegle = this.tekstur('px-tomord', TOMORD);
+      else if (o.form === 'stumming') noegle = this.tekstur('px-stumming', STUMMING);
       else if (o.form === 'borger') noegle = this.tekstur(`px-person-${o.farve}`, voksen(o.farve, o.lys ? '#3a2a20' : '#6b4a2b'));
       else if (o.form === 'bog') {
         // Bogen ligger fladt på disken og tegnes oven på den.
         billeder.push(this.add.image(o.felt[0] * FELT + 2, o.felt[1] * FELT + 2, this.tekstur('px-logbog', LOGBOG)).setOrigin(0).setDepth(o.felt[1] * FELT + 16));
       }
       if (noegle) {
-        if (['gnom', 'person', 'borger'].includes(o.form)) billeder.push(this.add.image(midte.x, midte.y, 'px-skygge').setOrigin(0.5, 0.5).setDepth(midte.y - 1));
+        if (['gnom', 'person', 'borger', 'vims', 'tomord', 'stumming'].includes(o.form)) billeder.push(this.add.image(midte.x, midte.y, 'px-skygge').setOrigin(0.5, 0.5).setDepth(midte.y - 1));
         billeder.push(this.add.image(midte.x, midte.y, noegle).setOrigin(0.5, 1).setDepth(midte.y).setData('y0', midte.y));
       }
       if (o.lys) {
@@ -359,8 +364,9 @@ export class KortScene extends Phaser.Scene {
     this.taler = taler;
     this.sidsteLys = '';
     if (!taler) {
+      // Stop kun den tur, dialogen selv startede, ikke en tur, eleven lige har sat i gang.
+      if (this.gaarTilTaler) this.vej = [];
       this.gaarTilTaler = false;
-      this.vej = [];
       return;
     }
     // Står hovedpersonen langt fra den, der taler, går den derhen.
@@ -417,7 +423,8 @@ export class KortScene extends Phaser.Scene {
 
   laas(laast: boolean) {
     this.laast = laast;
-    this.vej = [];
+    // Kun låsning stopper en tur. Ellers sletter oplåsningen efter en dialog en tur, der lige er startet.
+    if (laast) this.vej = [];
     if (this.input.keyboard) this.input.keyboard.enabled = !laast;
   }
 
@@ -448,6 +455,7 @@ export class KortScene extends Phaser.Scene {
     }
     if (!bedst) return;
     this.vej = bedst;
+    this.gaarTilTaler = false;
     this.interagerVedMaal = true;
     if (bedst.length === 0) this.ankommet();
   }
@@ -457,6 +465,7 @@ export class KortScene extends Phaser.Scene {
     const v = findVej(this.kort, fra, til, (x, y) => this.erFast(x, y));
     if (!v) return;
     this.vej = v;
+    this.gaarTilTaler = false;
     this.interagerVedMaal = interager;
   }
 

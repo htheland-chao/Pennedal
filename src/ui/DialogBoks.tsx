@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useApp } from './Kontekst';
 import { daempMusik } from './musik/afspiller';
-import { t, type Replik, type TekstId } from '../content';
+import { t, type DialogValg, type Replik, type TekstId, type ValgMulighed } from '../content';
 import { Modal } from './Modal';
 import { PixelPortraet } from './PixelPortraet';
 import { LaesOpKnap, Tekst } from './Tekst';
@@ -19,13 +19,20 @@ type DialogProps = {
   onTaler?: (taler: Replik['taler'] | null) => void;
   /** Et tilbageblik, der vises lige før replikken med nummer foer. */
   tilbageblik?: { id: string; foer: number };
+  /** Et valg efter den sidste replik. Den valgte muligheds replikker kommer bagefter. */
+  valg?: DialogValg;
+  onValg?: (m: ValgMulighed) => void;
 };
 
-export function DialogBoks({ replikker, onFaerdig, onTaler, tilbageblik }: DialogProps) {
+export function DialogBoks({ replikker: grund, onFaerdig, onTaler, tilbageblik, valg, onValg }: DialogProps) {
   const [nr, setNr] = useState(0);
+  const [valgt, setValgt] = useState<ValgMulighed | null>(null);
+  const replikker = valgt ? [...grund, ...valgt.replikker] : grund;
   const r = replikker[nr];
   const navn = t(`taler.${r.taler}` as TekstId);
   const sidste = nr === replikker.length - 1;
+  /** Eleven skal vælge, før dialogen kan gå videre. */
+  const skalVaelge = !!valg && !valgt && sidste;
   const { indstillinger } = useApp();
   const [naeste, setNaeste] = useState<number | null>(null);
   const [mindeSet, setMindeSet] = useState(false);
@@ -67,6 +74,27 @@ export function DialogBoks({ replikker, onFaerdig, onTaler, tilbageblik }: Dialo
       </div>
       <div className="knaprad">
         <LaesOpKnap tekst={r.tekst} figur={r.taler} auto key={nr} vedFaerdig={vedFaerdig} />
+        {skalVaelge && valg ? (
+          <fieldset className="dialog-valg">
+            <legend>{valg.spoergsmaal}</legend>
+            {valg.muligheder.map((m, i) => (
+              <button
+                key={m.tekst}
+                type="button"
+                className="knap knap-primaer"
+                autoFocus={i === 0}
+                onClick={() => {
+                  setNaeste(null);
+                  setValgt(m);
+                  onValg?.(m);
+                  setNr(nr + 1);
+                }}
+              >
+                {m.tekst}
+              </button>
+            ))}
+          </fieldset>
+        ) : (
         <button
           type="button"
           className="knap knap-primaer"
@@ -80,6 +108,7 @@ export function DialogBoks({ replikker, onFaerdig, onTaler, tilbageblik }: Dialo
         >
           {t('dialog.videre')}
         </button>
+        )}
       </div>
     </Modal>
   );

@@ -162,7 +162,64 @@ function tegnStreger(): HTMLCanvasElement {
   return c;
 }
 
-const TEGN: Record<MindeId, () => HTMLCanvasElement> = { blaek: tegnBlaek, streger: tegnStreger };
+/** Køkkenbordet: en ternet voksdug, et åbent grønt hæfte med en tegning af en skygge med store øjne og en glad hånd, der skriver. */
+function tegnKoekkenbord(): HTMLCanvasElement {
+  const c = lerred(B, H);
+  const g = c.getContext('2d')!;
+  // Væggen og lampens gule lys foroven.
+  for (let y = 0; y < 44; y++)
+    for (let x = 0; x < B; x++) {
+      const d = Math.hypot(x - 160, y + 10) / 170 + hash(x, y) * 0.06;
+      felt(g, x, y, 1, 1, d < 0.45 ? '#f6e3b0' : d < 0.75 ? P.lys : P.mellem);
+    }
+  // Voksdugen: tern i falmet rødt og creme, lidt i perspektiv (tættere tern forrest).
+  for (let y = 44; y < H; y++) {
+    const t = (y - 44) / (H - 44);
+    const str = 8 + Math.floor(t * 10);
+    for (let x = 0; x < B; x++) {
+      const tx = Math.floor((x - 160) / str + 100);
+      const ty = Math.floor((y - 44) / (6 + t * 8));
+      const roed = (tx + ty) % 2 === 0;
+      felt(g, x, y, 1, 1, roed ? (hash(x, y) > 0.9 ? '#c98b78' : '#d29a86') : hash(x, y) > 0.9 ? '#eadcc0' : '#f1e5cb');
+    }
+  }
+  felt(g, 0, 44, B, 2, P.moerk);
+  // Hæftet: grønt omslag og to åbne sider.
+  felt(g, 66, 64, 190, 104, P.kontur);
+  felt(g, 67, 65, 188, 102, '#6f8f62');
+  felt(g, 72, 68, 88, 96, P.papir);
+  felt(g, 162, 68, 88, 96, P.papir);
+  felt(g, 160, 68, 2, 96, P.papirSkygge);
+  // Venstre side: barnets tegning af en skygge med store, runde øjne. En skæv, blød klat, der læner sig
+  // til siden og løber ud i en tynd hale, som en skygge på en væg. Tegnet til Pennedal.
+  for (let y = -24; y <= 26; y++)
+    for (let x = -26; x <= 24; x++) {
+      const skaev = x + y * 0.25;
+      const krop = (skaev * skaev) / (20 * 20) + ((y + 4) * (y + 4)) / (24 * 24) <= 1;
+      const hale = y > 8 && y < 26 && Math.abs(skaev + 14 + (y - 8) * 0.6) < 4 - (y - 8) / 6;
+      if (krop || hale) felt(g, 116 + x, 112 + y, 1, 1, hash(x, y) > 0.93 ? '#5a5574' : '#4a4560');
+    }
+  for (const ox of [-9, 9]) {
+    for (let y = -6; y <= 6; y++) for (let x = -6; x <= 6; x++) if (x * x + y * y <= 36) felt(g, 116 + ox + x, 104 + y, 1, 1, '#f6ecd6');
+    for (let y = -2; y <= 2; y++) for (let x = -2; x <= 2; x++) if (x * x + y * y <= 4) felt(g, 116 + ox + x + 1, 105 + y, 1, 1, '#2b2433');
+  }
+  // Højre side: linjer med ord, der vælter lidt (streger, ingen bogstaver).
+  for (let r = 0; r < 8; r++) {
+    const y = 78 + r * 10;
+    let x = 168;
+    while (x < 240 && !(r === 7 && x > 200)) {
+      const w = 5 + Math.floor(hash(x, r + 7) * 12);
+      if (x + w > 244) break;
+      const haeld = hash(x, r) > 0.6 ? 1 : 0;
+      for (let i = 0; i < w; i++) felt(g, x + i, y + (i > w / 2 ? haeld : 0), 1, 2, '#7d7066');
+      x += w + 4;
+    }
+  }
+  haandMedBlyant(g, 214, 152, 2);
+  return c;
+}
+
+const TEGN: Record<MindeId, () => HTMLCanvasElement> = { blaek: tegnBlaek, streger: tegnStreger, koekkenbord: tegnKoekkenbord };
 
 const cache = new Map<MindeId, string | null>();
 /** Billedet til et minde som data-URL. Uden canvas (fx i enhedstests) bliver det null, og mindet vises kun som tekst. */

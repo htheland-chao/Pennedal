@@ -86,3 +86,12 @@ blækplet
 blækpletter
 # Introen (31. oktober 2026): studiets navn.
 Theland
+# Kapitel 3 (31. oktober 2026): steder, væsner og sammensatte ord.
+Viskeskoven
+Blæksporet
+Tomord
+Tomordet
+Stumming
+Stummingen
+Portvagtens
+blækpletterne

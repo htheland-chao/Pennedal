@@ -1,0 +1,275 @@
+{
+  "kapitel": 3,
+  "titel": "Viskeskoven",
+  "steder": {
+    "skovbrynet": {
+      "navn": "Viskeskoven",
+      "tema": "viskeskov",
+      "start": {
+        "x": 0,
+        "y": 0
+      },
+      "kort": [
+        "##########################",
+        "##########################",
+        "##########################",
+        "#############,,,,,,,,#####",
+        "#############,,,,,,,,#####",
+        "#############,,,,,,,,#####",
+        "#,,,,,,,,,###,,,,,,,,#####",
+        "#,,,,,,,,,,,,,,,,,,,,,,,,,",
+        "#,,,,,,,,,,,,,,,,,,,,,,,,,",
+        "..........................",
+        "#,,LL,,,,,,,,########,,,,,",
+        "#,,,,,,,,,,,,########,,,,,",
+        "#,,,,,,,,,################",
+        "##########################",
+        "##########################",
+        "##########################"
+      ],
+      "startFelt": [1, 9],
+      "objekter": [
+        { "id": "skilt", "navn": "det hvide skilt", "x": 0, "y": 0, "w": 0, "h": 0, "form": "skilt", "farve": "#f4f1ea", "felt": [6, 8] },
+        { "id": "tomordet", "navn": "væsnet på stien", "x": 0, "y": 0, "w": 0, "h": 0, "form": "tomord", "farve": "#e8e4f0", "felt": [11, 9], "skjulFra": "k3-vims" },
+        { "id": "vims", "navn": "den store svamp", "x": 0, "y": 0, "w": 0, "h": 0, "form": "vims", "farve": "#c9c2d6", "felt": [16, 6], "skjulFra": "k3-til-lysning" },
+        { "id": "sti", "navn": "stien mod lysningen", "x": 0, "y": 0, "w": 0, "h": 0, "form": "sti", "farve": "#d8d4cc", "felt": [25, 9] }
+      ]
+    },
+    "lysningen": {
+      "navn": "Den hvide lysning",
+      "tema": "viskeskov",
+      "start": {
+        "x": 0,
+        "y": 0
+      },
+      "kort": [
+        "##########################",
+        "##########################",
+        "##########################",
+        "##########,,,,,,,,,,,,,,##",
+        "##########,,,,,,,,,,,,,,##",
+        "##########,,,,,,,,,,,,,,##",
+        "#,,,,,,,,,,,,,,,,,,,,,,,##",
+        "#,,,,,,,,,,,,,,,,,,,,,,,##",
+        "................,,,,,,,,##",
+        "#,,,,,,,,,,,,,,,,,,,,,,,##",
+        "#,,,,,,,,,,,,,,,,,,,,,,,##",
+        "#,,,,,,,,,,,,,,,,,,,,,,,##",
+        "##########,,,,,,,,,,,,,,##",
+        "##########,,,,,,,,,,,,,,##",
+        "##########################",
+        "##########################"
+      ],
+      "startFelt": [1, 8],
+      "objekter": [
+        { "id": "stumming", "navn": "væsnet, der hvisker", "x": 0, "y": 0, "w": 0, "h": 0, "form": "stumming", "farve": "#9a9aa8", "felt": [10, 8], "skjulFra": "k3-klatten" },
+        { "id": "klatten", "navn": "Klatten", "x": 0, "y": 0, "w": 0, "h": 0, "form": "gnom", "farve": "#1b1b3a", "felt": [17, 7], "skjulFra": "k3-moerke" }
+      ]
+    }
+  },
+  "trin": [
+    {
+      "id": "k3-ankomst",
+      "type": "dialog",
+      "del": 1,
+      "sted": "skovbrynet",
+      "objekt": null,
+      "replikker": [
+        { "taler": "fortaeller", "tekst": "Blæksporet fører ind i en skov. Men noget er galt. Træerne er blege, som om nogen har prøvet at viske dem ud." },
+        { "taler": "aeseloere", "tekst": "Viskeskoven. Her plejer der at være farver. Og fugle. Og ord på skiltene." },
+        { "taler": "fortaeller", "tekst": "En fugl synger et par toner. Så stopper den midt i det hele." },
+        { "taler": "aeseloere", "tekst": "Klattens spor fører den vej. Hold din lanterne frem. Den kan lyse sig igennem den hvide tåge." }
+      ]
+    },
+    {
+      "id": "k3-skilt",
+      "type": "dialog",
+      "del": 1,
+      "sted": "skovbrynet",
+      "objekt": "skilt",
+      "opgavetekst": "Læs skiltet ved stien.",
+      "replikker": [
+        { "taler": "fortaeller", "tekst": "Skiltet er helt hvidt. Der har stået noget, men ordene er visket ud. Kun to ord er tilbage: Pas på." },
+        { "taler": "aeseloere", "tekst": "Pas på hvad? Det er det dårligste skilt, jeg nogensinde har læst." },
+        { "taler": "fortaeller", "tekst": "Henne på stien står noget og vugger frem og tilbage. Det ligner et ord, men der er ingenting inden i det." }
+      ]
+    },
+    {
+      "id": "k3-tomordet-moede",
+      "type": "dialog",
+      "del": 1,
+      "sted": "skovbrynet",
+      "objekt": "tomordet",
+      "opgavetekst": "Gå hen til væsnet på stien.",
+      "replikker": [
+        { "taler": "tomordet", "tekst": "Ord. Ord. Jeg er så sulten efter ord." },
+        { "taler": "aeseloere", "tekst": "Et Tomord. Det æder ord og efterlader huller. Det er derfor, skiltet er tomt." },
+        { "taler": "tomordet", "tekst": "Giv mig et ord, der betyder det samme. Så bliver jeg mæt. Måske." },
+        { "taler": "aeseloere", "tekst": "Det er ikke farligt. Bare sulten og lidt uhøfligt. Hver gang det æder et ord, finder du et andet ord, der betyder det samme. Så falder det til ro." }
+      ]
+    },
+    {
+      "id": "k3-tomordet",
+      "type": "kamp",
+      "del": 1,
+      "sted": "skovbrynet",
+      "objekt": "tomordet",
+      "opgavetekst": "Gør Tomordet roligt.",
+      "vaesen": "tomordet",
+      "faerdighed": "laes.ordforraad",
+      "antal": 3
+    },
+    {
+      "id": "k3-tomordet-slut",
+      "type": "dialog",
+      "del": 1,
+      "sted": "skovbrynet",
+      "objekt": null,
+      "replikker": [
+        { "taler": "tomordet", "tekst": "Åh. Ord, der betyder det samme. De smager dobbelt så godt." },
+        { "taler": "fortaeller", "tekst": "Tomordet bliver helt roligt. Det folder sig sammen til et lille, glad ord og hopper ind mellem træerne." },
+        { "taler": "aeseloere", "tekst": "Synonymer. Det er ord, der betyder det samme eller næsten det samme. Når et ord bliver væk, kan et andet tit tage dets plads." },
+        { "taler": "fortaeller", "tekst": "Under en stor svamp ved stien er der noget, der ryster." }
+      ]
+    },
+    {
+      "id": "k3-vims",
+      "type": "dialog",
+      "del": 1,
+      "sted": "skovbrynet",
+      "objekt": "vims",
+      "opgavetekst": "Kig under den store svamp.",
+      "slutDel": 1,
+      "giver": ["krummer"],
+      "tilbageblik": { "id": "koekkenbord", "foer": 5 },
+      "replikker": [
+        { "taler": "vims", "tekst": "Undskyld! Undskyld, at jeg sidder her. Og undskyld, at jeg undskylder." },
+        { "taler": "aeseloere", "tekst": "Et viskelæder. Selvfølgelig. Hvad laver du her?" },
+        { "taler": "vims", "tekst": "Jeg hedder Vims. Når jeg bliver bange, kommer jeg til at viske ting ud. Træer. Skilte. Næsten en hel fugl." },
+        { "taler": "vims", "tekst": "Hov. Nu blev jeg bange igen." },
+        { "taler": "fortaeller", "tekst": "Vims nyser. Et træ ved siden af dig bliver hvidt og forsvinder. Bag det står et køkkenbord, du kender." },
+        { "taler": "aeseloere", "tekst": "Hallo? Du stod og stirrede ud i luften igen." },
+        { "taler": "fortaeller", "tekst": "Du ryster på hovedet. Træet er væk, og køkkenbordet med." },
+        { "taler": "vims", "tekst": "Var det mig? Undskyld. Jeg tror, jeg kom til at viske et hul i noget, der ikke var skoven." },
+        { "taler": "vims", "tekst": "Må jeg komme med? Jeg kan godt være modig. Næsten. Og jeg har krummer med, hvis noget skal viskes ud." },
+        { "taler": "aeseloere", "tekst": "Fint. Men hvis du visker mig ud, kommer jeg efter dig." }
+      ]
+    },
+    {
+      "id": "k3-til-lysning",
+      "type": "skift",
+      "del": 2,
+      "sted": "skovbrynet",
+      "objekt": "sti",
+      "opgavetekst": "Følg stien mod lysningen.",
+      "tilSted": "lysningen"
+    },
+    {
+      "id": "k3-lysning",
+      "type": "dialog",
+      "del": 2,
+      "sted": "lysningen",
+      "objekt": null,
+      "replikker": [
+        { "taler": "fortaeller", "tekst": "Stien ender i en lysning. Alt er hvidt her, også himlen." },
+        { "taler": "fortaeller", "tekst": "Midt i lysningen sidder Klatten. Han kan ikke komme væk. Han sidder fast i en sætning, der aldrig blev skrevet færdig." },
+        { "taler": "klatten", "tekst": "Jeg sider ikke fast! Jeg hviler mig bare. Med vilje.", "bevidstFejl": true },
+        { "taler": "aeseloere", "tekst": "Det hedder sidder, med to d'er. Og jo, du sidder fast." },
+        { "taler": "vims", "tekst": "Der står noget mellem os og ham. Noget, der hvisker. Undskyld, det er ikke mig denne gang." }
+      ]
+    },
+    {
+      "id": "k3-stumming-moede",
+      "type": "dialog",
+      "del": 2,
+      "sted": "lysningen",
+      "objekt": "stumming",
+      "opgavetekst": "Gå hen til det, der hvisker.",
+      "replikker": [
+        { "taler": "stumming", "tekst": "Hys. Jeg samler på bogstaver, man ikke kan høre. Dem savner ingen." },
+        { "taler": "aeseloere", "tekst": "En Stumming. Den stjæler stumme bogstaver. Find det bogstav, der mangler, så giver den slip." },
+        { "taler": "vims", "tekst": "Hvis du vil have hjælp, kan jeg viske en forkert mulighed ud. Bare spørg. Undskyld." }
+      ]
+    },
+    {
+      "id": "k3-stumming",
+      "type": "kamp",
+      "del": 2,
+      "sted": "lysningen",
+      "objekt": "stumming",
+      "opgavetekst": "Gør Stummingen rolig.",
+      "vaesen": "stumming",
+      "faerdighed": "stav.stumme",
+      "antal": 3,
+      "hjaelper": "vims"
+    },
+    {
+      "id": "k3-stumming-slut",
+      "type": "dialog",
+      "del": 2,
+      "sted": "lysningen",
+      "objekt": null,
+      "replikker": [
+        { "taler": "stumming", "tekst": "Nå. Du kan høre dem, selvom de ikke siger noget. Så må du få dem tilbage." },
+        { "taler": "fortaeller", "tekst": "Stummingen lægger bogstaverne fra sig og lister ind mellem træerne." }
+      ]
+    },
+    {
+      "id": "k3-klatten",
+      "type": "dialog",
+      "del": 2,
+      "sted": "lysningen",
+      "objekt": "klatten",
+      "opgavetekst": "Gå hen til Klatten.",
+      "replikker": [
+        { "taler": "klatten", "tekst": "Hvad glor du på? Jeg er den Frygtelige. Jeg har bare travlt med at sidde stille." },
+        { "taler": "fortaeller", "tekst": "Rundt om Klatten svæver to ord fra en halv sætning: Og så. De holder ham fast som et reb." },
+        { "taler": "aeseloere", "tekst": "Det er Den Ufærdige. Han efterlader altid noget, der ikke er færdigt." },
+        { "taler": "klatten", "tekst": "Han sagde, at jeg var en dårlig tjener. At jeg aldrig bliver færdig med noget." },
+        { "taler": "vims", "tekst": "Det var ikke pænt sagt. Undskyld, at jeg siger det." }
+      ],
+      "valg": {
+        "spoergsmaal": "Hvad gør du?",
+        "muligheder": [
+          {
+            "tekst": "Hjælp Klatten fri",
+            "saet": "klatten.hjulpet",
+            "venlighed": 1,
+            "replikker": [
+              { "taler": "fortaeller", "tekst": "Du sætter et punktum efter de to ord. Nu er sætningen færdig, og rebet af ord falder af." },
+              { "taler": "klatten", "tekst": "Hvad? Hvorfor gjorde du det? Jeg er jo din fjende." },
+              { "taler": "klatten", "tekst": "Den Frygtelige siger aldrig tak. Aldrig. Men ... tak." },
+              { "taler": "fortaeller", "tekst": "Klatten løber ind i skoven. Ved stien vender han sig om et kort øjeblik." }
+            ]
+          },
+          {
+            "tekst": "Lad ham sidde",
+            "replikker": [
+              { "taler": "aeseloere", "tekst": "Han har drillet os hele vejen. Lad ham bare sidde lidt." },
+              { "taler": "klatten", "tekst": "Fint. Jeg gider heller ikke jeres hjælp." },
+              { "taler": "fortaeller", "tekst": "Da I går, løsner ordene sig af sig selv. Klatten kommer fri, men han kigger ikke på dig." }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "k3-moerke",
+      "type": "dialog",
+      "del": 2,
+      "sted": "lysningen",
+      "objekt": null,
+      "uhygge": true,
+      "moerke": true,
+      "slutKapitel": true,
+      "replikker": [
+        { "taler": "fortaeller", "tekst": "Så bliver det koldt. Det hvide i skoven bliver gråt, og alle lyde forsvinder." },
+        { "taler": "ufaerdige", "tekst": "Og så ..." },
+        { "taler": "fortaeller", "tekst": "Mellem træerne står en skygge med store, runde øjne. Den kigger på dig, som om den kender dig." },
+        { "taler": "vims", "tekst": "Undskyld. Undskyld. Jeg tror, jeg skal viske mig selv ud nu." },
+        { "taler": "aeseloere", "tekst": "Ingen visker noget ud. Se, den er væk igen. Kom, vi følger sporet videre." },
+        { "taler": "fortaeller", "tekst": "Langt borte, over træerne, rejser et bjerg sig. Det lyder, som om det synger." }
+      ]
+    }
+  ]
+}

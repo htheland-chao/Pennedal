@@ -206,7 +206,7 @@ export type Belysning = 'nat' | 'morgen' | 'moerke' | 'dag';
 export function belysning(tema: string): Belysning {
   if (tema === 'bibliotek') return 'morgen';
   if (tema === 'kaelder' || tema === 'trykkeri') return 'moerke';
-  if (tema === 'eng' || tema === 'torv' || tema === 'smoeger') return 'dag';
+  if (tema === 'eng' || tema === 'torv' || tema === 'smoeger' || tema === 'viskeskov') return 'dag';
   return 'nat';
 }
 export function lysOpsaetning(b: Belysning, mindreUhygge: boolean): { tone: Farve; spillerLys: number } {
@@ -243,5 +243,22 @@ export function lavSkygge(b: number): HTMLCanvasElement {
   g.fillRect(1, 0, b - 2, 1);
   g.fillRect(0, 1, b, 2);
   g.fillRect(1, 3, b - 2, 1);
+  return c;
+}
+
+/**
+ * Viskeskoven (kapitel 3): farverne er ved at blive visket ud. Gør et billede blegt én gang, når det tegnes.
+ * Et CSS-filter på lærredet ville blive regnet ud i hvert billede og koste for meget på en Chromebook (krav 8).
+ */
+export function blegt(c: HTMLCanvasElement, maengde = 0.6): HTMLCanvasElement {
+  const g = c.getContext('2d')!;
+  const d = g.getImageData(0, 0, c.width, c.height);
+  const p = d.data;
+  for (let i = 0; i < p.length; i += 4) {
+    const graa = p[i] * 0.3 + p[i + 1] * 0.59 + p[i + 2] * 0.11;
+    const lys = graa * 0.7 + 236 * 0.3;
+    for (let k = 0; k < 3; k++) p[i + k] = Math.round(p[i + k] * (1 - maengde) + lys * maengde);
+  }
+  g.putImageData(d, 0, 0);
   return c;
 }
