@@ -813,6 +813,13 @@
       "kilde": "Kapitel 1 / k1-kaelder.1",
       "lavet": "2026-10-31"
     },
+    "13354d7c08ba27": {
+      "figur": "fortaeller",
+      "tekst": "Følg stien mod floden.",
+      "fil": "13354d7c08ba27.ogg",
+      "kilde": "Kapitel 1 / k1-til-floden.opgavetekst",
+      "lavet": "2026-11-01"
+    },
     "136de469832728": {
       "figur": "aeseloere",
       "tekst": "Hver planke er en del af en historie. Læg dem i den rigtige rækkefølge, så holder broen.",
@@ -1049,6 +1056,13 @@
       "tekst": "Hallo? Du stod og stirrede ud i luften igen.",
       "fil": "17b2bd5fcb9c5b.ogg",
       "kilde": "Kapitel 3 / k3-vims.6",
+      "lavet": "2026-11-01"
+    },
+    "17da9fe78a76f3": {
+      "figur": "fortaeller",
+      "tekst": "Byg broen ved at lægge plankerne i rækkefølge.",
+      "fil": "17da9fe78a76f3.ogg",
+      "kilde": "Kapitel 1 / k1-bro.opgavetekst",
       "lavet": "2026-11-01"
     },
     "17db3dc83abb6c": {
@@ -1488,5 +1502,5 @@
   },
   "model": "gemini-3.8-flash-tts",
   "i_alt": 477,
-  "mangler": 265
+  "mangler": 263
 }
