@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { kapitler } from '../content';
-import { STANDARD_AVATAR } from '../engine/gem';
+import { AVATAR_DELE, AVATAR_GRAENSER, STANDARD_AVATAR } from '../engine/gem';
 import { erFastTegn, felterVed, findVej, laesKort, type Felt } from './kort';
 import { HOLM, KARTOTEK, KASSE, LOGBOG, PLANTE } from './pixel/inde';
 import { avatarPixel, BLADE, FUGL, fyrtaarn, KLATTEN, LANTERNE, papirtrae, PIL, PLANKE, SKILT, STOLPE, voksen, type Tegnkort } from './pixel/sprites';
@@ -67,6 +67,29 @@ describe('pixelfigurer', () => {
               expect(t.raekker).toHaveLength(24);
               tjek(`avatar ${hoved}/${tilbehoer}/${toej}/${r}/${f}`, t);
             }
+  });
+
+  it('kan tegne hvert valg i avatardesigneren i alle retninger', () => {
+    for (const del of AVATAR_DELE)
+      for (let i = 0; i < AVATAR_GRAENSER[del]; i++)
+        for (const r of ['ned', 'op', 'hoejre'] as const)
+          for (const hoved of [0, 1, 2]) {
+            const t = avatarPixel({ ...STANDARD_AVATAR, hoved, [del]: i }, r, 0);
+            expect(t.raekker, `${del}=${i} ${r}`).toHaveLength(24);
+            for (const rk of t.raekker) expect(rk.length, `${del}=${i} ${r}`).toBe(16);
+            tjek(`avatar ${del}=${i} ${r} hoved=${hoved}`, t);
+          }
+  });
+
+  it('viser forskel på valgene, så designeren ikke har valg, man ikke kan se', () => {
+    for (const del of ['krop', 'oejne', 'mund', 'haar', 'toej', 'tilbehoer'] as const) {
+      const set = new Set<string>();
+      for (let i = 0; i < AVATAR_GRAENSER[del]; i++) {
+        if (del === 'tilbehoer' && i === 3) continue; // Lanternen tegnes for sig.
+        set.add(avatarPixel({ ...STANDARD_AVATAR, [del]: i }, 'ned', 0).raekker.join('|'));
+      }
+      expect(set.size, del).toBe(del === 'tilbehoer' ? 3 : AVATAR_GRAENSER[del]);
+    }
   });
 
   it('bruger elevens hudfarve og tøjfarve', () => {

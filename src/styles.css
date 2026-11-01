@@ -1881,3 +1881,10 @@ input[type='range'] {
   outline: 3px solid var(--fokus);
   outline-offset: 2px;
 }
+
+/* Avatardesigneren viser den samme pixelfigur som i spillet, forstørret med skarpe pixel. */
+.avatar-pixel {
+  image-rendering: pixelated;
+  width: 176px;
+  height: 208px;
+}
