@@ -31,6 +31,8 @@ export class KortScene extends Phaser.Scene {
   private spillerSkygge!: Phaser.GameObjects.Image;
   private lanterne!: Phaser.GameObjects.Image;
   private fugl!: Phaser.GameObjects.Image;
+  /** Hvilken side af hovedpersonen Æseløre står på, mens han taler (-1 venstre, 1 højre). */
+  private fuglSide: number | null = null;
   private pil!: Phaser.GameObjects.Image;
   private vand!: Phaser.GameObjects.Image;
   private lysLag!: Phaser.GameObjects.Image;
@@ -625,14 +627,33 @@ export class KortScene extends Phaser.Scene {
     this.lanterne.setPosition(this.spiller.x + lx, this.spiller.y - 4).setDepth(this.spiller.y + (this.retning === 'op' ? -1 : 1));
 
     // Æseløre flyver efter.
-    const [rx, ry] = { op: [0, -1], ned: [0, 1], venstre: [-1, 0], hoejre: [1, 0] }[this.retning];
-    const fx = this.spiller.x - rx * 16 + (ry ? -12 : 0);
-    const fy = this.spiller.y - ry * 10 + 2;
+    // Når Æseløre taler, vender hovedpersonen sig mod ham. Hvis han så fulgte retningen, ville han flyve om
+    // på den anden side, hovedpersonen ville vende sig igen, og han ville flakke frem og tilbage. Derfor står
+    // han stille ved siden af hovedpersonen, så længe han taler, og kigger på hovedpersonen.
+    let fx: number;
+    let fy: number;
+    if (this.taler === 'aeseloere') {
+      if (this.fuglSide === null) {
+        // Den side, han er på i forvejen, medmindre der står træer eller en væg. Så den anden side.
+        const side = this.fugl.x < this.spiller.x ? -1 : 1;
+        const [tx, ty] = feltVed(this.spiller.x + side * 18, this.spiller.y - 2);
+        // Han svæver lidt over jorden, så feltet over tæller også (ellers gemmer han sig bag trækronerne).
+        this.fuglSide = this.erFast(tx, ty) || this.erFast(tx, ty - 1) ? -side : side;
+      }
+      fx = this.spiller.x + this.fuglSide * 18;
+      fy = this.spiller.y + 2;
+    } else {
+      this.fuglSide = null;
+      const [rx, ry] = { op: [0, -1], ned: [0, 1], venstre: [-1, 0], hoejre: [1, 0] }[this.retning];
+      fx = this.spiller.x - rx * 16 + (ry ? -12 : 0);
+      fy = this.spiller.y - ry * 10 + 2;
+    }
     const k = 1 - Math.pow(0.04, dt);
     const gammelX = this.fugl.x;
     this.fugl.x += (fx - this.fugl.x) * k;
     this.fugl.y += (fy - this.fugl.y) * k;
-    if (Math.abs(this.fugl.x - gammelX) > 0.05) this.fugl.setFlipX(this.fugl.x < gammelX);
+    if (this.fuglSide !== null) this.fugl.setFlipX(this.fuglSide > 0);
+    else if (Math.abs(this.fugl.x - gammelX) > 0.3) this.fugl.setFlipX(this.fugl.x < gammelX);
     const svaev = Math.sin(this.ur * 4) * 2;
     this.fugl.setDepth(this.fugl.y).setDisplayOrigin(8, 10 + 18 - svaev);
 

@@ -610,9 +610,26 @@ legend {
 .token:hover:not(:disabled) {
   border-color: var(--blaek-lys);
 }
-.token-og {
-  background: #d7f0d0;
-  border-color: #6bbf59;
+/* "og" ser ud som de andre ord. Eleven skal selv finde de steder, hvor en tanke slutter. */
+.token-og,
+.token-ord {
+  text-decoration: underline dotted var(--tekst-svag);
+  text-underline-offset: 0.25em;
+}
+.ogorm-trin {
+  margin: 0.3rem 0 0.4rem;
+  padding-left: 1.4rem;
+}
+.ogorm-trin li {
+  margin: 0.15rem 0;
+}
+.ogorm-eksempel {
+  background: var(--papir-moerk);
+  padding: 0.4rem 0.6rem;
+}
+.ogorm-foer {
+  text-decoration: line-through;
+  color: var(--tekst-svag);
 }
 .token-punktum {
   background: var(--guld-lys);
@@ -1093,14 +1110,16 @@ input[type='range'] {
     padding: var(--luft) calc(var(--luft) + 8px);
     gap: calc(var(--luft) + 16px);
     min-height: 100dvh;
-    align-content: center;
+    /* Spilfladen står fast i toppen. Hvis den blev centreret, ville den hoppe, hver gang panelet ved siden af
+       blev højere eller lavere (fx når knappen "Undersøg ..." kommer frem). Spilfladen fylder alligevel højden. */
+    align-content: start;
   }
   .spilflade-ramme {
     /* 16 px til trærammen omkring spilfladen. */
     width: min(calc(100vw - var(--panel) - 4 * var(--luft) - 48px), calc((100dvh - 2 * var(--luft) - 16px) * 16 / 9));
   }
   .verden > .panel {
-    max-height: calc(100dvh - 2 * var(--luft));
+    max-height: calc((100dvh - 2 * var(--luft) - 16px));
     overflow-y: auto;
   }
   .verden > .panel > * {
@@ -1840,4 +1859,25 @@ input[type='range'] {
   .kamp-vaesen[data-uro] {
     animation: none;
   }
+}
+
+/* Lille højttalerikon ved navnet i dialogen (Henrik, 1. november 2026: knapperne var for store). */
+.laes-op-ikon {
+  margin-left: 0.5rem;
+  min-width: 2rem;
+  min-height: 2rem;
+  padding: 0 0.3rem;
+  border: 2px solid var(--blaek);
+  background: #fbf7ec;
+  cursor: pointer;
+  font-size: 0.95rem;
+  line-height: 1;
+  vertical-align: middle;
+}
+.laes-op-ikon[aria-pressed='true'] {
+  background: var(--guld-lys);
+}
+.laes-op-ikon:focus-visible {
+  outline: 3px solid var(--fokus);
+  outline-offset: 2px;
 }

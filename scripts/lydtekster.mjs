@@ -112,7 +112,7 @@ export function alleLydtekster(stemmer = hentStemmer()) {
 
   for (const id of [
     'hviske.instruks.vaelg', 'hviske.instruks.skriv', 'hviske.instruks.to', 'hviske.instruks.helt',
-    'ogorm.instruks', 'bro.instruks', 'bro.instruks.fremmed', 'bevisjagt.foer', 'bevisjagt.instruks',
+    'ogorm.instruks', 'ogorm.trin.1', 'ogorm.trin.2', 'ogorm.trin.3', 'ogorm.pas.paa', 'bro.instruks', 'bro.instruks.fremmed', 'bevisjagt.foer', 'bevisjagt.instruks',
   ])
     tilfoej('fortaeller', t(id), `Opgaver / ${id}`);
   for (const id of [

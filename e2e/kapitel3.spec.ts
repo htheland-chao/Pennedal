@@ -81,6 +81,11 @@ test('kapitel 3: Viskeskoven, rolige kampe, Vims, mindet og Klattens valg', asyn
 
   await gaaTil(page, 'skilt');
   await laesDialog(page);
+  // Tal igen: skiltet kan læses igen, uden at historien går videre.
+  await gaaTil(page, 'skilt');
+  await expect(page.locator('dialog.dialogboks')).toContainText('Skiltet er helt hvidt', { timeout: 30_000 });
+  await laesDialog(page);
+  await expect(page.locator('.naeste-tekst')).toContainText('Gå hen til væsnet på stien.');
   await gaaTil(page, 'tomordet');
   await laesDialog(page);
 
@@ -133,6 +138,7 @@ test('kapitel 3: Viskeskoven, rolige kampe, Vims, mindet og Klattens valg', asyn
 
   // Mørket og kapitlets slutning.
   await expect(verden).toHaveClass(/moerke/);
+  for (let i = 0; i < 3 && !((await dialog.textContent()) ?? '').includes('Og så'); i++) await dialog.getByRole('button', { name: 'Videre' }).click();
   await expect(dialog).toContainText('Og så');
   await page.waitForTimeout(800);
   await page.screenshot({ path: `${BILLEDER}/k3-05-moerke.png` });
