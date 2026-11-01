@@ -33,7 +33,8 @@ async function laesDialog(page: Page) {
 
 async function undersoeg(page: Page, navn: string) {
   steg = `undersøg ${navn}`;
-  await page.getByRole('button', { name: `Undersøg ${navn}` }).click();
+  // Både tip-knappen over tingen og sidepanelets knap hedder det samme. Brug panelets.
+  await page.locator('.panel').getByRole('button', { name: `Undersøg ${navn}` }).click();
 }
 
 async function videre(page: Page) {
@@ -297,7 +298,7 @@ test('intet går ud over kanten på en mobil, hverken stående eller liggende', 
     await page.getByRole('button', { name: 'Spring introen over' }).tap();
     expect(await forBred(), `avatar ${viewport.width}`).toBe(false);
     await page.getByRole('button', { name: 'Klar til eventyret' }).tap();
-    await expect(page.getByRole('button', { name: 'Undersøg hr. Holm' })).toBeVisible();
+    await expect(page.locator('.panel').getByRole('button', { name: 'Undersøg hr. Holm' })).toBeVisible();
     expect(await forBred(), `verden ${viewport.width}`).toBe(false);
     await ctx.close();
   }
