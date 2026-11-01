@@ -118,13 +118,13 @@ describe('lydklip', () => {
       expect(status).toContain('kvote');
       expect(status).toContain('requests per day');
       // Kun spillets egne tekster, med figurens stemme og stil, bliver sendt.
-      const gyldige = new Map(poster.map((p) => [p.tekst, p]));
+      // En tekst kan have flere figurer (introen), så der tjekkes på tekst, stemme og stil sammen.
       for (const r of modtaget) {
-        const p = gyldige.get(r.text);
+        const p = poster.find((x) => {
+          const f = stemmer.figurer[x.figur as keyof typeof stemmer.figurer];
+          return x.tekst === r.text && f.stemme === r.voice && f.stil === r.style;
+        });
         expect(p, r.text).toBeDefined();
-        const f = stemmer.figurer[p!.figur as keyof typeof stemmer.figurer];
-        expect(r.voice).toBe(f.stemme);
-        expect(r.style).toBe(f.stil);
         expect(r.model).toBe(stemmer.model);
         expect(r.key).toBe('test-noegle');
       }

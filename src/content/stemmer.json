@@ -1,6 +1,10 @@
 {
   "model": "gemini-3.8-flash-tts",
   "figurer": {
+    "introfortaeller": {
+      "stemme": "Charon",
+      "stil": "Narrate this as a very old man with a deep, slow, raspy voice, ominous and mysterious, like an ancient storyteller by a dying fire. Low pitch, long pauses, quiet menace but never shouting and never truly frightening. Native Danish."
+    },
     "fortaeller": {
       "stemme": "Vindemiatrix",
       "stil": "Read this like a calm storyteller reading a fantasy book aloud to children, with gentle suspense. Native Danish."

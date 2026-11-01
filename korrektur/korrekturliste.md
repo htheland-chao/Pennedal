@@ -1,6 +1,6 @@
 # Korrekturliste - Pennedal
 
-Lavet 2026-11-01. 907 tekster.
+Lavet 2026-11-01. 911 tekster.
 
 Sæt kryds, når en tekst er læst. Bevidste fejl står under "Bevidste fejl" og skal ikke rettes.
 Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), så læs hele teksten.
@@ -78,6 +78,9 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `intro.5`: I en kælder under et skolebibliotek er der en skuffe, som er begyndt at hviske.
 - [ ] `intro.5.slut`: Den hvisker til dig.
 - [ ] `intro.af`: Et spil af Theland Studios
+- [ ] `intro.fortaeller.nuvaerende`: Fortæller: nuværende stemme. Prøv den gamle mand
+- [ ] `intro.fortaeller.gammel`: Fortæller: den gamle mand. Skift tilbage
+- [ ] `intro.fortaeller.mangler`: Den gamle mands stemme er ikke lavet endnu. Indtil da fortæller den nuværende stemme.
 - [ ] `intro.begynd`: Begynd eventyret
 - [ ] `intro.spring`: Spring introen over
 - [ ] `intro.videre`: Videre
@@ -283,6 +286,7 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `laerer.luk`: Luk
 - [ ] `indst.titel`: Indstillinger
 - [ ] `indst.oplaesning`: Læs tekster op automatisk
+- [ ] `indst.introgammel`: Introen fortælles af en dyb, gammel mandestemme
 - [ ] `indst.autovidere`: Gå selv videre, når en replik er læst op
 - [ ] `indst.musik`: Baggrundsmusik
 - [ ] `indst.musik.styrke`: Lydstyrke for musik

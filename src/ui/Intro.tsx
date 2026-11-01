@@ -12,6 +12,7 @@ import {
   tegnVaerelse,
 } from '../game/pixel/intro';
 import { useApp } from './Kontekst';
+import { lydUrl, useLydManifest } from './lyd';
 import { LaesOpKnap, type Del } from './Tekst';
 
 /**
@@ -112,8 +113,12 @@ function Billede({ scene, b }: { scene: SceneId; b: Billeder }) {
   );
 }
 
-export function Intro({ onFaerdig }: { onFaerdig: () => void }) {
+/** Alle tekster, introen læser op med fortælleren. */
+const FORTAELLERTEKSTER = SCENER.flatMap((s) => [s.tekst, s.slut]).filter((x): x is TekstId => !!x);
+
+export function Intro({ onFaerdig, onFortaeller }: { onFaerdig: () => void; onFortaeller?: (v: 'nuvaerende' | 'gammel') => void }) {
   const { indstillinger } = useApp();
+  const { manifest } = useLydManifest();
   const [nr, setNr] = useState(0);
   const [naeste, setNaeste] = useState(false);
   const scene = SCENER[nr];
@@ -126,10 +131,15 @@ export function Intro({ onFaerdig }: { onFaerdig: () => void }) {
     else onFaerdig();
   }, [nr, onFaerdig]);
 
+  // Den gamle mand bruges kun, når alle hans klip findes. Ellers fortæller den nuværende stemme.
+  const gammelFindes = FORTAELLERTEKSTER.every((id) => lydUrl(manifest, 'introfortaeller', t(id).trim()));
+  const gammel = indstillinger.introFortaeller === 'gammel' && gammelFindes;
+  const fortaeller = gammel ? 'introfortaeller' : 'fortaeller';
+
   const dele: Del[] = [];
-  if (scene.tekst) dele.push({ tekst: t(scene.tekst), figur: 'fortaeller' });
+  if (scene.tekst) dele.push({ tekst: t(scene.tekst), figur: fortaeller });
   if (scene.hvisken) dele.push({ tekst: t(scene.hvisken), figur: 'ufaerdige' });
-  if (scene.slut) dele.push({ tekst: t(scene.slut), figur: 'fortaeller' });
+  if (scene.slut) dele.push({ tekst: t(scene.slut), figur: fortaeller });
 
   // Studiets navn går selv videre. Scener med tekst går videre, når teksten er læst op.
   // Uden oplæsning får eleven god tid til at læse selv. Titlen venter altid på eleven.
@@ -187,7 +197,7 @@ export function Intro({ onFaerdig }: { onFaerdig: () => void }) {
           {scene.tekst && <p>{t(scene.tekst)}</p>}
           {scene.hvisken && <p className="intro-hvisken">{t(scene.hvisken)}</p>}
           {scene.slut && <p className="intro-slut">{t(scene.slut)}</p>}
-          <LaesOpKnap key={nr} dele={dele} auto vedFaerdig={() => setNaeste(true)} />
+          <LaesOpKnap key={`${nr}${fortaeller}`} dele={dele} auto vedFaerdig={() => setNaeste(true)} />
         </div>
       )}
 
@@ -195,6 +205,16 @@ export function Intro({ onFaerdig }: { onFaerdig: () => void }) {
         {!sidste && (
           <button type="button" className="knap" key={`v${nr}`} onClick={videre} autoFocus>
             {t('intro.videre')}
+          </button>
+        )}
+        {!sidste && onFortaeller && scene.id !== 'studie' && (
+          <button
+            type="button"
+            className="knap knap-diskret"
+            onClick={() => onFortaeller(gammel ? 'nuvaerende' : 'gammel')}
+            title={indstillinger.introFortaeller === 'gammel' && !gammelFindes ? t('intro.fortaeller.mangler') : undefined}
+          >
+            {gammel ? t('intro.fortaeller.gammel') : t('intro.fortaeller.nuvaerende')}
           </button>
         )}
         {!sidste && (

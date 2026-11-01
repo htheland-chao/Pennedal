@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { FAERDIGHEDER } from './faerdigheder';
 import { registrerSvar, START_STATUS, type FaerdighedsStatus } from './tilpasning';
 import { KODE_LAENGDE, KODE_LAENGDE_V1, laesGemmekode, lavGemmekode, normaliserKode } from './gemmekode';
-import { gemSpil, hentGemtSpil, nytSpil, STANDARD_AVATAR, validerGemtSpil } from './gem';
+import { gemIndstillinger, gemSpil, hentGemtSpil, hentIndstillinger, nytSpil, STANDARD_AVATAR, STANDARD_INDSTILLINGER, validerGemtSpil } from './gem';
 import { lavCsv } from './csv';
 
 describe('tilpasning af sværhedsgrad', () => {
@@ -157,6 +157,19 @@ describe('gemt spil', () => {
     } as unknown as Storage;
     expect(hentGemtSpil(ondt)).toBeNull();
     expect(gemSpil(nytSpil(STANDARD_AVATAR, { adjektiv: 0, dyr: 0 }), ondt)).toBe(false);
+  });
+});
+
+describe('introens fortæller', () => {
+  const lager = () => {
+    const d = new Map<string, string>();
+    return { getItem: (k: string) => d.get(k) ?? null, setItem: (k: string, v: string) => void d.set(k, v) } as unknown as Storage;
+  };
+  it('er den nuværende stemme, indtil man vælger den gamle mand, og valget huskes', () => {
+    const l = lager();
+    expect(hentIndstillinger(l).introFortaeller).toBe('nuvaerende');
+    gemIndstillinger({ ...STANDARD_INDSTILLINGER, introFortaeller: 'gammel' }, l);
+    expect(hentIndstillinger(l).introFortaeller).toBe('gammel');
   });
 });
 
