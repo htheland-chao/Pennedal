@@ -10,6 +10,10 @@ Danskfagligt fantasy-læringsspil til en 5. klasse. Ejer: Henrik (klasselærer o
 - Ved vigtige valg: beskriv først, hvordan det kan gå galt, og giv derefter en konkret anbefaling.
 - Påstå aldrig, at noget virker, uden at have kørt og tjekket det. Sig tydeligt, hvad der ikke er testet.
 
+## Start her
+
+Læs `docs/status.md` først: hvad findes, hvad er besluttet, hvad mangler og hvad der ikke er testet. Opdatér den i hver pull request, der ændrer noget af det.
+
 ## Stak (versioner er låst i package.json)
 
 TypeScript, Vite, React (kun HTML-laget: menuer, dialog, opgaver, al tekst), Phaser 4 (kun grafik på canvas). Vitest til enhedstests, Playwright til gennemspil i Chrome. Node 22.
@@ -21,6 +25,7 @@ Opdatér kun en version efter at have slået den op i npm og kørt alle tests.
 - `npm test` - enhedstests og stavetjek af al dansk tekst. Skal være grøn før hver pull request.
 - `npm run test:e2e` - spiller kapitel 1 igennem i Chrome.
 - `npm run typecheck`, `npm run build`, `npm run korrektur`.
+- `npm run grafik:ark` - tegner alle pixelfigurer på ét ark og gemmer billeder i `test-results/ark/`. Se dem selv, før grafik afleveres.
 - Gemini er betalt (31. oktober 2026). Lydjobbet laver op til 300 klip pr. kørsel.
 - `npm run lyd:status` - opdaterer `public/lyd/manifest.json`. Selve lydklippene laves kun af GitHub-jobbet Lyd (`.github/workflows/lyd.yml`), fordi Googles API er blokeret i Claudes miljø.
 
