@@ -40,7 +40,7 @@ export function Tilbageblik({ id, onFaerdig }: { id: MindeId; onFaerdig: () => v
         ))}
       </div>
       <div className="knaprad">
-        <LaesOpKnap dele={tekster.map((tekst) => ({ tekst, figur: 'fortaeller' }))} auto />
+        <LaesOpKnap dele={tekster.map((tekst) => ({ tekst, figur: 'fortaeller', rum: 'minde' as const }))} auto />
         <button type="button" className="knap knap-primaer" onClick={onFaerdig} autoFocus>
           {t('minde.videre')}
         </button>

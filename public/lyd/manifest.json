@@ -15,13 +15,6 @@
       "kilde": "Kapitel 2 / k2-ankomst.4",
       "lavet": "2026-10-31"
     },
-    "004805ac4c8848": {
-      "figur": "introfortaeller",
-      "tekst": "Nu forsvinder slutningerne. Én efter én.",
-      "fil": "004805ac4c8848.ogg",
-      "kilde": "Introen (gammel mand) / intro.4",
-      "lavet": "2026-11-03"
-    },
     "004dbc901d8800": {
       "figur": "fortaeller",
       "tekst": "Stien ender i en lysning. Alt er hvidt her, også himlen.",
@@ -182,13 +175,6 @@
       "fil": "0233c88e5700b6.ogg",
       "kilde": "Ordkort / typeskab",
       "lavet": "2026-11-01"
-    },
-    "026034248f1acc": {
-      "figur": "introfortaeller",
-      "tekst": "I en kælder under et skolebibliotek er der en skuffe, som er begyndt at hviske.",
-      "fil": "026034248f1acc.ogg",
-      "kilde": "Introen (gammel mand) / intro.5",
-      "lavet": "2026-11-03"
     },
     "027206d2bd858a": {
       "figur": "ufaerdige",
@@ -575,13 +561,6 @@
       "kilde": "Kapitel 2 / k2-fanget.1",
       "lavet": "2026-10-31"
     },
-    "093cbfd9c460fb": {
-      "figur": "introfortaeller",
-      "tekst": "De bliver lagt i en skuffe. Og så bliver de glemt.",
-      "fil": "093cbfd9c460fb.ogg",
-      "kilde": "Introen (gammel mand) / intro.2",
-      "lavet": "2026-11-03"
-    },
     "0972f940ab450f": {
       "figur": "fortaeller",
       "tekst": "Mellem træerne står en skygge med store, runde øjne. Den kigger på dig, som om den kender dig.",
@@ -678,13 +657,6 @@
       "tekst": "Den sætning fortæller, at der er pletter, men ikke hvor de fører hen. Læs den næste sætning.",
       "fil": "0adf46fb9b7508.ogg",
       "kilde": "Kapitel 2 / k2-opslag.k2-opslag-2.forkert.3",
-      "lavet": "2026-11-03"
-    },
-    "0aeaffb97cda04": {
-      "figur": "introfortaeller",
-      "tekst": "Den hvisker til dig.",
-      "fil": "0aeaffb97cda04.ogg",
-      "kilde": "Introen (gammel mand) / intro.5.slut",
       "lavet": "2026-11-03"
     },
     "0af4c21845e3c5": {
@@ -1401,13 +1373,6 @@
       "kilde": "Beskeder / raaber.fejl.punktum",
       "lavet": "2026-11-03"
     },
-    "14fdd1268c0b42": {
-      "figur": "introfortaeller",
-      "tekst": "Men et sted bag ordene ligger et land, hvor alt engang blev skrevet til live.",
-      "fil": "14fdd1268c0b42.ogg",
-      "kilde": "Introen (gammel mand) / intro.3",
-      "lavet": "2026-11-03"
-    },
     "1523824fc47538": {
       "figur": "fortaeller",
       "tekst": "Langt væk over tagene hvisker det stadig: \"Og så ...\"",
@@ -1940,13 +1905,6 @@
       "kilde": "Kapitel 2 / k2-port-aaben.3",
       "lavet": "2026-10-31"
     },
-    "1c23da6b128ee5": {
-      "figur": "introfortaeller",
-      "tekst": "Nogle historier bliver aldrig skrevet færdige.",
-      "fil": "1c23da6b128ee5.ogg",
-      "kilde": "Introen (gammel mand) / intro.1",
-      "lavet": "2026-11-03"
-    },
     "1c35ac3b04d4e0": {
       "figur": "fortaeller",
       "tekst": "Hvad skete der med ordbogen?",
@@ -2187,6 +2145,6 @@
     }
   },
   "model": "gemini-3.8-flash-tts",
-  "i_alt": 483,
+  "i_alt": 477,
   "mangler": 171
 }
