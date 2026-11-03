@@ -1926,6 +1926,10 @@ input[type='range'] {
 .kamp-fjende.rolig {
   animation: kamp-oploes 1.2s ease-in forwards;
 }
+.kamp-fjende.borte {
+  animation: none;
+  opacity: 0;
+}
 .kamp-medlem.ramt {
   animation: kamp-ramt-hold 0.4s steps(2) 2;
 }

@@ -231,7 +231,9 @@ export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, ta
     vis(alle);
     setNotat(null);
     if (k2.givet !== kamp.givet) onFremskridt(k2.givet);
-    setVisning({ type: 'runde', linjer: alle.map(tekst).filter((x): x is string => !!x) });
+    // Når kampen er slut, giver det ingen mening at fortælle, at det store slag er klar.
+    const vis_ = k2.udfald ? alle.filter((h) => h.type !== 'kombi') : alle;
+    setVisning({ type: 'runde', linjer: vis_.map(tekst).filter((x): x is string => !!x) });
   }
 
   function vaelgSlag(slag: Slag, stort: boolean) {
@@ -484,7 +486,8 @@ export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, ta
           return (
             <span key={f.nr}>
               <img
-                className={`kamp-sprite kamp-fjende${f.liv <= 0 ? ' rolig' : ''}${ramt.fjender.includes(f.nr) ? ' ramt' : ''}`}
+                // Et væsen opløses kun i den runde, det falder. Bagefter er det væk, også når scenen tegnes igen.
+                className={`kamp-sprite kamp-fjende${f.liv <= 0 ? (ramt.fjender.includes(f.nr) ? ' rolig' : ' borte') : ramt.fjender.includes(f.nr) ? ' ramt' : ''}`}
                 key={`${f.nr}-${ramt.fjender.includes(f.nr) ? ramt.nr : 0}`}
                 src={uri(`vaesen.${f.vaesen}`, kort)}
                 alt=""
@@ -651,7 +654,7 @@ export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, ta
               </li>
             ))}
           </ul>
-          <p className="lille-tekst">{stortSlagKlar(kamp) ? t('kamp.stort.klar') : t('kamp.kombi', { antal: kamp.kombi, maks: KOMBI })}</p>
+          {!kamp.udfald && <p className="lille-tekst">{stortSlagKlar(kamp) ? t('kamp.stort.klar') : t('kamp.kombi', { antal: kamp.kombi, maks: KOMBI })}</p>}
         </section>
       </div>
 
