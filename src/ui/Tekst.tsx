@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { delTekst, renTekst, t } from '../content';
 import { useApp } from './Kontekst';
 import { type Figur, lydUrl, spilLyd, stopLyd, useLydManifest } from './lyd';
+import { rumProfil, type RumId, type RumKrav } from './rumklang';
 import { daempMusik } from './musik/afspiller';
 import { danskeStemmer, naarStemmerErKlar, sig, stopTale } from './tale';
 
@@ -33,7 +34,8 @@ export function useStemmeFindes(): boolean {
 let afbrydNuvaerende: (() => void) | null = null;
 
 /** En del af en oplæsning: tekst og hvem der siger den. */
-export type Del = { tekst: string; figur?: Figur };
+/** rum: hvilket rum stemmen får, hvis eleven har rumklang slået til. Hviskestemmen får altid sit eget rum. */
+export type Del = { tekst: string; figur?: Figur; rum?: RumId };
 
 type LaesOpProps = {
   /** Teksten, der læses op. Brug dele i stedet, hvis flere tekster skal læses op efter hinanden. */
@@ -61,10 +63,14 @@ export function LaesOpKnap({ tekst, dele, kunLokal, etiket, auto, figur, vedFaer
   const { manifest, klar } = useLydManifest();
   const [taler, setTaler] = useState(false);
   const liste = (dele ?? [{ tekst: tekst ?? '', figur }])
-    .map((d) => ({ tekst: renTekst(d.tekst).trim(), figur: d.figur }))
+    .map((d) => ({ tekst: renTekst(d.tekst).trim(), figur: d.figur, rum: d.rum ?? (d.figur === 'ufaerdige' ? ('hviske' as const) : undefined) }))
     .filter((d) => d.tekst);
   const urls = liste.map((d) => (!kunLokal && d.figur && indstillinger.indtalt ? lydUrl(manifest, d.figur, d.tekst) : null));
   const kanAlt = urls.every((u) => u !== null);
+  const rumFor = (i: number): RumKrav | undefined => {
+    const id = liste[i].rum;
+    return id && indstillinger.rumklang ? { profil: rumProfil(id), daempet: indstillinger.mindreUhygge } : undefined;
+  };
   const styrke = indstillinger.taleStyrke;
   const vedFaerdigRef = useRef(vedFaerdig);
   vedFaerdigRef.current = vedFaerdig;
@@ -117,7 +123,7 @@ export function LaesOpKnap({ tekst, dele, kunLokal, etiket, auto, figur, vedFaer
       };
       const url = urls[i];
       const ok = url
-        ? spilLyd(url, styrke, slut)
+        ? spilLyd(url, styrke, slut, rumFor(i))
         : sig(liste[i].tekst, { stemme: indstillinger.stemme, kunLokal, styrke, vedSlut: slut });
       // Ingen stemme til denne del: spring den over.
       if (!ok) naeste(i + 1);

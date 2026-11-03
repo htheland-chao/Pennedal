@@ -1,10 +1,6 @@
 {
   "model": "gemini-3.8-flash-tts",
   "figurer": {
-    "introfortaeller": {
-      "stemme": "Charon",
-      "stil": "Narrate this as a very old man with a deep, slow, raspy voice, ominous and mysterious, like an ancient storyteller by a dying fire. Low pitch, long pauses, quiet menace but never shouting and never truly frightening. Native Danish."
-    },
     "fortaeller": {
       "stemme": "Vindemiatrix",
       "stil": "Read this like a calm storyteller reading a fantasy book aloud to children, with gentle suspense. Native Danish."
@@ -56,6 +52,26 @@
     "stumming": {
       "stemme": "Despina",
       "stil": "Whisper this softly and secretively, like a shy little creature that collects silent letters. Gentle, never scary. Native Danish."
+    }
+  },
+  "rum": {
+    "hviske": {
+      "hale": 2.6,
+      "vaad": 0.55,
+      "lavpas": 2500,
+      "foerForsinkelse": 0.03
+    },
+    "intro": {
+      "hale": 1.6,
+      "vaad": 0.28,
+      "lavpas": 4500,
+      "foerForsinkelse": 0.02
+    },
+    "minde": {
+      "hale": 1.8,
+      "vaad": 0.35,
+      "lavpas": 3500,
+      "foerForsinkelse": 0.025
     }
   },
   "udtale": {}

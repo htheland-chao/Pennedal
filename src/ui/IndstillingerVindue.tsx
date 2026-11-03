@@ -32,10 +32,10 @@ export function IndstillingerVindue({ indstillinger: i, onSkift, onLuk }: Props)
         <label className="afkryds">
           <input
             type="checkbox"
-            checked={i.introFortaeller === 'gammel'}
-            onChange={(e) => onSkift({ ...i, introFortaeller: e.target.checked ? 'gammel' : 'nuvaerende' })}
+            checked={i.rumklang}
+            onChange={(e) => onSkift({ ...i, rumklang: e.target.checked })}
           />
-          {t('indst.introgammel')}
+          {t('indst.rumklang')}
         </label>
         <label className="afkryds">
           <input type="checkbox" checked={i.indtalt} onChange={(e) => onSkift({ ...i, indtalt: e.target.checked })} />

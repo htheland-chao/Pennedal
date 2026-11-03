@@ -8,7 +8,7 @@ Regler og stak står i `CLAUDE.md`. Historien står i `docs/historie.md`, grafik
 
 - **Kapitel 1-3 kan spilles.** Kapitel 1 (Pennedal og kælderen), kapitel 2 (byen og trykkeriet med bane og escape room) og kapitel 3 (Viskeskoven med de første rolige kampe).
 - **Intro, tilbageblik, taske, rolige kampe, Og-orm, avatardesigner med pixelgrafik** og baggrundsmusik pr. tema.
-- **Lyd:** Gemini-stemmer pr. figur i `src/content/stemmer.json`. Introen kan fortælles af to stemmer: den nuværende (`fortaeller`) og en dyb, gammel mand (`introfortaeller`). Henrik skal lytte og vælge. Valget ligger i indstillingerne og som knap i introen.
+- **Lyd:** Gemini-stemmer pr. figur i `src/content/stemmer.json`. Stemmerne kan få rumklang, mens de afspilles (`src/ui/rumklang.ts`, profiler under `rum` i `stemmer.json`): hviskestemmen, introen og tilbageblik. Klippene er uberørte, og rummet kan slås fra i indstillingerne. "Mindre uhygge" halverer det. Aldrig på opgaver, feedback og enkeltord, fordi det gør tale sværere at forstå.
 - **Test og værktøj:** Hop direkte til et sted med `?hop` (se README). `?debug=1` viser billeder pr. sekund. `?lyd=1` er korrektursiden for lyd.
 - **Grafikark:** `npm run grafik:ark` tegner alle pixelfigurer på én side, gemmer billeder i `test-results/ark/` og skriver advarsler om størrelse og farver. Nye pixelfigurer skal tilføjes i `src/ark/samling.ts`, så de kommer med.
 
@@ -16,12 +16,12 @@ Regler og stak står i `CLAUDE.md`. Historien står i `docs/historie.md`, grafik
 
 - 30. oktober 2026: 16-bit pixelgrafik set skråt oppefra.
 - 31. oktober 2026: Claude merger sine egne pull requests, når testen er grøn og der ikke er konflikter. Gemini TTS er betalt, men har en dagskvote.
-- 1. november 2026: Intro-fortælleren skal kunne vælges mellem den nuværende stemme og en ny, dyb gammel mandestemme. Den nuværende bevares.
+- 3. november 2026: Henrik foretrækker den originale fortællerstemme. Den gamle mands stemme er fjernet. Rumklang lægges på i afspilleren (ikke bagt ind i klippene), kun på hviskestemmen, introen og tilbageblik.
 - 3. november 2026: Grafikken tages videre med effekter som kode, flere udkast og valg (se `docs/grafik.md`). Vi bliver i Phaser.
 
 ## Åbent og mangler
 
-- **Lyd:** Mange klip mangler stadig. Status: `npm run lyd:status` eller `public/lyd/manifest.json`. Googles dagskvote på 100 klip gør, at det tager flere dage. Introens 6 klip med den gamle mand laves først. Den gamle mand bruges først, når alle hans klip findes.
+- **Lyd:** Mange klip mangler stadig. Status: `npm run lyd:status` eller `public/lyd/manifest.json`. Googles dagskvote på 100 klip gør, at det tager flere dage.
 - **Kapitel 3 mangler:** platformbane med viskede planker, sidemission, valgfri svær udfordring, to hukommelsesskår og Fælles Mål-tekst for ordforråd i `src/content/maal.json`.
 - **Kapitel 4-8** står i `docs/historie.md`. Hukommelsesskårene er ikke bygget.
 - **Rester af første udkast:** `src/ui/avatarSvg.ts` og `src/game/VerdenScene.ts` bruges ikke længere af noget sted, eleven kan komme til (alle steder bruger `KortScene` eller `BaneScene`). `Verden.tsx` og `PhaserVerden.tsx` sender stadig SVG-avataren videre, og `avatar.test.ts` tester den. Kan fjernes sammen.
@@ -31,7 +31,7 @@ Regler og stak står i `CLAUDE.md`. Historien står i `docs/historie.md`, grafik
 
 - Chromebook (Lenovo 500e Gen 2): billeder pr. sekund og hukommelse.
 - Touch på rigtige enheder.
-- Den gamle mands stemme (klippene findes ikke endnu).
+- Hvordan rumklangen lyder (Henrik skal lytte og vurdere mængden) og dens processorforbrug på Chromebook Gen 2. Målt i Chrome: lyden går gennem rummet og klinger ud efter klippet.
 - At lydjobbet selv lægger spillet ud, når det har lavet klip, ved den planlagte kørsel.
 
 ## Kendte fejl og faldgruber
