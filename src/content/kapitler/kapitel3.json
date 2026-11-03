@@ -114,7 +114,7 @@
       "del": 1,
       "sted": "skovbrynet",
       "objekt": "tomordet",
-      "opgavetekst": "Gør Tomordet roligt.",
+      "opgavetekst": "Kæmp mod Tomordet.",
       "vaesen": "tomordet",
       "faerdighed": "laes.ordforraad",
       "antal": 3
@@ -197,10 +197,11 @@
       "del": 2,
       "sted": "lysningen",
       "objekt": "stumming",
-      "opgavetekst": "Gør Stummingen rolig.",
+      "opgavetekst": "Kæmp mod væsnerne i lysningen.",
       "vaesen": "stumming",
+      "vaesner": ["stumming", "tomordet", "stumming"],
       "faerdighed": "stav.stumme",
-      "antal": 3,
+      "antal": 4,
       "hjaelper": "vims"
     },
     {
@@ -211,7 +212,7 @@
       "objekt": null,
       "replikker": [
         { "taler": "stumming", "tekst": "Nå. Du kan høre dem, selvom de ikke siger noget. Så må du få dem tilbage." },
-        { "taler": "fortaeller", "tekst": "Stummingen lægger bogstaverne fra sig og lister ind mellem træerne." }
+        { "taler": "fortaeller", "tekst": "Væsnerne lægger bogstaverne fra sig og lister ind mellem træerne." }
       ]
     },
     {

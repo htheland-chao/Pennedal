@@ -104,6 +104,12 @@ export type KampTrin = FaellesTrin & {
   antal: number;
   /** En hjælper, der kan bruge en tur på at hjælpe. */
   hjaelper?: 'vims';
+  /** Flere væsner i samme kamp. Uden feltet er det kun vaesen. */
+  vaesner?: ('tomordet' | 'stumming')[];
+  /** Hjælperne på holdet. Uden feltet: Æseløre, og Vims hvis hjaelper er vims. */
+  hold?: ('aeseloere' | 'vims')[];
+  /** De slags slag, avataren kan bruge. Uden feltet: alle. */
+  slag?: ('synonym' | 'stumt')[];
 };
 export type SkiftTrin = FaellesTrin & { type: 'skift'; tilSted: string };
 export type OpgaveTrin = FaellesTrin & {
