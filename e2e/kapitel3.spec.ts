@@ -22,9 +22,9 @@ async function gaaTil(page: Page, id: string) {
 
 /** Svaret og en forkert mulighed for den opgave, kampen viser lige nu. */
 async function facit(page: Page): Promise<{ rigtig: string; forkert: string }> {
-  const kamp = page.locator('dialog.kamp');
-  const id = await kamp.locator('[data-opgave-id]').getAttribute('data-opgave-id');
-  if (await kamp.evaluate((d) => d.classList.contains('kamp-tomordet'))) {
+  const info = page.locator('dialog.kamp [data-opgave-id]');
+  const id = await info.getAttribute('data-opgave-id');
+  if ((await info.getAttribute('data-opgave-vaesen')) === 'tomordet') {
     const s = synonymer.find((x) => x.id === id)!;
     return { rigtig: s.svar, forkert: s.forkerte[0] };
   }
@@ -33,42 +33,83 @@ async function facit(page: Page): Promise<{ rigtig: string; forkert: string }> {
   return { rigtig, forkert: ['d', 'h', 'v'].find((b) => b !== rigtig)! };
 }
 
-/** Spiller en hel kamp. Første tur svares forkert én gang, så regel og eksempel bliver vist. */
-async function kaemp(page: Page, navn: string, medVims = false) {
+/**
+ * Spiller en hel turbaseret kamp. Første runde lyttes der (svagt punkt), anden runde forsvares der,
+ * første slag svares forkert (regel og eksempel), og ellers slås der på væsnets svage punkt.
+ * Bliver holdet slået tilbage, går testen ind i kampen igen: skaden på væsnerne skal være husket.
+ */
+async function kaemp(page: Page, navn: string, objekt: string, medVims = false) {
   const kamp = page.locator('dialog.kamp');
   await expect(kamp).toBeVisible({ timeout: 30_000 });
-  for (let tur = 0; tur < 6; tur++) {
-    if (await kamp.getByRole('button', { name: 'Videre' }).isVisible()) break;
-    if (tur === 0) {
-      await kamp.getByRole('button', { name: 'Lyt' }).click();
-      await expect(kamp.locator('.besked-info')).toBeVisible();
+  let slag = 0;
+  for (let runde = 0; runde < 30; runde++) {
+    const menu = kamp.locator('.kamp-midte');
+    if (runde === 0) {
+      await menu.getByRole('button', { name: 'Lyt', exact: true }).click();
+      await kamp.locator('.kamp-menu').getByRole('button').first().click();
+      await expect(kamp.locator('.besked-info')).toContainText('Nu ved du');
+      await expect(kamp.locator('.kamp-fjender li').first()).not.toContainText('ukendt');
+      await menu.getByRole('button', { name: 'Taske', exact: true }).click();
+      await menu.getByRole('button', { name: 'Tilbage', exact: true }).click();
+      if (medVims) {
+        await menu.getByRole('button', { name: 'Hjælpere', exact: true }).click();
+        await expect(menu.getByRole('button', { name: /Vims: visk et angreb ud/ })).toBeEnabled();
+        await menu.getByRole('button', { name: 'Tilbage', exact: true }).click();
+      }
+      await page.screenshot({ path: `${BILLEDER}/k3-${navn}-kamp.png` });
     }
-    await kamp.getByRole('button', { name: 'Skriv færdig' }).click();
-    const { rigtig, forkert } = await facit(page);
-    if (tur === 0 && medVims) {
-      await kamp.getByRole('button', { name: 'Spørg Vims' }).click();
-      await expect(kamp.locator('.kamp-mulighed:disabled')).toHaveCount(1);
-      await expect(kamp.getByRole('button', { name: 'Spørg Vims' })).toHaveCount(0);
-    }
-    if (tur === 0) {
-      const knap = kamp.getByRole('button', { name: forkert, exact: true });
-      if (await knap.isEnabled()) {
-        await knap.click();
+    if (runde === 1) {
+      await menu.getByRole('button', { name: 'Forsvar', exact: true }).click();
+      await expect(kamp.locator('.kamp-runde')).toContainText('Du dækker holdet');
+    } else {
+      // Slå det første væsen, der stadig står, med det slag, det er svagt over for.
+      const maal = (await kamp.locator('.kamp-fjender li:not(.rolig) .kamp-navn').first().textContent())!.trim();
+      await menu.getByRole('button', { name: 'Slå', exact: true }).click();
+      const art = maal.startsWith('Tomordet') ? 'Slå med et synonym' : 'Slå med et stumt bogstav';
+      const stort = menu.getByRole('button', { name: `Stort slag, der rammer alle: ${art}` });
+      if (await stort.isVisible()) await stort.click();
+      else await menu.getByRole('button', { name: art, exact: true }).click();
+      if (await menu.getByText('Hvem vil du slå?').isVisible()) await menu.getByRole('button', { name: maal, exact: true }).click();
+      const { rigtig, forkert } = await facit(page);
+      if (slag === 0 && medVims) {
+        await menu.getByRole('button', { name: /Vims: visk en forkert mulighed ud/ }).click();
+        await expect(kamp.locator('.kamp-mulighed:disabled')).toHaveCount(1);
+      }
+      const forkertKnap = kamp.getByRole('button', { name: forkert, exact: true });
+      if (slag === 0 && (await forkertKnap.isEnabled())) {
+        await forkertKnap.click();
         await expect(kamp.locator('.besked-fejl .regel')).toContainText('Regel');
         await expect(kamp.locator('.besked-fejl .regel')).toContainText('Eksempel');
         await page.screenshot({ path: `${BILLEDER}/k3-${navn}-fejl.png` });
+      } else {
+        await kamp.getByRole('button', { name: rigtig, exact: true }).click();
+        await expect(kamp.locator('.besked-god .regel')).toContainText('Regel');
       }
+      slag++;
+      await menu.getByRole('button', { name: 'Videre', exact: true }).click();
     }
-    await kamp.getByRole('button', { name: rigtig, exact: true }).click();
-    await expect(kamp.locator('.besked-god .regel')).toContainText('Regel');
-    await kamp.getByRole('button', { name: 'Næste tur' }).click();
+    const opsummering = kamp.locator('.kamp-runde');
+    await expect(opsummering).toBeVisible();
+    if (await opsummering.getByText('Vejen er fri').isVisible()) {
+      await page.screenshot({ path: `${BILLEDER}/k3-${navn}-vundet.png` });
+      await opsummering.getByRole('button', { name: 'Videre', exact: true }).click();
+      await expect(kamp).toHaveCount(0);
+      return;
+    }
+    if (await opsummering.getByText('Holdet er slået tilbage').isVisible()) {
+      // Blødt nederlag: ud af kampen og ind igen. Holdet har fuldt liv, og væsnerne har stadig deres sår.
+      await opsummering.getByRole('button', { name: 'Tilbage', exact: true }).click();
+      await expect(kamp).toHaveCount(0);
+      await gaaTil(page, objekt);
+      await expect(kamp).toBeVisible({ timeout: 30_000 });
+      continue;
+    }
+    await opsummering.getByRole('button', { name: 'Næste tur', exact: true }).click();
   }
-  await expect(kamp.locator('.kamp-angreb')).toContainText(/roligt|stille/);
-  await kamp.getByRole('button', { name: 'Videre' }).click();
-  await expect(kamp).toHaveCount(0);
+  throw new Error(`Kampen ${navn} blev ikke vundet`);
 }
 
-test('kapitel 3: Viskeskoven, rolige kampe, Vims, mindet og Klattens valg', async ({ page }) => {
+test('kapitel 3: Viskeskoven, turbaserede kampe, Vims, mindet og Klattens valg', async ({ page }) => {
   test.setTimeout(420_000);
   const fejl: string[] = [];
   page.on('pageerror', (e) => fejl.push(e.message));
@@ -97,7 +138,7 @@ test('kapitel 3: Viskeskoven, rolige kampe, Vims, mindet og Klattens valg', asyn
   await kamp.getByRole('button', { name: 'Gå væk' }).click();
   await expect(kamp).toHaveCount(0);
   await gaaTil(page, 'tomordet');
-  await kaemp(page, 'tomordet');
+  await kaemp(page, 'tomordet', 'tomordet');
   await laesDialog(page);
 
   // Vims under svampen, og det tredje minde.
@@ -120,7 +161,7 @@ test('kapitel 3: Viskeskoven, rolige kampe, Vims, mindet og Klattens valg', asyn
   await gaaTil(page, 'stumming');
   await laesDialog(page);
   await gaaTil(page, 'stumming');
-  await kaemp(page, 'stumming', true);
+  await kaemp(page, 'stumming', 'stumming', true);
   await laesDialog(page);
 
   // Klattens valg.

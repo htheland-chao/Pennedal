@@ -20,6 +20,7 @@ import {
   type Retning,
   type Tegnkort,
 } from '../game/pixel/sprites';
+import { MARKOER } from '../game/pixel/kampscene';
 import { TING_IKONER } from '../game/pixel/ting';
 import { STUMMING, TOMORD, VIMS } from '../game/pixel/viskeskov';
 
@@ -101,6 +102,7 @@ export function grupper(): Gruppe[] {
         { navn: 'taleboble', kort: TALEBOBLE },
         { navn: 'pil', kort: PIL },
         { navn: 'skilt', kort: SKILT },
+        { navn: 'markør i kamp', kort: MARKOER },
       ],
     },
   ];

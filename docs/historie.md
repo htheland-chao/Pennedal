@@ -1,6 +1,6 @@
 # Pennedal - historiebibel
 
-Godkendt retning (Henrik, 31. oktober 2026): avatarens egen ufærdige historie er twistet. Kampe er rolige valg, og timing findes kun i frivillige, svære udfordringer. Denne fil er grundlaget for alle nye kapitler, tilbageblik, hjælpere og ting i tasken. Ret her først, byg bagefter.
+Godkendt retning (Henrik, 31. oktober 2026): avatarens egen ufærdige historie er twistet. Kampene er turbaserede med skade og uhygge (ændret af Henrik 3. november 2026, se Kampe), og timing findes kun i frivillige, svære udfordringer. Denne fil er grundlaget for alle nye kapitler, tilbageblik, hjælpere og ting i tasken. Ret her først, byg bagefter.
 
 Inspiration: Undertale og Clair Obscur: Expedition 33. Vi låner stemning og spillestil (skæv humor, plot twists, fjender man kan forstå i stedet for at slå, et spil der husker hvad man gør, svære frivillige udfordringer). Vi låner aldrig navne, figurer, replikker eller plotpunkter (krav 9 i CLAUDE.md).
 
@@ -100,7 +100,7 @@ Avataren og Æseløre følger blæksporet efter Klatten ind i en skov, hvor farv
 
 Mekanikker: platformbaner, hvor dele af banen bliver visket ud og skal skrives tilbage (vælg det rigtige ord, så kommer planken igen). Lanternen fra kapitel 1 lyser vejen i den hvide tåge. Klatten sidder fanget i en ufærdig sætning. Første store valg: hjælp ham fri eller gå forbi. Begge valg virker, men spillet husker det.
 
-**Bygget (1. november 2026):** Skovbrynet og Den hvide lysning. To rolige kampe: Tomordet (synonymer, `laes.ordforraad`) og Stummingen (stumme bogstaver, `stav.stumme`, med Vims som hjælper, der kan viske en forkert mulighed ud). Vims slutter sig til og giver sine krummer. Minde 3, Køkkenbordet. Klattens valg (hjælp ham fri med et punktum eller lad ham sidde) gemmes som `klatten.hjulpet` og giver venlighed. Kapitlet slutter med Den Ufærdige mellem træerne og et bjerg, der synger. **Mangler:** platformbanen med viskede planker, sidemissionen, den frivillige svære udfordring og de to hukommelsesskår.
+**Bygget (1. november 2026):** Skovbrynet og Den hvide lysning. To kampe: Tomordet (synonymer, `laes.ordforraad`) og væsnerne i lysningen (to Stumminger og et Tomord, `stav.stumme`, med Vims på holdet). Kampene er turbaserede siden 3. november 2026. Vims slutter sig til og giver sine krummer. Minde 3, Køkkenbordet. Klattens valg (hjælp ham fri med et punktum eller lad ham sidde) gemmes som `klatten.hjulpet` og giver venlighed. Kapitlet slutter med Den Ufærdige mellem træerne og et bjerg, der synger. **Mangler:** platformbanen med viskede planker, sidemissionen, den frivillige svære udfordring og de to hukommelsesskår.
 
 ### Kapitel 4: Rimbjerget
 
@@ -192,16 +192,25 @@ Tasken følger med gennem hele spillet. Knappen "Taske" står altid i panelet, o
 
 Æseløre siger altid noget, når man står ved et sted, hvor en ting fra tasken kan bruges. En ting, der mangler, må aldrig gøre, at man sidder fast.
 
-## Kampe: rolige valg
+## Kampe: turbaserede (Henrik, 3. november 2026)
 
-Den Ufærdiges væsner er ufærdige sætninger, halve ord og fortællinger, der er gået i stå. Man møder dem på vejen, og de spærrer for. En "kamp" er et lille vindue med fire valg:
+Kampene er turbaserede i stil med gamle rollespil: væsnerne står til venstre, holdet (avataren og hjælperne) til højre, og menuerne står nederst som rigtig HTML. Henrik har besluttet, at skade og uhygge gerne må være med, og at kampene skal være mere end at svare på spørgsmål. Logikken står i `src/mechanics/kampmotor.ts`, skærmen i `src/ui/KampVindue.tsx`.
 
-- **Lyt:** væsnet fortæller, hvad det mangler. Det er altid en ledetråd.
-- **Læs:** man læser væsnets sætning højt (oplæsning) og kan se, hvor den knækker.
-- **Skriv færdig:** man retter eller afslutter sætningen (en lille opgave, der bruger en færdighed). Rigtigt svar gør væsnet roligt, og det går sin vej eller bliver en ven.
-- **Gå væk:** man kan altid gå, men væsnet bliver stående.
+- **Slå:** avataren vælger slag og mål. Hvert slag er en lille danskfaglig opgave (synonym eller stumt bogstav). Rigtigt svar giver skade. Hvert væsen er svagt over for én slags slag og får dobbelt skade af det. Tre rigtige i træk giver et stort slag, der rammer alle.
+- **Lyt:** gratis. Væsnet giver et tip, og holdet lærer dets svage punkt.
+- **Forsvar:** al skade i runden halveres.
+- **Hjælpere:** handler ved siden af avataren, én gang pr. runde, med et begrænset antal ladninger. Æseløre forklarer reglen før et svar og lapper sår (også en, der er slået omkuld). Vims visker en forkert mulighed ud og kan viske et varslet angreb ud.
+- **Taske:** ting fra tasken bruges én gang pr. kamp. Lanternen blænder væsnerne en runde, krummerne helbreder hele holdet, punktummet stopper et væsen en runde.
+- **Gå væk:** pause. Skaden på væsnerne bliver husket.
 
-Ingen tidsgrænse, intet liv, der går tabt. Forkert svar giver regel og eksempel som alle andre steder. Spillet husker, hvor mange væsner man har gjort færdige, og nogle af dem dukker op igen senere som venner (lille Undertale-agtig belønning for at være venlig).
+Regler, der ikke må brydes:
+- Ingen tid og ingen tidsmåler (krav 5). Væsnerne varsler altid, hvad de gør næste gang.
+- Skaden kommer fra væsnernes tur, ikke fra et forkert svar. Et forkert svar rammer ved siden af og giver regel og eksempel (krav 6), så elever, der har det svært, ikke bliver straffet for fejlen.
+- Blødt nederlag: falder avataren, er holdet slået tilbage. Intet tabes, skaden på væsnerne huskes, og holdet har fuldt liv igen.
+- "Mindre uhygge" halverer væsnernes skade og tager det røde blink væk. Elever på lavt niveau får mildere angreb.
+- Uhyggen er blæk, skygger og mørke, ikke blod.
+
+Første omgang er bygget (3. november 2026). Mangler: flere slags slag og væsner fra tabellen herunder, chefkampe, flere ting og hjælpere fra senere kapitler.
 
 ### Turene er danskfaglige udfordringer (Henrik, 31. oktober 2026)
 

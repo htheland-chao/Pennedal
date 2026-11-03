@@ -1,7 +1,7 @@
 /**
- * Rolige kampe (docs/historie.md, "Kampe: rolige valg"). Et væsen er bygget af én slags fejl,
- * og hver tur er en lille danskfaglig opgave med tre svarmuligheder. Et rigtigt svar gør væsnet roligere.
- * Et forkert svar gør aldrig ondt: der er intet liv og ingen tid, kun en regel og et eksempel.
+ * Opgaverne i kampene (docs/historie.md, "Kampe"). Turene og skaden styres af kampmotor.ts. Et væsen er bygget af én slags fejl,
+ * og hvert slag er en lille danskfaglig opgave med tre svarmuligheder. Et rigtigt svar giver skade.
+ * Et forkert svar rammer ved siden af og giver en regel og et eksempel. Der er aldrig tid på.
  * Ren logik uden React og uden tekster. Teksterne står i src/content/tekster/da.json (kamp.*).
  */
 import { bland, vaelg } from '../engine/tilfaeldig';

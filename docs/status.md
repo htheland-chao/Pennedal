@@ -6,8 +6,9 @@ Regler og stak står i `CLAUDE.md`. Historien står i `docs/historie.md`, grafik
 
 ## Hvad der findes
 
-- **Kapitel 1-3 kan spilles.** Kapitel 1 (Pennedal og kælderen), kapitel 2 (byen og trykkeriet med bane og escape room) og kapitel 3 (Viskeskoven med de første rolige kampe).
-- **Intro, tilbageblik, taske, rolige kampe, Og-orm, avatardesigner med pixelgrafik** og baggrundsmusik pr. tema.
+- **Kapitel 1-3 kan spilles.** Kapitel 1 (Pennedal og kælderen), kapitel 2 (byen og trykkeriet med bane og escape room) og kapitel 3 (Viskeskoven med de første turbaserede kampe).
+- **Intro, tilbageblik, taske, turbaserede kampe, Og-orm, avatardesigner med pixelgrafik** og baggrundsmusik pr. tema.
+- **Kampe** (3. november 2026): turbaserede som i gamle rollespil, med hold, skade, svagheder, hjælpernes evner, ting fra tasken og blødt nederlag. Se `docs/historie.md` under Kampe.
 - **Lyd:** Gemini-stemmer pr. figur i `src/content/stemmer.json`. Stemmerne kan få rumklang, mens de afspilles (`src/ui/rumklang.ts`, profiler under `rum` i `stemmer.json`): hviskestemmen, introen og tilbageblik. Klippene er uberørte, og rummet kan slås fra i indstillingerne. "Mindre uhygge" halverer det. Aldrig på opgaver, feedback og enkeltord, fordi det gør tale sværere at forstå.
 - **Test og værktøj:** Hop direkte til et sted med `?hop` (se README). `?debug=1` viser billeder pr. sekund. `?lyd=1` er korrektursiden for lyd.
 - **Grafikark:** `npm run grafik:ark` tegner alle pixelfigurer på én side, gemmer billeder i `test-results/ark/` og skriver advarsler om størrelse og farver. Nye pixelfigurer skal tilføjes i `src/ark/samling.ts`, så de kommer med.
@@ -17,6 +18,8 @@ Regler og stak står i `CLAUDE.md`. Historien står i `docs/historie.md`, grafik
 - 30. oktober 2026: 16-bit pixelgrafik set skråt oppefra.
 - 31. oktober 2026: Claude merger sine egne pull requests, når testen er grøn og der ikke er konflikter. Gemini TTS er betalt, men har en dagskvote.
 - 3. november 2026: Henrik foretrækker den originale fortællerstemme. Den gamle mands stemme er fjernet. Rumklang lægges på i afspilleren (ikke bagt ind i klippene), kun på hviskestemmen, introen og tilbageblik.
+- 3. november 2026: Kampene skal være turbaserede med skade og uhygge og mere end spørgsmål. Blødt nederlag. Holdet er avataren og hjælperne.
+- 3. november 2026: Chromebook testet af Henrik og fungerer (tal for billeder pr. sekund er ikke noteret).
 - 3. november 2026: Grafikken tages videre med effekter som kode, flere udkast og valg (se `docs/grafik.md`). Vi bliver i Phaser.
 
 ## Åbent og mangler
@@ -29,7 +32,8 @@ Regler og stak står i `CLAUDE.md`. Historien står i `docs/historie.md`, grafik
 
 ## Ikke testet
 
-- Chromebook (Lenovo 500e Gen 2): billeder pr. sekund og hukommelse.
+- Chromebook (Lenovo 500e Gen 2): Henrik har testet, og det fungerer. Kampscenen er ny og ikke testet på Chromebook.
+- Kampenes balance med rigtige elever (simuleret i `kampmotor.test.ts`).
 - Touch på rigtige enheder.
 - Hvordan rumklangen lyder (Henrik skal lytte og vurdere mængden) og dens processorforbrug på Chromebook Gen 2. Målt i Chrome: lyden går gennem rummet og klinger ud efter klippet.
 - At lydjobbet selv lægger spillet ud, når det har lavet klip, ved den planlagte kørsel.

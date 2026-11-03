@@ -1,10 +1,9 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { hentKapitel, kapitler, t, type KampTrin, type Replik, type RumFund, type RumTrin, type Trin, type ValgMulighed } from '../content';
+import { avatarnavn, hentKapitel, kapitler, t, type Replik, type RumFund, type RumTrin, type Trin, type ValgMulighed } from '../content';
 import { erFaerdighed } from '../engine/faerdigheder';
 import type { GemtSpil, Indstillinger } from '../engine/gem';
 import { afslutTrin, aktueltSted, aktueltTrin, kapitelSlut } from '../engine/kapitel';
 import { MAKS_VENLIGHED, minderFor, nyeTing, taskeFor, type TingId } from '../engine/taske';
-import { antalTure } from '../mechanics/kamp';
 import { KampVindue } from '../ui/KampVindue';
 import { registrerSvar, type Haendelse } from '../engine/tilpasning';
 import { PhaserVerden } from '../game/PhaserVerden';
@@ -199,12 +198,13 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
     opdater(nyt);
   }
 
-  // Antal ture i en kamp lægges fast, når kampen starter, så det ikke skifter midt i den.
-  const kampAntal = useRef<Record<string, number>>({});
-  function antalIKamp(k: KampTrin): number {
-    const niveau = spil.faerdigheder[k.faerdighed as keyof GemtSpil['faerdigheder']]?.niveau ?? 1;
-    kampAntal.current[k.id] ??= Math.max(antalTure(k.antal, niveau), spil.trinFremskridt + 1);
-    return kampAntal.current[k.id];
+  const niveauFor = (faerdighed: string) => spil.faerdigheder[faerdighed as keyof GemtSpil['faerdigheder']]?.niveau ?? 1;
+
+  /** Kampen gemmer den skade, holdet har givet væsnerne, så den kan fortsætte senere (højst 98). */
+  function kampFremskridt(givet: number) {
+    const nyt: GemtSpil = { ...spilRef.current, trinFremskridt: Math.min(98, Math.max(0, givet)) };
+    spilRef.current = nyt;
+    opdater(nyt);
   }
 
   function onSvar(faerdighed: string, rigtigt: boolean, forsoeg: number): Haendelse {
@@ -424,11 +424,14 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
       {aktivtTrin?.type === 'kamp' && (
         <KampVindue
           trin={aktivtTrin}
-          niveau={spil.faerdigheder[aktivtTrin.faerdighed as keyof GemtSpil['faerdigheder']]?.niveau ?? 1}
-          loeste={spil.trinFremskridt}
-          antal={antalIKamp(aktivtTrin)}
-          onSvar={(r, f) => onSvar(aktivtTrin.faerdighed, r, f)}
-          onLoest={() => onLoest(antalIKamp(aktivtTrin))}
+          niveauFor={niveauFor}
+          fremskridt={spil.trinFremskridt}
+          avatar={spil.avatar}
+          avatarNavn={avatarnavn(spil.avatarnavn)}
+          taske={tingITasken}
+          onSvar={(faerdighed, r, f) => onSvar(faerdighed, r, f)}
+          onFremskridt={kampFremskridt}
+          onVundet={afslut}
           onPause={() => setAktivtTrin(null)}
         />
       )}
