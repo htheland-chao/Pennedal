@@ -46,7 +46,14 @@ jobs:
           if git ls-remote --exit-code --heads origin "$gren" > /dev/null; then
             git fetch origin "$gren"
             git checkout -B "$gren" "origin/$gren"
-            git merge --no-edit "origin/$BASE"
+            # Står den gamle gren med klip, der strider mod main (fx manifestet), starter vi forfra fra main.
+            # Klip er afledte filer, og de manglende bliver lavet igen. Uden dette fejlede jobbet hver morgen,
+            # før det nåede at lave noget (2. og 3. november 2026).
+            if ! git merge --no-edit "origin/$BASE"; then
+              echo "::warning::Den gamle lydgren strider mod $BASE. Starter forfra fra $BASE."
+              git merge --abort
+              git checkout -B "$gren" "origin/$BASE"
+            fi
           else
             git checkout -B "$gren"
           fi
@@ -88,7 +95,8 @@ jobs:
             echo "Ingen nye lydklip."
             exit 0
           fi
-          git push origin "$GREN"
+          # Grenen er jobbets egen. Er den startet forfra, skal den gamle skrives over.
+          git push --force-with-lease origin "$GREN"
           if [ -z "$(gh pr list --head "$GREN" --state open --json number --jq '.[].number')" ]; then
             gh pr create --base "$BASE" --head "$GREN" --title "Nye lydklip" --body-file lyd-status.md \
               || echo "::warning::Kunne ikke lave pull request. Slå 'Allow GitHub Actions to create and approve pull requests' til under Settings > Actions > General, eller lav den selv fra grenen $GREN."
