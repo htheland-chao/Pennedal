@@ -67,3 +67,15 @@ Prototypen, der viser stilen: "Pennedal set oppefra" (Claude-artefakt). Den er t
 ## Skrift
 
 Pixelskrift (Pixelify Sans) må kun bruges til navne og overskrifter. Brødtekst står altid i Atkinson Hyperlegible eller den skrift, eleven har valgt.
+
+## Inspiration og arbejdsform for effekter (3. november 2026)
+
+Henrik vil gerne tage grafikken videre med inspiration fra spritefusion.com (artiklen "How to make good pixel art effects with Claude"). Hav det i baghovedet, når der skabes ny grafik:
+
+- Effekter laves som kode med få parametre (hastighed, farve, tæthed), ikke som faste billeder. Det gør dem lette at variere.
+- Lav flere udkast (5-10) af en ny effekt, vis dem som kort video eller billedrække, vælg den bedste retning og finpuds bevægelse og timing. Første acceptable udgave er ikke nok.
+- Mulige steder: blækket der visker ord ud (Viskeskoven), lyset fra skuffen, regn og tåge, ord der falder på plads, når et væsen bliver roligt, lanternens lys.
+- Hver effekt måles mod Chromebook-budgettet (aldrig under 30 billeder pr. sekund). Mange partikler laves som få, genbrugte billeder.
+- Hver effekt kan dæmpes af "Mindre uhygge" og "Reducer bevægelse", og den må ikke blinke hurtigt.
+- Gratis tilesets, Pixel Art Generator og lignende kan bruges som inspiration. Hentes noget derfra, kræver det en tjekket licens i `LICENSER.md`, og det må ikke bryde kravet om et originalt univers. Vi tegner selv i kode, som vi plejer.
+- Godot (godotengine.org) er kigget igennem. Vi bliver i Phaser. Se `docs/historie.md` og CLAUDE.md for stakken.
