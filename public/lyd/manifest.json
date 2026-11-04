@@ -15,6 +15,13 @@
       "kilde": "Kapitel 2 / k2-ankomst.4",
       "lavet": "2026-10-31"
     },
+    "003f9a52a4c3d2": {
+      "figur": "fortaeller",
+      "tekst": "Det er en skøn dag.",
+      "fil": "003f9a52a4c3d2.ogg",
+      "kilde": "Synonymer / skoen",
+      "lavet": "2026-11-04"
+    },
     "004dbc901d8800": {
       "figur": "fortaeller",
       "tekst": "Stien ender i en lysning. Alt er hvidt her, også himlen.",
@@ -35,6 +42,13 @@
       "fil": "00571c88454902.ogg",
       "kilde": "Kapitel 2 / k2-rum.laas.mangler",
       "lavet": "2026-11-03"
+    },
+    "005e8df62db0d5": {
+      "figur": "fortaeller",
+      "tekst": "En gammel mand sidder ved floden.",
+      "fil": "005e8df62db0d5.ogg",
+      "kilde": "Stumme bogstaver / mand.saetning",
+      "lavet": "2026-11-04"
     },
     "00810db74b5886": {
       "figur": "fortaeller",
@@ -57,6 +71,20 @@
       "kilde": "Kapitel 2 / k2-til-smoeger.opgavetekst",
       "lavet": "2026-11-03"
     },
+    "009acf31165542": {
+      "figur": "fortaeller",
+      "tekst": "Nu skal historien begynde.",
+      "fil": "009acf31165542.ogg",
+      "kilde": "Synonymer / begynde",
+      "lavet": "2026-11-04"
+    },
+    "00a6193b69d784": {
+      "figur": "aeseloere",
+      "tekst": "Planke 2 står forkert. Hvordan kommer hovedpersonen ind i den magiske verden?",
+      "fil": "00a6193b69d784.ogg",
+      "kilde": "Beskeder / bro.fejl.placering.2.portal",
+      "lavet": "2026-11-04"
+    },
     "00b254dfd52682": {
       "figur": "holm",
       "tekst": "Jeg tør ærlig talt ikke gå derned alene. Vil du se, hvad der er i kælderen?",
@@ -78,12 +106,26 @@
       "kilde": "Råberens tegn / raab-7",
       "lavet": "2026-11-03"
     },
+    "00f72fdbc270f6": {
+      "figur": "fortaeller",
+      "tekst": "Vil du hjælpe Æseløre?",
+      "fil": "00f72fdbc270f6.ogg",
+      "kilde": "Stumme bogstaver / hjælpe.saetning",
+      "lavet": "2026-11-04"
+    },
     "00fadf11a1688a": {
       "figur": "fortaeller",
       "tekst": "Den hvisker til dig.",
       "fil": "00fadf11a1688a.ogg",
       "kilde": "Introen / intro.5.slut",
       "lavet": "2026-11-01"
+    },
+    "00ffaf007d4cd3": {
+      "figur": "fortaeller",
+      "tekst": "Hvad står der på skiltet?",
+      "fil": "00ffaf007d4cd3.ogg",
+      "kilde": "Stumme bogstaver / hvad.saetning",
+      "lavet": "2026-11-04"
     },
     "011975d24a3086": {
       "figur": "raaber",
@@ -134,12 +176,26 @@
       "kilde": "Kapitel 3 / k3-moerke.4",
       "lavet": "2026-11-01"
     },
+    "018f3604613317": {
+      "figur": "fortaeller",
+      "tekst": "Æseløre er træt efter den lange tur.",
+      "fil": "018f3604613317.ogg",
+      "kilde": "Synonymer / traet",
+      "lavet": "2026-11-04"
+    },
     "01a3716dfd3a41": {
       "figur": "fortaeller",
       "tekst": "Et ekstra punktum. Et blankt, lidt varmt punktum fra tagene i Sætningsbyen. Det kan stoppe en sætning.",
       "fil": "01a3716dfd3a41.ogg",
       "kilde": "Tasken / punktum",
       "lavet": "2026-11-01"
+    },
+    "01a606ec682232": {
+      "figur": "fortaeller",
+      "tekst": "Hvem hvisker i mørket?",
+      "fil": "01a606ec682232.ogg",
+      "kilde": "Stumme bogstaver / hvem.saetning",
+      "lavet": "2026-11-04"
     },
     "01b8e386f0c9ab": {
       "figur": "aeseloere",
@@ -162,6 +218,20 @@
       "kilde": "Kapitel 3 / k3-klatten.1",
       "lavet": "2026-11-01"
     },
+    "021cb6d9f8c9fc": {
+      "figur": "fortaeller",
+      "tekst": "Der er en hemmelig sti i skoven.",
+      "fil": "021cb6d9f8c9fc.ogg",
+      "kilde": "Synonymer / hemmelig",
+      "lavet": "2026-11-04"
+    },
+    "02224d96add638": {
+      "figur": "fortaeller",
+      "tekst": "Klatten er ikke din fjende.",
+      "fil": "02224d96add638.ogg",
+      "kilde": "Synonymer / fjende",
+      "lavet": "2026-11-04"
+    },
     "0227f0383529ee": {
       "figur": "ufaerdige",
       "tekst": "Ved du, hvordan det er at stoppe midt i en",
@@ -169,12 +239,33 @@
       "kilde": "Kapitel 2 / k2-moerke.7",
       "lavet": "2026-10-31"
     },
+    "0228b9f8b91bec": {
+      "figur": "fortaeller",
+      "tekst": "Skriv det stumme bogstav, der mangler.",
+      "fil": "0228b9f8b91bec.ogg",
+      "kilde": "Opgaver / hviske.instruks.skriv",
+      "lavet": "2026-11-04"
+    },
     "0233c88e5700b6": {
       "figur": "ord",
       "tekst": "typeskab",
       "fil": "0233c88e5700b6.ogg",
       "kilde": "Ordkort / typeskab",
       "lavet": "2026-11-01"
+    },
+    "0258bc7d3142de": {
+      "figur": "fortaeller",
+      "tekst": "Stien er mørk under træerne.",
+      "fil": "0258bc7d3142de.ogg",
+      "kilde": "Synonymer / moerk",
+      "lavet": "2026-11-04"
+    },
+    "0264b6cd085021": {
+      "figur": "fortaeller",
+      "tekst": "Der er varmt sand på stranden.",
+      "fil": "0264b6cd085021.ogg",
+      "kilde": "Stumme bogstaver / sand.saetning",
+      "lavet": "2026-11-04"
     },
     "027206d2bd858a": {
       "figur": "ufaerdige",
@@ -238,6 +329,13 @@
       "fil": "02f85d226b1561.ogg",
       "kilde": "Kapitel 2 / k2-ogorm.opgavetekst",
       "lavet": "2026-11-03"
+    },
+    "02f89939c146c2": {
+      "figur": "fortaeller",
+      "tekst": "Pennedal er et land af papir.",
+      "fil": "02f89939c146c2.ogg",
+      "kilde": "Stumme bogstaver / land.saetning",
+      "lavet": "2026-11-04"
     },
     "0325836e96ba8c": {
       "figur": "aeseloere",
@@ -400,13 +498,6 @@
       "kilde": "Kapitel 2 / k2-rum.laas.aabnet",
       "lavet": "2026-11-03"
     },
-    "055b06633ab1b2": {
-      "figur": "fortaeller",
-      "tekst": "Gør Tomordet roligt.",
-      "fil": "055b06633ab1b2.ogg",
-      "kilde": "Kapitel 3 / k3-tomordet.opgavetekst",
-      "lavet": "2026-11-03"
-    },
     "056456a51d12f2": {
       "figur": "ord",
       "tekst": "hjul",
@@ -420,6 +511,13 @@
       "fil": "056e7bbaea8441.ogg",
       "kilde": "Introen / intro.2",
       "lavet": "2026-11-01"
+    },
+    "05746e05c8d780": {
+      "figur": "fortaeller",
+      "tekst": "Logbogen ligger på et bord.",
+      "fil": "05746e05c8d780.ogg",
+      "kilde": "Stumme bogstaver / bord.saetning",
+      "lavet": "2026-11-04"
     },
     "0579d5df8a064a": {
       "figur": "fortaeller",
@@ -449,6 +547,13 @@
       "kilde": "Kapitel 1 / k1-lanterne.4",
       "lavet": "2026-10-31"
     },
+    "05bc7b768d4827": {
+      "figur": "aeseloere",
+      "tekst": "Sådan!",
+      "fil": "05bc7b768d4827.ogg",
+      "kilde": "Beskeder / opgave.ros.4",
+      "lavet": "2026-11-04"
+    },
     "05d573d8176505": {
       "figur": "aeseloere",
       "tekst": "Jeg hedder Æseløre. Jeg er foldet af en side fra en meget gammel ordbog, så jeg ved alt om ord. Næsten alt.",
@@ -463,6 +568,13 @@
       "kilde": "Råberens tegn / raab-17",
       "lavet": "2026-11-03"
     },
+    "0645f944e0d36e": {
+      "figur": "aeseloere",
+      "tekst": "Ja, det er den regel. Prøv nu igen.",
+      "fil": "0645f944e0d36e.ogg",
+      "kilde": "Beskeder / opgave.regel.rigtig",
+      "lavet": "2026-11-04"
+    },
     "065433f4b78e4f": {
       "figur": "raaber",
       "tekst": "Jeg ved godt, hvem der tog dem.",
@@ -470,12 +582,33 @@
       "kilde": "Råberens tegn / raab-22",
       "lavet": "2026-11-03"
     },
+    "067ae06a23edc7": {
+      "figur": "fortaeller",
+      "tekst": "Skoven er vild og mørk.",
+      "fil": "067ae06a23edc7.ogg",
+      "kilde": "Stumme bogstaver / vild.saetning",
+      "lavet": "2026-11-04"
+    },
     "06897d812334ee": {
       "figur": "fortaeller",
       "tekst": "Gå hen til væsnet på stien.",
       "fil": "06897d812334ee.ogg",
       "kilde": "Kapitel 3 / k3-tomordet-moede.opgavetekst",
       "lavet": "2026-11-03"
+    },
+    "06918b9415eb03": {
+      "figur": "fortaeller",
+      "tekst": "Du er modig, siger Vims.",
+      "fil": "06918b9415eb03.ogg",
+      "kilde": "Synonymer / modig",
+      "lavet": "2026-11-04"
+    },
+    "06b98568e004c2": {
+      "figur": "fortaeller",
+      "tekst": "Fuglen er helt stille.",
+      "fil": "06b98568e004c2.ogg",
+      "kilde": "Synonymer / stille",
+      "lavet": "2026-11-04"
     },
     "06cc5e2da79e59": {
       "figur": "fortaeller",
@@ -491,6 +624,13 @@
       "kilde": "Kapitel 2 / k2-ankomst.1",
       "lavet": "2026-10-31"
     },
+    "06e7644f3509aa": {
+      "figur": "fortaeller",
+      "tekst": "Træerne kan ikke snakke mere.",
+      "fil": "06e7644f3509aa.ogg",
+      "kilde": "Synonymer / snakke",
+      "lavet": "2026-11-04"
+    },
     "06ed058283e837": {
       "figur": "vims",
       "tekst": "Må jeg komme med? Jeg kan godt være modig. Næsten. Og jeg har krummer med, hvis noget skal viskes ud.",
@@ -504,6 +644,20 @@
       "fil": "0702537b302218.ogg",
       "kilde": "Kapitel 1 / k1-logbog.saetninger",
       "lavet": "2026-10-31"
+    },
+    "070b80dd0e7c6e": {
+      "figur": "aeseloere",
+      "tekst": "Planke 2 står forkert. Hvad ser hovedpersonen, når den magiske verden begynder?",
+      "fil": "070b80dd0e7c6e.ogg",
+      "kilde": "Beskeder / bro.fejl.placering.2.verden",
+      "lavet": "2026-11-04"
+    },
+    "072cc087020df8": {
+      "figur": "fortaeller",
+      "tekst": "Læg plankerne i den rækkefølge, de sker i historien. Brug knapperne til at flytte en planke op eller ned.",
+      "fil": "072cc087020df8.ogg",
+      "kilde": "Opgaver / bro.instruks",
+      "lavet": "2026-11-04"
     },
     "0743c543b1a964": {
       "figur": "aeseloere",
@@ -533,6 +687,27 @@
       "kilde": "Ordkort / byraad",
       "lavet": "2026-11-01"
     },
+    "07a22c6acc72ba": {
+      "figur": "fortaeller",
+      "tekst": "Hvor er bogens slutning?",
+      "fil": "07a22c6acc72ba.ogg",
+      "kilde": "Stumme bogstaver / hvor.saetning",
+      "lavet": "2026-11-04"
+    },
+    "07b5a3d5cbd6e9": {
+      "figur": "aeseloere",
+      "tekst": "En af plankerne passer ikke. Her løser en anden end hovedpersonen problemet.",
+      "fil": "07b5a3d5cbd6e9.ogg",
+      "kilde": "Beskeder / bro.fejl.fremmed",
+      "lavet": "2026-11-04"
+    },
+    "07e57ce0eb3f86": {
+      "figur": "aeseloere",
+      "tekst": "Regel: Synonymer er ord, der betyder det samme eller næsten det samme. Du kan bytte dem ud, uden at sætningen skifter betydning.",
+      "fil": "07e57ce0eb3f86.ogg",
+      "kilde": "Kampe / kamp.tomordet.regel",
+      "lavet": "2026-11-04"
+    },
     "07e8c290c513c7": {
       "figur": "holm",
       "tekst": "Godt, at du kom. Der sker noget mærkeligt med bøgerne.",
@@ -547,12 +722,47 @@
       "kilde": "Kapitel 3 / k3-stumming-moede.3",
       "lavet": "2026-11-01"
     },
+    "085701a614cd38": {
+      "figur": "fortaeller",
+      "tekst": "Det er varmt på en strand om sommeren.",
+      "fil": "085701a614cd38.ogg",
+      "kilde": "Stumme bogstaver / strand.saetning",
+      "lavet": "2026-11-04"
+    },
+    "08669a1198ea52": {
+      "figur": "fortaeller",
+      "tekst": "Væsnerne lægger bogstaverne fra sig og lister ind mellem træerne.",
+      "fil": "08669a1198ea52.ogg",
+      "kilde": "Kapitel 3 / k3-stumming-slut.2",
+      "lavet": "2026-11-04"
+    },
     "08846e43b7eae3": {
       "figur": "aeseloere",
       "tekst": "Den sætning handler om pletterne. Find sætningen, der fortæller, hvad skikkelsen bar på.",
       "fil": "08846e43b7eae3.ogg",
       "kilde": "Kapitel 2 / k2-opslag.k2-opslag-1.forkert.3",
       "lavet": "2026-11-03"
+    },
+    "08b06c185d2fef": {
+      "figur": "aeseloere",
+      "tekst": "Planke 2 står forkert. Hvem eller hvad står i vejen?",
+      "fil": "08b06c185d2fef.ogg",
+      "kilde": "Beskeder / bro.fejl.placering.2.konflikt",
+      "lavet": "2026-11-04"
+    },
+    "08c453f7aa014d": {
+      "figur": "fortaeller",
+      "tekst": "En lille hvalp leger i bladene.",
+      "fil": "08c453f7aa014d.ogg",
+      "kilde": "Stumme bogstaver / hvalp.saetning",
+      "lavet": "2026-11-04"
+    },
+    "091f143b2a53ee": {
+      "figur": "aeseloere",
+      "tekst": "Præcis!",
+      "fil": "091f143b2a53ee.ogg",
+      "kilde": "Beskeder / opgave.ros.3",
+      "lavet": "2026-11-04"
     },
     "092483afabd966": {
       "figur": "klatten",
@@ -561,12 +771,26 @@
       "kilde": "Kapitel 2 / k2-fanget.1",
       "lavet": "2026-10-31"
     },
+    "0967a18360fff0": {
+      "figur": "fortaeller",
+      "tekst": "Kæmp mod væsnerne i lysningen.",
+      "fil": "0967a18360fff0.ogg",
+      "kilde": "Kapitel 3 / k3-stumming.opgavetekst",
+      "lavet": "2026-11-04"
+    },
     "0972f940ab450f": {
       "figur": "fortaeller",
       "tekst": "Mellem træerne står en skygge med store, runde øjne. Den kigger på dig, som om den kender dig.",
       "fil": "0972f940ab450f.ogg",
       "kilde": "Kapitel 3 / k3-moerke.3",
       "lavet": "2026-11-01"
+    },
+    "09be461c0db40d": {
+      "figur": "fortaeller",
+      "tekst": "Held og lykke på rejsen!",
+      "fil": "09be461c0db40d.ogg",
+      "kilde": "Stumme bogstaver / held.saetning",
+      "lavet": "2026-11-04"
     },
     "09ca786540dab3": {
       "figur": "fortaeller",
@@ -581,6 +805,13 @@
       "fil": "09dad3bcb01112.ogg",
       "kilde": "Beskeder / raaber.eksempel",
       "lavet": "2026-11-03"
+    },
+    "09e285e5b0f9c5": {
+      "figur": "aeseloere",
+      "tekst": "Planke 1 står forkert. Hvordan løser hovedpersonen selv problemet?",
+      "fil": "09e285e5b0f9c5.ogg",
+      "kilde": "Beskeder / bro.fejl.placering.1.loesning",
+      "lavet": "2026-11-04"
     },
     "09f1f71147e479": {
       "figur": "vims",
@@ -616,6 +847,13 @@
       "fil": "0a8add0ccc7c17.ogg",
       "kilde": "Tasken / lanterne",
       "lavet": "2026-11-01"
+    },
+    "0aa6acb748c15e": {
+      "figur": "fortaeller",
+      "tekst": "Vims er glad, fordi solen skinner.",
+      "fil": "0aa6acb748c15e.ogg",
+      "kilde": "Synonymer / glad",
+      "lavet": "2026-11-04"
     },
     "0aa6af0a665d23": {
       "figur": "fortaeller",
@@ -666,6 +904,13 @@
       "kilde": "Kapitel 3 / k3-ankomst.4",
       "lavet": "2026-11-01"
     },
+    "0b04e6610f22db": {
+      "figur": "fortaeller",
+      "tekst": "Til sidst kommer hun hjem igen.",
+      "fil": "0b04e6610f22db.ogg",
+      "kilde": "Stumme bogstaver / hjem.saetning",
+      "lavet": "2026-11-04"
+    },
     "0b09a03d388062": {
       "figur": "raaber",
       "tekst": "Hvem har set Klatten?",
@@ -687,6 +932,13 @@
       "kilde": "Kapitel 2 / k2-torvet.2",
       "lavet": "2026-10-31"
     },
+    "0b33fa14840161": {
+      "figur": "fortaeller",
+      "tekst": "Tomordet er mæt og helt roligt.",
+      "fil": "0b33fa14840161.ogg",
+      "kilde": "Kampe / kamp.tomordet.rolig",
+      "lavet": "2026-11-04"
+    },
     "0b62dfb70861c4": {
       "figur": "raaber",
       "tekst": "Stop tyven!",
@@ -700,6 +952,13 @@
       "fil": "0b6bc90f84a95f.ogg",
       "kilde": "Kapitel 2 / k2-rum.seddel.3",
       "lavet": "2026-11-03"
+    },
+    "0b7eda2b148e55": {
+      "figur": "fortaeller",
+      "tekst": "Tryk på ordet efter punktummet. Så får det stort begyndelsesbogstav.",
+      "fil": "0b7eda2b148e55.ogg",
+      "kilde": "Opgaver / ogorm.trin.3",
+      "lavet": "2026-11-04"
     },
     "0b81eefcc22ead": {
       "figur": "fortaeller",
@@ -750,6 +1009,13 @@
       "kilde": "Minder / minde.blaek.1",
       "lavet": "2026-11-03"
     },
+    "0c4bc7cbab2613": {
+      "figur": "aeseloere",
+      "tekst": "Her binder \"og\" to ting sammen i samme sætning, fx \"brød og smør\". Det \"og\" skal blive.",
+      "fil": "0c4bc7cbab2613.ogg",
+      "kilde": "Beskeder / ogorm.fejl.bliv",
+      "lavet": "2026-11-04"
+    },
     "0c4f0da51d985c": {
       "figur": "aeseloere",
       "tekst": "Han er en og-orm på to ben. Nogen har stjålet hans punktummer.",
@@ -798,6 +1064,20 @@
       "fil": "0c9677172012c6.ogg",
       "kilde": "Kapitel 3 / k3-stumming-moede.opgavetekst",
       "lavet": "2026-11-03"
+    },
+    "0c9a60d64661f9": {
+      "figur": "fortaeller",
+      "tekst": "Månen skinner som sølv.",
+      "fil": "0c9a60d64661f9.ogg",
+      "kilde": "Stumme bogstaver / sølv.saetning",
+      "lavet": "2026-11-04"
+    },
+    "0ca46c59add8d2": {
+      "figur": "fortaeller",
+      "tekst": "Svampen er kæmpestor.",
+      "fil": "0ca46c59add8d2.ogg",
+      "kilde": "Synonymer / kaempestor",
+      "lavet": "2026-11-04"
     },
     "0cad6845cb1abe": {
       "figur": "tomordet",
@@ -869,6 +1149,13 @@
       "kilde": "Kapitel 2 / k2-rum.laas.eksempel",
       "lavet": "2026-11-03"
     },
+    "0ddd3343965284": {
+      "figur": "fortaeller",
+      "tekst": "Vognen har et løst hjul.",
+      "fil": "0ddd3343965284.ogg",
+      "kilde": "Stumme bogstaver / hjul.saetning",
+      "lavet": "2026-11-04"
+    },
     "0e085335c1e617": {
       "figur": "klatten",
       "tekst": "Det her skal jeg fortælle til ... Nej. Det må jeg ikke sige.",
@@ -889,6 +1176,13 @@
       "fil": "0e1a3e8bc99b2b.ogg",
       "kilde": "Kapitel 2 / k2-spor.1",
       "lavet": "2026-10-31"
+    },
+    "0e3d9d25e76c68": {
+      "figur": "aeseloere",
+      "tekst": "Planke 1 står forkert. Hvordan ender historien?",
+      "fil": "0e3d9d25e76c68.ogg",
+      "kilde": "Beskeder / bro.fejl.placering.1.hjemkomst",
+      "lavet": "2026-11-04"
     },
     "0e5cb3edad41b9": {
       "figur": "aeseloere",
@@ -932,6 +1226,13 @@
       "kilde": "Kapitel 2 / k2-moerke.12",
       "lavet": "2026-10-31"
     },
+    "0f89ccefcf2104": {
+      "figur": "aeseloere",
+      "tekst": "Rigtigt i første forsøg. Æseløre er imponeret, men han siger det ikke højt.",
+      "fil": "0f89ccefcf2104.ogg",
+      "kilde": "Beskeder / opgave.ros.foersteforsoeg",
+      "lavet": "2026-11-04"
+    },
     "0f93418eb0b7a6": {
       "figur": "fortaeller",
       "tekst": "Kære chef.",
@@ -953,12 +1254,26 @@
       "kilde": "Kapitel 2 / k2-til-tag.opgavetekst",
       "lavet": "2026-11-03"
     },
+    "1006e64abb93cc": {
+      "figur": "fortaeller",
+      "tekst": "Klatten er sur i dag.",
+      "fil": "1006e64abb93cc.ogg",
+      "kilde": "Synonymer / sur",
+      "lavet": "2026-11-04"
+    },
     "100fc2e6bef107": {
       "figur": "fortaeller",
       "tekst": "Skal jeg også tage spørgsmålstegnene?",
       "fil": "100fc2e6bef107.ogg",
       "kilde": "Kapitel 2 / k2-rum.seddel.4",
       "lavet": "2026-11-03"
+    },
+    "102f0b6d5a9609": {
+      "figur": "fortaeller",
+      "tekst": "En hund gør ad de tre måner.",
+      "fil": "102f0b6d5a9609.ogg",
+      "kilde": "Stumme bogstaver / hund.saetning",
+      "lavet": "2026-11-04"
     },
     "10372248d9a4e0": {
       "figur": "fortaeller",
@@ -987,6 +1302,13 @@
       "fil": "107c9498de26fc.ogg",
       "kilde": "Kapitel 3 / k3-moerke.2",
       "lavet": "2026-11-01"
+    },
+    "108b87041073eb": {
+      "figur": "fortaeller",
+      "tekst": "En af plankerne passer ikke i en god fantasyfortælling. Læg den til side.",
+      "fil": "108b87041073eb.ogg",
+      "kilde": "Opgaver / bro.instruks.fremmed",
+      "lavet": "2026-11-04"
     },
     "10a27d1a586882": {
       "figur": "fortaeller",
@@ -1044,6 +1366,13 @@
       "kilde": "Råberens tegn / raab-9",
       "lavet": "2026-11-03"
     },
+    "1119e045cfcf4a": {
+      "figur": "aeseloere",
+      "tekst": "Planke 1 står forkert. Hvem eller hvad står i vejen?",
+      "fil": "1119e045cfcf4a.ogg",
+      "kilde": "Beskeder / bro.fejl.placering.1.konflikt",
+      "lavet": "2026-11-04"
+    },
     "11224dac6e19e1": {
       "figur": "fortaeller",
       "tekst": "Hilsen K.",
@@ -1064,6 +1393,20 @@
       "fil": "1123f080cc143d.ogg",
       "kilde": "Kapitel 1 / k1-lanterne.1",
       "lavet": "2026-10-31"
+    },
+    "1126bfb1dae4d2": {
+      "figur": "fortaeller",
+      "tekst": "Skriv hele ordet. Du kan høre det, og du kan se det i sætningen.",
+      "fil": "1126bfb1dae4d2.ogg",
+      "kilde": "Opgaver / hviske.instruks.helt",
+      "lavet": "2026-11-04"
+    },
+    "112877aeb583e4": {
+      "figur": "fortaeller",
+      "tekst": "Du opdager et spor i den hvide tåge.",
+      "fil": "112877aeb583e4.ogg",
+      "kilde": "Synonymer / opdager",
+      "lavet": "2026-11-04"
     },
     "112a097d97a797": {
       "figur": "ord",
@@ -1100,6 +1443,13 @@
       "kilde": "Stumme bogstaver / hvem",
       "lavet": "2026-10-31"
     },
+    "118e4ad026ec36": {
+      "figur": "fortaeller",
+      "tekst": "Klatten vil være berømt.",
+      "fil": "118e4ad026ec36.ogg",
+      "kilde": "Synonymer / beroemt",
+      "lavet": "2026-11-04"
+    },
     "11947240fe9482": {
       "figur": "aeseloere",
       "tekst": "Sætningen spørger om noget, man kan svare på. Derfor skal den have spørgsmålstegn.",
@@ -1120,6 +1470,13 @@
       "fil": "11abd934542a34.ogg",
       "kilde": "Kapitel 3 / k3-tomordet-moede.4",
       "lavet": "2026-11-01"
+    },
+    "11cb3074dfcb64": {
+      "figur": "fortaeller",
+      "tekst": "Planten vokser i sort jord.",
+      "fil": "11cb3074dfcb64.ogg",
+      "kilde": "Stumme bogstaver / jord.saetning",
+      "lavet": "2026-11-04"
     },
     "11cc0ca5a8afa7": {
       "figur": "raaber",
@@ -1148,6 +1505,13 @@
       "fil": "11ffa6a9b86580.ogg",
       "kilde": "Stumme bogstaver / sand",
       "lavet": "2026-10-31"
+    },
+    "1205984a9f56b8": {
+      "figur": "fortaeller",
+      "tekst": "Vims bliver bange, når det blæser.",
+      "fil": "1205984a9f56b8.ogg",
+      "kilde": "Synonymer / bange",
+      "lavet": "2026-11-04"
     },
     "120f3be69fc55c": {
       "figur": "lanterne",
@@ -1184,6 +1548,13 @@
       "kilde": "Kapitel 2 / k2-portvagt.opgavetekst",
       "lavet": "2026-11-03"
     },
+    "128b32027f9b4f": {
+      "figur": "fortaeller",
+      "tekst": "Før du læser: Kender du de her ord? Tryk på et ord for at se en forklaring.",
+      "fil": "128b32027f9b4f.ogg",
+      "kilde": "Opgaver / bevisjagt.foer",
+      "lavet": "2026-11-04"
+    },
     "128f7709abbe0a": {
       "figur": "ord",
       "tekst": "halv",
@@ -1197,6 +1568,13 @@
       "fil": "129f5175016127.ogg",
       "kilde": "Kapitel 1 / k1-logbog.k1-logbog-1.forkert.0",
       "lavet": "2026-11-01"
+    },
+    "12a34d10f162b2": {
+      "figur": "fortaeller",
+      "tekst": "Det er en kold dag i Pennedal.",
+      "fil": "12a34d10f162b2.ogg",
+      "kilde": "Stumme bogstaver / kold.saetning",
+      "lavet": "2026-11-04"
     },
     "12ad9267808121": {
       "figur": "fortaeller",
@@ -1219,6 +1597,13 @@
       "kilde": "Beskeder / rum.forkert",
       "lavet": "2026-11-03"
     },
+    "1303743bdb4321": {
+      "figur": "aeseloere",
+      "tekst": "Midt i en sætning skal ordet have lille begyndelsesbogstav. Kun navne og ordet efter et punktum har stort.",
+      "fil": "1303743bdb4321.ogg",
+      "kilde": "Beskeder / ogorm.fejl.lille",
+      "lavet": "2026-11-04"
+    },
     "13354d7c08ba27": {
       "figur": "fortaeller",
       "tekst": "Følg stien mod floden.",
@@ -1239,6 +1624,13 @@
       "fil": "136de469832728.ogg",
       "kilde": "Kapitel 1 / k1-floden.2",
       "lavet": "2026-10-31"
+    },
+    "13763176153610": {
+      "figur": "aeseloere",
+      "tekst": "Ikke den. Læs reglerne igen.",
+      "fil": "13763176153610.ogg",
+      "kilde": "Beskeder / opgave.regel.forkert",
+      "lavet": "2026-11-04"
     },
     "137bc107b9f51d": {
       "figur": "aeseloere",
@@ -1274,6 +1666,20 @@
       "fil": "13ae92c1093121.ogg",
       "kilde": "Tasken / rimsten",
       "lavet": "2026-11-01"
+    },
+    "13b4581b7b1972": {
+      "figur": "aeseloere",
+      "tekst": "Ormen er stadig for lang. Find et \"og\", der står mellem to hele sætninger, og sæt punktum dér.",
+      "fil": "13b4581b7b1972.ogg",
+      "kilde": "Beskeder / ogorm.fejl.mangler",
+      "lavet": "2026-11-04"
+    },
+    "13b4c8e1189c2d": {
+      "figur": "fortaeller",
+      "tekst": "Råberen har en vigtig besked.",
+      "fil": "13b4c8e1189c2d.ogg",
+      "kilde": "Synonymer / besked",
+      "lavet": "2026-11-04"
     },
     "13b9687ead0e1e": {
       "figur": "fortaeller",
@@ -1317,12 +1723,26 @@
       "kilde": "Minder / minde.blaek.3",
       "lavet": "2026-11-03"
     },
+    "140267612e9ca5": {
+      "figur": "fortaeller",
+      "tekst": "Klokken slår tolv.",
+      "fil": "140267612e9ca5.ogg",
+      "kilde": "Stumme bogstaver / tolv.saetning",
+      "lavet": "2026-11-04"
+    },
     "1405e2a8f9e8ee": {
       "figur": "fortaeller",
       "tekst": "Du har fundet på noget, som ingen andre har fundet på.",
       "fil": "1405e2a8f9e8ee.ogg",
       "kilde": "Minder / minde.koekkenbord.4",
       "lavet": "2026-11-03"
+    },
+    "140d3ee0105668": {
+      "figur": "stumming",
+      "tekst": "Hys. Jeg tager kun de bogstaver, der ikke siger noget. Kig på bogstaverne omkring hullet. Det stumme d kommer tit efter l, n og r. Det stumme h står foran v og j. Det stumme v kommer efter l.",
+      "fil": "140d3ee0105668.ogg",
+      "kilde": "Kampe / kamp.stumming.lyt",
+      "lavet": "2026-11-04"
     },
     "141f6d9ad273b9": {
       "figur": "raaber",
@@ -1344,6 +1764,27 @@
       "fil": "143371d21b038c.ogg",
       "kilde": "Kapitel 3 / k3-tomordet-slut.2",
       "lavet": "2026-11-01"
+    },
+    "1436f9e5f2b951": {
+      "figur": "aeseloere",
+      "tekst": "Planke 1 står forkert. Hvordan kommer hovedpersonen ind i den magiske verden?",
+      "fil": "1436f9e5f2b951.ogg",
+      "kilde": "Beskeder / bro.fejl.placering.1.portal",
+      "lavet": "2026-11-04"
+    },
+    "1447f97f7efcc0": {
+      "figur": "aeseloere",
+      "tekst": "Planke 2 står forkert. Hvordan løser hovedpersonen selv problemet?",
+      "fil": "1447f97f7efcc0.ogg",
+      "kilde": "Beskeder / bro.fejl.placering.2.loesning",
+      "lavet": "2026-11-04"
+    },
+    "1497f7d787933e": {
+      "figur": "fortaeller",
+      "tekst": "Skoven var rolig før.",
+      "fil": "1497f7d787933e.ogg",
+      "kilde": "Synonymer / rolig",
+      "lavet": "2026-11-04"
     },
     "1499352442dc5c": {
       "figur": "ord",
@@ -1394,6 +1835,13 @@
       "kilde": "Kapitel 2 / k2-trykkeri.4",
       "lavet": "2026-11-01"
     },
+    "15a32101b56b6c": {
+      "figur": "fortaeller",
+      "tekst": "Kæmp mod Tomordet.",
+      "fil": "15a32101b56b6c.ogg",
+      "kilde": "Kapitel 3 / k3-tomordet.opgavetekst",
+      "lavet": "2026-11-04"
+    },
     "15f59678cf20ca": {
       "figur": "ord",
       "tekst": "land",
@@ -1421,6 +1869,13 @@
       "fil": "1629034926a18d.ogg",
       "kilde": "Stumme bogstaver / selv",
       "lavet": "2026-10-31"
+    },
+    "1650c42ec1b86d": {
+      "figur": "fortaeller",
+      "tekst": "Skriv de to bogstaver, der mangler. Det ene er stumt.",
+      "fil": "1650c42ec1b86d.ogg",
+      "kilde": "Opgaver / hviske.instruks.to",
+      "lavet": "2026-11-04"
     },
     "1665aacca8e1ae": {
       "figur": "fortaeller",
@@ -1485,6 +1940,13 @@
       "kilde": "Stumme bogstaver / tolv",
       "lavet": "2026-11-01"
     },
+    "16ebe321d1d0ec": {
+      "figur": "aeseloere",
+      "tekst": "Prøv igen.",
+      "fil": "16ebe321d1d0ec.ogg",
+      "kilde": "Beskeder / opgave.proev.igen",
+      "lavet": "2026-11-04"
+    },
     "16fcd3a1a54605": {
       "figur": "ord",
       "tekst": "vild",
@@ -1506,13 +1968,6 @@
       "kilde": "Kapitel 3 / k3-ankomst.2",
       "lavet": "2026-11-01"
     },
-    "1740e7dcd8a96d": {
-      "figur": "fortaeller",
-      "tekst": "Stummingen lægger bogstaverne fra sig og lister ind mellem træerne.",
-      "fil": "1740e7dcd8a96d.ogg",
-      "kilde": "Kapitel 3 / k3-stumming-slut.2",
-      "lavet": "2026-11-01"
-    },
     "1746c81487479d": {
       "figur": "lanterne",
       "tekst": "Men nogen stjæler slutningerne. Hver nat bliver lyset lidt svagere.",
@@ -1527,12 +1982,26 @@
       "kilde": "Minder / minde.blaek.4",
       "lavet": "2026-11-03"
     },
+    "1768d2caa8af20": {
+      "figur": "aeseloere",
+      "tekst": "Æseløre gør opgaverne lidt lettere, mens du øver dig.",
+      "fil": "1768d2caa8af20.ogg",
+      "kilde": "Beskeder / opgave.niveau.ned",
+      "lavet": "2026-11-04"
+    },
     "1777486ab60d4d": {
       "figur": "fortaeller",
       "tekst": "Over dig knirker loftet. Nogen går på taget.",
       "fil": "1777486ab60d4d.ogg",
       "kilde": "Kapitel 2 / k2-trykkeri.4",
       "lavet": "2026-10-31"
+    },
+    "1781a20c0cbb6a": {
+      "figur": "fortaeller",
+      "tekst": "Og-ormen har ædt punktummerne og sat \"og\" i stedet. Nu er teksten én lang sætning. Gør den til flere sætninger igen.",
+      "fil": "1781a20c0cbb6a.ogg",
+      "kilde": "Opgaver / ogorm.instruks",
+      "lavet": "2026-11-04"
     },
     "17aea59c3821ea": {
       "figur": "fortaeller",
@@ -1547,6 +2016,20 @@
       "fil": "17b2bd5fcb9c5b.ogg",
       "kilde": "Kapitel 3 / k3-vims.6",
       "lavet": "2026-11-01"
+    },
+    "17c3e60a168f1b": {
+      "figur": "fortaeller",
+      "tekst": "Klatten spiste en halv bog.",
+      "fil": "17c3e60a168f1b.ogg",
+      "kilde": "Stumme bogstaver / halv.saetning",
+      "lavet": "2026-11-04"
+    },
+    "17d81c4561f771": {
+      "figur": "fortaeller",
+      "tekst": "Papirfuglen er hvid.",
+      "fil": "17d81c4561f771.ogg",
+      "kilde": "Stumme bogstaver / hvid.saetning",
+      "lavet": "2026-11-04"
     },
     "17da9fe78a76f3": {
       "figur": "fortaeller",
@@ -1583,12 +2066,26 @@
       "kilde": "Kapitel 2 / k2-portvagt.1",
       "lavet": "2026-10-31"
     },
+    "1826629f8e05b0": {
+      "figur": "vims",
+      "tekst": "Vims kigger på mulighederne. Der er ikke mere, han tør viske ud. Nu må du selv vælge.",
+      "fil": "1826629f8e05b0.ogg",
+      "kilde": "Kampe / kamp.vims.ingen",
+      "lavet": "2026-11-04"
+    },
     "1826d9ac61264f": {
       "figur": "klatten",
       "tekst": "Nej. Nej, nej. Det var ikke meningen. Jeg tog dem jo. Næsten alle sammen.",
       "fil": "1826d9ac61264f.ogg",
       "kilde": "Kapitel 2 / k2-moerke.3",
       "lavet": "2026-10-31"
+    },
+    "182c2ebb63149e": {
+      "figur": "aeseloere",
+      "tekst": "Æseløre gør opgaverne lidt sværere.",
+      "fil": "182c2ebb63149e.ogg",
+      "kilde": "Beskeder / opgave.niveau.op",
+      "lavet": "2026-11-04"
     },
     "18369895e1a050": {
       "figur": "aeseloere",
@@ -1639,12 +2136,26 @@
       "kilde": "Kapitel 2 / k2-fanget.3",
       "lavet": "2026-10-31"
     },
+    "1872d6dd69ecbf": {
+      "figur": "aeseloere",
+      "tekst": "Planke 1 står forkert. Hvad er problemet i begyndelsen?",
+      "fil": "1872d6dd69ecbf.ogg",
+      "kilde": "Beskeder / bro.fejl.placering.1.problem",
+      "lavet": "2026-11-04"
+    },
     "1874fc5e578ba1": {
       "figur": "fortaeller",
       "tekst": "Ved siden af tegningen skriver du, så hurtigt du kan. Bogstaverne vælter lidt, men det er lige meget. Du er glad.",
       "fil": "1874fc5e578ba1.ogg",
       "kilde": "Minder / minde.koekkenbord.3",
       "lavet": "2026-11-03"
+    },
+    "1876a5751776b9": {
+      "figur": "fortaeller",
+      "tekst": "Skoven var smuk engang.",
+      "fil": "1876a5751776b9.ogg",
+      "kilde": "Synonymer / smuk",
+      "lavet": "2026-11-04"
     },
     "189f99152f2281": {
       "figur": "portvagt",
@@ -1709,6 +2220,13 @@
       "kilde": "Kapitel 3 / k3-lysning.4",
       "lavet": "2026-11-01"
     },
+    "1904e22c04f254": {
+      "figur": "fortaeller",
+      "tekst": "Læs teksten. Find steder, hvor én tanke slutter, og en ny begynder.",
+      "fil": "1904e22c04f254.ogg",
+      "kilde": "Opgaver / ogorm.trin.1",
+      "lavet": "2026-11-04"
+    },
     "191e4e2383adad": {
       "figur": "fortaeller",
       "tekst": "Skiltet er helt hvidt. Der har stået noget, men ordene er visket ud. Kun to ord er tilbage: Pas på.",
@@ -1729,6 +2247,13 @@
       "fil": "1941a19abf438e.ogg",
       "kilde": "Kapitel 1 / k1-aeseloere.1",
       "lavet": "2026-10-31"
+    },
+    "19580543042e8a": {
+      "figur": "aeseloere",
+      "tekst": "Planke 2 står forkert. Hvad er problemet i begyndelsen?",
+      "fil": "19580543042e8a.ogg",
+      "kilde": "Beskeder / bro.fejl.placering.2.problem",
+      "lavet": "2026-11-04"
     },
     "195c24522c7f3b": {
       "figur": "borgmester",
@@ -1764,6 +2289,13 @@
       "fil": "19bdeba5a74dcd.ogg",
       "kilde": "Råberens tegn / raab-1",
       "lavet": "2026-11-03"
+    },
+    "19e232923a17c2": {
+      "figur": "aeseloere",
+      "tekst": "Den planke hører til historien. Læg den tilbage på broen.",
+      "fil": "19e232923a17c2.ogg",
+      "kilde": "Beskeder / bro.fejl.fjernet",
+      "lavet": "2026-11-04"
     },
     "19f6fbcacac372": {
       "figur": "fortaeller",
@@ -1821,6 +2353,13 @@
       "kilde": "Kapitel 1 / k1-klatten.4",
       "lavet": "2026-10-31"
     },
+    "1a672f2feb9995": {
+      "figur": "fortaeller",
+      "tekst": "Mor Lanterne har et stort hjerte.",
+      "fil": "1a672f2feb9995.ogg",
+      "kilde": "Stumme bogstaver / hjerte.saetning",
+      "lavet": "2026-11-04"
+    },
     "1a6ff6b4ae835c": {
       "figur": "vims",
       "tekst": "Var det mig? Undskyld. Jeg tror, jeg kom til at viske et hul i noget, der ikke var skoven.",
@@ -1849,6 +2388,20 @@
       "kilde": "Kampe / kamp.tomordet.lyt",
       "lavet": "2026-11-03"
     },
+    "1a963a31f1b0c6": {
+      "figur": "aeseloere",
+      "tekst": "Rigtigt!",
+      "fil": "1a963a31f1b0c6.ogg",
+      "kilde": "Beskeder / opgave.ros.1",
+      "lavet": "2026-11-04"
+    },
+    "1aa86a8ea8017a": {
+      "figur": "vims",
+      "tekst": "Vims visker en forkert mulighed ud. Undskyld, hvis det var den, du ville vælge.",
+      "fil": "1aa86a8ea8017a.ogg",
+      "kilde": "Kampe / kamp.vims.visk",
+      "lavet": "2026-11-04"
+    },
     "1ae511e2503aa3": {
       "figur": "fortaeller",
       "tekst": "Du lander blødt i en bunke visne blade. Over dig hænger tre måner, og træerne har blade af papir.",
@@ -1856,12 +2409,40 @@
       "kilde": "Kapitel 1 / k1-ankomst.1",
       "lavet": "2026-10-31"
     },
+    "1aefbc15df6312": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket stumt bogstav mangler? Vælg det.",
+      "fil": "1aefbc15df6312.ogg",
+      "kilde": "Opgaver / hviske.instruks.vaelg",
+      "lavet": "2026-11-04"
+    },
+    "1b0fa501b4ab31": {
+      "figur": "aeseloere",
+      "tekst": "Planke 1 står forkert. Hvad ser hovedpersonen, når den magiske verden begynder?",
+      "fil": "1b0fa501b4ab31.ogg",
+      "kilde": "Beskeder / bro.fejl.placering.1.verden",
+      "lavet": "2026-11-04"
+    },
+    "1b301927939651": {
+      "figur": "fortaeller",
+      "tekst": "Stummingen giver slip på bogstaverne og bliver helt stille.",
+      "fil": "1b301927939651.ogg",
+      "kilde": "Kampe / kamp.stumming.rolig",
+      "lavet": "2026-11-04"
+    },
     "1b41c8a0e8391b": {
       "figur": "fortaeller",
       "tekst": "Hvilket tegn skal sætningen slutte med? Vælg det, så Råberen kan råbe den rigtigt op.",
       "fil": "1b41c8a0e8391b.ogg",
       "kilde": "Opgaver / raaber.instruks",
       "lavet": "2026-11-03"
+    },
+    "1b642476006d1a": {
+      "figur": "aeseloere",
+      "tekst": "Navne har altid stort begyndelsesbogstav.",
+      "fil": "1b642476006d1a.ogg",
+      "kilde": "Beskeder / ogorm.fejl.navn",
+      "lavet": "2026-11-04"
     },
     "1b72982392695c": {
       "figur": "fortaeller",
@@ -1883,6 +2464,13 @@
       "fil": "1bd6392f177325.ogg",
       "kilde": "Kapitel 1 / k1-hviske.opgavetekst",
       "lavet": "2026-11-01"
+    },
+    "1be4286d3e71a5": {
+      "figur": "fortaeller",
+      "tekst": "Månen er rund i nat.",
+      "fil": "1be4286d3e71a5.ogg",
+      "kilde": "Stumme bogstaver / rund.saetning",
+      "lavet": "2026-11-04"
     },
     "1bec0151e447ac": {
       "figur": "aeseloere",
@@ -1968,6 +2556,20 @@
       "kilde": "Kapitel 2 / k2-ankomst.3",
       "lavet": "2026-10-31"
     },
+    "1d241eabe0c6dd": {
+      "figur": "aeseloere",
+      "tekst": "Efter et punktum starter en ny sætning. Den skal have stort begyndelsesbogstav.",
+      "fil": "1d241eabe0c6dd.ogg",
+      "kilde": "Beskeder / ogorm.fejl.stort",
+      "lavet": "2026-11-04"
+    },
+    "1d324d4c580ba3": {
+      "figur": "fortaeller",
+      "tekst": "Skuffen hvisker dit navn.",
+      "fil": "1d324d4c580ba3.ogg",
+      "kilde": "Stumme bogstaver / hvisker.saetning",
+      "lavet": "2026-11-04"
+    },
     "1d417cff4d2ad5": {
       "figur": "fortaeller",
       "tekst": "Sæt tegnene tilbage i byens brev.",
@@ -1975,12 +2577,40 @@
       "kilde": "Kapitel 2 / k2-brev.opgavetekst",
       "lavet": "2026-11-03"
     },
+    "1d62a93b109021": {
+      "figur": "fortaeller",
+      "tekst": "Du skal selv løse problemet.",
+      "fil": "1d62a93b109021.ogg",
+      "kilde": "Stumme bogstaver / selv.saetning",
+      "lavet": "2026-11-04"
+    },
+    "1d9038138e88d3": {
+      "figur": "fortaeller",
+      "tekst": "Vims tør ikke kigge op.",
+      "fil": "1d9038138e88d3.ogg",
+      "kilde": "Synonymer / kigge",
+      "lavet": "2026-11-04"
+    },
+    "1d965c7814c071": {
+      "figur": "fortaeller",
+      "tekst": "Klatten tænder en lille ild.",
+      "fil": "1d965c7814c071.ogg",
+      "kilde": "Stumme bogstaver / ild.saetning",
+      "lavet": "2026-11-04"
+    },
     "1dac2c6419b414": {
       "figur": "ord",
       "tekst": "strand",
       "fil": "1dac2c6419b414.ogg",
       "kilde": "Stumme bogstaver / strand",
       "lavet": "2026-10-31"
+    },
+    "1de6b06a2a9fd2": {
+      "figur": "fortaeller",
+      "tekst": "Kælderen har et koldt gulv.",
+      "fil": "1de6b06a2a9fd2.ogg",
+      "kilde": "Stumme bogstaver / gulv.saetning",
+      "lavet": "2026-11-04"
     },
     "1de95ac2131859": {
       "figur": "stumming",
@@ -2017,6 +2647,20 @@
       "kilde": "Kapitel 3 / k3-klatten.valg1.2",
       "lavet": "2026-11-01"
     },
+    "1e7f240d431ce7": {
+      "figur": "fortaeller",
+      "tekst": "Læs spørgsmålet. Tryk derefter på den sætning, der beviser svaret.",
+      "fil": "1e7f240d431ce7.ogg",
+      "kilde": "Opgaver / bevisjagt.instruks",
+      "lavet": "2026-11-04"
+    },
+    "1e923afb0f470e": {
+      "figur": "fortaeller",
+      "tekst": "Tryk på \"og\" lige dér. Så bliver det til et punktum.",
+      "fil": "1e923afb0f470e.ogg",
+      "kilde": "Opgaver / ogorm.trin.2",
+      "lavet": "2026-11-04"
+    },
     "1e94f5ab02017c": {
       "figur": "raaber",
       "tekst": "Vagten fandt små, sorte fodspor ved springvandet.",
@@ -2038,6 +2682,13 @@
       "kilde": "Kapitel 2 / k2-ankomst.2",
       "lavet": "2026-10-31"
     },
+    "1ecaaad7f3e14d": {
+      "figur": "fortaeller",
+      "tekst": "Klatten vil løbe sin vej.",
+      "fil": "1ecaaad7f3e14d.ogg",
+      "kilde": "Synonymer / loebe",
+      "lavet": "2026-11-04"
+    },
     "1f0f418718a1b2": {
       "figur": "ord",
       "tekst": "logbog",
@@ -2051,6 +2702,13 @@
       "fil": "1f123899ec71ba.ogg",
       "kilde": "Kapitel 2 / k2-moerke.11",
       "lavet": "2026-10-31"
+    },
+    "1f16dad3611606": {
+      "figur": "aeseloere",
+      "tekst": "Hvilken regel passer her? Vælg den, før du prøver igen.",
+      "fil": "1f16dad3611606.ogg",
+      "kilde": "Beskeder / opgave.vaelg.regel",
+      "lavet": "2026-11-04"
     },
     "1f27de0e278255": {
       "figur": "klatten",
@@ -2080,12 +2738,12 @@
       "kilde": "Kapitel 1 / k1-klatten-flygter.4",
       "lavet": "2026-10-31"
     },
-    "1f731364b30186": {
+    "1f8d9760c5efc8": {
       "figur": "fortaeller",
-      "tekst": "Gør Stummingen rolig.",
-      "fil": "1f731364b30186.ogg",
-      "kilde": "Kapitel 3 / k3-stumming.opgavetekst",
-      "lavet": "2026-11-03"
+      "tekst": "Vær forsigtig ved floden.",
+      "fil": "1f8d9760c5efc8.ogg",
+      "kilde": "Synonymer / forsigtig",
+      "lavet": "2026-11-04"
     },
     "1f90ccca8ce36f": {
       "figur": "fortaeller",
@@ -2093,6 +2751,13 @@
       "fil": "1f90ccca8ce36f.ogg",
       "kilde": "Minder / minde.koekkenbord.2",
       "lavet": "2026-11-03"
+    },
+    "1f912ce22158bb": {
+      "figur": "fortaeller",
+      "tekst": "Vims vil fortælle dig noget.",
+      "fil": "1f912ce22158bb.ogg",
+      "kilde": "Synonymer / fortaelle",
+      "lavet": "2026-11-04"
     },
     "1f97261ada2250": {
       "figur": "fortaeller",
@@ -2115,6 +2780,13 @@
       "kilde": "Minder / minde.streger.2.mild",
       "lavet": "2026-11-03"
     },
+    "1f9c0c37d8cc65": {
+      "figur": "fortaeller",
+      "tekst": "Pas på: Nogle \"og\" binder to ting sammen i samme sætning, fx \"brød og smør\". De skal blive stående.",
+      "fil": "1f9c0c37d8cc65.ogg",
+      "kilde": "Opgaver / ogorm.pas.paa",
+      "lavet": "2026-11-04"
+    },
     "1fa10c51dfe568": {
       "figur": "aeseloere",
       "tekst": "Det er Den Ufærdige. Han efterlader altid noget, der ikke er færdigt.",
@@ -2122,12 +2794,40 @@
       "kilde": "Kapitel 3 / k3-klatten.3",
       "lavet": "2026-11-01"
     },
+    "1fc318d3a0630c": {
+      "figur": "fortaeller",
+      "tekst": "Skatten er af rent guld.",
+      "fil": "1fc318d3a0630c.ogg",
+      "kilde": "Stumme bogstaver / guld.saetning",
+      "lavet": "2026-11-04"
+    },
+    "1fcbaf6c1c0659": {
+      "figur": "aeseloere",
+      "tekst": "Eksempel: Hus og bolig er synonymer. Vi bor i et gult hus. Vi bor i en gul bolig.",
+      "fil": "1fcbaf6c1c0659.ogg",
+      "kilde": "Kampe / kamp.tomordet.eksempel",
+      "lavet": "2026-11-04"
+    },
     "1fd07adf0fc2f8": {
       "figur": "ord",
       "tekst": "trykkeri",
       "fil": "1fd07adf0fc2f8.ogg",
       "kilde": "Ordkort / trykkeriet",
       "lavet": "2026-11-01"
+    },
+    "1fd895c91be7a8": {
+      "figur": "aeseloere",
+      "tekst": "Flot klaret.",
+      "fil": "1fd895c91be7a8.ogg",
+      "kilde": "Beskeder / opgave.ros.2",
+      "lavet": "2026-11-04"
+    },
+    "1fe029569db2fb": {
+      "figur": "fortaeller",
+      "tekst": "Vims er nervøs før turen.",
+      "fil": "1fe029569db2fb.ogg",
+      "kilde": "Synonymer / nervoes",
+      "lavet": "2026-11-04"
     },
     "1fe5db7be8669c": {
       "figur": "fortaeller",
@@ -2146,5 +2846,5 @@
   },
   "model": "gemini-3.8-flash-tts",
   "i_alt": 477,
-  "mangler": 171
+  "mangler": 71
 }
