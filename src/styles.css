@@ -3119,3 +3119,132 @@ dialog.modal.kampscene::backdrop {
     left: 1rem;
   }
 }
+
+/* ============================================================
+   Overgange mellem steder (8. november 2026). Portalen fra kælderen til Pennedal og et blækstrøg ved andre skift.
+   ============================================================ */
+.overgang {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  pointer-events: none;
+  overflow: hidden;
+}
+.overgang-skift {
+  background: linear-gradient(100deg, transparent 0 30%, #0b0d18 40% 60%, transparent 70%);
+  background-size: 300% 100%;
+  animation: overgang-stroeg 0.8s steps(8) forwards;
+}
+@keyframes overgang-stroeg {
+  from { background-position: 100% 0; }
+  to { background-position: 0 0; }
+}
+/* 1. Hvirvlen af blæk lukker sig. */
+.portal-hvirvel {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 260vmax;
+  height: 260vmax;
+  margin: -130vmax 0 0 -130vmax;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, transparent 0 8%, rgb(11 13 24 / 0.0) 9%, transparent 10%),
+    repeating-conic-gradient(from 0deg, #0b0d18 0 14deg, #1f2a44 14deg 22deg, #f0c45a 22deg 23deg, #0b0d18 23deg 36deg);
+  -webkit-mask: radial-gradient(circle, transparent var(--hul, 0%), #000 calc(var(--hul, 0%) + 1%));
+  mask: radial-gradient(circle, #000 0 100%);
+  animation: portal-hvirvel 1.2s cubic-bezier(0.6, 0, 0.9, 0.4) forwards, portal-drej 1.2s linear forwards, portal-skjul 0.01s 1.9s forwards;
+  transform: scale(0);
+}
+@keyframes portal-hvirvel {
+  from { transform: scale(0) rotate(0); }
+  to { transform: scale(1) rotate(540deg); }
+}
+@keyframes portal-drej {
+  to { filter: brightness(0.6); }
+}
+/* 2. Man falder: papirstumper suser op forbi. */
+.portal-fald {
+  position: absolute;
+  inset: 0;
+  background: #0b0d18;
+  opacity: 0;
+  animation: portal-vis 0.1s 1s forwards, portal-skjul 0.3s 1.9s forwards;
+}
+.portal-fald i {
+  position: absolute;
+  left: var(--x);
+  bottom: -10vh;
+  width: calc(var(--s) * 1.4vw);
+  height: calc(var(--s) * 4vh);
+  background: #f4efe0;
+  box-shadow: 0 0 0.6vw rgb(240 196 90 / 0.7);
+  animation: portal-sus var(--f) var(--d) linear infinite;
+}
+@keyframes portal-sus {
+  from { transform: translateY(0); }
+  to { transform: translateY(-130vh); }
+}
+@keyframes portal-vis {
+  to { opacity: 1; }
+}
+@keyframes portal-skjul {
+  to { opacity: 0; }
+}
+/* 3. Pennedal åbner sig som en lysende cirkel. */
+.portal-aabning {
+  position: absolute;
+  inset: 0;
+  background: #0b0d18;
+  -webkit-mask: radial-gradient(circle at 50% 55%, transparent var(--r, 0%), #000 calc(var(--r, 0%) + 0.5%));
+  mask: radial-gradient(circle at 50% 55%, transparent var(--r, 0%), #000 calc(var(--r, 0%) + 0.5%));
+  opacity: 0;
+  animation: portal-vis 0.01s 1.9s forwards, portal-aabn 0.7s 1.9s cubic-bezier(0.2, 0.6, 0.3, 1) forwards;
+}
+@property --r {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 0%;
+}
+@keyframes portal-aabn {
+  from { --r: 0%; }
+  to { --r: 80%; }
+}
+/* 4. Blade daler ned i Pennedal. */
+.portal-blade i {
+  position: absolute;
+  left: var(--x);
+  top: -5vh;
+  width: calc(var(--s) * 1.2vw);
+  height: calc(var(--s) * 0.8vw);
+  background: #c97a2c;
+  border-radius: 0 60% 0 60%;
+  opacity: 0;
+  animation: portal-blad 1s var(--d) ease-in forwards;
+}
+.portal-blade i:nth-child(3n) {
+  background: #e0a030;
+}
+.portal-blade i:nth-child(4n) {
+  background: #5aa572;
+}
+@keyframes portal-blad {
+  0% { opacity: 1; transform: translateY(0) rotate(var(--r)); }
+  100% { opacity: 0; transform: translateY(70vh) translateX(4vw) rotate(calc(var(--r) + 260deg)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .overgang-portal > *,
+  .overgang-skift {
+    animation: none !important;
+    display: none;
+  }
+  .overgang-portal,
+  .overgang {
+    background: #0b0d18;
+    animation: overgang-fade 0.6s ease-out forwards;
+  }
+}
+@keyframes overgang-fade {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
