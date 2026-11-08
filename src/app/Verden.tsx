@@ -310,7 +310,7 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
         {DEBUG && <Ydelse fps={() => fpsRef.current()} />}
       </div>
 
-      <aside className="panel">
+      <aside className="panel hud">
         <p className="sted-navn">{t('verden.sted', { sted: sted.navn })}</p>
         {sted.bane && !slut && trin?.objekt === 'maal' && (
           <>
@@ -338,9 +338,9 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
           <>
             <p className="naeste-overskrift">{t('verden.naeste')}</p>
             <p className="naeste-tekst">{rum.opgavetekst}</p>
-            {rum.opgavetekst && <LaesOpKnap tekst={rum.opgavetekst} figur="fortaeller" auto={!aktivtTrin && !andetVindueAabent && !rumVindue} />}
+            {rum.opgavetekst && <LaesOpKnap tekst={rum.opgavetekst} figur="fortaeller" auto={!aktivtTrin && !andetVindueAabent && !rumVindue} ikon />}
             {naer && objektNavn && (
-              <button type="button" className="knap knap-primaer" disabled={laast} onClick={() => interaktion(naer)}>
+              <button type="button" className="knap knap-primaer hud-handling" disabled={laast} onClick={() => interaktion(naer)}>
                 {t('verden.undersoeg', { navn: objektNavn })}
               </button>
             )}
@@ -367,11 +367,11 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
             <>
               <p className="naeste-overskrift">{t('verden.naeste')}</p>
               <p className="naeste-tekst">{trin.opgavetekst}</p>
-              <LaesOpKnap tekst={trin.opgavetekst} figur="fortaeller" auto={!aktivtTrin && !andetVindueAabent} />
+              <LaesOpKnap tekst={trin.opgavetekst} figur="fortaeller" auto={!aktivtTrin && !andetVindueAabent} ikon />
               {aktivtNavn && (
                 <button
                   type="button"
-                  className="knap knap-primaer"
+                  className="knap knap-primaer hud-handling"
                   disabled={laast}
                   onClick={() => interaktion(trin.objekt!)}
                 >
@@ -384,14 +384,16 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
             </>
           )
         )}
-        <p className="lille-tekst">{t('verden.styring')}</p>
-        <button type="button" className="knap" onClick={() => setVisTaske(true)} disabled={!!aktivtTrin || !!rumVindue}>
-          {t('taske.knap')} ({tingITasken.length + taske.length})
-        </button>
-        <button type="button" className="knap" onClick={onMenu}>
-          <span aria-hidden="true">☰ </span>
-          {t('verden.menu')}
-        </button>
+        {/* Fuld skærm (Henrik, 8. november 2026): taske og menu står som små knapper i hjørnet over spillet. */}
+        <div className="hud-knapper">
+          <button type="button" className="knap" onClick={() => setVisTaske(true)} disabled={!!aktivtTrin || !!rumVindue}>
+            {t('taske.knap')} ({tingITasken.length + taske.length})
+          </button>
+          <button type="button" className="knap" onClick={onMenu}>
+            <span aria-hidden="true">☰ </span>
+            {t('verden.menu')}
+          </button>
+        </div>
         <p className="sr-only" aria-live="assertive">
           {uhyggeBesked}
         </p>

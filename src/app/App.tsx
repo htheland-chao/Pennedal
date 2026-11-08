@@ -277,7 +277,7 @@ export function App() {
       )}
 
       {visMenu && spil && (
-        <Modal titel={t('menu.titel')} onLuk={() => setVisMenu(false)}>
+        <Modal titel={t('menu.titel')} onLuk={() => setVisMenu(false)} klasse="menu-skuffe">
           <h2>{t('menu.titel')}</h2>
           <div className="menu">
             <button type="button" className="knap" autoFocus onClick={() => { setVisMenu(false); setGemmekode({}); }}>
@@ -299,6 +299,7 @@ export function App() {
               {t('menu.luk')}
             </button>
           </div>
+          <p className="lille-tekst">{t('verden.styring')}</p>
         </Modal>
       )}
 

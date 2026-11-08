@@ -39,21 +39,40 @@ async function facit(page: Page): Promise<{ rigtig: string; forkert: string }> {
 }
 
 /**
- * Spiller en hel turbaseret kamp. Første runde lyttes der (svagt punkt), anden runde forsvares der,
- * første slag svares forkert (regel og eksempel), og ellers slås der på væsnets svage punkt.
- * Bliver holdet slået tilbage, går testen ind i kampen igen: skaden på væsnerne skal være husket.
+ * Spiller en hel turbaseret kamp i fuld skærm. Første runde lyttes der (svagt punkt) og kigges i tasken,
+ * anden runde forsvares der, første slag svares forkert (regel og eksempel), og ellers slås der på væsnets svage punkt.
+ * Første animation spilles helt, de næste springes over. Bliver holdet slået tilbage, går testen ind i kampen igen.
  */
 async function kaemp(page: Page, navn: string, objekt: string, medVims = false) {
   const kamp = page.locator('dialog.kamp');
   await expect(kamp).toBeVisible({ timeout: 30_000 });
+  const skaerm = kamp.locator('.kamp-skaerm');
   let slag = 0;
-  for (let runde = 0; runde < 30; runde++) {
-    const menu = kamp.locator('.kamp-midte');
+  let animationer = 0;
+  for (let runde = 0; runde < 40; runde++) {
+    await expect(skaerm).toHaveAttribute('data-fase', /^(menu|slut)$/, { timeout: 30_000 });
+    if ((await skaerm.getAttribute('data-fase')) === 'slut') {
+      const slut = kamp.locator('.kamp-slut');
+      if (await slut.getByText('Vejen er fri').isVisible()) {
+        await page.screenshot({ path: `${BILLEDER}/k3-${navn}-vundet.png` });
+        await slut.getByRole('button', { name: 'Videre', exact: true }).click();
+        await expect(kamp).toHaveCount(0);
+        return;
+      }
+      // Blødt nederlag: ud af kampen og ind igen. Holdet har fuldt liv, og væsnerne har stadig deres sår.
+      await expect(slut).toContainText('Holdet er slået tilbage');
+      await slut.getByRole('button', { name: 'Tilbage', exact: true }).click();
+      await expect(kamp).toHaveCount(0);
+      await gaaTil(page, objekt);
+      await expect(kamp).toBeVisible({ timeout: 30_000 });
+      continue;
+    }
+    const menu = kamp.locator('.kamp-styring');
     if (runde === 0) {
       await menu.getByRole('button', { name: 'Lyt', exact: true }).click();
       await kamp.locator('.kamp-menu').getByRole('button').first().click();
-      await expect(kamp.locator('.besked-info')).toContainText('Nu ved du');
-      await expect(kamp.locator('.kamp-fjender li').first()).not.toContainText('ukendt');
+      await expect(kamp.locator('.kamp-notat')).toContainText('Nu ved du');
+      await expect(kamp.locator('.kamp-fjende-etiket').first()).toContainText('svagt punkt');
       await menu.getByRole('button', { name: 'Taske', exact: true }).click();
       await menu.getByRole('button', { name: 'Tilbage', exact: true }).click();
       if (medVims) {
@@ -65,51 +84,41 @@ async function kaemp(page: Page, navn: string, objekt: string, medVims = false) 
     }
     if (runde === 1) {
       await menu.getByRole('button', { name: 'Forsvar', exact: true }).click();
-      await expect(kamp.locator('.kamp-runde')).toContainText('Du dækker holdet');
+      await expect(kamp.locator('.kamp-linje')).toContainText('Holdet dækker sig');
     } else {
       // Slå det første væsen, der stadig står, med det slag, det er svagt over for.
-      const maal = (await kamp.locator('.kamp-fjender li:not(.rolig) .kamp-navn').first().textContent())!.trim();
+      const maal = (await kamp.locator('.kamp-fjende-etiket:not(.rolig) .kamp-navn').first().textContent())!.trim();
       await menu.getByRole('button', { name: 'Slå', exact: true }).click();
       const art = maal.startsWith('Tomordet') ? 'Slå med et synonym' : 'Slå med et stumt bogstav';
       const stort = menu.getByRole('button', { name: `Stort slag, der rammer alle: ${art}` });
       if (await stort.isVisible()) await stort.click();
       else await menu.getByRole('button', { name: art, exact: true }).click();
       if (await menu.getByText('Hvem vil du slå?').isVisible()) await menu.getByRole('button', { name: maal, exact: true }).click();
+      const opgave = kamp.locator('.kamp-opgave-kort');
       const { rigtig, forkert } = await facit(page);
       if (slag === 0 && medVims) {
-        await menu.getByRole('button', { name: /Vims: visk en forkert mulighed ud/ }).click();
-        await expect(kamp.locator('.kamp-mulighed:disabled')).toHaveCount(1);
+        await opgave.getByRole('button', { name: /Vims: visk en forkert mulighed ud/ }).click();
+        await expect(opgave.locator('.kamp-mulighed:disabled')).toHaveCount(1);
       }
-      const forkertKnap = kamp.getByRole('button', { name: forkert, exact: true });
+      const forkertKnap = opgave.getByRole('button', { name: forkert, exact: true });
       if (slag === 0 && (await forkertKnap.isEnabled())) {
         await forkertKnap.click();
-        await expect(kamp.locator('.besked-fejl .regel')).toContainText('Regel');
-        await expect(kamp.locator('.besked-fejl .regel')).toContainText('Eksempel');
+        await expect(opgave.locator('.besked-fejl .regel')).toContainText('Regel');
+        await expect(opgave.locator('.besked-fejl .regel')).toContainText('Eksempel');
         await page.screenshot({ path: `${BILLEDER}/k3-${navn}-fejl.png` });
+        await opgave.getByRole('button', { name: 'Videre', exact: true }).click();
       } else {
-        await kamp.getByRole('button', { name: rigtig, exact: true }).click();
-        await expect(kamp.locator('.besked-god .regel')).toContainText('Regel');
+        await opgave.getByRole('button', { name: rigtig, exact: true }).click();
+        await expect(opgave.locator('.besked-god .regel')).toContainText('Regel');
+        await opgave.getByRole('button', { name: 'Slå!', exact: true }).click();
       }
       slag++;
-      await menu.getByRole('button', { name: 'Videre', exact: true }).click();
     }
-    const opsummering = kamp.locator('.kamp-runde');
-    await expect(opsummering).toBeVisible();
-    if (await opsummering.getByText('Vejen er fri').isVisible()) {
-      await page.screenshot({ path: `${BILLEDER}/k3-${navn}-vundet.png` });
-      await opsummering.getByRole('button', { name: 'Videre', exact: true }).click();
-      await expect(kamp).toHaveCount(0);
-      return;
+    // Første animation spilles helt. Bagefter springes de over, så testen ikke tager for lang tid.
+    if (animationer++ > 0) {
+      const spring = kamp.getByRole('button', { name: 'Spring over' });
+      if (await spring.isVisible()) await spring.click().catch(() => undefined);
     }
-    if (await opsummering.getByText('Holdet er slået tilbage').isVisible()) {
-      // Blødt nederlag: ud af kampen og ind igen. Holdet har fuldt liv, og væsnerne har stadig deres sår.
-      await opsummering.getByRole('button', { name: 'Tilbage', exact: true }).click();
-      await expect(kamp).toHaveCount(0);
-      await gaaTil(page, objekt);
-      await expect(kamp).toBeVisible({ timeout: 30_000 });
-      continue;
-    }
-    await opsummering.getByRole('button', { name: 'Næste tur', exact: true }).click();
   }
   throw new Error(`Kampen ${navn} blev ikke vundet`);
 }

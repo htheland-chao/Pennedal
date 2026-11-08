@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState, type CSSProperties, type KeyboardEvent, type ReactNode } from 'react';
+import { useEffect, useMemo, useRef, useState, type CSSProperties, type KeyboardEvent, type ReactNode } from 'react';
 import { stumme, synonymer, t, type KampTrin, type TekstId } from '../content';
 import type { Avatar } from '../engine/gem';
 import type { Haendelse as Tilpasning } from '../engine/tilpasning';
@@ -31,15 +31,18 @@ import {
   type MedlemId,
   type Slag,
 } from '../mechanics/kampmotor';
+import { trinFor, type Effekt, type Trin } from './kampEffekter';
 import { useApp } from './Kontekst';
 import { Modal } from './Modal';
 import { beskedDele } from './OpgaveRamme';
 import { LaesOpKnap } from './Tekst';
 
 /**
- * Turbaseret kamp (3. november 2026): væsnerne til venstre, holdet til højre og menuerne nederst, som i gamle rollespil.
- * Al tekst er HTML (krav 1). Ingen tid (krav 5). Et forkert svar rammer ved siden af og giver regel og eksempel (krav 6).
- * Skaden kommer fra væsnernes varslede angreb. Logikken står i src/mechanics/kampmotor.ts.
+ * Turbaseret kamp i fuld skærm (Henrik, 8. november 2026): som Pokémon, Final Fantasy og Expedition 33.
+ * Scenen fylder skærmen. Liv står som bjælker ved figurerne, væsnernes næste angreb vises som et mærke og et sigte
+ * på den, de vil ramme, og hvert slag og angreb er en animation med en kort linje. Menuen er lille og står nederst.
+ * Al tekst er HTML (krav 1). Ingen tid (krav 5): animationerne kan springes over, og der er aldrig noget, man skal nå.
+ * Et forkert svar rammer ved siden af og giver regel og eksempel (krav 6). Logikken står i src/mechanics/kampmotor.ts.
  */
 type Props = {
   trin: KampTrin;
@@ -66,9 +69,13 @@ type Visning =
   | { type: 'slet' }
   | { type: 'taske' }
   | { type: 'punktum' }
-  | { type: 'runde'; linjer: string[] };
+  | { type: 'afspil' }
+  | { type: 'slut' };
 
 const SPRITE: Record<VaesenId, Tegnkort> = { tomordet: TOMORD, stumming: STUMMING };
+/** Figurernes størrelse på scenen (gange pixel). */
+const FJENDE_SKALA = 2.4;
+const HOLD_SKALA = 1.8;
 
 /** Ord, der er brugt i denne session, så de ikke kommer igen med det samme. */
 const brugt: Record<VaesenId, string[]> = { tomordet: [], stumming: [] };
@@ -106,22 +113,30 @@ function uri(noegle: string, kort: Tegnkort | (() => HTMLCanvasElement)): string
   return billeder.get(noegle) ?? '';
 }
 
+const bredde = (kort: Tegnkort) => Math.max(...kort.raekker.map((r) => r.length));
+
 /** Placering af et billede i procent af scenen ud fra fodpunktet, så alt skalerer med skærmen. */
 function plads([x, y]: [number, number], kort: Tegnkort, skala = 1): CSSProperties {
-  const b = Math.max(...kort.raekker.map((r) => r.length)) * skala;
+  const b = bredde(kort) * skala;
   const h = kort.raekker.length * skala;
   return { left: `${((x - b / 2) / KAMP_B) * 100}%`, top: `${((y - h) / KAMP_H) * 100}%`, width: `${(b / KAMP_B) * 100}%` };
 }
+/** Et punkt i procent af scenen. */
+const procent = ([x, y]: [number, number]): [number, number] => [(x / KAMP_B) * 100, (y / KAMP_H) * 100];
 
 /** Piletasterne flytter fokus mellem knapperne i en menu. */
 function piletaster(e: KeyboardEvent<HTMLElement>) {
-  if (e.key !== 'ArrowDown' && e.key !== 'ArrowUp') return;
+  if (!['ArrowDown', 'ArrowUp', 'ArrowLeft', 'ArrowRight'].includes(e.key)) return;
   const knapper = [...e.currentTarget.querySelectorAll<HTMLButtonElement>('button:not(:disabled)')];
   const i = knapper.indexOf(document.activeElement as HTMLButtonElement);
   if (i < 0 || knapper.length === 0) return;
   e.preventDefault();
-  knapper[(i + (e.key === 'ArrowDown' ? 1 : knapper.length - 1)) % knapper.length].focus();
+  const frem = e.key === 'ArrowDown' || e.key === 'ArrowRight';
+  knapper[(i + (frem ? 1 : knapper.length - 1)) % knapper.length].focus();
 }
+
+/** Nogle små stykker blæk eller lys, der flyver ud fra et punkt. Retningerne er faste, så det ser ens ud hver gang. */
+const STYKKER = Array.from({ length: 10 }, (_, i) => ({ a: (i / 10) * 360 + (i % 2) * 17, r: 0.7 + (i % 3) * 0.25 }));
 
 export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, taske, onSvar, onFremskridt, onVundet, onPause }: Props) {
   const { indstillinger } = useApp();
@@ -142,13 +157,39 @@ export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, ta
     }),
   );
   const [visning, setVisning] = useState<Visning>({ type: 'menu' });
-  /** Kort besked fra en hjælper, der ikke koster avatarens tur. */
+  /** En kort linje fra en hjælper eller et tip, der ikke koster en tur. */
   const [notat, setNotat] = useState<string | null>(null);
   /** Væsner, hvis svage punkt holdet kender (efter Lyt eller et træffende slag). */
   const [kendt, setKendt] = useState<number[]>([]);
   const [peg, setPeg] = useState<number | null>(null);
-  const [ramt, setRamt] = useState<{ fjender: number[]; hold: MedlemId[]; nr: number }>({ fjender: [], hold: [], nr: 0 });
+  const [hjaelp, setHjaelp] = useState(false);
   const viskNaeste = useRef(false);
+
+  // Animationerne: trin, der spilles ét ad gangen. Livet på skærmen følger trinnene og passer med kampen til sidst.
+  const [effekter, setEffekter] = useState<(Effekt & { id: number })[]>([]);
+  const [linje, setLinje] = useState<string | null>(null);
+  const [visLiv, setVisLiv] = useState<{ fjender: number[]; hold: Record<string, number> } | null>(null);
+  const [ryst, setRyst] = useState<{ fjender: number[]; hold: MedlemId[]; skaerm: boolean; nr: number }>({ fjender: [], hold: [], skaerm: false, nr: 0 });
+  const [oploest, setOploest] = useState<number[]>(() => kamp.fjender.filter((f) => f.liv <= 0).map((f) => f.nr));
+  const [faldet, setFaldet] = useState<MedlemId[]>([]);
+  const afspilning = useRef<{ ur: number | null; trin: Trin[]; i: number; slut: (() => void) | null }>({ ur: null, trin: [], i: 0, slut: null });
+  const effektNr = useRef(0);
+  const felt = useRef<HTMLDivElement>(null);
+
+  // Skærmen ryster ved hårde slag. Det sker med en animation på elementet, så scenen ikke tegnes forfra
+  // (ellers ville et væsen, der allerede er faldet, dukke op igen).
+  useEffect(() => {
+    if (!ryst.skaerm || !felt.current?.animate) return;
+    if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return;
+    felt.current.animate(
+      [{ transform: 'translate(-1cqw, 0.6cqh)' }, { transform: 'translate(1cqw, -0.6cqh)' }, { transform: 'translate(-0.5cqw, 0.3cqh)' }, { transform: 'none' }],
+      { duration: 350, easing: 'steps(4)' },
+    );
+  }, [ryst]);
+
+  useEffect(() => () => {
+    if (afspilning.current.ur !== null) window.clearTimeout(afspilning.current.ur);
+  }, []);
 
   const navne = useMemo(() => {
     const ens = (v: VaesenId) => vaesner.filter((x) => x === v).length > 1;
@@ -172,53 +213,77 @@ export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, ta
   }, [avatar]);
   const holdKort: Record<MedlemId, Tegnkort> = { avatar: avatarKort, aeseloere: FUGL, vims: VIMS };
 
-  /** Tekster til det, der skete. Bruges både i runde-oversigten og som oplæsning. */
-  function tekst(h: Haendelse): string | null {
-    const navn = h.type !== 'kombi' && 'fjende' in h && h.fjende !== undefined ? navne[h.fjende] : '';
-    switch (h.type) {
-      case 'ramt':
-        return t(h.svag ? 'kamp.haendelse.svag' : 'kamp.haendelse.ramt', { navn, skade: h.skade });
-      case 'forbi':
-        return t('kamp.haendelse.forbi', { navn });
-      case 'rolig':
-        return t('kamp.haendelse.rolig', { navn });
-      case 'kombi':
-        return t('kamp.haendelse.kombi');
-      case 'forsvar':
-        return t('kamp.haendelse.forsvar');
-      case 'ting':
-        return h.ting === 'krummer' ? t('kamp.haendelse.krummer', { liv: KRUMMER_LIV }) : t(`kamp.haendelse.${h.ting}` as TekstId, { navn });
-      case 'angreb':
-        return h.skade > 0
-          ? t(`kamp.haendelse.angreb.${h.angreb}` as TekstId, { navn, hvem: medlemNavn(h.hvem), skade: h.skade })
-          : t('kamp.haendelse.afvist', { navn, hvem: medlemNavn(h.hvem) });
-      case 'misser':
-        return t('kamp.haendelse.misser', { navn });
-      case 'lammet':
-        return t('kamp.haendelse.lammet', { navn });
-      case 'faldet':
-        return h.hvem === 'avatar' ? null : t('kamp.haendelse.faldet', { hvem: medlemNavn(h.hvem) });
-      case 'vundet':
-        return t('kamp.vundet');
-      case 'slaaet':
-        return t('kamp.slaaet');
-      case 'evne':
-        if (h.evne === 'lap') return t('kamp.haendelse.lap', { hvem: medlemNavn(h.hvem ?? 'avatar'), liv: h.liv ?? 0 });
-        if (h.evne === 'slet') return t('kamp.haendelse.slet', { navn });
-        if (h.evne === 'visk') return t('kamp.vims.visk');
-        return t('kamp.haendelse.forklar');
+  const fjendeSted = (nr: number): [number, number] => FJENDE_PLADS[Math.min(2, kamp.fjender.length - 1)][nr] ?? [70, 130];
+  const holdSted = (id: MedlemId): [number, number] => HOLD_PLADS[Math.max(0, kamp.hold.findIndex((m) => m.id === id))] ?? HOLD_PLADS[0];
+  /** Midten af en figur i procent, til effekterne. */
+  const midtFjende = (nr: number) => {
+    const [x, y] = fjendeSted(nr);
+    return procent([x, y - (SPRITE[kamp.fjender[nr].vaesen].raekker.length * FJENDE_SKALA) / 2]);
+  };
+  const midtMedlem = (id: MedlemId) => {
+    const [x, y] = holdSted(id);
+    return procent([x, y - (holdKort[id].raekker.length * HOLD_SKALA) / 2]);
+  };
+
+  /** Spiller trinnene. Til sidst sættes kampen til sin rigtige tilstand, og man kommer tilbage til menuen eller slutningen. */
+  function afspil(hs: Haendelse[], ny: Kamp) {
+    const trinListe = trinFor(hs, { fjende: midtFjende, medlem: midtMedlem }, { fjende: (nr) => navne[nr], medlem: medlemNavn }, ny.hold.map((m) => m.id));
+    setVisLiv({ fjender: kamp.fjender.map((f) => f.liv), hold: Object.fromEntries(kamp.hold.map((m) => [m.id, m.liv])) });
+    setVisning({ type: 'afspil' });
+    setNotat(null);
+    const a = afspilning.current;
+    a.trin = trinListe;
+    a.i = 0;
+    a.slut = () => {
+      a.ur = null;
+      a.slut = null;
+      setEffekter([]);
+      setVisLiv(null);
+      setKamp(ny);
+      setOploest(ny.fjender.filter((f) => f.liv <= 0).map((f) => f.nr));
+      setFaldet(ny.hold.filter((m) => m.liv <= 0).map((m) => m.id));
+      setVisning(ny.udfald ? { type: 'slut' } : { type: 'menu' });
+      if (!ny.udfald) setLinje(null);
+    };
+    naesteTrin();
+  }
+
+  function naesteTrin() {
+    const a = afspilning.current;
+    if (a.i >= a.trin.length) {
+      a.slut?.();
+      return;
     }
+    const tr = a.trin[a.i++];
+    setEffekter(tr.effekter.map((e) => ({ ...e, id: ++effektNr.current })));
+    if (tr.linje) setLinje(t(tr.linje.noegle as TekstId, tr.linje.vaerdier));
+    if (tr.fjendeLiv || tr.holdLiv)
+      setVisLiv((v) => {
+        if (!v) return v;
+        const fjender = [...v.fjender];
+        for (const d of tr.fjendeLiv ?? []) fjender[d.nr] = Math.max(0, fjender[d.nr] + d.delta);
+        const hold = { ...v.hold };
+        for (const d of tr.holdLiv ?? []) {
+          const m = kamp.hold.find((x) => x.id === d.id);
+          hold[d.id] = Math.max(0, Math.min(m?.maks ?? 99, (hold[d.id] ?? 0) + d.delta));
+        }
+        return { fjender, hold };
+      });
+    if (tr.ryst) setRyst((r) => ({ fjender: tr.ryst?.fjender ?? [], hold: tr.ryst?.hold ?? [], skaerm: !!tr.ryst?.skaerm && !daempet, nr: r.nr + 1 }));
+    if (tr.oploest) setOploest((o) => [...new Set([...o, ...tr.oploest!])]);
+    if (tr.faldet) setFaldet((f) => [...new Set([...f, ...tr.faldet!])]);
+    a.ur = window.setTimeout(naesteTrin, tr.varighed);
   }
 
-  function vis(hs: Haendelse[]) {
-    setRamt((r) => ({
-      fjender: hs.flatMap((h) => (h.type === 'ramt' ? [h.fjende] : [])),
-      hold: hs.flatMap((h) => (h.type === 'angreb' && h.skade > 0 ? [h.hvem] : [])),
-      nr: r.nr + 1,
-    }));
+  /** Spring animationerne over: alt sker med det samme. */
+  function springOver() {
+    const a = afspilning.current;
+    if (a.ur !== null) window.clearTimeout(a.ur);
+    a.i = a.trin.length;
+    a.slut?.();
   }
 
-  /** Avataren har handlet: væsnerne svarer igen, og runden vises. */
+  /** Avataren har handlet: væsnerne svarer igen, og det hele spilles. */
   function afslutRunde(efterAvatar: Kamp, foer: Haendelse[]) {
     let k2 = efterAvatar;
     let alle = [...foer];
@@ -227,13 +292,9 @@ export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, ta
       k2 = r.kamp;
       alle = [...alle, ...r.haendelser];
     }
-    setKamp(k2);
-    vis(alle);
-    setNotat(null);
+    if (k2.udfald) alle = alle.filter((h) => h.type !== 'kombi');
     if (k2.givet !== kamp.givet) onFremskridt(k2.givet);
-    // Når kampen er slut, giver det ingen mening at fortælle, at det store slag er klar.
-    const vis_ = k2.udfald ? alle.filter((h) => h.type !== 'kombi') : alle;
-    setVisning({ type: 'runde', linjer: vis_.map(tekst).filter((x): x is string => !!x) });
+    afspil(alle, k2);
   }
 
   function vaelgSlag(slag: Slag, stort: boolean) {
@@ -252,6 +313,7 @@ export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, ta
     }
     setPeg(fjende);
     setNotat(null);
+    setLinje(null);
     setVisning({ type: 'opgave', slag, stort, fjende, opgave, vaek, svaret: null, forklaret: false });
   }
 
@@ -284,13 +346,18 @@ export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, ta
     }
   }
 
+  /** Hjælpernes evner koster ikke avatarens tur. lap og slet bliver også vist som en animation. */
   function evneIMenu(evne: EvneId, v: { hvem?: MedlemId; fjende?: number } = {}) {
     const r = brugEvne(kamp, evne, v);
     if (!r.haendelser.length) return;
-    setKamp(r.kamp);
-    if (evne === 'visk') viskNaeste.current = true;
-    setNotat(r.haendelser.map(tekst).filter(Boolean).join(' '));
-    setVisning({ type: 'menu' });
+    if (evne === 'visk') {
+      viskNaeste.current = true;
+      setKamp(r.kamp);
+      setNotat(t('kamp.kort.visk'));
+      setVisning({ type: 'menu' });
+      return;
+    }
+    afspil(r.haendelser, r.kamp);
   }
 
   function ting(id: KampTingId, fjende?: number) {
@@ -307,16 +374,32 @@ export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, ta
   }
 
   function gaaVaek() {
+    if (visning.type === 'afspil') springOver();
     onFremskridt(kamp.givet);
     onPause();
   }
 
+  const livFjende = (nr: number) => visLiv?.fjender[nr] ?? kamp.fjender[nr].liv;
+  const livMedlem = (id: MedlemId) => visLiv?.hold[id] ?? kamp.hold.find((m) => m.id === id)?.liv ?? 0;
+  const varselSkade = (nr: number) => {
+    const v = kamp.fjender[nr].varsel;
+    return v ? (daempet ? Math.ceil(v.skade / 2) : v.skade) : 0;
+  };
   const varselTekst = (nr: number) => {
     const f = kamp.fjender[nr];
     if (!f.varsel || f.liv <= 0) return null;
-    const skade = daempet ? Math.ceil(f.varsel.skade / 2) : f.varsel.skade;
-    return t(`kamp.varsel.${f.varsel.angreb}` as TekstId, { navn: navne[nr], hvem: medlemNavn(f.varsel.maal ?? 'avatar'), skade });
+    return t(`kamp.varsel.${f.varsel.angreb}` as TekstId, { navn: navne[nr], hvem: medlemNavn(f.varsel.maal ?? 'avatar'), skade: varselSkade(nr) });
   };
+  /** Hvem væsnerne sigter på i næste runde. Vises som et rødt sigte over figuren. */
+  const sigtet = useMemo(() => {
+    const s = new Set<MedlemId>();
+    for (const f of kamp.fjender) {
+      if (!f.varsel || f.liv <= 0) continue;
+      if (f.varsel.alle) kamp.hold.filter((m) => m.liv > 0).forEach((m) => s.add(m.id));
+      else s.add(f.varsel.maal ?? 'avatar');
+    }
+    return s;
+  }, [kamp]);
 
   const tilbage = (
     <button type="button" className="knap knap-diskret" onClick={() => setVisning({ type: 'menu' })}>
@@ -326,9 +409,17 @@ export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, ta
 
   const fjendeKnapper = (handling: (nr: number) => void, kun?: (nr: number) => boolean) => (
     <div className="kamp-menu" onKeyDown={piletaster}>
-      {kamp.fjender.map((f) =>
+      {kamp.fjender.map((f, i) =>
         f.liv > 0 && (!kun || kun(f.nr)) ? (
-          <button key={f.nr} type="button" className="knap" onClick={() => handling(f.nr)} onFocus={() => setPeg(f.nr)} onMouseEnter={() => setPeg(f.nr)}>
+          <button
+            key={f.nr}
+            type="button"
+            className="knap"
+            autoFocus={i === kamp.fjender.findIndex((x) => x.liv > 0)}
+            onClick={() => handling(f.nr)}
+            onFocus={() => setPeg(f.nr)}
+            onMouseEnter={() => setPeg(f.nr)}
+          >
             {navne[f.nr]}
           </button>
         ) : null,
@@ -337,21 +428,35 @@ export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, ta
     </div>
   );
 
+  const o = visning.type === 'opgave' ? visning : null;
+  const regel = useMemo(() => (o ? regelFor(o.opgave) : null), [o?.opgave]); // eslint-disable-line react-hooks/exhaustive-deps
+  const rigtigt = o?.svaret ? tjekKamp(o.opgave, o.svaret) : null;
+  const beskedTekst = o?.svaret
+    ? rigtigt
+      ? t(k(o.opgave, 'rigtig'), { svar: o.opgave.svar, ord: o.opgave.ord })
+      : t(k(o.opgave, 'fejl'), { valgt: o.svaret, ord: o.opgave.ord })
+    : null;
+  const slut = visning.type === 'slut' ? kamp.udfald : null;
+
   let menu: ReactNode = null;
   if (visning.type === 'menu')
     menu = (
-      <fieldset className="kamp-menu" onKeyDown={piletaster}>
-        <legend>{t('kamp.hvad')}</legend>
+      <fieldset className="kamp-menu kamp-hovedmenu" onKeyDown={piletaster}>
+        <legend className="sr-only">{t('kamp.hvad')}</legend>
         <button type="button" className="knap knap-primaer" onClick={() => setVisning({ type: 'slag' })} autoFocus>
           {t('kamp.menu.slaa')}
         </button>
         <button type="button" className="knap" onClick={() => setVisning({ type: 'lyt' })}>
           {t('kamp.lyt')}
         </button>
-        <button type="button" className="knap" onClick={() => {
+        <button
+          type="button"
+          className="knap"
+          onClick={() => {
             const r = forsvar(kamp);
             afslutRunde(r.kamp, r.haendelser);
-          }}>
+          }}
+        >
           {t('kamp.menu.forsvar')}
         </button>
         <button type="button" className="knap" onClick={() => setVisning({ type: 'hjaelper' })} disabled={hjaelpere.length === 0}>
@@ -376,7 +481,7 @@ export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, ta
         ))}
         {stortSlagKlar(kamp) &&
           slagListe.map((s) => (
-            <button key={`stort-${s}`} type="button" className="knap knap-primaer" onClick={() => vaelgSlag(s, true)}>
+            <button key={`stort-${s}`} type="button" className="knap knap-primaer kamp-stort" onClick={() => vaelgSlag(s, true)}>
               {t('kamp.slag.stort', { slag: t(`kamp.slag.${s}` as TekstId) })}
             </button>
           ))}
@@ -414,7 +519,6 @@ export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, ta
             {t(`kamp.evne.${e}` as TekstId, { antal: kamp.evner[e] ?? 0 })}
           </button>
         ))}
-        <p className="lille-tekst">{t('kamp.evne.forklaring')}</p>
         {tilbage}
       </fieldset>
     );
@@ -459,216 +563,251 @@ export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, ta
       </div>
     );
 
-  const o = visning.type === 'opgave' ? visning : null;
-  const regel = useMemo(() => (o ? regelFor(o.opgave) : null), [o?.opgave]); // eslint-disable-line react-hooks/exhaustive-deps
-  const rigtigt = o?.svaret ? tjekKamp(o.opgave, o.svaret) : null;
-  const beskedTekst = o?.svaret
-    ? rigtigt
-      ? t(k(o.opgave, 'rigtig'), { svar: o.opgave.svar, ord: o.opgave.ord })
-      : t(k(o.opgave, 'fejl'), { valgt: o.svaret, ord: o.opgave.ord })
-    : null;
-
-  const runde = visning.type === 'runde' ? visning : null;
-  const slut = kamp.udfald;
-  const varsler = kamp.fjender.map((f) => varselTekst(f.nr)).filter((x): x is string => !!x);
-
   return (
-    <Modal titel={t('kamp.titel')} onLuk={gaaVaek} bred klasse={`opgave kamp kampscene${daempet ? ' mild' : ''}`}>
+    <Modal titel={t('kamp.titel')} onLuk={gaaVaek} klasse={`kamp kampscene${daempet ? ' mild' : ''}`}>
       {/* Til gennemspilningen: hvilken opgave, der vises (ikke svaret). */}
       {o && <span hidden data-opgave-id={o.opgave.id} data-opgave-vaesen={o.opgave.vaesen} />}
       <h2 className="sr-only">{t('kamp.titel')}</h2>
 
-      <div className="kamp-felt" aria-hidden="true">
-        {baggrund && <img className="kamp-lag" src={baggrund} alt="" />}
-        {kamp.fjender.map((f) => {
-          const sted = FJENDE_PLADS[Math.min(2, kamp.fjender.length - 1)][f.nr] ?? [70, 130];
-          const kort = SPRITE[f.vaesen];
-          return (
-            <span key={f.nr}>
-              <img
-                // Et væsen opløses kun i den runde, det falder. Bagefter er det væk, også når scenen tegnes igen.
-                className={`kamp-sprite kamp-fjende${f.liv <= 0 ? (ramt.fjender.includes(f.nr) ? ' rolig' : ' borte') : ramt.fjender.includes(f.nr) ? ' ramt' : ''}`}
-                key={`${f.nr}-${ramt.fjender.includes(f.nr) ? ramt.nr : 0}`}
-                src={uri(`vaesen.${f.vaesen}`, kort)}
-                alt=""
-                style={plads(sted, kort, 2)}
-              />
-              {peg === f.nr && f.liv > 0 && !slut && (
-                <img className="kamp-sprite kamp-markoer" src={uri('markoer', MARKOER)} alt="" style={plads([sted[0] - 24, sted[1] - 12], MARKOER, 1.5)} />
-              )}
-            </span>
-          );
-        })}
-        {kamp.hold.map((m, i) => {
-          const kort = holdKort[m.id];
-          return (
-            <img
-              key={`${m.id}-${ramt.hold.includes(m.id) ? ramt.nr : 0}`}
-              className={`kamp-sprite kamp-medlem${m.liv <= 0 ? ' faldet' : ''}${ramt.hold.includes(m.id) ? ' ramt' : ''}`}
-              src={uri(m.id === 'avatar' ? `avatar.${JSON.stringify(avatar)}` : `medlem.${m.id}`, kort)}
-              alt=""
-              style={plads(HOLD_PLADS[i], kort, 1.5)}
-            />
-          );
-        })}
-      </div>
+      <div className="kamp-skaerm" data-fase={visning.type}>
+        <div className="kamp-felt" ref={felt}>
+          {baggrund && <img className="kamp-lag" src={baggrund} alt="" aria-hidden="true" />}
 
-      <div className="kamp-vinduer">
-        <section className="kamp-vindue kamp-fjender" aria-label={t('kamp.vaesner')}>
-          <ul>
-            {kamp.fjender.map((f) => (
-              <li key={f.nr} className={f.liv <= 0 ? 'rolig' : ''}>
-                <span className="kamp-navn">{navne[f.nr]}</span>
-                <span className="kamp-maaler" aria-hidden="true">
-                  <span style={{ width: `${(f.liv / f.maks) * 100}%` }} />
-                </span>
-                <span className="lille-tekst">
-                  {t('kamp.liv', { liv: f.liv, maks: f.maks })}
-                  {' - '}
-                  {kendt.includes(f.nr) ? t(`kamp.svaghed.${SVAGHED[f.vaesen]}` as TekstId) : t('kamp.svaghed.ukendt')}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        <section className="kamp-vindue kamp-midte">
-          {runde ? (
-            <div className="kamp-runde" aria-live="polite">
-              <p className="naeste-overskrift">{t('kamp.runde', { runde: slut ? kamp.runde : kamp.runde - 1 })}</p>
-              <ul>
-                {runde.linjer.map((l, i) => (
-                  <li key={i}>{l}</li>
-                ))}
-              </ul>
-              <div className="knaprad">
-                <LaesOpKnap dele={runde.linjer.map((l) => ({ tekst: l }))} etiket={t('kamp.laes')} auto />
-                {slut === 'vundet' ? (
-                  <button type="button" className="knap knap-primaer" onClick={onVundet} autoFocus>
-                    {t('kamp.videre')}
-                  </button>
-                ) : slut === 'slaaet' ? (
-                  <button type="button" className="knap knap-primaer" onClick={gaaVaek} autoFocus>
-                    {t('kamp.tilbage')}
-                  </button>
-                ) : (
-                  <button type="button" className="knap knap-primaer" onClick={() => setVisning({ type: 'menu' })} autoFocus>
-                    {t('kamp.naeste')}
-                  </button>
-                )}
-              </div>
-            </div>
-          ) : o ? (
-            <div className="opgave-krop kamp-opgave">
-              <p className="naeste-overskrift">{o.stort ? t('kamp.slag.stort', { slag: t(`kamp.slag.${o.slag}` as TekstId) }) : `${t(`kamp.slag.${o.slag}` as TekstId)} - ${navne[o.fjende]}`}</p>
-              <p className="kamp-saetning">
-                {o.opgave.foer}
-                <mark>{o.opgave.vist}</mark>
-                {o.opgave.efter}
-              </p>
-              <p className="kamp-spoergsmaal">{t(k(o.opgave, 'spoergsmaal'), { ord: o.opgave.ord, vist: o.opgave.vist })}</p>
-              {o.forklaret && regel && (
-                <div className="besked besked-info regel">
-                  <p>{t('kamp.haendelse.forklar')}</p>
-                  <p>
-                    <strong>{t('feedback.regel')}:</strong> {regel.regel}
-                  </p>
-                  <p>
-                    <strong>{t('feedback.eksempel')}:</strong> {regel.eksempel}
-                  </p>
-                </div>
-              )}
-              <div className="kamp-muligheder">
-                {o.opgave.muligheder.map((m) => (
-                  <button
-                    key={m}
-                    type="button"
-                    className={`knap kamp-mulighed${o.svaret && m === o.opgave.svar ? ' rigtig' : ''}`}
-                    disabled={o.vaek.includes(m) || !!o.svaret}
-                    onClick={() => svar(m)}
-                  >
-                    {m}
-                  </button>
-                ))}
-              </div>
-              {!o.svaret ? (
-                <div className="knaprad">
-                  <LaesOpKnap tekst={o.opgave.saetning} figur="fortaeller" etiket={t('kamp.laes')} />
-                  <button type="button" className="knap" onClick={() => setNotat(t(k(o.opgave, 'lyt')))}>
-                    {t('kamp.lyt')}
-                  </button>
-                  {hjaelpere.includes('aeseloere') && (
-                    <button type="button" className="knap" disabled={!kanBrugeEvne(kamp, 'forklar') || o.forklaret} onClick={() => evneIOpgave('forklar')}>
-                      {t('kamp.evne.forklar', { antal: kamp.evner.forklar ?? 0 })}
-                    </button>
-                  )}
-                  {hjaelpere.includes('vims') && (
-                    <button type="button" className="knap" disabled={!kanBrugeEvne(kamp, 'visk')} onClick={() => evneIOpgave('visk')}>
-                      {t('kamp.evne.visk', { antal: kamp.evner.visk ?? 0 })}
-                    </button>
-                  )}
-                </div>
-              ) : (
-                <div className="opgave-feedback" aria-live="polite">
-                  <div className={`besked besked-${rigtigt ? 'god' : 'fejl'}`}>
-                    <p>{beskedTekst}</p>
-                    {regel && (
-                      <div className="regel">
-                        <p>
-                          <strong>{t('feedback.regel')}:</strong> {regel.regel}
-                        </p>
-                        <p>
-                          <strong>{t('feedback.eksempel')}:</strong> {regel.eksempel}
-                        </p>
-                      </div>
+          {kamp.fjender.map((f) => {
+            const sted = fjendeSted(f.nr);
+            const kort = SPRITE[f.vaesen];
+            const vaek = oploest.includes(f.nr);
+            const ramt = ryst.fjender.includes(f.nr);
+            const liv = livFjende(f.nr);
+            const [ex, ey] = procent([sted[0], sted[1] - kort.raekker.length * FJENDE_SKALA - 4]);
+            return (
+              <div key={f.nr}>
+                <img
+                  key={`${f.nr}-${ramt ? ryst.nr : 0}-${vaek}`}
+                  className={`kamp-sprite kamp-fjende${vaek ? (liv <= 0 && visning.type === 'afspil' ? ' rolig' : ' borte') : ramt ? ' ramt' : ''}${f.lammet && !vaek ? ' lammet' : ''}`}
+                  src={uri(`vaesen.${f.vaesen}`, kort)}
+                  alt=""
+                  aria-hidden="true"
+                  style={plads(sted, kort, FJENDE_SKALA)}
+                />
+                {!vaek && (
+                  <div className={`kamp-etiket kamp-fjende-etiket${liv <= 0 ? ' rolig' : ''}`} style={{ left: `${ex}%`, top: `${ey}%` }}>
+                    <span className="kamp-navn">{navne[f.nr]}</span>
+                    <span className="kamp-maaler" aria-hidden="true">
+                      <span style={{ width: `${(liv / f.maks) * 100}%` }} />
+                    </span>
+                    <span className="sr-only">{t('kamp.liv', { liv, maks: f.maks })}</span>
+                    {kendt.includes(f.nr) && <span className="kamp-svag">{t(`kamp.svaghed.${SVAGHED[f.vaesen]}` as TekstId)}</span>}
+                    {f.varsel && liv > 0 && visning.type !== 'afspil' && !slut && (
+                      <span className={`kamp-varsel${f.varsel.alle ? ' alle' : ''}`} title={varselTekst(f.nr) ?? ''}>
+                        <span aria-hidden="true">{f.varsel.alle ? '⚡' : '⚔'} </span>
+                        {f.varsel.alle ? t('kamp.varsel.kort.alle', { skade: varselSkade(f.nr) }) : t('kamp.varsel.kort', { hvem: medlemNavn(f.varsel.maal ?? 'avatar'), skade: varselSkade(f.nr) })}
+                        <span className="sr-only">{varselTekst(f.nr)}</span>
+                      </span>
                     )}
                   </div>
-                  <div className="knaprad">
-                    <LaesOpKnap auto dele={beskedDele(beskedTekst ?? '', regel, null, false)} />
-                    <button type="button" className="knap knap-primaer" onClick={efterSvar} autoFocus>
-                      {t('kamp.videre')}
-                    </button>
+                )}
+                {peg === f.nr && !vaek && !slut && visning.type !== 'afspil' && (
+                  <img className="kamp-sprite kamp-markoer" src={uri('markoer', MARKOER)} alt="" aria-hidden="true" style={plads([sted[0] - 28, sted[1] - 14], MARKOER, 2)} />
+                )}
+              </div>
+            );
+          })}
+
+          {kamp.hold.map((m, i) => {
+            const kort = holdKort[m.id];
+            const ramt = ryst.hold.includes(m.id);
+            const nede = faldet.includes(m.id) && livMedlem(m.id) <= 0;
+            return (
+              <div key={m.id}>
+                <img
+                  key={`${m.id}-${ramt ? ryst.nr : 0}`}
+                  className={`kamp-sprite kamp-medlem${nede ? ' faldet' : ''}${ramt ? ' ramt' : ''}${slut === 'vundet' ? ' jubler' : ''}`}
+                  src={uri(m.id === 'avatar' ? `avatar.${JSON.stringify(avatar)}` : `medlem.${m.id}`, kort)}
+                  alt=""
+                  aria-hidden="true"
+                  style={{ ...plads(HOLD_PLADS[i], kort, HOLD_SKALA), animationDelay: `${i * 0.2}s` }}
+                />
+                {sigtet.has(m.id) && visning.type !== 'afspil' && !slut && (
+                  <span className="kamp-sigte" aria-hidden="true" style={{ left: `${midtMedlem(m.id)[0]}%`, top: `${midtMedlem(m.id)[1]}%` }} />
+                )}
+              </div>
+            );
+          })}
+
+          <div className="kamp-effekter" aria-hidden="true">
+            {effekter.map((e) => (
+              <span
+                key={e.id}
+                className={`fx fx-${e.type}${e.slags ? ` fx-${e.slags}` : ''}`}
+                style={
+                  {
+                    left: `${e.x}%`,
+                    top: `${e.y}%`,
+                    '--dx': `${(e.tx ?? e.x) - e.x}`,
+                    '--dy': `${(e.ty ?? e.y) - e.y}`,
+                  } as CSSProperties
+                }
+              >
+                {e.tekst}
+                {['nedslag', 'oploes', 'krummer', 'lap', 'sejr', 'kombi', 'angreb-stjael'].includes(e.type) &&
+                  STYKKER.map((s, j) => <i key={j} style={{ '--a': `${s.a}deg`, '--r': s.r } as CSSProperties} />)}
+              </span>
+            ))}
+          </div>
+
+          {visning.type === 'afspil' && (
+            <button type="button" className="kamp-spring" onClick={springOver}>
+              {t('kamp.spring')}
+            </button>
+          )}
+        </div>
+
+        {/* Holdet: navne og liv nederst til højre, som i et rollespil. */}
+        <section className="kamp-hud kamp-hold" aria-label={t('kamp.holdet')}>
+          <ul>
+            {kamp.hold.map((m) => {
+              const liv = livMedlem(m.id);
+              return (
+                <li key={m.id} className={liv <= 0 ? 'faldet' : ''}>
+                  <span className="kamp-navn">{medlemNavn(m.id)}</span>
+                  <span className={`kamp-maaler liv${liv / m.maks <= 0.34 ? ' lav' : ''}`} aria-hidden="true">
+                    <span style={{ width: `${(liv / m.maks) * 100}%` }} />
+                  </span>
+                  <span className="kamp-tal">{t('kamp.liv.kort', { liv, maks: m.maks })}</span>
+                </li>
+              );
+            })}
+          </ul>
+          {!kamp.udfald && <p className={`kamp-kombi${stortSlagKlar(kamp) ? ' klar' : ''}`}>{stortSlagKlar(kamp) ? t('kamp.stort.klar') : t('kamp.kombi', { antal: kamp.kombi, maks: KOMBI })}</p>}
+        </section>
+
+        {/* Den korte linje: hvad der lige skete. */}
+        {linje && (visning.type === 'afspil' || slut) && (
+          <div className="kamp-linje" aria-live="polite">
+            <p>{linje}</p>
+          </div>
+        )}
+
+        {/* Menuen eller opgaven nederst til venstre. */}
+        {visning.type !== 'afspil' && !slut && (
+          <section className={`kamp-hud kamp-styring${o ? ' kamp-opgave-kort' : ''}`}>
+            {o ? (
+              <div className="opgave-krop kamp-opgave">
+                <p className="naeste-overskrift">
+                  {o.stort ? t('kamp.slag.stort', { slag: t(`kamp.slag.${o.slag}` as TekstId) }) : `${t(`kamp.slag.${o.slag}` as TekstId)} - ${navne[o.fjende]}`}
+                </p>
+                <p className="kamp-saetning">
+                  {o.opgave.foer}
+                  <mark>{o.opgave.vist}</mark>
+                  {o.opgave.efter}
+                </p>
+                <p className="kamp-spoergsmaal">{t(k(o.opgave, 'spoergsmaal'), { ord: o.opgave.ord, vist: o.opgave.vist })}</p>
+                {o.forklaret && regel && (
+                  <div className="besked besked-info regel">
+                    <p>
+                      <strong>{t('feedback.regel')}:</strong> {regel.regel}
+                    </p>
+                    <p>
+                      <strong>{t('feedback.eksempel')}:</strong> {regel.eksempel}
+                    </p>
                   </div>
+                )}
+                <div className="kamp-muligheder">
+                  {o.opgave.muligheder.map((m) => (
+                    <button
+                      key={m}
+                      type="button"
+                      className={`knap kamp-mulighed${o.svaret && m === o.opgave.svar ? ' rigtig' : ''}${o.svaret === m && m !== o.opgave.svar ? ' forkert' : ''}`}
+                      disabled={o.vaek.includes(m) || !!o.svaret}
+                      onClick={() => svar(m)}
+                    >
+                      {m}
+                    </button>
+                  ))}
                 </div>
+                {!o.svaret ? (
+                  <div className="knaprad kamp-hjaelperad">
+                    <LaesOpKnap tekst={o.opgave.saetning} figur="fortaeller" etiket={t('kamp.laes')} />
+                    <button type="button" className="knap knap-lille" onClick={() => setNotat(t(k(o.opgave, 'lyt')))}>
+                      {t('kamp.lyt')}
+                    </button>
+                    {hjaelpere.includes('aeseloere') && (
+                      <button type="button" className="knap knap-lille" disabled={!kanBrugeEvne(kamp, 'forklar') || o.forklaret} onClick={() => evneIOpgave('forklar')}>
+                        {t('kamp.evne.forklar', { antal: kamp.evner.forklar ?? 0 })}
+                      </button>
+                    )}
+                    {hjaelpere.includes('vims') && (
+                      <button type="button" className="knap knap-lille" disabled={!kanBrugeEvne(kamp, 'visk')} onClick={() => evneIOpgave('visk')}>
+                        {t('kamp.evne.visk', { antal: kamp.evner.visk ?? 0 })}
+                      </button>
+                    )}
+                  </div>
+                ) : (
+                  <div className="opgave-feedback" aria-live="polite">
+                    <div className={`besked besked-${rigtigt ? 'god' : 'fejl'}`}>
+                      <p>{beskedTekst}</p>
+                      {regel && (
+                        <div className="regel">
+                          <p>
+                            <strong>{t('feedback.regel')}:</strong> {regel.regel}
+                          </p>
+                          <p>
+                            <strong>{t('feedback.eksempel')}:</strong> {regel.eksempel}
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                    <div className="knaprad">
+                      <LaesOpKnap auto dele={beskedDele(beskedTekst ?? '', regel, null, false)} />
+                      <button type="button" className="knap knap-primaer" onClick={efterSvar} autoFocus>
+                        {rigtigt ? t('kamp.slaa.nu') : t('kamp.videre')}
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ) : (
+              menu
+            )}
+            {notat && (
+              <div className="besked besked-info kamp-notat" aria-live="polite">
+                <p>{notat}</p>
+              </div>
+            )}
+          </section>
+        )}
+
+        {/* Slutningen: sejr eller blødt nederlag. */}
+        {slut && (
+          <section className={`kamp-hud kamp-slut kamp-slut-${slut}`}>
+            <p className="kamp-slut-titel">{slut === 'vundet' ? t('kamp.slut.vundet') : t('kamp.slut.slaaet')}</p>
+            <p>{slut === 'vundet' ? t('kamp.vundet') : t('kamp.slaaet')}</p>
+            <div className="knaprad">
+              <LaesOpKnap tekst={slut === 'vundet' ? t('kamp.vundet') : t('kamp.slaaet')} auto />
+              {slut === 'vundet' ? (
+                <button type="button" className="knap knap-primaer" onClick={onVundet} autoFocus>
+                  {t('kamp.videre')}
+                </button>
+              ) : (
+                <button type="button" className="knap knap-primaer" onClick={gaaVaek} autoFocus>
+                  {t('kamp.tilbage')}
+                </button>
               )}
             </div>
-          ) : (
-            menu
-          )}
-          {notat && !runde && (
-            <div className="besked besked-info" aria-live="polite">
-              <p>{notat}</p>
-            </div>
-          )}
-        </section>
+          </section>
+        )}
 
-        <section className="kamp-vindue kamp-hold" aria-label={t('kamp.holdet')}>
-          <ul>
-            {kamp.hold.map((m) => (
-              <li key={m.id} className={m.liv <= 0 ? 'faldet' : ''}>
-                <span className="kamp-navn">{medlemNavn(m.id)}</span>
-                <span className="kamp-maaler liv" aria-hidden="true">
-                  <span style={{ width: `${(m.liv / m.maks) * 100}%` }} />
-                </span>
-                <span className="lille-tekst">{t('kamp.liv', { liv: m.liv, maks: m.maks })}</span>
-              </li>
-            ))}
-          </ul>
-          {!kamp.udfald && <p className="lille-tekst">{stortSlagKlar(kamp) ? t('kamp.stort.klar') : t('kamp.kombi', { antal: kamp.kombi, maks: KOMBI })}</p>}
-        </section>
+        <button type="button" className="kamp-hjaelp-knap" aria-expanded={hjaelp} onClick={() => setHjaelp((x) => !x)}>
+          {t('kamp.hjaelp')}
+        </button>
+        {hjaelp && (
+          <div className="kamp-hud kamp-hjaelp">
+            <p>{t('kamp.forklaring')}</p>
+            <LaesOpKnap tekst={t('kamp.forklaring')} ikon />
+          </div>
+        )}
       </div>
-
-      {!slut && varsler.length > 0 && (
-        <div className="kamp-varsler">
-          <p className="naeste-overskrift">{t('kamp.varsel.overskrift')}</p>
-          <ul>
-            {varsler.map((v, i) => (
-              <li key={i}>{v}</li>
-            ))}
-          </ul>
-        </div>
-      )}
-      <p className="lille-tekst">{t('kamp.forklaring')}</p>
     </Modal>
   );
 }
