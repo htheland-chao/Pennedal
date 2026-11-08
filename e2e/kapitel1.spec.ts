@@ -269,7 +269,8 @@ test('kapitel 1 kan spilles fra start til slut, og gemmekoden virker', async ({ 
   await page.getByLabel('Gemmekode').fill(kode!.replace(/-/g, '').toLowerCase());
   await page.getByRole('button', { name: 'Fortsæt', exact: true }).click();
   await page.getByRole('button', { name: 'Ja, start forfra' }).click();
-  await expect(page.locator('dialog.dialogboks')).toContainText('Du lander blødt');
+  // Koden er gemt fra menuen i Pennedal, så spillet fortsætter dér: enten ankomsten eller mødet med Klatten.
+  await expect(page.locator('dialog.dialogboks').filter({ hasText: 'Du lander blødt' }).or(page.locator('.panel').getByRole('button', { name: 'Undersøg Klatten' }))).toBeVisible();
 
   expect(fejl, fejl.join('\n')).toEqual([]);
 });
