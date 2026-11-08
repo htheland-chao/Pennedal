@@ -1149,13 +1149,6 @@
       "kilde": "Kapitel 2 / k2-rum.seddel.3",
       "lavet": "2026-11-03"
     },
-    "0b7eda2b148e55": {
-      "figur": "fortaeller",
-      "tekst": "Tryk på ordet efter punktummet. Så får det stort begyndelsesbogstav.",
-      "fil": "0b7eda2b148e55.ogg",
-      "kilde": "Opgaver / ogorm.trin.3",
-      "lavet": "2026-11-04"
-    },
     "0b81eefcc22ead": {
       "figur": "fortaeller",
       "tekst": "Pludselig bliver alt stille. Byens larm forsvinder, som når man smækker en bog i.",
@@ -1400,6 +1393,13 @@
       "fil": "0ddd3343965284.ogg",
       "kilde": "Stumme bogstaver / hjul.saetning",
       "lavet": "2026-11-04"
+    },
+    "0df307982219e8": {
+      "figur": "fortaeller",
+      "tekst": "Og-ormen har spist punktummerne og sat \"og\" i stedet. Klip ormen over med saksen, der hvor én tanke slutter, og en ny begynder.",
+      "fil": "0df307982219e8.ogg",
+      "kilde": "Opgaver / ogorm.klip.instruks",
+      "lavet": "2026-11-08"
     },
     "0e085335c1e617": {
       "figur": "klatten",
@@ -2416,13 +2416,6 @@
       "kilde": "Kapitel 2 / k2-trykkeri.4",
       "lavet": "2026-10-31"
     },
-    "1781a20c0cbb6a": {
-      "figur": "fortaeller",
-      "tekst": "Og-ormen har ædt punktummerne og sat \"og\" i stedet. Nu er teksten én lang sætning. Gør den til flere sætninger igen.",
-      "fil": "1781a20c0cbb6a.ogg",
-      "kilde": "Opgaver / ogorm.instruks",
-      "lavet": "2026-11-04"
-    },
     "17aea59c3821ea": {
       "figur": "fortaeller",
       "tekst": "Klatten snubler over sine egne fødder. Sækken flyver op i luften, og tegnene regner ned over tagstenene.",
@@ -2653,13 +2646,6 @@
       "fil": "18f7e61f8506a0.ogg",
       "kilde": "Kapitel 3 / k3-lysning.4",
       "lavet": "2026-11-01"
-    },
-    "1904e22c04f254": {
-      "figur": "fortaeller",
-      "tekst": "Læs teksten. Find steder, hvor én tanke slutter, og en ny begynder.",
-      "fil": "1904e22c04f254.ogg",
-      "kilde": "Opgaver / ogorm.trin.1",
-      "lavet": "2026-11-04"
     },
     "191e4e2383adad": {
       "figur": "fortaeller",
@@ -3137,13 +3123,6 @@
       "kilde": "Opgaver / bevisjagt.instruks",
       "lavet": "2026-11-04"
     },
-    "1e923afb0f470e": {
-      "figur": "fortaeller",
-      "tekst": "Tryk på \"og\" lige dér. Så bliver det til et punktum.",
-      "fil": "1e923afb0f470e.ogg",
-      "kilde": "Opgaver / ogorm.trin.2",
-      "lavet": "2026-11-04"
-    },
     "1e94f5ab02017c": {
       "figur": "raaber",
       "tekst": "Vagten fandt små, sorte fodspor ved springvandet.",
@@ -3342,6 +3321,6 @@
     }
   },
   "model": "gemini-3.8-flash-tts",
-  "i_alt": 477,
+  "i_alt": 474,
   "mangler": 0
 }
