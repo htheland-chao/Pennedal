@@ -115,7 +115,7 @@
   "verden.sted": "Du er her: {sted}",
 
   "menu.titel": "Menu",
-  "menu.gemmekode": "Vis gemmekode",
+  "menu.gem": "Gem spillet",
   "menu.samling": "Din samling",
   "menu.avatar": "Skift udseende",
   "menu.indstillinger": "Indstillinger",
@@ -167,6 +167,10 @@
   "bevisjagt.regel": "Svaret står i teksten. Læs sætningerne én ad gangen, og find den, der passer præcist til spørgsmålet.",
 
   "ogorm.titel": "Og-ormen",
+  "ogorm.klip.instruks": "Og-ormen har spist punktummerne og sat \"og\" i stedet. Klip ormen over med saksen, der hvor én tanke slutter, og en ny begynder.",
+  "ogorm.klip.her": "Klip ormen over ved dette og",
+  "ogorm.klip.stort": "Klip! Ormen er delt i to. {ord} får stort begyndelsesbogstav, fordi en ny sætning begynder.",
+  "ogorm.klip.tilbage": "Der er {antal} steder tilbage at klippe.",
   "ogorm.instruks": "Og-ormen har ædt punktummerne og sat \"og\" i stedet. Nu er teksten én lang sætning. Gør den til flere sætninger igen.",
   "ogorm.trin.1": "Læs teksten. Find steder, hvor én tanke slutter, og en ny begynder.",
   "ogorm.trin.2": "Tryk på \"og\" lige dér. Så bliver det til et punktum.",
@@ -226,6 +230,8 @@
 
   "gem.titel": "Din gemmekode",
   "gem.del.slut": "Du har klaret del {nr}. Godt gået!",
+  "gem.del.kvittering": "Du har klaret del {nr}. Spillet er gemt på denne computer. Vil du fortsætte et andet sted, så vælg Gem spillet i menuen.",
+  "kvittering.luk": "Luk",
   "gem.forklaring": "Spillet er gemt på denne computer. Vil du fortsætte på en anden computer, så skriv koden ned eller tag et billede af QR-koden.",
   "gem.qr": "QR-kode med din gemmekode",
   "gem.kopier": "Kopiér koden",
@@ -350,6 +356,8 @@
   "lyd.figur.ord": "Enkelte ord",
   "lyd.tilbage": "Tilbage til spillet",
 
+  "minde.nyt": "{titel}. Det ligger nu i tasken, så du kan se det, når du har lyst.",
+  "minde.se.nu": "Se mindet nu",
   "minde.blaek.titel": "Et minde: Blæk og regn",
   "minde.blaek.1": "Regnen trommer mod en rude. Det er aften, og lampen over bordet summer svagt.",
   "minde.blaek.2": "En hånd holder om en blyant. Den holder alt for hårdt, så knoerne bliver helt hvide.",

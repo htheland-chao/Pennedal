@@ -1,6 +1,6 @@
 import { expect, test, type Page } from '@playwright/test';
 import { readFileSync } from 'node:fs';
-import { parseOgTekst, skalHaveStort } from '../src/mechanics/ogorm';
+import { facit, parseOgTekst } from '../src/mechanics/ogorm';
 
 type StumtOrd = { ord: string };
 type OgTekst = { id: string; tekst: string };
@@ -24,9 +24,13 @@ async function billede(page: Page, navn: string) {
 /** Klikker "Videre", indtil dialogen er slut. */
 async function laesDialog(page: Page) {
   const dialog = page.locator('dialog.dialogboks');
-  await expect(dialog).toBeVisible();
+  // Dialogen lukker selv efter sidste replik, når den er læst op (8. november 2026). Den kan derfor allerede være væk.
+  await dialog.waitFor({ state: 'visible', timeout: 10_000 }).catch(() => undefined);
   for (let i = 0; i < 20 && (await dialog.isVisible()); i++) {
-    await dialog.getByRole('button', { name: 'Videre' }).click();
+    await dialog
+      .getByRole('button', { name: 'Videre' })
+      .click({ timeout: 3_000 })
+      .catch(() => undefined);
   }
   await expect(dialog).toHaveCount(0);
 }
@@ -66,20 +70,22 @@ async function loesOgorm(page: Page, foersteGangForkert: boolean) {
   const id = await opgave.getAttribute('data-tekst-id');
   const tekst = ogTekster.find((x) => x.id === id)!;
   const tokens = parseOgTekst(tekst.tekst);
-  if (foersteGangForkert) {
-    await opgave.getByRole('button', { name: 'Tjek' }).click();
-    await expect(page.locator('.besked-fejl')).toContainText('Ormen er stadig for lang');
+  const bliv = tokens.findIndex((t) => t.ogType === 'b');
+  if (foersteGangForkert && bliv >= 0) {
+    // Et "og", der binder to ting sammen, kan ikke klippes: så kommer reglen og et eksempel.
+    await opgave.locator(`[data-token="${bliv}"]`).click();
+    await expect(page.locator('.besked-fejl')).toContainText('binder');
+    await expect(page.locator('.besked-fejl .regel')).toBeVisible();
+    const proevIgen = page.getByRole('button', { name: 'Prøv igen' });
+    if (await proevIgen.isVisible()) await proevIgen.click();
   }
-  const punktummer = tokens.map((t, i) => (t.ogType === 's' ? i : -1)).filter((i) => i >= 0);
-  for (const i of punktummer) await opgave.locator(`[data-token="${i}"]`).click();
-  for (let i = 0; i < tokens.length; i++) {
-    if (tokens[i].erOg) continue;
-    const skal = skalHaveStort(tokens, { punktummer, skiftet: [] }, i);
-    const har = tokens[i].ord[0] !== tokens[i].ord[0].toLowerCase();
-    if (skal !== har) await opgave.locator(`[data-token="${i}"]`).click();
+  const klip = tokens.map((t, i) => (t.ogType === 's' ? i : -1)).filter((i) => i >= 0);
+  for (const i of klip) {
+    await opgave.locator(`[data-token="${i}"]`).click();
+    await expect(opgave.locator(`[data-token="${i}"]`)).toHaveCount(0);
   }
-  await opgave.getByRole('button', { name: 'Tjek' }).click();
   await expect(page.locator('.besked-god')).toBeVisible();
+  await expect(opgave.locator('.facit')).toHaveText(facit(tokens));
 }
 
 async function loesBro(page: Page) {
@@ -180,17 +186,18 @@ test('kapitel 1 kan spilles fra start til slut, og gemmekoden virker', async ({ 
   await page.waitForTimeout(800);
   await billede(page, '05b-kaelder');
   await undersoeg(page, 'kartoteksskabet');
-  // Første minde (tilbageblik) kommer lige efter første replik, når skuffen åbnes.
-  await page.locator('dialog.dialogboks').getByRole('button', { name: 'Videre' }).click();
+  // Første minde er frivilligt (Henrik, 8. november 2026): dialogen bliver ikke afbrudt, og bagefter kommer en kort besked.
+  await expect(page.locator('dialog.tilbageblik')).toHaveCount(0);
+  await laesDialog(page);
+  const besked = page.locator('.kvittering').filter({ hasText: 'Blæk og regn' });
+  await expect(besked).toBeVisible();
+  await besked.getByRole('button', { name: 'Se mindet nu' }).click();
   const minde = page.locator('dialog.tilbageblik');
-  await expect(minde).toContainText('Et minde: Blæk og regn');
   await expect(minde).toContainText('Så er det væk.');
   await page.waitForTimeout(1500);
   await billede(page, '05d-minde');
   await minde.getByRole('button', { name: 'Tilbage til Pennedal' }).click();
   await expect(minde).toHaveCount(0);
-  await expect(page.locator('dialog.dialogboks')).toContainText('Hvad så du?');
-  await laesDialog(page);
   await undersoeg(page, 'kartoteksskabet');
   for (let i = 0; i < 6; i++) {
     await loesHviske(page);
@@ -198,6 +205,11 @@ test('kapitel 1 kan spilles fra start til slut, og gemmekoden virker', async ({ 
     await videre(page);
   }
   await laesDialog(page);
+  // Efter en del kommer der kun en kort besked. Gemmekoden findes i menuen (Henrik, 8. november 2026).
+  await expect(page.locator('.kvittering').filter({ hasText: 'Du har klaret del 1' })).toBeVisible();
+  await expect(page.locator('.gemmekode')).toHaveCount(0);
+  await page.getByRole('button', { name: 'Menu' }).click();
+  await page.getByRole('button', { name: 'Gem spillet' }).click();
   const kode = await page.locator('.gemmekode').getAttribute('data-gemmekode');
   expect(kode).toMatch(/^[0-9A-Z]{4}(-[0-9A-Z]{1,4})+$/);
   await billede(page, '07-gemmekode');
@@ -216,7 +228,7 @@ test('kapitel 1 kan spilles fra start til slut, og gemmekoden virker', async ({ 
     await videre(page);
   }
   await laesDialog(page);
-  await page.getByRole('button', { name: 'Spil videre' }).click();
+  await expect(page.locator('.kvittering').filter({ hasText: 'Du har klaret del 2' })).toBeVisible();
 
   // Del 3: floden og fyrtårnet.
   await undersoeg(page, 'stien mod floden');

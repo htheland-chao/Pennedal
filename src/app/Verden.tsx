@@ -8,7 +8,10 @@ import { KampVindue } from '../ui/KampVindue';
 import { registrerSvar, type Haendelse } from '../engine/tilpasning';
 import { PhaserVerden } from '../game/PhaserVerden';
 import { avatarDataUri } from '../ui/avatarSvg';
+import { erMinde, mindeTitel, type MindeId } from '../content/minder';
 import { DialogBoks } from '../ui/DialogBoks';
+import { Kvittering } from '../ui/Kvittering';
+import { Tilbageblik } from '../ui/Tilbageblik';
 import { saetMusikOverride } from '../ui/musik/afspiller';
 import { FundVindue, KodeVindue, ManglerVindue } from '../ui/RumVindue';
 import { NyTingBesked, TaskeVindue } from '../ui/TaskeVindue';
@@ -35,6 +38,11 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
   const stedId = aktueltSted(spil, kapitel);
   const sted = kapitel.steder[stedId];
   const [aktivtTrin, setAktivtTrin] = useState<Trin | null>(null);
+  // Frivillige minder (Henrik, 8. november 2026): et tilbageblik afbryder ikke dialogen. Eleven får besked
+  // og kan se mindet nu eller senere i tasken.
+  const [nytMinde, setNytMinde] = useState<MindeId | null>(null);
+  const [visMinde, setVisMinde] = useState<MindeId | null>(null);
+  const skjulMinde = useCallback(() => setNytMinde(null), []);
   const [naer, setNaer] = useState<string | null>(null);
   const [hint, setHint] = useState<{ x: number; y: number } | null>(null);
   const [forskraek, setForskraek] = useState(0);
@@ -93,7 +101,9 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
     .map((o) => o.id);
   // Æseløre er skjult, indtil eleven har fundet ham (kapitlets fuglFra-trin).
   const fuglNr = kapitel.fuglFra ? kapitel.trin.findIndex((t) => t.id === kapitel.fuglFra) : -1;
-  const skjulte = fuglNr >= 0 && spil.trin < fuglNr ? [...skjulteObjekter, 'aeseloere'] : skjulteObjekter;
+  // Han vises først, når skuffen bliver åbnet (fuglFra-trinnets dialog), ikke allerede når man træder ind i kælderen.
+  const fuglSkjult = fuglNr >= 0 && (spil.trin < fuglNr || (spil.trin === fuglNr && aktivtTrin?.id !== kapitel.fuglFra));
+  const skjulte = fuglSkjult ? [...skjulteObjekter, 'aeseloere'] : skjulteObjekter;
 
   // Tal igen (Henrik, 1. november 2026): den, man har talt med på dette sted, kan man gå hen til igen
   // og høre den seneste samtale. Et valg vises med den mulighed, eleven valgte.
@@ -410,7 +420,28 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
         />
       )}
       {gentagelse && <DialogBoks replikker={gentagelse} onFaerdig={() => setGentagelse(null)} onTaler={setTaler} />}
-      {aktivtTrin?.type === 'dialog' && <DialogBoks replikker={aktivtTrin.replikker} tilbageblik={aktivtTrin.tilbageblik} valg={aktivtTrin.valg} onValg={vaelg} onFaerdig={afslut} onTaler={setTaler} />}
+      {aktivtTrin?.type === 'dialog' && (
+        <DialogBoks
+          replikker={aktivtTrin.replikker}
+          valg={aktivtTrin.valg}
+          onValg={vaelg}
+          onFaerdig={() => {
+            const minde = aktivtTrin.tilbageblik?.id;
+            afslut();
+            if (minde && erMinde(minde)) setNytMinde(minde);
+          }}
+          onTaler={setTaler}
+        />
+      )}
+      {nytMinde && !aktivtTrin && (
+        <Kvittering
+          tekst={t('minde.nyt', { titel: mindeTitel(nytMinde) })}
+          onSkjul={skjulMinde}
+          luk={t('kvittering.luk')}
+          handling={{ tekst: t('minde.se.nu'), onKlik: () => { setVisMinde(nytMinde); setNytMinde(null); } }}
+        />
+      )}
+      {visMinde && <Tilbageblik id={visMinde} onFaerdig={() => setVisMinde(null)} />}
       {aktivtTrin?.type === 'opgave' && (
         <OpgaveVindue
           trin={aktivtTrin}

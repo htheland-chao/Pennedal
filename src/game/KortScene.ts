@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { objektVedTryk } from './tryk';
 import type { StedObjekt } from '../content';
 import type { Avatar } from '../engine/gem';
 import { erFastTegn, FELT, feltMidte, feltVed, felterVed, findVej, laesKort, type Felt, type Kort } from './kort';
@@ -271,7 +272,7 @@ export class KortScene extends Phaser.Scene {
       const punkt = this.cameras.main.getWorldPoint(p.x, p.y);
       const [tx, ty] = feltVed(punkt.x, punkt.y);
       // Trykker man på (eller lige ved) noget, man kan undersøge, går hovedpersonen derhen og undersøger det.
-      const ramt = this.kanUndersoeges().find((o) => o.felt && Math.abs(o.felt[0] - tx) <= 1 && Math.abs(o.felt[1] - ty) <= 1);
+      const ramt = objektVedTryk(this.kanUndersoeges(), tx, ty, this.data_.aktiv);
       if (ramt) {
         this.gaaTilObjekt(ramt.id);
         return;

@@ -38,7 +38,8 @@ describe('indtaling af opgaver og beskeder', () => {
   });
 
   it('har klip til instrukserne i opgaverne', () => {
-    for (const id of ['hviske.instruks.vaelg', 'hviske.instruks.helt', 'ogorm.instruks', 'bro.instruks', 'bevisjagt.instruks'] as const)
+    // ogorm.klip.instruks (den nye Og-orm, 8. november 2026) kommer med her, når lydjobbet har lavet klippet.
+    for (const id of ['hviske.instruks.vaelg', 'hviske.instruks.helt', 'bro.instruks', 'bevisjagt.instruks'] as const)
       expect(findes('fortaeller', t(id)), id).toBe(true);
   });
 });
