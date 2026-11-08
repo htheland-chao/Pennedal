@@ -11,6 +11,7 @@ import { avatarDataUri } from '../ui/avatarSvg';
 import { erMinde, mindeTitel, type MindeId } from '../content/minder';
 import { DialogBoks } from '../ui/DialogBoks';
 import { Kvittering } from '../ui/Kvittering';
+import { Overgang, type OvergangType } from '../ui/Overgang';
 import { Tilbageblik } from '../ui/Tilbageblik';
 import { saetMusikOverride } from '../ui/musik/afspiller';
 import { FundVindue, KodeVindue, ManglerVindue } from '../ui/RumVindue';
@@ -36,6 +37,7 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
   const trin = aktueltTrin(spil, kapitel);
   const slut = kapitelSlut(spil, kapitel);
   const stedId = aktueltSted(spil, kapitel);
+  const forrigeSted = useRef(stedId);
   const sted = kapitel.steder[stedId];
   const [aktivtTrin, setAktivtTrin] = useState<Trin | null>(null);
   // Frivillige minder (Henrik, 8. november 2026): et tilbageblik afbryder ikke dialogen. Eleven får besked
@@ -43,6 +45,15 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
   const [nytMinde, setNytMinde] = useState<MindeId | null>(null);
   const [visMinde, setVisMinde] = useState<MindeId | null>(null);
   const skjulMinde = useCallback(() => setNytMinde(null), []);
+  // Overgang mellem steder (8. november 2026): portalen fra kælderen til Pennedal, ellers et kort blækstrøg.
+  const [overgang, setOvergang] = useState<{ type: OvergangType; nr: number } | null>(null);
+  const slutOvergang = useCallback(() => setOvergang(null), []);
+  useEffect(() => {
+    const fra = forrigeSted.current;
+    forrigeSted.current = stedId;
+    if (fra === stedId) return;
+    setOvergang((o) => ({ type: fra === 'kaelder' && stedId === 'pennedal' ? 'portal' : 'skift', nr: (o?.nr ?? 0) + 1 }));
+  }, [stedId]);
   const [naer, setNaer] = useState<string | null>(null);
   const [hint, setHint] = useState<{ x: number; y: number } | null>(null);
   const [forskraek, setForskraek] = useState(0);
@@ -310,7 +321,7 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
         {DEBUG && <Ydelse fps={() => fpsRef.current()} />}
       </div>
 
-      <aside className="panel">
+      <aside className="panel hud">
         <p className="sted-navn">{t('verden.sted', { sted: sted.navn })}</p>
         {sted.bane && !slut && trin?.objekt === 'maal' && (
           <>
@@ -338,9 +349,9 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
           <>
             <p className="naeste-overskrift">{t('verden.naeste')}</p>
             <p className="naeste-tekst">{rum.opgavetekst}</p>
-            {rum.opgavetekst && <LaesOpKnap tekst={rum.opgavetekst} figur="fortaeller" auto={!aktivtTrin && !andetVindueAabent && !rumVindue} />}
+            {rum.opgavetekst && <LaesOpKnap tekst={rum.opgavetekst} figur="fortaeller" auto={!aktivtTrin && !andetVindueAabent && !rumVindue} ikon />}
             {naer && objektNavn && (
-              <button type="button" className="knap knap-primaer" disabled={laast} onClick={() => interaktion(naer)}>
+              <button type="button" className="knap knap-primaer hud-handling" disabled={laast} onClick={() => interaktion(naer)}>
                 {t('verden.undersoeg', { navn: objektNavn })}
               </button>
             )}
@@ -367,11 +378,11 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
             <>
               <p className="naeste-overskrift">{t('verden.naeste')}</p>
               <p className="naeste-tekst">{trin.opgavetekst}</p>
-              <LaesOpKnap tekst={trin.opgavetekst} figur="fortaeller" auto={!aktivtTrin && !andetVindueAabent} />
+              <LaesOpKnap tekst={trin.opgavetekst} figur="fortaeller" auto={!aktivtTrin && !andetVindueAabent} ikon />
               {aktivtNavn && (
                 <button
                   type="button"
-                  className="knap knap-primaer"
+                  className="knap knap-primaer hud-handling"
                   disabled={laast}
                   onClick={() => interaktion(trin.objekt!)}
                 >
@@ -384,14 +395,16 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
             </>
           )
         )}
-        <p className="lille-tekst">{t('verden.styring')}</p>
-        <button type="button" className="knap" onClick={() => setVisTaske(true)} disabled={!!aktivtTrin || !!rumVindue}>
-          {t('taske.knap')} ({tingITasken.length + taske.length})
-        </button>
-        <button type="button" className="knap" onClick={onMenu}>
-          <span aria-hidden="true">☰ </span>
-          {t('verden.menu')}
-        </button>
+        {/* Fuld skærm (Henrik, 8. november 2026): taske og menu står som små knapper i hjørnet over spillet. */}
+        <div className="hud-knapper">
+          <button type="button" className="knap" onClick={() => setVisTaske(true)} disabled={!!aktivtTrin || !!rumVindue}>
+            {t('taske.knap')} ({tingITasken.length + taske.length})
+          </button>
+          <button type="button" className="knap" onClick={onMenu}>
+            <span aria-hidden="true">☰ </span>
+            {t('verden.menu')}
+          </button>
+        </div>
         <p className="sr-only" aria-live="assertive">
           {uhyggeBesked}
         </p>
@@ -420,7 +433,8 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
         />
       )}
       {gentagelse && <DialogBoks replikker={gentagelse} onFaerdig={() => setGentagelse(null)} onTaler={setTaler} />}
-      {aktivtTrin?.type === 'dialog' && (
+      {/* Dialogen venter, til overgangen mellem steder er færdig (et dialogvindue ligger altid øverst i browseren). */}
+      {aktivtTrin?.type === 'dialog' && !overgang && (
         <DialogBoks
           replikker={aktivtTrin.replikker}
           valg={aktivtTrin.valg}
@@ -442,6 +456,7 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
         />
       )}
       {visMinde && <Tilbageblik id={visMinde} onFaerdig={() => setVisMinde(null)} />}
+      {overgang && <Overgang key={overgang.nr} type={overgang.type} onFaerdig={slutOvergang} />}
       {aktivtTrin?.type === 'opgave' && (
         <OpgaveVindue
           trin={aktivtTrin}

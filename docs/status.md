@@ -8,6 +8,8 @@ Regler og stak står i `CLAUDE.md`. Historien står i `docs/historie.md`, grafik
 
 - **Kapitel 1-3 kan spilles.** Kapitel 1 (Pennedal og kælderen), kapitel 2 (byen og trykkeriet med bane og escape room) og kapitel 3 (Viskeskoven med de første turbaserede kampe).
 - **Intro, tilbageblik, taske, turbaserede kampe, Og-orm, avatardesigner med pixelgrafik** og baggrundsmusik pr. tema.
+- **Layout** (9. november 2026): spillet fylder skærmen uden rammer. Opgaven står i et lille kort øverst til venstre, taske og menu i hjørnet, Undersøg-knappen nederst i midten. Dialogen er en tekstboks nederst over spillet, menuen glider ind fra højre.
+- **Animationer** (9. november 2026): Æseløre folder sig ud af skuffen og flagrer frem. Portalen fra kælderen til Pennedal (hvirvel, fald, åbning med blade). Et blækstrøg ved alle andre stedskift. Kampen har animationer for hvert slag, angreb, ting og evne (`src/ui/kampEffekter.ts` og `.fx-*` i styles.css).
 - **Kampe** (3. november 2026): turbaserede som i gamle rollespil, med hold, skade, svagheder, hjælpernes evner, ting fra tasken og blødt nederlag. Se `docs/historie.md` under Kampe.
 - **Lyd:** Gemini-stemmer pr. figur i `src/content/stemmer.json`. Stemmerne kan få rumklang, mens de afspilles (`src/ui/rumklang.ts`, profiler under `rum` i `stemmer.json`): hviskestemmen, introen og tilbageblik. Klippene er uberørte, og rummet kan slås fra i indstillingerne. "Mindre uhygge" halverer det. Aldrig på opgaver, feedback og enkeltord, fordi det gør tale sværere at forstå.
 - **Test og værktøj:** Hop direkte til et sted med `?hop` (se README). `?debug=1` viser billeder pr. sekund. `?lyd=1` er korrektursiden for lyd.
@@ -25,7 +27,7 @@ Regler og stak står i `CLAUDE.md`. Historien står i `docs/historie.md`, grafik
 
 ## Åbent og mangler
 
-- **Næste (del 2 af 8. november 2026):** spillet fylder skærmen, dialog og menu glider ind over spillet uden rammer, kampen i fuld skærm med kort tekst og flotte angrebsanimationer, Æseløres fremkomst og portalen til Pennedal animeret, flere steder med animationer.
+- **Flere animationer (idéliste, 9. november 2026):** Klatten der flygter med en blækstribe, broen der samler sig planke for planke, fyrtårnets lys der tænder, Og-ormen der kryber væk efter sidste klip, ting der flyver ned i tasken, ord der falder på plads, når et væsen falder, regn og tåge i Viskeskoven, Den Ufærdige der toner frem i mørket. Ingen er bygget endnu.
 - **Lyd:** Den nye Og-orm-instruks (`ogorm.klip.instruks`) mangler sit klip. Tilføj den til testen i `src/ui/oplaesning.test.ts`, når lydjobbet har lavet den.
 
 - **Lyd:** Mange klip mangler stadig. Status: `npm run lyd:status` eller `public/lyd/manifest.json`. Googles dagskvote på 100 klip gør, at det tager flere dage.
@@ -36,7 +38,7 @@ Regler og stak står i `CLAUDE.md`. Historien står i `docs/historie.md`, grafik
 
 ## Ikke testet
 
-- Chromebook (Lenovo 500e Gen 2): Henrik har testet, og det fungerer. Kampscenen er ny og ikke testet på Chromebook.
+- Chromebook (Lenovo 500e Gen 2): Henrik har testet, og det fungerer. Kampscenen i fuld skærm og animationerne er ikke testet på Chromebook.
 - Kampenes balance med rigtige elever (simuleret i `kampmotor.test.ts`).
 - Touch på rigtige enheder.
 - Hvordan rumklangen lyder (Henrik skal lytte og vurdere mængden) og dens processorforbrug på Chromebook Gen 2. Målt i Chrome: lyden går gennem rummet og klinger ud efter klippet.

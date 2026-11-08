@@ -2251,3 +2251,1000 @@ input[type='range'] {
 @media (prefers-reduced-motion: reduce) {
   .orm-stykke, .orm-stykke.delt, .orm-hoved, .orm-hale, .orm-ord.nyt-stort, .orm-led.av, .orm-saks { animation: none !important; }
 }
+
+/* ============================================================
+   Fuld skærm og ingen rammer (Henrik, 8. november 2026).
+   Spillet fylder skærmen. Opgaven står i et lille kort, taske og menu i hjørnet,
+   dialogen glider ind nederst over spillet, og menuen glider ind fra højre.
+   ============================================================ */
+.verden {
+  position: fixed;
+  inset: 0;
+  display: block;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #0b0d18;
+}
+.verden .spilflade-ramme {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  aspect-ratio: auto;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: #0b0d18;
+}
+.verden > .panel.hud {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 5;
+  width: min(21rem, calc(100vw - 1.5rem));
+  max-height: calc(100dvh - 6rem);
+  overflow-y: auto;
+  gap: 0.35rem;
+  padding: 0.6rem 0.8rem;
+  border: 0;
+  border-image: none;
+  border-radius: 8px;
+  background: rgb(14 16 30 / 0.72);
+  color: #f4efe0;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+.verden > .panel.hud .sted-navn,
+.verden > .panel.hud .lille-tekst {
+  color: #d9d2bf;
+}
+.verden > .panel.hud .naeste-overskrift {
+  font-size: 0.85rem;
+  color: #f0c45a;
+}
+.verden > .panel.hud .naeste-tekst {
+  font-size: 1.05rem;
+  margin: 0;
+}
+.verden > .panel.hud .lille-tekst:empty {
+  display: none;
+}
+.hud-handling {
+  position: fixed;
+  left: 50%;
+  bottom: 1.25rem;
+  z-index: 6;
+  transform: translateX(-50%);
+  min-width: 12rem;
+  font-size: 1.1rem;
+  animation: hud-ind 0.35s steps(4) both, hud-pulser 1.6s ease-in-out 0.35s infinite;
+}
+.hud-knapper {
+  position: fixed;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 6;
+  display: flex;
+  gap: 0.5rem;
+}
+.hud-knapper .knap {
+  min-height: 2.75rem;
+  padding: 0.35rem 0.8rem;
+}
+@keyframes hud-ind {
+  from { transform: translate(-50%, 140%); opacity: 0; }
+  to { transform: translateX(-50%); opacity: 1; }
+}
+@keyframes hud-pulser {
+  0%, 100% { box-shadow: 0 0 0 0 rgb(240 196 90 / 0.7); }
+  50% { box-shadow: 0 0 0 8px rgb(240 196 90 / 0); }
+}
+.verden .pladsholder-maerke {
+  left: auto;
+  right: 0.75rem;
+  bottom: 0.75rem;
+}
+
+/* Vinduer: et rent kort uden træramme. */
+.modal {
+  border: 3px solid var(--blaek);
+  border-image: none;
+  border-radius: 10px;
+  background: var(--papir);
+  box-shadow: 6px 6px 0 rgb(0 0 0 / 0.35);
+}
+
+/* Dialogen: en tekstboks nederst over spillet. Man kan se verden bag den. */
+dialog.modal.dialogboks {
+  position: fixed;
+  inset: auto 0 1rem 0;
+  margin: 0 auto;
+  width: min(1050px, calc(100vw - 1.5rem));
+  max-height: 46dvh;
+  overflow-y: auto;
+  border: 3px solid #0b0d18;
+  border-radius: 10px;
+  background: rgb(14 16 30 / 0.9);
+  color: #f4efe0;
+  box-shadow: 0 0 0 2px rgb(240 196 90 / 0.6);
+  animation: dialog-ind 0.3s steps(4) both;
+}
+dialog.modal.dialogboks::backdrop {
+  background: transparent;
+}
+dialog.modal.dialogboks .taler-navn {
+  color: #f0c45a;
+}
+dialog.modal.dialogboks .fortaeller {
+  color: #e6dfcb;
+}
+@keyframes dialog-ind {
+  from { transform: translateY(120%); }
+  to { transform: none; }
+}
+
+/* Menuen glider ind fra højre. */
+dialog.modal.menu-skuffe {
+  position: fixed;
+  inset: 0 0 0 auto;
+  margin: 0;
+  height: 100dvh;
+  max-height: 100dvh;
+  width: min(22rem, 92vw);
+  border: 0;
+  border-left: 3px solid var(--blaek);
+  border-radius: 0;
+  animation: skuffe-ind 0.3s steps(5) both;
+}
+dialog.modal.menu-skuffe::backdrop {
+  background: rgb(10 14 30 / 0.35);
+}
+@keyframes skuffe-ind {
+  from { transform: translateX(100%); }
+  to { transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hud-handling, dialog.modal.dialogboks, dialog.modal.menu-skuffe { animation: none; }
+}
+.verden > .panel.hud .laes-op,
+.verden > .panel.hud .laes-op-ikon {
+  align-self: flex-start;
+  width: auto;
+}
+/* Fokus på spillet skal kunne ses med tastatur, men ikke ligne en ramme. */
+.verden .spilflade:focus-visible {
+  outline: 2px solid rgb(240 196 90 / 0.45);
+  outline-offset: -2px;
+}
+
+/* ============================================================
+   Kampen i fuld skærm (Henrik, 8. november 2026): som Pokémon, Final Fantasy og Expedition 33.
+   Lidt tekst, store figurer, og hvert slag og angreb er en animation.
+   Effekterne bruger cqw/cqh, så de følger scenens størrelse.
+   ============================================================ */
+dialog.modal.kampscene {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: #05060c;
+  color: #f4efe0;
+  overflow: hidden;
+}
+dialog.modal.kampscene::backdrop {
+  background: #05060c;
+}
+.kamp-skaerm {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.kampscene .kamp-felt {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: min(100vw, calc(100dvh * 16 / 9));
+  height: min(100dvh, calc(100vw * 9 / 16));
+  border: 0;
+  border-radius: 0;
+  container-type: size;
+  overflow: hidden;
+}
+.kampscene .kamp-felt.ryst {
+  animation: kamp-skaermryst 0.35s steps(3) 1;
+}
+@keyframes kamp-skaermryst {
+  0% { transform: translate(-1cqw, 0.6cqh); }
+  50% { transform: translate(1cqw, -0.6cqh); }
+  100% { transform: none; }
+}
+.kampscene .kamp-fjende {
+  animation: kamp-svaev 2.6s ease-in-out infinite;
+}
+.kampscene .kamp-fjende.ramt {
+  animation: kamp-ramt-fjende 0.3s steps(2) 3;
+}
+.kampscene .kamp-fjende.lammet {
+  filter: grayscale(1) brightness(1.2);
+  animation: none;
+}
+.kampscene .kamp-medlem {
+  animation: kamp-aande 2.2s ease-in-out infinite;
+}
+.kampscene .kamp-medlem.ramt {
+  animation: kamp-ramt-hold 0.3s steps(2) 3;
+}
+.kampscene .kamp-medlem.jubler {
+  animation: kamp-jubel 0.6s steps(3) infinite;
+}
+@keyframes kamp-svaev {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-1.2cqh); }
+}
+@keyframes kamp-aande {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(0.97); }
+}
+@keyframes kamp-jubel {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3cqh); }
+}
+
+/* Navn, liv, svagt punkt og næste angreb over hvert væsen. */
+.kamp-etiket {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  pointer-events: none;
+  text-shadow: 0 2px 0 #000, 0 0 4px #000;
+  font-size: clamp(0.7rem, 1.2cqw, 1rem);
+  white-space: nowrap;
+}
+.kamp-etiket .kamp-navn {
+  font-weight: 700;
+}
+.kamp-etiket .kamp-maaler {
+  width: clamp(4rem, 9cqw, 8rem);
+  height: 0.55rem;
+  border: 2px solid #0b0d18;
+  background: #3a2a20;
+}
+.kamp-svag {
+  color: #f0c45a;
+  font-size: 0.85em;
+}
+.kamp-varsel {
+  margin-top: 0.15rem;
+  padding: 0.1rem 0.45rem;
+  border-radius: 999px;
+  background: #b3342b;
+  color: #fff;
+  font-weight: 700;
+  text-shadow: none;
+  animation: kamp-varsel 1.2s ease-in-out infinite;
+}
+.kamp-varsel.alle {
+  background: #5b2a7a;
+}
+@keyframes kamp-varsel {
+  50% { transform: scale(1.08); }
+}
+.kamp-sigte {
+  position: absolute;
+  width: 7cqw;
+  height: 7cqw;
+  transform: translate(-50%, -50%);
+  border: 3px dashed #ff5a4a;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: kamp-sigte 3s linear infinite;
+  box-shadow: 0 0 1cqw rgb(255 90 74 / 0.6);
+}
+@keyframes kamp-sigte {
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+.kampscene .kamp-markoer {
+  animation: kamp-peg 0.6s steps(2) infinite;
+  filter: drop-shadow(0 0 0.5cqw #f0c45a);
+}
+
+/* Vinduerne ovenpå scenen. */
+.kamp-hud {
+  position: absolute;
+  z-index: 3;
+  background: rgb(14 16 30 / 0.88);
+  border: 2px solid rgb(240 196 90 / 0.55);
+  border-radius: 10px;
+  padding: 0.55rem 0.75rem;
+  color: #f4efe0;
+}
+.kamp-hud ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.kampscene .kamp-hold {
+  right: 1rem;
+  top: 1rem;
+  width: min(15rem, 40vw);
+  background: rgb(14 16 30 / 0.78);
+}
+.kampscene .kamp-hold li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  column-gap: 0.5rem;
+  margin-bottom: 0.3rem;
+}
+.kampscene .kamp-hold .kamp-maaler {
+  grid-column: 1 / -1;
+  height: 0.6rem;
+  border: 2px solid #0b0d18;
+}
+.kampscene .kamp-maaler.liv.lav > span {
+  background: #e0a030;
+  animation: kamp-lav 0.8s steps(2) infinite;
+}
+@keyframes kamp-lav {
+  50% { background: var(--roed); }
+}
+.kampscene .kamp-hold li.faldet {
+  opacity: 0.5;
+}
+.kamp-tal {
+  font-variant-numeric: tabular-nums;
+  font-size: 0.9rem;
+}
+.kamp-kombi {
+  margin: 0.3rem 0 0;
+  font-size: 0.85rem;
+  color: #d9d2bf;
+}
+.kamp-kombi.klar {
+  color: #f0c45a;
+  font-weight: 700;
+  animation: kamp-varsel 0.8s ease-in-out infinite;
+}
+.kampscene .kamp-styring {
+  left: 1rem;
+  bottom: 1rem;
+  width: min(25rem, 54vw);
+  max-height: calc(100dvh - 2rem);
+  overflow-y: auto;
+}
+.kampscene .kamp-styring legend,
+.kampscene .kamp-styring .kamp-spoergsmaal {
+  color: #f0c45a;
+  font-weight: 700;
+}
+.kampscene .kamp-hovedmenu {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.kampscene .kamp-styring:not(.kamp-opgave-kort) .knap-diskret {
+  color: #f4efe0;
+}
+.kampscene .kamp-opgave-kort {
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(42rem, calc(100vw - 2rem));
+  background: var(--papir);
+  color: var(--tekst);
+  border-color: var(--blaek);
+}
+.kampscene .kamp-opgave-kort .kamp-spoergsmaal,
+.kampscene .kamp-opgave-kort .naeste-overskrift {
+  color: var(--blaek);
+}
+.kamp-opgave .kamp-saetning {
+  font-size: 1.35rem;
+}
+.kamp-muligheder {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.kampscene .kamp-mulighed {
+  min-width: 6rem;
+  font-size: 1.25rem;
+}
+.kampscene .kamp-mulighed.forkert {
+  background: var(--roed);
+  color: #fff;
+}
+.kamp-hjaelperad {
+  margin-top: 0.5rem;
+}
+.kamp-notat {
+  margin-top: 0.5rem;
+}
+.kamp-linje {
+  position: absolute;
+  z-index: 4;
+  left: 50%;
+  top: 1rem;
+  transform: translateX(-50%);
+  max-width: calc(100vw - 8rem);
+  padding: 0.5rem 1.25rem;
+  border-radius: 10px;
+  background: rgb(14 16 30 / 0.92);
+  border: 2px solid #f0c45a;
+  font-size: clamp(1.1rem, 2.2vw, 1.6rem);
+  font-weight: 700;
+  text-align: center;
+  animation: kamp-linje 0.25s steps(3) both;
+}
+.kamp-linje p {
+  margin: 0;
+}
+@keyframes kamp-linje {
+  from { transform: translate(-50%, -150%); opacity: 0; }
+  to { transform: translateX(-50%); opacity: 1; }
+}
+.kamp-slut {
+  left: 50%;
+  bottom: 1.5rem;
+  transform: translateX(-50%);
+  width: min(32rem, calc(100vw - 2rem));
+  text-align: center;
+}
+.kamp-slut-titel {
+  margin: 0;
+  font-family: var(--pixelskrift, inherit);
+  font-size: 2rem;
+  color: #f0c45a;
+}
+.kamp-slut-slaaet .kamp-slut-titel {
+  color: #c8b8ff;
+}
+.kamp-slut .knaprad {
+  justify-content: center;
+}
+.kamp-spring {
+  position: absolute;
+  z-index: 5;
+  right: 1rem;
+  bottom: 1rem;
+  padding: 0.4rem 0.8rem;
+  border: 2px solid #f4efe0;
+  border-radius: 999px;
+  background: rgb(14 16 30 / 0.7);
+  color: #f4efe0;
+  font: inherit;
+  cursor: pointer;
+}
+.kamp-hjaelp-knap {
+  position: absolute;
+  z-index: 5;
+  left: 1rem;
+  top: 1rem;
+  padding: 0.4rem 0.8rem;
+  border: 2px solid #f4efe0;
+  border-radius: 999px;
+  background: rgb(14 16 30 / 0.7);
+  color: #f4efe0;
+  font: inherit;
+  cursor: pointer;
+}
+.kamp-hjaelp {
+  left: 1rem;
+  top: 3.75rem;
+  width: min(26rem, calc(100vw - 2rem));
+}
+.kamp-hjaelp p {
+  margin: 0 0 0.4rem;
+}
+
+/* --- Effekter --- */
+.kamp-effekter {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+.fx {
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+.fx i {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0.9cqw;
+  height: 0.9cqw;
+  margin: -0.45cqw;
+  background: #1b1b24;
+  transform: rotate(var(--a)) translateX(0);
+  animation: fx-stykke 0.7s ease-out forwards;
+}
+@keyframes fx-stykke {
+  to { transform: rotate(var(--a)) translateX(calc(var(--r) * 9cqw)); opacity: 0; }
+}
+@keyframes fx-flyv {
+  from { transform: translate(-50%, -50%) scale(0.6); }
+  to { transform: translate(calc(-50% + var(--dx) * 1cqw), calc(-50% + var(--dy) * 1cqh)) scale(1.2); }
+}
+/* Avatarens slag: en klump blæk med en gylden glød. */
+.fx-straale,
+.fx-forbi {
+  width: 3cqw;
+  height: 3cqw;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #4a5a8a, #1b1b24 60%);
+  box-shadow: 0 0 0 0.4cqw rgb(240 196 90 / 0.8), 0 0 2cqw 0.6cqw rgb(240 196 90 / 0.6), -3cqw 0 2cqw -0.5cqw rgb(27 27 36 / 0.6);
+  animation: fx-flyv 0.45s cubic-bezier(0.5, 0, 0.9, 0.6) forwards;
+}
+.fx-forbi {
+  animation: fx-flyv 0.6s ease-in forwards, fx-falmer 0.6s ease-in forwards;
+}
+@keyframes fx-falmer {
+  70% { opacity: 1; }
+  to { opacity: 0; }
+}
+/* Det store slag: en gylden pennestreg tværs over alle væsner og et hvidt glimt. */
+.fx-stort {
+  left: 0 !important;
+  top: 0 !important;
+  width: 100cqw;
+  height: 100cqh;
+  transform: none;
+  background: linear-gradient(160deg, transparent 40%, #fff6c8 47%, #f0c45a 50%, #fff6c8 53%, transparent 60%);
+  background-size: 300% 300%;
+  animation: fx-pennestreg 0.6s ease-in forwards;
+  mix-blend-mode: screen;
+}
+@keyframes fx-pennestreg {
+  from { background-position: 100% 0; opacity: 1; }
+  80% { opacity: 1; }
+  to { background-position: 0 100%; opacity: 0; }
+}
+/* Nedslag: en ring og blækstænk. */
+.fx-nedslag {
+  width: 8cqw;
+  height: 8cqw;
+  border-radius: 50%;
+  border: 0.8cqw solid #fff6c8;
+  animation: fx-ring 0.5s 0.4s ease-out both;
+}
+.fx-nedslag i {
+  animation-delay: 0.4s;
+  opacity: 0;
+  animation-name: fx-stykke-ind;
+}
+@keyframes fx-stykke-ind {
+  0% { opacity: 1; transform: rotate(var(--a)) translateX(0); }
+  100% { opacity: 0; transform: rotate(var(--a)) translateX(calc(var(--r) * 9cqw)); }
+}
+@keyframes fx-ring {
+  from { transform: translate(-50%, -50%) scale(0.2); opacity: 1; }
+  to { transform: translate(-50%, -50%) scale(1.6); opacity: 0; }
+}
+/* Svagt punkt: en gylden stjerne, der springer frem. */
+.fx-svag {
+  width: 9cqw;
+  height: 9cqw;
+  background: #f0c45a;
+  clip-path: polygon(50% 0, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  animation: fx-stjerne 0.7s 0.4s steps(4) both;
+}
+@keyframes fx-stjerne {
+  from { transform: translate(-50%, -50%) scale(0) rotate(-40deg); opacity: 1; }
+  60% { transform: translate(-50%, -50%) scale(1.2) rotate(10deg); opacity: 1; }
+  to { transform: translate(-50%, -50%) scale(1) rotate(0); opacity: 0; }
+}
+/* Tal, der flyver op. */
+.fx-tal {
+  font-size: clamp(1.4rem, 3.6cqw, 3rem);
+  font-weight: 800;
+  color: #fff;
+  -webkit-text-stroke: 0.2cqw #0b0d18;
+  text-shadow: 0 0.3cqw 0 #0b0d18;
+  white-space: nowrap;
+  animation: fx-tal 1s 0.4s ease-out both;
+}
+.fx-tal.fx-skade {
+  color: #ff6b5a;
+}
+.fx-tal.fx-liv {
+  color: #7be08a;
+}
+@keyframes fx-tal {
+  from { transform: translate(-50%, 0) scale(0.6); opacity: 0; }
+  20% { transform: translate(-50%, -2cqh) scale(1.3); opacity: 1; }
+  to { transform: translate(-50%, -9cqh) scale(1); opacity: 0; }
+}
+/* Et væsen falder sammen til en pøl blæk. */
+.fx-oploes {
+  width: 10cqw;
+  height: 2.5cqw;
+  margin-top: 5cqh;
+  border-radius: 50%;
+  background: #1b1b24;
+  animation: fx-poel 1s ease-out both;
+}
+.fx-oploes i {
+  background: #1b1b24;
+  animation: fx-dryp 0.9s ease-in forwards;
+}
+@keyframes fx-poel {
+  from { transform: translate(-50%, -50%) scaleX(0.1); }
+  to { transform: translate(-50%, -50%) scaleX(1); opacity: 0.8; }
+}
+@keyframes fx-dryp {
+  from { transform: rotate(var(--a)) translateX(calc(var(--r) * 3cqw)) translateY(-6cqh); }
+  to { transform: rotate(var(--a)) translateX(calc(var(--r) * 3cqw)) translateY(0); opacity: 0; }
+}
+.kampscene .kamp-fjende.rolig {
+  animation: fx-smelt 1s ease-in forwards;
+  transform-origin: bottom center;
+}
+@keyframes fx-smelt {
+  60% { transform: scaleY(0.4) scaleX(1.3); filter: brightness(0.2); }
+  to { transform: scaleY(0) scaleX(1.6); opacity: 0; filter: brightness(0); }
+}
+/* Tre i træk: en gylden ring med gnister. */
+.fx-kombi {
+  width: 14cqw;
+  height: 14cqw;
+  border-radius: 50%;
+  border: 0.6cqw solid #f0c45a;
+  box-shadow: 0 0 3cqw #f0c45a;
+  animation: fx-ring 0.9s ease-out both;
+}
+.fx-kombi i,
+.fx-lap i,
+.fx-sejr i {
+  background: #ffe9a8;
+  box-shadow: 0 0 0.6cqw #f0c45a;
+}
+/* Forsvar: en boble af lys om hver på holdet. */
+.fx-skjold {
+  width: 11cqw;
+  height: 13cqw;
+  border-radius: 50%;
+  border: 0.4cqw solid rgb(160 210 255 / 0.9);
+  background: radial-gradient(circle at 35% 30%, rgb(255 255 255 / 0.5), rgb(120 180 255 / 0.15) 60%);
+  animation: fx-skjold 0.9s steps(5) both;
+}
+@keyframes fx-skjold {
+  from { transform: translate(-50%, -50%) scale(0); }
+  40% { transform: translate(-50%, -50%) scale(1.15); }
+  to { transform: translate(-50%, -50%) scale(1); opacity: 0.4; }
+}
+/* Æseløre lapper: grønne gnister, der stiger. */
+.fx-lap {
+  width: 8cqw;
+  height: 8cqw;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgb(123 224 138 / 0.7), transparent 70%);
+  animation: fx-ring 0.9s ease-out both;
+}
+.fx-lap i {
+  background: #7be08a;
+}
+/* Lanternen: et stort lysglimt. */
+.fx-lys {
+  width: 10cqw;
+  height: 10cqw;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff, #ffe9a8 30%, rgb(240 196 90 / 0.4) 60%, transparent 70%);
+  animation: fx-lys 0.9s ease-out both;
+}
+@keyframes fx-lys {
+  from { transform: translate(-50%, -50%) scale(0.2); opacity: 1; }
+  50% { transform: translate(-50%, -50%) scale(14); opacity: 0.9; }
+  to { transform: translate(-50%, -50%) scale(18); opacity: 0; }
+}
+/* Krummer drysser ned over holdet. */
+.fx-krummer {
+  width: 6cqw;
+  height: 6cqw;
+}
+.fx-krummer i {
+  background: #c8964f;
+  animation: fx-dryp 0.9s ease-in forwards;
+}
+/* Punktummet falder ned og står fast. */
+.fx-punktum {
+  width: 5cqw;
+  height: 5cqw;
+  border-radius: 50%;
+  background: #0b0d18;
+  box-shadow: 0 0 0 0.4cqw #f4efe0;
+  animation: fx-punktum 0.8s cubic-bezier(0.5, 0, 1, 0.5) both;
+}
+@keyframes fx-punktum {
+  from { transform: translate(-50%, -60cqh); }
+  70% { transform: translate(-50%, -50%) scale(1.3, 0.7); }
+  to { transform: translate(-50%, -50%) scale(1); }
+}
+/* Vims visker: et viskelæder fejer hen over væsnet. */
+.fx-visk {
+  width: 7cqw;
+  height: 3.5cqw;
+  border-radius: 0.6cqw;
+  background: linear-gradient(90deg, #e88a8a 0 60%, #f4efe0 60%);
+  animation: fx-visk 0.8s steps(6) both;
+}
+@keyframes fx-visk {
+  from { transform: translate(-150%, -50%) rotate(-12deg); }
+  50% { transform: translate(50%, -50%) rotate(12deg); }
+  to { transform: translate(-50%, -50%) rotate(0); opacity: 0; }
+}
+/* Tomordet æder: en mørk mund flyver hen og bider. */
+.fx-angreb-aed {
+  width: 6cqw;
+  height: 6cqw;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at 50% 50%, #000 40%, #1b1b24 41%);
+  box-shadow: 0 0 0 0.3cqw #f4efe0 inset;
+  animation: fx-flyv 0.5s ease-in forwards, fx-bid 0.25s 0.5s steps(2) 3;
+}
+@keyframes fx-bid {
+  50% { clip-path: inset(30% 0 30% 0); }
+}
+/* Tomordet gaber: en bølge af mørke over hele holdet. */
+.fx-angreb-gab {
+  width: 6cqw;
+  height: 6cqw;
+  border-radius: 50%;
+  background: radial-gradient(circle, transparent 45%, rgb(40 10 60 / 0.85) 55%, transparent 70%);
+  animation: fx-boelge 1s ease-in forwards;
+}
+@keyframes fx-boelge {
+  from { transform: translate(-50%, -50%) scale(0.5); opacity: 1; }
+  to { transform: translate(-50%, -50%) scale(26); opacity: 0; }
+}
+/* Stummingen stjæler: papirstumper flyver fra målet hen til væsnet. */
+.fx-angreb-stjael {
+  width: 4cqw;
+  height: 4cqw;
+  animation: fx-flyv 0.7s ease-out reverse both;
+}
+.fx-angreb-stjael i {
+  background: #f4efe0;
+  box-shadow: 0 0 0 0.15cqw #1b1b24;
+  animation: fx-stykke 0.7s ease-out reverse forwards;
+}
+/* Stummingen hvisker: en kold, blå tåge glider over holdet. */
+.fx-angreb-hvisk {
+  width: 20cqw;
+  height: 10cqh;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgb(170 210 255 / 0.85), rgb(120 160 230 / 0.35) 50%, transparent 70%);
+  filter: blur(0.6cqw);
+  animation: fx-flyv 1s ease-in-out forwards, fx-falmer 1s ease-in forwards;
+}
+/* Blændet: små stjerner om væsnets hoved. */
+.fx-blaendet {
+  width: 8cqw;
+  height: 3cqw;
+  margin-top: -6cqh;
+  background:
+    radial-gradient(circle at 15% 50%, #ffe9a8 0 0.6cqw, transparent 0.7cqw),
+    radial-gradient(circle at 50% 30%, #fff 0 0.5cqw, transparent 0.6cqw),
+    radial-gradient(circle at 85% 50%, #ffe9a8 0 0.6cqw, transparent 0.7cqw);
+  animation: fx-snurre 0.9s linear both;
+}
+@keyframes fx-snurre {
+  from { transform: translate(-50%, -50%) rotate(0); }
+  to { transform: translate(-50%, -50%) rotate(360deg); opacity: 0; }
+}
+/* Sejr: gyldne stråler, der drejer, og gnister. */
+.fx-sejr {
+  width: 60cqw;
+  height: 60cqw;
+  border-radius: 50%;
+  background: repeating-conic-gradient(rgb(255 233 168 / 0.45) 0 10deg, transparent 10deg 30deg);
+  -webkit-mask: radial-gradient(circle, #000 20%, transparent 70%);
+  mask: radial-gradient(circle, #000 20%, transparent 70%);
+  animation: fx-straaler 1.6s linear both;
+}
+@keyframes fx-straaler {
+  from { transform: translate(-50%, -50%) rotate(0) scale(0.3); opacity: 0; }
+  30% { opacity: 1; }
+  to { transform: translate(-50%, -50%) rotate(60deg) scale(1); opacity: 0.9; }
+}
+/* Nederlag: blækket lukker sig om scenen. */
+.fx-nederlag {
+  left: 0 !important;
+  top: 0 !important;
+  width: 100cqw;
+  height: 100cqh;
+  transform: none;
+  background: radial-gradient(circle, transparent 0, transparent 20%, #05060c 70%);
+  background-size: 300% 300%;
+  background-position: center;
+  animation: fx-lukker 1.6s ease-in forwards;
+}
+@keyframes fx-lukker {
+  from { background-size: 600% 600%; opacity: 0; }
+  to { background-size: 150% 150%; opacity: 1; }
+}
+
+/* Mindre uhygge: ingen skærmryst, intet rødt blink, roligere mørke. */
+.kampscene.mild .kamp-felt.ryst,
+.kampscene.mild .kamp-medlem.ramt {
+  animation: none;
+}
+.kampscene.mild .fx-angreb-gab {
+  background: radial-gradient(circle, transparent 45%, rgb(80 60 120 / 0.45) 55%, transparent 70%);
+}
+.kampscene.mild .fx-nederlag {
+  opacity: 0.6;
+}
+@media (prefers-reduced-motion: reduce) {
+  .kampscene .kamp-fjende,
+  .kampscene .kamp-medlem,
+  .kampscene .kamp-markoer,
+  .kamp-varsel,
+  .kamp-sigte,
+  .kamp-kombi.klar,
+  .kampscene .kamp-felt.ryst {
+    animation: none;
+  }
+  .fx,
+  .fx i {
+    animation-duration: 0.01s !important;
+    animation-delay: 0s !important;
+  }
+  .fx-straale,
+  .fx-forbi,
+  .fx-angreb-aed,
+  .fx-angreb-hvisk,
+  .fx-angreb-stjael {
+    display: none;
+  }
+}
+@media (max-width: 760px) {
+  .kampscene .kamp-styring {
+    width: calc(100vw - 2rem);
+    bottom: auto;
+    top: 3.5rem;
+  }
+  .kampscene .kamp-hold {
+    width: calc(100vw - 2rem);
+    left: 1rem;
+  }
+}
+
+/* ============================================================
+   Overgange mellem steder (8. november 2026). Portalen fra kælderen til Pennedal og et blækstrøg ved andre skift.
+   ============================================================ */
+.overgang {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  pointer-events: none;
+  overflow: hidden;
+}
+.overgang-skift {
+  background: linear-gradient(100deg, transparent 0 30%, #0b0d18 40% 60%, transparent 70%);
+  background-size: 300% 100%;
+  animation: overgang-stroeg 0.8s steps(8) forwards;
+}
+@keyframes overgang-stroeg {
+  from { background-position: 100% 0; }
+  to { background-position: 0 0; }
+}
+/* 1. Hvirvlen af blæk lukker sig. */
+.portal-hvirvel {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 260vmax;
+  height: 260vmax;
+  margin: -130vmax 0 0 -130vmax;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, transparent 0 8%, rgb(11 13 24 / 0.0) 9%, transparent 10%),
+    repeating-conic-gradient(from 0deg, #0b0d18 0 14deg, #1f2a44 14deg 22deg, #f0c45a 22deg 23deg, #0b0d18 23deg 36deg);
+  -webkit-mask: radial-gradient(circle, transparent var(--hul, 0%), #000 calc(var(--hul, 0%) + 1%));
+  mask: radial-gradient(circle, #000 0 100%);
+  animation: portal-hvirvel 1.2s cubic-bezier(0.6, 0, 0.9, 0.4) forwards, portal-drej 1.2s linear forwards, portal-skjul 0.01s 1.9s forwards;
+  transform: scale(0);
+}
+@keyframes portal-hvirvel {
+  from { transform: scale(0) rotate(0); }
+  to { transform: scale(1) rotate(540deg); }
+}
+@keyframes portal-drej {
+  to { filter: brightness(0.6); }
+}
+/* 2. Man falder: papirstumper suser op forbi. */
+.portal-fald {
+  position: absolute;
+  inset: 0;
+  background: #0b0d18;
+  opacity: 0;
+  animation: portal-vis 0.1s 1s forwards, portal-skjul 0.3s 1.9s forwards;
+}
+.portal-fald i {
+  position: absolute;
+  left: var(--x);
+  bottom: -10vh;
+  width: calc(var(--s) * 1.4vw);
+  height: calc(var(--s) * 4vh);
+  background: #f4efe0;
+  box-shadow: 0 0 0.6vw rgb(240 196 90 / 0.7);
+  animation: portal-sus var(--f) var(--d) linear infinite;
+}
+@keyframes portal-sus {
+  from { transform: translateY(0); }
+  to { transform: translateY(-130vh); }
+}
+@keyframes portal-vis {
+  to { opacity: 1; }
+}
+@keyframes portal-skjul {
+  to { opacity: 0; }
+}
+/* 3. Pennedal åbner sig som en lysende cirkel. */
+.portal-aabning {
+  position: absolute;
+  inset: 0;
+  background: #0b0d18;
+  -webkit-mask: radial-gradient(circle at 50% 55%, transparent var(--r, 0%), #000 calc(var(--r, 0%) + 0.5%));
+  mask: radial-gradient(circle at 50% 55%, transparent var(--r, 0%), #000 calc(var(--r, 0%) + 0.5%));
+  opacity: 0;
+  animation: portal-vis 0.01s 1.9s forwards, portal-aabn 0.7s 1.9s cubic-bezier(0.2, 0.6, 0.3, 1) forwards;
+}
+@property --r {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 0%;
+}
+@keyframes portal-aabn {
+  from { --r: 0%; }
+  to { --r: 80%; }
+}
+/* 4. Blade daler ned i Pennedal. */
+.portal-blade i {
+  position: absolute;
+  left: var(--x);
+  top: -5vh;
+  width: calc(var(--s) * 1.2vw);
+  height: calc(var(--s) * 0.8vw);
+  background: #c97a2c;
+  border-radius: 0 60% 0 60%;
+  opacity: 0;
+  animation: portal-blad 1s var(--d) ease-in forwards;
+}
+.portal-blade i:nth-child(3n) {
+  background: #e0a030;
+}
+.portal-blade i:nth-child(4n) {
+  background: #5aa572;
+}
+@keyframes portal-blad {
+  0% { opacity: 1; transform: translateY(0) rotate(var(--r)); }
+  100% { opacity: 0; transform: translateY(70vh) translateX(4vw) rotate(calc(var(--r) + 260deg)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .overgang-portal > *,
+  .overgang-skift {
+    animation: none !important;
+    display: none;
+  }
+  .overgang-portal,
+  .overgang {
+    background: #0b0d18;
+    animation: overgang-fade 0.6s ease-out forwards;
+  }
+}
+@keyframes overgang-fade {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}

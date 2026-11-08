@@ -34,6 +34,8 @@ export class KortScene extends Phaser.Scene {
   private fugl!: Phaser.GameObjects.Image;
   /** Hvilken side af hovedpersonen Æseløre står på, mens han taler (-1 venstre, 1 højre). */
   private fuglSide: number | null = null;
+  /** Sand, mens Æseløre folder sig ud og flyver frem første gang. Så følger han ikke efter imens. */
+  private fuglAnim = false;
   private pil!: Phaser.GameObjects.Image;
   private vand!: Phaser.GameObjects.Image;
   private lysLag!: Phaser.GameObjects.Image;
@@ -341,9 +343,86 @@ export class KortScene extends Phaser.Scene {
     this.opdaterNaer(true);
   }
 
+  /**
+   * Æseløres fremkomst (Henrik, 8. november 2026): han ligger foldet i skuffen, folder sig ud i et lysglimt
+   * med papirstumper og flagrer i en bue op til hovedpersonen. Med reduceret bevægelse dukker han bare op.
+   */
+  private fuglFremkomst() {
+    const f = this.fugl;
+    const kilde = this.data_.sted.objekter.find((o) => o.id === this.data_.aktiv && o.felt);
+    const sx = kilde?.felt ? kilde.felt[0] * FELT + FELT / 2 : this.spiller.x + 20;
+    const sy = kilde?.felt ? kilde.felt[1] * FELT + FELT / 2 : this.spiller.y - 10;
+    if (this.roligt) {
+      f.setVisible(true);
+      return;
+    }
+    this.fuglAnim = true;
+    const top = 9000;
+    f.setVisible(true).setPosition(sx, sy).setScale(0.15).setAngle(-200).setAlpha(0).setDepth(top).setDisplayOrigin(8, 10);
+    // Et glimt af lys og en ring, der vokser.
+    const glimt = this.add.circle(sx, sy - 4, 4, 0xffe9a8, 0.9).setDepth(top - 1).setBlendMode(Phaser.BlendModes.ADD);
+    this.tweens.add({ targets: glimt, radius: 26, alpha: 0, duration: 700, ease: 'Cubic.Out', onComplete: () => glimt.destroy() });
+    const ring = this.add.circle(sx, sy - 4, 6).setStrokeStyle(1, 0xf0c45a).setDepth(top - 1);
+    this.tweens.add({ targets: ring, scale: 5, alpha: 0, duration: 900, ease: 'Sine.Out', onComplete: () => ring.destroy() });
+    // Papirstumper, der hvirvler ud og daler.
+    for (let i = 0; i < 14; i++) {
+      const a = (i / 14) * Math.PI * 2;
+      const stump = this.add.rectangle(sx, sy - 4, 2, 2, i % 3 === 0 ? 0xf0c45a : 0xf4efe0).setDepth(top - 1);
+      this.tweens.add({
+        targets: stump,
+        x: sx + Math.cos(a) * (14 + (i % 4) * 6),
+        y: sy - 4 + Math.sin(a) * (10 + (i % 3) * 5) + 14,
+        angle: 360 + i * 30,
+        alpha: 0,
+        duration: 900 + (i % 5) * 120,
+        ease: 'Quad.Out',
+        onComplete: () => stump.destroy(),
+      });
+    }
+    // Han folder sig ud.
+    this.tweens.add({
+      targets: f,
+      scale: 1,
+      angle: 0,
+      alpha: 1,
+      y: sy - 10,
+      duration: 650,
+      ease: 'Back.Out',
+      onComplete: () => {
+        // Og flagrer i en bue op til hovedpersonen.
+        const fra = { x: f.x, y: f.y };
+        const bue = { t: 0 };
+        this.tweens.add({
+          targets: bue,
+          t: 1,
+          duration: 1100,
+          ease: 'Sine.InOut',
+          onUpdate: () => {
+            const til = { x: this.spiller.x - 14, y: this.spiller.y + 4 };
+            const kx = (fra.x + til.x) / 2;
+            const ky = Math.min(fra.y, til.y) - 34;
+            const t = bue.t;
+            const x = (1 - t) * (1 - t) * fra.x + 2 * (1 - t) * t * kx + t * t * til.x;
+            const y = (1 - t) * (1 - t) * fra.y + 2 * (1 - t) * t * ky + t * t * til.y + Math.sin(t * Math.PI * 6) * 2;
+            f.setFlipX(x < f.x).setPosition(x, y).setDepth(top);
+          },
+          onComplete: () => {
+            this.fuglAnim = false;
+            f.setDepth(f.y);
+          },
+        });
+      },
+    });
+  }
+
   saetSkjulte(skjulte: string[]) {
+    const fuglFoer = this.fugl?.scene ? this.fugl.visible : true;
     this.data_ = { ...this.data_, skjulte };
-    if (this.fugl?.scene) this.fugl.setVisible(!skjulte.includes('aeseloere'));
+    const fuglNu = !skjulte.includes('aeseloere');
+    if (this.fugl?.scene) {
+      if (!fuglFoer && fuglNu) this.fuglFremkomst();
+      else this.fugl.setVisible(fuglNu);
+    }
     this.faste.clear();
     for (const o of this.data_.sted.objekter) {
       const skjult = skjulte.includes(o.id);
@@ -649,14 +728,16 @@ export class KortScene extends Phaser.Scene {
       fx = this.spiller.x - rx * 16 + (ry ? -12 : 0);
       fy = this.spiller.y - ry * 10 + 2;
     }
-    const k = 1 - Math.pow(0.04, dt);
-    const gammelX = this.fugl.x;
-    this.fugl.x += (fx - this.fugl.x) * k;
-    this.fugl.y += (fy - this.fugl.y) * k;
-    if (this.fuglSide !== null) this.fugl.setFlipX(this.fuglSide > 0);
-    else if (Math.abs(this.fugl.x - gammelX) > 0.3) this.fugl.setFlipX(this.fugl.x < gammelX);
-    const svaev = Math.sin(this.ur * 4) * 2;
-    this.fugl.setDepth(this.fugl.y).setDisplayOrigin(8, 10 + 18 - svaev);
+    if (!this.fuglAnim) {
+      const k = 1 - Math.pow(0.04, dt);
+      const gammelX = this.fugl.x;
+      this.fugl.x += (fx - this.fugl.x) * k;
+      this.fugl.y += (fy - this.fugl.y) * k;
+      if (this.fuglSide !== null) this.fugl.setFlipX(this.fuglSide > 0);
+      else if (Math.abs(this.fugl.x - gammelX) > 0.3) this.fugl.setFlipX(this.fugl.x < gammelX);
+      const svaev = Math.sin(this.ur * 4) * 2;
+      this.fugl.setDepth(this.fugl.y).setDisplayOrigin(8, 10 + 18 - svaev);
+    }
 
     // Vand og planker.
     const vandNoegle = `px-vand-${this.data_.sted.tema}-${Math.floor(this.ur * 2.5) % 3}`;

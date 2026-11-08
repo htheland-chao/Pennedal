@@ -79,3 +79,12 @@ Henrik vil gerne tage grafikken videre med inspiration fra spritefusion.com (art
 - Hver effekt kan dæmpes af "Mindre uhygge" og "Reducer bevægelse", og den må ikke blinke hurtigt.
 - Gratis tilesets, Pixel Art Generator og lignende kan bruges som inspiration. Hentes noget derfra, kræver det en tjekket licens i `LICENSER.md`, og det må ikke bryde kravet om et originalt univers. Vi tegner selv i kode, som vi plejer.
 - Godot (godotengine.org) er kigget igennem. Vi bliver i Phaser. Se `docs/historie.md` og CLAUDE.md for stakken.
+
+## Animationer (9. november 2026)
+
+Henrik vil have langt flere og mere kreative animationer. Regler:
+- Tekst, eleven skal læse, må ikke bevæge sig hele tiden (fx står Og-ormens krop stille, kun hoved og hale bevæger sig).
+- Animationer, der blokerer, kan springes over (kampens "Spring over"). Ingen tid at nå noget på.
+- Reduceret bevægelse (styresystemets indstilling) slår bevægelse fra eller gør den til en kort fade. "Mindre uhygge" fjerner skærmryst og rødt blink.
+- Effekter laves i CSS (`.fx-*`, cqw/cqh i kampen) eller som Phaser-tweens i KortScene. Ingen bogstaver i grafikken.
+- Se `docs/status.md` for idélisten over steder, der kan få animationer.
