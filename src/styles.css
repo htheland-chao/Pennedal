@@ -2130,14 +2130,14 @@ input[type='range'] {
   align-items: center;
   margin: 1rem 0;
 }
+/* Kroppen med ordene står stille, så teksten er let at læse. Hovedet nikker, og halen logrer. */
 .orm-stykke {
   display: flex;
   align-items: center;
   max-width: 100%;
-  animation: orm-kryb 2.4s ease-in-out infinite;
 }
 .orm-stykke.delt {
-  animation: orm-delt 0.5s steps(4) both, orm-kryb 2.4s 0.5s ease-in-out infinite;
+  animation: orm-delt 0.5s steps(4) both;
 }
 .orm-hoved,
 .orm-hale {
@@ -2148,6 +2148,12 @@ input[type='range'] {
 }
 .orm-hale {
   margin-right: -0.4rem;
+  transform-origin: right center;
+  animation: orm-logr 0.9s steps(2) infinite;
+}
+@keyframes orm-logr {
+  0%, 100% { transform: rotate(-8deg); }
+  50% { transform: rotate(8deg); }
 }
 .orm-hoved {
   margin-left: -0.4rem;
@@ -2243,5 +2249,5 @@ input[type='range'] {
   100% { transform: translateX(4px); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .orm-stykke, .orm-stykke.delt, .orm-hoved, .orm-ord.nyt-stort, .orm-led.av, .orm-saks { animation: none !important; }
+  .orm-stykke, .orm-stykke.delt, .orm-hoved, .orm-hale, .orm-ord.nyt-stort, .orm-led.av, .orm-saks { animation: none !important; }
 }

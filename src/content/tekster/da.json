@@ -171,6 +171,7 @@
   "ogorm.klip.her": "Klip ormen over ved dette og",
   "ogorm.klip.stort": "Klip! Ormen er delt i to. {ord} får stort begyndelsesbogstav, fordi en ny sætning begynder.",
   "ogorm.klip.tilbage": "Der er {antal} steder tilbage at klippe.",
+  "ogorm.klip.tilbage.et": "Der er ét sted tilbage at klippe.",
   "ogorm.instruks": "Og-ormen har ædt punktummerne og sat \"og\" i stedet. Nu er teksten én lang sætning. Gør den til flere sætninger igen.",
   "ogorm.trin.1": "Læs teksten. Find steder, hvor én tanke slutter, og en ny begynder.",
   "ogorm.trin.2": "Tryk på \"og\" lige dér. Så bliver det til et punktum.",

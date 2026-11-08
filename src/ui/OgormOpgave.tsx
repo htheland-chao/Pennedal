@@ -97,7 +97,7 @@ export function OgormOpgave({ tekst, api }: { tekst: OgTekst; api: OpgaveApi }) 
         {nytStort !== null && !api.loest && (
           <p className="ogorm-ny">{t('ogorm.klip.stort', { ord: visOrd(tokens, tilstand, nytStort) })}</p>
         )}
-        {!api.loest && tilbage > 0 && <p className="lille-tekst">{t('ogorm.klip.tilbage', { antal: tilbage })}</p>}
+        {!api.loest && tilbage > 0 && <p className="lille-tekst">{tilbage === 1 ? t('ogorm.klip.tilbage.et') : t('ogorm.klip.tilbage', { antal: tilbage })}</p>}
         {api.loest && <p className="facit">{visTekst(tokens, tilstand)}</p>}
       </div>
     </div>
