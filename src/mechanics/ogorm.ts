@@ -126,3 +126,47 @@ export function vaelgOgTekst(tekster: OgTekst[], niveau: number, tal: () => numb
   }
   return vaelg(tekster, tal);
 }
+
+/*
+ * Klip ormen i stykker (Henrik, 8. november 2026). Eleven klipper ormen ved et "og", hvor en ny tanke begynder.
+ * Det store begyndelsesbogstav kommer selv, så eleven kun skal tage én beslutning ad gangen.
+ */
+
+/** De ord, der skal skifte begyndelsesbogstav, når ormen er klippet ved punktummer. Navne og første ord står rigtigt i kilden. */
+export function automatiskStort(tokens: OgToken[], punktummer: number[]): number[] {
+  const foreloebig: OgTilstand = { punktummer, skiftet: [] };
+  const skiftet: number[] = [];
+  tokens.forEach((tok, i) => {
+    if (tok.erOg && punktummer.includes(i)) return;
+    if (skalHaveStort(tokens, foreloebig, i) !== storForbogstav(tok.ord)) skiftet.push(i);
+  });
+  return skiftet;
+}
+
+export type KlipResultat =
+  | { ok: true; tilstand: OgTilstand; /** Ordet, der fik stort begyndelsesbogstav. */ stort: number | null }
+  | { ok: false; fejl: 'bliv' };
+
+/** Klip ved og'et på plads i. Et og, der binder to ting sammen i samme sætning, kan ikke klippes. */
+export function klip(tokens: OgToken[], tilstand: OgTilstand, i: number): KlipResultat {
+  const tok = tokens[i];
+  if (!tok?.erOg || tilstand.punktummer.includes(i)) return { ok: true, tilstand, stort: null };
+  if (tok.ogType === 'b') return { ok: false, fejl: 'bliv' };
+  const punktummer = [...tilstand.punktummer, i].sort((a, b) => a - b);
+  const naeste = tokens.findIndex((t, j) => j > i && !(t.erOg && punktummer.includes(j)));
+  return { ok: true, tilstand: { punktummer, skiftet: automatiskStort(tokens, punktummer) }, stort: naeste >= 0 ? naeste : null };
+}
+
+/** Ormen er klippet færdig, når alle og'er mellem to sætninger er klippet. */
+export const klippetFaerdig = (tokens: OgToken[], tilstand: OgTilstand) =>
+  tokens.every((t, i) => t.ogType !== 's' || tilstand.punktummer.includes(i));
+
+/** Ormens stykker: delene mellem de klip, eleven har lavet. Hvert stykke er en liste af indeks i tokens. */
+export function stykker(tokens: OgToken[], tilstand: OgTilstand): number[][] {
+  const ud: number[][] = [[]];
+  tokens.forEach((t, i) => {
+    if (t.erOg && tilstand.punktummer.includes(i)) ud.push([]);
+    else ud[ud.length - 1].push(i);
+  });
+  return ud.filter((s) => s.length > 0);
+}

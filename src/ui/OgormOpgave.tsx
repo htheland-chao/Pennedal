@@ -1,124 +1,105 @@
 import { useMemo, useState } from 'react';
 import { t, type OgTekst } from '../content';
-import {
-  antalLed,
-  parseOgTekst,
-  tjekOgorm,
-  tomOgTilstand,
-  visOrd,
-  visTekst,
-  type OgFejl,
-  type OgTilstand,
-} from '../mechanics/ogorm';
+import { tegnkortTilLerred } from '../game/pixel/lerred';
+import { ORM_HALE, ORM_HOVED } from '../game/pixel/ogorm';
+import type { Tegnkort } from '../game/pixel/sprites';
+import { klip, klippetFaerdig, parseOgTekst, stykker, tomOgTilstand, visOrd, visTekst, type OgTilstand } from '../mechanics/ogorm';
 import type { OpgaveApi } from './OpgaveRamme';
 import { LaesOpKnap } from './Tekst';
 
-const FEJLTEKST: Record<OgFejl, Parameters<typeof t>[0]> = {
-  mangler: 'ogorm.fejl.mangler',
-  bliv: 'ogorm.fejl.bliv',
-  stort: 'ogorm.fejl.stort',
-  lille: 'ogorm.fejl.lille',
-  navn: 'ogorm.fejl.navn',
-};
+/**
+ * Og-ormen: klip ormen i stykker (Henrik, 8. november 2026). Ormen er én lang sætning, og hvert "og" er et led.
+ * Eleven klipper med saksen, hvor én tanke slutter, og en ny begynder. Det store begyndelsesbogstav kommer selv,
+ * med en forklaring. Et "og", der binder to ting sammen, kan ikke klippes: så forklares reglen med et eksempel (krav 6).
+ */
+const billeder = new Map<string, string>();
+function uri(navn: string, kort: Tegnkort): string {
+  if (!billeder.has(navn)) {
+    try {
+      billeder.set(navn, tegnkortTilLerred(kort).toDataURL('image/png'));
+    } catch {
+      billeder.set(navn, '');
+    }
+  }
+  return billeder.get(navn) ?? '';
+}
 
 export function OgormOpgave({ tekst, api }: { tekst: OgTekst; api: OpgaveApi }) {
   const tokens = useMemo(() => parseOgTekst(tekst.tekst), [tekst]);
   const [tilstand, setTilstand] = useState<OgTilstand>(tomOgTilstand);
-  const [fejlIndeks, setFejlIndeks] = useState<number | null>(null);
-  const led = antalLed(tokens, tilstand);
+  const [nytStort, setNytStort] = useState<number | null>(null);
+  const [av, setAv] = useState<{ i: number; nr: number } | null>(null);
+  const dele = stykker(tokens, tilstand);
+  const tilbage = tokens.filter((x, i) => x.ogType === 's' && !tilstand.punktummer.includes(i)).length;
+  const stykkeTekst = (s: number[]) => visTekst(tokens.filter((_, i) => s.includes(i)), { punktummer: [], skiftet: [] }).replace(/^./, (f) => f);
 
-  function skiftPunktum(i: number) {
-    setFejlIndeks(null);
-    const p = tilstand.punktummer.includes(i)
-      ? tilstand.punktummer.filter((x) => x !== i)
-      : [...tilstand.punktummer, i];
-    setTilstand({ ...tilstand, punktummer: p });
-  }
-
-  function skiftStort(i: number) {
-    setFejlIndeks(null);
-    const s = tilstand.skiftet.includes(i) ? tilstand.skiftet.filter((x) => x !== i) : [...tilstand.skiftet, i];
-    setTilstand({ ...tilstand, skiftet: s });
-  }
-
-  function tjek() {
-    const r = tjekOgorm(tokens, tilstand);
-    if (r.ok) {
-      setFejlIndeks(null);
-      api.tjek(true);
-    } else {
-      setFejlIndeks(r.indeks);
-      api.tjek(false, t(FEJLTEKST[r.fejl]));
+  function klipVed(i: number) {
+    if (api.laast) return;
+    const r = klip(tokens, tilstand, i);
+    if (!r.ok) {
+      setAv((x) => ({ i, nr: (x?.nr ?? 0) + 1 }));
+      api.tjek(false, t('ogorm.fejl.bliv'));
+      return;
     }
+    setAv(null);
+    setTilstand(r.tilstand);
+    setNytStort(r.stort);
+    if (klippetFaerdig(tokens, r.tilstand)) api.tjek(true);
   }
+
+  const hoved = uri('orm-hoved', ORM_HOVED);
+  const hale = uri('orm-hale', ORM_HALE);
 
   return (
-    <div className="ogorm" data-tekst-id={tekst.id}>
-      <p className="instruks">{t('ogorm.instruks')}</p>
-      <ol className="ogorm-trin">
-        <li>{t('ogorm.trin.1')}</li>
-        <li>{t('ogorm.trin.2')}</li>
-        <li>{t('ogorm.trin.3')}</li>
-      </ol>
+    <div className="ogorm ogorm-klip" data-tekst-id={tekst.id}>
+      <p className="instruks">{t('ogorm.klip.instruks')}</p>
       <p className="lille-tekst">{t('ogorm.pas.paa')}</p>
-      <p className="ogorm-eksempel">
-        <strong>{t('ogorm.saadan')}</strong> <span className="ogorm-foer">{t('ogorm.foer')}</span> <span aria-hidden="true">→</span>{' '}
-        <span>{t('ogorm.eksempel')}</span>
-      </p>
-      <LaesOpKnap
-        auto
-        dele={(['ogorm.instruks', 'ogorm.trin.1', 'ogorm.trin.2', 'ogorm.trin.3', 'ogorm.pas.paa'] as const).map((id) => ({ tekst: t(id), figur: 'fortaeller' as const }))}
-      />
-      <div className="orm" aria-hidden="true">
-        <span className="orm-hoved">🐛</span>
-        {Array.from({ length: led }, (_, i) => (
-          <span key={i} className="orm-led" />
+      <LaesOpKnap auto dele={(['ogorm.klip.instruks', 'ogorm.pas.paa'] as const).map((id) => ({ tekst: t(id), figur: 'fortaeller' as const }))} />
+
+      <div className="orm-bane">
+        {dele.map((stykke, si) => (
+          <div className={`orm-stykke${dele.length > 1 ? ' delt' : ''}`} key={stykke[0]} style={{ animationDelay: `${si * 0.15}s` }}>
+            {hale && <img className="orm-hale" src={hale} alt="" aria-hidden="true" />}
+            <div className="orm-krop">
+              {stykke.map((i) => {
+                const tok = tokens[i];
+                if (tok.erOg)
+                  return (
+                    <button
+                      key={`${i}-${av?.i === i ? av.nr : 0}`}
+                      type="button"
+                      data-token={i}
+                      className={`orm-led${av?.i === i ? ' av' : ''}`}
+                      aria-label={t('ogorm.klip.her')}
+                      disabled={api.laast}
+                      onClick={() => klipVed(i)}
+                    >
+                      <span className="orm-saks" aria-hidden="true" />
+                      og
+                    </button>
+                  );
+                return (
+                  <span key={i} className={`orm-ord${i === nytStort ? ' nyt-stort' : ''}`}>
+                    {visOrd(tokens, tilstand, i)}
+                    {tok.tegn}
+                  </span>
+                );
+              })}
+              {si < dele.length - 1 && <span className="orm-punktum">.</span>}
+            </div>
+            {hoved && <img className="orm-hoved" src={hoved} alt="" aria-hidden="true" />}
+            <LaesOpKnap tekst={stykkeTekst(stykke)} ikon />
+          </div>
         ))}
       </div>
-      <p className="lille-tekst">{t('ogorm.laengde', { antal: led })}</p>
-      <div className="skilt" aria-label={visTekst(tokens, tilstand)}>
-        {tokens.map((tok, i) => {
-          if (tok.erOg) {
-            const erPunktum = tilstand.punktummer.includes(i);
-            return (
-              <button
-                key={i}
-                type="button"
-                data-token={i}
-                className={`token ${erPunktum ? 'token-punktum' : 'token-og'} ${fejlIndeks === i ? 'token-fejl' : ''}`}
-                aria-label={erPunktum ? `${t('ogorm.punktum')}. ${t('ogorm.fortryd')}` : 'og'}
-                disabled={api.laast}
-                onClick={() => skiftPunktum(i)}
-              >
-                {erPunktum ? '.' : 'og'}
-              </button>
-            );
-          }
-          return (
-            <span key={i} className="token-gruppe">
-              <button
-                type="button"
-                data-token={i}
-                className={`token token-ord ${fejlIndeks === i ? 'token-fejl' : ''}`}
-                disabled={api.laast}
-                onClick={() => skiftStort(i)}
-              >
-                {visOrd(tokens, tilstand, i)}
-              </button>
-              {tok.tegn && <span className="token-tegn">{tok.tegn}</span>}
-            </span>
-          );
-        })}
+
+      <div aria-live="polite">
+        {nytStort !== null && !api.loest && (
+          <p className="ogorm-ny">{t('ogorm.klip.stort', { ord: visOrd(tokens, tilstand, nytStort) })}</p>
+        )}
+        {!api.loest && tilbage > 0 && <p className="lille-tekst">{tilbage === 1 ? t('ogorm.klip.tilbage.et') : t('ogorm.klip.tilbage', { antal: tilbage })}</p>}
+        {api.loest && <p className="facit">{visTekst(tokens, tilstand)}</p>}
       </div>
-      <LaesOpKnap tekst={visTekst(tokens, tilstand)} />
-      {!api.loest && (
-        <div className="knaprad">
-          <button type="button" className="knap knap-primaer" disabled={api.laast} onClick={tjek}>
-            {t('opgave.tjek')}
-          </button>
-        </div>
-      )}
-      {api.loest && <p className="facit">{visTekst(tokens, tilstand)}</p>}
     </div>
   );
 }

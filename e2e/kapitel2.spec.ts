@@ -8,8 +8,14 @@ const BILLEDER = 'test-results/skaermbilleder';
 
 async function laesDialog(page: Page) {
   const dialog = page.locator('dialog.dialogboks');
-  await expect(dialog).toBeVisible();
-  for (let i = 0; i < 30 && (await dialog.isVisible()); i++) await dialog.getByRole('button', { name: 'Videre' }).click();
+  // Dialogen lukker selv efter sidste replik, når den er læst op (8. november 2026). Den kan derfor allerede være væk.
+  await dialog.waitFor({ state: 'visible', timeout: 10_000 }).catch(() => undefined);
+  for (let i = 0; i < 20 && (await dialog.isVisible()); i++) {
+    await dialog
+      .getByRole('button', { name: 'Videre' })
+      .click({ timeout: 3_000 })
+      .catch(() => undefined);
+  }
   await expect(dialog).toHaveCount(0);
 }
 

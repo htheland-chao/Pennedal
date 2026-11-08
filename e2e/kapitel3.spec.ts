@@ -10,9 +10,14 @@ const BILLEDER = 'test-results/skaermbilleder';
 
 async function laesDialog(page: Page) {
   const dialog = page.locator('dialog.dialogboks');
-  // Testbrowseren tegner langsomt, så det kan tage tid at gå hen til den, der skal tales med.
-  await expect(dialog).toBeVisible({ timeout: 30_000 });
-  for (let i = 0; i < 30 && (await dialog.isVisible()); i++) await dialog.getByRole('button', { name: 'Videre' }).click();
+  // Dialogen lukker selv efter sidste replik, når den er læst op (8. november 2026). Den kan derfor allerede være væk.
+  await dialog.waitFor({ state: 'visible', timeout: 10_000 }).catch(() => undefined);
+  for (let i = 0; i < 20 && (await dialog.isVisible()); i++) {
+    await dialog
+      .getByRole('button', { name: 'Videre' })
+      .click({ timeout: 3_000 })
+      .catch(() => undefined);
+  }
   await expect(dialog).toHaveCount(0);
 }
 
@@ -145,15 +150,17 @@ test('kapitel 3: Viskeskoven, turbaserede kampe, Vims, mindet og Klattens valg',
   await gaaTil(page, 'vims');
   const dialog = page.locator('dialog.dialogboks');
   await expect(dialog).toBeVisible({ timeout: 30_000 });
-  for (let i = 0; i < 5; i++) await dialog.getByRole('button', { name: 'Videre' }).click();
+  await laesDialog(page);
+  await expect(page.locator('.ny-ting')).toContainText('Vims');
+  // Mindet er frivilligt: en kort besked, og så kan man se det.
+  const besked = page.locator('.kvittering').filter({ hasText: 'Køkkenbordet' });
+  await expect(besked).toContainText('Et minde: Køkkenbordet');
+  await besked.getByRole('button', { name: 'Se mindet nu' }).click();
   const minde = page.locator('dialog.tilbageblik');
-  await expect(minde).toContainText('Et minde: Køkkenbordet');
+  await expect(minde).toBeVisible();
   await page.waitForTimeout(1500);
   await page.screenshot({ path: `${BILLEDER}/k3-03-minde.png` });
   await minde.getByRole('button', { name: 'Tilbage til Pennedal' }).click();
-  await laesDialog(page);
-  await expect(page.locator('.ny-ting')).toContainText('Vims');
-  await page.getByRole('button', { name: 'Spil videre' }).click();
 
   // Lysningen: Stummingen med Vims som hjælper.
   await gaaTil(page, 'sti');

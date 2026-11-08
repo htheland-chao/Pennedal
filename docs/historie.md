@@ -145,6 +145,8 @@ Alle hjælpere er egne figurer. Hver får en stemme i `src/content/stemmer.json`
 
 Fru Fodnotes replikker vises som rigtig HTML nederst på skærmen med et lille nummer (for eksempel ¹). Det er tekst, ikke grafik (krav 1).
 
+> **Ændret 8. november 2026 (Henrik):** Tilbageblikkene er frivillige minder. De afbryder ikke dialogen. Når man får et minde, kommer der en kort besked med "Se mindet nu", og mindet ligger i tasken. Twistet bevares, men eleven vælger selv, hvornår mindet ses.
+
 ## Tilbageblik (visioner)
 
 Tilbageblik er korte scener fra virkeligheden, set gennem avatarens hullede hukommelse. De udløses af noget i Pennedal, der minder om dengang (en lugt, en lyd, en ting).

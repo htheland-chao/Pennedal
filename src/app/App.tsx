@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { hentKapitel, kapitler, navne, t } from '../content';
 import {
   gemIndstillinger,
@@ -20,6 +20,7 @@ import { Kontekst } from '../ui/Kontekst';
 import { Laererkig } from '../ui/Laererkig';
 import { Modal } from '../ui/Modal';
 import { OrdkortVindue } from '../ui/OrdkortVindue';
+import { Kvittering } from '../ui/Kvittering';
 import { Samling } from '../ui/Samling';
 import { Verden } from './Verden';
 
@@ -40,6 +41,9 @@ export function App() {
   const [visIndstillinger, setVisIndstillinger] = useState(false);
   const [visMenu, setVisMenu] = useState(false);
   const [gemmekode, setGemmekode] = useState<{ del?: number } | null>(null);
+  /** Kort besked, når en del er klaret. Gem ligger i menuen (Henrik, 8. november 2026), så der kommer ingen pop op. */
+  const [kvittering, setKvittering] = useState<string | null>(null);
+  const skjulKvittering = useCallback(() => setKvittering(null), []);
   const [bekraeftNyt, setBekraeftNyt] = useState(false);
   const [ventendeIndlaes, setVentendeIndlaes] = useState<GemtSpil | null>(null);
   /** Hvor introen fører hen: til et nyt spil eller tilbage til forsiden. */
@@ -197,7 +201,7 @@ export function App() {
           indstillinger={indstillinger}
           andetVindueAabent={vindueAabent}
           onMenu={() => setVisMenu(true)}
-          onDelSlut={(del) => setGemmekode({ del })}
+          onDelSlut={(del) => setKvittering(t('gem.del.kvittering', { nr: del }))}
           onKapitelSlut={() => setSkaerm('samling')}
         />
       )}
@@ -277,7 +281,7 @@ export function App() {
           <h2>{t('menu.titel')}</h2>
           <div className="menu">
             <button type="button" className="knap" autoFocus onClick={() => { setVisMenu(false); setGemmekode({}); }}>
-              {t('menu.gemmekode')}
+              {t('menu.gem')}
             </button>
             <button type="button" className="knap" onClick={() => { setVisMenu(false); setSkaerm('samling'); }}>
               {t('menu.samling')}
@@ -299,6 +303,7 @@ export function App() {
       )}
 
       {gemmekode && spil && <GemmekodeVindue spil={spil} del={gemmekode.del} onLuk={() => setGemmekode(null)} />}
+      {kvittering && skaerm === 'verden' && <Kvittering tekst={kvittering} onSkjul={skjulKvittering} luk={t('kvittering.luk')} />}
       {visIndstillinger && (
         <IndstillingerVindue
           indstillinger={indstillinger}

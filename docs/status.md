@@ -20,9 +20,13 @@ Regler og stak står i `CLAUDE.md`. Historien står i `docs/historie.md`, grafik
 - 3. november 2026: Henrik foretrækker den originale fortællerstemme. Den gamle mands stemme er fjernet. Rumklang lægges på i afspilleren (ikke bagt ind i klippene), kun på hviskestemmen, introen og tilbageblik.
 - 3. november 2026: Kampene skal være turbaserede med skade og uhygge og mere end spørgsmål. Blødt nederlag. Holdet er avataren og hjælperne.
 - 3. november 2026: Chromebook testet af Henrik og fungerer (tal for billeder pr. sekund er ikke noteret).
+- 8. november 2026: Gem ligger i menuen (Gem spillet), ingen pop op med QR efter en del, kun en kort besked. Dialogen lukker selv efter sidste replik, når den er læst op. Og-ormen er nu "klip ormen i stykker". Tilbageblik er frivillige minder: de afbryder ikke dialogen, man får en besked og kan se dem i tasken. Henrik vil have langt flere og mere kreative animationer, kampen i fuld skærm med mindre tekst og et layout uden rammer.
 - 3. november 2026: Grafikken tages videre med effekter som kode, flere udkast og valg (se `docs/grafik.md`). Vi bliver i Phaser.
 
 ## Åbent og mangler
+
+- **Næste (del 2 af 8. november 2026):** spillet fylder skærmen, dialog og menu glider ind over spillet uden rammer, kampen i fuld skærm med kort tekst og flotte angrebsanimationer, Æseløres fremkomst og portalen til Pennedal animeret, flere steder med animationer.
+- **Lyd:** Den nye Og-orm-instruks (`ogorm.klip.instruks`) mangler sit klip. Tilføj den til testen i `src/ui/oplaesning.test.ts`, når lydjobbet har lavet den.
 
 - **Lyd:** Mange klip mangler stadig. Status: `npm run lyd:status` eller `public/lyd/manifest.json`. Googles dagskvote på 100 klip gør, at det tager flere dage.
 - **Kapitel 3 mangler:** platformbane med viskede planker, sidemission, valgfri svær udfordring, to hukommelsesskår og Fælles Mål-tekst for ordforråd i `src/content/maal.json`.

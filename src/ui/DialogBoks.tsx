@@ -5,26 +5,24 @@ import { t, type DialogValg, type Replik, type TekstId, type ValgMulighed } from
 import { Modal } from './Modal';
 import { PixelPortraet } from './PixelPortraet';
 import { LaesOpKnap, Tekst } from './Tekst';
-import { erMinde } from '../content/minder';
-import { Tilbageblik } from './Tilbageblik';
 
 
 /** Pause efter en replik, før den næste starter, så eleven kan nå at se teksten. */
 const PAUSE_MS = 1200;
+/** Markerer, at dialogen skal lukke, når pausen efter den sidste replik er gået. */
+const SLUT = -1;
 
 type DialogProps = {
   replikker: Replik[];
   onFaerdig: () => void;
   /** Hvem der taler lige nu, så kameraet kan zoome ind på dem. Kaldes med null, når dialogen lukker. */
   onTaler?: (taler: Replik['taler'] | null) => void;
-  /** Et tilbageblik, der vises lige før replikken med nummer foer. */
-  tilbageblik?: { id: string; foer: number };
   /** Et valg efter den sidste replik. Den valgte muligheds replikker kommer bagefter. */
   valg?: DialogValg;
   onValg?: (m: ValgMulighed) => void;
 };
 
-export function DialogBoks({ replikker: grund, onFaerdig, onTaler, tilbageblik, valg, onValg }: DialogProps) {
+export function DialogBoks({ replikker: grund, onFaerdig, onTaler, valg, onValg }: DialogProps) {
   const [nr, setNr] = useState(0);
   const [valgt, setValgt] = useState<ValgMulighed | null>(null);
   const replikker = valgt ? [...grund, ...valgt.replikker] : grund;
@@ -35,8 +33,6 @@ export function DialogBoks({ replikker: grund, onFaerdig, onTaler, tilbageblik, 
   const skalVaelge = !!valg && !valgt && sidste;
   const { indstillinger } = useApp();
   const [naeste, setNaeste] = useState<number | null>(null);
-  const [mindeSet, setMindeSet] = useState(false);
-  const visMinde = !!tilbageblik && erMinde(tilbageblik.id) && nr === tilbageblik.foer && !mindeSet;
 
   useEffect(() => {
     onTaler?.(r.taler);
@@ -51,14 +47,16 @@ export function DialogBoks({ replikker: grund, onFaerdig, onTaler, tilbageblik, 
   }, []);
 
   // Når en replik er læst helt op, venter dialogen lidt og går så selv videre til den næste.
-  // Den sidste replik lukker ikke selv, så eleven altid selv afslutter samtalen.
+  // Efter den sidste replik lukker dialogen selv (Henrik, 8. november 2026). Uden oplæsning ved spillet ikke,
+  // hvornår eleven har læst færdig, så der lukker eleven selv med knappen (ingen tid på læsning, krav 5).
   useEffect(() => {
     if (naeste === null) return;
-    const ur = window.setTimeout(() => setNr(naeste), PAUSE_MS);
+    const ur = window.setTimeout(() => (naeste === SLUT ? onFaerdig() : setNr(naeste)), naeste === SLUT ? PAUSE_MS * 2 : PAUSE_MS);
     return () => window.clearTimeout(ur);
+    // onFaerdig skifter ikke undervejs i en dialog.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [naeste]);
-  const vedFaerdig = indstillinger.autoVidere && !sidste ? () => setNaeste(nr + 1) : undefined;
-  if (visMinde && tilbageblik && erMinde(tilbageblik.id)) return <Tilbageblik id={tilbageblik.id} onFaerdig={() => setMindeSet(true)} />;
+  const vedFaerdig = indstillinger.autoVidere && !skalVaelge ? () => setNaeste(sidste ? SLUT : nr + 1) : undefined;
   return (
     <Modal titel={navn} klasse={`dialogboks taler-${r.taler}`}>
       <div className="dialog-indhold">
