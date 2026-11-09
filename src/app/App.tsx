@@ -31,7 +31,16 @@ type Skaerm = 'start' | 'intro' | 'ny-avatar' | 'ret-avatar' | 'verden' | 'indla
  * Et hop-spil bliver aldrig gemt, så et rigtigt spil i browseren ikke bliver overskrevet.
  */
 const HOP = typeof location !== 'undefined' ? new URLSearchParams(location.search).get('hop') : null;
-const HOP_SPIL = HOP ? spilVedIKapitler(kapitler, HOP, nytSpil(STANDARD_AVATAR, { adjektiv: 0, dyr: 0 })) : null;
+const HOP_SPIL = HOP ? medHopValg(spilVedIKapitler(kapitler, HOP, nytSpil(STANDARD_AVATAR, { adjektiv: 0, dyr: 0 }))) : null;
+
+/** Til test med ?hop: &valg=a,b sætter valg, og &venlighed=n sætter Klattens venlighed (fx for at spille den venlige vej). */
+function medHopValg(spil: GemtSpil | null): GemtSpil | null {
+  if (!spil || typeof location === 'undefined') return spil;
+  const q = new URLSearchParams(location.search);
+  const valg = (q.get('valg') ?? '').split(',').filter(Boolean);
+  const venlighed = Number(q.get('venlighed') ?? spil.venlighed);
+  return { ...spil, valg: { ...spil.valg, ...Object.fromEntries(valg.map((v) => [v, 'ja'])) }, venlighed: Number.isFinite(venlighed) ? venlighed : spil.venlighed };
+}
 
 export function App() {
   const [skaerm, setSkaerm] = useState<Skaerm>(HOP_SPIL ? 'verden' : HOP !== null ? 'hop' : 'start');

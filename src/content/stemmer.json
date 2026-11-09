@@ -80,6 +80,22 @@
     "krusedulle": {
       "stemme": "Sadachbia",
       "stil": "Say this fast and scratchy, like a hasty scribble that is a bit lost and confused. Silly, never scary. Native Danish."
+    },
+    "prinsesse": {
+      "stemme": "Aoede",
+      "stil": "Say this like a brave, slightly impatient fairy-tale princess who is tired of waiting to be rescued. Lively and warm. Native Danish."
+    },
+    "lup": {
+      "stemme": "Charon",
+      "stil": "Say this like a thoughtful old detective who mumbles to himself while thinking. Calm, a little dramatic, never scary. Native Danish."
+    },
+    "grumsen": {
+      "stemme": "Algenib",
+      "stil": "Say this like a big furry monster who is secretly very shy and a bit scared of the dark. Deep but soft and sweet. Native Danish."
+    },
+    "bip": {
+      "stemme": "Iapetus",
+      "stil": "Say this like a friendly little robot, clear and even, with small cheerful pauses. Native Danish."
     }
   },
   "rum": {

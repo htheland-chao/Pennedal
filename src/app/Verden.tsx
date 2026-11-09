@@ -45,6 +45,7 @@ function ordFaerdighed(art: OrdOpgaveArt | undefined): FaerdighedId {
   if (art === 'rim' || art === 'ikkerim') return 'laes.rim';
   if (art === 'fortaeller') return 'fort.fortaeller_tid';
   if (art === 'stavning') return 'stav.vokal_dobbeltkonsonant';
+  if (art === 'genre') return 'laes.forstaaelse';
   return 'laes.ordforraad';
 }
 
@@ -126,6 +127,7 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
   // Objekter, der er forsvundet, fordi kapitlet er nået forbi deres skjulFra-trin.
   const skjulteObjekter = sted.objekter
     .filter((o) => {
+      if (o.hvis && !opfyldt(o.hvis, spil)) return true;
       // visFra: skjult, indtil kapitlet når trinnet. skjulFra: væk fra trinnet og frem.
       if (o.visFra) {
         const nr = kapitel.trin.findIndex((t) => t.id === o.visFra);
@@ -139,7 +141,10 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
   // Æseløre er skjult, indtil eleven har fundet ham (kapitlets fuglFra-trin).
   const fuglNr = kapitel.fuglFra ? kapitel.trin.findIndex((t) => t.id === kapitel.fuglFra) : -1;
   // Han vises først, når skuffen bliver åbnet (fuglFra-trinnets dialog), ikke allerede når man træder ind i kælderen.
-  const fuglSkjult = fuglNr >= 0 && (spil.trin < fuglNr || (spil.trin === fuglNr && aktivtTrin?.id !== kapitel.fuglFra));
+  // Kapitel 7: har eleven ikke tilgivet Æseløre, går han med Den Ufærdige for en stund (fuglVaek).
+  const vaekNr = kapitel.fuglVaek ? kapitel.trin.findIndex((t) => t.id === kapitel.fuglVaek!.fra) : -1;
+  const fuglVaek = vaekNr >= 0 && spil.trin > vaekNr && opfyldt(kapitel.fuglVaek!.hvis, spil);
+  const fuglSkjult = fuglVaek || (fuglNr >= 0 && (spil.trin < fuglNr || (spil.trin === fuglNr && aktivtTrin?.id !== kapitel.fuglFra)));
   // Sidder Æseløre selv på kortet (kapitel 6, ved søen), følger han ikke efter hovedpersonen imens.
   const fuglPaaKortet = sted.objekter.some((o) => o.form === 'fugl' && o.felt && !skjulteObjekter.includes(o.id));
   const skjulte = [...(fuglSkjult || fuglPaaKortet ? [...skjulteObjekter, 'aeseloere'] : skjulteObjekter), ...skjulteBlade(spil, kapitel)];
@@ -674,6 +679,7 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
           trin={aktivtTrin}
           niveauFor={niveauFor}
           klattenMed={!!aktivtTrin.klatten && opfyldt(aktivtTrin.klatten, spil)}
+          uden={(['aeseloere', 'vims'] as const).filter((h) => aktivtTrin.holdHvis?.[h] && !opfyldt(aktivtTrin.holdHvis[h], spil))}
           fremskridt={spil.trinFremskridt}
           avatar={spil.avatar}
           avatarNavn={avatarnavn(spil.avatarnavn)}

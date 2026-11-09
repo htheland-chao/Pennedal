@@ -570,7 +570,81 @@ function tegnKassenVedDoeren(): HTMLCanvasElement {
   return c;
 }
 
-const TEGN: Record<MindeId, () => HTMLCanvasElement> = { blaek: tegnBlaek, streger: tegnStreger, koekkenbord: tegnKoekkenbord, skaar3a: tegnViskelaeder, skaar3b: tegnHaeftetPaaGulvet, godnat: tegnGodnat, skaar4a: tegnSkyggenIMargenen, skaar4b: tegnDoerenPaaKlem, skyggen: tegnSkyggen, skaar5a: tegnFodnotenIHaeftet, skaar5b: tegnVindueskarmen, foldet: tegnFoldet, skaar6a: tegnKlattenPaaSiden, skaar6b: tegnKassenVedDoeren };
+/** Kapitel 7, Søskendet: en åben skuffe i et skrivebord og to hænder, der leder mellem papirerne. Ingen ansigter. */
+function tegnSoeskendet(): HTMLCanvasElement {
+  const c = lerred(B, H);
+  const g = c.getContext('2d')!;
+  for (let y = 0; y < H; y++) for (let x = 0; x < B; x++) felt(g, x, y, 1, 1, hash(x, y) > 0.94 ? '#c8b896' : '#d6c6a2');
+  // Skrivebordet.
+  felt(g, 30, 40, 260, 20, P.kontur);
+  felt(g, 32, 42, 256, 16, '#8a6a45');
+  felt(g, 40, 60, 240, 120, P.kontur);
+  felt(g, 42, 62, 236, 118, '#6b4a30');
+  // Den åbne skuffe.
+  felt(g, 70, 96, 180, 70, P.kontur);
+  felt(g, 72, 98, 176, 66, '#7d5a3a');
+  felt(g, 80, 104, 160, 50, '#4a3424');
+  // Papirer i skuffen, men intet grønt.
+  for (const [x, y, w, h, f] of [[90, 110, 50, 30, P.papir], [130, 116, 60, 26, P.papirSkygge], [190, 108, 40, 34, P.papir]] as const) felt(g, x, y, w, h, f);
+  for (let r = 0; r < 3; r++) felt(g, 94, 116 + r * 7, 40, 1, P.linje);
+  // To hænder, der leder.
+  for (const [x, y] of [[110, 100], [196, 98]] as const) {
+    felt(g, x, y, 22, 14, P.hud);
+    felt(g, x, y + 12, 22, 2, P.hudSkygge);
+    felt(g, x + 4, y - 6, 5, 8, P.hud);
+    felt(g, x + 11, y - 7, 5, 9, P.hud);
+  }
+  return c;
+}
+
+/** Skår 7a, Kassen på biblioteket: en disk, en kasse med bøger og en stor hånd, der holder det grønne hæfte. */
+function tegnKassenPaaBiblioteket(): HTMLCanvasElement {
+  const c = lerred(B, H);
+  const g = c.getContext('2d')!;
+  for (let y = 0; y < H; y++) for (let x = 0; x < B; x++) felt(g, x, y, 1, 1, y < 70 ? (x % 40 < 2 ? '#5a3a28' : hash(x, y) > 0.9 ? '#c0503e' : '#8a6a45') : '#d6c6a2');
+  // Disken.
+  felt(g, 0, 120, B, 60, P.kontur);
+  felt(g, 0, 122, B, 58, '#9a7048');
+  // Kassen.
+  felt(g, 60, 80, 110, 44, P.kontur);
+  felt(g, 62, 82, 106, 40, '#c9a46a');
+  const ryg = ['#c0503e', '#2c6fbb', '#7b4bb3', '#e5c03a'];
+  for (let i = 0; i < 8; i++) felt(g, 66 + i * 12, 70, 10, 14, ryg[i % 4]);
+  // Hånden med hæftet.
+  felt(g, 200, 70, 70, 46, P.kontur);
+  felt(g, 202, 72, 66, 42, '#4e7a52');
+  felt(g, 202, 72, 66, 3, '#6a9a6c');
+  felt(g, 192, 96, 26, 22, P.hud);
+  felt(g, 192, 116, 26, 3, P.hudSkygge);
+  felt(g, 210, 92, 14, 6, P.hud);
+  return c;
+}
+
+/** Skår 7b, Skyggen på vejen: et busvindue med regnstriber, en vej og en lille skygge, der glider forbi. */
+function tegnSkyggenPaaVejen(): HTMLCanvasElement {
+  const c = lerred(B, H);
+  const g = c.getContext('2d')!;
+  felt(g, 0, 0, B, H, '#3a3a4a');
+  // Vinduet.
+  felt(g, 30, 20, 260, 130, '#22222e');
+  for (let y = 24; y < 146; y++)
+    for (let x = 34; x < 286; x++) {
+      const f = y < 90 ? (hash(x >> 3, y >> 3) > 0.5 ? '#9aa8c0' : '#a8b4ca') : y < 96 ? '#6a7a5a' : '#5a5a66';
+      felt(g, x, y, 1, 1, f);
+    }
+  // Vejen med striber.
+  for (let x = 40; x < 280; x += 30) felt(g, x, 120, 16, 3, '#e8e4dc');
+  // Skyggen på vejen: rund med to små, lyse øjne.
+  for (let y = -8; y <= 8; y++) for (let x = -10; x <= 10; x++) if ((x * x) / 100 + (y * y) / 64 <= 1) felt(g, 180 + x, 108 + y, 1, 1, '#2a2840');
+  for (const ox of [-4, 4]) felt(g, 180 + ox, 105, 2, 2, '#f6ecd6');
+  // Regnstriber på ruden.
+  for (let i = 0; i < 40; i++) felt(g, 40 + Math.floor(hash(i, 3) * 240), 26 + Math.floor(hash(i, 5) * 100), 1, 6, '#c3ccd8');
+  // Vinduesrammen.
+  felt(g, 158, 20, 4, 130, '#22222e');
+  return c;
+}
+
+const TEGN: Record<MindeId, () => HTMLCanvasElement> = { blaek: tegnBlaek, streger: tegnStreger, koekkenbord: tegnKoekkenbord, skaar3a: tegnViskelaeder, skaar3b: tegnHaeftetPaaGulvet, godnat: tegnGodnat, skaar4a: tegnSkyggenIMargenen, skaar4b: tegnDoerenPaaKlem, skyggen: tegnSkyggen, skaar5a: tegnFodnotenIHaeftet, skaar5b: tegnVindueskarmen, foldet: tegnFoldet, skaar6a: tegnKlattenPaaSiden, skaar6b: tegnKassenVedDoeren, soeskendet: tegnSoeskendet, skaar7a: tegnKassenPaaBiblioteket, skaar7b: tegnSkyggenPaaVejen };
 
 const cache = new Map<MindeId, string | null>();
 /** Billedet til et minde som data-URL. Uden canvas (fx i enhedstests) bliver det null, og mindet vises kun som tekst. */

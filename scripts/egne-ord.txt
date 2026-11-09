@@ -124,3 +124,9 @@ Postsneglen
 Postsneglens
 # Endelsen -ede i reglen om udsagnsord i datid (ikke et ord i sig selv).
 ede
+# Kapitel 7 (9. november 2026): figurer i De halve lande.
+Grumsen
+Lup
+Lups
+Bip
+Hilde

@@ -132,6 +132,8 @@ Grænselandet, hvor alle ufærdige historier i Pennedal havner. Hvert område er
 
 Alle hjælpere samles. Den Ufærdige tilbyder hver af dem en slutning, hvis de forlader avataren. Hvor mange, der bliver, afhænger af, hvordan man har behandlet dem (Undertale-agtig konsekvens, men ingen bliver væk for altid). Tilbageblikket viser søskendet, der står ved skuffen og leder efter hæftet.
 
+**Bygget 9. november 2026:** De halve lande med fire strandede historier: Prinsesse Hilde (eventyr, Rimfods sten bærer broen fra tårnet), Kommissær Lup (krimi), monsteret Grumsen, der er blevet bange (gyser), og robotten Bip (science fiction). Hos hver figur: find genren i et tekststykke, eller find det, der hører til genren (`laes.forstaaelse`). Fristelsen: Den Ufærdige tilbyder hver hjælper en slutning. Vims og Fru Fodnote bliver altid, Klatten bliver, hvis eleven har været venlig, og Æseløre går for en stund, hvis eleven ikke tilgav ham i kapitel 6 (`fuglVaek` i kapitlet). Tilbageblikket Nogen ved skuffen (søskendet). Kampen mod Den Tvivlende Sætning, en Krusedulle og Tomordet: holdet afhænger af valgene (`holdHvis` og `klatten` på kamptrinnet). Sidemissionen Kommissær Lups gamle sag giver skår `k7a` (mindet Kassen på biblioteket, et vink om Holm). Den frivillige, svære udfordring Den halve bro giver skår `k7b` (mindet Skyggen på vejen). Ny sang: halve.
+
 ### Kapitel 8: Den sidste side
 
 Den Ufærdige venter. Rolige kampe mod ufærdige sætninger, som man skriver færdige. Til sidst står Skyggen over for avataren. Eleven vælger slutningen.
@@ -178,7 +180,7 @@ Hvert kapitel har ét tilbageblik i historien og op til to ekstra, som kun låse
 - Teksterne står i `tekster/da.json` som `minde.<id>.<nr>`, og en mildere udgave til "Mindre uhygge" som `minde.<id>.<nr>.mild`. Listen over minder står i `src/content/minder.ts` (rækkefølgen er fast).
 - Minderne gemmes ikke. Tasken regner ud, hvilke minder eleven er kommet forbi, også hvis de blev sprunget over.
 - Lærerkig viser alle minder, så Henrik kan se dem, før klassen spiller.
-- Bygget: 1 Blæk og regn (`k1-aeseloere`), 2 Røde streger (`k2-trykkeri`) og 3 Køkkenbordet (`k3-vims`). Hukommelsesskår: `k3a` Viskelæderet og `k3b` Hæftet på gulvet (9. november 2026). Kapitel 4: Godnathistorien, `k4a` Skyggen i margenen og `k4b` Døren på klem. Kapitel 5: 5 Skyggen bliver tegnet (`k5-haeftet`), `k5a` Fodnoten i hæftet og `k5b` Hvad skriver du? Kapitel 6: 6 Hjørnet bliver foldet (`k6-twist`), `k6a` Klatten på siden og `k6b` Kassen ved døren. Skårenes minder står i `SKAAR_MINDE` i `src/content/minder.ts`.
+- Bygget: 1 Blæk og regn (`k1-aeseloere`), 2 Røde streger (`k2-trykkeri`) og 3 Køkkenbordet (`k3-vims`). Hukommelsesskår: `k3a` Viskelæderet og `k3b` Hæftet på gulvet (9. november 2026). Kapitel 4: Godnathistorien, `k4a` Skyggen i margenen og `k4b` Døren på klem. Kapitel 5: 5 Skyggen bliver tegnet (`k5-haeftet`), `k5a` Fodnoten i hæftet og `k5b` Hvad skriver du? Kapitel 6: 6 Hjørnet bliver foldet (`k6-twist`), `k6a` Klatten på siden og `k6b` Kassen ved døren. Kapitel 7: 7 Nogen ved skuffen (`k7-fristelse`), `k7a` Kassen på biblioteket og `k7b` Skyggen på vejen. Skårenes minder står i `SKAAR_MINDE` i `src/content/minder.ts`.
 
 ### Hukommelsesskår (valgfrie)
 

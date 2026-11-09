@@ -18,6 +18,7 @@
     "stav.vokal_dobbeltkonsonant": { "omraade": "fremstilling", "maal": ["eleven kan stave alle almindelige ord sikkert.", "Eleven har viden om bøjningssystemer og ords oprindelse."], "klassetrin": "efter 6. (korrektur)" },
     "stav.verbum_datid": { "omraade": "fremstilling", "maal": ["eleven kan stave med udgangspunkt i ordenes betydningsdele.", "Eleven har viden om morfemer, ordklasser, lydfølgeregler og opslagsteknologier."], "klassetrin": "efter 4. (korrektur)" },
     "stav.navneord_endelse": { "omraade": "fremstilling", "maal": ["eleven kan stave med udgangspunkt i ordenes betydningsdele.", "Eleven har viden om morfemer, ordklasser, lydfølgeregler og opslagsteknologier."], "klassetrin": "efter 4. (korrektur)" },
+    "laes.forstaaelse": { "omraade": "fremstilling", "maal": ["Eleven kan give respons på teksters genre og struktur.", "Eleven har viden om teksters genre og struktur."], "klassetrin": "efter 4. (respons, genrer i kapitel 7)" },
     "laes.praecision": { "omraade": "laesning", "maal": ["Eleven kan opdage egne forståelsesproblemer og anvende relevante strategier til at afhjælpe dem og få overblik over teksten."], "klassetrin": "efter 6. (opmærksomhedspunkt)" }
   }
 }

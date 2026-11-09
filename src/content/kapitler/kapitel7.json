@@ -1,0 +1,420 @@
+{
+  "kapitel": 7,
+  "titel": "De halve lande",
+  "fuglVaek": {
+    "fra": "k7-fristelse",
+    "hvis": {
+      "ikkeValg": "aeseloere.tilgivet"
+    }
+  },
+  "steder": {
+    "halvelande": {
+      "navn": "De halve lande",
+      "tema": "halve",
+      "start": {
+        "x": 0,
+        "y": 0
+      },
+      "startFelt": [15, 17],
+      "kort": [
+        "################################",
+        "###,,,,,,,,,,,,..,,,,,,,,,,,,###",
+        "##,~~~~~~,,##,,..,,,##,,,,,,,,##",
+        "#,,~~~~~~,,,,,,..,,,,,,,,,,,,,,#",
+        "#,,~~~~~~,,,,,,..,,,,,,,,,,,,,,#",
+        "#,,,,,,,,,,,,,,..,,,,,,,,,,,,,,#",
+        "#,,,,,,,,,,,,,,............,,,,#",
+        "#,,,,,...........,,,,,,,,,,,,,,#",
+        "#,,,,,,,,,,,,,,..,,,,,,,,,,,,,,#",
+        "#,,,,,,,,,,,,,,..,,,,,,,,,,,,,,#",
+        "................................",
+        "#,,,,,,,,,,,,,,..,,,,,,,,,,,,,,#",
+        "#,,,,,,,,,,,,,,..,,,,,,,,,,,,,,#",
+        "#,,,,,,,,,,,,,,..,,,,,,,,,,,,,,#",
+        "#,,,,,,,,,,,,,,..,,,,,,,,,,,,,,#",
+        "#,,,,,,...................,,,,,#",
+        "#,,,,,,,,,,,,,,..,,,,,,,,,,,,,,#",
+        "##,,,,,,,,,#,,,..,,,#,,,,,,,,,##",
+        "###,,,,,,,,,,,,..,,,,#,,,,,,,###",
+        "################################"
+      ],
+      "objekter": [
+        { "id": "prinsesse", "navn": "Prinsesse Hilde ved tårnet", "x": 0, "y": 0, "w": 0, "h": 0, "form": "prinsesse", "farve": "#c9a46a", "felt": [5, 7] },
+        { "id": "lup", "navn": "Kommissær Lup", "x": 0, "y": 0, "w": 0, "h": 0, "form": "lup", "farve": "#c9a46a", "felt": [27, 6], "frivillig": "mission" },
+        { "id": "grumsen", "navn": "Grumsen i det mørke hus", "x": 0, "y": 0, "w": 0, "h": 0, "form": "grumsen", "farve": "#c9a46a", "felt": [6, 15] },
+        { "id": "bip", "navn": "Robotten Bip", "x": 0, "y": 0, "w": 0, "h": 0, "form": "bip", "farve": "#c9a46a", "felt": [26, 15] },
+        { "id": "fodnote", "navn": "Fru Fodnote", "x": 0, "y": 0, "w": 0, "h": 0, "form": "fodnote", "farve": "#c9a46a", "felt": [18, 11] },
+        { "id": "rimfod", "navn": "Rimfod", "x": 0, "y": 0, "w": 0, "h": 0, "form": "rimfod", "farve": "#c9a46a", "felt": [13, 11] },
+        {
+          "id": "klatten",
+          "navn": "Klatten",
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "form": "gnom",
+          "farve": "#c9a46a",
+          "hvis": {
+            "venlighed": 1
+          },
+          "felt": [18, 8]
+        },
+        { "id": "ufaerdige", "navn": "Den Ufærdige", "x": 0, "y": 0, "w": 0, "h": 0, "form": "ufaerdige", "farve": "#c9a46a", "visFra": "k7-fristelse", "skjulFra": "k7-kamp-slut", "felt": [16, 4] },
+        { "id": "spor1", "navn": "et spor af blæk", "x": 0, "y": 0, "w": 0, "h": 0, "form": "spor", "farve": "#c9a46a", "frivillig": "blad", "felt": [22, 3] },
+        { "id": "spor2", "navn": "et spor af blæk", "x": 0, "y": 0, "w": 0, "h": 0, "form": "spor", "farve": "#c9a46a", "frivillig": "blad", "felt": [29, 9] },
+        { "id": "spor3", "navn": "et spor af blæk", "x": 0, "y": 0, "w": 0, "h": 0, "form": "spor", "farve": "#c9a46a", "frivillig": "blad", "felt": [9, 17] },
+        { "id": "halvbro", "navn": "skiltet ved den halve bro", "x": 0, "y": 0, "w": 0, "h": 0, "form": "skilt", "farve": "#c9a46a", "frivillig": "udflugt", "udflugt": "halvebroen", "felt": [1, 10] }
+      ]
+    },
+    "halvebroen": {
+      "navn": "Den halve bro",
+      "tema": "halve",
+      "start": {
+        "x": 0,
+        "y": 0
+      },
+      "ordsten": "genre",
+      "objekter": [
+        { "id": "maal", "navn": "enden af den halve bro", "x": 0, "y": 0, "w": 0, "h": 0, "form": "maal", "farve": "#c9a46a" }
+      ],
+      "bane": [
+        "....................................................................................................",
+        "....................................................................................................",
+        "....................................................................................................",
+        "....................................................................................................",
+        "..................==................................................................................",
+        "..............==......==............................................................................",
+        "..S.......==..............==.....O...........C.^..................#.........O..................M....",
+        "########~~~~~~~~~~~~~~~~~~~~~#######vvvvvv#######~~#~~#~~#~~#~~#~~#~~#~~#######vvvvvv###############",
+        "########~~~~~~~~~~~~~~~~~~~~~#######~~~~~~#######~~#~~#~~#~~#~~#~~#~~#~~#######~~~~~~###############",
+        "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+        "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+      ],
+      "udflugt": {
+        "skaar": "k7b",
+        "fra": "halvelande",
+        "opgavetekst": "Gå over den halve bro. Den er kun tegnet halvt færdig, og det er svært med vilje.",
+        "ind": [
+          { "taler": "aeseloere", "tekst": "Broen er kun tegnet halvt. Nogle planker er bare en streg." },
+          { "taler": "rimfod", "tekst": "En bro, der er halv, er svær at gå. Men for enden lyser noget, som du kan få." }
+        ],
+        "spoergsmaal": "Vil du gå ud på den halve bro?",
+        "ja": "Gå ud på broen",
+        "nej": "Ikke nu",
+        "faerdig": [
+          { "taler": "fortaeller", "tekst": "For enden af broen, hvor stregen stopper, ligger en lille, lysende papirstump. Det er et hukommelsesskår." },
+          { "taler": "vims", "tekst": "Du gik på en bro, der ikke var der. Undskyld, men det var ret sejt." }
+        ],
+        "igen": [
+          { "taler": "aeseloere", "tekst": "Igen? Broen er stadig kun halv. Det er du ikke." }
+        ]
+      }
+    }
+  },
+  "trin": [
+    {
+      "id": "k7-ankomst",
+      "type": "dialog",
+      "del": 1,
+      "sted": "halvelande",
+      "objekt": null,
+      "replikker": [
+        { "taler": "fortaeller", "tekst": "På den anden side af Blæksøen begynder De halve lande. Alt her er kun tegnet halvt. Træer uden toppe. Huse med kun to vægge." },
+        {
+          "taler": "klatten",
+          "tekst": "Jeg sejlede jer over i min båd. Den er lavet af en avis. Den Frygtelige har sans for stil.",
+          "hvis": {
+            "venlighed": 1
+          }
+        },
+        { "taler": "aeseloere", "tekst": "Her havner alle de historier, der aldrig blev skrevet færdige. Eventyr, krimier, gysere. Alle mangler de noget." },
+        { "taler": "fodnote", "tekst": "¹ Jeg tog bussen. ² Der går ingen bus hertil. Jeg tog den alligevel." },
+        { "taler": "rimfod", "tekst": "Jeg kom med, for jeg er ikke dum. Det er her, det hele skal ende og begynde." },
+        { "taler": "vims", "tekst": "Alle er her. Det er rart. Undskyld, at jeg synes, det er rart." },
+        { "taler": "fortaeller", "tekst": "Fire historier er strandet her. Hver af dem mangler det vigtigste. Måske kan du hjælpe dem." }
+      ]
+    },
+    {
+      "id": "k7-prinsesse",
+      "type": "dialog",
+      "del": 1,
+      "sted": "halvelande",
+      "objekt": "prinsesse",
+      "opgavetekst": "Tal med prinsessen ved tårnet.",
+      "bruger": ["rimsten"],
+      "replikker": [
+        { "taler": "prinsesse", "tekst": "Endelig! Jeg har ventet i dette tårn i tre hundrede sider. Der kommer ingen prins." },
+        { "taler": "prinsesse", "tekst": "Så jeg har besluttet at redde mig selv. Men broen ned fra tårnet er kun halvt tegnet." },
+        { "taler": "rimfod", "tekst": "Min sten kan bære en bro, hvis du lægger den, hvor stregen stopper." },
+        { "taler": "fortaeller", "tekst": "Du lægger Rimfods sten for enden af den halve bro. Stregen bliver længere, og broen tegner sig færdig." },
+        { "taler": "prinsesse", "tekst": "Tak! Men mit eventyr mangler stadig noget. Jeg kan ikke huske, hvad et eventyr skal have. Hjælper du mig?" }
+      ]
+    },
+    {
+      "id": "k7-eventyr",
+      "type": "opgave",
+      "del": 1,
+      "sted": "halvelande",
+      "objekt": "prinsesse",
+      "opgavetekst": "Hjælp prinsessen med at finde det, et eventyr skal have.",
+      "mekanik": "genre",
+      "genre": "eventyr",
+      "faerdighed": "laes.forstaaelse",
+      "antal": 3
+    },
+    {
+      "id": "k7-lup",
+      "type": "dialog",
+      "del": 1,
+      "sted": "halvelande",
+      "objekt": "lup",
+      "opgavetekst": "Find Kommissær Lup.",
+      "replikker": [
+        { "taler": "prinsesse", "tekst": "Nu ved jeg det. Magi, prøver og en helt. Og helten er mig. Farvel, tårn!" },
+        { "taler": "lup", "tekst": "Hm. Hm, hm. Undskyld, jeg tænker. Jeg har tænkt i tolv år." },
+        { "taler": "lup", "tekst": "Jeg er Kommissær Lup. Min krimi mangler opklaringen. Jeg har sporene, men ingen ved, hvad en krimi er." },
+        { "taler": "fodnote", "tekst": "¹ En krimi uden opklaring er bare en historie om en, der er forvirret." }
+      ]
+    },
+    {
+      "id": "k7-krimi",
+      "type": "opgave",
+      "del": 1,
+      "sted": "halvelande",
+      "objekt": "lup",
+      "opgavetekst": "Hjælp Kommissær Lup med at finde det, en krimi skal have.",
+      "mekanik": "genre",
+      "genre": "krimi",
+      "faerdighed": "laes.forstaaelse",
+      "antal": 3
+    },
+    {
+      "id": "k7-grumsen",
+      "type": "dialog",
+      "del": 1,
+      "sted": "halvelande",
+      "objekt": "grumsen",
+      "opgavetekst": "Kig ind i det mørke hus.",
+      "replikker": [
+        { "taler": "lup", "tekst": "Opklaret! Det var gartneren. Det er altid ... nej, det var ikke gartneren. Men nu ved jeg, hvordan jeg finder ud af det." },
+        { "taler": "fortaeller", "tekst": "I det mørke hus sidder et stort monster med pels og hjemmesko. Det har tændt alle lamperne." },
+        { "taler": "grumsen", "tekst": "Hej. Jeg er Grumsen. Jeg skulle være monsteret i en gyser. Men jeg blev bange og gik hjem." },
+        { "taler": "grumsen", "tekst": "Nu er gyseren slet ikke uhyggelig. Den er bare en historie om et hus. Hvad gør en gyser uhyggelig?" }
+      ]
+    },
+    {
+      "id": "k7-gyser",
+      "type": "opgave",
+      "del": 1,
+      "sted": "halvelande",
+      "objekt": "grumsen",
+      "opgavetekst": "Hjælp Grumsen med at finde det, en gyser skal have.",
+      "mekanik": "genre",
+      "genre": "gyser",
+      "faerdighed": "laes.forstaaelse",
+      "antal": 3
+    },
+    {
+      "id": "k7-bip",
+      "type": "dialog",
+      "del": 1,
+      "sted": "halvelande",
+      "objekt": "bip",
+      "opgavetekst": "Find robotten Bip.",
+      "replikker": [
+        { "taler": "grumsen", "tekst": "Mørke, knirkende døre og noget ukendt. Brr. Jeg tør godt, hvis jeg holder lampen." },
+        { "taler": "bip", "tekst": "Bip. Goddag. Jeg er Bip. Jeg kommer fra en historie, der foregår i fremtiden." },
+        { "taler": "bip", "tekst": "Men min fremtid er gået i stå. Den ligner bare i dag. Hvad skal der til, for at det bliver science fiction?" }
+      ]
+    },
+    {
+      "id": "k7-sf",
+      "type": "opgave",
+      "del": 1,
+      "sted": "halvelande",
+      "objekt": "bip",
+      "opgavetekst": "Hjælp Bip med at finde det, science fiction skal have.",
+      "mekanik": "genre",
+      "genre": "sf",
+      "faerdighed": "laes.forstaaelse",
+      "antal": 3
+    },
+    {
+      "id": "k7-genrer-slut",
+      "type": "dialog",
+      "del": 1,
+      "sted": "halvelande",
+      "objekt": null,
+      "slutDel": 1,
+      "replikker": [
+        { "taler": "bip", "tekst": "Rumskibe, robotter og opfindelser. Min fremtid kører igen. Bip bip." },
+        { "taler": "fortaeller", "tekst": "Rundt om dig begynder De halve lande at tegne sig færdige. Træerne får toppe. Husene får fire vægge." },
+        { "taler": "aeseloere", "tekst": "Fire historier, der fik det, de manglede. Du er god til det her. Bedre, end du tror." }
+      ]
+    },
+    {
+      "id": "k7-fristelse",
+      "type": "dialog",
+      "del": 2,
+      "sted": "halvelande",
+      "objekt": "ufaerdige",
+      "opgavetekst": "Gå hen til den mørke skikkelse midt på vejen.",
+      "uhygge": true,
+      "moerke": true,
+      "tilbageblik": { "id": "soeskendet", "foer": 2 },
+      "replikker": [
+        { "taler": "fortaeller", "tekst": "Så bliver alt stille. Midt på vejen står Den Ufærdige." },
+        { "taler": "ufaerdige", "tekst": "Jeg kan give jer en slutning. Hver af jer. Alt, I skal gøre, er at gå med mig." },
+        { "taler": "ufaerdige", "tekst": "Vims. Du kan få en slutning, hvor du aldrig er bange." },
+        { "taler": "vims", "tekst": "Undskyld. Men nej. Jeg er bange sammen med mine venner. Det er bedre." },
+        { "taler": "ufaerdige", "tekst": "Fodnote. Du kan få en slutning øverst på siden." },
+        { "taler": "fodnote", "tekst": "¹ Nej tak. Alt det vigtige står nederst." },
+        {
+          "taler": "ufaerdige",
+          "tekst": "Klatten. Du har aldrig fået en slutning. Jeg kan give dig en.",
+          "hvis": {
+            "venlighed": 1
+          }
+        },
+        {
+          "taler": "klatten",
+          "tekst": "Den Frygtelige har allerede en slutning. Den hedder venner. Den er frygtelig god.",
+          "hvis": {
+            "venlighed": 1
+          }
+        },
+        { "taler": "ufaerdige", "tekst": "Bogmærke. Jeg kan glatte dig ud. Det er det, du altid har ønsket." },
+        {
+          "taler": "aeseloere",
+          "tekst": "Det er sandt. Men jeg vil hellere glattes ud sammen med den, der tilgav mig.",
+          "hvis": {
+            "valg": "aeseloere.tilgivet"
+          }
+        },
+        {
+          "taler": "aeseloere",
+          "tekst": "Jeg ... undskyld. Jeg kommer tilbage. Det lover jeg.",
+          "hvis": {
+            "ikkeValg": "aeseloere.tilgivet"
+          }
+        },
+        {
+          "taler": "fortaeller",
+          "tekst": "Æseløre flyver hen til Den Ufærdige. Han kigger ikke på dig.",
+          "hvis": {
+            "ikkeValg": "aeseloere.tilgivet"
+          }
+        },
+        { "taler": "ufaerdige", "tekst": "Så er I færre. Vi ses på den sidste side." }
+      ]
+    },
+    {
+      "id": "k7-kamp",
+      "type": "kamp",
+      "del": 2,
+      "sted": "halvelande",
+      "objekt": "ufaerdige",
+      "opgavetekst": "Stå imod Den Ufærdiges væsner.",
+      "vaesen": "tvivl",
+      "vaesner": ["tvivl", "krusedulle", "tomordet"],
+      "slag": ["fortaeller", "ret", "synonym"],
+      "faerdighed": "laes.forstaaelse",
+      "antal": 5,
+      "hjaelper": "vims",
+      "klatten": {
+        "venlighed": 1
+      },
+      "holdHvis": {
+        "aeseloere": {
+          "valg": "aeseloere.tilgivet"
+        }
+      }
+    },
+    {
+      "id": "k7-kamp-slut",
+      "type": "dialog",
+      "del": 2,
+      "sted": "halvelande",
+      "objekt": null,
+      "replikker": [
+        { "taler": "fortaeller", "tekst": "Væsnerne falder til ro, og Den Ufærdige glider væk mellem de halve træer." },
+        {
+          "taler": "vims",
+          "tekst": "Vi klarede det. Også selvom vi var færre. Undskyld, at jeg siger det højt.",
+          "hvis": {
+            "ikkeValg": "aeseloere.tilgivet"
+          }
+        },
+        {
+          "taler": "aeseloere",
+          "tekst": "Du stod helt fast. Jeg var stolt. Det må du ikke sige til nogen.",
+          "hvis": {
+            "valg": "aeseloere.tilgivet"
+          }
+        },
+        {
+          "taler": "fodnote",
+          "tekst": "¹ Han er ikke væk for altid. Ingen er væk for altid i en god historie.",
+          "hvis": {
+            "ikkeValg": "aeseloere.tilgivet"
+          }
+        }
+      ]
+    },
+    {
+      "id": "k7-slut",
+      "type": "dialog",
+      "del": 2,
+      "sted": "halvelande",
+      "objekt": "rimfod",
+      "opgavetekst": "Tal med Rimfod.",
+      "slutKapitel": true,
+      "replikker": [
+        { "taler": "rimfod", "tekst": "Bag De halve lande ligger den sidste side. Den er tom, og den er din." },
+        { "taler": "fortaeller", "tekst": "Du tager det grønne hæfte frem. Den sidste side er stadig tom. Men den venter på dig." },
+        {
+          "taler": "klatten",
+          "tekst": "Jeg går med til den sidste side. Den Frygtelige vil ikke gå glip af slutningen.",
+          "hvis": {
+            "venlighed": 1
+          }
+        },
+        {
+          "taler": "fortaeller",
+          "tekst": "Du savner Æseløre. Men du ved, at han kommer tilbage.",
+          "hvis": {
+            "ikkeValg": "aeseloere.tilgivet"
+          }
+        }
+      ]
+    }
+  ],
+  "missioner": {
+    "lupsspor": {
+      "giver": "lup",
+      "blade": ["spor1", "spor2", "spor3"],
+      "skaar": "k7a",
+      "antal": 3,
+      "art": "genre",
+      "titel": "Kommissær Lups gamle sag",
+      "intro": "Kommissær Lup sorterer sine gamle sager. Hjælp ham med at finde genren, eller det, der hører til en genre.",
+      "start": [
+        { "taler": "lup", "tekst": "Hm. Jeg har en gammel sag, der aldrig blev løst. Tre spor af blæk er forsvundet i De halve lande." },
+        { "taler": "lup", "tekst": "Find de tre spor for mig. Så kan vi se, hvor de fører hen." }
+      ],
+      "mangler": [
+        { "taler": "lup", "tekst": "Har du fundet sporene? Små fodaftryk af blæk. Kig efter dem." }
+      ],
+      "klar": [
+        { "taler": "lup", "tekst": "Tre spor! De fører til min gamle kasse med sager. Hjælp mig med at sortere dem efter genre." }
+      ],
+      "faerdig": [
+        { "taler": "lup", "tekst": "Sagen er opklaret. Sporene var dine egne. Du har gået her før, for længe siden." },
+        { "taler": "fortaeller", "tekst": "Nederst i kassen ligger en lille, lysende papirstump. Det er et hukommelsesskår." }
+      ],
+      "efter": [
+        { "taler": "lup", "tekst": "Hm. Godt arbejde. Jeg har lavet en mappe til dig. Den er tom endnu." }
+      ]
+    }
+  }
+}

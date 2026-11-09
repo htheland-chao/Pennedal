@@ -1,5 +1,6 @@
 import type { Betingelse } from '../engine/betingelse';
 import type { FejlType, KorrekturTekst } from '../mechanics/korrektur';
+import type { Genre, GenreData } from '../mechanics/genre';
 import da from './tekster/da.json';
 import kapitel1Data from './kapitler/kapitel1.json';
 import kapitel2Data from './kapitler/kapitel2.json';
@@ -13,6 +14,8 @@ import kapitel4Data from './kapitler/kapitel4.json';
 import rimData from './ord/rim.json';
 import fortaellerData from './ord/fortaeller.json';
 import korrekturJson from './ord/korrektur.json';
+import genreJson from './ord/genre.json';
+import kapitel7Data from './kapitler/kapitel7.json';
 import kapitel6Data from './kapitler/kapitel6.json';
 import kapitel5Data from './kapitler/kapitel5.json';
 import ordkortData from './ordkort.json';
@@ -35,7 +38,7 @@ export function harTekst(id: string): id is TekstId {
   return id in da;
 }
 
-export type Taler = 'holm' | 'aeseloere' | 'klatten' | 'lanterne' | 'fortaeller' | 'portvagt' | 'raaber' | 'borgmester' | 'ufaerdige' | 'vims' | 'tomordet' | 'stumming' | 'halvfugl' | 'rimfod' | 'ekko' | 'fodnote' | 'tvivl' | 'snegl';
+export type Taler = 'holm' | 'aeseloere' | 'klatten' | 'lanterne' | 'fortaeller' | 'portvagt' | 'raaber' | 'borgmester' | 'ufaerdige' | 'vims' | 'tomordet' | 'stumming' | 'halvfugl' | 'rimfod' | 'ekko' | 'fodnote' | 'tvivl' | 'snegl' | 'prinsesse' | 'lup' | 'grumsen' | 'bip';
 
 /** En replik. Med hvis vises den kun, når betingelsen er opfyldt (src/engine/betingelse.ts). */
 export type Replik = { taler: Taler; tekst: string; bevidstFejl?: boolean; hvis?: Betingelse };
@@ -55,6 +58,8 @@ export type StedObjekt = {
   skjulFra?: string;
   /** Objektet er skjult, indtil kapitlet når dette trin. */
   visFra?: string;
+  /** Objektet er kun på kortet, når betingelsen er opfyldt (fx Klatten, hvis eleven har været venlig). */
+  hvis?: Betingelse;
   /** Pynt: byens folk, der står og snakker. Man kan ikke undersøge dem. */
   snakker?: boolean;
   /** Objektet lyser om natten, fx en lanterne. */
@@ -84,7 +89,7 @@ export type Udflugt = {
 };
 
 /** De slags ordopgaver, som ordsten og sidemissioner kan bruge. */
-export type OrdOpgaveArt = 'synonym' | 'rim' | 'ikkerim' | 'fortaeller' | 'stavning';
+export type OrdOpgaveArt = 'synonym' | 'rim' | 'ikkerim' | 'fortaeller' | 'stavning' | 'genre';
 
 /** En sidemission: find bladene, og hjælp den, der gav missionen, med en opgave. Belønningen er et hukommelsesskår. */
 export type Mission = {
@@ -116,7 +121,7 @@ export type Sted = {
   /** Replikker, der vises, når man kommer til stedet, fx Æseløre, der forklarer en bane. Er ikke et trin. */
   intro?: Replik[];
   /** Platformbane: hvilken slags opgave ordstenene giver. Uden feltet: synonymer. */
-  ordsten?: 'synonym' | 'rim' | 'fortaeller' | 'stavning';
+  ordsten?: 'synonym' | 'rim' | 'fortaeller' | 'stavning' | 'genre';
   /** Stedet er en frivillig udflugt (se Udflugt). */
   udflugt?: Udflugt;
   objekter: StedObjekt[];
@@ -168,13 +173,17 @@ export type KampTrin = FaellesTrin & {
   hold?: ('aeseloere' | 'vims')[];
   /** Klatten kommer med på holdet, når betingelsen er opfyldt (kapitel 6: venlig mod ham). */
   klatten?: Betingelse;
+  /** Hjælpere, der kun er med, når betingelsen er opfyldt (kapitel 7: Æseløre, hvis eleven tilgav ham). */
+  holdHvis?: { aeseloere?: Betingelse; vims?: Betingelse };
   /** De slags slag, avataren kan bruge. Uden feltet: alle. */
   slag?: ('synonym' | 'stumt' | 'rim' | 'fortaeller' | 'ret')[];
 };
 export type SkiftTrin = FaellesTrin & { type: 'skift'; tilSted: string };
 export type OpgaveTrin = FaellesTrin & {
   type: 'opgave';
-  mekanik: 'hviske' | 'ogorm' | 'historiebro' | 'raaber' | 'rim' | 'synsvinkel' | 'korrektur';
+  mekanik: 'hviske' | 'ogorm' | 'historiebro' | 'raaber' | 'rim' | 'synsvinkel' | 'korrektur' | 'genre';
+  /** Kun genreopgaver (kapitel 7): den genre, opgaven handler om. */
+  genre?: Genre;
   faerdighed: string;
   antal: number;
 };
@@ -234,6 +243,8 @@ export type Kapitel = {
   titel: string;
   /** Æseløre er først med fra dette trin (i kapitel 1 flyver han ud af skuffen). Uden feltet er han med fra start. */
   fuglFra?: string;
+  /** Æseløre går fra dette trin og resten af kapitlet, hvis betingelsen er opfyldt (kapitel 7: ikke tilgivet). */
+  fuglVaek?: { fra: string; hvis: Betingelse };
   steder: Record<string, Sted>;
   trin: Trin[];
   /** Sidemissioner i kapitlet (frivillige). */
@@ -241,7 +252,7 @@ export type Kapitel = {
 };
 
 // JSON giver tal-lister som number[]. Testene i kapitel.test.ts tjekker, at felterne har to tal.
-export const kapitler: Kapitel[] = [kapitel1Data, kapitel2Data, kapitel3Data, kapitel4Data, kapitel5Data, kapitel6Data].map((k) => k as unknown as Kapitel);
+export const kapitler: Kapitel[] = [kapitel1Data, kapitel2Data, kapitel3Data, kapitel4Data, kapitel5Data, kapitel6Data, kapitel7Data].map((k) => k as unknown as Kapitel);
 
 export function hentKapitel(nr: number): Kapitel | undefined {
   return kapitler.find((k) => k.kapitel === nr);
@@ -268,6 +279,9 @@ export type Synonym = { id: string; ord: string; saetning: string; svar: string;
 export const synonymer = synonymData as { faerdighed: string; ord: Synonym[] };
 /** Fortæller og synsvinkel (kapitel 5, Fodnoternes kælder). */
 /** Klattens tekster med stavefejl (kapitel 6): regler og eksempler pr. slags fejl. */
+/** Genrerne i De halve lande (kapitel 7). */
+export const genreData = genreJson as unknown as GenreData;
+
 export const korrekturData = korrekturJson as unknown as {
   regler: Record<FejlType, string>;
   eksempler: Record<FejlType, string>;

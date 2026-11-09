@@ -42,6 +42,12 @@ export function partiklerFor(tema: string): { art: PartikelArt; antal: number }[
       return [{ art: 'ildflue', antal: 14 }];
     case 'hytte':
       return [{ art: 'stoev', antal: 10 }];
+    case 'halve':
+      // De halve lande (kapitel 7): papirblade og fnug af viskelæder i luften.
+      return [
+        { art: 'blad', antal: 6 },
+        { art: 'fnug', antal: 10 },
+      ];
     case 'arkiv':
       // Fodnoternes kælder (kapitel 5): mere støv, gamle papirer.
       return [{ art: 'stoev', antal: 26 }];
@@ -106,6 +112,8 @@ export function stedTone(tema: string, mindreUhygge: boolean): [number, number, 
       return [234, 230, 242];
     case 'hytte':
       return [255, 236, 210];
+    case 'halve':
+      return [242, 238, 250];
     default:
       return null;
   }

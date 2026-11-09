@@ -27,7 +27,7 @@ export const SCENER: Scene[] = [
   { id: 'regn', tekst: 'intro.1' },
   { id: 'skuffe', tekst: 'intro.2' },
   { id: 'land', tekst: 'intro.3' },
-  { id: 'moerke', tekst: 'intro.4', hvisken: 'intro.4.hvisken' },
+  { id: 'moerke', tekst: 'intro.4' },
   { id: 'kaelder', tekst: 'intro.5', slut: 'intro.5.slut' },
   { id: 'titel' },
 ];

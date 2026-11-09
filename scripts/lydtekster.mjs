@@ -100,7 +100,6 @@ export function alleLydtekster(stemmer = hentStemmer()) {
   // Introen (src/ui/Intro.tsx).
   for (const id of ['intro.1', 'intro.2', 'intro.3', 'intro.4', 'intro.5', 'intro.5.slut'])
     tilfoej('fortaeller', t(id), `Introen / ${id}`);
-  tilfoej('ufaerdige', t('intro.4.hvisken'), 'Introen / intro.4.hvisken');
 
   // Minderne (src/ui/Tilbageblik.tsx, teksterne i src/content/minder.ts): hver del er et klip, også de milde udgaver.
   for (const id of Object.keys(da).filter((k) => /^minde\.\w+\.\d+(\.mild)?$/.test(k)))
@@ -184,6 +183,18 @@ export function alleLydtekster(stemmer = hentStemmer()) {
   tilfoej('aeseloere', `${t('feedback.eksempel')}: ${t('korrektur.find.eksempel')}`, 'Beskeder / korrektur.find.eksempel');
   for (const id of ['kamp.klatten.ingen', 'korrektur.klatten.1', 'korrektur.klatten.2', 'korrektur.klatten.3', 'korrektur.klatten.4'])
     tilfoej('klatten', t(id), `Kampe og opgaver / ${id}`);
+
+  // Genrerne (kapitel 7): tekststykkerne, spørgsmålene, reglerne og eksemplerne.
+  const gen = laes('ord/genre.json');
+  for (const x of gen.tekster) tilfoej('fortaeller', x.tekst, `Genrer / ${x.id}`);
+  tilfoej('fortaeller', t('genre.klassificer'), 'Opgaver / genre.klassificer');
+  for (const [g, navn] of Object.entries(gen.navne)) {
+    tilfoej('fortaeller', t('genre.kendetegn', { genre: navn.toLowerCase() }), `Opgaver / genre.kendetegn.${g}`);
+    tilfoej('aeseloere', `${t('feedback.regel')}: ${gen.regler[g]}`, `Beskeder / genre.regel.${g}`);
+    tilfoej('aeseloere', `${t('feedback.eksempel')}: ${gen.eksempler[g]}`, `Beskeder / genre.eksempel.${g}`);
+  }
+  tilfoej('aeseloere', `${t('feedback.regel')}: ${t('genre.regel')}`, 'Beskeder / genre.regel');
+  tilfoej('aeseloere', `${t('feedback.eksempel')}: ${t('genre.eksempel')}`, 'Beskeder / genre.eksempel');
 
   for (const h of laes('ord/historiebro.json').historier) {
     for (const [traek, tekst] of Object.entries(h.planker)) tilfoej('fortaeller', tekst, `Historiebroen / ${h.id}.${traek}`);

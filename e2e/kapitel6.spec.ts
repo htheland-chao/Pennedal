@@ -12,7 +12,7 @@ const BILLEDER = 'test-results/skaermbilleder';
 async function laesDialog(page: Page) {
   const dialog = page.locator('dialog.dialogboks');
   await dialog.waitFor({ state: 'visible', timeout: 10_000 }).catch(() => undefined);
-  for (let i = 0; i < 20 && (await dialog.isVisible()); i++) {
+  for (let i = 0; i < 60 && (await dialog.isVisible()); i++) {
     await dialog
       .getByRole('button', { name: 'Videre' })
       .click({ timeout: 3_000 })

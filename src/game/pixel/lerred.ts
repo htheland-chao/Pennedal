@@ -372,7 +372,7 @@ export type Belysning = 'nat' | 'morgen' | 'moerke' | 'dag';
 export function belysning(tema: string): Belysning {
   if (tema === 'bibliotek' || tema === 'hytte') return 'morgen';
   if (tema === 'kaelder' || tema === 'trykkeri' || tema === 'arkiv') return 'moerke';
-  if (tema === 'eng' || tema === 'torv' || tema === 'smoeger' || tema === 'viskeskov') return 'dag';
+  if (tema === 'eng' || tema === 'torv' || tema === 'smoeger' || tema === 'viskeskov' || tema === 'halve') return 'dag';
   return 'nat';
 }
 export function lysOpsaetning(b: Belysning, mindreUhygge: boolean): { tone: Farve; spillerLys: number } {
@@ -425,6 +425,37 @@ export function blegt(c: HTMLCanvasElement, maengde = 0.6): HTMLCanvasElement {
     const lys = graa * 0.7 + 236 * 0.3;
     for (let k = 0; k < 3; k++) p[i + k] = Math.round(p[i + k] * (1 - maengde) + lys * maengde);
   }
+  g.putImageData(d, 0, 0);
+  return c;
+}
+
+/**
+ * De halve lande (kapitel 7): store pletter af billedet er kun tegnet med blyant. Inde i en plet bliver
+ * farverne til papir, og kun de mørke kanter står tilbage som streger. Pletterne følger glat støj, så kanterne er bløde.
+ */
+export function halvtTegnet(c: HTMLCanvasElement, andel = 0.45): HTMLCanvasElement {
+  const g = c.getContext('2d')!;
+  const d = g.getImageData(0, 0, c.width, c.height);
+  const p = d.data;
+  const W = c.width;
+  const lum = (i: number) => p[i] * 0.3 + p[i + 1] * 0.59 + p[i + 2] * 0.11;
+  const kopi = new Float32Array(c.width * c.height);
+  for (let i = 0, j = 0; i < p.length; i += 4, j++) kopi[j] = lum(i);
+  for (let y = 0; y < c.height; y++)
+    for (let x = 0; x < W; x++) {
+      const v = glatStoej(x, y, 64, 3);
+      if (v > andel + 0.08) continue;
+      const i = (y * W + x) * 4;
+      const l = kopi[y * W + x];
+      const kant = Math.abs(l - (kopi[y * W + Math.min(W - 1, x + 1)] ?? l)) + Math.abs(l - (kopi[Math.min(c.height - 1, y + 1) * W + x] ?? l));
+      // Overgangen: en smal stribe, hvor kun hver anden pixel er tegnet om (dither).
+      if (v > andel && (x + y) % 2 === 0) continue;
+      const streg = kant > 70 || l < 35;
+      const f = streg ? [92, 86, 112] : hash(x >> 1, y >> 1) > 0.97 ? [214, 210, 224] : [236, 232, 242];
+      p[i] = f[0];
+      p[i + 1] = f[1];
+      p[i + 2] = f[2];
+    }
   g.putImageData(d, 0, 0);
   return c;
 }
