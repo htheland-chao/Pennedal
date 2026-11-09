@@ -95,7 +95,86 @@ function mur(kort: Kort, tx: number, ty: number, X: number, Y: number, py: numbe
   return hash(Math.floor((X + (rk % 2) * 5) / 10), rk) < 0.5 ? MURSTEN.a : MURSTEN.b;
 }
 
-/** Jorden under hele kortet: græs, skovbund og sti. Tegnes én gang pr. sted. */
+/** Glat støj 0-1: hash på et gitter med afstanden trin, blødt blandet imellem. Giver bløde, ens kanter hver gang. */
+export function glatStoej(x: number, y: number, trin: number, saed = 0): number {
+  const gx = Math.floor(x / trin);
+  const gy = Math.floor(y / trin);
+  const fx = x / trin - gx;
+  const fy = y / trin - gy;
+  const sx = fx * fx * (3 - 2 * fx);
+  const sy = fy * fy * (3 - 2 * fy);
+  const h = (a: number, b: number) => hash(a + saed * 101, b - saed * 57);
+  const o = h(gx, gy) + (h(gx + 1, gy) - h(gx, gy)) * sx;
+  const u = h(gx, gy + 1) + (h(gx + 1, gy + 1) - h(gx, gy + 1)) * sx;
+  return o + (u - o) * sy;
+}
+
+/** Natur, hvor kanterne må flyde: græs, blomstergræs og skovbund. Huse, mure, sten og vand har skarpe kanter. */
+const erNatur = (c: string) => c === ',' || c === ';' || c === '#';
+
+/** Afstand fra et punkt i et stifelt (u, v fra feltets midte) til stiens midterlinje mod nabofelterne. */
+function stiAfstand(u: number, v: number, op: boolean, ned: boolean, venstre: boolean, hoejre: boolean): number {
+  let d = Math.hypot(u, v);
+  if (op && v < 0) d = Math.min(d, Math.abs(u));
+  if (ned && v > 0) d = Math.min(d, Math.abs(u));
+  if (venstre && u < 0) d = Math.min(d, Math.abs(v));
+  if (hoejre && u > 0) d = Math.min(d, Math.abs(v));
+  return d;
+}
+
+type RGB = [number, number, number];
+const STEN = { a: hx('#8f8a80'), b: hx('#6f6a62'), lys: hx('#b3ab9e') };
+const TUE = { m: hx('#2f6448'), l: hx('#6fb585') };
+const SVAMP = { hat: hx('#c0503e'), prik: hx('#f4efe0'), fod: hx('#e0d6be') };
+const KVIST = hx('#6b4a2b');
+const MOS = hx('#5a7a4a');
+
+/**
+ * Små ting på jorden (Henrik, 9. november 2026): sten, tuer, blomster, svampe og kviste på græsset,
+ * mos og revner mellem brostenene. Tegnes én gang ind i jorden, så de koster intet, mens man spiller.
+ * Hver ting er et lille stempel. Placeringen kommer fra hash, så den er ens hver gang.
+ */
+const STEMPLER: { kort: string[]; farver: Record<string, RGB> }[] = [
+  // Sten med lys side til venstre.
+  { kort: ['.lb.', 'lab', '.bb'], farver: { l: STEN.lys, a: STEN.a, b: STEN.b } },
+  { kort: ['la', 'ab'], farver: { l: STEN.lys, a: STEN.a, b: STEN.b } },
+  // Græstuer.
+  { kort: ['l.l', 'mlm', '.m.'], farver: { l: TUE.l, m: TUE.m } },
+  { kort: ['.l..l', 'l.lm.', 'mmlmm'], farver: { l: TUE.l, m: TUE.m } },
+  // Svamp.
+  { kort: ['.hh.', 'hphh', '.ff.'], farver: { h: SVAMP.hat, p: SVAMP.prik, f: SVAMP.fod } },
+  // Kvist.
+  { kort: ['k...', '.kk.', '...k'], farver: { k: KVIST } },
+];
+
+function stempl(p: Uint8ClampedArray, W: number, H: number, x0: number, y0: number, s: (typeof STEMPLER)[number]) {
+  s.kort.forEach((r, y) => {
+    for (let x = 0; x < r.length; x++) {
+      const c = s.farver[r[x]];
+      if (!c) continue;
+      const X = x0 + x;
+      const Y = y0 + y;
+      if (X < 0 || Y < 0 || X >= W || Y >= H) continue;
+      const o = (Y * W + X) * 4;
+      p[o] = c[0];
+      p[o + 1] = c[1];
+      p[o + 2] = c[2];
+    }
+  });
+}
+
+/** Mørkere: bruges til skygger. */
+function moerkn(p: Uint8ClampedArray, o: number, f: number) {
+  p[o] = p[o] * f;
+  p[o + 1] = p[o + 1] * f;
+  p[o + 2] = p[o + 2] * f;
+}
+
+/**
+ * Jorden under hele kortet: græs, skovbund, sti, brosten, huse og mure. Tegnes én gang pr. sted.
+ * Kanterne mellem græs og skov flyder (feltet aflæses lidt forskudt med glat støj), stien har runde hjørner
+ * og en kant, der bølger lidt, og huse og mure kaster en skygge mod højre (lyset kommer fra venstre).
+ */
 export function tegnGrund(kort: Kort): HTMLCanvasElement {
   const W = kort.bredde * FELT;
   const H = kort.hoejde * FELT;
@@ -107,38 +186,122 @@ export function tegnGrund(kort: Kort): HTMLCanvasElement {
   for (let ty = 0; ty < kort.hoejde; ty++)
     for (let tx = 0; tx < kort.bredde; tx++) {
       const c0 = kort.tegn(tx, ty);
-      const skov = c0 === '#';
+      const sTi = sti(tx, ty);
+      const naboer = sTi ? [sti(tx, ty - 1), sti(tx, ty + 1), sti(tx - 1, ty), sti(tx + 1, ty)] : null;
       for (let py = 0; py < FELT; py++)
         for (let px = 0; px < FELT; px++) {
           const X = tx * FELT + px;
           const Y = ty * FELT + py;
           const r = hash(X, Y);
+          // Naturens kanter flyder: læs feltet lidt forskudt.
+          let cn = c0;
+          if (erNatur(c0)) {
+            const wx = X + Math.round((glatStoej(X, Y, 7, 1) - 0.5) * 9);
+            const wy = Y + Math.round((glatStoej(X, Y, 7, 2) - 0.5) * 9);
+            const cw = kort.tegn(Math.floor(wx / FELT), Math.floor(wy / FELT));
+            if (erNatur(cw)) cn = cw;
+          }
+          const skov = cn === '#';
           let col = skov ? SKOV[r < 0.7 ? 0 : r < 0.85 ? 1 : 2] : GRAES[r < 0.72 ? 0 : Math.min(3, Math.floor(((r - 0.72) / 0.28) * 3) + 1)];
           if (!skov && (hash(X, Y + 1) > 0.985 || hash(X, Y + 2) > 0.985)) col = STRAA;
-          if (c0 === ';' && hash(X >> 1, Y >> 1) > 0.93) col = BLOMST[Math.floor(hash(X >> 1, (Y >> 1) + 7) * BLOMST.length)];
+          // Lys og mørke pletter i græsset, så det ikke er en ensartet flade.
+          if (!skov && erNatur(c0)) {
+            const pl = glatStoej(X, Y, 12, 3);
+            if (pl > 0.72 && r < 0.5) col = GRAES[3];
+            else if (pl < 0.25 && r < 0.5) col = GRAES[2];
+          }
+          if (cn === ';' && hash(X >> 1, Y >> 1) > 0.93) col = BLOMST[Math.floor(hash(X >> 1, (Y >> 1) + 7) * BLOMST.length)];
           if (erBrosten(c0)) col = brosten(X, Y, r, c0 === ':' && hash(tx * 3, ty * 5 + (X >> 2)) > 0.55 && (px - 8) ** 2 + (py - 8) ** 2 < 20);
           if (c0 === 'H') col = hus(kort, tx, ty, px, py, r);
           if (c0 === 'w') col = mur(kort, tx, ty, X, Y, py);
           if (c0 === 'f') col = brosten(X, Y, r, false);
-          if (sti(tx, ty)) {
-            const u = px - 7.5;
-            const v = py - 7.5;
-            const inde = (w: number) =>
-              (Math.abs(u) < w && Math.abs(v) < w) ||
-              (Math.abs(u) < w && ((v < 0 && sti(tx, ty - 1)) || (v > 0 && sti(tx, ty + 1)))) ||
-              (Math.abs(v) < w && ((u < 0 && sti(tx - 1, ty)) || (u > 0 && sti(tx + 1, ty))));
-            if (inde(5)) col = r < 0.06 ? STI.k : r > 0.95 ? STI.l : r < 0.16 ? STI.m : STI.f;
-            else if (inde(6.2)) col = STI.k;
+          if (naboer) {
+            // Stien: runde hjørner og en kant, der bølger lidt.
+            const d = stiAfstand(px - 7.5, py - 7.5, naboer[0], naboer[1], naboer[2], naboer[3]);
+            const b = 4.6 + (glatStoej(X, Y, 5, 4) - 0.5) * 3.4;
+            if (d < b) col = r < 0.06 ? STI.k : r > 0.95 ? STI.l : r < 0.16 ? STI.m : STI.f;
+            else if (d < b + 1.1) col = STI.k;
+            else if (d < b + 2 && r < 0.5) col = STI.m;
           }
           const o = (Y * W + X) * 4;
           p[o] = col[0];
           p[o + 1] = col[1];
           p[o + 2] = col[2];
           p[o + 3] = 255;
+          // Skygge fra huse og mure mod højre.
+          const venstre = kort.tegn(tx - 1, ty);
+          if ((venstre === 'H' || venstre === 'w') && c0 !== 'H' && c0 !== 'w') {
+            if (px < 3 || (px < 5 && (X + Y) % 2 === 0)) moerkn(p, o, 0.72);
+          }
         }
+    }
+
+  // Små ting på græsset og mellem brostenene.
+  for (let ty = 0; ty < kort.hoejde; ty++)
+    for (let tx = 0; tx < kort.bredde; tx++) {
+      const c0 = kort.tegn(tx, ty);
+      const a = hash(tx * 31 + 5, ty * 17 + 3);
+      const b = hash(tx * 13 + 9, ty * 29 + 1);
+      if (c0 === ',' || c0 === ';') {
+        // Højst én ting pr. felt, og ikke i alle felter.
+        if (a < 0.6) {
+          const i = b < 0.3 ? 2 : b < 0.5 ? 3 : b < 0.72 ? 0 : b < 0.86 ? 1 : b < 0.94 ? 5 : 4;
+          stempl(p, W, H, tx * FELT + 2 + Math.floor(hash(tx, ty + 99) * 10), ty * FELT + 2 + Math.floor(hash(tx + 99, ty) * 10), STEMPLER[i]);
+        }
+      } else if (erBrosten(c0) && a < 0.35) {
+        // Mos i fugerne.
+        for (let k = 0; k < 6; k++) {
+          const X = tx * FELT + Math.floor(hash(tx * 7 + k, ty) * 16);
+          const Y = ty * FELT + Math.floor(hash(tx, ty * 7 + k) * 16);
+          const o = (Y * W + X) * 4;
+          if (p[o] === BROSTEN.fuge[0] && p[o + 1] === BROSTEN.fuge[1]) {
+            p[o] = MOS[0];
+            p[o + 1] = MOS[1];
+            p[o + 2] = MOS[2];
+          }
+        }
+      }
     }
   g.putImageData(img, 0, 0);
   return c;
+}
+
+/** Hvor træerne står på kortet. Bruges både til at tegne træerne og til deres skygger. */
+export function traePladser(kort: Kort): { x: number; y: number; nr: number }[] {
+  const ud: { x: number; y: number; nr: number }[] = [];
+  for (let ty = 0; ty < kort.hoejde; ty++)
+    for (let tx = 0; tx < kort.bredde; tx++) {
+      if (kort.tegn(tx, ty) !== '#') continue;
+      const a = hash(tx * 7 + 3, ty * 13 + 1);
+      const b = hash(tx * 5 + 1, ty * 3 + 7);
+      ud.push({ x: tx * FELT + 8 + (a - 0.5) * 8, y: ty * FELT + 13 + (b - 0.5) * 6, nr: Math.floor(a * 4) });
+      if (b > 0.55) ud.push({ x: tx * FELT + 8 + (b - 0.5) * 14, y: ty * FELT + 4 + a * 4, nr: Math.floor(b * 3) });
+    }
+  return ud;
+}
+
+/** Bløde skygger under træerne, skråt mod højre. Midten er mørkest, kanten er ditheret. */
+export function tegnTraeskygger(c: HTMLCanvasElement, kort: Kort, bredder: number[]) {
+  const g = c.getContext('2d')!;
+  const img = g.getImageData(0, 0, c.width, c.height);
+  const p = img.data;
+  for (const t of traePladser(kort)) {
+    const rx = Math.round(bredder[t.nr] * 0.55);
+    const ry = Math.max(2, Math.round(rx * 0.45));
+    const cx = Math.round(t.x + 3);
+    const cy = Math.round(t.y - 1);
+    for (let y = -ry; y <= ry; y++)
+      for (let x = -rx; x <= rx; x++) {
+        const d = (x / rx) ** 2 + (y / ry) ** 2;
+        if (d > 1) continue;
+        const X = cx + x;
+        const Y = cy + y;
+        if (X < 0 || Y < 0 || X >= c.width || Y >= c.height) continue;
+        if (d > 0.6 && (X + Y) % 2 === 1) continue;
+        moerkn(p, (Y * c.width + X) * 4, 0.78);
+      }
+  }
+  g.putImageData(img, 0, 0);
 }
 
 /** Vandet i tre billeder, der skifter, så det ser ud til at bevæge sig. Månerne spejler sig i felterne med M. */
@@ -260,5 +423,49 @@ export function blegt(c: HTMLCanvasElement, maengde = 0.6): HTMLCanvasElement {
     for (let k = 0; k < 3; k++) p[i + k] = Math.round(p[i + k] * (1 - maengde) + lys * maengde);
   }
   g.putImageData(d, 0, 0);
+  return c;
+}
+
+/** Partiklernes små billeder, to rammer pr. art (den anden bruges til blade, der vender sig, og store fnug). */
+export function partikelBilleder(art: string): [HTMLCanvasElement, HTMLCanvasElement] {
+  const t = (raekker: string[], palet: Record<string, string>) => tegnkortTilLerred({ raekker, palet });
+  switch (art) {
+    case 'ildflue': {
+      const c = t(['.g.', 'gYg', '.g.'], { Y: '#fff6b0', g: 'rgba(232, 216, 74, 0.55)' });
+      return [c, c];
+    }
+    case 'blad':
+      return [t(['PPp', '.pp'], { P: '#f4efe0', p: '#b9bfcf' }), t(['Pp', 'pp'], { P: '#f4efe0', p: '#b9bfcf' })];
+    case 'fnug':
+      return [t(['W'], { W: '#f8f8fc' }), t(['.W.', 'WwW', '.W.'], { W: 'rgba(248, 248, 252, 0.8)', w: '#ffffff' })];
+    case 'pollen': {
+      const c = t(['Y'], { Y: '#f0d870' });
+      return [c, c];
+    }
+    default: {
+      const c = t(['S'], { S: '#efe6d4' });
+      return [c, c];
+    }
+  }
+}
+
+/** Vignetten til lyslaget: hvid i midten, mørkere mod hjørnerne i 4 trin med dither. Ganges på lyset. */
+export function lavVignet(w: number, h: number, styrke: number): HTMLCanvasElement {
+  const c = lerred(w, h);
+  const g = c.getContext('2d')!;
+  const img = g.createImageData(w, h);
+  const p = img.data;
+  for (let y = 0; y < h; y++)
+    for (let x = 0; x < w; x++) {
+      const d = Math.hypot((x + 0.5 - w / 2) / (w / 2), (y + 0.5 - h / 2) / (h / 2));
+      const s = lysTrin(Math.min(1, Math.max(0, (d - 0.62) / 0.6)), x, y);
+      const v = Math.round(255 * (1 - styrke * s));
+      const o = (y * w + x) * 4;
+      p[o] = v;
+      p[o + 1] = v;
+      p[o + 2] = Math.min(255, v + Math.round(styrke * s * 18));
+      p[o + 3] = 255;
+    }
+  g.putImageData(img, 0, 0);
   return c;
 }

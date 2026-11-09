@@ -4,8 +4,10 @@ import type { StedObjekt } from '../content';
 import type { Avatar } from '../engine/gem';
 import { erFastTegn, FELT, feltMidte, feltVed, felterVed, findVej, laesKort, type Felt, type Kort } from './kort';
 import { bordflade, erInde, HOLM, KARTOTEK, KASSE, LOGBOG, PLANTE, PORT, PRESSE, reol, SPRINGVAND, STIGE, tegnRum, trappe, vindueslys } from './pixel/inde';
-import { belysning, blegt, hash, lavLys, lavSkygge, lysOpsaetning, tegnGrund, tegnkortTilLerred, tegnVand, VARMT, type Farve } from './pixel/lerred';
-import { avatarPixel, BLADE, FUGL, fyrtaarn, KLATTEN, LANTERNE, papirtrae, PIL, PLANKE, SKILT, STOLPE, TALEBOBLE, voksen, type Retning, type Tegnkort } from './pixel/sprites';
+import { belysning, blegt, hash, lavLys, lavSkygge, lysOpsaetning, lavVignet, partikelBilleder, tegnGrund, tegnkortTilLerred, tegnTraeskygger, traePladser, tegnVand, VARMT, type Farve } from './pixel/lerred';
+import { aande, gangRamme, hvileTilstand, lukOejne } from './pixel/liv';
+import { indenfor, partikelTrin, partiklerFor, stedTone, vignetStyrke, type Partikel } from './stemning';
+import { avatarPixel, BLADE, FUGL, fyrtaarn, KLATTEN, LANTERNE, moerkere, papirtrae, PIL, PLANKE, SKILT, STOLPE, TALEBOBLE, voksen, type Retning, type Tegnkort } from './pixel/sprites';
 import { STUMMING, TOMORD, VIMS } from './pixel/viskeskov';
 import type { VerdenData, VerdenKroge } from './VerdenScene';
 
@@ -32,6 +34,8 @@ const PERSONER: Record<string, Tegnkort> = { holm: HOLM };
 const PIL_HOEJDE: Record<string, number> = { gnom: 20, person: 27, skilt: 16, bog: 12, doer: 22, skab: 24, port: 22, kasse: 14, presse: 16, stige: 24, vims: 20, tomord: 18, stumming: 18 };
 
 type Lyskilde = { x: number; y: number; billede: HTMLCanvasElement };
+/** Former, der lever: de blinker og trækker vejret, når de står stille. Hvilke tegn i tegnkortet der er øjne. */
+const LEVENDE: Record<string, string[]> = { gnom: ['O', 'o'], person: ['E'], borger: ['E'], vims: ['E'], tomord: ['E'], stumming: ['E'] };
 
 export class KortScene extends Phaser.Scene {
   private data_!: VerdenData;
@@ -80,6 +84,14 @@ export class KortScene extends Phaser.Scene {
   /** Hovedpersonen går hen til den, der taler, når dialogen starter. */
   private gaarTilTaler = false;
   private boble!: Phaser.GameObjects.Image;
+  /** Partikler i luften og forgrundens grene (parallakse). */
+  private partikler: { billede: Phaser.GameObjects.Image; p: Partikel; noegle: string }[] = [];
+  private forgrund: { billede: Phaser.GameObjects.Image; x: number; y: number }[] = [];
+  private vignet: HTMLCanvasElement | null = null;
+  /** Figurer, der blinker og trækker vejret: billedet, nøglen til det almindelige billede og en fase. */
+  private levende: { billede: Phaser.GameObjects.Image; noegle: string; fase: number }[] = [];
+  /** Træerne, så de kan blive gennemsigtige, når de står foran en figur. */
+  private traeBilleder: Phaser.GameObjects.Image[] = [];
   private roligt = typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
 
   constructor() {
@@ -100,6 +112,10 @@ export class KortScene extends Phaser.Scene {
     this.lyskilder = [];
     this.fyrLamper = [];
     this.faesteLys = [];
+    this.partikler = [];
+    this.forgrund = [];
+    this.levende = [];
+    this.traeBilleder = [];
   }
 
   private get kroge(): VerdenKroge {
@@ -121,7 +137,14 @@ export class KortScene extends Phaser.Scene {
     const a = this.registry.get('avatar') as Avatar | undefined;
     if (!a) return;
     for (const r of ['ned', 'op', 'hoejre'] as const)
-      for (const f of [0, 1, 2] as const) this.tekstur(`px-spiller-${r}-${f}`, avatarPixel(a, r, f), true);
+      for (const f of [0, 1, 2] as const) {
+        const t = avatarPixel(a, r, f);
+        this.tekstur(`px-spiller-${r}-${f}`, t, true);
+        if (f !== 0) continue;
+        // Stå stille: blinke (ikke bagfra) og trække vejret. Hoften er række 16 i hovedpersonens 24 rækker.
+        this.tekstur(`px-spiller-${r}-0-blink`, (r !== 'op' && lukOejne(t, ['E', 'W'])) || t, true);
+        this.tekstur(`px-spiller-${r}-0-aande`, aande(t, 16), true);
+      }
     this.lanterne?.setVisible(a.tilbehoer === 3);
   }
 
@@ -153,10 +176,11 @@ export class KortScene extends Phaser.Scene {
 
     const inde = erInde(this.kort);
     const lys = lysOpsaetning(belysning(tema), mindreUhygge);
-    this.tone = lys.tone;
+    this.tone = stedTone(tema, mindreUhygge) ?? lys.tone;
 
     // Jorden og vandet for dette sted. Indendørs: gulv og vægge.
     const grund0 = inde ? tegnRum(this.kort, tema === 'kaelder' ? 'sten' : 'trae') : tegnGrund(this.kort);
+    if (!inde) tegnTraeskygger(grund0, this.kort, [22, 26, 30, 34].map((h) => Math.round(h * 0.36) * 2 + 1));
     const grund = tema === 'viskeskov' ? blegt(grund0, 0.8) : grund0;
     this.add.image(0, 0, this.tekstur(`px-grund-${tema}`, grund, true)).setOrigin(0).setDepth(-100000);
     for (let i = 0; i < 3; i++) this.tekstur(`px-vand-${tema}-${i}`, tegnVand(this.kort, i), true);
@@ -169,12 +193,7 @@ export class KortScene extends Phaser.Scene {
         const a = hash(tx * 7 + 3, ty * 13 + 1);
         const b = hash(tx * 5 + 1, ty * 3 + 7);
         if (c === '#') {
-          const y1 = ty * FELT + 13 + (b - 0.5) * 6;
-          this.add.image(tx * FELT + 8 + (a - 0.5) * 8, y1, traeer[Math.floor(a * 4)]).setOrigin(0.5, 1).setDepth(y1);
-          if (b > 0.55) {
-            const y2 = ty * FELT + 4 + a * 4;
-            this.add.image(tx * FELT + 8 + (b - 0.5) * 14, y2, traeer[Math.floor(b * 3)]).setOrigin(0.5, 1).setDepth(y2);
-          }
+          // Træerne sættes nedenfor ud fra traePladser, så de passer med skyggerne.
         } else if (c === 'p') {
           const y = ty * FELT + 13;
           this.add.image(tx * FELT + 8, y, 'px-stolpe').setOrigin(0.5, 1).setDepth(y);
@@ -192,6 +211,8 @@ export class KortScene extends Phaser.Scene {
           this.add.image(tx * FELT, y, this.tekstur('px-springvand', SPRINGVAND)).setOrigin(0, 1).setDepth(y - 1);
         } else if (inde) this.moebel(c, tx, ty, tema === 'kaelder');
       }
+
+    for (const t of traePladser(this.kort)) this.traeBilleder.push(this.add.image(t.x, t.y, traeer[t.nr]).setOrigin(0.5, 1).setDepth(t.y));
 
     // Objekter: Klatten, skilte og personer.
     for (const o of sted.objekter) {
@@ -217,7 +238,19 @@ export class KortScene extends Phaser.Scene {
       }
       if (noegle) {
         if (['gnom', 'person', 'borger', 'vims', 'tomord', 'stumming'].includes(o.form)) billeder.push(this.add.image(midte.x, midte.y, 'px-skygge').setOrigin(0.5, 0.5).setDepth(midte.y - 1));
-        billeder.push(this.add.image(midte.x, midte.y, noegle).setOrigin(0.5, 1).setDepth(midte.y).setData('y0', midte.y));
+        const hoved = this.add.image(midte.x, midte.y, noegle).setOrigin(0.5, 1).setDepth(midte.y).setData('y0', midte.y);
+        billeder.push(hoved);
+        const oejne = LEVENDE[o.form];
+        if (oejne) {
+          // Lav billeder til at blinke og trække vejret ud fra figurens eget billede.
+          const kilde = this.figurTegnkort(o);
+          if (kilde) {
+            const lukket = lukOejne(kilde, oejne);
+            if (lukket) this.tekstur(`${noegle}-blink`, lukket);
+            this.tekstur(`${noegle}-aande`, aande(kilde));
+            this.levende.push({ billede: hoved, noegle, fase: hash(o.felt[0] * 3, o.felt[1] * 11) });
+          }
+        }
       }
       if (o.lys) {
         billeder.push(this.add.image(midte.x + 7, midte.y - 9, 'px-lanterne').setOrigin(0.5, 1).setDepth(midte.y + 1));
@@ -258,6 +291,7 @@ export class KortScene extends Phaser.Scene {
     cam.setZoom(SKALA).setBounds(0, 0, W, H).setRoundPixels(true);
     this.kam = { x: start.x, y: start.y - 10 };
     this.flytKamera(1);
+    this.lavStemning(tema, inde);
 
     const kb = this.input.keyboard;
     if (kb) {
@@ -293,6 +327,49 @@ export class KortScene extends Phaser.Scene {
     this.events.on(Phaser.Scenes.Events.SHUTDOWN, () => {
       this.input.off('pointerdown');
     });
+  }
+
+  /** Tegnkortet bag en levende figur, så den kan få billeder til at blinke og trække vejret. */
+  private figurTegnkort(o: StedObjekt): Tegnkort | null {
+    if (o.form === 'gnom') return KLATTEN;
+    if (o.form === 'person') return PERSONER[o.id] ?? voksen(o.farve);
+    if (o.form === 'borger') return voksen(o.farve, o.lys ? '#3a2a20' : '#6b4a2b');
+    if (o.form === 'vims') return VIMS;
+    if (o.form === 'tomord') return TOMORD;
+    if (o.form === 'stumming') return STUMMING;
+    return null;
+  }
+
+  /**
+   * Stemning (Henrik, 9. november 2026): partikler i luften, en vignet på lyset og grene i forgrunden.
+   * Med reduceret bevægelse er der ingen partikler, og grenene står stille.
+   */
+  private lavStemning(tema: string, inde: boolean) {
+    this.vignet = lavVignet(VIS_B, VIS_H, vignetStyrke(tema, this.data_.mindreUhygge));
+    if (!this.roligt)
+      for (const { art, antal } of partiklerFor(tema)) {
+        const [a, b] = partikelBilleder(art);
+        const n0 = this.tekstur(`px-partikel-${art}-0`, a);
+        this.tekstur(`px-partikel-${art}-1`, b);
+        // Ildfluer lyser i mørket, så de ligger over lyslaget. Resten bliver mørkere med lyset.
+        const dybde = art === 'ildflue' ? 1_000_001 : 999_000;
+        for (let i = 0; i < antal; i++) {
+          const fase = hash(i * 17 + art.length, i * 5 + 3);
+          const p: Partikel = { art, x: this.kam.x - VIS_B / 2 + hash(i, art.length * 7) * VIS_B, y: this.kam.y - VIS_H / 2 + hash(art.length, i * 7) * VIS_H, fase };
+          this.partikler.push({ billede: this.add.image(p.x, p.y, n0).setDepth(dybde).setOrigin(0.5), p, noegle: `px-partikel-${art}` });
+        }
+      }
+    if (inde) return;
+    // Grene i forgrunden: mørke trækroner langs kortets nederste kant, der glider lidt hurtigere end resten,
+    // så verden får dybde, når kameraet flytter sig.
+    const k = this.kort;
+    const gren = this.tekstur('px-forgrund', { ...papirtrae(40), palet: Object.fromEntries(Object.entries(papirtrae(40).palet).map(([n, f]) => [n, moerkere(f, 0.42)])) });
+    for (let tx = 1; tx < k.bredde; tx += 4) {
+      if (k.tegn(tx, k.hoejde - 1) !== '#') continue;
+      const x = tx * FELT + hash(tx, 5) * 16;
+      const y = k.hoejde * FELT - 6 + hash(tx, 9) * 6;
+      this.forgrund.push({ billede: this.add.image(x, y, gren).setOrigin(0.5, 1).setDepth(999_500), x, y });
+    }
   }
 
   /** Et møbel fra kortet. Fodpunktet bestemmer dybden, så man kan gå bag om det. */
@@ -637,6 +714,45 @@ export class KortScene extends Phaser.Scene {
     return { vx, vy, z };
   }
 
+  /** Partiklerne driver og holdes inden for det, kameraet ser. Grenene i forgrunden glider lidt hurtigere end verden. */
+  private opdaterStemning(dt: number, vx: number, vy: number, z: number) {
+    const bw = VIS_B / z;
+    const bh = VIS_H / z;
+    for (const d of this.partikler) {
+      const { dx, dy, alpha, ramme } = partikelTrin(d.p, dt, this.ur);
+      d.p.x = indenfor(d.p.x + dx, vx, bw);
+      d.p.y = indenfor(d.p.y + dy, vy, bh);
+      d.billede.setPosition(Math.round(d.p.x), Math.round(d.p.y)).setAlpha(Math.round(alpha * 4) / 4);
+      const n = `${d.noegle}-${ramme}`;
+      if (d.billede.texture.key !== n) d.billede.setTexture(n);
+    }
+    const cx = vx + bw / 2;
+    const cy = vy + bh / 2;
+    for (const g of this.forgrund) g.billede.setPosition(Math.round(g.x + (g.x - cx) * 0.3), Math.round(g.y + (g.y - cy) * 0.3));
+  }
+
+  /**
+   * Træer, der står foran hovedpersonen, Æseløre eller den, der taler, bliver halvt gennemsigtige,
+   * så figurerne altid kan ses (især når kameraet zoomer ind under dialog).
+   */
+  private gennemsigtigeTraeer() {
+    const figurer: { x: number; y: number }[] = [{ x: this.spiller.x, y: this.spiller.y - 8 }];
+    if (this.fugl.visible) figurer.push({ x: this.fugl.x, y: this.fugl.y - 22 });
+    const tp = this.talerPunkt();
+    if (tp) figurer.push({ x: tp.x, y: tp.y - 8 });
+    for (const t of this.traeBilleder) {
+      const halv = t.width / 2;
+      let foran = false;
+      for (const f of figurer)
+        if (t.y > f.y + 6 && Math.abs(t.x - f.x) < halv + 3 && t.y - t.height < f.y + 4 && t.y - f.y < t.height + 4) {
+          foran = true;
+          break;
+        }
+      const a = foran ? 0.45 : 1;
+      if (t.alpha !== a) t.setAlpha(a);
+    }
+  }
+
   update(_tid: number, delta: number) {
     if (!this.spiller) return;
     const dt = Math.min(0.05, Math.max(0, delta / 1000));
@@ -706,9 +822,11 @@ export class KortScene extends Phaser.Scene {
 
     // Hovedpersonen: retning og gangbilleder.
     if (gaar) this.gaaTid += dt;
-    const ramme = gaar ? 1 + (Math.floor(this.gaaTid * 7) % 2) : 0;
+    else this.gaaTid = 0;
+    const ramme = gaar ? gangRamme(this.gaaTid) : 0;
     const r = this.retning === 'venstre' ? 'hoejre' : this.retning;
-    this.spiller.setTexture(`px-spiller-${r}-${ramme}`).setFlipX(this.retning === 'venstre');
+    const hvile = ramme === 0 && !gaar ? hvileTilstand(this.ur, 0.37, this.roligt) : 'staa';
+    this.spiller.setTexture(hvile === 'staa' ? `px-spiller-${r}-${ramme}` : `px-spiller-${r}-0-${hvile}`).setFlipX(this.retning === 'venstre');
     this.spiller.setDepth(this.spiller.y);
     this.spillerSkygge.setPosition(this.spiller.x, this.spiller.y).setDepth(this.spiller.y - 1);
     const lx = this.retning === 'venstre' ? -6 : this.retning === 'hoejre' ? 6 : 8;
@@ -761,9 +879,18 @@ export class KortScene extends Phaser.Scene {
       const hop = taler && !this.roligt ? (Math.sin(this.ur * 9) > 0.2 ? 1 : 0) : 0;
       hoved.setY((hoved.getData('y0') as number) - hop);
     }
+    // Levende figurer blinker og trækker vejret. Den, der taler, vipper i stedet.
+    for (const l of this.levende) {
+      const taler = tp?.billede === l.billede;
+      const t = taler ? 'staa' : hvileTilstand(this.ur, l.fase, this.roligt);
+      const n = t === 'staa' ? l.noegle : `${l.noegle}-${t}`;
+      l.billede.setTexture(this.textures.exists(n) ? n : l.noegle);
+    }
     if (tp && !this.roligt) {
-      const h = tp.billede === this.fugl ? 12 : tp.billede?.height ?? 24;
-      this.boble.setVisible(true).setPosition(tp.x, tp.y - h - 3 - (tp.billede === this.fugl ? Math.sin(this.ur * 4) * 2 : 0));
+      // Boblen står over billedets øverste kant. Æseløre svæver over sin plads, så hans fodpunkt kan ikke bruges.
+      const b = tp.billede;
+      const top = b ? b.y - b.displayOriginY * b.scaleY : tp.y - 24;
+      this.boble.setVisible(true).setPosition(Math.round(tp.x), Math.round(top - 2));
     } else this.boble.setVisible(false);
 
     // Byens folk snakker uden pause (taleboblerne blinker skiftevis).
@@ -788,6 +915,8 @@ export class KortScene extends Phaser.Scene {
     this.zoom = skarpZoom(this.zoomMaal);
     const { vx, vy, z } = this.flytKamera(this.taler ? 0.1 : 0.12);
     this.lysLag.setPosition(vx, vy).setScale(1 / z);
+    this.opdaterStemning(dt, vx, vy, z);
+    this.gennemsigtigeTraeer();
     const fyrRamme = Math.floor(this.ur * 1.2) % 2;
     const noegle = `${Math.round(vx * z)},${Math.round(vy * z)},${z.toFixed(3)},${Math.round(this.spiller.x)},${Math.round(this.spiller.y)},${fyrRamme},${this.lyskilder.length},${this.data_.mindreUhygge}`;
     if (noegle === this.sidsteLys) return;
@@ -807,6 +936,11 @@ export class KortScene extends Phaser.Scene {
     for (const l of this.faesteLys) tegnLys(l.x, l.y, l.billede);
     for (const l of this.lyskilder) tegnLys(l.x, l.y, l.billede);
     if (this.lygte) tegnLys(this.spiller.x, this.spiller.y - 12, this.lygte);
+    // Vignetten ganges på til sidst, så kanterne er lidt mørkere, også hvor der er lys.
+    if (this.vignet) {
+      ctx.globalCompositeOperation = 'multiply';
+      ctx.drawImage(this.vignet, 0, 0);
+    }
     ctx.globalCompositeOperation = 'source-over';
     this.lysTekstur.refresh();
   }
