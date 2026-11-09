@@ -1,11 +1,13 @@
 import { useRef, useState } from 'react';
-import { historiebro, ogorm, raaber, stumme, t, type BevisjagtTrin, type OpgaveTrin } from '../content';
+import { historiebro, ogorm, raaber, rimord, stumme, t, type BevisjagtTrin, type OpgaveTrin } from '../content';
 import type { Haendelse, Niveau } from '../engine/tilpasning';
 import { lavHviskeOpgave, type HviskeOpgave as HOpgave } from '../mechanics/hviske';
 import { vaelgOgTekst } from '../mechanics/ogorm';
 import { lavBro } from '../mechanics/historiebro';
 import { lavRaaberOpgave, type RaaberSaetning } from '../mechanics/raaber';
 import { RaaberOpgave } from '../ui/RaaberOpgave';
+import { lavOpgaveAfArt, type RimOpgave as ROpgave } from '../mechanics/rim';
+import { RimOpgave } from '../ui/RimOpgave';
 import { OpgaveRamme } from '../ui/OpgaveRamme';
 import { HviskeOpgave } from '../ui/HviskeOpgave';
 import { OgormOpgave } from '../ui/OgormOpgave';
@@ -22,7 +24,7 @@ type Faelles = {
 };
 
 /** Ord og tekster, der er brugt i denne session, så de ikke kommer igen med det samme. */
-const brugt = { hviske: [] as string[], og: [] as string[], bro: [] as string[], raab: [] as string[] };
+const brugt = { hviske: [] as string[], og: [] as string[], bro: [] as string[], raab: [] as string[], rim: [] as string[] };
 
 function husk(liste: string[], id: string, maks = 8) {
   liste.push(id);
@@ -135,7 +137,37 @@ function BroVindue({ trin, niveau, loeste, onSvar, onLoest, onPause }: Faelles &
   );
 }
 
+/** Bjergets ældste digt (kapitel 4): rim og rytme på skift. Reglen følger opgaven. */
+function RimVindue({ trin, niveau, loeste, onSvar, onLoest, onPause }: Faelles & { trin: OpgaveTrin }) {
+  const art = (n: number) => (n % 2 === 0 ? 'rim' : 'rytme');
+  const [o, setO] = useState<ROpgave>(() => lavOpgaveAfArt(art(loeste), rimord, niveau, Math.random, brugt.rim));
+  const niveauRef = useRef(niveau);
+  niveauRef.current = niveau;
+  const rytme = o.art === 'rytme';
+  return (
+    <OpgaveRamme
+      titel={t('rim.titel')}
+      antal={trin.antal}
+      loeste={loeste}
+      regel={t(rytme ? 'rytme.regel' : 'rim.regel')}
+      eksempel={t(rytme ? 'rytme.eksempel' : 'rim.eksempel')}
+      andreRegler={[t('rim.regel'), t('rytme.regel'), t('kamp.tomordet.regel')]}
+      onSvar={onSvar}
+      onPause={onPause}
+      onLoest={() => {
+        husk(brugt.rim, o.id);
+        // Rimordene kommer ikke i ordsamlingen (den er til stumme bogstaver).
+        onLoest();
+        setO(lavOpgaveAfArt(art(loeste + 1), rimord, niveauRef.current, Math.random, brugt.rim));
+      }}
+    >
+      {(api) => <RimOpgave key={`${o.id}-${loeste}`} opgave={o} api={api} />}
+    </OpgaveRamme>
+  );
+}
+
 export function OpgaveVindue(props: Faelles & { trin: OpgaveTrin }) {
+  if (props.trin.mekanik === 'rim') return <RimVindue {...props} />;
   if (props.trin.mekanik === 'hviske') return <HviskeVindue {...props} />;
   if (props.trin.mekanik === 'ogorm') return <OgormVindue {...props} />;
   if (props.trin.mekanik === 'raaber') return <RaaberVindue {...props} />;

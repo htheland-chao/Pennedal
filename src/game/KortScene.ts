@@ -4,11 +4,12 @@ import type { StedObjekt } from '../content';
 import type { Avatar } from '../engine/gem';
 import { erFastTegn, FELT, feltMidte, feltVed, felterVed, findVej, laesKort, type Felt, type Kort } from './kort';
 import { bordflade, erInde, HOLM, KARTOTEK, KASSE, LOGBOG, PLANTE, PORT, PRESSE, reol, SPRINGVAND, STIGE, tegnRum, trappe, vindueslys } from './pixel/inde';
-import { belysning, blegt, hash, lavLys, lavSkygge, lysOpsaetning, lavTaagebanker, lavVignet, partikelBilleder, tegnGrund, tegnkortTilLerred, tegnTraeskygger, traePladser, tegnVand, VARMT, type Farve } from './pixel/lerred';
+import { belysning, blegt, hash, lavLys, lavSkygge, lysOpsaetning, lavTaagebanker, lavVignet, partikelBilleder, sne, tegnGrund, tegnkortTilLerred, tegnTraeskygger, traePladser, tegnVand, VARMT, type Farve } from './pixel/lerred';
 import { aande, gangRamme, hvileTilstand, lukOejne } from './pixel/liv';
 import { indenfor, partikelTrin, partiklerFor, stedTone, vignetStyrke, type Partikel } from './stemning';
 import { avatarPixel, BLADE, FUGL, fyrtaarn, KLATTEN, LANTERNE, moerkere, papirtrae, PIL, PLANKE, SKILT, STOLPE, TALEBOBLE, voksen, type Retning, type Tegnkort } from './pixel/sprites';
 import { GRENPORT, HALVFUGL, ORDBLAD, STUMMING, TOMORD, VIMS } from './pixel/viskeskov';
+import { DIGTSTEN, EKKO, granMedSne, RIMFOD } from './pixel/rimbjerg';
 import type { VerdenData, VerdenKroge } from './typer';
 
 /**
@@ -27,15 +28,15 @@ export const SKALA = 1;
 export const skarpZoom = (z: number) => Math.max(1, Math.floor(z + 1e-6));
 const FART = 70; // pixel pr. sekund i pixelverdenen
 const NAER = 24;
-const FASTE_FORMER = new Set(['gnom', 'skilt', 'person', 'skab', 'port', 'kasse', 'presse', 'borger', 'doer', 'stige', 'vims', 'tomord', 'stumming', 'halvfugl', 'grenport']);
+const FASTE_FORMER = new Set(['gnom', 'skilt', 'person', 'skab', 'port', 'kasse', 'presse', 'borger', 'doer', 'stige', 'vims', 'tomord', 'stumming', 'halvfugl', 'grenport', 'rimfod', 'ekko', 'digtsten']);
 /** Figurer med deres eget pixelbillede i stedet for en almindelig voksen. */
 const PERSONER: Record<string, Tegnkort> = { holm: HOLM };
 /** Hvor højt over feltets midte pilen svæver for hver form. */
-const PIL_HOEJDE: Record<string, number> = { gnom: 20, person: 27, skilt: 16, bog: 12, doer: 22, skab: 24, port: 22, kasse: 14, presse: 16, stige: 24, vims: 20, tomord: 18, stumming: 18, halvfugl: 16, ordblad: 10, grenport: 16 };
+const PIL_HOEJDE: Record<string, number> = { gnom: 20, person: 27, skilt: 16, bog: 12, doer: 22, skab: 24, port: 22, kasse: 14, presse: 16, stige: 24, vims: 20, tomord: 18, stumming: 18, halvfugl: 16, ordblad: 10, grenport: 16, rimfod: 26, ekko: 20, digtsten: 20 };
 
 type Lyskilde = { x: number; y: number; billede: HTMLCanvasElement };
 /** Former, der lever: de blinker og trækker vejret, når de står stille. Hvilke tegn i tegnkortet der er øjne. */
-const LEVENDE: Record<string, string[]> = { gnom: ['O', 'o'], person: ['E'], borger: ['E'], vims: ['E'], tomord: ['E'], stumming: ['E'], halvfugl: ['E'] };
+const LEVENDE: Record<string, string[]> = { gnom: ['O', 'o'], person: ['E'], borger: ['E'], vims: ['E'], tomord: ['E'], stumming: ['E'], halvfugl: ['E'], rimfod: ['E'], ekko: ['E'] };
 
 export class KortScene extends Phaser.Scene {
   private data_!: VerdenData;
@@ -163,7 +164,9 @@ export class KortScene extends Phaser.Scene {
     const tema = sted.tema;
 
     // Billeder, der deles af alle steder.
-    const traeer = [22, 26, 30, 34].map((h, i) => this.tekstur(`px-trae-${i}`, papirtrae(h)));
+    // Rimbjerget har graner med sne i stedet for papirtræer.
+    const bjerg = tema === 'rimbjerg';
+    const traeer = [22, 26, 30, 34].map((h, i) => this.tekstur(`px-trae-${bjerg ? 'gran-' : ''}${i}`, bjerg ? granMedSne(h) : papirtrae(h)));
     this.tekstur('px-klatten', KLATTEN);
     this.tekstur('px-skilt', SKILT);
     this.tekstur('px-blade', BLADE);
@@ -184,7 +187,7 @@ export class KortScene extends Phaser.Scene {
     // Jorden og vandet for dette sted. Indendørs: gulv og vægge.
     const grund0 = inde ? tegnRum(this.kort, tema === 'kaelder' ? 'sten' : 'trae') : tegnGrund(this.kort);
     if (!inde) tegnTraeskygger(grund0, this.kort, [22, 26, 30, 34].map((h) => Math.round(h * 0.36) * 2 + 1));
-    const grund = tema === 'viskeskov' ? blegt(grund0, 0.8) : grund0;
+    const grund = tema === 'viskeskov' ? blegt(grund0, 0.8) : tema === 'rimbjerg' ? sne(grund0) : grund0;
     this.add.image(0, 0, this.tekstur(`px-grund-${tema}`, grund, true)).setOrigin(0).setDepth(-100000);
     for (let i = 0; i < 3; i++) this.tekstur(`px-vand-${tema}-${i}`, tegnVand(this.kort, i), true);
     this.vand = this.add.image(0, 0, `px-vand-${tema}-0`).setOrigin(0).setDepth(-99999);
@@ -237,6 +240,9 @@ export class KortScene extends Phaser.Scene {
       else if (o.form === 'halvfugl') noegle = this.tekstur('px-halvfugl', HALVFUGL);
       else if (o.form === 'ordblad') noegle = this.tekstur('px-ordblad', ORDBLAD);
       else if (o.form === 'grenport') noegle = this.tekstur('px-grenport', GRENPORT);
+      else if (o.form === 'rimfod') noegle = this.tekstur('px-rimfod', RIMFOD);
+      else if (o.form === 'ekko') noegle = this.tekstur('px-ekko', EKKO);
+      else if (o.form === 'digtsten') noegle = this.tekstur('px-digtsten', DIGTSTEN);
       else if (o.form === 'borger') noegle = this.tekstur(`px-person-${o.farve}`, voksen(o.farve, o.lys ? '#3a2a20' : '#6b4a2b'));
       else if (o.form === 'bog') {
         // Bogen ligger fladt på disken og tegnes oven på den.
@@ -344,6 +350,8 @@ export class KortScene extends Phaser.Scene {
     if (o.form === 'tomord') return TOMORD;
     if (o.form === 'stumming') return STUMMING;
     if (o.form === 'halvfugl') return HALVFUGL;
+    if (o.form === 'rimfod') return RIMFOD;
+    if (o.form === 'ekko') return EKKO;
     return null;
   }
 

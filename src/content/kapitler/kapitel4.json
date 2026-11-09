@@ -1,0 +1,372 @@
+{
+  "kapitel": 4,
+  "titel": "Rimbjerget",
+  "steder": {
+    "bjergfod": {
+      "navn": "Rimbjergets fod",
+      "tema": "rimbjerg",
+      "start": {
+        "x": 0,
+        "y": 0
+      },
+      "startFelt": [1, 9],
+      "kort": [
+        "##########################",
+        "##########################",
+        "##########################",
+        "###########,,,,,,,,,######",
+        "#########,,,,,,,,,,,,,####",
+        "########,,,,,,,,,,,,,,,###",
+        "#,,,,,,,,,,,,,,,,,,,,,,,,#",
+        "#,,,,,,,,,,,,,,,,,,,,,,,,#",
+        "#,,,,,,,,,,,,,,,,,,,,,,,,#",
+        "..........................",
+        "#,,,,,,,,,,,,,,,,,,,,,,,,#",
+        "##,,,,,,,,,,,,,,,,,,,,,,##",
+        "#####,,,,,,,,,,,,,,,######",
+        "##########################",
+        "##########################",
+        "##########################"
+      ],
+      "objekter": [
+        { "id": "rimfod", "navn": "den store sten på stien", "x": 0, "y": 0, "w": 0, "h": 0, "form": "rimfod", "farve": "#e8eef6", "felt": [13, 9], "skjulFra": "k4-op" }
+      ]
+    },
+    "bjergstien": {
+      "navn": "Stien op ad bjerget",
+      "tema": "rimbjerg",
+      "start": {
+        "x": 0,
+        "y": 0
+      },
+      "bane": [
+        "....................................................................................",
+        "....................................................................................",
+        "...................................................................==...............",
+        "...................................................O...........C...==.........M.....",
+        ".................................O.........C..^..####vvvvvv#########################",
+        "...............................####vvvvvv############~~~~~~#########################",
+        "..S.......O............C...########~~~~~~############~~~~~~#########################",
+        "##############vvvvvv###############~~~~~~############~~~~~~#########################",
+        "##############~~~~~~###############~~~~~~############~~~~~~#########################",
+        "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+        "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+      ],
+      "ordsten": "rim",
+      "intro": [
+        { "taler": "aeseloere", "tekst": "Her er stien brudt. Stenene er faldet ned i dybet." },
+        { "taler": "vims", "tekst": "Det var ikke mig denne gang. Jeg har ikke visket noget ud. Tror jeg. Undskyld." },
+        { "taler": "aeseloere", "tekst": "Ved hvert hul står en ekkosten. Find et ord, der rimer, så kommer stenene tilbage. Lyt til slutningen af ordet." }
+      ],
+      "objekter": [
+        { "id": "maal", "navn": "vejen ind i kløften", "x": 0, "y": 0, "w": 0, "h": 0, "form": "maal", "farve": "#e8eef6" }
+      ]
+    },
+    "ekkokloeften": {
+      "navn": "Ekkokløften",
+      "tema": "rimbjerg",
+      "start": {
+        "x": 0,
+        "y": 0
+      },
+      "startFelt": [1, 8],
+      "kort": [
+        "##########################",
+        "##########################",
+        "##########################",
+        "##########################",
+        "#####,,,,,,,,,,,,,,,,#####",
+        "####,,,,,,,,,,,,,,,,,,####",
+        "##,,,,,,,,,,,,,,,,,,,,,,##",
+        "##,,,,,,,,,,,,,,,,,,,,,,##",
+        "..........................",
+        "##,,,,,,,,,,,,,,,,,,,,,,##",
+        "####,,,,,,,,,,,,,,,,,,####",
+        "#####,,,,,,,,,,,,,,,,#####",
+        "##########################",
+        "##########################",
+        "##########################",
+        "##########################"
+      ],
+      "objekter": [
+        { "id": "ekko", "navn": "ekkoet", "x": 0, "y": 0, "w": 0, "h": 0, "form": "ekko", "farve": "#e8eef6", "felt": [14, 7], "skjulFra": "k4-til-toppen" },
+        { "id": "opgang", "navn": "stien mod toppen", "x": 0, "y": 0, "w": 0, "h": 0, "form": "sti", "farve": "#e8eef6", "felt": [25, 8] }
+      ]
+    },
+    "toppen": {
+      "navn": "Toppen af Rimbjerget",
+      "tema": "rimbjerg",
+      "start": {
+        "x": 0,
+        "y": 0
+      },
+      "startFelt": [1, 8],
+      "kort": [
+        "##########################",
+        "##########################",
+        "##########,,,,,,##########",
+        "#######,,,,,,,,,,,,#######",
+        "#####,,,,,,,,,,,,,,,,#####",
+        "###,,,,,,,,,,,,,,,,,,,,###",
+        "##,,,,,,,,,,,,,,,,,,,,,,##",
+        "#,,,,,,,,,,,,,,,,,,,,,,,,#",
+        "......,,,,,,,,,,,,,,,,,,,#",
+        "#,,,,,,,,,,,,,,,,,,,,,,,,#",
+        "##,,,,,,,,,,,,,,,,,,,,,,##",
+        "####,,,,,,,,,,,,,,,,,,####",
+        "########,,,,,,,,,,########",
+        "##########################",
+        "##########################",
+        "##########################"
+      ],
+      "objekter": [
+        { "id": "digtsten", "navn": "tavlen af sten", "x": 0, "y": 0, "w": 0, "h": 0, "form": "digtsten", "farve": "#e8eef6", "felt": [13, 3] },
+        { "id": "rimfod-top", "navn": "Rimfod", "x": 0, "y": 0, "w": 0, "h": 0, "form": "rimfod", "farve": "#e8eef6", "felt": [17, 4], "visFra": "k4-toppen", "frivillig": "mission" },
+        { "id": "kam", "navn": "den iskolde kam", "x": 0, "y": 0, "w": 0, "h": 0, "form": "grenport", "farve": "#e8eef6", "felt": [23, 8], "frivillig": "udflugt", "udflugt": "kammen" }
+      ]
+    },
+    "kammen": {
+      "navn": "Den iskolde kam",
+      "tema": "rimbjerg",
+      "start": {
+        "x": 0,
+        "y": 0
+      },
+      "bane": [
+        "................................................................................................................",
+        "................................................................................................................",
+        "................................................................................................................",
+        "................................................................................................................",
+        "..........................................................==..==................................................",
+        "......................................................==..........==.................#...........vvvvvv.........",
+        "..S............................^.O...........C....==..................==....^.....#..#..#......O............M...",
+        "########...#...#...#...#...#.######vvvvvvv######..........................######..#..#..#..######~~~~~~#########",
+        "########...#...#...#...#...#.######~~~~~~~######..........................######..#..#..#..######~~~~~~#########",
+        "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+        "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+      ],
+      "ordsten": "rim",
+      "udflugt": {
+        "skaar": "k4b",
+        "fra": "toppen",
+        "opgavetekst": "Kom helt over den iskolde kam. Den er svær med vilje.",
+        "ind": [
+          { "taler": "aeseloere", "tekst": "Den kam er glat som glas, og vinden blæser hårdt. Der er kun én lanterne, og jeg bærer dig ikke over." },
+          { "taler": "aeseloere", "tekst": "Den er svær med vilje. Du behøver ikke at gå den for at komme videre. Men for enden glimter noget." }
+        ],
+        "spoergsmaal": "Vil du gå over den iskolde kam?",
+        "ja": "Gå ud på kammen",
+        "nej": "Ikke nu",
+        "faerdig": [
+          { "taler": "fortaeller", "tekst": "For enden af kammen sidder en lille, lysende papirstump fast i isen. Det er et hukommelsesskår." },
+          { "taler": "aeseloere", "tekst": "Du gik hele vejen. Jeg kiggede væk de svære steder. Det hjalp ikke." }
+        ],
+        "igen": [
+          { "taler": "aeseloere", "tekst": "Igen? Du er godt nok sej. Skåret har du allerede." }
+        ]
+      },
+      "objekter": [
+        { "id": "maal", "navn": "enden af kammen", "x": 0, "y": 0, "w": 0, "h": 0, "form": "maal", "farve": "#e8eef6" }
+      ]
+    }
+  },
+  "trin": [
+    {
+      "id": "k4-ankomst",
+      "type": "dialog",
+      "del": 1,
+      "sted": "bjergfod",
+      "objekt": null,
+      "replikker": [
+        { "taler": "fortaeller", "tekst": "Sporet fører ud af skoven og op mod et bjerg. Sneen knirker under dine fødder." },
+        { "taler": "fortaeller", "tekst": "Vinden suser, og det lyder næsten, som om den siger noget: Kom op, kom op, til bjergets top." },
+        { "taler": "aeseloere", "tekst": "Rimbjerget. Her taler alt på rim. Stenene, vinden, sneen. Det er utroligt irriterende." },
+        { "taler": "vims", "tekst": "Undskyld, men jeg synes, det er lidt hyggeligt." },
+        { "taler": "fortaeller", "tekst": "Midt på stien ligger en kæmpe sten. Den sukker." }
+      ]
+    },
+    {
+      "id": "k4-rimfod",
+      "type": "dialog",
+      "del": 1,
+      "sted": "bjergfod",
+      "objekt": "rimfod",
+      "opgavetekst": "Gå hen til den store sten på stien.",
+      "slutDel": 1,
+      "giver": ["rimsten"],
+      "replikker": [
+        { "taler": "rimfod", "tekst": "Godmorgen, I små. Hvor skal I mon gå?" },
+        { "taler": "rimfod", "tekst": "Øv. Nu gjorde jeg det igen. Jeg rimer og rimer, min ven." },
+        { "taler": "aeseloere", "tekst": "En trold, der taler på rim. Det er værre end en ordbog med hikke." },
+        { "taler": "rimfod", "tekst": "Jeg hedder Rimfod, bjergets gamle trold. Jeg prøver ikke at rime, men det går ... øh ... bold. Øv." },
+        { "taler": "rimfod", "tekst": "Ekkoet i kløften har stjålet min ro. Det råber forkerte rim, både én gang og to." },
+        { "taler": "rimfod", "tekst": "Øverst på toppen står bjergets ældste vers. Nu mangler et stykke, og alting går på tværs." },
+        { "taler": "vims", "tekst": "Vi kan hjælpe! Tror jeg. Undskyld, hvis vi ikke kan." },
+        { "taler": "rimfod", "tekst": "Tag denne sten. Den er glat og god. Den bærer en bro, når du mangler mod." },
+        { "taler": "rimfod", "tekst": "Jeg tager den lange vej og venter på jer der. Øv. Der og her. Det er bare ikke fair." }
+      ]
+    },
+    {
+      "id": "k4-op",
+      "type": "skift",
+      "del": 2,
+      "sted": "bjergstien",
+      "objekt": "maal",
+      "opgavetekst": "Find rimene ved ekkostenene, og klatr op ad bjerget.",
+      "tilSted": "ekkokloeften"
+    },
+    {
+      "id": "k4-kloeften",
+      "type": "dialog",
+      "del": 2,
+      "sted": "ekkokloeften",
+      "objekt": null,
+      "replikker": [
+        { "taler": "fortaeller", "tekst": "Stien fører ind i en smal kløft mellem to klipper. Alt, hvad I siger, kommer tilbage." },
+        { "taler": "aeseloere", "tekst": "Hej?" },
+        { "taler": "fortaeller", "tekst": "Hej ... vej ... dej ... sej ..." },
+        { "taler": "vims", "tekst": "Det svarer forkert. Eller også svarer det bare med rim. Undskyld, jeg ved ikke, hvad der er værst." }
+      ]
+    },
+    {
+      "id": "k4-ekko-moede",
+      "type": "dialog",
+      "del": 2,
+      "sted": "ekkokloeften",
+      "objekt": "ekko",
+      "opgavetekst": "Gå hen til ekkoet i kløften.",
+      "replikker": [
+        { "taler": "ekko", "tekst": "Gentag ... gentag. Jeg kan kun gentage ... tage ... kage ..." },
+        { "taler": "aeseloere", "tekst": "Et ekko. Det har ingen egne ord. Det tager andres ord og råber dem forkert tilbage." },
+        { "taler": "ekko", "tekst": "Slip ... slip ... jeg giver ikke slip ... slip ..." },
+        { "taler": "aeseloere", "tekst": "Svar det med rigtige rim. Ord, der lyder ens til sidst. Så bliver det stille." }
+      ]
+    },
+    {
+      "id": "k4-ekko",
+      "type": "kamp",
+      "del": 2,
+      "sted": "ekkokloeften",
+      "objekt": "ekko",
+      "opgavetekst": "Kæmp mod ekkoerne i kløften.",
+      "vaesen": "ekko",
+      "vaesner": ["ekko", "tomordet", "ekko"],
+      "slag": ["rim", "synonym"],
+      "faerdighed": "laes.rim",
+      "antal": 4,
+      "hjaelper": "vims"
+    },
+    {
+      "id": "k4-ekko-slut",
+      "type": "dialog",
+      "del": 2,
+      "sted": "ekkokloeften",
+      "objekt": null,
+      "replikker": [
+        { "taler": "ekko", "tekst": "Stille ... stille ... endelig stille." },
+        { "taler": "fortaeller", "tekst": "Ekkoet folder sig sammen til en lille, rund lyd og triller ned ad bjerget." },
+        { "taler": "aeseloere", "tekst": "Rim er ord, der lyder ens til sidst. Hus og mus. Sten og ben. Det er ikke svært, når man lytter." }
+      ]
+    },
+    {
+      "id": "k4-til-toppen",
+      "type": "skift",
+      "del": 2,
+      "sted": "ekkokloeften",
+      "objekt": "opgang",
+      "opgavetekst": "Gå op mod toppen.",
+      "tilSted": "toppen"
+    },
+    {
+      "id": "k4-toppen",
+      "type": "dialog",
+      "del": 2,
+      "sted": "toppen",
+      "objekt": "digtsten",
+      "opgavetekst": "Undersøg tavlen af sten på toppen.",
+      "tilbageblik": { "id": "godnat", "foer": 3 },
+      "replikker": [
+        { "taler": "fortaeller", "tekst": "På toppen står en tavle af sten med bjergets ældste digt. Rimfod sidder ved siden af og venter." },
+        { "taler": "rimfod", "tekst": "Her står det digt, som bjerget er bygget af. Men se, det sidste vers er brækket af." },
+        { "taler": "fortaeller", "tekst": "Du lægger hånden på stenen. Den er kold. Så bliver den varm, ligesom en dyne om aftenen." },
+        { "taler": "aeseloere", "tekst": "Du var væk igen. Hvad så du?" },
+        { "taler": "fortaeller", "tekst": "En stemme, der læste højt i mørket. Og en historie, du drømte videre på." },
+        { "taler": "fortaeller", "tekst": "Lanternen i din taske blafrer. Den lyder som Mor Lanterne." },
+        { "taler": "lanterne", "tekst": "Kom ind, kom ind. Ved du hvad? De bedste historier har tit mange fejl i første udkast. Fejl kan rettes. Historien er din." },
+        { "taler": "aeseloere", "tekst": "Der mangler også ord i de første vers. Ord, der rimer. Kan du finde dem?" }
+      ]
+    },
+    {
+      "id": "k4-digt",
+      "type": "opgave",
+      "del": 2,
+      "sted": "toppen",
+      "objekt": "digtsten",
+      "opgavetekst": "Find de rim, der mangler i digtet.",
+      "mekanik": "rim",
+      "faerdighed": "laes.rim",
+      "antal": 4
+    },
+    {
+      "id": "k4-digt-slut",
+      "type": "dialog",
+      "del": 2,
+      "sted": "toppen",
+      "objekt": null,
+      "replikker": [
+        { "taler": "fortaeller", "tekst": "Du finder det sidste rim. Stregerne på stenen gløder et øjeblik." },
+        { "taler": "rimfod", "tekst": "Tak, I små. Nu står de vers, som de skal stå." },
+        { "taler": "fortaeller", "tekst": "Men det sidste vers er stadig væk. Under tavlen ligger kun to ord og blafrer i vinden: Og så." },
+        { "taler": "aeseloere", "tekst": "Den Ufærdige. Han har taget det sidste vers. Endnu en slutning, der er forsvundet." }
+      ]
+    },
+    {
+      "id": "k4-moerke",
+      "type": "dialog",
+      "del": 2,
+      "sted": "toppen",
+      "objekt": null,
+      "uhygge": true,
+      "moerke": true,
+      "slutKapitel": true,
+      "replikker": [
+        { "taler": "fortaeller", "tekst": "Vinden holder op med at rime. Det bliver helt stille på toppen." },
+        { "taler": "ufaerdige", "tekst": "Og så ..." },
+        { "taler": "fortaeller", "tekst": "Nede i dalen, under bjerget, ligger noget mørkt og fladt. Det ligner en kælder fuld af gammelt papir." },
+        { "taler": "rimfod", "tekst": "Pas godt på jer, I små. Jeg står her på toppen og kigger på." },
+        { "taler": "aeseloere", "tekst": "Kom. Sporet fører ned. Mod noget, der lugter af gammelt papir og blyant." }
+      ]
+    }
+  ],
+  "missioner": {
+    "rimfodsaetning": {
+      "giver": "rimfod-top",
+      "blade": [],
+      "skaar": "k4a",
+      "antal": 3,
+      "art": "ikkerim",
+      "titel": "Rimfods sætning",
+      "intro": "Rimfod vil sige én sætning uden rim. Find det ord, der ikke rimer, så kan han slutte sin sætning med det.",
+      "start": [
+        { "taler": "rimfod", "tekst": "Hør her, I små, kom lidt tættere på. Jeg har en drøm, som I måske kan forstå." },
+        { "taler": "rimfod", "tekst": "Bare én sætning, der ikke rimer. Én eneste. Så græder jeg af glæde i flere timer." },
+        { "taler": "aeseloere", "tekst": "Han skal bruge et ord at slutte med. Et ord, der ikke rimer på resten. Hjælp ham med at vælge." }
+      ],
+      "mangler": [
+        { "taler": "rimfod", "tekst": "Er I klar? Lad os prøve igen. Jeg siger begyndelsen, I finder enden, min ven." }
+      ],
+      "klar": [
+        { "taler": "rimfod", "tekst": "Er I klar? Lad os prøve igen. Jeg siger begyndelsen, I finder enden, min ven." }
+      ],
+      "faerdig": [
+        { "taler": "rimfod", "tekst": "Jeg sidder på en sten, og jeg har det dejligt." },
+        { "taler": "fortaeller", "tekst": "Rimfod bliver helt stille. Så triller en stor tåre ned ad hans stenkind." },
+        { "taler": "rimfod", "tekst": "Det rimede ikke! Det rimede ikke! Jeg græder af glæde, og det er meget vådt." },
+        { "taler": "fortaeller", "tekst": "En lille, lysende papirstump falder ud af mosset på Rimfods hoved. Det er et hukommelsesskår." }
+      ],
+      "efter": [
+        { "taler": "rimfod", "tekst": "Hej, I små! Nu kan jeg sige ting, der ikke rimer, når jeg virkelig prøver. Nogle gange." }
+      ]
+    }
+  }
+}

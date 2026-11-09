@@ -24,6 +24,8 @@ export const FAERDIGHEDER = [
   'laes.forstaaelse',
   // Kapitel 2: punktum, spørgsmålstegn og udråbstegn (Råberens tegn).
   'tegn.saetningstegn',
+  // Kapitel 4: rim og rytme (Rimbjerget). Kom med i gemmekodens version 3.
+  'laes.rim',
 ] as const;
 
 export type FaerdighedId = (typeof FAERDIGHEDER)[number];

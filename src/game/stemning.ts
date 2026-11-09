@@ -22,6 +22,9 @@ export function partiklerFor(tema: string): { art: PartikelArt; antal: number }[
         { art: 'fnug', antal: 12 },
         { art: 'regn', antal: 16 },
       ];
+    case 'rimbjerg':
+      // Sne, der driver i vinden (Rimbjerget, kapitel 4).
+      return [{ art: 'fnug', antal: 24 }];
     case 'eng':
       return [
         { art: 'pollen', antal: 18 },
@@ -87,6 +90,8 @@ export function stedTone(tema: string, mindreUhygge: boolean): [number, number, 
       return mindreUhygge ? [236, 244, 242] : [222, 236, 234];
     case 'torv':
       return [255, 240, 212];
+    case 'rimbjerg':
+      return [228, 236, 250];
     case 'eng':
       return [255, 250, 224];
     case 'smoeger':

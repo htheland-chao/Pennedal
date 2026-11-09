@@ -6,7 +6,7 @@ import { t, type TekstId } from './index';
  * (minde.<id>.<nr>.mild), som bruges med indstillingen "Mindre uhygge".
  * Rækkefølgen er fast: tilføj kun til sidst.
  */
-export const MINDER = ['blaek', 'streger', 'koekkenbord', 'skaar3a', 'skaar3b'] as const;
+export const MINDER = ['blaek', 'streger', 'koekkenbord', 'skaar3a', 'skaar3b', 'godnat', 'skaar4a', 'skaar4b'] as const;
 export type MindeId = (typeof MINDER)[number];
 
 export const MINDE_INFO: Record<MindeId, { kapitel: number; dele: number; mild: number[] }> = {
@@ -15,10 +15,13 @@ export const MINDE_INFO: Record<MindeId, { kapitel: number; dele: number; mild: 
   koekkenbord: { kapitel: 3, dele: 4, mild: [] },
   skaar3a: { kapitel: 3, dele: 3, mild: [] },
   skaar3b: { kapitel: 3, dele: 3, mild: [] },
+  godnat: { kapitel: 4, dele: 4, mild: [] },
+  skaar4a: { kapitel: 4, dele: 3, mild: [] },
+  skaar4b: { kapitel: 4, dele: 3, mild: [] },
 };
 
 /** Ekstra minder, som hukommelsesskår låser op (docs/historie.md, "Hukommelsesskår"). */
-export const SKAAR_MINDE: Record<string, MindeId> = { k3a: 'skaar3a', k3b: 'skaar3b' };
+export const SKAAR_MINDE: Record<string, MindeId> = { k3a: 'skaar3a', k3b: 'skaar3b', k4a: 'skaar4a', k4b: 'skaar4b' };
 
 /** Minderne fra de skår, eleven har fundet. */
 export const skaarMinder = (skaar: string[]): MindeId[] => skaar.map((s) => SKAAR_MINDE[s]).filter((m): m is MindeId => !!m);

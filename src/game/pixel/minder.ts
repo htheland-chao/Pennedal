@@ -303,7 +303,101 @@ function tegnHaeftetPaaGulvet(): HTMLCanvasElement {
   return c;
 }
 
-const TEGN: Record<MindeId, () => HTMLCanvasElement> = { blaek: tegnBlaek, streger: tegnStreger, koekkenbord: tegnKoekkenbord, skaar3a: tegnViskelaeder, skaar3b: tegnHaeftetPaaGulvet };
+
+/** Godnathistorien (kapitel 4): et mørkt værelse, lampen på natbordet, en åben bog og en dyne. Intet ansigt. */
+function tegnGodnat(): HTMLCanvasElement {
+  const c = lerred(B, H);
+  const g = c.getContext('2d')!;
+  for (let y = 0; y < H; y++) for (let x = 0; x < B; x++) felt(g, x, y, 1, 1, hash(x, y) > 0.93 ? '#262a44' : '#1d2038');
+  // Lampens lys: en varm kegle med dither.
+  for (let y = 40; y < H; y++)
+    for (let x = 0; x < B; x++) {
+      const d = Math.hypot((x - 92) / 120, (y - 60) / 110);
+      if (d < 1 && hash(x, y) > d * 0.9) felt(g, x, y, 1, 1, d < 0.5 ? '#5a4a3e' : '#3e3640');
+    }
+  // Natbord og lampe.
+  felt(g, 60, 110, 64, 70, P.kontur);
+  felt(g, 61, 111, 62, 68, '#6b4a30');
+  felt(g, 86, 74, 12, 36, P.kontur);
+  felt(g, 88, 76, 8, 34, '#c9a46a');
+  felt(g, 70, 50, 44, 26, P.kontur);
+  felt(g, 72, 52, 40, 22, '#f6d98a');
+  // Sengen og dynen.
+  felt(g, 130, 104, 190, 76, P.kontur);
+  felt(g, 131, 105, 188, 75, '#6f86b0');
+  for (let x = 131; x < 319; x += 12) felt(g, x, 105, 1, 75, '#5f74a0');
+  felt(g, 140, 92, 70, 20, P.kontur);
+  felt(g, 141, 93, 68, 18, '#e8e4dc');
+  // Den åbne bog på dynen.
+  felt(g, 210, 118, 76, 40, P.kontur);
+  felt(g, 212, 120, 35, 36, P.papir);
+  felt(g, 249, 120, 35, 36, P.papir);
+  for (let r = 0; r < 5; r++) {
+    felt(g, 216, 126 + r * 6, 26, 1, '#7d7066');
+    felt(g, 253, 126 + r * 6, 26, 1, '#7d7066');
+  }
+  // En lille skygge med store øjne, som drømmen tegner i luften.
+  for (let y = -10; y <= 10; y++) for (let x = -12; x <= 12; x++) if ((x * x) / 144 + (y * y) / 100 <= 1 && hash(x + 300, y) > 0.25) felt(g, 252 + x, 50 + y, 1, 1, '#3a3560');
+  for (const ox of [-5, 5]) {
+    felt(g, 250 + ox, 46, 4, 4, '#f6ecd6');
+    felt(g, 251 + ox, 47, 2, 2, '#2b2433');
+  }
+  return c;
+}
+
+/** Skår 4a, Skyggen i margenen: et regnehæfte med tern og tal-streger og en lille skygge tegnet i margenen. */
+function tegnSkyggenIMargenen(): HTMLCanvasElement {
+  const c = lerred(B, H);
+  const g = c.getContext('2d')!;
+  for (let y = 0; y < H; y++) for (let x = 0; x < B; x++) felt(g, x, y, 1, 1, hash(x, y) > 0.92 ? '#b89870' : '#c9a87a');
+  felt(g, 30, 10, 260, 160, P.kontur);
+  felt(g, 31, 11, 258, 158, P.papir);
+  // Tern.
+  for (let x = 31; x < 289; x += 8) felt(g, x, 11, 1, 158, '#d6dbe6');
+  for (let y = 11; y < 169; y += 8) felt(g, 31, y, 258, 1, '#d6dbe6');
+  // Margenlinjen.
+  felt(g, 230, 11, 2, 158, '#d98a8a');
+  // Tal-streger i lange rækker.
+  for (let r = 0; r < 14; r++) for (let k = 0; k < 7; k++) if (hash(r, k) > 0.2) felt(g, 44 + k * 26, 20 + r * 10, 16, 2, '#4e4660');
+  // En visket skygge og en ny, tegnet igen ved siden af.
+  for (let y = -9; y <= 9; y++) for (let x = -8; x <= 8; x++) if ((x * x) / 64 + (y * y) / 81 <= 1) felt(g, 250 + x, 60 + y, 1, 1, hash(x, y) > 0.6 ? '#bdb6ac' : P.papir);
+  for (let y = -9; y <= 9; y++) for (let x = -8; x <= 8; x++) if ((x * x) / 64 + (y * y) / 81 <= 1) felt(g, 262 + x, 110 + y, 1, 1, '#3a3560');
+  for (const ox of [-3, 3]) {
+    felt(g, 261 + ox, 106, 3, 3, '#f6ecd6');
+    felt(g, 262 + ox, 107, 1, 1, '#2b2433');
+  }
+  return c;
+}
+
+/** Skår 4b, Døren på klem: et mørkt værelse, en stribe lys fra døren og en åben skuffe. Ingen ansigter. */
+function tegnDoerenPaaKlem(): HTMLCanvasElement {
+  const c = lerred(B, H);
+  const g = c.getContext('2d')!;
+  for (let y = 0; y < H; y++) for (let x = 0; x < B; x++) felt(g, x, y, 1, 1, hash(x, y) > 0.93 ? '#262a44' : '#1d2038');
+  // Døren på klem med lys bag.
+  felt(g, 30, 20, 70, 160, P.kontur);
+  felt(g, 32, 22, 20, 158, '#f6d98a');
+  felt(g, 52, 22, 46, 158, '#4a3a2e');
+  // Lysstriben hen over gulvet.
+  for (let y = 150; y < H; y++) {
+    const w = 20 + (y - 150) * 2;
+    for (let x = 32; x < 32 + w; x++) if (hash(x, y) > (x - 32) / (w + 10)) felt(g, x, y, 1, 1, '#8a7650');
+  }
+  // En skygge af en person i døråbningen (kun en mørk form).
+  felt(g, 34, 60, 16, 90, '#3e3a48');
+  felt(g, 36, 44, 12, 16, '#3e3a48');
+  // Skrivebordet og den åbne skuffe.
+  felt(g, 170, 90, 130, 14, P.kontur);
+  felt(g, 171, 91, 128, 12, '#8a6a45');
+  felt(g, 180, 104, 110, 40, P.kontur);
+  felt(g, 181, 105, 108, 38, '#6b4a30');
+  felt(g, 196, 140, 80, 22, P.kontur);
+  felt(g, 197, 141, 78, 20, '#7d5a3a');
+  felt(g, 230, 148, 12, 4, '#c9a46a');
+  return c;
+}
+
+const TEGN: Record<MindeId, () => HTMLCanvasElement> = { blaek: tegnBlaek, streger: tegnStreger, koekkenbord: tegnKoekkenbord, skaar3a: tegnViskelaeder, skaar3b: tegnHaeftetPaaGulvet, godnat: tegnGodnat, skaar4a: tegnSkyggenIMargenen, skaar4b: tegnDoerenPaaKlem };
 
 const cache = new Map<MindeId, string | null>();
 /** Billedet til et minde som data-URL. Uden canvas (fx i enhedstests) bliver det null, og mindet vises kun som tekst. */
