@@ -358,6 +358,13 @@
       "kilde": "Historiebroen / bro-froeen.loesning",
       "lavet": "2026-11-05"
     },
+    "027c0f26b9459a": {
+      "figur": "fortaeller",
+      "tekst": "Lanternen blafrer. Bag dig er der nogen.",
+      "fil": "027c0f26b9459a.ogg",
+      "kilde": "Kapitel 5 / k5-twist.1",
+      "lavet": "2026-11-09"
+    },
     "02845cf6a489e9": {
       "figur": "fortaeller",
       "tekst": "Vinden holder op med at rime. Det bliver helt stille på toppen.",
@@ -427,6 +434,13 @@
       "fil": "02f89939c146c2.ogg",
       "kilde": "Stumme bogstaver / land.saetning",
       "lavet": "2026-11-04"
+    },
+    "0309fcdcef489b": {
+      "figur": "fortaeller",
+      "tekst": "På den sidste side står der: Skyggen ledte efter et sted at høre til. Og så ...",
+      "fil": "0309fcdcef489b.ogg",
+      "kilde": "Kapitel 5 / k5-haeftet.4",
+      "lavet": "2026-11-09"
     },
     "030e34be0922e8": {
       "figur": "fortaeller",
@@ -1120,6 +1134,13 @@
       "fil": "097d6bf7f755ef.ogg",
       "kilde": "Historiebroen / bro-musen.verden",
       "lavet": "2026-11-05"
+    },
+    "09882aab06ad6d": {
+      "figur": "fortaeller",
+      "tekst": "Mere står der ikke.",
+      "fil": "09882aab06ad6d.ogg",
+      "kilde": "Kapitel 5 / k5-haeftet.5",
+      "lavet": "2026-11-09"
     },
     "09be461c0db40d": {
       "figur": "fortaeller",
@@ -3994,5 +4015,5 @@
   },
   "model": "gemini-3.8-flash-tts",
   "i_alt": 698,
-  "mangler": 128
+  "mangler": 125
 }
