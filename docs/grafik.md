@@ -58,11 +58,20 @@ Prototypen, der viser stilen: "Pennedal set oppefra" (Claude-artefakt). Den er t
 
 ## Dialog
 
-- Når en figur taler, går hovedpersonen hen til den, og kameraet zoomer ind (højst 2 gange), så begge kan ses over dialogboksen.
-- De vender sig mod hinanden. Den, der taler, vipper lidt og har en lille taleboble med tre prikker (ingen bogstaver).
-- Fortælleren og figurer, der ikke er på stedet, zoomer kun lidt ind på hovedpersonen.
+- Når en figur taler, går hovedpersonen hen til den, og kameraet zoomer ind i hele trin (1 eller 2) og klipper i stedet for at glide, så pixlerne ikke flyder. Begge skal kunne ses over dialogboksen.
+- De vender sig mod hinanden. Den, der taler, vipper lidt og har en lille taleboble med tre prikker (ingen bogstaver) over billedets øverste kant. Træer foran en figur bliver halvt gennemsigtige.
+- Fortælleren og figurer, der ikke er på stedet, zoomer ikke.
 - Med "Reducer bevægelse" i styresystemet skifter zoomen uden glidning og uden vippen.
 - Portrætter i dialogen: 24 x 24 pixel i `src/game/pixel/portraetter.ts`.
+
+## Stemning og liv (9. november 2026)
+
+- **Jorden** (`tegnGrund` i `src/game/pixel/lerred.ts`): græs og skov flyder i hinanden (feltet aflæses forskudt med glat støj), stien har runde hjørner og en bølgende kant, græsset har lyse og mørke pletter. Sten, tuer, svampe og kviste står på græsset, mos i brostenenes fuger. Træer har en ditheret skygge mod højre, huse og mure kaster skygge mod højre. Alt tegnes én gang pr. sted.
+- **Partikler** (`src/game/stemning.ts`): ildfluer om natten, papirblade i Pennedal, fnug i Viskeskoven, pollen i byen, støv indendørs. Højst 30 på skærmen. Ildfluer gløder langsomt og ligger over lyslaget. Ingen partikler med reduceret bevægelse.
+- **Levende figurer** (`src/game/pixel/liv.ts`): figurer blinker kort med flere sekunders mellemrum og trækker vejret (overkroppen synker én pixel). Gangen har fire trin. Billederne laves ud fra figurens eget tegnkort.
+- **Farvetone pr. sted:** Viskeskoven kølig blågrøn, torvet gyldent, engen varm, smøgerne kølige. En vignet i fire trin med dither gør kanterne lidt mørkere, mest i kælderen og om natten, halvt så meget med "Mindre uhygge".
+- **Dybde:** mørke trækroner langs kortets nederste kant glider lidt hurtigere end verden (parallakse).
+- **Rammer:** dialogen, opgavekortet, menuen og kampens bokse har en pixelramme (et SVG på 12 x 12 pixel som `border-image`). Teksten er stadig HTML.
 
 ## Skrift
 
