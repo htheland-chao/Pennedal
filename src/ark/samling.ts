@@ -23,6 +23,7 @@ import {
 import { MARKOER } from '../game/pixel/kampscene';
 import { TING_IKONER } from '../game/pixel/ting';
 import { STUMMING, TOMORD, VIMS } from '../game/pixel/viskeskov';
+import { FODNOTETAL, FRU_FODNOTE, HAEFTE_KORT, TVIVL, UFAERDIGE_KORT } from '../game/pixel/arkiv';
 
 export type Element = { navn: string; kort: Tegnkort };
 export type Gruppe = {
@@ -78,6 +79,11 @@ export function grupper(): Gruppe[] {
         { navn: 'fugl (Æseløre)', kort: FUGL },
         { navn: 'vims', kort: VIMS },
         { navn: 'tomordet', kort: TOMORD },
+        { navn: 'Fru Fodnote', kort: FRU_FODNOTE },
+        { navn: 'Den Tvivlende Sætning', kort: TVIVL },
+        { navn: 'fodnotetal', kort: FODNOTETAL },
+        { navn: 'det grønne hæfte', kort: HAEFTE_KORT },
+        { navn: 'Den Ufærdige', kort: UFAERDIGE_KORT },
         { navn: 'stumming', kort: STUMMING },
         { navn: 'skygge', kort: SKYGGE },
         { navn: 'voksen', kort: voksen('#6a4a8a') },

@@ -14,6 +14,7 @@
     "fort.struktur": { "omraade": "laesning", "maal": ["eleven kan anvende grafiske modeller til at få overblik over teksters struktur og indhold."], "klassetrin": "efter 6." },
     "laes.rim": { "omraade": "fortolkning", "maal": ["eleven kan undersøge virkemidler.", "Eleven har viden om enkle metoder til at afdække virkemidler i en tekst."], "klassetrin": "efter 4. (undersøgelse)" },
     "laes.ordforraad": { "omraade": "laesning", "maal": ["eleven kan udlede dele af ords betydning fra konteksten.", "Eleven har viden om ordforståelsesstrategier."], "klassetrin": "efter 6. (sprogforståelse)" },
+    "fort.fortaeller_tid": { "omraade": "fortolkning", "maal": ["eleven kan undersøge fortællerpositioner.", "Eleven har viden om fortællertyper."], "klassetrin": "efter 6. (undersøgelse)" },
     "laes.praecision": { "omraade": "laesning", "maal": ["Eleven kan opdage egne forståelsesproblemer og anvende relevante strategier til at afhjælpe dem og få overblik over teksten."], "klassetrin": "efter 6. (opmærksomhedspunkt)" }
   }
 }

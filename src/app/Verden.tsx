@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { avatarnavn, hentKapitel, kapitler, t, type DialogValg, type Replik, type RumFund, type RumTrin, type Trin, type ValgMulighed } from '../content';
-import { erFaerdighed } from '../engine/faerdigheder';
+import { avatarnavn, harTekst, hentKapitel, kapitler, t, type DialogValg, type OrdOpgaveArt, type Replik, type RumFund, type RumTrin, type Trin, type ValgMulighed } from '../content';
+import { erFaerdighed, type FaerdighedId } from '../engine/faerdigheder';
 import type { GemtSpil, Indstillinger } from '../engine/gem';
 import { afslutTrin, aktueltSted, aktueltTrin, kapitelSlut } from '../engine/kapitel';
 import { MAKS_VENLIGHED, minderFor, nyeTing, taskeFor, type TingId } from '../engine/taske';
@@ -30,6 +30,13 @@ type Props = {
   onDelSlut: (del: number) => void;
   onKapitelSlut: () => void;
 };
+
+/** Hvilken færdighed en lille ordopgave øver (ordsten og sidemissioner). */
+function ordFaerdighed(art: OrdOpgaveArt | undefined): FaerdighedId {
+  if (art === 'rim' || art === 'ikkerim') return 'laes.rim';
+  if (art === 'fortaeller') return 'fort.fortaeller_tid';
+  return 'laes.ordforraad';
+}
 
 const DEBUG = typeof location !== 'undefined' && new URLSearchParams(location.search).has('debug');
 
@@ -142,9 +149,10 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
   const kanGentages = Object.keys(gentag).filter((id) => !skjulte.includes(id) && id !== trin?.objekt && sted.objekter.some((o) => o.id === id && o.felt));
   // Frivillige ting på stedet: kan undersøges når som helst, også når kapitlet er slut.
   const frivillige = udflugt ? [] : sted.objekter.filter((o) => o.frivillig && o.felt && !skjulte.includes(o.id)).map((o) => o.id);
-  const undersoegbare =
-    aktive ??
-    (kanGentages.length || frivillige.length
+  // I et rum kan de frivillige ting (sidemissionen, bladene, udflugten) også undersøges.
+  const undersoegbare = aktive
+    ? [...aktive, ...frivillige.filter((id) => !aktive.includes(id))]
+    : (kanGentages.length || frivillige.length
       ? [...(aktivtObjekt && !slut ? [aktivtObjekt] : []), ...(slut ? [] : kanGentages), ...frivillige]
       : undefined);
   /** Navnet på det, opgaven handler om (knappen i panelet). */
@@ -261,7 +269,8 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
       const nyt: GemtSpil = { ...s, valg: { ...s.valg, [bladFundet(id)]: 'ja' } };
       spilRef.current = nyt;
       opdater(nyt);
-      setBladBesked(t('mission.blad', { antal: antalBlade(nyt, mission), ialt: mission.blade.length }));
+      const egen = `mission.blad.${mid}`;
+      setBladBesked(t(harTekst(egen) ? egen : 'mission.blad', { antal: antalBlade(nyt, mission), ialt: mission.blade.length }));
       return;
     }
     if (status === 'ny') {
@@ -564,12 +573,12 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
       )}
       {ordsten !== null && (
         <OrdOpgaveVindue
-          titel={t(sted.ordsten === 'rim' ? 'ordsten.rim.titel' : 'ordsten.titel')}
-          intro={t(sted.ordsten === 'rim' ? 'ordsten.rim.intro' : 'ordsten.intro')}
+          titel={t(sted.ordsten && sted.ordsten !== 'synonym' ? `ordsten.${sted.ordsten}.titel` : 'ordsten.titel')}
+          intro={t(sted.ordsten && sted.ordsten !== 'synonym' ? `ordsten.${sted.ordsten}.intro` : 'ordsten.intro')}
           antal={1}
           art={sted.ordsten ?? 'synonym'}
-          niveau={niveauFor(sted.ordsten === 'rim' ? 'laes.rim' : 'laes.ordforraad')}
-          onSvar={(r, f) => onSvar(sted.ordsten === 'rim' ? 'laes.rim' : 'laes.ordforraad', r, f)}
+          niveau={niveauFor(ordFaerdighed(sted.ordsten))}
+          onSvar={(r, f) => onSvar(ordFaerdighed(sted.ordsten), r, f)}
           faerdigTekst={t('ordsten.genskab')}
           pauseTekst={t('ordsten.vaek')}
           onFaerdig={() => {
@@ -585,8 +594,8 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
           intro={kapitel.missioner[missionOpgave].intro}
           antal={kapitel.missioner[missionOpgave].antal}
           art={kapitel.missioner[missionOpgave].art ?? 'synonym'}
-          niveau={niveauFor(kapitel.missioner[missionOpgave].art === 'ikkerim' ? 'laes.rim' : 'laes.ordforraad')}
-          onSvar={(r, f) => onSvar(kapitel.missioner![missionOpgave].art === 'ikkerim' ? 'laes.rim' : 'laes.ordforraad', r, f)}
+          niveau={niveauFor(ordFaerdighed(kapitel.missioner[missionOpgave].art))}
+          onSvar={(r, f) => onSvar(ordFaerdighed(kapitel.missioner![missionOpgave].art), r, f)}
           faerdigTekst={t('ordopgave.faerdig')}
           pauseTekst={t('ordsten.vaek')}
           onFaerdig={() => {

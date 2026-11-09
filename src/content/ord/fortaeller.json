@@ -1,0 +1,37 @@
+{
+  "faerdighed": "fort.fortaeller_tid",
+  "klassificer": [
+    { "id": "k01", "tekst": "Jeg åbnede den tunge dør og gik ned ad trappen.", "fortaeller": "jeg", "svaerhed": 1 },
+    { "id": "k02", "tekst": "Mira åbnede den tunge dør og gik ned ad trappen.", "fortaeller": "hanhun", "svaerhed": 1 },
+    { "id": "k03", "tekst": "Han fandt en gammel bog under sengen.", "fortaeller": "hanhun", "svaerhed": 1 },
+    { "id": "k04", "tekst": "Jeg fandt en gammel bog under sengen.", "fortaeller": "jeg", "svaerhed": 1 },
+    { "id": "k05", "tekst": "Hun var bange for mørket, men hun sagde det ikke til nogen.", "fortaeller": "hanhun", "svaerhed": 1 },
+    { "id": "k06", "tekst": "Jeg var bange for mørket, men jeg sagde det ikke til nogen.", "fortaeller": "jeg", "svaerhed": 1 },
+    { "id": "k07", "tekst": "Om morgenen spiste Ali sin havregrød og kiggede ud ad vinduet.", "fortaeller": "hanhun", "svaerhed": 2 },
+    { "id": "k08", "tekst": "Om morgenen spiste jeg min havregrød og kiggede ud ad vinduet.", "fortaeller": "jeg", "svaerhed": 2 },
+    { "id": "k09", "tekst": "Min mor råbte på mig, men jeg lod, som om jeg ikke hørte det.", "fortaeller": "jeg", "svaerhed": 2 },
+    { "id": "k10", "tekst": "Hendes mor råbte på hende, men hun lod, som om hun ikke hørte det.", "fortaeller": "hanhun", "svaerhed": 2 },
+    { "id": "k11", "tekst": "Da skolen var slut, løb drengen hele vejen hjem til sin hund.", "fortaeller": "hanhun", "svaerhed": 2 },
+    { "id": "k12", "tekst": "Da skolen var slut, løb jeg hele vejen hjem til min hund.", "fortaeller": "jeg", "svaerhed": 2 },
+    { "id": "k13", "tekst": "Ingen havde set brevet, før det lå på bordet foran hende.", "fortaeller": "hanhun", "svaerhed": 3 },
+    { "id": "k14", "tekst": "Ingen havde set brevet, før det lå på bordet foran mig.", "fortaeller": "jeg", "svaerhed": 3 },
+    { "id": "k15", "tekst": "Det var den værste dag i hele mit liv, tænkte jeg.", "fortaeller": "jeg", "svaerhed": 3 },
+    { "id": "k16", "tekst": "Det var den værste dag i hele hans liv, tænkte han.", "fortaeller": "hanhun", "svaerhed": 3 }
+  ],
+  "fortsaet": [
+    { "id": "f01", "foer": "Jeg fandt en gammel bog.", "efter": "blæste støvet af den.", "svar": "Jeg", "forkerte": ["Han", "Hun"], "svaerhed": 1 },
+    { "id": "f02", "foer": "Mira løb ind i arkivet.", "efter": "var helt forpustet.", "svar": "Hun", "forkerte": ["Jeg", "Du"], "svaerhed": 1 },
+    { "id": "f03", "foer": "Ali kiggede op på hylden.", "efter": "kunne ikke nå den øverste bog.", "svar": "Han", "forkerte": ["Jeg", "Hun"], "svaerhed": 1 },
+    { "id": "f04", "foer": "Jeg gik ned ad trappen.", "efter": "holdt godt fast i gelænderet.", "svar": "Jeg", "forkerte": ["Hun", "Han"], "svaerhed": 1 },
+    { "id": "f05", "foer": "Pigen satte sig ved bordet.", "efter": "begyndte at skrive i sit hæfte.", "svar": "Hun", "forkerte": ["Jeg", "Han"], "svaerhed": 1 },
+    { "id": "f06", "foer": "Drengen tabte sin blyant.", "efter": "bukkede sig ned for at samle den op.", "svar": "Han", "forkerte": ["Jeg", "Hun"], "svaerhed": 1 },
+    { "id": "f07", "foer": "Jeg hørte en lyd bag reolen.", "efter": "turde ikke kigge efter.", "svar": "Jeg", "forkerte": ["Han", "Hun"], "svaerhed": 2 },
+    { "id": "f08", "foer": "Bedstemor lagde bogen fra sig.", "efter": "smilede og slukkede lampen.", "svar": "Hun", "forkerte": ["Jeg", "Han"], "svaerhed": 2 },
+    { "id": "f09", "foer": "Den gamle mand tog hatten af.", "efter": "hilste høfligt på os alle sammen.", "svar": "Han", "forkerte": ["Jeg", "Hun"], "svaerhed": 2 },
+    { "id": "f10", "foer": "Om aftenen sad jeg alene i mit værelse.", "efter": "tegnede en lille skygge i hæftet.", "svar": "Jeg", "forkerte": ["Han", "Hun"], "svaerhed": 2 },
+    { "id": "f11", "foer": "Hele dagen ventede jeg på et brev.", "efter": "kiggede i postkassen mindst ti gange.", "svar": "Jeg", "forkerte": ["Hun", "Han"], "svaerhed": 3 },
+    { "id": "f12", "foer": "Hele vejen hjem tænkte jeg på det, læreren havde sagt.", "efter": "kunne ikke få det ud af hovedet.", "svar": "Jeg", "forkerte": ["Hun", "Han"], "svaerhed": 3 },
+    { "id": "f13", "foer": "Fru Fodnote rettede på sine briller.", "efter": "havde en fodnote til alting.", "svar": "Hun", "forkerte": ["Jeg", "Han"], "svaerhed": 3 },
+    { "id": "f14", "foer": "Noah havde glemt sin madpakke derhjemme.", "efter": "måtte låne en bolle af sin bedste ven.", "svar": "Han", "forkerte": ["Jeg", "Hun"], "svaerhed": 3 }
+  ]
+}

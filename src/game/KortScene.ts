@@ -10,6 +10,7 @@ import { indenfor, partikelTrin, partiklerFor, stedTone, vignetStyrke, type Part
 import { avatarPixel, BLADE, FUGL, fyrtaarn, KLATTEN, LANTERNE, moerkere, papirtrae, PIL, PLANKE, SKILT, STOLPE, TALEBOBLE, voksen, type Retning, type Tegnkort } from './pixel/sprites';
 import { GRENPORT, HALVFUGL, ORDBLAD, STUMMING, TOMORD, VIMS } from './pixel/viskeskov';
 import { DIGTSTEN, EKKO, granMedSne, RIMFOD } from './pixel/rimbjerg';
+import { FODNOTETAL, FRU_FODNOTE, HAEFTE_KORT, TVIVL, UFAERDIGE_KORT } from './pixel/arkiv';
 import type { VerdenData, VerdenKroge } from './typer';
 
 /**
@@ -28,15 +29,15 @@ export const SKALA = 1;
 export const skarpZoom = (z: number) => Math.max(1, Math.floor(z + 1e-6));
 const FART = 70; // pixel pr. sekund i pixelverdenen
 const NAER = 24;
-const FASTE_FORMER = new Set(['gnom', 'skilt', 'person', 'skab', 'port', 'kasse', 'presse', 'borger', 'doer', 'stige', 'vims', 'tomord', 'stumming', 'halvfugl', 'grenport', 'rimfod', 'ekko', 'digtsten']);
+const FASTE_FORMER = new Set(['gnom', 'skilt', 'person', 'skab', 'port', 'kasse', 'presse', 'borger', 'doer', 'stige', 'vims', 'tomord', 'stumming', 'halvfugl', 'grenport', 'rimfod', 'ekko', 'digtsten', 'fodnote', 'tvivl', 'ufaerdige']);
 /** Figurer med deres eget pixelbillede i stedet for en almindelig voksen. */
 const PERSONER: Record<string, Tegnkort> = { holm: HOLM };
 /** Hvor højt over feltets midte pilen svæver for hver form. */
-const PIL_HOEJDE: Record<string, number> = { gnom: 20, person: 27, skilt: 16, bog: 12, doer: 22, skab: 24, port: 22, kasse: 14, presse: 16, stige: 24, vims: 20, tomord: 18, stumming: 18, halvfugl: 16, ordblad: 10, grenport: 16, rimfod: 26, ekko: 20, digtsten: 20 };
+const PIL_HOEJDE: Record<string, number> = { gnom: 20, person: 27, skilt: 16, bog: 12, doer: 22, skab: 24, port: 22, kasse: 14, presse: 16, stige: 24, vims: 20, tomord: 18, stumming: 18, halvfugl: 16, ordblad: 10, grenport: 16, rimfod: 26, ekko: 20, digtsten: 20, fodnote: 16, tvivl: 17, fodnotetal: 9, haefte: 10, ufaerdige: 23 };
 
 type Lyskilde = { x: number; y: number; billede: HTMLCanvasElement };
 /** Former, der lever: de blinker og trækker vejret, når de står stille. Hvilke tegn i tegnkortet der er øjne. */
-const LEVENDE: Record<string, string[]> = { gnom: ['O', 'o'], person: ['E'], borger: ['E'], vims: ['E'], tomord: ['E'], stumming: ['E'], halvfugl: ['E'], rimfod: ['E'], ekko: ['E'] };
+const LEVENDE: Record<string, string[]> = { gnom: ['O', 'o'], person: ['E'], borger: ['E'], vims: ['E'], tomord: ['E'], stumming: ['E'], halvfugl: ['E'], rimfod: ['E'], ekko: ['E'], fodnote: ['E'], tvivl: ['E'] };
 
 export class KortScene extends Phaser.Scene {
   private data_!: VerdenData;
@@ -70,6 +71,8 @@ export class KortScene extends Phaser.Scene {
   private sidsteHint = '';
   private vej: Felt[] = [];
   private interagerVedMaal = false;
+  /** Den ting, hovedpersonen er på vej hen til (klik eller gaaTil). Den vinder over en anden ting, der står lige så tæt på. */
+  private maalObjekt: string | null = null;
   private retning: Retning = 'op';
   private gaaTid = 0;
   private ur = 0;
@@ -185,7 +188,7 @@ export class KortScene extends Phaser.Scene {
     this.tone = stedTone(tema, mindreUhygge) ?? lys.tone;
 
     // Jorden og vandet for dette sted. Indendørs: gulv og vægge.
-    const grund0 = inde ? tegnRum(this.kort, tema === 'kaelder' ? 'sten' : 'trae') : tegnGrund(this.kort);
+    const grund0 = inde ? tegnRum(this.kort, tema === 'kaelder' || tema === 'arkiv' ? 'sten' : 'trae') : tegnGrund(this.kort);
     if (!inde) tegnTraeskygger(grund0, this.kort, [22, 26, 30, 34].map((h) => Math.round(h * 0.36) * 2 + 1));
     const grund = tema === 'viskeskov' ? blegt(grund0, 0.8) : tema === 'rimbjerg' ? sne(grund0) : grund0;
     this.add.image(0, 0, this.tekstur(`px-grund-${tema}`, grund, true)).setOrigin(0).setDepth(-100000);
@@ -215,7 +218,7 @@ export class KortScene extends Phaser.Scene {
         } else if (c === 'f' && this.kort.tegn(tx - 1, ty) !== 'f' && this.kort.tegn(tx, ty - 1) !== 'f') {
           const y = (ty + 2) * FELT;
           this.add.image(tx * FELT, y, this.tekstur('px-springvand', SPRINGVAND)).setOrigin(0, 1).setDepth(y - 1);
-        } else if (inde) this.moebel(c, tx, ty, tema === 'kaelder');
+        } else if (inde) this.moebel(c, tx, ty, tema === 'kaelder' || tema === 'arkiv');
       }
 
     for (const t of traePladser(this.kort)) this.traeBilleder.push(this.add.image(t.x, t.y, traeer[t.nr]).setOrigin(0.5, 1).setDepth(t.y));
@@ -243,13 +246,18 @@ export class KortScene extends Phaser.Scene {
       else if (o.form === 'rimfod') noegle = this.tekstur('px-rimfod', RIMFOD);
       else if (o.form === 'ekko') noegle = this.tekstur('px-ekko', EKKO);
       else if (o.form === 'digtsten') noegle = this.tekstur('px-digtsten', DIGTSTEN);
+      else if (o.form === 'fodnote') noegle = this.tekstur('px-fodnote', FRU_FODNOTE);
+      else if (o.form === 'tvivl') noegle = this.tekstur('px-tvivl', TVIVL);
+      else if (o.form === 'fodnotetal') noegle = this.tekstur('px-fodnotetal', FODNOTETAL);
+      else if (o.form === 'haefte') noegle = this.tekstur('px-haefte', HAEFTE_KORT);
+      else if (o.form === 'ufaerdige') noegle = this.tekstur('px-ufaerdige', UFAERDIGE_KORT);
       else if (o.form === 'borger') noegle = this.tekstur(`px-person-${o.farve}`, voksen(o.farve, o.lys ? '#3a2a20' : '#6b4a2b'));
       else if (o.form === 'bog') {
         // Bogen ligger fladt på disken og tegnes oven på den.
         billeder.push(this.add.image(o.felt[0] * FELT + 2, o.felt[1] * FELT + 2, this.tekstur('px-logbog', LOGBOG)).setOrigin(0).setDepth(o.felt[1] * FELT + 16));
       }
       if (noegle) {
-        if (['gnom', 'person', 'borger', 'vims', 'tomord', 'stumming'].includes(o.form)) billeder.push(this.add.image(midte.x, midte.y, 'px-skygge').setOrigin(0.5, 0.5).setDepth(midte.y - 1));
+        if (['gnom', 'person', 'borger', 'vims', 'tomord', 'stumming', 'fodnote', 'tvivl'].includes(o.form)) billeder.push(this.add.image(midte.x, midte.y, 'px-skygge').setOrigin(0.5, 0.5).setDepth(midte.y - 1));
         const hoved = this.add.image(midte.x, midte.y, noegle).setOrigin(0.5, 1).setDepth(midte.y).setData('y0', midte.y);
         billeder.push(hoved);
         const oejne = LEVENDE[o.form];
@@ -263,6 +271,11 @@ export class KortScene extends Phaser.Scene {
             this.levende.push({ billede: hoved, noegle, fase: hash(o.felt[0] * 3, o.felt[1] * 11) });
           }
         }
+      }
+      if (o.form === 'ufaerdige' && noegle && !this.data_.mindreUhygge) {
+        // Den Ufærdiges blege øjne ses i mørket: de ligger over lyslaget.
+        const oejne = { raekker: UFAERDIGE_KORT.raekker.map((r) => r.replace(/[^E]/g, '.')), palet: UFAERDIGE_KORT.palet };
+        billeder.push(this.add.image(midte.x, midte.y, this.tekstur('px-ufaerdige-oejne', oejne)).setOrigin(0.5, 1).setDepth(1_000_001));
       }
       if (o.lys) {
         billeder.push(this.add.image(midte.x + 7, midte.y - 9, 'px-lanterne').setOrigin(0.5, 1).setDepth(midte.y + 1));
@@ -352,6 +365,8 @@ export class KortScene extends Phaser.Scene {
     if (o.form === 'halvfugl') return HALVFUGL;
     if (o.form === 'rimfod') return RIMFOD;
     if (o.form === 'ekko') return EKKO;
+    if (o.form === 'fodnote') return FRU_FODNOTE;
+    if (o.form === 'tvivl') return TVIVL;
     return null;
   }
 
@@ -648,6 +663,7 @@ export class KortScene extends Phaser.Scene {
     this.vej = bedst;
     this.gaarTilTaler = false;
     this.interagerVedMaal = true;
+    this.maalObjekt = id;
     if (bedst.length === 0) this.ankommet();
   }
 
@@ -658,13 +674,26 @@ export class KortScene extends Phaser.Scene {
     this.vej = v;
     this.gaarTilTaler = false;
     this.interagerVedMaal = interager;
+    this.maalObjekt = null;
   }
 
   private ankommet() {
     const interager = this.interagerVedMaal;
+    const maal = this.maalObjekt;
     this.interagerVedMaal = false;
+    this.maalObjekt = null;
     this.opdaterNaer();
-    if (interager && this.naer) this.kroge?.onInteraktion(this.naer);
+    if (!interager) return;
+    // Står hovedpersonen ved den ting, der blev klikket på, er det den, der undersøges, også hvis en anden er lige så tæt på.
+    const valgt = this.kanUndersoeges().find((o) => o.id === maal && o.felt);
+    if (valgt?.felt) {
+      const m = feltMidte(valgt.felt);
+      if (Phaser.Math.Distance.Between(this.spiller.x, this.spiller.y, m.x, m.y) < NAER + 0.01) {
+        this.kroge?.onInteraktion(valgt.id);
+        return;
+      }
+    }
+    if (this.naer) this.kroge?.onInteraktion(this.naer);
   }
 
   private kollision(x: number, y: number): boolean {

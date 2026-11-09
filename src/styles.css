@@ -1301,6 +1301,12 @@ input[type='range'] {
 .verden.moerke {
   --stjerne: transparent;
 }
+/* Fru Fodnote taler som en fodnote: en tynd streg over teksten. Skriften er lige så stor som ellers (læsbarhed). */
+.dialogboks.taler-fodnote .taler-navn + p {
+  border-top: 2px solid #8a7a62;
+  padding-top: 0.4em;
+  max-width: 60ch;
+}
 .dialogboks.taler-ufaerdige {
   border-image: none;
   border: 3px solid #3a3d55;

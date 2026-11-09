@@ -368,7 +368,7 @@ export type Belysning = 'nat' | 'morgen' | 'moerke' | 'dag';
 /** Byen i kapitel 2 ligger i varmt dagslys. Trykkeriet er mørkt som kælderen. */
 export function belysning(tema: string): Belysning {
   if (tema === 'bibliotek') return 'morgen';
-  if (tema === 'kaelder' || tema === 'trykkeri') return 'moerke';
+  if (tema === 'kaelder' || tema === 'trykkeri' || tema === 'arkiv') return 'moerke';
   if (tema === 'eng' || tema === 'torv' || tema === 'smoeger' || tema === 'viskeskov') return 'dag';
   return 'nat';
 }

@@ -13,14 +13,14 @@
 import type { VaesenId } from './kamp';
 
 /** Slags slag. Hvert slag er en lille danskfaglig opgave. */
-export type Slag = 'synonym' | 'stumt' | 'rim';
+export type Slag = 'synonym' | 'stumt' | 'rim' | 'fortaeller';
 /** Slagene, en kamp har, hvis trinnet ikke selv siger det (kapitel 3). Rim kommer i kapitel 4. */
 export const SLAG: Slag[] = ['synonym', 'stumt'];
-export const SLAG_FAERDIGHED: Record<Slag, string> = { synonym: 'laes.ordforraad', stumt: 'stav.stumme', rim: 'laes.rim' };
+export const SLAG_FAERDIGHED: Record<Slag, string> = { synonym: 'laes.ordforraad', stumt: 'stav.stumme', rim: 'laes.rim', fortaeller: 'fort.fortaeller_tid' };
 /** Hvilket væsen hvert slag svarer til i opgavemotoren (src/mechanics/kamp.ts). */
-export const SLAG_OPGAVE: Record<Slag, VaesenId> = { synonym: 'tomordet', stumt: 'stumming', rim: 'ekko' };
+export const SLAG_OPGAVE: Record<Slag, VaesenId> = { synonym: 'tomordet', stumt: 'stumming', rim: 'ekko', fortaeller: 'tvivl' };
 /** Hvert væsen er svagt over for ét slag. */
-export const SVAGHED: Record<VaesenId, Slag> = { tomordet: 'synonym', stumming: 'stumt', ekko: 'rim' };
+export const SVAGHED: Record<VaesenId, Slag> = { tomordet: 'synonym', stumming: 'stumt', ekko: 'rim', tvivl: 'fortaeller' };
 
 export type MedlemId = 'avatar' | 'aeseloere' | 'vims';
 export type HjaelperId = Exclude<MedlemId, 'avatar'>;
@@ -41,7 +41,7 @@ export const KRUMMER_LIV = 3;
 export const KOMBI = 3;
 export const SKADE = { slag: 2, svag: 4, stort: 3, stortSvag: 5 };
 
-export type AngrebId = 'aed' | 'gab' | 'stjael' | 'hvisk' | 'gentag' | 'raab';
+export type AngrebId = 'aed' | 'gab' | 'stjael' | 'hvisk' | 'gentag' | 'raab' | 'skift' | 'bland';
 type AngrebInfo = { id: AngrebId; skade: number; alle: boolean };
 export const ANGREB: Record<VaesenId, AngrebInfo[]> = {
   tomordet: [
@@ -56,6 +56,11 @@ export const ANGREB: Record<VaesenId, AngrebInfo[]> = {
   ekko: [
     { id: 'gentag', skade: 3, alle: false },
     { id: 'raab', skade: 1, alle: true },
+  ],
+  // Den Tvivlende Sætning skifter fortæller midt i det hele og blander holdet sammen.
+  tvivl: [
+    { id: 'bland', skade: 3, alle: false },
+    { id: 'skift', skade: 1, alle: true },
   ],
 };
 

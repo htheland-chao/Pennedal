@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState, type CSSProperties, type KeyboardEvent, type ReactNode } from 'react';
-import { kapitler, rimord, stumme, synonymer, t, type KampTrin, type TekstId } from '../content';
+import { fortaellersaetninger, kapitler, rimord, stumme, synonymer, t, type KampTrin, type TekstId } from '../content';
 import type { Avatar } from '../engine/gem';
 import type { Haendelse as Tilpasning } from '../engine/tilpasning';
 import { FJENDE_PLADS, HOLD_PLADS, KAMP_B, KAMP_H, MARKOER, tegnKampBaggrund } from '../game/pixel/kampscene';
@@ -7,7 +7,8 @@ import { tegnkortTilLerred } from '../game/pixel/lerred';
 import { avatarPixel, FUGL, type Tegnkort } from '../game/pixel/sprites';
 import { STUMMING, TOMORD, VIMS } from '../game/pixel/viskeskov';
 import { EKKO } from '../game/pixel/rimbjerg';
-import { antalTure, lavEkkoOpgave, lavStummingOpgave, lavTomordOpgave, tjekKamp, viskUd, type KampOpgave, type VaesenId } from '../mechanics/kamp';
+import { TVIVL } from '../game/pixel/arkiv';
+import { antalTure, lavEkkoOpgave, lavTvivlOpgave, lavStummingOpgave, lavTomordOpgave, tjekKamp, viskUd, type KampOpgave, type VaesenId } from '../mechanics/kamp';
 import {
   brugEvne,
   brugTing,
@@ -74,19 +75,21 @@ type Visning =
   | { type: 'afspil' }
   | { type: 'slut' };
 
-const SPRITE: Record<VaesenId, Tegnkort> = { tomordet: TOMORD, stumming: STUMMING, ekko: EKKO };
+const SPRITE: Record<VaesenId, Tegnkort> = { tomordet: TOMORD, stumming: STUMMING, ekko: EKKO, tvivl: TVIVL };
 /** Figurernes størrelse på scenen (gange pixel). */
 const FJENDE_SKALA = 2.4;
 const HOLD_SKALA = 1.8;
 
 /** Ord, der er brugt i denne session, så de ikke kommer igen med det samme. */
-const brugt: Record<VaesenId, string[]> = { tomordet: [], stumming: [], ekko: [] };
+const brugt: Record<VaesenId, string[]> = { tomordet: [], stumming: [], ekko: [], tvivl: [] };
 function nyOpgave(vaesen: VaesenId, niveau: number): KampOpgave {
   const o =
     vaesen === 'tomordet'
       ? lavTomordOpgave(synonymer.ord, niveau, Math.random, brugt.tomordet)
       : vaesen === 'ekko'
         ? lavEkkoOpgave(rimord.rim, niveau, Math.random, brugt.ekko)
+        : vaesen === 'tvivl'
+          ? lavTvivlOpgave(fortaellersaetninger.fortsaet, niveau, Math.random, brugt.tvivl)
         : lavStummingOpgave(stumme.ord, niveau, Math.random, brugt.stumming);
   brugt[vaesen].push(o.id);
   if (brugt[vaesen].length > 8) brugt[vaesen].shift();
@@ -96,6 +99,7 @@ function nyOpgave(vaesen: VaesenId, niveau: number): KampOpgave {
 function regelFor(o: KampOpgave): { regel: string; eksempel: string } {
   if (o.vaesen === 'tomordet') return { regel: t('kamp.tomordet.regel'), eksempel: t('kamp.tomordet.eksempel') };
   if (o.vaesen === 'ekko') return { regel: t('rim.regel'), eksempel: t('rim.eksempel') };
+  if (o.vaesen === 'tvivl') return { regel: t('fortaeller.regel'), eksempel: t('fortaeller.eksempel') };
   const andre = stumme.ord
     .filter((x) => x.type === o.type && x.ord !== o.ord && x.svaerhed === 1)
     .slice(0, 3)

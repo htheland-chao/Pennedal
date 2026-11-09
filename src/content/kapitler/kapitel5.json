@@ -1,0 +1,362 @@
+{
+  "kapitel": 5,
+  "titel": "Fodnoternes kælder",
+  "steder": {
+    "arkivet": {
+      "navn": "Fodnoternes arkiv",
+      "tema": "arkiv",
+      "start": {
+        "x": 0,
+        "y": 0
+      },
+      "startFelt": [2, 9],
+      "kort": [
+        "KWWWWWWWWWWWWWWWWWWWWK",
+        "KWWWWWWWWWWWWWWWWWWWWK",
+        "KRRRRR..RRRRRRR..RRRRK",
+        "K....................K",
+        "K..rr....rr....rr....K",
+        "K..rr....rr....rr....K",
+        "K....................K",
+        "K..rr....tttttt...k..K",
+        "K..rr....tttttt......K",
+        "KU...................K",
+        "K....k.......BB...rr.K",
+        "K............BB...rr.K",
+        "KKKKKKKKKKKKKKKKKKKKKK"
+      ],
+      "objekter": [
+        { "id": "fodnote", "navn": "den lille dame nede ved gulvet", "x": 0, "y": 0, "w": 0, "h": 0, "form": "fodnote", "farve": "#c9a46a", "felt": [10, 11], "frivillig": "mission" },
+        { "id": "bogvognen", "navn": "bogvognen med de blandede bøger", "x": 0, "y": 0, "w": 0, "h": 0, "form": "bog", "farve": "#c9a46a", "felt": [13, 9] },
+        { "id": "kasse1", "navn": "en kasse med kartotekskort", "x": 0, "y": 0, "w": 0, "h": 0, "form": "kasse", "farve": "#c9a46a", "felt": [6, 7] },
+        { "id": "kasse2", "navn": "en kasse under hylden", "x": 0, "y": 0, "w": 0, "h": 0, "form": "kasse", "farve": "#c9a46a", "felt": [16, 10] },
+        { "id": "bunke", "navn": "en bunke gamle bøger", "x": 0, "y": 0, "w": 0, "h": 0, "form": "bog", "farve": "#c9a46a", "felt": [19, 3] },
+        { "id": "seddel", "navn": "en gammel seddel", "x": 0, "y": 0, "w": 0, "h": 0, "form": "bog", "farve": "#c9a46a", "felt": [11, 7] },
+        { "id": "kartotek", "navn": "kartoteksskabet", "x": 0, "y": 0, "w": 0, "h": 0, "form": "skab", "farve": "#c9a46a", "felt": [6, 2] },
+        { "id": "lem", "navn": "lemmen i gulvet", "x": 0, "y": 0, "w": 0, "h": 0, "form": "stige", "farve": "#c9a46a", "felt": [16, 2], "visFra": "k5-lem" },
+        { "id": "tal1", "navn": "en lille, hvid lap", "x": 0, "y": 0, "w": 0, "h": 0, "form": "fodnotetal", "farve": "#c9a46a", "felt": [3, 3], "frivillig": "blad" },
+        { "id": "tal2", "navn": "en lille, hvid lap", "x": 0, "y": 0, "w": 0, "h": 0, "form": "fodnotetal", "farve": "#c9a46a", "felt": [20, 6], "frivillig": "blad" },
+        { "id": "tal3", "navn": "en lille, hvid lap", "x": 0, "y": 0, "w": 0, "h": 0, "form": "fodnotetal", "farve": "#c9a46a", "felt": [8, 11], "frivillig": "blad" },
+        { "id": "reolstige", "navn": "stigen op ad de høje reoler", "x": 0, "y": 0, "w": 0, "h": 0, "form": "stige", "farve": "#c9a46a", "felt": [20, 8], "frivillig": "udflugt", "udflugt": "reolerne" }
+      ]
+    },
+    "dybarkivet": {
+      "navn": "Det inderste arkiv",
+      "tema": "arkiv",
+      "start": {
+        "x": 0,
+        "y": 0
+      },
+      "startFelt": [2, 9],
+      "kort": [
+        "KWWWWWWWWWWWWWWWWWWK",
+        "KWWWWWWWWWWWWWWWWWWK",
+        "KRRRRRRR....RRRRRRRK",
+        "K..................K",
+        "K..rr..........rr..K",
+        "K..rr..........rr..K",
+        "K..................K",
+        "K......tttttt......K",
+        "K......tttttt......K",
+        "KU.................K",
+        "K........DD........K",
+        "KKKKKKKKKKKKKKKKKKKK"
+      ],
+      "objekter": [
+        { "id": "tvivl", "navn": "sætningen, der vrider sig", "x": 0, "y": 0, "w": 0, "h": 0, "form": "tvivl", "farve": "#c9a46a", "felt": [9, 5], "skjulFra": "k5-haeftet" },
+        { "id": "haefte", "navn": "noget grønt på gulvet", "x": 0, "y": 0, "w": 0, "h": 0, "form": "haefte", "farve": "#c9a46a", "felt": [12, 8], "visFra": "k5-haeftet" },
+        { "id": "ufaerdige", "navn": "Den Ufærdige", "x": 0, "y": 0, "w": 0, "h": 0, "form": "ufaerdige", "farve": "#c9a46a", "felt": [10, 5], "visFra": "k5-twist" }
+      ]
+    },
+    "reolerne": {
+      "navn": "De høje reoler",
+      "tema": "arkiv",
+      "start": {
+        "x": 0,
+        "y": 0
+      },
+      "bane": [
+        "........................................................................................................",
+        "........................................................................................................",
+        "........................................................................................................",
+        "........................................................................................................",
+        "...........................................................==...........................................",
+        ".......................................................==......==.................#..........vvvvvv.....",
+        "..S............................^.O...........C.....==..............==....^.....#..#..#.....O.........M..",
+        "#########...##...##...##...########vvvvvvv#######......................######..#..#..#..#####~~~~~~#####",
+        "#########...##...##...##...########~~~~~~~#######......................######..#..#..#..#####~~~~~~#####",
+        "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+        "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+      ],
+      "ordsten": "fortaeller",
+      "udflugt": {
+        "skaar": "k5b",
+        "fra": "arkivet",
+        "opgavetekst": "Klatr helt op ad de høje reoler. Det er svært med vilje.",
+        "ind": [
+          { "taler": "aeseloere", "tekst": "Reolerne går helt op i mørket. Man kan klatre på dem, men det er langt, og der er næsten intet lys." },
+          { "taler": "aeseloere", "tekst": "Den er svær med vilje. Du behøver ikke at klatre for at komme videre. Men øverst oppe glimter noget." }
+        ],
+        "spoergsmaal": "Vil du klatre op ad de høje reoler?",
+        "ja": "Klatr op",
+        "nej": "Ikke nu",
+        "faerdig": [
+          { "taler": "fortaeller", "tekst": "Øverst oppe, bag den sidste bog, ligger en lille, lysende papirstump. Det er et hukommelsesskår." },
+          { "taler": "fodnote", "tekst": "¹ Ingen har været deroppe i hundrede år. ² Jeg har heller ikke. Jeg bor nederst." }
+        ],
+        "igen": [
+          { "taler": "aeseloere", "tekst": "Igen? Reolerne er ved at kende dig." }
+        ]
+      },
+      "objekter": [
+        { "id": "maal", "navn": "toppen af reolerne", "x": 0, "y": 0, "w": 0, "h": 0, "form": "maal", "farve": "#c9a46a" }
+      ]
+    }
+  },
+  "trin": [
+    {
+      "id": "k5-ankomst",
+      "type": "dialog",
+      "del": 1,
+      "sted": "arkivet",
+      "objekt": null,
+      "replikker": [
+        { "taler": "fortaeller", "tekst": "Stien ned fra bjerget ender ved en trappe under jorden. Nederst står du i et kæmpe arkiv. Hylderne går helt op i mørket." },
+        { "taler": "aeseloere", "tekst": "Fodnoternes kælder. Her bor alle de små kommentarer fra alle bøger. Pas på. De har meget at sige." },
+        { "taler": "vims", "tekst": "Her støver. Undskyld. Det er ikke mig, der støver. Tror jeg." },
+        { "taler": "fodnote", "tekst": "¹ Det er ikke ham, der støver. Det er arkivet. Jeg har en fodnote om det." },
+        { "taler": "fortaeller", "tekst": "Stemmen kommer nede fra gulvet. Helt nederst." }
+      ]
+    },
+    {
+      "id": "k5-fodnote",
+      "type": "dialog",
+      "del": 1,
+      "sted": "arkivet",
+      "objekt": "fodnote",
+      "opgavetekst": "Find den, der taler nede ved gulvet.",
+      "replikker": [
+        { "taler": "fodnote", "tekst": "God dag. Jeg er Fru Fodnote. Jeg bor nederst på siden, hvor ingen kigger, men hvor alt det vigtige står." },
+        { "taler": "aeseloere", "tekst": "Hun er meget lille." },
+        { "taler": "fodnote", "tekst": "¹ Jeg er ikke lille. Jeg er skrevet med en mindre skrift. Det er en vigtig forskel." },
+        { "taler": "fodnote", "tekst": "Mine bøger er blandet sammen. Nogle er fortalt af en, der siger jeg. Andre fortæller om en, der hedder han eller hun. Vil du hjælpe mig med at sortere dem?" },
+        { "taler": "aeseloere", "tekst": "En jeg-fortæller er selv med i historien. En han- eller hun-fortæller fortæller om en anden. Det er lettere, end hun får det til at lyde." },
+        { "taler": "fodnote", "tekst": "¹ Han har ret. Det irriterer mig. ² Det her er en fodnote til min fodnote. Den siger bare, at det stadig irriterer mig." }
+      ]
+    },
+    {
+      "id": "k5-sorter",
+      "type": "opgave",
+      "del": 1,
+      "sted": "arkivet",
+      "objekt": "bogvognen",
+      "opgavetekst": "Sortér Fru Fodnotes bøger efter, hvem der fortæller.",
+      "mekanik": "synsvinkel",
+      "faerdighed": "fort.fortaeller_tid",
+      "antal": 5
+    },
+    {
+      "id": "k5-sorter-slut",
+      "type": "dialog",
+      "del": 1,
+      "sted": "arkivet",
+      "objekt": null,
+      "slutDel": 1,
+      "replikker": [
+        { "taler": "fodnote", "tekst": "Perfekt sorteret. Jeg har næsten ingen fodnoter til det. ¹ Næsten." },
+        { "taler": "fodnote", "tekst": "Men vi har et andet problem. Kartoteksskabet er låst, og bag det er lemmen til det inderste arkiv. Der skal tre små messingskilte i låsen. Jeg har mistet dem. Igen." },
+        { "taler": "aeseloere", "tekst": "Så leder vi. Kig i kasserne og bunkerne." },
+        { "taler": "fodnote", "tekst": "¹ Husk i øvrigt at gemme dit spil i menuen. Din gemmekode er noget af det smukkeste, jeg har set længe. Især bindestregerne." }
+      ]
+    },
+    {
+      "id": "k5-rum",
+      "type": "rum",
+      "del": 2,
+      "sted": "arkivet",
+      "objekt": null,
+      "opgavetekst": "Find de tre messingskilte, og find koden til kartoteksskabet.",
+      "faerdighed": "fort.fortaeller_tid",
+      "fund": [
+        {
+          "objekt": "kasse1",
+          "ting": "skilt-jeg",
+          "tingNavn": "Et messingskilt",
+          "tekst": "Mellem kartotekskortene ligger et lille messingskilt. Det er koldt og glat. Du lægger det i tasken."
+        },
+        {
+          "objekt": "kasse2",
+          "ting": "skilt-han",
+          "tingNavn": "Et messingskilt mere",
+          "tekst": "Under hylden, bag en sok fra en gammel roman, ligger endnu et messingskilt. Du lægger det i tasken."
+        },
+        {
+          "objekt": "bunke",
+          "ting": "skilt-hun",
+          "tingNavn": "Det tredje messingskilt",
+          "tekst": "I den nederste bog i bunken ligger et messingskilt som bogmærke. Du lægger det i tasken."
+        },
+        {
+          "objekt": "seddel",
+          "tekst": "Det er en gammel seddel med Fru Fodnotes lille, pæne skrift.",
+          "laesning": [
+            "Jeg sorterer fodnoter hver morgen.",
+            "Han kommer altid for sent.",
+            "Jeg støver bøgerne af.",
+            "Hun har en meget lille støvekost.",
+            "Jeg kan godt lide stilhed.",
+            "Hun synes, at arkivet er for mørkt."
+          ]
+        }
+      ],
+      "laas": {
+        "objekt": "kartotek",
+        "kraever": ["skilt-jeg", "skilt-han", "skilt-hun"],
+        "mangler": "Kartoteksskabet har tre små, tomme rammer i låsen. Der mangler noget, før du kan prøve koden.",
+        "gaade": "Du sætter de tre messingskilte i rammerne. Så lyser tre tal-hjul op. Under dem står der: \"Jeg, han, hun. Hvor mange sætninger begynder med hvert ord i min gamle seddel?\"",
+        "svar": ["312", "3 1 2", "3-1-2"],
+        "regel": "Læs sedlen igen, og se på det første ord i hver sætning. En jeg-sætning fortæller om den, der skriver. En han- eller hun-sætning fortæller om en anden.",
+        "eksempel": "\"Jeg støver bøgerne af\" begynder med jeg. \"Han kommer altid for sent\" begynder med han.",
+        "aabnet": "Tal-hjulene klikker på plads. Kartoteksskabet glider til side, og bag det er en lem i gulvet."
+      }
+    },
+    {
+      "id": "k5-lem",
+      "type": "dialog",
+      "del": 2,
+      "sted": "arkivet",
+      "objekt": null,
+      "replikker": [
+        { "taler": "fodnote", "tekst": "¹ Jeg vidste godt, at koden var 312. Jeg ville bare se, om du kunne finde den. ² Det er ikke sandt. Jeg havde glemt den." },
+        { "taler": "aeseloere", "tekst": "Lemmen fører ned til det inderste arkiv. Kom." }
+      ]
+    },
+    {
+      "id": "k5-ned",
+      "type": "skift",
+      "del": 2,
+      "sted": "arkivet",
+      "objekt": "lem",
+      "opgavetekst": "Kravl ned gennem lemmen i gulvet.",
+      "tilSted": "dybarkivet"
+    },
+    {
+      "id": "k5-dybarkiv",
+      "type": "dialog",
+      "del": 2,
+      "sted": "dybarkivet",
+      "objekt": null,
+      "replikker": [
+        { "taler": "fortaeller", "tekst": "Lemmen fører ned i det inderste arkiv. Her står de bøger, ingen har skrevet færdig." },
+        { "taler": "fodnote", "tekst": "¹ Her ligger alle de historier, der aldrig fik en slutning. Det er det tristeste sted i hele kælderen. Og det mest støvede." },
+        { "taler": "fortaeller", "tekst": "Midt mellem reolerne står en sætning og vrider sig. Den kan ikke bestemme sig." }
+      ]
+    },
+    {
+      "id": "k5-tvivl-moede",
+      "type": "dialog",
+      "del": 2,
+      "sted": "dybarkivet",
+      "objekt": "tvivl",
+      "opgavetekst": "Gå hen til sætningen, der vrider sig.",
+      "replikker": [
+        { "taler": "tvivl", "tekst": "Jeg er en sætning. Hun er en sætning. Nej, jeg ... han ... hvem fortæller mig?" },
+        { "taler": "aeseloere", "tekst": "En sætning, der skifter fortæller midt i det hele. Den bliver ved, til ingen kan følge med." },
+        { "taler": "tvivl", "tekst": "Jeg vil ikke være én ting! Han vil være alting! Jeg ... hun ... av." },
+        { "taler": "aeseloere", "tekst": "Hjælp den med at holde fast i én fortæller. Vælg det ord, der passer til den, der allerede fortæller." }
+      ]
+    },
+    {
+      "id": "k5-kamp",
+      "type": "kamp",
+      "del": 2,
+      "sted": "dybarkivet",
+      "objekt": "tvivl",
+      "opgavetekst": "Hjælp sætningerne med at holde fast i én fortæller.",
+      "vaesen": "tvivl",
+      "vaesner": ["tvivl", "ekko", "tvivl"],
+      "slag": ["fortaeller", "rim"],
+      "faerdighed": "fort.fortaeller_tid",
+      "antal": 4,
+      "hjaelper": "vims"
+    },
+    {
+      "id": "k5-kamp-slut",
+      "type": "dialog",
+      "del": 2,
+      "sted": "dybarkivet",
+      "objekt": null,
+      "replikker": [
+        { "taler": "tvivl", "tekst": "Jeg ... jeg er en sætning. Jeg. Bare jeg. Det er dejligt roligt." },
+        { "taler": "fortaeller", "tekst": "Sætningen lægger sig til rette på en hylde og falder i søvn med et lille punktum." },
+        { "taler": "fortaeller", "tekst": "Bag hylden ligger noget grønt på gulvet." }
+      ]
+    },
+    {
+      "id": "k5-haeftet",
+      "type": "dialog",
+      "del": 2,
+      "sted": "dybarkivet",
+      "objekt": "haefte",
+      "opgavetekst": "Undersøg det grønne, der ligger på gulvet.",
+      "tilbageblik": { "id": "skyggen", "foer": 2 },
+      "replikker": [
+        { "taler": "fortaeller", "tekst": "Det er et grønt hæfte. På forsiden er der tegnet en lille skygge med store, runde øjne." },
+        { "taler": "fortaeller", "tekst": "Du kender det. Du ved ikke hvorfor, men du kender det." },
+        { "taler": "fortaeller", "tekst": "Du åbner hæftet. Siderne er fulde af en håndskrift, du har set før. Din egen." },
+        { "taler": "fortaeller", "tekst": "På den sidste side står der: Skyggen ledte efter et sted at høre til. Og så ..." },
+        { "taler": "fortaeller", "tekst": "Mere står der ikke." }
+      ]
+    },
+    {
+      "id": "k5-twist",
+      "type": "dialog",
+      "del": 2,
+      "sted": "dybarkivet",
+      "objekt": null,
+      "uhygge": true,
+      "moerke": true,
+      "slutKapitel": true,
+      "replikker": [
+        { "taler": "fortaeller", "tekst": "Lanternen blafrer. Bag dig er der nogen." },
+        { "taler": "fortaeller", "tekst": "Den Ufærdige står mellem reolerne. Den er lavet af streger af blyant, der aldrig blev tegnet færdige." },
+        { "taler": "fortaeller", "tekst": "For første gang vender den sig helt om og kigger på dig." },
+        { "taler": "ufaerdige", "tekst": "Der er du jo." },
+        { "taler": "aeseloere", "tekst": "Kom væk herfra. Nu." },
+        { "taler": "fortaeller", "tekst": "Men du bliver stående. For nu forstår du det. Den Ufærdige er ikke en fremmed. Den er din historie. Den, du aldrig skrev færdig." },
+        { "taler": "ufaerdige", "tekst": "Og så ..." },
+        { "taler": "fortaeller", "tekst": "Så er den væk. Tilbage i støvet står kun to ord: Og så." },
+        { "taler": "fodnote", "tekst": "¹ Jeg er ikke overrasket. Det stod i min fodnote på den allerførste side. ² Ingen læser fodnoter. Derfor vidste ingen det." }
+      ]
+    }
+  ],
+  "missioner": {
+    "fodnotetal": {
+      "giver": "fodnote",
+      "blade": ["tal1", "tal2", "tal3"],
+      "skaar": "k5a",
+      "antal": 3,
+      "art": "fortaeller",
+      "titel": "Fru Fodnotes tal",
+      "intro": "Vælg det ord, der holder fast i den samme fortæller, så fodnoterne passer til sætningerne.",
+      "start": [
+        { "taler": "fodnote", "tekst": "Hør her. Mine tre fodnotetal er væk. Et, to og tre. Uden dem ved ingen, hvilken fodnote der hører til hvor." },
+        { "taler": "fodnote", "tekst": "¹ Det er en katastrofe. ² En lille en." },
+        { "taler": "aeseloere", "tekst": "Små, hvide lapper. De ligger nok rundt omkring i arkivet." }
+      ],
+      "mangler": [
+        { "taler": "fodnote", "tekst": "Har du fundet mine tal? Kig efter små, hvide lapper på gulvet." }
+      ],
+      "klar": [
+        { "taler": "fodnote", "tekst": "Du fandt dem alle tre! Nu skal de på plads. Hjælp mig med at gøre sætningerne færdige, så fortælleren ikke skifter undervejs." }
+      ],
+      "faerdig": [
+        { "taler": "fodnote", "tekst": "Et, to, tre. Alt er på plads. ¹ Jeg er rørt. ² Det står ingen steder, men det er jeg." },
+        { "taler": "fortaeller", "tekst": "Ud af en fodnote falder en lille, lysende papirstump. Det er et hukommelsesskår." }
+      ],
+      "efter": [
+        { "taler": "fodnote", "tekst": "¹ Tak igen. Jeg har skrevet en fodnote om dig. Den er meget pæn." }
+      ]
+    }
+  }
+}

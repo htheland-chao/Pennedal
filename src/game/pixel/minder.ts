@@ -397,7 +397,93 @@ function tegnDoerenPaaKlem(): HTMLCanvasElement {
   return c;
 }
 
-const TEGN: Record<MindeId, () => HTMLCanvasElement> = { blaek: tegnBlaek, streger: tegnStreger, koekkenbord: tegnKoekkenbord, skaar3a: tegnViskelaeder, skaar3b: tegnHaeftetPaaGulvet, godnat: tegnGodnat, skaar4a: tegnSkyggenIMargenen, skaar4b: tegnDoerenPaaKlem };
+/** Kapitel 5, Skyggen bliver tegnet: skrivebordet om aftenen, det grønne hæfte og en lille skygge på forsiden. Blyanten ligger stille. */
+function tegnSkyggen(): HTMLCanvasElement {
+  const c = lerred(B, H);
+  const g = c.getContext('2d')!;
+  for (let y = 0; y < H; y++) for (let x = 0; x < B; x++) felt(g, x, y, 1, 1, hash(x, y) > 0.93 ? '#2c2a40' : '#24223a');
+  // Lyskeglen fra lampen.
+  for (let y = 20; y < 120; y++)
+    for (let x = 0; x < B; x++) {
+      const d = Math.hypot((x - 160) / 1.8, y - 120);
+      if (d < 70) felt(g, x, y, 1, 1, '#4a3e40');
+      else if (d < 86 && (x + y) % 2 === 0) felt(g, x, y, 1, 1, '#3a3240');
+    }
+  // Bordpladen.
+  felt(g, 0, 120, B, 60, '#6b4a30');
+  for (let x = 0; x < B; x += 3) if (hash(x, 1) > 0.5) felt(g, x, 124 + Math.floor(hash(x, 2) * 40), 2, 1, '#5a3d27');
+  // Hæftet, grønt omslag, åbent.
+  felt(g, 70, 70, 180, 90, P.kontur);
+  felt(g, 72, 72, 86, 86, P.papir);
+  felt(g, 162, 72, 86, 86, P.papir);
+  felt(g, 158, 72, 4, 86, '#4e7a52');
+  for (let r = 0; r < 7; r++) felt(g, 78, 80 + r * 9, 70 - (r === 6 ? 40 : 0), 1, '#7d7066');
+  // Skyggen tegnet på højre side: rund, med store øjne.
+  for (let y = -16; y <= 16; y++) for (let x = -14; x <= 14; x++) if ((x * x) / 196 + (y * y) / 256 <= 1) felt(g, 205 + x, 112 + y, 1, 1, hash(x + 50, y) > 0.15 ? '#3a3560' : '#55507a');
+  for (const ox of [-6, 6]) {
+    felt(g, 202 + ox, 104, 6, 6, P.papir);
+    felt(g, 204 + ox, 106, 3, 3, '#2b2433');
+  }
+  // Blyanten ligger stille ved den sidste, korte linje.
+  haandMedBlyant(g, 112, 126, 2);
+  return c;
+}
+
+/** Skår 5a, Fodnoten i hæftet: en side med linjer og nederst en lille, lille skrift og en stjerne. */
+function tegnFodnotenIHaeftet(): HTMLCanvasElement {
+  const c = lerred(B, H);
+  const g = c.getContext('2d')!;
+  for (let y = 0; y < H; y++) for (let x = 0; x < B; x++) felt(g, x, y, 1, 1, hash(x, y) > 0.92 ? '#b89870' : '#c9a87a');
+  felt(g, 40, 6, 240, 168, P.kontur);
+  felt(g, 41, 7, 238, 166, P.papir);
+  felt(g, 41, 7, 6, 166, '#4e7a52');
+  for (let r = 0; r < 11; r++) for (let k = 0; k < 5; k++) if (hash(r + 9, k) > 0.15) felt(g, 58 + k * 42, 18 + r * 11, 34, 2, '#4e4660');
+  // En streg over fodnoten.
+  felt(g, 58, 145, 60, 1, '#7d7066');
+  // Den lille skrift nederst.
+  for (let k = 0; k < 14; k++) felt(g, 60 + k * 12, 152, 9, 1, '#4e4660');
+  for (let k = 0; k < 8; k++) felt(g, 60 + k * 12, 158, 9, 1, '#4e4660');
+  // Stjernen.
+  const sx = 166;
+  const sy = 156;
+  felt(g, sx - 1, sy - 5, 3, 11, P.roed);
+  felt(g, sx - 5, sy - 1, 11, 3, P.roed);
+  felt(g, sx - 3, sy - 3, 2, 2, P.roed);
+  felt(g, sx + 2, sy - 3, 2, 2, P.roed);
+  felt(g, sx - 3, sy + 2, 2, 2, P.roed);
+  felt(g, sx + 2, sy + 2, 2, 2, P.roed);
+  return c;
+}
+
+/** Skår 5b, Hvad skriver du?: vindueskarmen, regn på ruden og et lukket, grønt hæfte på knæene. Ingen ansigter. */
+function tegnVindueskarmen(): HTMLCanvasElement {
+  const c = lerred(B, H);
+  const g = c.getContext('2d')!;
+  // Ruden: grå himmel med regndråber.
+  felt(g, 0, 0, B, 120, '#7d8aa0');
+  for (let y = 0; y < 120; y++) for (let x = 0; x < B; x++) if (hash(x, y) > 0.985) felt(g, x, y, 1, 3, '#c3ccd8');
+  // Vinduesrammen.
+  felt(g, 0, 0, B, 6, '#e8e0d0');
+  felt(g, 156, 0, 8, 120, '#e8e0d0');
+  felt(g, 0, 114, B, 10, '#e8e0d0');
+  // Karmen og væggen.
+  felt(g, 0, 124, B, 56, '#c9b48e');
+  for (let y = 124; y < H; y++) for (let x = 0; x < B; x++) if (hash(x + 3, y) > 0.95) felt(g, x, y, 1, 1, '#b39d77');
+  // Knæene under et tæppe og det lukkede hæfte.
+  felt(g, 90, 120, 140, 44, P.kontur);
+  felt(g, 92, 122, 136, 40, '#9a6a5a');
+  felt(g, 120, 110, 80, 24, P.kontur);
+  felt(g, 122, 112, 76, 20, '#4e7a52');
+  felt(g, 122, 112, 76, 2, '#6a9a6c');
+  // Hænderne holder hæftet lukket.
+  felt(g, 112, 116, 14, 12, P.hud);
+  felt(g, 194, 116, 14, 12, P.hud);
+  felt(g, 112, 126, 14, 2, P.hudSkygge);
+  felt(g, 194, 126, 14, 2, P.hudSkygge);
+  return c;
+}
+
+const TEGN: Record<MindeId, () => HTMLCanvasElement> = { blaek: tegnBlaek, streger: tegnStreger, koekkenbord: tegnKoekkenbord, skaar3a: tegnViskelaeder, skaar3b: tegnHaeftetPaaGulvet, godnat: tegnGodnat, skaar4a: tegnSkyggenIMargenen, skaar4b: tegnDoerenPaaKlem, skyggen: tegnSkyggen, skaar5a: tegnFodnotenIHaeftet, skaar5b: tegnVindueskarmen };
 
 const cache = new Map<MindeId, string | null>();
 /** Billedet til et minde som data-URL. Uden canvas (fx i enhedstests) bliver det null, og mindet vises kun som tekst. */

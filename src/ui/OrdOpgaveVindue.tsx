@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
-import { rimord, synonymer, t, type OrdOpgaveArt } from '../content';
+import { fortaellersaetninger, rimord, synonymer, t, type OrdOpgaveArt } from '../content';
+import { helSaetning, lavFortsaet } from '../mechanics/fortaeller';
 import { lavTomordOpgave } from '../mechanics/kamp';
 import { lavOpgaveAfArt } from '../mechanics/rim';
 import { Modal } from './Modal';
@@ -52,6 +53,21 @@ function lav(art: OrdOpgaveArt, niveau: number, rnd: () => number, brugt: string
       fejl: (valgt) => t('kamp.tomordet.fejl', { valgt, ord: o.ord }),
       regel: t('kamp.tomordet.regel'),
       eksempel: t('kamp.tomordet.eksempel'),
+    };
+  }
+  if (art === 'fortaeller') {
+    const o = lavFortsaet(fortaellersaetninger.fortsaet, niveau, rnd, brugt);
+    return {
+      id: o.id,
+      ord: o.svar,
+      saetning: { foer: `${o.foer} `, vist: '___', efter: ` ${o.efter}`, hel: helSaetning(o, '...') },
+      spoergsmaal: t('fortaeller.fortsaet.spoergsmaal'),
+      svar: o.svar,
+      muligheder: o.muligheder,
+      rigtig: t('fortaeller.fortsaet.rigtig', { svar: o.svar }),
+      fejl: (valgt) => t('fortaeller.fortsaet.fejl', { valgt }),
+      regel: t('fortaeller.regel'),
+      eksempel: t('fortaeller.eksempel'),
     };
   }
   const o = lavOpgaveAfArt(art, rimord, niveau, rnd, brugt);

@@ -434,7 +434,47 @@ const kamp: Sang = {
   ],
 };
 
+/**
+ * Fodnoternes kælder (kapitel 5): nysgerrig og lidt hemmelighedsfuld, E-mol. En lille melodi, der går på listesko
+ * mellem reolerne, en rolig bas og en tynd klokke, som når man vender en gammel side. Klokken er væk med "Mindre uhygge".
+ */
+const arkiv: Sang = {
+  bpm: 76,
+  spor: [
+    {
+      lyd: 'trekant',
+      styrke: 0.28,
+      noder:
+        'E2 - - - B2 - - - | C3 - - - G2 - - - | A2 - - - E2 - - - | B1 - - - B2 - - - | ' +
+        'E2 - - - B2 - - - | C3 - - - A2 - - - | D2 - - - B1 - - - | E2 - - - - - - -',
+    },
+    {
+      lyd: 'firkant',
+      styrke: 0.12,
+      noder:
+        'B4 . E5 . G5 . F#5 E5 | E5 - . . G4 . . . | A4 . C5 . E5 . D5 C5 | B4 - - - D#5 - . . | ' +
+        'B4 . E5 . G5 . A5 G5 | F#5 - . . E5 . . . | F#5 . D5 . B4 . A4 F#4 | E4 - - - - - . .',
+    },
+    {
+      lyd: 'trekant',
+      styrke: 0.08,
+      noder: arpeggio([
+        ['E3', 'G3', 'B3'], ['C3', 'E3', 'G3'], ['A2', 'C3', 'E3'], ['B2', 'D#3', 'F#3'],
+        ['E3', 'G3', 'B3'], ['C3', 'E3', 'A3'], ['D3', 'F#3', 'B3'], ['E3', 'G3', 'B3'],
+      ]),
+    },
+    {
+      lyd: 'firkant',
+      styrke: 0.03,
+      uhygge: true,
+      noder:
+        '. . . . . . . . | . . . . . . E6 . | . . . . . . . . | . . . . . . . . | ' +
+        '. . . . . . . . | . . . . . . . . | . . . . . . D#6 . | . . . . . . . .',
+    },
+  ],
+};
+
 /** Viskeskovens bane: samme sang som skoven, lidt hurtigere, fordi man løber og hopper. */
 const viskesti: Sang = { ...viskeskov, bpm: viskeskov.bpm + 14 };
 
-export const SANGE: Record<string, Sang> = { bibliotek, kaelder, pennedal, floden, fyrtaarn, eng, torv, smoeger, trykkeri, tage, forside, ufaerdige, intro, minde, viskeskov, kamp, viskesti, rimbjerg };
+export const SANGE: Record<string, Sang> = { bibliotek, kaelder, pennedal, floden, fyrtaarn, eng, torv, smoeger, trykkeri, tage, forside, ufaerdige, intro, minde, viskeskov, kamp, viskesti, rimbjerg, arkiv };
