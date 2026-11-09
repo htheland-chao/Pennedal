@@ -9,7 +9,7 @@ import { aande, gangRamme, hvileTilstand, lukOejne } from './pixel/liv';
 import { indenfor, partikelTrin, partiklerFor, stedTone, vignetStyrke, type Partikel } from './stemning';
 import { avatarPixel, BLADE, FUGL, fyrtaarn, KLATTEN, LANTERNE, moerkere, papirtrae, PIL, PLANKE, SKILT, STOLPE, TALEBOBLE, voksen, type Retning, type Tegnkort } from './pixel/sprites';
 import { STUMMING, TOMORD, VIMS } from './pixel/viskeskov';
-import type { VerdenData, VerdenKroge } from './VerdenScene';
+import type { VerdenData, VerdenKroge } from './typer';
 
 /**
  * Pixelgrafikken tegnes i 320 x 180. Spillets lærred skifter til den størrelse, når et sted har kort,

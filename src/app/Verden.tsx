@@ -7,7 +7,6 @@ import { MAKS_VENLIGHED, minderFor, nyeTing, taskeFor, type TingId } from '../en
 import { KampVindue } from '../ui/KampVindue';
 import { registrerSvar, type Haendelse } from '../engine/tilpasning';
 import { PhaserVerden } from '../game/PhaserVerden';
-import { avatarDataUri } from '../ui/avatarSvg';
 import { erMinde, mindeTitel, type MindeId } from '../content/minder';
 import { DialogBoks } from '../ui/DialogBoks';
 import { Kvittering } from '../ui/Kvittering';
@@ -253,7 +252,6 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
     opdater(nyt);
   }
 
-  const avatarUri = useMemo(() => avatarDataUri(spil.avatar), [spil.avatar]);
   const laast = !!aktivtTrin || andetVindueAabent || !!rumVindue || visTaske || !!gentagelse;
 
   return (
@@ -265,7 +263,6 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
           aktiv={aktivtObjekt}
           aktive={undersoegbare}
           baneKlaret={baneKlaret}
-          avatarUri={avatarUri}
           avatar={spil.avatar}
           skjulte={skjulte}
           laast={laast}

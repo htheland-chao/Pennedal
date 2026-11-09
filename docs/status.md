@@ -36,7 +36,6 @@ Regler og stak står i `CLAUDE.md`. Historien står i `docs/historie.md`, grafik
 - **Lyd:** Mange klip mangler stadig. Status: `npm run lyd:status` eller `public/lyd/manifest.json`. Googles dagskvote på 100 klip gør, at det tager flere dage.
 - **Kapitel 3 mangler:** platformbane med viskede planker, sidemission, valgfri svær udfordring, to hukommelsesskår og Fælles Mål-tekst for ordforråd i `src/content/maal.json`.
 - **Kapitel 4-8** står i `docs/historie.md`. Hukommelsesskårene er ikke bygget.
-- **Rester af første udkast:** `src/ui/avatarSvg.ts` og `src/game/VerdenScene.ts` bruges ikke længere af noget sted, eleven kan komme til (alle steder bruger `KortScene` eller `BaneScene`). `Verden.tsx` og `PhaserVerden.tsx` sender stadig SVG-avataren videre, og `avatar.test.ts` tester den. Kan fjernes sammen.
 - **Hovedfarve i designeren** har kun virkning, når hovedet har hætte eller kasket.
 
 ## Ikke testet
