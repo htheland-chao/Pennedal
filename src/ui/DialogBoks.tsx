@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useApp } from './Kontekst';
 import { daempMusik } from './musik/afspiller';
 import { t, type DialogValg, type Replik, type TekstId, type ValgMulighed } from '../content';
@@ -56,6 +56,27 @@ export function DialogBoks({ replikker: grund, onFaerdig, onTaler, valg, onValg 
     // onFaerdig skifter ikke undervejs i en dialog.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [naeste]);
+  // Mellemrum går videre (Henrik, 9. november 2026), også når fokus står et andet sted end på Videre-knappen.
+  // Står fokus på selve Videre-knappen, eller skal eleven vælge, gør browseren, hvad den plejer.
+  const videre = useRef(() => {});
+  videre.current = () => {
+    setNaeste(null);
+    if (sidste) onFaerdig();
+    else setNr(nr + 1);
+  };
+  useEffect(() => {
+    const ned = (e: KeyboardEvent) => {
+      if (e.code !== 'Space' || e.repeat || e.ctrlKey || e.altKey || e.metaKey || skalVaelge) return;
+      const el = e.target as HTMLElement | null;
+      if (el?.closest('input, textarea, select, [contenteditable], .dialog-valg') || el?.dataset.videre !== undefined) return;
+      e.preventDefault();
+      // Browseren klikker på en knap med fokus, når mellemrum slippes. Det skal ikke også ske.
+      window.addEventListener('keyup', (u) => u.code === 'Space' && u.preventDefault(), { capture: true, once: true });
+      videre.current();
+    };
+    window.addEventListener('keydown', ned, true);
+    return () => window.removeEventListener('keydown', ned, true);
+  }, [skalVaelge]);
   const vedFaerdig = indstillinger.autoVidere && !skalVaelge ? () => setNaeste(sidste ? SLUT : nr + 1) : undefined;
   return (
     <Modal titel={navn} klasse={`dialogboks taler-${r.taler}`}>
@@ -100,11 +121,9 @@ export function DialogBoks({ replikker: grund, onFaerdig, onTaler, valg, onValg 
           className="knap knap-primaer"
           autoFocus
           key={`v${nr}`}
-          onClick={() => {
-            setNaeste(null);
-            if (sidste) onFaerdig();
-            else setNr(nr + 1);
-          }}
+          data-videre=""
+          aria-keyshortcuts="Space"
+          onClick={() => videre.current()}
         >
           {t('dialog.videre')}
         </button>

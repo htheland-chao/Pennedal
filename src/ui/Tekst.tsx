@@ -48,7 +48,7 @@ type LaesOpProps = {
   figur?: Figur;
   /** Kaldes, når oplæsningen er nået helt til ende (ikke ved stop eller fejl). */
   vedFaerdig?: () => void;
-  /** Kun et lille højttalerikon. Navnet står stadig som skjult tekst og i værktøjstippet. */
+  /** Bruges ikke mere: knappen er altid et lille ikon. Findes, så gamle kald stadig passer. */
   ikon?: boolean;
 };
 
@@ -57,7 +57,7 @@ type LaesOpProps = {
  * Hver del bruger spillets indtalte klip, hvis det findes, og ellers computerens egen stemme.
  * Med auto starter oplæsningen af sig selv, når "Læs tekster op automatisk" er slået til.
  */
-export function LaesOpKnap({ tekst, dele, kunLokal, etiket, auto, figur, vedFaerdig, ikon }: LaesOpProps) {
+export function LaesOpKnap({ tekst, dele, kunLokal, etiket, auto, figur, vedFaerdig }: LaesOpProps) {
   const { indstillinger } = useApp();
   const findes = useStemmeFindes();
   const { manifest, klar } = useLydManifest();
@@ -142,16 +142,11 @@ export function LaesOpKnap({ tekst, dele, kunLokal, etiket, auto, figur, vedFaer
 
   if (liste.length === 0 || (!findes && !urls.some((u) => u))) return null;
   const navn = taler ? t('dialog.stop') : (etiket ?? t('dialog.laes.op'));
-  if (ikon)
-    return (
-      <button type="button" className="laes-op-ikon" aria-pressed={taler} aria-label={navn} title={navn} onClick={() => (taler ? stop() : start())}>
-        <span aria-hidden="true">{taler ? '⏹' : '🔊'}</span>
-      </button>
-    );
+  // Altid et lille ikon (Henrik, 9. november 2026): navnet står i aria-label og title, så skærmlæsere og
+  // musen stadig kan se, hvad knappen gør.
   return (
-    <button type="button" className="knap knap-lille laes-op" aria-pressed={taler} onClick={() => (taler ? stop() : start())}>
-      <span aria-hidden="true">🔊 </span>
-      {taler ? t('dialog.stop') : (etiket ?? t('dialog.laes.op'))}
+    <button type="button" className="laes-op-ikon" aria-pressed={taler} aria-label={navn} title={navn} onClick={() => (taler ? stop() : start())}>
+      <span aria-hidden="true">{taler ? '⏹' : '🔊'}</span>
     </button>
   );
 }
