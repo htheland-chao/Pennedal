@@ -3165,6 +3165,13 @@
       "kilde": "Kapitel 3 / k3-skilt.1",
       "lavet": "2026-11-01"
     },
+    "192b93ba3eb019": {
+      "figur": "fortaeller",
+      "tekst": "For første gang vender den sig helt om og kigger på dig.",
+      "fil": "192b93ba3eb019.ogg",
+      "kilde": "Kapitel 5 / k5-twist.3",
+      "lavet": "2026-11-09"
+    },
     "192d2a2ad6efc7": {
       "figur": "fortaeller",
       "tekst": "Gå ned ad trappen til kælderen.",
@@ -4022,5 +4029,5 @@
   },
   "model": "gemini-3.8-flash-tts",
   "i_alt": 978,
-  "mangler": 404
+  "mangler": 403
 }
