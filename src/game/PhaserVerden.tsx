@@ -3,7 +3,7 @@ import { useEffect, useRef, type MutableRefObject } from 'react';
 import type { Sted } from '../content';
 import type { Avatar } from '../engine/gem';
 import { BaneScene } from './BaneScene';
-import { KortScene, VIS_B, VIS_H } from './KortScene';
+import { KortScene, SKALA, VIS_B, VIS_H } from './KortScene';
 import { BREDDE, HOEJDE } from './tegn';
 import { VerdenScene, type VerdenKroge } from './VerdenScene';
 
@@ -46,7 +46,7 @@ export function PhaserVerden(props: Props) {
   const sceneNoegle = (s: Sted) => (s.bane ? 'bane' : s.kort ? 'kort' : 'verden');
   const aktivNoegle = useRef(sceneNoegle(props.sted));
   const scene = () => spil.current?.scene.getScene(aktivNoegle.current) as VerdenScene | KortScene | BaneScene | undefined;
-  const stoerrelse = (noegle: string): [number, number] => (noegle === 'kort' || noegle === 'bane' ? [VIS_B, VIS_H] : [BREDDE, HOEJDE]);
+  const stoerrelse = (noegle: string): [number, number] => (noegle === 'kort' || noegle === 'bane' ? [VIS_B * SKALA, VIS_H * SKALA] : [BREDDE, HOEJDE]);
   const sceneData = () => ({ sted: props.sted, aktiv: props.aktiv, aktive: props.aktive, mindreUhygge: props.mindreUhygge, skjulte: props.skjulte, baneKlaret: props.baneKlaret });
 
   // Opret spillet én gang.

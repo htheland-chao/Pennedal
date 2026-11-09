@@ -15,6 +15,14 @@ import type { VerdenData, VerdenKroge } from './VerdenScene';
  */
 export const VIS_B = 320;
 export const VIS_H = 180;
+/**
+ * Skarp zoom (9. november 2026): kameraet zoomer kun i hele trin (1 eller 2) og klipper i stedet for at glide.
+ * Før gled zoomen fx gennem 1,37 i 320 x 180, så pixlerne "flød". Et forsøg med 4 gange så stor intern
+ * opløsning gav skarpe kvarte trin, men kostede for meget (5 i stedet for 42 billeder pr. sekund i testbrowseren).
+ */
+export const SKALA = 1;
+/** Zoomen rundet ned til et helt trin, så hver verdenspixel er et helt antal skærmpixel, og begge figurer stadig kan ses. */
+export const skarpZoom = (z: number) => Math.max(1, Math.floor(z + 1e-6));
 const FART = 70; // pixel pr. sekund i pixelverdenen
 const NAER = 24;
 const FASTE_FORMER = new Set(['gnom', 'skilt', 'person', 'skab', 'port', 'kasse', 'presse', 'borger', 'doer', 'stige', 'vims', 'tomord', 'stumming']);
@@ -247,7 +255,7 @@ export class KortScene extends Phaser.Scene {
     this.lysLag = this.add.image(0, 0, 'px-lys').setOrigin(0).setDepth(1_000_000).setBlendMode(Phaser.BlendModes.MULTIPLY);
 
     const cam = this.cameras.main;
-    cam.setZoom(1).setBounds(0, 0, W, H).setRoundPixels(true);
+    cam.setZoom(SKALA).setBounds(0, 0, W, H).setRoundPixels(true);
     this.kam = { x: start.x, y: start.y - 10 };
     this.flytKamera(1);
 
@@ -439,7 +447,7 @@ export class KortScene extends Phaser.Scene {
 
   /**
    * Dialog: kameraet zoomer ind på den, der taler, og hovedpersonen, og de vender sig mod hinanden.
-   * Fortælleren og figurer, der ikke er på stedet, zoomer kun lidt ind på hovedpersonen. null zoomer ud igen.
+   * Fortælleren og figurer, der ikke er på stedet, zoomer ikke. null zoomer ud igen.
    */
   saetTaler(taler: string | null) {
     const foer = this.taler;
@@ -479,7 +487,7 @@ export class KortScene extends Phaser.Scene {
     }
     const p = this.talerPunkt();
     if (!p) {
-      this.zoomMaal = 1.5;
+      this.zoomMaal = 1;
       return;
     }
     const dx = Math.abs(p.x - this.spiller.x);
@@ -595,7 +603,7 @@ export class KortScene extends Phaser.Scene {
       const cam = this.cameras.main;
       const sx = (m.x - cam.worldView.x) * cam.zoom;
       const sy = (m.y - h - 4 - cam.worldView.y) * cam.zoom;
-      pos = { x: Math.round((sx / VIS_B) * 1000) / 10, y: Math.round((sy / VIS_H) * 1000) / 10 };
+      pos = { x: Math.round((sx / (VIS_B * SKALA)) * 1000) / 10, y: Math.round((sy / (VIS_H * SKALA)) * 1000) / 10 };
     }
     const noegle = pos ? `${pos.x},${pos.y}` : '';
     if (noegle === this.sidsteHint) return;
@@ -616,7 +624,7 @@ export class KortScene extends Phaser.Scene {
     }
     this.kam.x += (mx - this.kam.x) * f;
     this.kam.y += (my - this.kam.y) * f;
-    const z = this.zoom;
+    const z = skarpZoom(this.zoom);
     const bw = VIS_B / z;
     const bh = VIS_H / z;
     const W = this.kort.bredde * FELT;
@@ -624,9 +632,9 @@ export class KortScene extends Phaser.Scene {
     const vx = Phaser.Math.Clamp(this.kam.x - bw / 2, 0, Math.max(0, W - bw));
     const vy = Phaser.Math.Clamp(this.kam.y - bh / 2, 0, Math.max(0, H - bh));
     const cam = this.cameras.main;
-    cam.setZoom(z);
+    cam.setZoom(z * SKALA);
     cam.centerOn(vx + bw / 2, vy + bh / 2);
-    return { vx, vy };
+    return { vx, vy, z };
   }
 
   update(_tid: number, delta: number) {
@@ -776,12 +784,9 @@ export class KortScene extends Phaser.Scene {
     this.opdaterNaer();
     this.sendHint();
 
-    // Kamera og lys. Zoomen glider ind og ud.
-    const k2 = this.roligt ? 1 : 1 - Math.pow(0.02, dt);
-    this.zoom += (this.zoomMaal - this.zoom) * k2;
-    if (Math.abs(this.zoom - this.zoomMaal) < 0.01) this.zoom = this.zoomMaal;
-    const { vx, vy } = this.flytKamera(this.taler ? 0.1 : 0.12);
-    const z = this.zoom;
+    // Kamera og lys. Zoomen klipper i hele trin, mens kameraet glider hen til figurerne.
+    this.zoom = skarpZoom(this.zoomMaal);
+    const { vx, vy, z } = this.flytKamera(this.taler ? 0.1 : 0.12);
     this.lysLag.setPosition(vx, vy).setScale(1 / z);
     const fyrRamme = Math.floor(this.ur * 1.2) % 2;
     const noegle = `${Math.round(vx * z)},${Math.round(vy * z)},${z.toFixed(3)},${Math.round(this.spiller.x)},${Math.round(this.spiller.y)},${fyrRamme},${this.lyskilder.length},${this.data_.mindreUhygge}`;

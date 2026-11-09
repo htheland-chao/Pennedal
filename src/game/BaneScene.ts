@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 import type { Avatar } from '../engine/gem';
 import { BFELT, erFare, erFast, erPlanke, find, FYSIK, laesBane, type Bane } from './bane';
-import { VIS_B, VIS_H } from './KortScene';
+import { SKALA, VIS_B, VIS_H } from './KortScene';
 import { checkpoint, MAAL, tegnBane, tegnByBaggrund } from './pixel/banetegn';
 import { tegnkortTilLerred } from './pixel/lerred';
 import { avatarPixel, FUGL, KLATTEN, SKYGGE, type Tegnkort } from './pixel/sprites';
@@ -134,8 +134,9 @@ export class BaneScene extends Phaser.Scene {
     }
 
     const cam = this.cameras.main;
-    cam.setBounds(0, 0, W, Math.max(H, VIS_H)).setRoundPixels(true);
-    cam.setZoom(1);
+    // Tegnes i høj opløsning som kortet (SKALA). Med origo i hjørnet er scrollX venstre kant af det, man ser.
+    cam.setOrigin(0, 0).setBounds(0, 0, W, Math.max(H, VIS_H)).setRoundPixels(true);
+    cam.setZoom(SKALA);
     cam.centerOn(fra.x, VIS_H / 2);
 
     const kb = this.input.keyboard;

@@ -360,4 +360,51 @@ const viskeskov: Sang = {
 const forside: Sang = { ...pennedal, bpm: 76 };
 
 /** Sang pr. tema. Et tema uden sang får forsidens. */
-export const SANGE: Record<string, Sang> = { bibliotek, kaelder, pennedal, floden, fyrtaarn, eng, torv, smoeger, trykkeri, tage, forside, ufaerdige, intro, minde, viskeskov };
+/**
+ * Kamp (9. november 2026): energisk, hurtig og ildevarslende, så man mærker, at der er fare på færde.
+ * D-mol med en lille sekund (Eb) i sjette takt. Pumpende bas i ottendedele, et kort, truende motiv,
+ * skarpe akkordstød på bagslagene og trommer af støj. Det skarpe og stødene er væk med "Mindre uhygge".
+ */
+const kamp: Sang = {
+  bpm: 160,
+  spor: [
+    {
+      lyd: 'trekant',
+      styrke: 0.34,
+      noder:
+        'D2 D3 D2 D3 D2 D3 D2 D3 | D2 D3 D2 D3 D2 D3 D2 D3 | Bb1 Bb2 Bb1 Bb2 Bb1 Bb2 Bb1 Bb2 | C2 C3 C2 C3 C2 C3 C2 C3 | ' +
+        'D2 D3 D2 D3 D2 D3 D2 D3 | Eb2 Eb3 Eb2 Eb3 Eb2 Eb3 Eb2 Eb3 | Bb1 Bb2 Bb1 Bb2 Bb1 Bb2 Bb1 Bb2 | A1 A2 A1 A2 A1 A2 C#3 E3',
+    },
+    {
+      lyd: 'firkant',
+      styrke: 0.12,
+      noder:
+        'D5 . F5 . A5 - G5 F5 | E5 . F5 . D5 - - . | D5 . F5 . Bb5 - A5 G5 | A5 - - . G5 - E5 . | ' +
+        'D5 . F5 . A5 - D6 C8 | Bb5 - A5 - G5 - Eb5 - | F5 . D5 . Bb4 - D5 F5 | E5 - C#5 - A4 - - .',
+    },
+    {
+      lyd: 'savtak',
+      styrke: 0.045,
+      uhygge: true,
+      noder:
+        '. D4 . D4 . D4 . D4 | . F4 . F4 . F4 . F4 | . Bb3 . Bb3 . Bb3 . Bb3 | . C4 . C4 . E4 . E4 | ' +
+        '. D4 . D4 . F4 . F4 | . Eb4 . Eb4 . G4 . G4 | . Bb3 . Bb3 . D4 . D4 | . A3 . A3 . C#4 . E4',
+    },
+    {
+      lyd: 'stoej',
+      styrke: 0.035,
+      noder:
+        'C8 . C8 C8 C8 . C8 C8 | C8 . C8 C8 C8 . C8 C8 | C8 . C8 C8 C8 . C8 C8 | C8 . C8 C8 C8 . C8 C8 | ' +
+        'C8 . C8 C8 C8 . C8 C8 | C8 . C8 C8 C8 . C8 C8 | C8 . C8 C8 C8 . C8 C8 | C8 C8 C8 C8 C8 C8 C8 C8',
+    },
+    {
+      lyd: 'stoej',
+      styrke: 0.1,
+      noder:
+        '. . C4 . . . C4 . | . . C4 . . . C4 . | . . C4 . . . C4 . | . . C4 . . . C4 C4 | ' +
+        '. . C4 . . . C4 . | . . C4 . . . C4 . | . . C4 . . . C4 . | . . C4 . C4 C4 C4 C4',
+    },
+  ],
+};
+
+export const SANGE: Record<string, Sang> = { bibliotek, kaelder, pennedal, floden, fyrtaarn, eng, torv, smoeger, trykkeri, tage, forside, ufaerdige, intro, minde, viskeskov, kamp };
