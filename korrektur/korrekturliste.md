@@ -1,6 +1,6 @@
 # Korrekturliste - Pennedal
 
-Lavet 2026-11-09. 1348 tekster.
+Lavet 2026-11-09. 1599 tekster.
 
 Sæt kryds, når en tekst er læst. Bevidste fejl står under "Bevidste fejl" og skal ikke rettes.
 Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), så læs hele teksten.
@@ -610,6 +610,57 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `minde.skaar5b.2`: En stemme fra døren spørger: Hvad skriver du?
 - [ ] `minde.skaar5b.3`: Du lukker hæftet hurtigt og siger: Ingenting.
 - [ ] `mission.blad.fodnotetal`: Du fandt et af Fru Fodnotes små fodnotetal ({antal} af {ialt}).
+- [ ] `taler.snegl`: Postsneglen
+- [ ] `korrektur.titel`: Klattens tekster
+- [ ] `korrektur.instruks`: Klatten har lavet {antal} fejl i teksten. Tryk på et ord, der er stavet forkert.
+- [ ] `korrektur.instruks.en`: Klatten har lavet én fejl mere. Tryk på det ord, der er stavet forkert.
+- [ ] `korrektur.faerdig`: Hele teksten er rettet.
+- [ ] `korrektur.ikke.fejl`: {ord} er stavet rigtigt. Prøv et andet ord.
+- [ ] `korrektur.find.regel`: Læs langsomt, ord for ord. Spørg dig selv, om ordet ser ud, som det plejer.
+- [ ] `korrektur.find.eksempel`: Klatten skriver lille med ét l. Ser det rigtigt ud? Nej, lille skal have to l'er.
+- [ ] `korrektur.spoergsmaal`: Hvordan staves {ord} rigtigt?
+- [ ] `korrektur.rigtig`: Ja. Det staves {svar}.
+- [ ] `korrektur.fejl`: {valgt} er ikke den rigtige stavemåde. Læs reglen, og prøv igen.
+- [ ] `korrektur.klatten.1`: Nå, sådan! Det skriver jeg op og lægger i min pæne kasse.
+- [ ] `korrektur.klatten.2`: Det vidste jeg godt. Næsten.
+- [ ] `korrektur.klatten.3`: Den Frygtelige lærer hurtigt. Langsomt, men hurtigt.
+- [ ] `korrektur.klatten.4`: Hvis chefen kunne se mig nu. Han ville blive frygtelig sur.
+- [ ] `kamp.krusedulle.navn`: Krusedullen
+- [ ] `kamp.krusedulle.angreb`: Krusedullen kaster en klat med en stavefejl.
+- [ ] `kamp.krusedulle.spoergsmaal`: Hvordan staves {ord} rigtigt?
+- [ ] `kamp.krusedulle.lyt`: Krusedullen kribler og krabler. Den er tegnet i en fart, og der er en stavefejl i den. Find det ord, der er stavet rigtigt.
+- [ ] `kamp.krusedulle.rigtig`: Ja. {svar} er den rigtige stavemåde.
+- [ ] `kamp.krusedulle.fejl`: {valgt} er ikke den rigtige stavemåde. Se på reglen.
+- [ ] `kamp.krusedulle.rolig`: Krusedullen retter sig ud og bliver til et pænt ord.
+- [ ] `kamp.slag.ret`: Slå med en rettelse
+- [ ] `kamp.svaghed.ret`: svagt punkt: rigtig stavning
+- [ ] `kamp.kort.angreb.klat`: {navn} kaster en blækklat mod {hvem}!
+- [ ] `kamp.kort.angreb.sproejt`: {navn} sprøjter blæk ud over hele holdet!
+- [ ] `kamp.varsel.klat`: {navn} vil kaste en blækklat mod {hvem}: {skade} skade.
+- [ ] `kamp.varsel.sproejt`: {navn} vil sprøjte blæk ud over hele holdet: {skade} skade til hver.
+- [ ] `kamp.haendelse.angreb.klat`: {navn} kaster en blækklat. {hvem} mister {skade} liv.
+- [ ] `kamp.haendelse.angreb.sproejt`: {navn} sprøjter blæk. {hvem} mister {skade} liv.
+- [ ] `kamp.evne.fejl`: Klatten: vis en af mine gamle fejl ({antal} tilbage)
+- [ ] `kamp.evne.skjul`: Klatten: farv holdet sort, så angrebene rammer ved siden af ({antal} tilbage)
+- [ ] `kamp.klatten.fejl`: Klatten peger på {ord}. Den fejl har jeg selv lavet engang. Det er ikke den.
+- [ ] `kamp.klatten.ingen`: Klatten kigger på mulighederne. Der er ikke flere af hans gamle fejl her. Nu må du selv vælge.
+- [ ] `kamp.kort.skjul`: Klatten farver hele holdet sort. Ingen kan se jer, og angrebene rammer ved siden af.
+- [ ] `ordsten.stavning.titel`: Den våde sten
+- [ ] `ordsten.stavning.intro`: Stenene er væk. Vælg den rigtige stavemåde, så kommer stenene tilbage.
+- [ ] `mission.blad.postbreve`: Du fandt et af Postsneglens våde breve ({antal} af {ialt}).
+- [ ] `minde.foldet.titel`: Hjørnet bliver foldet
+- [ ] `minde.foldet.1`: Det er sent, og du er træt. Det grønne hæfte ligger åbent foran dig.
+- [ ] `minde.foldet.2`: Du har lige skrevet: Og så ... Men du ved ikke, hvad der skal ske.
+- [ ] `minde.foldet.3`: Du folder hjørnet på siden ned, så du kan finde den igen i morgen.
+- [ ] `minde.foldet.4`: Så lukker du hæftet. Du kommer aldrig tilbage til den side.
+- [ ] `minde.skaar6a.titel`: Klatten på siden
+- [ ] `minde.skaar6a.1`: Fyldepennen drypper. En stor, sort klat lander midt på siden.
+- [ ] `minde.skaar6a.2`: Du prøver at tørre den væk, men den bliver bare større.
+- [ ] `minde.skaar6a.3`: Så tegner du ben og to små øjne på den. Nu ligner den en lille figur. Den får lov at blive.
+- [ ] `minde.skaar6b.titel`: Kassen ved døren
+- [ ] `minde.skaar6b.1`: Nogen rydder op i dit værelse. Skuffen i skrivebordet bliver tømt.
+- [ ] `minde.skaar6b.2`: Alt det gamle bliver lagt i en kasse med bøger, der skal gives væk.
+- [ ] `minde.skaar6b.3`: Øverst i kassen ligger noget grønt. Kassen står ved døren og venter.
 
 ## Kapitel 1
 
@@ -1125,6 +1176,125 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `k5-twist.8 (fortaeller)`: Så er den væk. Tilbage i støvet står kun to ord: Og så.
 - [ ] `k5-twist.9 (fodnote)`: ¹ Jeg er ikke overrasket. Det stod i min fodnote på den allerførste side. ² Ingen læser fodnoter. Derfor vidste ingen det.
 
+## Kapitel 6
+
+- [ ] `titel`: Blæksøen
+- [ ] `sted.soebred`: Blæksøens bred
+- [ ] `objekt.hytte`: døren til Klattens hytte
+- [ ] `objekt.snegl`: Postsneglen
+- [ ] `objekt.brev1`: et vådt brev
+- [ ] `objekt.brev2`: et vådt brev
+- [ ] `objekt.brev3`: et vådt brev
+- [ ] `objekt.bro`: skiltet ved den gamle bro
+- [ ] `objekt.aeseloere-bred`: Æseløre ved søen
+- [ ] `objekt.krusedulle`: krusedullerne fra søen
+- [ ] `objekt.klatten-bred`: Klatten
+- [ ] `sted.hytten`: Klattens hytte
+- [ ] `objekt.klatten`: Klatten
+- [ ] `objekt.kasser`: kasserne med Klattens fejl
+- [ ] `objekt.skrivebord`: Klattens skrivebord
+- [ ] `objekt.ud`: døren ud til søen
+- [ ] `sted.soestenene`: Stenene over Blæksøen
+- [ ] `objekt.maal`: den sidste sten midt i søen
+- [ ] `sted.soestenene.udflugt.opgavetekst`: Hop fra sten til sten ud over Blæksøen. Det er svært med vilje.
+- [ ] `sted.soestenene.udflugt.spoergsmaal`: Vil du hoppe ud over Blæksøen?
+- [ ] `sted.soestenene.udflugt.ja`: Hop ud
+- [ ] `sted.soestenene.udflugt.nej`: Ikke nu
+- [ ] `sted.soestenene.udflugt.ind.1 (aeseloere)`: Der ligger sten ude i søen. Nogle er væk, så man skal hoppe langt.
+- [ ] `sted.soestenene.udflugt.ind.2 (aeseloere)`: Den er svær med vilje. Du behøver ikke at gøre det. Men midt ude på søen lyser noget.
+- [ ] `sted.soestenene.udflugt.faerdig.1 (fortaeller)`: Midt ude på søen, på den sidste sten, ligger en lille, lysende papirstump. Det er et hukommelsesskår.
+- [ ] `sted.soestenene.udflugt.faerdig.2 (vims)`: Du hoppede helt derud. Jeg kiggede ikke. Jo, jeg gjorde.
+- [ ] `sted.soestenene.udflugt.igen.1 (aeseloere)`: Igen? Pas på fødderne. Blæk går ikke af.
+- [ ] `mission.postbreve.titel`: Postsneglens breve
+- [ ] `mission.postbreve.intro`: Blækket er løbet, og nogle ord ser forkerte ud. Vælg den rigtige stavemåde, så brevene kan komme frem.
+- [ ] `mission.postbreve.start.1 (snegl)`: Goddag. Jeg er Postsneglen. Jeg bringer post rundt ved Blæksøen. Langsomt.
+- [ ] `mission.postbreve.start.2 (snegl)`: I går tabte jeg tre breve i søen. De er skyllet op et sted langs bredden.
+- [ ] `mission.postbreve.start.3 (aeseloere)`: I går? Så er han nok kommet tre meter siden.
+- [ ] `mission.postbreve.mangler.1 (snegl)`: Har du fundet mine breve? De er små og hvide. Og våde.
+- [ ] `mission.postbreve.klar.1 (snegl)`: Alle tre! Men blækket er løbet, og nogle ord ser forkerte ud. Kan du hjælpe mig med at rette dem?
+- [ ] `mission.postbreve.faerdig.1 (snegl)`: Nu kan brevene komme frem. Om et år eller to.
+- [ ] `mission.postbreve.faerdig.2 (fortaeller)`: Under det sidste brev ligger en lille, lysende papirstump. Det er et hukommelsesskår.
+- [ ] `mission.postbreve.efter.1 (snegl)`: Tak igen. Jeg er allerede på vej. Man kan næsten se det.
+- [ ] `k6-ankomst.1 (fortaeller)`: Efter arkivet går I længe uden at sige noget. Så stopper Vims.
+- [ ] `k6-ankomst.2 (vims)`: Undskyld. Der er blæk på stien. Små klatter. Hele vejen derhen.
+- [ ] `k6-ankomst.3 (fortaeller)`: Sporet ender ved en sø, der er helt sort og blank. Ved bredden står en lille, skæv hytte af krøllede sider.
+- [ ] `k6-ankomst.4 (aeseloere)`: Blæksøen. Klattens hjem. Det lugter af blæk og dårlig stavning.
+- [ ] `k6-ankomst.5 (fortaeller)`: Æseløre lyder, som han plejer. Men han kigger ikke på dig. Det har han ikke gjort, siden I forlod arkivet.
+- [ ] `k6-doer.opgavetekst`: Bank på døren til Klattens hytte.
+- [ ] `k6-doer.1 (fortaeller)`: Du banker på. Det lyder som at banke på en stak papir.
+- [ ] `k6-doer.2 (klatten)`: Hvem der? Nå, det er dig. Dig fra skoven. Med punktummet.
+- [ ] `k6-doer.3 (klatten)`: Chefen har smidt mig ud. Han siger, at jeg ikke kan stave. Det kan jeg godt. Bare ikke rigtigt.
+- [ ] `k6-doer.4 (klatten)`: Gå væk! Her bor ingen. Især ikke Klatten den Frygtelige.
+- [ ] `k6-doer.5 (aeseloere)`: Døren er låst. Han har ikke glemt, at vi lod ham sidde i skoven.
+- [ ] `k6-doer.6 (fortaeller)`: I tasken ligger Klattens kappe. Den, han tabte bag skiltet i Pennedal.
+- [ ] `k6-doer.valg`: Hvad gør du med Klattens kappe?
+- [ ] `k6-doer.valg.1`: Giv ham kappen tilbage
+- [ ] `k6-doer.valg.1.1 (fortaeller)`: Du lægger kappen foran døren. Døren går op på klem, og en sort hånd tager kappen ind.
+- [ ] `k6-doer.valg.1.2 (klatten)`: Min kappe! Den har jeg ledt efter i ... Jeg har ikke ledt efter den. Den Frygtelige leder aldrig.
+- [ ] `k6-doer.valg.1.3 (klatten)`: Kom bare ind. Men tør fødderne af. Med blæk.
+- [ ] `k6-doer.valg.2`: Behold den, og gå ind
+- [ ] `k6-doer.valg.2.1 (klatten)`: Du må godt beholde den. Den er alligevel for stor. Kom ind.
+- [ ] `k6-doer.valg.3`: Tag kappen på, og snig dig ind
+- [ ] `k6-doer.valg.3.1 (fortaeller)`: Du tager Klattens kappe på. Den er sort og alt for stor, men nu ligner du næsten en blækklat.
+- [ ] `k6-doer.valg.3.2 (vims)`: Jeg kan viske låsen ud. Undskyld, lås.
+- [ ] `k6-doer.valg.3.3 (fortaeller)`: Vims visker, og låsen forsvinder. Døren går op uden en lyd.
+- [ ] `k6-ind.opgavetekst`: Gå ind i Klattens hytte.
+- [ ] `k6-hytten.1 (fortaeller)`: Indenfor er der varmt og rodet. Overalt står kasser, stablet helt op til loftet.
+- [ ] `k6-hytten.2 (klatten)`: Hov! Hvem er du? Du har min kappe på! Den Frygtelige lader sig ikke snyde.
+- [ ] `k6-hytten.3 (klatten)`: Nå. Du ligner mig faktisk lidt i den. Bliv bare. Men rør ikke ved noget.
+- [ ] `k6-hytten.4 (klatten)`: Velkommen til mit hjem. Det er ikke et rodet hjem. Det er et hjem med mange kasser.
+- [ ] `k6-hytten.5 (aeseloere)`: Hvad er der i dem?
+- [ ] `k6-hytten.6 (klatten)`: Fejl. Alle mine fejl. Chefen sagde, at jeg skulle gemme dem, så ingen kunne se dem.
+- [ ] `k6-kasser.opgavetekst`: Kig ned i en af Klattens kasser.
+- [ ] `k6-kasser.1 (fortaeller)`: Du løfter låget. Kassen er fuld af små papirlapper. På hver lap står et ord, der er stavet lidt forkert.
+- [ ] `k6-kasser.2 (fortaeller)`: Du kender dem. Hvor uden h. Lille med ét l. Det er de samme fejl, som du selv lavede engang.
+- [ ] `k6-kasser.3 (klatten)`: Hvorfor kigger du sådan? De er mine. Jeg har haft dem, så længe jeg kan huske.
+- [ ] `k6-kasser.4 (aeseloere)`: Det er da ikke svært. Man skal bare stave rigtigt. Det hedder hvor med h, Klatten.
+- [ ] `k6-kasser.5 (vims)`: Det var ikke pænt sagt. Undskyld, at jeg siger det. Igen.
+- [ ] `k6-kasser.6 (fortaeller)`: Klatten bliver lille og grå. Du ved, hvordan det føles. Fejl er ikke farlige. Det er grinet, der gør ondt.
+- [ ] `k6-kasser.7 (klatten)`: Kan du lære mig det? Ikke fordi jeg har brug for det. Bare sådan for sjov.
+- [ ] `k6-korrektur.opgavetekst`: Hjælp Klatten med at rette sine tekster.
+- [ ] `k6-korrektur-slut.1 (klatten)`: Jeg har lige rettet mine egne tekster. Næsten selv. Det er det mest frygtelige, jeg nogensinde har gjort.
+- [ ] `k6-korrektur-slut.2 (vims)`: Han mener, at det var godt.
+- [ ] `k6-korrektur-slut.3 (klatten)`: Fejlene er ikke væk. Men nu er de noget, jeg kan lære af. De bor i en pæn kasse nu.
+- [ ] `k6-korrektur-slut.4 (fortaeller)`: Du kigger dig om efter Æseløre. Han er ikke i hytten.
+- [ ] `k6-korrektur-slut.5 (vims)`: Han gik ud til søen. Han så trist ud. Undskyld, at jeg lagde mærke til det.
+- [ ] `k6-ud.opgavetekst`: Gå ud, og find Æseløre.
+- [ ] `k6-twist.opgavetekst`: Find Æseløre nede ved søen.
+- [ ] `k6-twist.1 (fortaeller)`: Æseløre sidder helt ude ved vandet. Han har foldet det ene øre ned.
+- [ ] `k6-twist.2 (aeseloere)`: Jeg har ikke været helt ærlig over for dig.
+- [ ] `k6-twist.3 (aeseloere)`: Jeg er ikke en side fra en ordbog. Det har jeg aldrig været.
+- [ ] `k6-twist.4 (aeseloere)`: Kan du huske hæftet? Den aften, du stoppede, foldede du hjørnet på siden ned, så du kunne finde den igen.
+- [ ] `k6-twist.5 (aeseloere)`: Det hjørne er mig. Jeg er et æseløre. Et bogmærke.
+- [ ] `k6-twist.6 (aeseloere)`: Jeg har ventet på den side i lang tid. Jeg lokkede dig herhen, fordi jeg kun kan blive glattet ud, hvis historien bliver færdig.
+- [ ] `k6-twist.7 (aeseloere)`: Jeg burde have sagt det fra starten. Undskyld.
+- [ ] `k6-twist.valg`: Hvad svarer du Æseløre?
+- [ ] `k6-twist.valg.1`: Jeg tilgiver dig
+- [ ] `k6-twist.valg.1.1 (aeseloere)`: Tak. Det ... tak. Jeg ved ikke, hvad man siger nu. Det står ikke i nogen ordbog.
+- [ ] `k6-twist.valg.1.2 (aeseloere)`: Det var en dårlig joke. Jeg øver mig.
+- [ ] `k6-twist.valg.2`: Du burde have sagt det
+- [ ] `k6-twist.valg.2.1 (aeseloere)`: Ja. Det burde jeg. Jeg vil prøve at gøre det godt igen.
+- [ ] `k6-twist.valg.3`: Jeg ved det ikke endnu
+- [ ] `k6-twist.valg.3.1 (aeseloere)`: Det er fair. Jeg venter. Det er jeg god til.
+- [ ] `k6-krusedul.1 (fortaeller)`: Så begynder søen at boble. Op af blækket kravler små, sorte kruseduller. De er tegnet så hurtigt, at de ikke ved, hvad de skal være.
+- [ ] `k6-krusedul.2 (klatten)`: Det er chefens kruseduller! Han sender dem, når nogen er ved at blive færdig med noget.
+- [ ] `k6-krusedul.3 (aeseloere)`: Den Ufærdige vil ikke have, at noget bliver færdigt. Heller ikke Klattens tekster.
+- [ ] `k6-krusedul.4 (klatten)`: Den Frygtelige gemmer sig ikke. Ikke i dag. Jeg hjælper jer!
+- [ ] `k6-krusedul.5 (klatten)`: Jeg gemmer mig bare under bordet. Det er en strategi.
+- [ ] `k6-kamp.opgavetekst`: Ret Krusedullernes fejl, så de falder til ro.
+- [ ] `k6-kamp-slut.1 (fortaeller)`: Den sidste Krusedulle retter sig ud. Den bliver til et lille, pænt ord og flyder væk på søen.
+- [ ] `k6-kamp-slut.2 (klatten)`: Så I det? Jeg viste dem mine gamle fejl, og så blev de helt forvirrede. Det var et frygtelig godt trick.
+- [ ] `k6-kamp-slut.3 (aeseloere)`: Det var godt gjort, Klatten.
+- [ ] `k6-kamp-slut.4 (klatten)`: Hvad? Du siger aldrig noget pænt.
+- [ ] `k6-kamp-slut.5 (aeseloere)`: Nej. Det er noget, jeg øver mig på. Ligesom stavning.
+- [ ] `k6-kamp-slut.6 (klatten)`: Jeg tager med jer. Ikke fordi I er mine venner. Den Frygtelige har bare ikke andet at lave.
+- [ ] `k6-kamp-slut.7 (klatten)`: Jeg bliver her. Men måske kommer jeg forbi en dag. Måske.
+- [ ] `k6-slut.opgavetekst`: Sig farvel til Klatten ved bredden.
+- [ ] `k6-slut.1 (fortaeller)`: På den anden side af søen kan du se noget. Et land, der kun er halvt tegnet. Træer uden toppe. Huse med kun to vægge.
+- [ ] `k6-slut.2 (aeseloere)`: De halve lande. Det er der, Den Ufærdige er på vej hen.
+- [ ] `k6-slut.3 (vims)`: Det ser ufærdigt ud. Undskyld. Det var en dum ting at sige.
+- [ ] `k6-slut.4 (fortaeller)`: Du tager det grønne hæfte frem. Den sidste side er stadig tom. Men nu ved du, hvor du skal hen.
+
 ## Stumme bogstaver
 
 - [ ] `regel.d`: Efter l, n og r kan d være stumt. Du kan ikke høre d'et, men det skal med.
@@ -1214,6 +1384,80 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `tolv.ord`: tolv
 - [ ] `tolv.saetning`: Klokken slår tolv.
 - [ ] `tolv.forklaring`: Tallet 12.
+
+## Fortæller
+
+- [ ] `k01`: Jeg åbnede den tunge dør og gik ned ad trappen.
+- [ ] `k02`: Mira åbnede den tunge dør og gik ned ad trappen.
+- [ ] `k03`: Han fandt en gammel bog under sengen.
+- [ ] `k04`: Jeg fandt en gammel bog under sengen.
+- [ ] `k05`: Hun var bange for mørket, men hun sagde det ikke til nogen.
+- [ ] `k06`: Jeg var bange for mørket, men jeg sagde det ikke til nogen.
+- [ ] `k07`: Om morgenen spiste Ali sin havregrød og kiggede ud ad vinduet.
+- [ ] `k08`: Om morgenen spiste jeg min havregrød og kiggede ud ad vinduet.
+- [ ] `k09`: Min mor råbte på mig, men jeg lod, som om jeg ikke hørte det.
+- [ ] `k10`: Hendes mor råbte på hende, men hun lod, som om hun ikke hørte det.
+- [ ] `k11`: Da skolen var slut, løb drengen hele vejen hjem til sin hund.
+- [ ] `k12`: Da skolen var slut, løb jeg hele vejen hjem til min hund.
+- [ ] `k13`: Ingen havde set brevet, før det lå på bordet foran hende.
+- [ ] `k14`: Ingen havde set brevet, før det lå på bordet foran mig.
+- [ ] `k15`: Det var den værste dag i hele mit liv, tænkte jeg.
+- [ ] `k16`: Det var den værste dag i hele hans liv, tænkte han.
+- [ ] `f01`: Jeg fandt en gammel bog. Jeg blæste støvet af den.
+- [ ] `f01.forkerte`: Han, Hun _(Forkerte valg: de skifter fortæller.)_
+- [ ] `f02`: Mira løb ind i arkivet. Hun var helt forpustet.
+- [ ] `f02.forkerte`: Jeg, Du _(Forkerte valg: de skifter fortæller.)_
+- [ ] `f03`: Ali kiggede op på hylden. Han kunne ikke nå den øverste bog.
+- [ ] `f03.forkerte`: Jeg, Hun _(Forkerte valg: de skifter fortæller.)_
+- [ ] `f04`: Jeg gik ned ad trappen. Jeg holdt godt fast i gelænderet.
+- [ ] `f04.forkerte`: Hun, Han _(Forkerte valg: de skifter fortæller.)_
+- [ ] `f05`: Pigen satte sig ved bordet. Hun begyndte at skrive i sit hæfte.
+- [ ] `f05.forkerte`: Jeg, Han _(Forkerte valg: de skifter fortæller.)_
+- [ ] `f06`: Drengen tabte sin blyant. Han bukkede sig ned for at samle den op.
+- [ ] `f06.forkerte`: Jeg, Hun _(Forkerte valg: de skifter fortæller.)_
+- [ ] `f07`: Jeg hørte en lyd bag reolen. Jeg turde ikke kigge efter.
+- [ ] `f07.forkerte`: Han, Hun _(Forkerte valg: de skifter fortæller.)_
+- [ ] `f08`: Bedstemor lagde bogen fra sig. Hun smilede og slukkede lampen.
+- [ ] `f08.forkerte`: Jeg, Han _(Forkerte valg: de skifter fortæller.)_
+- [ ] `f09`: Den gamle mand tog hatten af. Han hilste høfligt på os alle sammen.
+- [ ] `f09.forkerte`: Jeg, Hun _(Forkerte valg: de skifter fortæller.)_
+- [ ] `f10`: Om aftenen sad jeg alene i mit værelse. Jeg tegnede en lille skygge i hæftet.
+- [ ] `f10.forkerte`: Han, Hun _(Forkerte valg: de skifter fortæller.)_
+- [ ] `f11`: Hele dagen ventede jeg på et brev. Jeg kiggede i postkassen mindst ti gange.
+- [ ] `f11.forkerte`: Hun, Han _(Forkerte valg: de skifter fortæller.)_
+- [ ] `f12`: Hele vejen hjem tænkte jeg på det, læreren havde sagt. Jeg kunne ikke få det ud af hovedet.
+- [ ] `f12.forkerte`: Hun, Han _(Forkerte valg: de skifter fortæller.)_
+- [ ] `f13`: Fru Fodnote rettede på sine briller. Hun havde en fodnote til alting.
+- [ ] `f13.forkerte`: Jeg, Han _(Forkerte valg: de skifter fortæller.)_
+- [ ] `f14`: Noah havde glemt sin madpakke derhjemme. Han måtte låne en bolle af sin bedste ven.
+- [ ] `f14.forkerte`: Jeg, Hun _(Forkerte valg: de skifter fortæller.)_
+
+## Klattens tekster
+
+- [ ] `regel.stumme`: Nogle ord har et bogstav, man ikke kan høre. Foran v og j kan h være stumt (hvor, hjem). Efter l, n og r kan d være stumt (rund, sand). Efter l kan v være stumt (selv).
+- [ ] `regel.dobbelt`: Efter en kort vokal skriver man to ens konsonanter, når der kommer en vokal bagefter (komme, lille, trappen). Kommer der ikke en vokal bagefter, er der kun én (kom).
+- [ ] `regel.datid`: Lyt efter udsagnsordet i datid. Kan du høre -ede, skriver du -ede (hoppede, svømmede). Kan du høre -te, skriver du -te (spiste, råbte).
+- [ ] `regel.endelse`: Find først flertal. Ender flertal på -er, får ordet -erne (kasser, kasserne). Ender flertal på -e eller ingenting, får ordet -ene (huse, husene, sten, stenene).
+- [ ] `eksempel.stumme`: hvem, hjælpe, rund, selv
+- [ ] `eksempel.dobbelt`: lille, kommer, vipper, men kom
+- [ ] `eksempel.datid`: hoppede, tegnede, spiste, kørte
+- [ ] `eksempel.endelse`: siderne, kagerne, bordene, ordene
+- [ ] `k01`: Chefen smed mig ud i går. Nu er jeg hjemme ved Blæksøen i min lille hytte.
+- [ ] `k02`: Jeg hoppede hele vejen hjem. Så spiste jeg tre klatter brød.
+- [ ] `k03`: Hvor er min kappe? Jeg kan ikke selv finde den.
+- [ ] `k04`: Alle kasserne i min hytte er fulde af fejl. Jeg har ikke tid til at tælle dem.
+- [ ] `k05`: Jeg er Klatten den Frygtelige. Når jeg kommer, gemmer alle sig under bordene.
+- [ ] `k06`: I går råbte chefen efter mig. Han ville have kagerne tilbage. Men jeg havde allerede spist dem.
+- [ ] `k07`: Søen er sort og rund. Om sommeren svømmede jeg i den hver dag.
+- [ ] `k08`: Hvem skriver altid forkert? Det gør jeg! Men i dag tegnede jeg et helt kort uden en eneste klat.
+- [ ] `k09`: Siderne i min hytte er krøllede. Når det blæser, vipper hele taget.
+- [ ] `k10`: Vims siger, at jeg skal hjælpe ham med at finde krummer. Hvorfor skulle jeg det?
+- [ ] `k11`: Chefen sendte mig væk, fordi jeg ikke kunne stave. Nu sidder jeg stille og læser brevene fra dengang.
+- [ ] `k12`: Jeg tænkte meget på chefen i nat. Jeg talte alle stenene i søen, og jeg kom til tolv.
+- [ ] `k13`: Da jeg var lille, sagde alle, at mine klatter var grimme. Men jeg prøvede at blive ved, og nu skriver jeg selv mine breve.
+- [ ] `k14`: Kagerne er til dig. De smager lidt af sand.
+- [ ] `k15`: I nat drømte jeg, at chefen kom tilbage. Han stod ved trappen og kiggede ind.
+- [ ] `k16`: Jeg har lært noget. Hvis jeg skriver forkert, er det ikke farligt. Jeg retter det bare, og så bliver ordene lidt smukkere.
 
 ## Og-ormen
 
@@ -1383,6 +1627,22 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `k1-klatten.3 (klatten)` (Kapitel 1): Jeg har skrevet en ny vejviser og den er perfekt og den er lang og den slutter aldrig og ...
 - [ ] `k2-lem.2 (klatten)` (Kapitel 2): Hi hi! Jeg landet lige på taget! Ingen kan fange mig!
 - [ ] `k3-lysning.3 (klatten)` (Kapitel 3): Jeg sider ikke fast! Jeg hviler mig bare. Med vilje.
+- [ ] `k01.klatten` (Klattens tekster): Chefen smed mig ud i går. Nu er jeg jemme ved Blæksøen i min lile hytte.
+- [ ] `k02.klatten` (Klattens tekster): Jeg hoppte hele vejen hjem. Så spisede jeg tre klatter brød.
+- [ ] `k03.klatten` (Klattens tekster): Vor er min kappe? Jeg kan ikke sel finde den.
+- [ ] `k04.klatten` (Klattens tekster): Alle kassene i min hytte er fulde af fejl. Jeg har ikke tid til at tæle dem.
+- [ ] `k05.klatten` (Klattens tekster): Jeg er Klatten den Frygtelige. Når jeg komer, gemmer alle sig under borderne.
+- [ ] `k06.klatten` (Klattens tekster): I går råbede chefen efter mig. Han ville have kagene tilbage. Men jeg havde allerede spist dem.
+- [ ] `k07.klatten` (Klattens tekster): Søen er sort og run. Om sommeren svømte jeg i den hver dag.
+- [ ] `k08.klatten` (Klattens tekster): Vem skriver altid forkert? Det gør jeg! Men i dag tegnte jeg et helt kort uden en eneste klat.
+- [ ] `k09.klatten` (Klattens tekster): Sidene i min hytte er krøllede. Når det blæser, viper hele taget.
+- [ ] `k10.klatten` (Klattens tekster): Vims siger, at jeg skal jælpe ham med at finde krummer. Vorfor skulle jeg det?
+- [ ] `k11.klatten` (Klattens tekster): Chefen sendede mig væk, fordi jeg ikke kunne stave. Nu sidder jeg stile og læser breverne fra dengang.
+- [ ] `k12.klatten` (Klattens tekster): Jeg tænkede meget på chefen i nat. Jeg talte alle stenerne i søen, og jeg komm til tolv.
+- [ ] `k13.klatten` (Klattens tekster): Da jeg var lile, sagde alle, at mine klatter var grimme. Men jeg prøvte at blive ved, og nu skriver jeg sel mine breve.
+- [ ] `k14.klatten` (Klattens tekster): Kagene er til dig. De smager lidt af san.
+- [ ] `k15.klatten` (Klattens tekster): I nat drømmede jeg, at chefen kom tilbage. Han stod ved trapen og kiggede ind.
+- [ ] `k16.klatten` (Klattens tekster): Jeg har lært noget. Vis jeg skriver forkert, er det ikke farligt. Jeg retter det bare, og så bliver orderne lidt smukere.
 - [ ] `og-1a` (Og-ormen): Æseløre fløj op i træet og han kiggede ud over Pennedal.
   - Facit: Æseløre fløj op i træet. Han kiggede ud over Pennedal.
 - [ ] `og-1b` (Og-ormen): Klatten drypper blæk overalt og hans sko er helt sorte.

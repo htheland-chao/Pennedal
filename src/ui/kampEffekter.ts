@@ -56,6 +56,8 @@ const ANGREB_TEKST: Record<AngrebId, string> = {
   raab: 'kamp.kort.angreb.raab',
   skift: 'kamp.kort.angreb.skift',
   bland: 'kamp.kort.angreb.bland',
+  klat: 'kamp.kort.angreb.klat',
+  sproejt: 'kamp.kort.angreb.sproejt',
 };
 const TING_TEKST: Record<KampTingId, string> = { lanterne: 'kamp.kort.lanterne', krummer: 'kamp.kort.krummer', punktum: 'kamp.kort.punktum' };
 
@@ -124,6 +126,12 @@ export function trinFor(hs: Haendelse[], p: Pladser, navn: { fjende: (nr: number
             linje: { noegle: 'kamp.kort.lap', vaerdier: { hvem: navn.medlem(id), liv: h.liv ?? 0 } },
             varighed: 1000,
             holdLiv: [{ id, delta: h.liv ?? 0 }],
+          });
+        } else if (h.evne === 'skjul') {
+          ud.push({
+            effekter: hold.map((id) => ({ type: 'skjold' as const, x: p.medlem(id)[0], y: p.medlem(id)[1] })),
+            linje: { noegle: 'kamp.kort.skjul', vaerdier: {} },
+            varighed: 1000,
           });
         } else if (h.evne === 'slet' && h.fjende !== undefined) {
           const [x, y] = p.fjende(h.fjende);

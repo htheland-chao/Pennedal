@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { avatarnavn, harTekst, hentKapitel, kapitler, t, type DialogValg, type OrdOpgaveArt, type Replik, type RumFund, type RumTrin, type Trin, type ValgMulighed } from '../content';
 import { erFaerdighed, type FaerdighedId } from '../engine/faerdigheder';
+import { opfyldt, udvaelg } from '../engine/betingelse';
 import type { GemtSpil, Indstillinger } from '../engine/gem';
 import { afslutTrin, aktueltSted, aktueltTrin, kapitelSlut } from '../engine/kapitel';
 import { MAKS_VENLIGHED, minderFor, nyeTing, taskeFor, type TingId } from '../engine/taske';
@@ -31,10 +32,19 @@ type Props = {
   onKapitelSlut: () => void;
 };
 
+/** Kun de replikker og valgmuligheder, hvis betingelse er opfyldt. */
+function tilpasDialog(replikker: Replik[], valg: DialogValg | undefined, spil: GemtSpil): { replikker: Replik[]; valg?: DialogValg } {
+  return {
+    replikker: udvaelg(replikker, spil),
+    valg: valg && { ...valg, muligheder: udvaelg(valg.muligheder, spil).map((m) => ({ ...m, replikker: udvaelg(m.replikker, spil) })) },
+  };
+}
+
 /** Hvilken færdighed en lille ordopgave øver (ordsten og sidemissioner). */
 function ordFaerdighed(art: OrdOpgaveArt | undefined): FaerdighedId {
   if (art === 'rim' || art === 'ikkerim') return 'laes.rim';
   if (art === 'fortaeller') return 'fort.fortaeller_tid';
+  if (art === 'stavning') return 'stav.vokal_dobbeltkonsonant';
   return 'laes.ordforraad';
 }
 
@@ -90,7 +100,7 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
   spilRef.current = spil;
 
   // Tasken regnes ud fra, hvor langt eleven er (se src/engine/taske.ts).
-  const tingITasken = useMemo(() => taskeFor(spil, kapitler), [spil.kapitel, spil.trin]);
+  const tingITasken = useMemo(() => taskeFor(spil, kapitler), [spil.kapitel, spil.trin, spil.valg]);
   const [visTaske, setVisTaske] = useState(false);
   const [nyTing, setNyTing] = useState<TingId | null>(null);
   const forrigeTaske = useRef(tingITasken);
@@ -130,7 +140,9 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
   const fuglNr = kapitel.fuglFra ? kapitel.trin.findIndex((t) => t.id === kapitel.fuglFra) : -1;
   // Han vises først, når skuffen bliver åbnet (fuglFra-trinnets dialog), ikke allerede når man træder ind i kælderen.
   const fuglSkjult = fuglNr >= 0 && (spil.trin < fuglNr || (spil.trin === fuglNr && aktivtTrin?.id !== kapitel.fuglFra));
-  const skjulte = [...(fuglSkjult ? [...skjulteObjekter, 'aeseloere'] : skjulteObjekter), ...skjulteBlade(spil, kapitel)];
+  // Sidder Æseløre selv på kortet (kapitel 6, ved søen), følger han ikke efter hovedpersonen imens.
+  const fuglPaaKortet = sted.objekter.some((o) => o.form === 'fugl' && o.felt && !skjulteObjekter.includes(o.id));
+  const skjulte = [...(fuglSkjult || fuglPaaKortet ? [...skjulteObjekter, 'aeseloere'] : skjulteObjekter), ...skjulteBlade(spil, kapitel)];
 
   // Tal igen (Henrik, 1. november 2026): den, man har talt med på dette sted, kan man gå hen til igen
   // og høre den seneste samtale. Et valg vises med den mulighed, eleven valgte.
@@ -145,6 +157,13 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
   }, [kapitel, spil.trin, spil.valg, stedId]);
   /** En dialog uden for trinnene: tal igen, sidemissionen eller en udflugt. efter kaldes, når den lukker. */
   const [gentagelse, setGentagelse] = useState<{ replikker: Replik[]; valg?: DialogValg; efter?: (valgt: ValgMulighed | null) => void } | null>(null);
+  // Replikker og valg med betingelser (hvis) vælges, når dialogen starter, så listen ikke ændrer sig undervejs,
+  // fx når et valg giver venlighed.
+  const gentagDialog = useMemo(() => (gentagelse ? tilpasDialog(gentagelse.replikker, gentagelse.valg, spilRef.current) : null), [gentagelse]);
+  const trinDialog = useMemo(
+    () => (aktivtTrin?.type === 'dialog' ? tilpasDialog(aktivtTrin.replikker, aktivtTrin.valg, spilRef.current) : null),
+    [aktivtTrin],
+  );
   const gentagValg = useRef<ValgMulighed | null>(null);
   const kanGentages = Object.keys(gentag).filter((id) => !skjulte.includes(id) && id !== trin?.objekt && sted.objekter.some((o) => o.id === id && o.felt));
   // Frivillige ting på stedet: kan undersøges når som helst, også når kapitlet er slut.
@@ -556,10 +575,10 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
           onLuk={() => setRumVindue(null)}
         />
       )}
-      {gentagelse && (
+      {gentagelse && gentagDialog && (
         <DialogBoks
-          replikker={gentagelse.replikker}
-          valg={gentagelse.valg}
+          replikker={gentagDialog.replikker}
+          valg={gentagDialog.valg}
           onValg={(m) => (gentagValg.current = m)}
           onFaerdig={() => {
             const efter = gentagelse.efter;
@@ -578,7 +597,7 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
           antal={1}
           art={sted.ordsten ?? 'synonym'}
           niveau={niveauFor(ordFaerdighed(sted.ordsten))}
-          onSvar={(r, f) => onSvar(ordFaerdighed(sted.ordsten), r, f)}
+          onSvar={(r, f, fd) => onSvar(fd ?? ordFaerdighed(sted.ordsten), r, f)}
           faerdigTekst={t('ordsten.genskab')}
           pauseTekst={t('ordsten.vaek')}
           onFaerdig={() => {
@@ -595,7 +614,7 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
           antal={kapitel.missioner[missionOpgave].antal}
           art={kapitel.missioner[missionOpgave].art ?? 'synonym'}
           niveau={niveauFor(ordFaerdighed(kapitel.missioner[missionOpgave].art))}
-          onSvar={(r, f) => onSvar(ordFaerdighed(kapitel.missioner![missionOpgave].art), r, f)}
+          onSvar={(r, f, fd) => onSvar(fd ?? ordFaerdighed(kapitel.missioner![missionOpgave].art), r, f)}
           faerdigTekst={t('ordopgave.faerdig')}
           pauseTekst={t('ordsten.vaek')}
           onFaerdig={() => {
@@ -618,8 +637,8 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
       {/* Dialogen venter, til overgangen mellem steder er færdig (et dialogvindue ligger altid øverst i browseren). */}
       {aktivtTrin?.type === 'dialog' && !overgang && (
         <DialogBoks
-          replikker={aktivtTrin.replikker}
-          valg={aktivtTrin.valg}
+          replikker={trinDialog?.replikker ?? []}
+          valg={trinDialog?.valg}
           onValg={vaelg}
           onFaerdig={() => {
             const minde = aktivtTrin.tilbageblik?.id;
@@ -644,7 +663,8 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
           trin={aktivtTrin}
           niveau={spil.faerdigheder[aktivtTrin.faerdighed as keyof GemtSpil['faerdigheder']]?.niveau ?? 1}
           loeste={spil.trinFremskridt}
-          onSvar={(r, f) => onSvar(aktivtTrin.faerdighed, r, f)}
+          niveauFor={niveauFor}
+          onSvar={(r, f, fd) => onSvar(fd ?? aktivtTrin.faerdighed, r, f)}
           onLoest={(info) => onLoest(aktivtTrin.antal, info)}
           onPause={() => setAktivtTrin(null)}
         />
@@ -653,6 +673,7 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
         <KampVindue
           trin={aktivtTrin}
           niveauFor={niveauFor}
+          klattenMed={!!aktivtTrin.klatten && opfyldt(aktivtTrin.klatten, spil)}
           fremskridt={spil.trinFremskridt}
           avatar={spil.avatar}
           avatarNavn={avatarnavn(spil.avatarnavn)}

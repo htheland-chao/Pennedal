@@ -44,7 +44,7 @@ function forbiTrin(spil: Pick<GemtSpil, 'kapitel' | 'trin'>, kapitler: Kapitel[]
 }
 
 /** Det, der ligger i tasken lige nu, i den rækkefølge tingene blev fundet. */
-export function taskeFor(spil: Pick<GemtSpil, 'kapitel' | 'trin'>, kapitler: Kapitel[]): TingId[] {
+export function taskeFor(spil: Pick<GemtSpil, 'kapitel' | 'trin'> & { valg?: Record<string, string> }, kapitler: Kapitel[]): TingId[] {
   const taske: TingId[] = [];
   for (const t of forbiTrin(spil, kapitler)) {
     for (const id of t.giver ?? []) if (erTing(id) && !taske.includes(id)) taske.push(id);
@@ -53,6 +53,8 @@ export function taskeFor(spil: Pick<GemtSpil, 'kapitel' | 'trin'>, kapitler: Kap
       if (i >= 0) taske.splice(i, 1);
     }
   }
+  // Kapitel 6: har eleven givet Klatten kappen tilbage, er den ikke i tasken mere.
+  if (spil.valg?.['kappe.givet']) return taske.filter((id) => id !== 'kappe');
   return taske;
 }
 

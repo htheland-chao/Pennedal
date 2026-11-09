@@ -43,6 +43,8 @@ const SKOV = ['#2f6448', '#24503a', '#2a5a40'].map(hx);
 const STRAA = hx('#5aa572');
 const STI = { f: hx('#c4ab7c'), m: hx('#a99068'), k: hx('#8a7656'), l: hx('#e0c995') };
 const VAND = { a: hx('#203a6b'), b: hx('#28467c'), krus: hx('#4f6fa8'), bred: hx('#3a2a20') };
+/** Blæksøen (kapitel 6): sort, blankt blæk med violette glimt. */
+const BLAEKVAND = { a: hx('#0f0e1c'), b: hx('#15132a'), krus: hx('#5a4f8a'), bred: hx('#2a2030') };
 const MAANER = ['#f3ead2', '#f0c45a', '#c9dcf2'].map(hx);
 const MAANE_R = [5, 3, 4];
 
@@ -305,7 +307,8 @@ export function tegnTraeskygger(c: HTMLCanvasElement, kort: Kort, bredder: numbe
 }
 
 /** Vandet i tre billeder, der skifter, så det ser ud til at bevæge sig. Månerne spejler sig i felterne med M. */
-export function tegnVand(kort: Kort, ramme: number): HTMLCanvasElement {
+export function tegnVand(kort: Kort, ramme: number, tema = ''): HTMLCanvasElement {
+  const V = tema === 'blaeksoe' ? BLAEKVAND : VAND;
   const W = kort.bredde * FELT;
   const H = kort.hoejde * FELT;
   const c = lerred(W, H);
@@ -327,8 +330,8 @@ export function tegnVand(kort: Kort, ramme: number): HTMLCanvasElement {
         for (let px = 0; px < FELT; px++) {
           const X = tx * FELT + px;
           const Y = ty * FELT + py;
-          let col = hash(X >> 2, Y >> 2) < 0.5 ? VAND.a : VAND.b;
-          if (hash(Math.floor((X + ramme * 3) / 6), Y) > 0.93) col = VAND.krus;
+          let col = hash(X >> 2, Y >> 2) < 0.5 ? V.a : V.b;
+          if (hash(Math.floor((X + ramme * 3) / 6), Y) > 0.93) col = V.krus;
           for (const m of maaner) {
             const d = Math.hypot(X + 0.5 - m.x, (Y + 0.5 - m.y) * 1.6);
             if (d <= m.r && !(hash(Math.floor((X + ramme * 2) / 3), Y) > 0.8 && (Y + ramme) % 3 === 0)) col = m.c;
@@ -338,7 +341,7 @@ export function tegnVand(kort: Kort, ramme: number): HTMLCanvasElement {
             (py === FELT - 1 && !vand(tx, ty + 1)) ||
             (px === 0 && !vand(tx - 1, ty)) ||
             (px === FELT - 1 && !vand(tx + 1, ty));
-          if (kant) col = VAND.bred;
+          if (kant) col = V.bred;
           const o = (Y * W + X) * 4;
           q[o] = col[0];
           q[o + 1] = col[1];
@@ -367,7 +370,7 @@ export const VARMT: Farve = [255, 250, 219];
 export type Belysning = 'nat' | 'morgen' | 'moerke' | 'dag';
 /** Byen i kapitel 2 ligger i varmt dagslys. Trykkeriet er mørkt som kælderen. */
 export function belysning(tema: string): Belysning {
-  if (tema === 'bibliotek') return 'morgen';
+  if (tema === 'bibliotek' || tema === 'hytte') return 'morgen';
   if (tema === 'kaelder' || tema === 'trykkeri' || tema === 'arkiv') return 'moerke';
   if (tema === 'eng' || tema === 'torv' || tema === 'smoeger' || tema === 'viskeskov') return 'dag';
   return 'nat';

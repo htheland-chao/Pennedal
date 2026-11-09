@@ -1,0 +1,460 @@
+{
+  "kapitel": 6,
+  "titel": "Blæksøen",
+  "steder": {
+    "soebred": {
+      "navn": "Blæksøens bred",
+      "tema": "blaeksoe",
+      "start": {
+        "x": 0,
+        "y": 0
+      },
+      "startFelt": [1, 10],
+      "kort": [
+        "##########################",
+        "####~~~~~~~~~~~~~~~~~~~###",
+        "###~~~~~~~~~~~~~~~~~~~~~##",
+        "##~~~~~~~~~~~~~~~~~~~~~~~#",
+        "##~~~~~~~~~~~~~~~~~~~~~~~#",
+        "#,,~~~~~~~~~~~~~~~~~~~~~,#",
+        "#,,,,~~~~~~~~~~~~~~~~,,,,#",
+        "#,,,,,,,~~~~~~~~~~,,,hhh,#",
+        "#,,,,,,,,,,,,,,,,,,,,hhh,#",
+        "#,,,,,,,,,,,,,,,,,,,,h,h,#",
+        "..........................",
+        "#,,,,,,,,,,,,,,,,,,,,,,,,#",
+        "##,,,,,,,,,,,,,,,,,,,,,,##",
+        "###,,,,,,,,,,,,,,,,,,,,###",
+        "#####,,,,,,,,,,,,,,,######",
+        "##########################"
+      ],
+      "objekter": [
+        { "id": "hytte", "navn": "døren til Klattens hytte", "x": 0, "y": 0, "w": 0, "h": 0, "form": "hytte", "farve": "#c9a46a", "felt": [22, 9] },
+        { "id": "snegl", "navn": "Postsneglen", "x": 0, "y": 0, "w": 0, "h": 0, "form": "snegl", "farve": "#c9a46a", "felt": [6, 11], "frivillig": "mission" },
+        { "id": "brev1", "navn": "et vådt brev", "x": 0, "y": 0, "w": 0, "h": 0, "form": "brev", "farve": "#c9a46a", "felt": [2, 6], "frivillig": "blad" },
+        { "id": "brev2", "navn": "et vådt brev", "x": 0, "y": 0, "w": 0, "h": 0, "form": "brev", "farve": "#c9a46a", "felt": [19, 7], "frivillig": "blad" },
+        { "id": "brev3", "navn": "et vådt brev", "x": 0, "y": 0, "w": 0, "h": 0, "form": "brev", "farve": "#c9a46a", "felt": [11, 13], "frivillig": "blad" },
+        { "id": "bro", "navn": "skiltet ved den gamle bro", "x": 0, "y": 0, "w": 0, "h": 0, "form": "skilt", "farve": "#c9a46a", "felt": [2, 5], "frivillig": "udflugt", "udflugt": "soestenene" },
+        { "id": "aeseloere-bred", "navn": "Æseløre ved søen", "x": 0, "y": 0, "w": 0, "h": 0, "form": "fugl", "farve": "#c9a46a", "felt": [13, 7], "visFra": "k6-twist", "skjulFra": "k6-krusedul" },
+        { "id": "krusedulle", "navn": "krusedullerne fra søen", "x": 0, "y": 0, "w": 0, "h": 0, "form": "krusedulle", "farve": "#c9a46a", "felt": [12, 8], "visFra": "k6-krusedul", "skjulFra": "k6-kamp-slut" },
+        { "id": "klatten-bred", "navn": "Klatten", "x": 0, "y": 0, "w": 0, "h": 0, "form": "gnom", "farve": "#c9a46a", "felt": [19, 10], "visFra": "k6-kamp-slut" }
+      ]
+    },
+    "hytten": {
+      "navn": "Klattens hytte",
+      "tema": "hytte",
+      "start": {
+        "x": 0,
+        "y": 0
+      },
+      "startFelt": [8, 9],
+      "kort": [
+        "KWWWWWWvvWWWWWWWWK",
+        "KWWWWWWvvWWWWWWWWK",
+        "KRRRR.........kk.K",
+        "K................K",
+        "K.kk.....tttt....K",
+        "K.kk.....tttt....K",
+        "K................K",
+        "K..DD........BB..K",
+        "K..DD........BB..K",
+        "K................K",
+        "KKKKKKKKKKKKKKKKKK"
+      ],
+      "objekter": [
+        { "id": "klatten", "navn": "Klatten", "x": 0, "y": 0, "w": 0, "h": 0, "form": "gnom", "farve": "#c9a46a", "felt": [7, 6] },
+        { "id": "kasser", "navn": "kasserne med Klattens fejl", "x": 0, "y": 0, "w": 0, "h": 0, "form": "kasse", "farve": "#c9a46a", "felt": [6, 3] },
+        { "id": "skrivebord", "navn": "Klattens skrivebord", "x": 0, "y": 0, "w": 0, "h": 0, "form": "bog", "farve": "#c9a46a", "felt": [11, 7] },
+        { "id": "ud", "navn": "døren ud til søen", "x": 0, "y": 0, "w": 0, "h": 0, "form": "doer", "farve": "#c9a46a", "felt": [8, 9], "visFra": "k6-ud" }
+      ]
+    },
+    "soestenene": {
+      "navn": "Stenene over Blæksøen",
+      "tema": "blaeksoe",
+      "start": {
+        "x": 0,
+        "y": 0
+      },
+      "ordsten": "stavning",
+      "objekter": [
+        { "id": "maal", "navn": "den sidste sten midt i søen", "x": 0, "y": 0, "w": 0, "h": 0, "form": "maal", "farve": "#c9a46a" }
+      ],
+      "bane": [
+        "........................................................................................................",
+        "........................................................................................................",
+        "........................................................................................................",
+        "........................................................................................................",
+        ".....................................................==..==.............................................",
+        ".................................................==..........==.........................................",
+        "..S..........................^..O...........C....................==...^.......#.......O.............M...",
+        "#########~~##~~##~~##~~##~~#######vvvvvvv######~~~~~~~~~~~~~~~~~~~~~#####~~#~~#~~#~~#####vvvvvv#########",
+        "#########~~##~~##~~##~~##~~#######~~~~~~~######~~~~~~~~~~~~~~~~~~~~~#####~~#~~#~~#~~#####~~~~~~#########",
+        "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+        "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+      ],
+      "udflugt": {
+        "skaar": "k6b",
+        "fra": "soebred",
+        "opgavetekst": "Hop fra sten til sten ud over Blæksøen. Det er svært med vilje.",
+        "ind": [
+          { "taler": "aeseloere", "tekst": "Der ligger sten ude i søen. Nogle er væk, så man skal hoppe langt." },
+          { "taler": "aeseloere", "tekst": "Den er svær med vilje. Du behøver ikke at gøre det. Men midt ude på søen lyser noget." }
+        ],
+        "spoergsmaal": "Vil du hoppe ud over Blæksøen?",
+        "ja": "Hop ud",
+        "nej": "Ikke nu",
+        "faerdig": [
+          { "taler": "fortaeller", "tekst": "Midt ude på søen, på den sidste sten, ligger en lille, lysende papirstump. Det er et hukommelsesskår." },
+          { "taler": "vims", "tekst": "Du hoppede helt derud. Jeg kiggede ikke. Jo, jeg gjorde." }
+        ],
+        "igen": [
+          { "taler": "aeseloere", "tekst": "Igen? Pas på fødderne. Blæk går ikke af." }
+        ]
+      }
+    }
+  },
+  "trin": [
+    {
+      "id": "k6-ankomst",
+      "type": "dialog",
+      "del": 1,
+      "sted": "soebred",
+      "objekt": null,
+      "replikker": [
+        { "taler": "fortaeller", "tekst": "Efter arkivet går I længe uden at sige noget. Så stopper Vims." },
+        { "taler": "vims", "tekst": "Undskyld. Der er blæk på stien. Små klatter. Hele vejen derhen." },
+        { "taler": "fortaeller", "tekst": "Sporet ender ved en sø, der er helt sort og blank. Ved bredden står en lille, skæv hytte af krøllede sider." },
+        { "taler": "aeseloere", "tekst": "Blæksøen. Klattens hjem. Det lugter af blæk og dårlig stavning." },
+        { "taler": "fortaeller", "tekst": "Æseløre lyder, som han plejer. Men han kigger ikke på dig. Det har han ikke gjort, siden I forlod arkivet." }
+      ]
+    },
+    {
+      "id": "k6-doer",
+      "type": "dialog",
+      "del": 1,
+      "sted": "soebred",
+      "objekt": "hytte",
+      "opgavetekst": "Bank på døren til Klattens hytte.",
+      "replikker": [
+        { "taler": "fortaeller", "tekst": "Du banker på. Det lyder som at banke på en stak papir." },
+        {
+          "taler": "klatten",
+          "tekst": "Hvem der? Nå, det er dig. Dig fra skoven. Med punktummet.",
+          "hvis": {
+            "valg": "klatten.hjulpet"
+          }
+        },
+        {
+          "taler": "klatten",
+          "tekst": "Chefen har smidt mig ud. Han siger, at jeg ikke kan stave. Det kan jeg godt. Bare ikke rigtigt.",
+          "hvis": {
+            "valg": "klatten.hjulpet"
+          }
+        },
+        {
+          "taler": "klatten",
+          "tekst": "Gå væk! Her bor ingen. Især ikke Klatten den Frygtelige.",
+          "hvis": {
+            "ikkeValg": "klatten.hjulpet"
+          }
+        },
+        {
+          "taler": "aeseloere",
+          "tekst": "Døren er låst. Han har ikke glemt, at vi lod ham sidde i skoven.",
+          "hvis": {
+            "ikkeValg": "klatten.hjulpet"
+          }
+        },
+        { "taler": "fortaeller", "tekst": "I tasken ligger Klattens kappe. Den, han tabte bag skiltet i Pennedal." }
+      ],
+      "valg": {
+        "spoergsmaal": "Hvad gør du med Klattens kappe?",
+        "muligheder": [
+          {
+            "tekst": "Giv ham kappen tilbage",
+            "saet": "kappe.givet",
+            "venlighed": 1,
+            "replikker": [
+              { "taler": "fortaeller", "tekst": "Du lægger kappen foran døren. Døren går op på klem, og en sort hånd tager kappen ind." },
+              { "taler": "klatten", "tekst": "Min kappe! Den har jeg ledt efter i ... Jeg har ikke ledt efter den. Den Frygtelige leder aldrig." },
+              { "taler": "klatten", "tekst": "Kom bare ind. Men tør fødderne af. Med blæk." }
+            ]
+          },
+          {
+            "tekst": "Behold den, og gå ind",
+            "hvis": {
+              "valg": "klatten.hjulpet"
+            },
+            "replikker": [
+              { "taler": "klatten", "tekst": "Du må godt beholde den. Den er alligevel for stor. Kom ind." }
+            ]
+          },
+          {
+            "tekst": "Tag kappen på, og snig dig ind",
+            "hvis": {
+              "ikkeValg": "klatten.hjulpet"
+            },
+            "replikker": [
+              { "taler": "fortaeller", "tekst": "Du tager Klattens kappe på. Den er sort og alt for stor, men nu ligner du næsten en blækklat." },
+              { "taler": "vims", "tekst": "Jeg kan viske låsen ud. Undskyld, lås." },
+              { "taler": "fortaeller", "tekst": "Vims visker, og låsen forsvinder. Døren går op uden en lyd." }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "k6-ind",
+      "type": "skift",
+      "del": 1,
+      "sted": "soebred",
+      "objekt": "hytte",
+      "opgavetekst": "Gå ind i Klattens hytte.",
+      "tilSted": "hytten"
+    },
+    {
+      "id": "k6-hytten",
+      "type": "dialog",
+      "del": 1,
+      "sted": "hytten",
+      "objekt": null,
+      "replikker": [
+        { "taler": "fortaeller", "tekst": "Indenfor er der varmt og rodet. Overalt står kasser, stablet helt op til loftet." },
+        {
+          "taler": "klatten",
+          "tekst": "Hov! Hvem er du? Du har min kappe på! Den Frygtelige lader sig ikke snyde.",
+          "hvis": {
+            "venlighedUnder": 1
+          }
+        },
+        {
+          "taler": "klatten",
+          "tekst": "Nå. Du ligner mig faktisk lidt i den. Bliv bare. Men rør ikke ved noget.",
+          "hvis": {
+            "venlighedUnder": 1
+          }
+        },
+        { "taler": "klatten", "tekst": "Velkommen til mit hjem. Det er ikke et rodet hjem. Det er et hjem med mange kasser." },
+        { "taler": "aeseloere", "tekst": "Hvad er der i dem?" },
+        { "taler": "klatten", "tekst": "Fejl. Alle mine fejl. Chefen sagde, at jeg skulle gemme dem, så ingen kunne se dem." }
+      ]
+    },
+    {
+      "id": "k6-kasser",
+      "type": "dialog",
+      "del": 1,
+      "sted": "hytten",
+      "objekt": "kasser",
+      "opgavetekst": "Kig ned i en af Klattens kasser.",
+      "replikker": [
+        { "taler": "fortaeller", "tekst": "Du løfter låget. Kassen er fuld af små papirlapper. På hver lap står et ord, der er stavet lidt forkert." },
+        { "taler": "fortaeller", "tekst": "Du kender dem. Hvor uden h. Lille med ét l. Det er de samme fejl, som du selv lavede engang." },
+        { "taler": "klatten", "tekst": "Hvorfor kigger du sådan? De er mine. Jeg har haft dem, så længe jeg kan huske." },
+        { "taler": "aeseloere", "tekst": "Det er da ikke svært. Man skal bare stave rigtigt. Det hedder hvor med h, Klatten." },
+        { "taler": "vims", "tekst": "Det var ikke pænt sagt. Undskyld, at jeg siger det. Igen." },
+        { "taler": "fortaeller", "tekst": "Klatten bliver lille og grå. Du ved, hvordan det føles. Fejl er ikke farlige. Det er grinet, der gør ondt." },
+        { "taler": "klatten", "tekst": "Kan du lære mig det? Ikke fordi jeg har brug for det. Bare sådan for sjov." }
+      ]
+    },
+    {
+      "id": "k6-korrektur",
+      "type": "opgave",
+      "del": 1,
+      "sted": "hytten",
+      "objekt": "skrivebord",
+      "opgavetekst": "Hjælp Klatten med at rette sine tekster.",
+      "mekanik": "korrektur",
+      "faerdighed": "stav.vokal_dobbeltkonsonant",
+      "antal": 6
+    },
+    {
+      "id": "k6-korrektur-slut",
+      "type": "dialog",
+      "del": 1,
+      "sted": "hytten",
+      "objekt": null,
+      "slutDel": 1,
+      "replikker": [
+        { "taler": "klatten", "tekst": "Jeg har lige rettet mine egne tekster. Næsten selv. Det er det mest frygtelige, jeg nogensinde har gjort." },
+        { "taler": "vims", "tekst": "Han mener, at det var godt." },
+        { "taler": "klatten", "tekst": "Fejlene er ikke væk. Men nu er de noget, jeg kan lære af. De bor i en pæn kasse nu." },
+        { "taler": "fortaeller", "tekst": "Du kigger dig om efter Æseløre. Han er ikke i hytten." },
+        { "taler": "vims", "tekst": "Han gik ud til søen. Han så trist ud. Undskyld, at jeg lagde mærke til det." }
+      ]
+    },
+    {
+      "id": "k6-ud",
+      "type": "skift",
+      "del": 2,
+      "sted": "hytten",
+      "objekt": "ud",
+      "opgavetekst": "Gå ud, og find Æseløre.",
+      "tilSted": "soebred"
+    },
+    {
+      "id": "k6-twist",
+      "type": "dialog",
+      "del": 2,
+      "sted": "soebred",
+      "objekt": "aeseloere-bred",
+      "opgavetekst": "Find Æseløre nede ved søen.",
+      "tilbageblik": { "id": "foldet", "foer": 3 },
+      "replikker": [
+        { "taler": "fortaeller", "tekst": "Æseløre sidder helt ude ved vandet. Han har foldet det ene øre ned." },
+        { "taler": "aeseloere", "tekst": "Jeg har ikke været helt ærlig over for dig." },
+        { "taler": "aeseloere", "tekst": "Jeg er ikke en side fra en ordbog. Det har jeg aldrig været." },
+        { "taler": "aeseloere", "tekst": "Kan du huske hæftet? Den aften, du stoppede, foldede du hjørnet på siden ned, så du kunne finde den igen." },
+        { "taler": "aeseloere", "tekst": "Det hjørne er mig. Jeg er et æseløre. Et bogmærke." },
+        { "taler": "aeseloere", "tekst": "Jeg har ventet på den side i lang tid. Jeg lokkede dig herhen, fordi jeg kun kan blive glattet ud, hvis historien bliver færdig." },
+        { "taler": "aeseloere", "tekst": "Jeg burde have sagt det fra starten. Undskyld." }
+      ],
+      "valg": {
+        "spoergsmaal": "Hvad svarer du Æseløre?",
+        "muligheder": [
+          {
+            "tekst": "Jeg tilgiver dig",
+            "saet": "aeseloere.tilgivet",
+            "replikker": [
+              { "taler": "aeseloere", "tekst": "Tak. Det ... tak. Jeg ved ikke, hvad man siger nu. Det står ikke i nogen ordbog." },
+              { "taler": "aeseloere", "tekst": "Det var en dårlig joke. Jeg øver mig." }
+            ]
+          },
+          {
+            "tekst": "Du burde have sagt det",
+            "replikker": [
+              { "taler": "aeseloere", "tekst": "Ja. Det burde jeg. Jeg vil prøve at gøre det godt igen." }
+            ]
+          },
+          {
+            "tekst": "Jeg ved det ikke endnu",
+            "replikker": [
+              { "taler": "aeseloere", "tekst": "Det er fair. Jeg venter. Det er jeg god til." }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "k6-krusedul",
+      "type": "dialog",
+      "del": 2,
+      "sted": "soebred",
+      "objekt": null,
+      "uhygge": true,
+      "replikker": [
+        { "taler": "fortaeller", "tekst": "Så begynder søen at boble. Op af blækket kravler små, sorte kruseduller. De er tegnet så hurtigt, at de ikke ved, hvad de skal være." },
+        { "taler": "klatten", "tekst": "Det er chefens kruseduller! Han sender dem, når nogen er ved at blive færdig med noget." },
+        { "taler": "aeseloere", "tekst": "Den Ufærdige vil ikke have, at noget bliver færdigt. Heller ikke Klattens tekster." },
+        {
+          "taler": "klatten",
+          "tekst": "Den Frygtelige gemmer sig ikke. Ikke i dag. Jeg hjælper jer!",
+          "hvis": {
+            "venlighed": 1
+          }
+        },
+        {
+          "taler": "klatten",
+          "tekst": "Jeg gemmer mig bare under bordet. Det er en strategi.",
+          "hvis": {
+            "venlighedUnder": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "k6-kamp",
+      "type": "kamp",
+      "del": 2,
+      "sted": "soebred",
+      "objekt": "krusedulle",
+      "opgavetekst": "Ret Krusedullernes fejl, så de falder til ro.",
+      "vaesen": "krusedulle",
+      "vaesner": ["krusedulle", "stumming", "krusedulle"],
+      "slag": ["ret", "stumt"],
+      "faerdighed": "stav.vokal_dobbeltkonsonant",
+      "antal": 4,
+      "hjaelper": "vims",
+      "klatten": {
+        "venlighed": 1
+      }
+    },
+    {
+      "id": "k6-kamp-slut",
+      "type": "dialog",
+      "del": 2,
+      "sted": "soebred",
+      "objekt": null,
+      "replikker": [
+        { "taler": "fortaeller", "tekst": "Den sidste Krusedulle retter sig ud. Den bliver til et lille, pænt ord og flyder væk på søen." },
+        {
+          "taler": "klatten",
+          "tekst": "Så I det? Jeg viste dem mine gamle fejl, og så blev de helt forvirrede. Det var et frygtelig godt trick.",
+          "hvis": {
+            "venlighed": 1
+          }
+        },
+        { "taler": "aeseloere", "tekst": "Det var godt gjort, Klatten." },
+        { "taler": "klatten", "tekst": "Hvad? Du siger aldrig noget pænt." },
+        { "taler": "aeseloere", "tekst": "Nej. Det er noget, jeg øver mig på. Ligesom stavning." },
+        {
+          "taler": "klatten",
+          "tekst": "Jeg tager med jer. Ikke fordi I er mine venner. Den Frygtelige har bare ikke andet at lave.",
+          "hvis": {
+            "venlighed": 1
+          }
+        },
+        {
+          "taler": "klatten",
+          "tekst": "Jeg bliver her. Men måske kommer jeg forbi en dag. Måske.",
+          "hvis": {
+            "venlighedUnder": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "k6-slut",
+      "type": "dialog",
+      "del": 2,
+      "sted": "soebred",
+      "objekt": "klatten-bred",
+      "opgavetekst": "Sig farvel til Klatten ved bredden.",
+      "slutKapitel": true,
+      "replikker": [
+        { "taler": "fortaeller", "tekst": "På den anden side af søen kan du se noget. Et land, der kun er halvt tegnet. Træer uden toppe. Huse med kun to vægge." },
+        { "taler": "aeseloere", "tekst": "De halve lande. Det er der, Den Ufærdige er på vej hen." },
+        { "taler": "vims", "tekst": "Det ser ufærdigt ud. Undskyld. Det var en dum ting at sige." },
+        { "taler": "fortaeller", "tekst": "Du tager det grønne hæfte frem. Den sidste side er stadig tom. Men nu ved du, hvor du skal hen." }
+      ]
+    }
+  ],
+  "missioner": {
+    "postbreve": {
+      "giver": "snegl",
+      "blade": ["brev1", "brev2", "brev3"],
+      "skaar": "k6a",
+      "antal": 3,
+      "art": "stavning",
+      "titel": "Postsneglens breve",
+      "intro": "Blækket er løbet, og nogle ord ser forkerte ud. Vælg den rigtige stavemåde, så brevene kan komme frem.",
+      "start": [
+        { "taler": "snegl", "tekst": "Goddag. Jeg er Postsneglen. Jeg bringer post rundt ved Blæksøen. Langsomt." },
+        { "taler": "snegl", "tekst": "I går tabte jeg tre breve i søen. De er skyllet op et sted langs bredden." },
+        { "taler": "aeseloere", "tekst": "I går? Så er han nok kommet tre meter siden." }
+      ],
+      "mangler": [
+        { "taler": "snegl", "tekst": "Har du fundet mine breve? De er små og hvide. Og våde." }
+      ],
+      "klar": [
+        { "taler": "snegl", "tekst": "Alle tre! Men blækket er løbet, og nogle ord ser forkerte ud. Kan du hjælpe mig med at rette dem?" }
+      ],
+      "faerdig": [
+        { "taler": "snegl", "tekst": "Nu kan brevene komme frem. Om et år eller to." },
+        { "taler": "fortaeller", "tekst": "Under det sidste brev ligger en lille, lysende papirstump. Det er et hukommelsesskår." }
+      ],
+      "efter": [
+        { "taler": "snegl", "tekst": "Tak igen. Jeg er allerede på vej. Man kan næsten se det." }
+      ]
+    }
+  }
+}

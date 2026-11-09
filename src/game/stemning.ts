@@ -37,6 +37,11 @@ export function partiklerFor(tema: string): { art: PartikelArt; antal: number }[
     case 'kaelder':
     case 'trykkeri':
       return [{ art: 'stoev', antal: 18 }];
+    case 'blaeksoe':
+      // Blæksøen om aftenen: ildfluer over det sorte vand.
+      return [{ art: 'ildflue', antal: 14 }];
+    case 'hytte':
+      return [{ art: 'stoev', antal: 10 }];
     case 'arkiv':
       // Fodnoternes kælder (kapitel 5): mere støv, gamle papirer.
       return [{ art: 'stoev', antal: 26 }];
@@ -99,6 +104,8 @@ export function stedTone(tema: string, mindreUhygge: boolean): [number, number, 
       return [255, 250, 224];
     case 'smoeger':
       return [234, 230, 242];
+    case 'hytte':
+      return [255, 236, 210];
     default:
       return null;
   }

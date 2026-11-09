@@ -474,7 +474,69 @@ const arkiv: Sang = {
   ],
 };
 
+/**
+ * Blæksøen (kapitel 6): en langsom vals i A-mol, lidt sørgmodig og lidt fjollet, som Klatten selv.
+ * Bassen vugger som bølger på blæk, og en lille melodi går op og ned. Den dybe, skæve tone er væk med "Mindre uhygge".
+ */
+const blaeksoe: Sang = {
+  bpm: 72,
+  spor: [
+    {
+      lyd: 'trekant',
+      styrke: 0.3,
+      noder:
+        'A2 - - - E3 - - - | F2 - - - C3 - - - | D2 - - - A2 - - - | E2 - - - B2 - - - | ' +
+        'A2 - - - E3 - - - | F2 - - - C3 - - - | D2 - - - E2 - - - | A2 - - - - - - -',
+    },
+    {
+      lyd: 'firkant',
+      styrke: 0.11,
+      noder:
+        'E5 - C5 - A4 - . . | F5 - E5 - C5 - . . | D5 - F5 - A5 - G5 F5 | E5 - - - G#4 - . . | ' +
+        'E5 - C5 - A4 - B4 C5 | D5 - C5 - A4 - . . | F4 - A4 - D5 - C5 B4 | A4 - - - - - . .',
+    },
+    {
+      lyd: 'trekant',
+      styrke: 0.08,
+      noder: arpeggio([
+        ['A3', 'C4', 'E4'], ['F3', 'A3', 'C4'], ['D3', 'F3', 'A3'], ['E3', 'G#3', 'B3'],
+        ['A3', 'C4', 'E4'], ['F3', 'A3', 'C4'], ['D3', 'F3', 'A3'], ['A3', 'C4', 'E4'],
+      ]),
+    },
+    {
+      lyd: 'firkant',
+      styrke: 0.03,
+      uhygge: true,
+      noder:
+        '. . . . . . . . | . . . . . . . . | . . . . . . . . | . . . . . . Bb3 - | ' +
+        '. . . . . . . . | . . . . . . . . | . . . . . . . . | . . . . . . . .',
+    },
+  ],
+};
+
+/** Klattens hytte: varm og rodet, F-dur, en lille marchmelodi for en, der gerne vil være frygtelig. */
+const hytte: Sang = {
+  bpm: 96,
+  spor: [
+    {
+      lyd: 'trekant',
+      styrke: 0.28,
+      noder:
+        'F2 - C3 - F2 - C3 - | Bb1 - F2 - Bb1 - F2 - | C2 - G2 - C2 - G2 - | F2 - C3 - F2 - C3 - | ' +
+        'F2 - C3 - F2 - C3 - | Bb1 - F2 - Bb1 - F2 - | C2 - G2 - C2 - E2 - | F2 - - - - - - -',
+    },
+    {
+      lyd: 'firkant',
+      styrke: 0.12,
+      noder:
+        'A4 . C5 . F5 - E5 . | D5 - Bb4 - . . . . | G4 . Bb4 . E5 - D5 . | C5 - A4 - . . . . | ' +
+        'A4 . C5 . F5 - G5 . | A5 - F5 - D5 . . . | G4 . C5 . E5 - D5 C5 | F5 - - - - - . .',
+    },
+    { lyd: 'stoej', styrke: 0.03, noder: '. . C4 . . . C4 . | '.repeat(8).slice(0, -3) },
+  ],
+};
+
 /** Viskeskovens bane: samme sang som skoven, lidt hurtigere, fordi man løber og hopper. */
 const viskesti: Sang = { ...viskeskov, bpm: viskeskov.bpm + 14 };
 
-export const SANGE: Record<string, Sang> = { bibliotek, kaelder, pennedal, floden, fyrtaarn, eng, torv, smoeger, trykkeri, tage, forside, ufaerdige, intro, minde, viskeskov, kamp, viskesti, rimbjerg, arkiv };
+export const SANGE: Record<string, Sang> = { bibliotek, kaelder, pennedal, floden, fyrtaarn, eng, torv, smoeger, trykkeri, tage, forside, ufaerdige, intro, minde, viskeskov, kamp, viskesti, rimbjerg, arkiv, blaeksoe, hytte };

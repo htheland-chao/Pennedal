@@ -8,7 +8,7 @@ import { bland, vaelg } from '../engine/tilfaeldig';
 import { lavRimOpgave, type RimOrd } from './rim';
 import { helSaetning, lavFortsaet, type FortsaetSaetning } from './fortaeller';
 
-export type VaesenId = 'tomordet' | 'stumming' | 'ekko' | 'tvivl';
+export type VaesenId = 'tomordet' | 'stumming' | 'ekko' | 'tvivl' | 'krusedulle';
 
 export type Synonym = { id: string; ord: string; saetning: string; svar: string; forkerte: string[]; svaerhed: number };
 export type StummeOrd = { ord: string; stumt: number; type: 'd' | 'h' | 'v'; svaerhed: number; saetning: string };
@@ -29,6 +29,9 @@ export type KampOpgave = {
   muligheder: string[];
   /** Kun stumme bogstaver: hvilken regel, der gælder. */
   type?: 'd' | 'h' | 'v';
+  /** Kun Krusedullerne (Klattens fejl): hvilken slags fejl, og hvilken færdighed svaret tæller på. */
+  fejlType?: string;
+  faerdighed?: string;
 };
 
 /** Antal ture, før væsnet er roligt. Tre til fem, efter elevens niveau (tilpasning, ikke fart). */
