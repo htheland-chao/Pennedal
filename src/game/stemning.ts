@@ -3,7 +3,7 @@
  * fnug i Viskeskoven, pollen i byen og støv indendørs. Små partikler, få af dem, så Chromebooken kan følge med.
  * Ren logik uden Phaser: hvilke partikler et sted har, og hvordan de bevæger sig.
  */
-export type PartikelArt = 'ildflue' | 'blad' | 'fnug' | 'pollen' | 'stoev';
+export type PartikelArt = 'ildflue' | 'blad' | 'fnug' | 'pollen' | 'stoev' | 'regn';
 
 /** Hvilke partikler et tema har, og hvor mange der er på skærmen ad gangen. */
 export function partiklerFor(tema: string): { art: PartikelArt; antal: number }[] {
@@ -17,7 +17,11 @@ export function partiklerFor(tema: string): { art: PartikelArt; antal: number }[
     case 'fyrtaarn':
       return [{ art: 'ildflue', antal: 16 }];
     case 'viskeskov':
-      return [{ art: 'fnug', antal: 26 }];
+      // Fnug og en tynd, hvid regn (Henrik, 9. november 2026). Tågebankerne tegnes for sig (KortScene).
+      return [
+        { art: 'fnug', antal: 12 },
+        { art: 'regn', antal: 16 },
+      ];
     case 'eng':
       return [
         { art: 'pollen', antal: 18 },
@@ -57,6 +61,9 @@ export function partikelTrin(p: Partikel, dt: number, ur: number): { dx: number;
     case 'pollen':
       // Stiger langsomt og glimter svagt.
       return { dx: Math.sin(ur * 0.8 + f * 9) * 4 * dt, dy: -(2 + f * 2) * dt, alpha: 0.4 + 0.6 * Math.max(0, Math.sin(ur * 1.2 + f * 13)), ramme: 0 };
+    case 'regn':
+      // Tynde, hvide streger, der falder skråt og roligt. De glimter ikke.
+      return { dx: -14 * dt, dy: (62 + f * 18) * dt, alpha: 0.5, ramme: 0 };
     case 'stoev':
       // Næsten stillestående støv, der driver.
       return { dx: Math.sin(ur * 0.4 + f * 7) * 2 * dt, dy: Math.cos(ur * 0.3 + f * 5) * 1.5 * dt, alpha: 0.35 + 0.4 * Math.max(0, Math.sin(ur * 0.6 + f * 17)), ramme: 0 };

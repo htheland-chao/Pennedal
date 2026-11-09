@@ -38,6 +38,23 @@ async function facit(page: Page): Promise<{ rigtig: string; forkert: string }> {
   return { rigtig, forkert: ['d', 'h', 'v'].find((b) => b !== rigtig)! };
 }
 
+/** Går hen til en ordsten og finder et synonym. Med forkertFoerst svares der først forkert (regel og eksempel). */
+async function ordsten(page: Page, nr: number, forkertFoerst = false) {
+  await gaaTil(page, `ordsten-${nr}`);
+  const v = page.locator('dialog.ord-opgave');
+  await expect(v).toBeVisible({ timeout: 15_000 });
+  const id = await v.locator('[data-opgave-id]').getAttribute('data-opgave-id');
+  const s = synonymer.find((x) => x.id === id)!;
+  if (forkertFoerst) {
+    await v.getByRole('button', { name: s.forkerte[0], exact: true }).click();
+    await expect(v.locator('.besked-fejl .regel')).toContainText('Regel');
+    await expect(v.locator('.besked-fejl .regel')).toContainText('Eksempel');
+  }
+  await v.getByRole('button', { name: s.svar, exact: true }).click();
+  await v.getByRole('button', { name: 'Skriv planken tilbage' }).click();
+  await expect(v).toHaveCount(0);
+}
+
 /**
  * Spiller en hel turbaseret kamp i fuld skærm. Første runde lyttes der (svagt punkt) og kigges i tasken,
  * anden runde forsvares der, første slag svares forkert (regel og eksempel), og ellers slås der på væsnets svage punkt.
@@ -171,9 +188,16 @@ test('kapitel 3: Viskeskoven, turbaserede kampe, Vims, mindet og Klattens valg',
   await page.screenshot({ path: `${BILLEDER}/k3-03-minde.png` });
   await minde.getByRole('button', { name: 'Tilbage til Pennedal' }).click();
 
-  // Lysningen: Stummingen med Vims som hjælper.
-  await gaaTil(page, 'sti');
+  // Den viskede sti (9. november 2026): platformbanen. Æseløre forklarer, og hver ordsten skriver planker tilbage.
+  await expect(page.locator('.sted-navn')).toContainText('Den viskede sti', { timeout: 30_000 });
   await laesDialog(page);
+  await page.screenshot({ path: `${BILLEDER}/k3-bane.png` });
+  for (const nr of [0, 1, 2]) await ordsten(page, nr, nr === 0);
+  await gaaTil(page, 'maal');
+  await expect(page.locator('.sted-navn')).toContainText('Den hvide lysning', { timeout: 30_000 });
+  await laesDialog(page);
+
+  // Lysningen: Stummingen med Vims som hjælper.
   await gaaTil(page, 'stumming');
   await laesDialog(page);
   await gaaTil(page, 'stumming');
@@ -201,5 +225,52 @@ test('kapitel 3: Viskeskoven, turbaserede kampe, Vims, mindet og Klattens valg',
   await page.screenshot({ path: `${BILLEDER}/k3-05-moerke.png` });
   await laesDialog(page);
   await expect(page.getByText('Kapitel 3 er slut.')).toBeVisible();
+  expect(fejl).toEqual([]);
+});
+
+test('kapitel 3: Halvsangens sidemission og den lange hvide sti giver hukommelsesskår', async ({ page }) => {
+  test.setTimeout(240_000);
+  const fejl: string[] = [];
+  page.on('pageerror', (e) => fejl.push(e.message));
+  await page.goto('/?hop=k3-stumming-moede');
+  await laesDialog(page);
+  const dialog = page.locator('dialog.dialogboks');
+
+  // Fuglen giver missionen, og så kan bladene ses.
+  await gaaTil(page, 'halvfugl');
+  await expect(dialog).toContainText('Min sang er gået i stykker', { timeout: 30_000 });
+  await laesDialog(page);
+  for (const [i, blad] of ['blad1', 'blad2', 'blad3'].entries()) {
+    await gaaTil(page, blad);
+    await expect(page.locator('.kvittering').filter({ hasText: `(${i + 1} af 3)` })).toBeVisible({ timeout: 30_000 });
+  }
+  await gaaTil(page, 'halvfugl');
+  await laesDialog(page);
+  const v = page.locator('dialog.ord-opgave');
+  for (let i = 0; i < 3; i++) {
+    const id = await v.locator('[data-opgave-id]').getAttribute('data-opgave-id');
+    await v.getByRole('button', { name: synonymer.find((x) => x.id === id)!.svar, exact: true }).click();
+    await v.getByRole('button', { name: i < 2 ? 'Næste ord' : 'Færdig', exact: true }).click();
+  }
+  await laesDialog(page);
+  await expect(page.locator('.kvittering').filter({ hasText: 'Et hukommelsesskår: Viskelæderet' })).toBeVisible();
+
+  // Den lange hvide sti: frivillig, uden hjælp, og man kan gå tilbage når som helst.
+  await gaaTil(page, 'hvidsti');
+  await expect(dialog).toBeVisible({ timeout: 30_000 });
+  for (let i = 0; i < 4 && !(await dialog.locator('.dialog-valg').isVisible()); i++) await dialog.getByRole('button', { name: 'Videre' }).click();
+  await dialog.getByRole('button', { name: 'Gå ind på stien' }).click();
+  await expect(page.locator('.sted-navn')).toContainText('Den lange hvide sti', { timeout: 30_000 });
+  await expect(page.getByRole('button', { name: 'Gå tilbage' })).toBeVisible();
+  for (const nr of [0, 1]) await ordsten(page, nr);
+  await gaaTil(page, 'maal');
+  await laesDialog(page);
+  await expect(page.locator('.sted-navn')).toContainText('Den hvide lysning', { timeout: 30_000 });
+  await expect(page.locator('.kvittering').filter({ hasText: 'Et hukommelsesskår: Hæftet på gulvet' })).toBeVisible();
+
+  // Minderne ligger i tasken.
+  await page.getByRole('button', { name: /Taske/ }).click();
+  await expect(page.locator('dialog')).toContainText('Viskelæderet');
+  await expect(page.locator('dialog')).toContainText('Hæftet på gulvet');
   expect(fejl).toEqual([]);
 });

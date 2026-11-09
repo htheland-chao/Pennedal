@@ -52,6 +52,10 @@
     "stumming": {
       "stemme": "Despina",
       "stil": "Whisper this softly and secretively, like a shy little creature that collects silent letters. Gentle, never scary. Native Danish."
+    },
+    "halvfugl": {
+      "stemme": "Leda",
+      "stil": "Say this in a small, bright, slightly shy singing voice, like a tiny bird that keeps trying to sing. Gentle and hopeful. Native Danish."
     }
   },
   "rum": {

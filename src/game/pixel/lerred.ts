@@ -438,6 +438,10 @@ export function partikelBilleder(art: string): [HTMLCanvasElement, HTMLCanvasEle
       return [t(['PPp', '.pp'], { P: '#f4efe0', p: '#b9bfcf' }), t(['Pp', 'pp'], { P: '#f4efe0', p: '#b9bfcf' })];
     case 'fnug':
       return [t(['W'], { W: '#f8f8fc' }), t(['.W.', 'WwW', '.W.'], { W: 'rgba(248, 248, 252, 0.8)', w: '#ffffff' })];
+    case 'regn': {
+      const c = t(['W', 'W', 'w'], { W: 'rgba(250, 250, 255, 0.9)', w: 'rgba(250, 250, 255, 0.4)' });
+      return [c, c];
+    }
     case 'pollen': {
       const c = t(['Y'], { Y: '#f0d870' });
       return [c, c];
@@ -465,6 +469,37 @@ export function lavVignet(w: number, h: number, styrke: number): HTMLCanvasEleme
       p[o + 1] = v;
       p[o + 2] = Math.min(255, v + Math.round(styrke * s * 18));
       p[o + 3] = 255;
+    }
+  g.putImageData(img, 0, 0);
+  return c;
+}
+
+/**
+ * Tågebanker (Viskeskoven, 9. november 2026): bløde, hvide skyer med dither i kanten, gennemsigtige imellem.
+ * Billedet kan lægges side om side, fordi skyerne ikke rører kanterne til venstre og højre.
+ */
+export function lavTaagebanker(w: number, h: number, saed = 0): HTMLCanvasElement {
+  const c = lerred(w, h);
+  const g = c.getContext('2d')!;
+  const img = g.createImageData(w, h);
+  const p = img.data;
+  const skyer = Array.from({ length: 5 }, (_, i) => ({
+    x: 30 + hash(i, saed) * (w - 60),
+    y: 20 + hash(saed, i * 3) * (h - 40),
+    rx: 40 + hash(i * 7, saed + 1) * 50,
+    ry: 10 + hash(i * 5, saed + 2) * 12,
+  }));
+  for (let y = 0; y < h; y++)
+    for (let x = 0; x < w; x++) {
+      let s = 0;
+      for (const k of skyer) s = Math.max(s, 1 - Math.hypot((x - k.x) / k.rx, (y - k.y) / k.ry));
+      const v = lysTrin(Math.min(1, s * 1.6), x, y);
+      if (v <= 0) continue;
+      const o = (y * w + x) * 4;
+      p[o] = 246;
+      p[o + 1] = 245;
+      p[o + 2] = 252;
+      p[o + 3] = Math.round(v * 170);
     }
   g.putImageData(img, 0, 0);
   return c;

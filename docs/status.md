@@ -6,13 +6,15 @@ Regler og stak står i `CLAUDE.md`. Historien står i `docs/historie.md`, grafik
 
 ## Hvad der findes
 
-- **Kapitel 1-3 kan spilles.** Kapitel 1 (Pennedal og kælderen), kapitel 2 (byen og trykkeriet med bane og escape room) og kapitel 3 (Viskeskoven med de første turbaserede kampe).
+- **Kapitel 1-3 kan spilles.** Kapitel 1 (Pennedal og kælderen), kapitel 2 (byen og trykkeriet med bane og escape room) og kapitel 3 (Viskeskoven med turbaserede kampe, platformbanen med viskede planker og ordsten, sidemissionen Halvsangen, den frivillige lange hvide sti og to hukommelsesskår).
 - **Intro, tilbageblik, taske, turbaserede kampe, Og-orm, avatardesigner med pixelgrafik** og baggrundsmusik pr. tema.
 - **Layout** (9. november 2026): spillet fylder skærmen uden rammer. Opgaven står i et lille kort øverst til venstre, taske og menu i hjørnet, Undersøg-knappen nederst i midten. Dialogen er en tekstboks nederst over spillet, menuen glider ind fra højre.
 - **Animationer** (9. november 2026): Æseløre folder sig ud af skuffen og flagrer frem. Portalen fra kælderen til Pennedal (hvirvel, fald, åbning med blade). Et blækstrøg ved alle andre stedskift. Kampen har animationer for hvert slag, angreb, ting og evne (`src/ui/kampEffekter.ts` og `.fx-*` i styles.css).
 - **Kampmusik og skarp zoom** (9. november 2026): kampene har deres egen sang (`kamp` i `src/ui/musik/sange.ts`, 160 slag i minuttet, d-mol med trommer). Den spiller, så længe kampvinduet er åbent, og den forrige sang kommer tilbage bagefter. Kameraet zoomer kun i hele trin (1 eller 2) under dialog og klipper i stedet for at glide, så pixlerne ikke "flyder". Fortælleren zoomer ikke.
 - **Stemning og liv** (9. november 2026): bløde kanter mellem græs, skov og sti, sten, tuer og svampe på jorden, skygger, partikler (ildfluer, blade, fnug, pollen, støv), figurer der blinker og trækker vejret, gang i fire trin, farvetone og vignet pr. sted, trækroner i forgrunden og pixelrammer om dialog, opgavekort, menu og kampens bokse. Taleboblen står over figuren, og træer foran figurer bliver halvt gennemsigtige. Se `docs/grafik.md`.
 - **Oplæsningsknap og mellemrum** (9. november 2026): alle oplæsningsknapper er et lille, dæmpet højttalerikon (navnet står i aria-label og title). I dialogen går mellemrum videre, også når fokus står på ikonet. Står fokus på selve Videre-knappen, eller skal eleven vælge, gør browseren det sædvanlige.
+- **Frivilligt indhold** (9. november 2026): sidemissioner (`missioner` i kapitlet) og udflugter (`udflugt` på et sted) er ikke trin, så gamle gemmekoder peger rigtigt. Belønningen er hukommelsesskår, som står i gemmekoden. Hvor langt man er i en mission, står kun i browseren. Skårenes minder ligger i tasken.
+- **Animationer** (9. november 2026, fortsat): ord falder på plads, når et væsen bliver roligt. En ny ting flyver ned i tasken, og tasken hopper. Tågebanker og en tynd regn i Viskeskoven.
 - **Kampe** (3. november 2026): turbaserede som i gamle rollespil, med hold, skade, svagheder, hjælpernes evner, ting fra tasken og blødt nederlag. Se `docs/historie.md` under Kampe.
 - **Lyd:** Gemini-stemmer pr. figur i `src/content/stemmer.json`. Stemmerne kan få rumklang, mens de afspilles (`src/ui/rumklang.ts`, profiler under `rum` i `stemmer.json`): hviskestemmen, introen og tilbageblik. Klippene er uberørte, og rummet kan slås fra i indstillingerne. "Mindre uhygge" halverer det. Aldrig på opgaver, feedback og enkeltord, fordi det gør tale sværere at forstå.
 - **Test og værktøj:** Hop direkte til et sted med `?hop` (se README). `?debug=1` viser billeder pr. sekund. `?lyd=1` er korrektursiden for lyd.
@@ -30,11 +32,12 @@ Regler og stak står i `CLAUDE.md`. Historien står i `docs/historie.md`, grafik
 
 ## Åbent og mangler
 
-- **Flere animationer (idéliste, 9. november 2026):** Klatten der flygter med en blækstribe, broen der samler sig planke for planke, fyrtårnets lys der tænder, Og-ormen der kryber væk efter sidste klip, ting der flyver ned i tasken, ord der falder på plads, når et væsen falder, regn og tåge i Viskeskoven, Den Ufærdige der toner frem i mørket. Ingen er bygget endnu.
+- **Flere animationer (idéliste, 9. november 2026):** Klatten der flygter med en blækstribe, broen der samler sig planke for planke, fyrtårnets lys der tænder, Og-ormen der kryber væk efter sidste klip, Den Ufærdige der toner frem i mørket. Bygget: ting i tasken, ord på plads, regn og tåge.
+- **Lyd:** Halvsangen er en ny figur med stemmen Leda. Hendes replikker, banens intro og udflugtens replikker mangler klip, til lydjobbet har kørt.
+- **Grafik i Viskeskovens bane** er en første udgave: bleg skovbund, hvidt tomrum og tåge. Henrik bør se den.
 - **Lyd:** Den nye Og-orm-instruks (`ogorm.klip.instruks`) mangler sit klip. Tilføj den til testen i `src/ui/oplaesning.test.ts`, når lydjobbet har lavet den.
 
 - **Lyd:** Mange klip mangler stadig. Status: `npm run lyd:status` eller `public/lyd/manifest.json`. Googles dagskvote på 100 klip gør, at det tager flere dage.
-- **Kapitel 3 mangler:** platformbane med viskede planker, sidemission, valgfri svær udfordring, to hukommelsesskår og Fælles Mål-tekst for ordforråd i `src/content/maal.json`.
 - **Kapitel 4-8** står i `docs/historie.md`. Hukommelsesskårene er ikke bygget.
 - **Hovedfarve i designeren** har kun virkning, når hovedet har hætte eller kasket.
 

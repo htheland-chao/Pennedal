@@ -509,5 +509,26 @@
   "kamp.ting.krummer": "Krummer: alle får {liv} liv igen",
   "kamp.ting.punktum": "Punktum: stop et væsen i en runde",
   "kamp.ting.ingen": "Der er ikke noget i tasken, du kan bruge i en kamp.",
-  "valg.vaelg": "Vælg"
+  "valg.vaelg": "Vælg",
+
+  "taler.halvfugl": "Halvsangen",
+  "ordsten.titel": "Ordstenen",
+  "ordsten.intro": "Et ord er ved at blive visket ud. Find et ord, der betyder det samme, så kommer planken igen.",
+  "ordsten.genskab": "Skriv planken tilbage",
+  "ordsten.igen": "Prøv igen",
+  "ordsten.vaek": "Gå væk fra stenen",
+  "ordopgave.nr": "Ord {nr} af {antal}",
+  "ordopgave.videre": "Næste ord",
+  "ordopgave.faerdig": "Færdig",
+  "mission.blad": "Du fandt et hvidt blad med et ord ({antal} af {ialt}).",
+  "skaar.fundet": "Et hukommelsesskår: {titel}",
+  "udflugt.tilbage": "Gå tilbage",
+  "minde.skaar3a.titel": "Viskelæderet",
+  "minde.skaar3a.1": "Du sidder ved køkkenbordet igen. Det grønne hæfte ligger åbent foran dig.",
+  "minde.skaar3a.2": "Et ord ser forkert ud, og du visker det ud. Og igen. Papiret bliver tyndt og gråt.",
+  "minde.skaar3a.3": "Så skriver du et andet ord, der betyder det samme. Det er lettere at stave. Historien går videre.",
+  "minde.skaar3b.titel": "Hæftet på gulvet",
+  "minde.skaar3b.1": "Et klasseværelse efter sidste time. Stolene står oppe på bordene, og det er helt stille.",
+  "minde.skaar3b.2": "Noget grønt ligger under et bord. Et hæfte med en skygge med store øjne på forsiden.",
+  "minde.skaar3b.3": "En voksen hånd samler det op, børster støvet af og lægger det forsigtigt ned i en taske."
 }

@@ -219,7 +219,91 @@ function tegnKoekkenbord(): HTMLCanvasElement {
   return c;
 }
 
-const TEGN: Record<MindeId, () => HTMLCanvasElement> = { blaek: tegnBlaek, streger: tegnStreger, koekkenbord: tegnKoekkenbord };
+
+/** Skår 3a, Viskelæderet: det grønne hæfte på køkkenbordet, et gråt, tyndslidt sted på siden og et viskelæder med krummer. */
+function tegnViskelaeder(): HTMLCanvasElement {
+  const c = lerred(B, H);
+  const g = c.getContext('2d')!;
+  // Voksdugen tæt på: store, falmede tern.
+  for (let y = 0; y < H; y++)
+    for (let x = 0; x < B; x++) {
+      const roed = (Math.floor(x / 22) + Math.floor(y / 22)) % 2 === 0;
+      felt(g, x, y, 1, 1, roed ? (hash(x, y) > 0.9 ? '#c98b78' : '#d29a86') : hash(x, y) > 0.9 ? '#eadcc0' : '#f1e5cb');
+    }
+  // Hæftet, åbent og skråt.
+  felt(g, 40, 24, 220, 136, P.kontur);
+  felt(g, 41, 25, 218, 134, '#6f8f62');
+  felt(g, 46, 28, 104, 128, P.papir);
+  felt(g, 150, 28, 104, 128, P.papir);
+  felt(g, 148, 28, 2, 128, P.papirSkygge);
+  // Linjer med streger (ingen bogstaver). Ét sted er gnedet gråt og tyndt.
+  for (let r = 0; r < 10; r++) {
+    const y = 40 + r * 11;
+    for (let x = 54; x < 142; x++) if (hash(x >> 3, r) > 0.25) felt(g, x, y, 1, 2, '#7d7066');
+    for (let x = 158; x < 246; x++) if (hash((x >> 3) + 50, r) > 0.25 && !(r === 4 && x > 180 && x < 226)) felt(g, x, y, 1, 2, '#7d7066');
+  }
+  for (let y = 78; y < 96; y++)
+    for (let x = 176; x < 230; x++) {
+      const d = Math.hypot((x - 203) / 27, (y - 87) / 9);
+      if (d < 1) felt(g, x, y, 1, 1, hash(x, y) > 0.5 ? '#d9cfbb' : '#cfc4ae');
+    }
+  // Et nyt, lettere ord skrevet ovenover.
+  for (let x = 184; x < 214; x++) felt(g, x, 75, 1, 2, '#4e4660');
+  // Viskelæderet og krummerne.
+  felt(g, 236, 112, 46, 22, P.kontur);
+  felt(g, 237, 113, 44, 20, '#e8a8a8');
+  felt(g, 259, 113, 22, 20, '#7d9cc8');
+  for (let i = 0; i < 26; i++) felt(g, 186 + Math.floor(hash(i, 3) * 60), 98 + Math.floor(hash(i, 4) * 26), 2, 1, '#e3cfc8');
+  return c;
+}
+
+/** Skår 3b, Hæftet på gulvet: et tomt klasseværelse, stole oppe på bordene og et grønt hæfte på gulvet. En voksen hånd. */
+function tegnHaeftetPaaGulvet(): HTMLCanvasElement {
+  const c = lerred(B, H);
+  const g = c.getContext('2d')!;
+  // Væg og gulv.
+  for (let y = 0; y < H; y++)
+    for (let x = 0; x < B; x++) {
+      if (y < 70) felt(g, x, y, 1, 1, hash(x, y) > 0.92 ? P.mellem : P.lys);
+      else felt(g, x, y, 1, 1, (Math.floor(x / 40) + (y > 120 ? 1 : 0)) % 2 === 0 ? (hash(x, y) > 0.9 ? P.moerk : P.mellem) : hash(x, y) > 0.9 ? P.skygge : P.moerk);
+    }
+  // Vinduet med eftermiddagslys.
+  felt(g, 210, 10, 90, 50, P.kontur);
+  felt(g, 212, 12, 86, 46, '#f6e3b0');
+  felt(g, 254, 12, 2, 46, P.kontur);
+  // Borde med stole på hovedet.
+  for (const bx of [20, 120]) {
+    felt(g, bx, 72, 80, 8, P.kontur);
+    felt(g, bx + 1, 73, 78, 6, '#c9a46a');
+    for (const lx of [bx + 4, bx + 72]) felt(g, lx, 80, 4, 40, P.kontur);
+    // Stolen oppe på bordet.
+    felt(g, bx + 18, 46, 44, 6, P.kontur);
+    felt(g, bx + 19, 47, 42, 4, '#8a6a45');
+    for (const sx of [bx + 22, bx + 54]) felt(g, sx, 52, 3, 20, P.kontur);
+  }
+  // Hæftet på gulvet under bordet.
+  felt(g, 150, 136, 54, 34, P.kontur);
+  felt(g, 151, 137, 52, 32, '#6f8f62');
+  // Skyggen med store øjne på forsiden.
+  for (let y = -8; y <= 8; y++) for (let x = -10; x <= 10; x++) if ((x * x) / 100 + (y * y) / 64 <= 1) felt(g, 177 + x, 153 + y, 1, 1, '#4a4560');
+  for (const ox of [-4, 4]) {
+    felt(g, 176 + ox, 149, 3, 3, '#f6ecd6');
+    felt(g, 177 + ox, 150, 1, 1, '#2b2433');
+  }
+  // En voksen hånd, der rækker ned efter det.
+  felt(g, 196, 104, 40, 26, P.kontur);
+  felt(g, 197, 105, 38, 24, P.hud);
+  felt(g, 197, 105, 38, 5, P.hudLys);
+  for (let f = 0; f < 4; f++) {
+    felt(g, 198 + f * 9, 129, 8, 12, P.kontur);
+    felt(g, 199 + f * 9, 129, 6, 11, P.hud);
+  }
+  felt(g, 230, 92, 30, 16, P.kontur);
+  felt(g, 231, 93, 29, 14, '#6b7a8f');
+  return c;
+}
+
+const TEGN: Record<MindeId, () => HTMLCanvasElement> = { blaek: tegnBlaek, streger: tegnStreger, koekkenbord: tegnKoekkenbord, skaar3a: tegnViskelaeder, skaar3b: tegnHaeftetPaaGulvet };
 
 const cache = new Map<MindeId, string | null>();
 /** Billedet til et minde som data-URL. Uden canvas (fx i enhedstests) bliver det null, og mindet vises kun som tekst. */

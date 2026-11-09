@@ -1,8 +1,9 @@
 import Phaser from 'phaser';
 import type { Avatar } from '../engine/gem';
-import { BFELT, erFare, erFast, erPlanke, find, FYSIK, laesBane, type Bane } from './bane';
+import { BFELT, erFare, erFast, erPlanke, erVisket, find, FYSIK, laesBane, viskedeGrupper, type Bane } from './bane';
 import { SKALA, VIS_B, VIS_H } from './KortScene';
-import { checkpoint, MAAL, tegnBane, tegnByBaggrund } from './pixel/banetegn';
+import { checkpoint, MAAL, NY_PLANKE, tegnBane, tegnByBaggrund, tegnSkovBaggrund, tegnTaage } from './pixel/banetegn';
+import { GRENPORT, ordsten } from './pixel/viskeskov';
 import { tegnkortTilLerred } from './pixel/lerred';
 import { avatarPixel, FUGL, KLATTEN, SKYGGE, type Tegnkort } from './pixel/sprites';
 import type { VerdenData, VerdenKroge } from './typer';
@@ -41,6 +42,14 @@ export class BaneScene extends Phaser.Scene {
   private taster?: Record<'venstre' | 'hoejre' | 'op' | 'a' | 'd' | 'w' | 'mellemrum', Phaser.Input.Keyboard.Key>;
   /** Knapper på skærmen (touch). */
   private touch = { venstre: false, hoejre: false, hop: false };
+  /** Viskeskoven: grupper af viskede planker, hvilke der er skrevet tilbage, og ordstenene. */
+  private grupper: [number, number][][] = [];
+  private gruppeVed = new Map<string, number>();
+  private genskabt = new Set<number>();
+  private ordsten: { x: number; y: number; billede: Phaser.GameObjects.Image }[] = [];
+  /** Den ordsten, eleven lige er blevet spurgt ved. Først når man går væk, kan den spørge igen. */
+  private spurgt: number | null = null;
+  private taage?: Phaser.GameObjects.Image;
   private roligt = typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
 
   constructor() {
@@ -57,6 +66,22 @@ export class BaneScene extends Phaser.Scene {
     this.vx = 0;
     this.vy = 0;
     this.touch = { venstre: false, hoejre: false, hop: false };
+    this.grupper = [];
+    this.gruppeVed = new Map();
+    this.genskabt = new Set();
+    this.ordsten = [];
+    this.spurgt = null;
+    this.taage = undefined;
+  }
+
+  /** Feltet på banen. En viskede planke, der er skrevet tilbage, er en almindelig planke. */
+  private tegn(x: number, y: number): string {
+    const c = this.bane.tegn(x, y);
+    if (erVisket(c)) {
+      const g = this.gruppeVed.get(`${x},${y}`);
+      return g !== undefined && this.genskabt.has(g) ? '=' : '.';
+    }
+    return c === 'O' ? '.' : c;
   }
 
   private get kroge(): VerdenKroge {
@@ -90,14 +115,29 @@ export class BaneScene extends Phaser.Scene {
     this.tekstur('px-cp-0', checkpoint(false));
     this.tekstur('px-cp-1', checkpoint(true));
     this.tekstur('px-maal', MAAL);
+    this.tekstur('px-grenport', GRENPORT);
+    this.tekstur('px-ordsten-0', ordsten(false));
+    this.tekstur('px-ordsten-1', ordsten(true));
+    this.tekstur('px-ny-planke', NY_PLANKE);
+    const skov = tema === 'viskesti';
 
     // Baggrunden er halvt så bred plus skærmen, fordi den flytter sig med halv fart.
     this.add
-      .image(0, 0, this.tekstur(`px-bane-bag-${tema}`, tegnByBaggrund(Math.ceil(W / 2) + VIS_B, Math.max(H, VIS_H)), true))
+      .image(0, 0, this.tekstur(`px-bane-bag-${tema}`, (skov ? tegnSkovBaggrund : tegnByBaggrund)(Math.ceil(W / 2) + VIS_B, Math.max(H, VIS_H)), true))
       .setOrigin(0)
       .setScrollFactor(0.5, 0)
       .setDepth(-2);
-    this.add.image(0, 0, this.tekstur(`px-bane-${tema}`, tegnBane(this.bane), true)).setOrigin(0).setDepth(0);
+    this.add.image(0, 0, this.tekstur(`px-bane-${this.data_.sted.navn}`, tegnBane(this.bane, tema), true)).setOrigin(0).setDepth(0);
+
+    // Viskede planker og ordsten (Viskeskoven). Er banen klaret, er alle planker skrevet tilbage.
+    this.grupper = viskedeGrupper(this.bane);
+    this.grupper.forEach((g, i) => g.forEach(([x, y]) => this.gruppeVed.set(`${x},${y}`, i)));
+    for (const [x, y] of find(this.bane, 'O').sort((a, b) => a[0] - b[0])) {
+      const ox = x * BFELT + 8;
+      const oy = (y + 1) * BFELT;
+      this.ordsten.push({ x: ox, y: oy, billede: this.add.image(ox, oy, 'px-ordsten-0').setOrigin(0.5, 1).setDepth(1) });
+    }
+    if (this.data_.baneKlaret) this.grupper.forEach((_g, i) => this.genskab(i, false));
 
     for (const [x, y] of find(this.bane, 'C')) {
       const bx = x * BFELT + 8;
@@ -108,7 +148,7 @@ export class BaneScene extends Phaser.Scene {
     const [m] = find(this.bane, 'M');
     if (m) {
       this.maal = { x: m[0] * BFELT + 8, y: (m[1] + 1) * BFELT };
-      this.add.image(this.maal.x, this.maal.y, 'px-maal').setOrigin(0.5, 1).setDepth(1);
+      this.add.image(this.maal.x, this.maal.y, skov ? 'px-grenport' : 'px-maal').setOrigin(0.5, 1).setDepth(1);
     }
     const [s] = find(this.bane, 'S');
     this.start = { x: (s?.[0] ?? 1) * BFELT + 8, y: ((s?.[1] ?? 1) + 1) * BFELT };
@@ -131,6 +171,12 @@ export class BaneScene extends Phaser.Scene {
       const b = this.add.image(o.felt[0] * BFELT + 8, (o.felt[1] + 1) * BFELT, 'px-skygge-figur').setOrigin(0.5, 1).setDepth(7);
       b.setVisible(!(this.data_.skjulte ?? []).includes(o.id));
       this.figurer.set(o.id, b);
+    }
+
+    // Tågen i Viskeskoven: hvid i kanten, åben omkring hovedpersonen, hvor lanternen lyser (docs/historie.md).
+    if (skov) {
+      const noegle = this.tekstur('px-taage', tegnTaage(VIS_B * 2, VIS_H * 2, 70));
+      this.taage = this.add.image(fra.x, fra.y - 10, noegle).setDepth(9).setAlpha(this.data_.mindreUhygge ? 0.6 : 1);
     }
 
     const cam = this.cameras.main;
@@ -173,7 +219,39 @@ export class BaneScene extends Phaser.Scene {
     if (this.data_.mindreUhygge) return;
     this.cameras.main.shake(250, 0.008);
   }
-  gaaTilObjekt(_id: string) {}
+  /**
+   * Til gennemspilningen (kun med ?hop): stil hovedpersonen ved en ordsten (ordsten-0, ordsten-1, ...) eller ved målet.
+   * Eleven kan ikke kalde den.
+   */
+  gaaTilObjekt(id: string) {
+    const m = /^ordsten-(\d+)$/.exec(id);
+    const p = m ? this.ordsten[Number(m[1])] : id === 'maal' ? { x: this.maal.x, y: this.maal.y } : undefined;
+    if (!p) return;
+    this.spiller.setPosition(m ? p.x - 4 : p.x, p.y - 2);
+    this.vx = 0;
+    this.vy = 0;
+    this.spurgt = null;
+  }
+
+  /** Skriver gruppe nr af viskede planker tilbage. Plankerne toner frem og falder på plads med lidt glimmer. */
+  genskab(nr: number, animer = true) {
+    if (this.genskabt.has(nr) || !this.grupper[nr]) return;
+    this.genskabt.add(nr);
+    this.ordsten[nr]?.billede.setTexture('px-ordsten-1');
+    this.grupper[nr].forEach(([x, y], i) => {
+      const px = x * BFELT;
+      const py = y * BFELT;
+      const b = this.add.image(px, py, 'px-ny-planke').setOrigin(0).setDepth(1);
+      if (!animer || this.roligt) return;
+      b.setAlpha(0).setY(py - 6);
+      this.tweens.add({ targets: b, alpha: 1, y: py, duration: 260, delay: i * 90, ease: 'Back.Out' });
+      for (let k = 0; k < 3; k++) {
+        const g = this.add.rectangle(px + 3 + k * 5, py, 1, 1, 0xffe9a8).setDepth(2);
+        this.tweens.add({ targets: g, y: py - 8 - k * 3, alpha: 0, duration: 500, delay: i * 90 + 120, onComplete: () => g.destroy() });
+      }
+    });
+    this.spurgt = null;
+  }
 
   /** Knapperne på skærmen (touch) og musen. */
   styr(knap: 'venstre' | 'hoejre' | 'hop', nede: boolean) {
@@ -183,8 +261,11 @@ export class BaneScene extends Phaser.Scene {
 
   /** Æseløre bærer hovedpersonen hen til næste lanterne eller målet. */
   baerOver() {
-    const naeste = this.lanterner.find((_l, i) => i > this.checkpointNr);
-    const maal = naeste ?? { x: this.maal.x - 20, y: this.maal.y };
+    // Æseløre bærer ikke forbi en ordsten, der ikke er løst. Så står man ved stenen og kan skrive planken tilbage.
+    const sten = this.ordsten.find((o, i) => !this.genskabt.has(i) && o.x > this.spiller.x + 4);
+    const lanterne = this.lanterner.find((_l, i) => i > this.checkpointNr);
+    const naeste = lanterne && (!sten || lanterne.x < sten.x) ? lanterne : undefined;
+    const maal = naeste ?? (sten ? { x: sten.x - 12, y: sten.y } : { x: this.maal.x - 20, y: this.maal.y });
     if (naeste) this.taend(this.lanterner.indexOf(naeste));
     this.spiller.setPosition(maal.x, maal.y - 2);
     this.vx = 0;
@@ -209,12 +290,12 @@ export class BaneScene extends Phaser.Scene {
     this.vy = 0;
     this.fald++;
     if (!this.roligt) this.cameras.main.flash(180, 20, 22, 41);
-    if (this.fald >= HJAELP_EFTER) this.kroge?.onHjaelp?.(true);
+    if (this.fald >= HJAELP_EFTER && !this.data_.svaer) this.kroge?.onHjaelp?.(true);
   }
 
   /** Rammer en kasse på (x, y) med højde h noget fast? Planker tæller kun ovenfra. */
   private fastVed(x: number, y: number): boolean {
-    return erFast(this.bane.tegn(Math.floor(x / BFELT), Math.floor(y / BFELT)));
+    return erFast(this.tegn(Math.floor(x / BFELT), Math.floor(y / BFELT)));
   }
 
   update(_t: number, delta: number) {
@@ -258,7 +339,7 @@ export class BaneScene extends Phaser.Scene {
       // Lander på noget fast eller en planke, der var under fødderne før.
       const fodRaekke = Math.floor(ny / BFELT);
       for (const fx of [x - B + 1, x + B - 1]) {
-        const c = this.bane.tegn(Math.floor(fx / BFELT), fodRaekke);
+        const c = this.tegn(Math.floor(fx / BFELT), fodRaekke);
         const top = fodRaekke * BFELT;
         if ((erFast(c) || (erPlanke(c) && y <= top + 1)) && ny >= top) {
           ny = top;
@@ -275,12 +356,24 @@ export class BaneScene extends Phaser.Scene {
     this.spiller.setPosition(x, y);
 
     // Fare: blæk, vand eller ud af banen forneden.
-    const midt = this.bane.tegn(Math.floor(x / BFELT), Math.floor((y - 4) / BFELT));
+    const midt = this.tegn(Math.floor(x / BFELT), Math.floor((y - 4) / BFELT));
     if (erFare(midt) || y > this.bane.hoejde * BFELT + 30) this.tilbage();
 
     // Lanterner tændes, når man går forbi.
     this.lanterner.forEach((l, i) => {
       if (!l.taendt && Math.abs(l.x - x) < 10 && Math.abs(l.y - y) < 24) this.taend(i);
+    });
+
+    // Ordsten: står man ved en, der ikke er løst, spørger den. Går man væk, kan den spørge igen.
+    this.ordsten.forEach((o, i) => {
+      const ved = Math.abs(o.x - x) < 14 && Math.abs(o.y - y) < 20;
+      if (!ved && this.spurgt === i && Math.abs(o.x - x) > 30) this.spurgt = null;
+      if (ved && !this.genskabt.has(i) && this.spurgt !== i && this.paaJorden && !this.laast) {
+        this.spurgt = i;
+        this.vx = 0;
+        this.kroge?.onOrdsten?.(i);
+      }
+      if (!this.genskabt.has(i) && !this.roligt) o.billede.setTint(Math.sin(this.ur * 3 + i) > 0.4 ? 0xffffff : 0xf0e6c8);
     });
 
     // Målet.
@@ -325,13 +418,14 @@ export class BaneScene extends Phaser.Scene {
     const sigt = x + this.retning * 30;
     cam.scrollX += (sigt - VIS_B / 2 - cam.scrollX) * Math.min(1, dt * 4);
     cam.scrollY = Math.max(0, this.bane.hoejde * BFELT - VIS_H);
+    this.taage?.setPosition(Math.round(x), Math.round(y - 10));
   }
 
   /** Den højde, Klatten løber i: øverste faste felt under ham, ellers samme højde. */
   private jordUnder(x: number, y: number): number {
     const tx = Math.floor(x / BFELT);
     for (let ty = Math.floor((y - 20) / BFELT); ty < this.bane.hoejde; ty++)
-      if (erFast(this.bane.tegn(tx, ty)) || erPlanke(this.bane.tegn(tx, ty))) return ty * BFELT;
+      if (erFast(this.tegn(tx, ty)) || erPlanke(this.tegn(tx, ty))) return ty * BFELT;
     return y;
   }
 }

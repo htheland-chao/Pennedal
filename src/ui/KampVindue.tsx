@@ -660,6 +660,7 @@ export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, ta
                 {e.tekst}
                 {['nedslag', 'oploes', 'krummer', 'lap', 'sejr', 'kombi', 'angreb-stjael'].includes(e.type) &&
                   STYKKER.map((s, j) => <i key={j} style={{ '--a': `${s.a}deg`, '--r': s.r } as CSSProperties} />)}
+                {e.type === 'ordplads' && [0, 1, 2, 3, 4].map((j) => <b key={j} style={{ '--j': j } as CSSProperties} />)}
               </span>
             ))}
           </div>

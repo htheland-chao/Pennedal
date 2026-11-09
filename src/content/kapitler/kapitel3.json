@@ -63,7 +63,85 @@
       "startFelt": [1, 8],
       "objekter": [
         { "id": "stumming", "navn": "væsnet, der hvisker", "x": 0, "y": 0, "w": 0, "h": 0, "form": "stumming", "farve": "#9a9aa8", "felt": [10, 8], "skjulFra": "k3-klatten" },
-        { "id": "klatten", "navn": "Klatten", "x": 0, "y": 0, "w": 0, "h": 0, "form": "gnom", "farve": "#1b1b3a", "felt": [17, 7], "skjulFra": "k3-moerke" }
+        { "id": "klatten", "navn": "Klatten", "x": 0, "y": 0, "w": 0, "h": 0, "form": "gnom", "farve": "#1b1b3a", "felt": [17, 7], "skjulFra": "k3-moerke" },
+        { "id": "halvfugl", "navn": "fuglen på grenen", "x": 0, "y": 0, "w": 0, "h": 0, "form": "halvfugl", "farve": "#f4efe0", "felt": [21, 4], "frivillig": "mission" },
+        { "id": "blad1", "navn": "et hvidt blad", "x": 0, "y": 0, "w": 0, "h": 0, "form": "ordblad", "farve": "#f4efe0", "felt": [12, 4], "frivillig": "blad" },
+        { "id": "blad2", "navn": "et hvidt blad", "x": 0, "y": 0, "w": 0, "h": 0, "form": "ordblad", "farve": "#f4efe0", "felt": [3, 10], "frivillig": "blad" },
+        { "id": "blad3", "navn": "et hvidt blad", "x": 0, "y": 0, "w": 0, "h": 0, "form": "ordblad", "farve": "#f4efe0", "felt": [21, 12], "frivillig": "blad" },
+        { "id": "hvidsti", "navn": "den lange hvide sti", "x": 0, "y": 0, "w": 0, "h": 0, "form": "grenport", "farve": "#f4efe0", "felt": [22, 9], "frivillig": "udflugt", "udflugt": "hvidesti" }
+      ]
+    },
+    "viskestien": {
+      "navn": "Den viskede sti",
+      "tema": "viskesti",
+      "start": {
+        "x": 0,
+        "y": 0
+      },
+      "bane": [
+        "................................................................................",
+        "................................................................................",
+        "................................................................................",
+        "................................................................................",
+        ".................................................===............................",
+        "..........................##..............................vvvvvv................",
+        "..S........O...........C..##..^..O...........C.........O............C......M....",
+        "##############vvvvvv###############vvvvvvv################~~~~~~################",
+        "##############~~~~~~###############~~~~~~~################~~~~~~################",
+        "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+        "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+      ],
+      "intro": [
+        { "taler": "aeseloere", "tekst": "Hov. Stien er væk. Plankerne er visket ud." },
+        { "taler": "vims", "tekst": "Undskyld! Det var mig. Jeg blev bange for en sky, og så kom jeg til at viske. Undskyld, at jeg undskylder." },
+        { "taler": "aeseloere", "tekst": "Se de hvide sten ved hullerne. Det er ordsten. Giv dem et ord, der betyder det samme, så skriver de plankerne tilbage." },
+        { "taler": "fortaeller", "tekst": "Lanternen lyser lidt op i den hvide tåge. Gå hen til en ordsten for at skrive en planke tilbage." }
+      ],
+      "objekter": [
+        { "id": "maal", "navn": "vejen ind i lysningen", "x": 0, "y": 0, "w": 0, "h": 0, "form": "maal", "farve": "#f4efe0" }
+      ]
+    },
+    "hvidesti": {
+      "navn": "Den lange hvide sti",
+      "tema": "viskesti",
+      "start": {
+        "x": 0,
+        "y": 0
+      },
+      "bane": [
+        "..............................................................................................................",
+        "..............................................................................................................",
+        "..............................................................................................................",
+        "..............................................................................................................",
+        "............................................==................................................................",
+        "........................................==......==..............................#.....#.........vvvvvv........",
+        "..S............................^....==..............==....C..O..........^....#..#..#..#......O............M...",
+        "#########...##...##...##...#######......................#######vvvvvvv#####..#..#..#..#..#######~~~~~~########",
+        "#########...##...##...##...#######......................#######~~~~~~~#####..#..#..#..#..#######~~~~~~########",
+        "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+        "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+      ],
+      "udflugt": {
+        "skaar": "k3b",
+        "fra": "lysningen",
+        "opgavetekst": "Kom helt til enden af den lange hvide sti. Den er svær med vilje.",
+        "ind": [
+          { "taler": "aeseloere", "tekst": "Den sti er lang og næsten helt hvid. Der er kun én lanterne, og jeg bærer dig ikke over." },
+          { "taler": "aeseloere", "tekst": "Den er svær med vilje. Du behøver ikke at gå den for at komme videre. Men for enden glimter noget." }
+        ],
+        "spoergsmaal": "Vil du gå den lange hvide sti?",
+        "ja": "Gå ind på stien",
+        "nej": "Ikke nu",
+        "faerdig": [
+          { "taler": "fortaeller", "tekst": "For enden af stien ligger en lille, lysende papirstump i en bunke krummer fra et viskelæder. Det er et hukommelsesskår." },
+          { "taler": "aeseloere", "tekst": "Du klarede den. Jeg sagde ingenting hele vejen. Det var svært for mig." }
+        ],
+        "igen": [
+          { "taler": "aeseloere", "tekst": "Du klarede den igen. Skåret har du allerede, men nu ved vi, at det ikke var held." }
+        ]
+      },
+      "objekter": [
+        { "id": "maal", "navn": "enden af den lange sti", "x": 0, "y": 0, "w": 0, "h": 0, "form": "maal", "farve": "#f4efe0" }
       ]
     }
   },
@@ -159,9 +237,9 @@
       "id": "k3-til-lysning",
       "type": "skift",
       "del": 2,
-      "sted": "skovbrynet",
-      "objekt": "sti",
-      "opgavetekst": "Følg stien mod lysningen.",
+      "sted": "viskestien",
+      "objekt": "maal",
+      "opgavetekst": "Skriv plankerne tilbage ved ordstenene, og kom over til lysningen.",
       "tilSted": "lysningen"
     },
     {
@@ -272,5 +350,35 @@
         { "taler": "fortaeller", "tekst": "Langt borte, over træerne, rejser et bjerg sig. Det lyder, som om det synger." }
       ]
     }
-  ]
+  ],
+  "missioner": {
+    "halvsang": {
+      "giver": "halvfugl",
+      "blade": ["blad1", "blad2", "blad3"],
+      "skaar": "k3a",
+      "antal": 3,
+      "titel": "Halvsangens sang",
+      "intro": "Find et ord, der betyder det samme, så fuglen kan synge sin sang igen.",
+      "start": [
+        { "taler": "halvfugl", "tekst": "Pip ... pi ... Åh. Undskyld. Min sang er gået i stykker." },
+        { "taler": "halvfugl", "tekst": "Skoven har visket tre ord ud af min sang. De blæste væk som blade." },
+        { "taler": "aeseloere", "tekst": "Vi kan lede efter dem. Hvide blade med et ord på. De ligger her i lysningen." },
+        { "taler": "halvfugl", "tekst": "Vil I det? Så synger jeg hele sangen for jer." }
+      ],
+      "mangler": [
+        { "taler": "halvfugl", "tekst": "Har I fundet bladene? Jeg mangler stadig nogle. Kig efter noget hvidt, der glimter i græsset." }
+      ],
+      "klar": [
+        { "taler": "halvfugl", "tekst": "I fandt dem alle tre! Men ordene er blevet blege. Hjælp mig med at finde ord, der betyder det samme, så jeg kan synge dem." }
+      ],
+      "faerdig": [
+        { "taler": "halvfugl", "tekst": "Nu kan jeg synge hele sangen igen. Tak!" },
+        { "taler": "fortaeller", "tekst": "Fuglen synger, og en lille, lysende papirstump daler ned fra grenen. Det er et hukommelsesskår." },
+        { "taler": "aeseloere", "tekst": "Den skal vi passe godt på. Den husker noget, du har glemt." }
+      ],
+      "efter": [
+        { "taler": "halvfugl", "tekst": "Tralala, hele sangen! Kommer I forbi igen, synger jeg den en gang til." }
+      ]
+    }
+  }
 }

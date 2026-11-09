@@ -12,6 +12,7 @@
     "stav.stumme": { "omraade": "fremstilling", "maal": ["eleven kan stave alle almindelige ord sikkert.", "Eleven har viden om bøjningssystemer og ords oprindelse."], "klassetrin": "efter 6." },
     "tegn.punktum_stort": { "omraade": "fremstilling", "maal": ["Eleven kan sætte tegn.", "Eleven har viden om punktum, spørgsmålstegn og udråbstegn."], "klassetrin": "efter 4." },
     "fort.struktur": { "omraade": "laesning", "maal": ["eleven kan anvende grafiske modeller til at få overblik over teksters struktur og indhold."], "klassetrin": "efter 6." },
+    "laes.ordforraad": { "omraade": "laesning", "maal": ["eleven kan udlede dele af ords betydning fra konteksten.", "Eleven har viden om ordforståelsesstrategier."], "klassetrin": "efter 6. (sprogforståelse)" },
     "laes.praecision": { "omraade": "laesning", "maal": ["Eleven kan opdage egne forståelsesproblemer og anvende relevante strategier til at afhjælpe dem og få overblik over teksten."], "klassetrin": "efter 6. (opmærksomhedspunkt)" }
   }
 }

@@ -100,7 +100,7 @@ Avataren og Æseløre følger blæksporet efter Klatten ind i en skov, hvor farv
 
 Mekanikker: platformbaner, hvor dele af banen bliver visket ud og skal skrives tilbage (vælg det rigtige ord, så kommer planken igen). Lanternen fra kapitel 1 lyser vejen i den hvide tåge. Klatten sidder fanget i en ufærdig sætning. Første store valg: hjælp ham fri eller gå forbi. Begge valg virker, men spillet husker det.
 
-**Bygget (1. november 2026):** Skovbrynet og Den hvide lysning. To kampe: Tomordet (synonymer, `laes.ordforraad`) og væsnerne i lysningen (to Stumminger og et Tomord, `stav.stumme`, med Vims på holdet). Kampene er turbaserede siden 3. november 2026. Vims slutter sig til og giver sine krummer. Minde 3, Køkkenbordet. Klattens valg (hjælp ham fri med et punktum eller lad ham sidde) gemmes som `klatten.hjulpet` og giver venlighed. Kapitlet slutter med Den Ufærdige mellem træerne og et bjerg, der synger. **Mangler:** platformbanen med viskede planker, sidemissionen, den frivillige svære udfordring og de to hukommelsesskår.
+**Bygget (1. november 2026):** Skovbrynet og Den hvide lysning. To kampe: Tomordet (synonymer, `laes.ordforraad`) og væsnerne i lysningen (to Stumminger og et Tomord, `stav.stumme`, med Vims på holdet). Kampene er turbaserede siden 3. november 2026. Vims slutter sig til og giver sine krummer. Minde 3, Køkkenbordet. Klattens valg (hjælp ham fri med et punktum eller lad ham sidde) gemmes som `klatten.hjulpet` og giver venlighed. Kapitlet slutter med Den Ufærdige mellem træerne og et bjerg, der synger. **Bygget 9. november 2026:** Platformbanen Den viskede sti mellem skovbrynet og lysningen (trinnet `k3-til-lysning` blev lavet om til banen, så trinnumrene ikke flytter sig). Tre ordsten skriver de viskede planker tilbage, når eleven finder et synonym. Tågen følger hovedpersonen, og lanternen lyser et hul i den. Sidemissionen Halvsangen: en fugl i lysningen har mistet tre ord af sin sang. Find de tre hvide blade, og find synonymer, så den kan synge igen. Belønning: hukommelsesskår `k3a` (mindet Viskelæderet). Den frivillige, svære udfordring: Den lange hvide sti, en lang bane med én lanterne og uden Æselørets hjælp. Man kan altid gå tilbage. Belønning: hukommelsesskår `k3b` (mindet Hæftet på gulvet, et vink om Holm). Sidemissioner og udflugter er ikke trin: de står i `missioner` i kapitlet og `udflugt` på et sted (`src/engine/frivillig.ts`).
 
 ### Kapitel 4: Rimbjerget
 
@@ -172,7 +172,7 @@ Hvert kapitel har ét tilbageblik i historien og op til to ekstra, som kun låse
 - Teksterne står i `tekster/da.json` som `minde.<id>.<nr>`, og en mildere udgave til "Mindre uhygge" som `minde.<id>.<nr>.mild`. Listen over minder står i `src/content/minder.ts` (rækkefølgen er fast).
 - Minderne gemmes ikke. Tasken regner ud, hvilke minder eleven er kommet forbi, også hvis de blev sprunget over.
 - Lærerkig viser alle minder, så Henrik kan se dem, før klassen spiller.
-- Bygget: 1 Blæk og regn (`k1-aeseloere`) og 2 Røde streger (`k2-trykkeri`). Hukommelsesskårene er ikke bygget endnu.
+- Bygget: 1 Blæk og regn (`k1-aeseloere`), 2 Røde streger (`k2-trykkeri`) og 3 Køkkenbordet (`k3-vims`). Hukommelsesskår: `k3a` Viskelæderet og `k3b` Hæftet på gulvet (9. november 2026). Skårenes minder står i `SKAAR_MINDE` i `src/content/minder.ts`.
 
 ### Hukommelsesskår (valgfrie)
 

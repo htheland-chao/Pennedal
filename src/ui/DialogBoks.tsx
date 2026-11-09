@@ -106,8 +106,13 @@ export function DialogBoks({ replikker: grund, onFaerdig, onTaler, valg, onValg 
                 autoFocus={i === 0}
                 onClick={() => {
                   setNaeste(null);
-                  setValgt(m);
                   onValg?.(m);
+                  // Et valg uden replikker bagefter lukker dialogen med det samme.
+                  if (m.replikker.length === 0) {
+                    onFaerdig();
+                    return;
+                  }
+                  setValgt(m);
                   setNr(nr + 1);
                 }}
               >
