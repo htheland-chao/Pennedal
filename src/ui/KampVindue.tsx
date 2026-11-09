@@ -33,6 +33,7 @@ import {
 } from '../mechanics/kampmotor';
 import { trinFor, type Effekt, type Trin } from './kampEffekter';
 import { useApp } from './Kontekst';
+import { hentMusikOverride, saetMusikOverride } from './musik/afspiller';
 import { Modal } from './Modal';
 import { beskedDele } from './OpgaveRamme';
 import { LaesOpKnap } from './Tekst';
@@ -189,6 +190,13 @@ export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, ta
 
   useEffect(() => () => {
     if (afspilning.current.ur !== null) window.clearTimeout(afspilning.current.ur);
+  }, []);
+
+  // Kampmusik (9. november 2026): hurtig og ildevarslende, så længe kampen er åben. Bagefter spiller stedets musik igen.
+  useEffect(() => {
+    const foer = hentMusikOverride();
+    saetMusikOverride('kamp');
+    return () => saetMusikOverride(foer);
   }, []);
 
   const navne = useMemo(() => {
