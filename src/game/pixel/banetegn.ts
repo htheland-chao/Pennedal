@@ -18,6 +18,7 @@ const VISKET = hx('#b9b4c8');
 /** Banens forgrund: tage, mure, planker, blæk og vand. Tegnes én gang. Luft er gennemsigtig. */
 export function tegnBane(bane: Bane, tema = ''): HTMLCanvasElement {
   if (tema === 'viskesti') return tegnSkovbane(bane);
+  if (tema === 'rimbjerg') return tegnBjergbane(bane);
   const W = bane.bredde * BFELT;
   const H = bane.hoejde * BFELT;
   const c = lerred(W, H);
@@ -225,4 +226,101 @@ export function tegnTaage(b: number, h: number, hul: number): HTMLCanvasElement 
 export const NY_PLANKE: Tegnkort = {
   raekker: ['TTTTTTTTTTTTTTTT', 'PPPPPPPkPPPPPPPk', 'PPPPPPPkPPPPPPPk', 'PPPPPPPkPPPPPPPk', 'kkkkkkkkkkkkkkkk'],
   palet: { T: '#e8cf9a', P: '#c9a46a', k: '#7a5a3a' },
+};
+
+const KLIPPE = { sne: hx('#f2f6fb'), sneSkygge: hx('#cdd9e8'), a: hx('#7d7f8c'), b: hx('#6a6c7a'), lys: hx('#9a9cab') };
+const DYB = { a: hx('#3a4562'), b: hx('#2f3854'), streg: hx('#4c5878') };
+const STENSPOR = hx('#9aa3b8');
+
+/**
+ * Rimbjergets bane (kapitel 4, 9. november 2026): grå klippe med sne på toppen, en mørk kløft under stien
+ * og trin, ekkoet har gjort væk, som en svag, stiplet kant.
+ */
+function tegnBjergbane(bane: Bane): HTMLCanvasElement {
+  const W = bane.bredde * BFELT;
+  const H = bane.hoejde * BFELT;
+  const c = lerred(W, H);
+  const g = c.getContext('2d')!;
+  const img = g.createImageData(W, H);
+  const p = img.data;
+  const saet = (X: number, Y: number, col: [number, number, number]) => {
+    const o = (Y * W + X) * 4;
+    p[o] = col[0];
+    p[o + 1] = col[1];
+    p[o + 2] = col[2];
+    p[o + 3] = 255;
+  };
+  for (let ty = 0; ty < bane.hoejde; ty++)
+    for (let tx = 0; tx < bane.bredde; tx++) {
+      const t = bane.tegn(tx, ty);
+      for (let py = 0; py < BFELT; py++)
+        for (let px = 0; px < BFELT; px++) {
+          const X = tx * BFELT + px;
+          const Y = ty * BFELT + py;
+          const r = hash(X, Y);
+          if (erFast(t)) {
+            const top = !erFast(bane.tegn(tx, ty - 1));
+            if (top && py < 3) saet(X, Y, py === 2 && r < 0.4 ? KLIPPE.sneSkygge : KLIPPE.sne);
+            else if (top && py < 5 && r < 0.3) saet(X, Y, KLIPPE.sneSkygge);
+            else saet(X, Y, r > 0.96 ? KLIPPE.lys : hash(X >> 3, Y >> 2) < 0.5 ? KLIPPE.a : KLIPPE.b);
+          } else if (t === '=') {
+            if (py < 5) saet(X, Y, py === 0 ? PLANKE.top : py === 4 ? PLANKE.kant : X % 8 === 0 ? PLANKE.kant : PLANKE.a);
+          } else if (t === 'v') {
+            if ((py === 0 || py === 6) && (X >> 1) % 2 === 0) saet(X, Y, STENSPOR);
+            if ((px === 0 || px === 15) && py < 7 && (Y >> 1) % 2 === 0) saet(X, Y, STENSPOR);
+          } else if (t === '^') {
+            if (py >= 11) saet(X, Y, py === 11 && r > 0.6 ? BLAEK.glans : r < 0.5 ? BLAEK.a : BLAEK.b);
+          } else if (t === '~') {
+            saet(X, Y, hash(X >> 3, Y >> 1) > 0.95 ? DYB.streg : r < 0.5 ? DYB.a : DYB.b);
+          }
+        }
+    }
+  g.putImageData(img, 0, 0);
+  return c;
+}
+
+/** Baggrunden på Rimbjerget: lys, kold himmel og tre lag bjerge med sne på toppene. */
+export function tegnBjergBaggrund(bredde: number, hoejde: number): HTMLCanvasElement {
+  const c = lerred(bredde, hoejde);
+  const g = c.getContext('2d')!;
+  const himmel = g.createLinearGradient(0, 0, 0, hoejde);
+  himmel.addColorStop(0, '#b9cbe6');
+  himmel.addColorStop(1, '#e8eef6');
+  g.fillStyle = himmel;
+  g.fillRect(0, 0, bredde, hoejde);
+  const lag: [string, number, number][] = [['#c9d3e4', 0.45, 90], ['#a3afc7', 0.6, 70], ['#7f8aa6', 0.75, 54]];
+  lag.forEach(([farve, bund, afstand], li) => {
+    for (let x0 = -afstand; x0 < bredde + afstand; x0 += afstand) {
+      const top = Math.round(hoejde * (bund - 0.25) - hash(x0, li) * 30);
+      const fod = Math.round(hoejde * bund + 40);
+      const halv = Math.round(afstand * 0.7);
+      for (let y = top; y < fod; y++) {
+        const w = Math.round(((y - top) / (fod - top)) * halv);
+        g.fillStyle = y - top < 10 ? '#f2f6fb' : farve;
+        g.fillRect(x0 - w, y, w * 2 + 1, 1);
+      }
+    }
+    g.fillStyle = farve;
+    g.fillRect(0, Math.round(hoejde * bund + 40), bredde, hoejde);
+  });
+  return c;
+}
+
+/** En varde (en stak sten) markerer målet på Rimbjerget. */
+export const VARDE: Tegnkort = {
+  raekker: [
+    '.....KKK......',
+    '....KsssK.....',
+    '....KGGGK.....',
+    '...KGGgGGK....',
+    '...KKKKKKK....',
+    '..KsssssssK...',
+    '..KGGGGgGGK...',
+    '.KKKKKKKKKKK..',
+    '.KssssssssssK.',
+    'KGGGgGGGGGgGGK',
+    'KGGGGGGgGGGGGK',
+    'KKKKKKKKKKKKKK',
+  ],
+  palet: { K: '#2a2c38', G: '#8d8a86', g: '#6c6a68', s: '#f2f6fb' },
 };

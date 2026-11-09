@@ -108,6 +108,8 @@ Vejen fører op ad et bjerg, hvor alt taler på rim: stenene, vinden og en meget
 
 Mekanikker: platformbaner op ad bjerget, rim- og rytmeopgaver, en kamp mod et ekko, der kun kan gentage. Sidemission: hjælp Rimfod med at sige én sætning uden rim (han græder af glæde). Tilbageblikket viser en godnathistorie: en stemme, der læser højt, og et barn, der falder i søvn og drømmer videre på historien. Stemmen lyder som Mor Lanterne.
 
+**Bygget 9. november 2026:** Rimbjergets fod med Rimfod, der giver Rimfods sten. Platformbanen Stien op ad bjerget med tre ekkosten, der giver stenene tilbage, når eleven finder et rim. Ekkokløften med kampen mod to ekkoer og Tomordet (slag: rim og synonymer). Toppen med tavlen af sten, tilbageblikket Godnathistorien (Mor Lanterne siger regel 8 bagefter) og opgaven med rim og rytme (stavelser). Det sidste vers er stjålet af Den Ufærdige. Sidemissionen Rimfods sætning (find det ord, der ikke rimer) giver skår `k4a` (mindet Skyggen i margenen). Den frivillige, svære udfordring Den iskolde kam giver skår `k4b` (mindet Døren på klem, et vink om søskendet). Ny færdighed `laes.rim` (gemmekodens version 3). Ny sang til temaet rimbjerg.
+
 ### Kapitel 5: Fodnoternes kælder
 
 Under siderne i alle bøger bor fodnoterne. Fru Fodnote er en meget lille dame med meget store meninger, som bor nederst på skærmen og kommenterer det, der sker. Hun er spillets mest bizarre humor: hun retter Æseløre, hun kommenterer gemmekoden, og hun har en fodnote til sin egen fodnote. Arkivet har en escape room-del og en "kamp" mod en sætning, der ikke kan bestemme sig for, hvem der fortæller.

@@ -14,7 +14,9 @@ import type { Niveau } from './tilpasning';
  * Koder fra version 1 kan stadig læses. De er kortere, så længden afslører versionen.
  */
 const ALFABET = '0123456789ABCDEFGHJKMNPQRSTVWXYZ';
-const VERSION = 2;
+const VERSION = 3;
+/** Færdighederne, der fandtes i version 1 og 2. Nye færdigheder kommer med i version 3 og frem, til sidst i koden. */
+const FAERDIGHEDER_V1 = FAERDIGHEDER.slice(0, 19);
 const KONTROL_TEGN = 2;
 
 function bitsTil(antal: number): number {
@@ -30,7 +32,7 @@ const FELTER_V1: Felt[] = [
   { navn: 'adjektiv', bits: 5 },
   { navn: 'dyr', bits: 5 },
   ...AVATAR_DELE.map((d) => ({ navn: `avatar.${d}`, bits: bitsTil(AVATAR_GRAENSER[d]) })),
-  ...FAERDIGHEDER.map((f) => ({ navn: `f.${f}`, bits: 3 })),
+  ...FAERDIGHEDER_V1.map((f) => ({ navn: `f.${f}`, bits: 3 })),
   { navn: 'oplaasninger', bits: 16 },
   { navn: 'historier', bits: 6 },
 ];
@@ -43,12 +45,20 @@ const FELTER_V2: Felt[] = [
   { navn: 'valg', bits: 8 },
 ];
 
+/**
+ * Version 3 (9. november 2026, kapitel 4): alt fra version 2 og derefter de færdigheder, der er kommet til
+ * efter version 2 (laes.rim og frem). Kommer der flere færdigheder, laves en ny version på samme måde.
+ */
+const FELTER_V3: Felt[] = [...FELTER_V2, ...FAERDIGHEDER.slice(FAERDIGHEDER_V1.length).map((f) => ({ navn: `f.${f}`, bits: 3 }))];
+
+/** Felterne i hver version. Versionen står i de første 3 bit, så den kan læses, før resten er kendt. */
+const FELTER: Record<number, Felt[]> = { 1: FELTER_V1, 2: FELTER_V2, 3: FELTER_V3 };
 const tegnFor = (felter: Felt[]) => Math.ceil(felter.reduce((s, f) => s + f.bits, 0) / 5);
-const DATA_TEGN = tegnFor(FELTER_V2);
-const DATA_TEGN_V1 = tegnFor(FELTER_V1);
+const DATA_TEGN = tegnFor(FELTER_V3);
 export const KODE_LAENGDE = DATA_TEGN + KONTROL_TEGN;
-/** Længden på en gammel kode (version 1). Den kan stadig læses. */
-export const KODE_LAENGDE_V1 = DATA_TEGN_V1 + KONTROL_TEGN;
+/** Længden på gamle koder (version 1 og 2). De kan stadig læses. */
+export const KODE_LAENGDE_V1 = tegnFor(FELTER_V1) + KONTROL_TEGN;
+export const KODE_LAENGDE_V2 = tegnFor(FELTER_V2) + KONTROL_TEGN;
 
 function kontrol(tegn: string): string {
   // FNV-1a, 32 bit. Vi bruger 10 bit = 2 tegn.
@@ -78,7 +88,7 @@ export function lavGemmekode(spil: GemtSpil): string {
   for (const f of FAERDIGHEDER) vaerdier[`f.${f}`] = spil.faerdigheder[f].niveau - 1;
 
   let bits = '';
-  for (const felt of FELTER_V2) {
+  for (const felt of FELTER_V3) {
     const v = vaerdier[felt.navn];
     if (v < 0 || v >= 2 ** felt.bits) throw new Error(`Værdien for ${felt.navn} er uden for området`);
     bits += v.toString(2).padStart(felt.bits, '0');
@@ -110,11 +120,14 @@ export function laesGemmekode(input: string, maksTrin: (kapitel: number) => numb
   for (const t of kode) {
     if (!ALFABET.includes(t)) return { ok: false, fejl: 'tegn', tegn: t };
   }
-  if (kode.length !== KODE_LAENGDE && kode.length !== KODE_LAENGDE_V1)
-    return { ok: false, fejl: 'laengde', antal: kode.length };
-  const gammel = kode.length === KODE_LAENGDE_V1;
-  const FELTER = gammel ? FELTER_V1 : FELTER_V2;
-  const dataTegn = gammel ? DATA_TEGN_V1 : DATA_TEGN;
+  const laengder = Object.values(FELTER).map((f) => tegnFor(f) + KONTROL_TEGN);
+  if (!laengder.includes(kode.length)) return { ok: false, fejl: 'laengde', antal: kode.length };
+  // Versionen står i de første 3 bit af første tegn.
+  const version = ALFABET.indexOf(kode[0]) >> 2;
+  const felter = FELTER[version];
+  if (!felter || tegnFor(felter) + KONTROL_TEGN !== kode.length) return { ok: false, fejl: kode.length === KODE_LAENGDE ? 'kontrol' : 'indhold' };
+  const gammel = version === 1;
+  const dataTegn = tegnFor(felter);
   const data = kode.slice(0, dataTegn);
   if (kontrol(data) !== kode.slice(dataTegn)) return { ok: false, fejl: 'kontrol' };
 
@@ -122,11 +135,13 @@ export function laesGemmekode(input: string, maksTrin: (kapitel: number) => numb
   for (const t of data) bits += ALFABET.indexOf(t).toString(2).padStart(5, '0');
   const v: Record<string, number> = {};
   let pos = 0;
-  for (const felt of FELTER) {
+  for (const felt of felter) {
     v[felt.navn] = parseInt(bits.slice(pos, pos + felt.bits), 2);
     pos += felt.bits;
   }
-  if (v.version !== (gammel ? 1 : VERSION)) return { ok: false, fejl: 'indhold' };
+  if (v.version !== version) return { ok: false, fejl: 'indhold' };
+  // Ubrugte bit til sidst skal være 0, ellers er koden ikke lavet af spillet.
+  if (/1/.test(bits.slice(pos))) return { ok: false, fejl: 'indhold' };
   if (v.kapitel < 1) return { ok: false, fejl: 'indhold' };
   const maks = maksTrin(v.kapitel);
   if (maks < 0 || v.trin > maks) return { ok: false, fejl: 'indhold' };
@@ -150,6 +165,8 @@ export function laesGemmekode(input: string, maksTrin: (kapitel: number) => numb
     if (v.valg >> VIGTIGE_VALG.length) return { ok: false, fejl: 'indhold' };
   }
   for (const f of FAERDIGHEDER) {
+    // Færdigheder, der ikke fandtes i kodens version, starter på niveau 1 (som i et nyt spil).
+    if (v[`f.${f}`] === undefined) continue;
     const n = v[`f.${f}`] + 1;
     if (n > 5) return { ok: false, fejl: 'indhold' };
     spil.faerdigheder[f].niveau = n as Niveau;

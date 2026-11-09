@@ -1,12 +1,13 @@
 import { useEffect, useMemo, useRef, useState, type CSSProperties, type KeyboardEvent, type ReactNode } from 'react';
-import { stumme, synonymer, t, type KampTrin, type TekstId } from '../content';
+import { kapitler, rimord, stumme, synonymer, t, type KampTrin, type TekstId } from '../content';
 import type { Avatar } from '../engine/gem';
 import type { Haendelse as Tilpasning } from '../engine/tilpasning';
 import { FJENDE_PLADS, HOLD_PLADS, KAMP_B, KAMP_H, MARKOER, tegnKampBaggrund } from '../game/pixel/kampscene';
 import { tegnkortTilLerred } from '../game/pixel/lerred';
 import { avatarPixel, FUGL, type Tegnkort } from '../game/pixel/sprites';
 import { STUMMING, TOMORD, VIMS } from '../game/pixel/viskeskov';
-import { antalTure, lavStummingOpgave, lavTomordOpgave, tjekKamp, viskUd, type KampOpgave, type VaesenId } from '../mechanics/kamp';
+import { EKKO } from '../game/pixel/rimbjerg';
+import { antalTure, lavEkkoOpgave, lavStummingOpgave, lavTomordOpgave, tjekKamp, viskUd, type KampOpgave, type VaesenId } from '../mechanics/kamp';
 import {
   brugEvne,
   brugTing,
@@ -73,18 +74,20 @@ type Visning =
   | { type: 'afspil' }
   | { type: 'slut' };
 
-const SPRITE: Record<VaesenId, Tegnkort> = { tomordet: TOMORD, stumming: STUMMING };
+const SPRITE: Record<VaesenId, Tegnkort> = { tomordet: TOMORD, stumming: STUMMING, ekko: EKKO };
 /** Figurernes størrelse på scenen (gange pixel). */
 const FJENDE_SKALA = 2.4;
 const HOLD_SKALA = 1.8;
 
 /** Ord, der er brugt i denne session, så de ikke kommer igen med det samme. */
-const brugt: Record<VaesenId, string[]> = { tomordet: [], stumming: [] };
+const brugt: Record<VaesenId, string[]> = { tomordet: [], stumming: [], ekko: [] };
 function nyOpgave(vaesen: VaesenId, niveau: number): KampOpgave {
   const o =
     vaesen === 'tomordet'
       ? lavTomordOpgave(synonymer.ord, niveau, Math.random, brugt.tomordet)
-      : lavStummingOpgave(stumme.ord, niveau, Math.random, brugt.stumming);
+      : vaesen === 'ekko'
+        ? lavEkkoOpgave(rimord.rim, niveau, Math.random, brugt.ekko)
+        : lavStummingOpgave(stumme.ord, niveau, Math.random, brugt.stumming);
   brugt[vaesen].push(o.id);
   if (brugt[vaesen].length > 8) brugt[vaesen].shift();
   return o;
@@ -92,6 +95,7 @@ function nyOpgave(vaesen: VaesenId, niveau: number): KampOpgave {
 
 function regelFor(o: KampOpgave): { regel: string; eksempel: string } {
   if (o.vaesen === 'tomordet') return { regel: t('kamp.tomordet.regel'), eksempel: t('kamp.tomordet.eksempel') };
+  if (o.vaesen === 'ekko') return { regel: t('rim.regel'), eksempel: t('rim.eksempel') };
   const andre = stumme.ord
     .filter((x) => x.type === o.type && x.ord !== o.ord && x.svaerhed === 1)
     .slice(0, 3)
@@ -213,7 +217,9 @@ export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, ta
   }, []);
   const medlemNavn = (id: MedlemId) => (id === 'avatar' ? avatarNavn : t(`taler.${id}` as TekstId));
 
-  const baggrund = uri(`kamp.${trin.sted}.${daempet}`, () => tegnKampBaggrund('viskeskov', !daempet));
+  // Baggrunden følger stedets tema (Viskeskoven eller Rimbjerget).
+  const tema = kapitler.find((k) => k.trin.some((x) => x.id === trin.id))?.steder[trin.sted]?.tema ?? 'viskeskov';
+  const baggrund = uri(`kamp.${trin.sted}.${daempet}`, () => tegnKampBaggrund(tema, !daempet));
   // Spillet laver venstre ved at spejle højre. Her spejles billedet, så avataren vender mod væsnerne.
   const avatarKort = useMemo(() => {
     const h = avatarPixel(avatar, 'hoejre', 0);

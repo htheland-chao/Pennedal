@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
-import { synonymer, t } from '../content';
-import { lavTomordOpgave, type KampOpgave } from '../mechanics/kamp';
+import { rimord, synonymer, t, type OrdOpgaveArt } from '../content';
+import { lavTomordOpgave } from '../mechanics/kamp';
+import { lavOpgaveAfArt } from '../mechanics/rim';
 import { Modal } from './Modal';
 import { LaesOpKnap } from './Tekst';
 
@@ -10,6 +11,8 @@ type Props = {
   /** Antal ord, der skal findes. */
   antal: number;
   niveau: number;
+  /** Slags opgave: synonymer (Viskeskoven), rim eller ord, der ikke rimer (Rimbjerget). */
+  art?: OrdOpgaveArt;
   /** Svar til tilpasningen (rigtigt eller forkert og hvilket forsøg). */
   onSvar: (rigtigt: boolean, forsoeg: number) => void;
   onFaerdig: () => void;
@@ -20,15 +23,62 @@ type Props = {
   pauseTekst: string;
 };
 
+/** Det, vinduet viser for én opgave, uanset slags. */
+type Visning = {
+  id: string;
+  ord: string;
+  /** Sætningen med det markerede ord (kun synonymer). */
+  saetning?: { foer: string; vist: string; efter: string; hel: string };
+  spoergsmaal: string;
+  svar: string;
+  muligheder: string[];
+  rigtig: string;
+  fejl: (valgt: string) => string;
+  regel: string;
+  eksempel: string;
+};
+
+function lav(art: OrdOpgaveArt, niveau: number, rnd: () => number, brugt: string[]): Visning {
+  if (art === 'synonym') {
+    const o = lavTomordOpgave(synonymer.ord, niveau, rnd, brugt);
+    return {
+      id: o.id,
+      ord: o.ord,
+      saetning: { foer: o.foer, vist: o.vist, efter: o.efter, hel: o.saetning },
+      spoergsmaal: t('kamp.tomordet.spoergsmaal', { ord: o.ord }),
+      svar: o.svar,
+      muligheder: o.muligheder,
+      rigtig: t('kamp.tomordet.rigtig', { svar: o.svar, ord: o.ord }),
+      fejl: (valgt) => t('kamp.tomordet.fejl', { valgt, ord: o.ord }),
+      regel: t('kamp.tomordet.regel'),
+      eksempel: t('kamp.tomordet.eksempel'),
+    };
+  }
+  const o = lavOpgaveAfArt(art, rimord, niveau, rnd, brugt);
+  const r = art === 'ikkerim' ? 'ikkerim' : 'rim';
+  return {
+    id: o.id,
+    ord: o.ord,
+    spoergsmaal: t(`rim.${r}.spoergsmaal`, { ord: o.ord }),
+    svar: o.svar,
+    muligheder: o.muligheder,
+    rigtig: t(`rim.${r}.rigtig`, { svar: o.svar, ord: o.ord }),
+    fejl: (valgt) => t(`rim.${r}.fejl`, { valgt, ord: o.ord }),
+    regel: t('rim.regel'),
+    eksempel: t('rim.eksempel'),
+  };
+}
+
 /**
- * Find et ord, der betyder det samme (synonymer, laes.ordforraad). Bruges ved ordstenene på banen i Viskeskoven
- * og i Halvsangens sidemission. Ingen tid (krav 5). Et forkert svar giver regel og eksempel (krav 6), og man prøver igen.
+ * En lille ordopgave med tre muligheder: synonymer (ordstenene i Viskeskoven, Halvsangen), rim (ekkostenene på
+ * Rimbjerget) og ord, der ikke rimer (Rimfods sætning). Ingen tid (krav 5). Et forkert svar giver regel og
+ * eksempel (krav 6), og man prøver igen.
  */
-export function OrdOpgaveVindue({ titel, intro, antal, niveau, onSvar, onFaerdig, onPause, faerdigTekst, pauseTekst }: Props) {
+export function OrdOpgaveVindue({ titel, intro, antal, niveau, art = 'synonym', onSvar, onFaerdig, onPause, faerdigTekst, pauseTekst }: Props) {
   const rnd = useMemo(() => Math.random, []);
   const [nr, setNr] = useState(0);
   const [brugt, setBrugt] = useState<string[]>([]);
-  const [opgave, setOpgave] = useState<KampOpgave>(() => lavTomordOpgave(synonymer.ord, niveau, rnd));
+  const [opgave, setOpgave] = useState<Visning>(() => lav(art, niveau, rnd, []));
   const [valgt, setValgt] = useState<string | null>(null);
   const [forkerte, setForkerte] = useState<string[]>([]);
   const rigtigt = valgt === opgave.svar;
@@ -48,7 +98,7 @@ export function OrdOpgaveVindue({ titel, intro, antal, niveau, onSvar, onFaerdig
     }
     const nyBrugt = [...brugt, opgave.id];
     setBrugt(nyBrugt);
-    setOpgave(lavTomordOpgave(synonymer.ord, niveau, rnd, nyBrugt));
+    setOpgave(lav(art, niveau, rnd, nyBrugt));
     setNr(nr + 1);
     setValgt(null);
     setForkerte([]);
@@ -59,14 +109,20 @@ export function OrdOpgaveVindue({ titel, intro, antal, niveau, onSvar, onFaerdig
       <h2>{titel}</h2>
       <p className="fortaeller">{intro}</p>
       {antal > 1 && <p className="lille-tekst">{t('ordopgave.nr', { nr: nr + 1, antal })}</p>}
-      <p className="kamp-saetning" data-opgave-id={opgave.id}>
-        {opgave.foer}
-        <mark>{opgave.vist}</mark>
-        {opgave.efter}
-      </p>
+      {opgave.saetning ? (
+        <p className="kamp-saetning" data-opgave-id={opgave.id}>
+          {opgave.saetning.foer}
+          <mark>{opgave.saetning.vist}</mark>
+          {opgave.saetning.efter}
+        </p>
+      ) : (
+        <p className="kamp-saetning" data-opgave-id={opgave.id} data-opgave-art={art}>
+          <mark>{opgave.ord}</mark>
+        </p>
+      )}
       <p className="kamp-spoergsmaal">
-        {t('kamp.tomordet.spoergsmaal', { ord: opgave.ord })}
-        <LaesOpKnap tekst={opgave.saetning} figur="fortaeller" />
+        {opgave.spoergsmaal}
+        <LaesOpKnap tekst={opgave.saetning ? opgave.saetning.hel : opgave.spoergsmaal} figur="fortaeller" />
       </p>
       <div className="kamp-muligheder">
         {opgave.muligheder.map((m) => (
@@ -84,13 +140,13 @@ export function OrdOpgaveVindue({ titel, intro, antal, niveau, onSvar, onFaerdig
       {valgt && (
         <div className="opgave-feedback" aria-live="polite">
           <div className={`besked besked-${rigtigt ? 'god' : 'fejl'}`}>
-            <p>{rigtigt ? t('kamp.tomordet.rigtig', { svar: opgave.svar, ord: opgave.ord }) : t('kamp.tomordet.fejl', { valgt, ord: opgave.ord })}</p>
+            <p>{rigtigt ? opgave.rigtig : opgave.fejl(valgt)}</p>
             <div className="regel">
               <p>
-                <strong>{t('feedback.regel')}:</strong> {t('kamp.tomordet.regel')}
+                <strong>{t('feedback.regel')}:</strong> {opgave.regel}
               </p>
               <p>
-                <strong>{t('feedback.eksempel')}:</strong> {t('kamp.tomordet.eksempel')}
+                <strong>{t('feedback.eksempel')}:</strong> {opgave.eksempel}
               </p>
             </div>
           </div>

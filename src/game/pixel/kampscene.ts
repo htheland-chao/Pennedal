@@ -2,7 +2,8 @@
  * Kampscenen (3. november 2026): en slette set skråt fra siden, væsner til venstre og holdet til højre.
  * 320 x 180 som resten af spillet. Tegnes én gang pr. kamp. Ingen bogstaver (docs/grafik.md).
  */
-import { blegt, hash, lerred, tegnkortTilLerred } from './lerred';
+import { blegt, hash, lerred, sne, tegnkortTilLerred } from './lerred';
+import { granMedSne } from './rimbjerg';
 import { papirtrae, type Tegnkort } from './sprites';
 
 export const KAMP_B = 320;
@@ -55,10 +56,13 @@ export function tegnKampBaggrund(tema: string, moerk: boolean): HTMLCanvasElemen
       saet(x, y, f);
     }
   g.putImageData(d, 0, 0);
+  // Rimbjerget: sne i stedet for græs, og graner med sne langs horisonten.
+  const bjerg = tema === 'rimbjerg';
+  if (bjerg) sne(c);
   // Papirtræer langs horisonten.
   for (let i = 0; i < 14; i++) {
     const h = 22 + Math.floor(hash(i, 7) * 12);
-    const trae = tegnkortTilLerred(papirtrae(h));
+    const trae = tegnkortTilLerred(bjerg ? granMedSne(h) : papirtrae(h));
     g.drawImage(trae, Math.round(i * 24 - 6 + hash(i, 3) * 10), HORISONT + 6 - trae.height);
   }
   if (tema === 'viskeskov') blegt(c, moerk ? 0.25 : 0.5);

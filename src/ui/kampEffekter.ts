@@ -52,6 +52,8 @@ const ANGREB_TEKST: Record<AngrebId, string> = {
   gab: 'kamp.kort.angreb.gab',
   stjael: 'kamp.kort.angreb.stjael',
   hvisk: 'kamp.kort.angreb.hvisk',
+  gentag: 'kamp.kort.angreb.gentag',
+  raab: 'kamp.kort.angreb.raab',
 };
 const TING_TEKST: Record<KampTingId, string> = { lanterne: 'kamp.kort.lanterne', krummer: 'kamp.kort.krummer', punktum: 'kamp.kort.punktum' };
 

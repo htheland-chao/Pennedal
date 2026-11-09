@@ -2,7 +2,8 @@ import Phaser from 'phaser';
 import type { Avatar } from '../engine/gem';
 import { BFELT, erFare, erFast, erPlanke, erVisket, find, FYSIK, laesBane, viskedeGrupper, type Bane } from './bane';
 import { SKALA, VIS_B, VIS_H } from './KortScene';
-import { checkpoint, MAAL, NY_PLANKE, tegnBane, tegnByBaggrund, tegnSkovBaggrund, tegnTaage } from './pixel/banetegn';
+import { checkpoint, MAAL, NY_PLANKE, tegnBane, tegnBjergBaggrund, tegnByBaggrund, tegnSkovBaggrund, tegnTaage, VARDE } from './pixel/banetegn';
+import { ekkosten } from './pixel/rimbjerg';
 import { GRENPORT, ordsten } from './pixel/viskeskov';
 import { tegnkortTilLerred } from './pixel/lerred';
 import { avatarPixel, FUGL, KLATTEN, SKYGGE, type Tegnkort } from './pixel/sprites';
@@ -50,6 +51,7 @@ export class BaneScene extends Phaser.Scene {
   /** Den ordsten, eleven lige er blevet spurgt ved. Først når man går væk, kan den spørge igen. */
   private spurgt: number | null = null;
   private taage?: Phaser.GameObjects.Image;
+  private stenNoegle = 'px-ordsten';
   private roligt = typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
 
   constructor() {
@@ -116,14 +118,18 @@ export class BaneScene extends Phaser.Scene {
     this.tekstur('px-cp-1', checkpoint(true));
     this.tekstur('px-maal', MAAL);
     this.tekstur('px-grenport', GRENPORT);
-    this.tekstur('px-ordsten-0', ordsten(false));
-    this.tekstur('px-ordsten-1', ordsten(true));
+    const bjerg = tema === 'rimbjerg';
+    // Ordstenene hedder ekkosten på Rimbjerget og ser anderledes ud. Teksturen får sit eget navn pr. tema.
+    this.stenNoegle = bjerg ? 'px-ekkosten' : 'px-ordsten';
+    this.tekstur(`${this.stenNoegle}-0`, bjerg ? ekkosten(false) : ordsten(false));
+    this.tekstur(`${this.stenNoegle}-1`, bjerg ? ekkosten(true) : ordsten(true));
+    this.tekstur('px-varde', VARDE);
     this.tekstur('px-ny-planke', NY_PLANKE);
     const skov = tema === 'viskesti';
 
     // Baggrunden er halvt så bred plus skærmen, fordi den flytter sig med halv fart.
     this.add
-      .image(0, 0, this.tekstur(`px-bane-bag-${tema}`, (skov ? tegnSkovBaggrund : tegnByBaggrund)(Math.ceil(W / 2) + VIS_B, Math.max(H, VIS_H)), true))
+      .image(0, 0, this.tekstur(`px-bane-bag-${tema}`, (skov ? tegnSkovBaggrund : bjerg ? tegnBjergBaggrund : tegnByBaggrund)(Math.ceil(W / 2) + VIS_B, Math.max(H, VIS_H)), true))
       .setOrigin(0)
       .setScrollFactor(0.5, 0)
       .setDepth(-2);
@@ -135,7 +141,7 @@ export class BaneScene extends Phaser.Scene {
     for (const [x, y] of find(this.bane, 'O').sort((a, b) => a[0] - b[0])) {
       const ox = x * BFELT + 8;
       const oy = (y + 1) * BFELT;
-      this.ordsten.push({ x: ox, y: oy, billede: this.add.image(ox, oy, 'px-ordsten-0').setOrigin(0.5, 1).setDepth(1) });
+      this.ordsten.push({ x: ox, y: oy, billede: this.add.image(ox, oy, `${this.stenNoegle}-0`).setOrigin(0.5, 1).setDepth(1) });
     }
     if (this.data_.baneKlaret) this.grupper.forEach((_g, i) => this.genskab(i, false));
 
@@ -148,7 +154,7 @@ export class BaneScene extends Phaser.Scene {
     const [m] = find(this.bane, 'M');
     if (m) {
       this.maal = { x: m[0] * BFELT + 8, y: (m[1] + 1) * BFELT };
-      this.add.image(this.maal.x, this.maal.y, skov ? 'px-grenport' : 'px-maal').setOrigin(0.5, 1).setDepth(1);
+      this.add.image(this.maal.x, this.maal.y, skov ? 'px-grenport' : bjerg ? 'px-varde' : 'px-maal').setOrigin(0.5, 1).setDepth(1);
     }
     const [s] = find(this.bane, 'S');
     this.start = { x: (s?.[0] ?? 1) * BFELT + 8, y: ((s?.[1] ?? 1) + 1) * BFELT };
@@ -237,7 +243,7 @@ export class BaneScene extends Phaser.Scene {
   genskab(nr: number, animer = true) {
     if (this.genskabt.has(nr) || !this.grupper[nr]) return;
     this.genskabt.add(nr);
-    this.ordsten[nr]?.billede.setTexture('px-ordsten-1');
+    this.ordsten[nr]?.billede.setTexture(`${this.stenNoegle}-1`);
     this.grupper[nr].forEach(([x, y], i) => {
       const px = x * BFELT;
       const py = y * BFELT;

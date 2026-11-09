@@ -356,6 +356,33 @@ const viskeskov: Sang = {
   ],
 };
 
+/**
+ * Rimbjerget (kapitel 4, 9. november 2026): koldt, blæsende og fjollet. G-dur i en vuggende rytme, en melodi,
+ * der hopper som en trold, der prøver at lade være med at rime, og et ekko (samme motiv, svagere og senere).
+ */
+const rimbjerg: Sang = {
+  bpm: 96,
+  spor: [
+    { lyd: 'trekant', styrke: 0.22, noder: heleTakter(['G2', 'D2', 'E2', 'C2', 'G2', 'D2', 'C2', 'D2']) },
+    {
+      lyd: 'firkant',
+      styrke: 0.07,
+      noder:
+        'G5 . B5 . D6 - B5 . | A5 . F#5 . D5 - - . | E5 . G5 . B5 - G5 . | E5 - C5 - . . . . | ' +
+        'G5 . B5 . D6 - E6 . | D6 . B5 . G5 - - . | C6 . B5 . A5 - G5 . | A5 - - - D5 - - .',
+    },
+    {
+      // Ekkoet: samme melodi en oktav lavere, en ottendedel senere og meget svagere.
+      lyd: 'trekant',
+      styrke: 0.04,
+      noder:
+        '. G4 . B4 . D5 - B4 | . A4 . F#4 . D4 - - | . E4 . G4 . B4 - G4 | . E4 - C4 - . . . | ' +
+        '. G4 . B4 . D5 - E5 | . D5 . B4 . G4 - - | . C5 . B4 . A4 - G4 | . A4 - - - D4 - -',
+    },
+    { lyd: 'stoej', styrke: 0.018, noder: '. . C8 . . . C8 . | '.repeat(8).slice(0, -3) },
+  ],
+};
+
 /** Forsiden og menuerne: Pennedals tema, roligere. */
 const forside: Sang = { ...pennedal, bpm: 76 };
 
@@ -410,4 +437,4 @@ const kamp: Sang = {
 /** Viskeskovens bane: samme sang som skoven, lidt hurtigere, fordi man løber og hopper. */
 const viskesti: Sang = { ...viskeskov, bpm: viskeskov.bpm + 14 };
 
-export const SANGE: Record<string, Sang> = { bibliotek, kaelder, pennedal, floden, fyrtaarn, eng, torv, smoeger, trykkeri, tage, forside, ufaerdige, intro, minde, viskeskov, kamp, viskesti };
+export const SANGE: Record<string, Sang> = { bibliotek, kaelder, pennedal, floden, fyrtaarn, eng, torv, smoeger, trykkeri, tage, forside, ufaerdige, intro, minde, viskeskov, kamp, viskesti, rimbjerg };

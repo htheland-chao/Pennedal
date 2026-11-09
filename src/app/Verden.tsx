@@ -268,7 +268,8 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
       const nyt: GemtSpil = { ...s, valg: { ...s.valg, [missionStartet(mid)]: 'ja' } };
       spilRef.current = nyt;
       opdater(nyt);
-      setGentagelse({ replikker: mission.start });
+      // Uden blade at samle kommer opgaven lige efter samtalen (Rimfods sætning).
+      setGentagelse({ replikker: mission.start, efter: mission.blade.length === 0 ? () => setMissionOpgave(mid) : undefined });
     } else if (status === 'samler') setGentagelse({ replikker: mission.mangler });
     else if (status === 'klar') setGentagelse({ replikker: mission.klar, efter: () => setMissionOpgave(mid) });
     else setGentagelse({ replikker: mission.efter });
@@ -563,11 +564,12 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
       )}
       {ordsten !== null && (
         <OrdOpgaveVindue
-          titel={t('ordsten.titel')}
-          intro={t('ordsten.intro')}
+          titel={t(sted.ordsten === 'rim' ? 'ordsten.rim.titel' : 'ordsten.titel')}
+          intro={t(sted.ordsten === 'rim' ? 'ordsten.rim.intro' : 'ordsten.intro')}
           antal={1}
-          niveau={niveauFor('laes.ordforraad')}
-          onSvar={(r, f) => onSvar('laes.ordforraad', r, f)}
+          art={sted.ordsten ?? 'synonym'}
+          niveau={niveauFor(sted.ordsten === 'rim' ? 'laes.rim' : 'laes.ordforraad')}
+          onSvar={(r, f) => onSvar(sted.ordsten === 'rim' ? 'laes.rim' : 'laes.ordforraad', r, f)}
           faerdigTekst={t('ordsten.genskab')}
           pauseTekst={t('ordsten.vaek')}
           onFaerdig={() => {
@@ -582,8 +584,9 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
           titel={kapitel.missioner[missionOpgave].titel}
           intro={kapitel.missioner[missionOpgave].intro}
           antal={kapitel.missioner[missionOpgave].antal}
-          niveau={niveauFor('laes.ordforraad')}
-          onSvar={(r, f) => onSvar('laes.ordforraad', r, f)}
+          art={kapitel.missioner[missionOpgave].art ?? 'synonym'}
+          niveau={niveauFor(kapitel.missioner[missionOpgave].art === 'ikkerim' ? 'laes.rim' : 'laes.ordforraad')}
+          onSvar={(r, f) => onSvar(kapitel.missioner![missionOpgave].art === 'ikkerim' ? 'laes.rim' : 'laes.ordforraad', r, f)}
           faerdigTekst={t('ordopgave.faerdig')}
           pauseTekst={t('ordsten.vaek')}
           onFaerdig={() => {

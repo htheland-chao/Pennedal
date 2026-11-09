@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { FAERDIGHEDER } from './faerdigheder';
 import { registrerSvar, START_STATUS, type FaerdighedsStatus } from './tilpasning';
-import { KODE_LAENGDE, KODE_LAENGDE_V1, laesGemmekode, lavGemmekode, normaliserKode } from './gemmekode';
+import { KODE_LAENGDE, KODE_LAENGDE_V1, KODE_LAENGDE_V2, laesGemmekode, lavGemmekode, normaliserKode } from './gemmekode';
 import { gemIndstillinger, gemSpil, hentGemtSpil, hentIndstillinger, nytSpil, STANDARD_AVATAR, STANDARD_INDSTILLINGER, validerGemtSpil } from './gem';
 import { lavCsv } from './csv';
 
@@ -117,6 +117,20 @@ describe('gemmekode', () => {
     expect(r.spil.faerdigheder['stav.stumme'].niveau).toBe(4);
     expect(r.spil.skaar).toEqual([]);
     expect(r.spil.venlighed).toBe(0);
+  });
+
+  it('kan stadig læse en kode fra version 2', () => {
+    // Lavet med gemmekoden fra før version 3 (9. november 2026): kapitel 3, trin 11, skår k3a, venlighed 2.
+    const r = laesGemmekode('8SCC-KM04-GG00-0000-0001-G000-0000-G80G-X6', () => 20);
+    expect(r.ok).toBe(true);
+    if (!r.ok) return;
+    expect(KODE_LAENGDE_V2).toBe(34);
+    expect(r.spil.kapitel).toBe(3);
+    expect(r.spil.trin).toBe(11);
+    expect(r.spil.skaar).toEqual(['k3a']);
+    expect(r.spil.venlighed).toBe(2);
+    expect(r.spil.valg).toEqual({ 'klatten.hjulpet': 'ja' });
+    expect(r.spil.faerdigheder['laes.ordforraad'].niveau).toBe(4);
   });
 
   it('afviser en kode med et trin, der ikke findes', () => {

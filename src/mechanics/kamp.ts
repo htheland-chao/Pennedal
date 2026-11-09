@@ -5,8 +5,9 @@
  * Ren logik uden React og uden tekster. Teksterne står i src/content/tekster/da.json (kamp.*).
  */
 import { bland, vaelg } from '../engine/tilfaeldig';
+import { lavRimOpgave, type RimOrd } from './rim';
 
-export type VaesenId = 'tomordet' | 'stumming';
+export type VaesenId = 'tomordet' | 'stumming' | 'ekko';
 
 export type Synonym = { id: string; ord: string; saetning: string; svar: string; forkerte: string[]; svaerhed: number };
 export type StummeOrd = { ord: string; stumt: number; type: 'd' | 'h' | 'v'; svaerhed: number; saetning: string };
@@ -107,4 +108,23 @@ export function viskUd(o: KampOpgave, alleredeVaek: string[], rnd: () => number)
   if (tilbage.length <= 2) return null;
   const forkerte = tilbage.filter((m) => m !== o.svar);
   return forkerte.length ? vaelg(forkerte, rnd) : null;
+}
+
+/**
+ * Ekkoet (kapitel 4) råber et ord og svarer med forkerte rim. Eleven finder det ord, der rimer.
+ * Sætningen er det, ekkoet råber. Ordet vises markeret, og der er ingen hul.
+ */
+export function lavEkkoOpgave(ord: RimOrd[], niveau: number, rnd: () => number, brugt: string[] = []): KampOpgave {
+  const o = lavRimOpgave(ord, niveau, rnd, brugt);
+  return {
+    vaesen: 'ekko',
+    id: o.id,
+    ord: o.ord,
+    saetning: `${o.ord} ... ${o.ord} ... ${o.ord}`,
+    foer: '',
+    vist: `${o.ord} ... ${o.ord} ... ${o.ord}`,
+    efter: '',
+    svar: o.svar,
+    muligheder: o.muligheder,
+  };
 }

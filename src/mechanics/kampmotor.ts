@@ -13,13 +13,14 @@
 import type { VaesenId } from './kamp';
 
 /** Slags slag. Hvert slag er en lille danskfaglig opgave. */
-export type Slag = 'synonym' | 'stumt';
+export type Slag = 'synonym' | 'stumt' | 'rim';
+/** Slagene, en kamp har, hvis trinnet ikke selv siger det (kapitel 3). Rim kommer i kapitel 4. */
 export const SLAG: Slag[] = ['synonym', 'stumt'];
-export const SLAG_FAERDIGHED: Record<Slag, string> = { synonym: 'laes.ordforraad', stumt: 'stav.stumme' };
+export const SLAG_FAERDIGHED: Record<Slag, string> = { synonym: 'laes.ordforraad', stumt: 'stav.stumme', rim: 'laes.rim' };
 /** Hvilket væsen hvert slag svarer til i opgavemotoren (src/mechanics/kamp.ts). */
-export const SLAG_OPGAVE: Record<Slag, VaesenId> = { synonym: 'tomordet', stumt: 'stumming' };
+export const SLAG_OPGAVE: Record<Slag, VaesenId> = { synonym: 'tomordet', stumt: 'stumming', rim: 'ekko' };
 /** Hvert væsen er svagt over for ét slag. */
-export const SVAGHED: Record<VaesenId, Slag> = { tomordet: 'synonym', stumming: 'stumt' };
+export const SVAGHED: Record<VaesenId, Slag> = { tomordet: 'synonym', stumming: 'stumt', ekko: 'rim' };
 
 export type MedlemId = 'avatar' | 'aeseloere' | 'vims';
 export type HjaelperId = Exclude<MedlemId, 'avatar'>;
@@ -40,7 +41,7 @@ export const KRUMMER_LIV = 3;
 export const KOMBI = 3;
 export const SKADE = { slag: 2, svag: 4, stort: 3, stortSvag: 5 };
 
-export type AngrebId = 'aed' | 'gab' | 'stjael' | 'hvisk';
+export type AngrebId = 'aed' | 'gab' | 'stjael' | 'hvisk' | 'gentag' | 'raab';
 type AngrebInfo = { id: AngrebId; skade: number; alle: boolean };
 export const ANGREB: Record<VaesenId, AngrebInfo[]> = {
   tomordet: [
@@ -50,6 +51,11 @@ export const ANGREB: Record<VaesenId, AngrebInfo[]> = {
   stumming: [
     { id: 'stjael', skade: 3, alle: false },
     { id: 'hvisk', skade: 1, alle: true },
+  ],
+  // Ekkoet kan kun gentage: det slår tilbage med et ekko af et slag, og det råber, så bjerget ryster.
+  ekko: [
+    { id: 'gentag', skade: 3, alle: false },
+    { id: 'raab', skade: 1, alle: true },
   ],
 };
 

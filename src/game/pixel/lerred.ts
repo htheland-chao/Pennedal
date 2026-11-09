@@ -504,3 +504,32 @@ export function lavTaagebanker(w: number, h: number, saed = 0): HTMLCanvasElemen
   g.putImageData(img, 0, 0);
   return c;
 }
+
+/**
+ * Sne (Rimbjerget, 9. november 2026): græs bliver til sne, skovbund til mørk sten og stien til grå klippe.
+ * Farverne vælges ud fra lysstyrken, så mønsteret i jorden bliver bevaret.
+ */
+export function sne(c: HTMLCanvasElement): HTMLCanvasElement {
+  const g = c.getContext('2d')!;
+  const d = g.getImageData(0, 0, c.width, c.height);
+  const p = d.data;
+  for (let i = 0; i < p.length; i += 4) {
+    const [r, gr, b] = [p[i], p[i + 1], p[i + 2]];
+    const lys = r * 0.3 + gr * 0.59 + b * 0.11;
+    if (gr > r + 12 && gr > b) {
+      // Græs: sne med blå skygger. Mørkt græs (skovbund) bliver til mørk sten.
+      const v = lys < 70 ? lys * 1.1 + 40 : 196 + (lys - 70) * 0.55;
+      p[i] = Math.min(255, v - 8);
+      p[i + 1] = Math.min(255, v - 2);
+      p[i + 2] = Math.min(255, v + 10);
+    } else if (r > b + 15) {
+      // Sti og jord: grå klippe.
+      const v = lys * 0.9 + 20;
+      p[i] = v;
+      p[i + 1] = v + 3;
+      p[i + 2] = v + 12;
+    }
+  }
+  g.putImageData(d, 0, 0);
+  return c;
+}

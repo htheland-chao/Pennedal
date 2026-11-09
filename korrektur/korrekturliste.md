@@ -1,6 +1,6 @@
 # Korrekturliste - Pennedal
 
-Lavet 2026-11-09. 1062 tekster.
+Lavet 2026-11-09. 1197 tekster.
 
 Sæt kryds, når en tekst er læst. Bevidste fejl står under "Bevidste fejl" og skal ikke rettes.
 Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), så læs hele teksten.
@@ -516,6 +516,54 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `minde.skaar3b.1`: Et klasseværelse efter sidste time. Stolene står oppe på bordene, og det er helt stille.
 - [ ] `minde.skaar3b.2`: Noget grønt ligger under et bord. Et hæfte med en skygge med store øjne på forsiden.
 - [ ] `minde.skaar3b.3`: En voksen hånd samler det op, børster støvet af og lægger det forsigtigt ned i en taske.
+- [ ] `taler.rimfod`: Rimfod
+- [ ] `taler.ekko`: Ekkoet
+- [ ] `faerdighed.laes.rim`: Rim og rytme
+- [ ] `rim.titel`: Bjergets ældste digt
+- [ ] `rim.rim.spoergsmaal`: Hvilket ord rimer på {ord}?
+- [ ] `rim.ikkerim.spoergsmaal`: Hvilket ord rimer ikke på {ord}?
+- [ ] `rim.rytme.spoergsmaal`: Klap ordet {ord}. Hvor mange stavelser har det?
+- [ ] `rim.rim.rigtig`: Ja. {svar} rimer på {ord}. De lyder ens til sidst.
+- [ ] `rim.rim.fejl`: {valgt} rimer ikke på {ord}. Sig begge ord højt, og lyt til slutningen.
+- [ ] `rim.ikkerim.rigtig`: Ja. {svar} rimer ikke på {ord}. Slutningen lyder anderledes.
+- [ ] `rim.ikkerim.fejl`: {valgt} rimer faktisk på {ord}. Sig dem højt. De lyder ens til sidst.
+- [ ] `rim.rytme.rigtig`: Ja. {dele} har {svar} stavelser.
+- [ ] `rim.rytme.rigtig.en`: Ja. {ord} har kun én stavelse.
+- [ ] `rim.rytme.fejl`: Ikke helt. Klap ordet langsomt: {dele}. Tæl klappene.
+- [ ] `rim.regel`: To ord rimer, når de lyder ens fra den sidste vokal og ud. Det er slutningen, der skal lyde ens. Begyndelsen må gerne være forskellig.
+- [ ] `rim.eksempel`: Hus rimer på mus. Hus rimer ikke på hul, selvom begge ord starter med hu.
+- [ ] `rytme.regel`: En stavelse er et stykke af et ord med én vokal. Klap ordet langsomt, og tæl klappene. Det er ordets rytme.
+- [ ] `rytme.eksempel`: Klap ordet banan langsomt. Det giver to klap, så banan har to stavelser. Elefant giver tre klap.
+- [ ] `ordsten.rim.titel`: Ekkostenen
+- [ ] `ordsten.rim.intro`: Ekkoet har gjort stenene væk. Find det ord, der rimer, så kommer stenen tilbage.
+- [ ] `kamp.ekko.navn`: Ekkoet
+- [ ] `kamp.ekko.angreb`: Ekkoet råber forkerte rim.
+- [ ] `kamp.ekko.spoergsmaal`: Hvilket ord rimer på {ord}?
+- [ ] `kamp.ekko.lyt`: Gentag ... gentag. Jeg kan kun gentage. Sig ordet højt, og lyt til slutningen. Det, der rimer, lyder ens til sidst.
+- [ ] `kamp.ekko.rigtig`: Ja. {svar} rimer på {ord}. De lyder ens til sidst.
+- [ ] `kamp.ekko.fejl`: {valgt} rimer ikke på {ord}. Sig begge ord højt, og lyt til slutningen.
+- [ ] `kamp.ekko.rolig`: Ekkoet bliver helt stille.
+- [ ] `kamp.slag.rim`: Slå med et rim
+- [ ] `kamp.svaghed.rim`: svagt punkt: rim
+- [ ] `kamp.kort.angreb.gentag`: {navn} gentager et slag mod {hvem}!
+- [ ] `kamp.kort.angreb.raab`: {navn} råber, så bjerget ryster!
+- [ ] `kamp.varsel.gentag`: {navn} vil gentage et slag mod {hvem}: {skade} skade.
+- [ ] `kamp.varsel.raab`: {navn} vil råbe mod hele holdet: {skade} skade til hver.
+- [ ] `kamp.haendelse.angreb.gentag`: {navn} gentager et slag. {hvem} mister {skade} liv.
+- [ ] `kamp.haendelse.angreb.raab`: {navn} råber, så bjerget ryster. {hvem} mister {skade} liv.
+- [ ] `minde.godnat.titel`: Godnathistorien
+- [ ] `minde.godnat.1`: Det er mørkt i dit værelse. Kun lampen på natbordet lyser.
+- [ ] `minde.godnat.2`: En stemme læser højt fra en bog. Den er rolig og varm. Du kan ikke se, hvem det er.
+- [ ] `minde.godnat.3`: Dine øjne bliver tunge. Historien slutter, men du drømmer videre på den.
+- [ ] `minde.godnat.4`: I drømmen går en lille skygge med store, runde øjne rundt og leder efter et sted at høre til. Det var den aften, du fandt på Skyggen.
+- [ ] `minde.skaar4a.titel`: Skyggen i margenen
+- [ ] `minde.skaar4a.1`: Du sidder i skolen med dit hæfte til matematik. Tallene står i lange rækker.
+- [ ] `minde.skaar4a.2`: Ude i margenen tegner du en lille skygge med store øjne. Du visker den ud. Så tegner du den igen.
+- [ ] `minde.skaar4a.3`: Du har ikke glemt den. Ikke helt.
+- [ ] `minde.skaar4b.titel`: Døren på klem
+- [ ] `minde.skaar4b.1`: Det er aften. Døren til dit værelse står på klem, og en stribe lys falder ind over gulvet.
+- [ ] `minde.skaar4b.2`: Nogen står i døråbningen og kigger hen på skrivebordet. Så går de ind og åbner skuffen.
+- [ ] `minde.skaar4b.3`: De leder længe. Så lukker de skuffen stille igen og bliver stående lidt.
 
 ## Kapitel 1
 
@@ -832,6 +880,96 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `k3-moerke.4 (vims)`: Undskyld. Undskyld. Jeg tror, jeg skal viske mig selv ud nu.
 - [ ] `k3-moerke.5 (aeseloere)`: Ingen visker noget ud. Se, den er væk igen. Kom, vi følger sporet videre.
 - [ ] `k3-moerke.6 (fortaeller)`: Langt borte, over træerne, rejser et bjerg sig. Det lyder, som om det synger.
+
+## Kapitel 4
+
+- [ ] `titel`: Rimbjerget
+- [ ] `sted.bjergfod`: Rimbjergets fod
+- [ ] `objekt.rimfod`: den store sten på stien
+- [ ] `sted.bjergstien`: Stien op ad bjerget
+- [ ] `objekt.maal`: vejen ind i kløften
+- [ ] `sted.bjergstien.intro.1 (aeseloere)`: Her er stien brudt. Stenene er faldet ned i dybet.
+- [ ] `sted.bjergstien.intro.2 (vims)`: Det var ikke mig denne gang. Jeg har ikke visket noget ud. Tror jeg. Undskyld.
+- [ ] `sted.bjergstien.intro.3 (aeseloere)`: Ved hvert hul står en ekkosten. Find et ord, der rimer, så kommer stenene tilbage. Lyt til slutningen af ordet.
+- [ ] `sted.ekkokloeften`: Ekkokløften
+- [ ] `objekt.ekko`: ekkoet
+- [ ] `objekt.opgang`: stien mod toppen
+- [ ] `sted.toppen`: Toppen af Rimbjerget
+- [ ] `objekt.digtsten`: tavlen af sten
+- [ ] `objekt.rimfod-top`: Rimfod
+- [ ] `objekt.kam`: den iskolde kam
+- [ ] `sted.kammen`: Den iskolde kam
+- [ ] `objekt.maal`: enden af kammen
+- [ ] `sted.kammen.udflugt.opgavetekst`: Kom helt over den iskolde kam. Den er svær med vilje.
+- [ ] `sted.kammen.udflugt.spoergsmaal`: Vil du gå over den iskolde kam?
+- [ ] `sted.kammen.udflugt.ja`: Gå ud på kammen
+- [ ] `sted.kammen.udflugt.nej`: Ikke nu
+- [ ] `sted.kammen.udflugt.ind.1 (aeseloere)`: Den kam er glat som glas, og vinden blæser hårdt. Der er kun én lanterne, og jeg bærer dig ikke over.
+- [ ] `sted.kammen.udflugt.ind.2 (aeseloere)`: Den er svær med vilje. Du behøver ikke at gå den for at komme videre. Men for enden glimter noget.
+- [ ] `sted.kammen.udflugt.faerdig.1 (fortaeller)`: For enden af kammen sidder en lille, lysende papirstump fast i isen. Det er et hukommelsesskår.
+- [ ] `sted.kammen.udflugt.faerdig.2 (aeseloere)`: Du gik hele vejen. Jeg kiggede væk de svære steder. Det hjalp ikke.
+- [ ] `sted.kammen.udflugt.igen.1 (aeseloere)`: Igen? Du er godt nok sej. Skåret har du allerede.
+- [ ] `mission.rimfodsaetning.titel`: Rimfods sætning
+- [ ] `mission.rimfodsaetning.intro`: Rimfod vil sige én sætning uden rim. Find det ord, der ikke rimer, så kan han slutte sin sætning med det.
+- [ ] `mission.rimfodsaetning.start.1 (rimfod)`: Hør her, I små, kom lidt tættere på. Jeg har en drøm, som I måske kan forstå.
+- [ ] `mission.rimfodsaetning.start.2 (rimfod)`: Bare én sætning, der ikke rimer. Én eneste. Så græder jeg af glæde i flere timer.
+- [ ] `mission.rimfodsaetning.start.3 (aeseloere)`: Han skal bruge et ord at slutte med. Et ord, der ikke rimer på resten. Hjælp ham med at vælge.
+- [ ] `mission.rimfodsaetning.mangler.1 (rimfod)`: Er I klar? Lad os prøve igen. Jeg siger begyndelsen, I finder enden, min ven.
+- [ ] `mission.rimfodsaetning.klar.1 (rimfod)`: Er I klar? Lad os prøve igen. Jeg siger begyndelsen, I finder enden, min ven.
+- [ ] `mission.rimfodsaetning.faerdig.1 (rimfod)`: Jeg sidder på en sten, og jeg har det dejligt.
+- [ ] `mission.rimfodsaetning.faerdig.2 (fortaeller)`: Rimfod bliver helt stille. Så triller en stor tåre ned ad hans stenkind.
+- [ ] `mission.rimfodsaetning.faerdig.3 (rimfod)`: Det rimede ikke! Det rimede ikke! Jeg græder af glæde, og det er meget vådt.
+- [ ] `mission.rimfodsaetning.faerdig.4 (fortaeller)`: En lille, lysende papirstump falder ud af mosset på Rimfods hoved. Det er et hukommelsesskår.
+- [ ] `mission.rimfodsaetning.efter.1 (rimfod)`: Hej, I små! Nu kan jeg sige ting, der ikke rimer, når jeg virkelig prøver. Nogle gange.
+- [ ] `k4-ankomst.1 (fortaeller)`: Sporet fører ud af skoven og op mod et bjerg. Sneen knirker under dine fødder.
+- [ ] `k4-ankomst.2 (fortaeller)`: Vinden suser, og det lyder næsten, som om den siger noget: Kom op, kom op, til bjergets top.
+- [ ] `k4-ankomst.3 (aeseloere)`: Rimbjerget. Her taler alt på rim. Stenene, vinden, sneen. Det er utroligt irriterende.
+- [ ] `k4-ankomst.4 (vims)`: Undskyld, men jeg synes, det er lidt hyggeligt.
+- [ ] `k4-ankomst.5 (fortaeller)`: Midt på stien ligger en kæmpe sten. Den sukker.
+- [ ] `k4-rimfod.opgavetekst`: Gå hen til den store sten på stien.
+- [ ] `k4-rimfod.1 (rimfod)`: Godmorgen, I små. Hvor skal I mon gå?
+- [ ] `k4-rimfod.2 (rimfod)`: Øv. Nu gjorde jeg det igen. Jeg rimer og rimer, min ven.
+- [ ] `k4-rimfod.3 (aeseloere)`: En trold, der taler på rim. Det er værre end en ordbog med hikke.
+- [ ] `k4-rimfod.4 (rimfod)`: Jeg hedder Rimfod, bjergets gamle trold. Jeg prøver ikke at rime, men det går ... øh ... bold. Øv.
+- [ ] `k4-rimfod.5 (rimfod)`: Ekkoet i kløften har stjålet min ro. Det råber forkerte rim, både én gang og to.
+- [ ] `k4-rimfod.6 (rimfod)`: Øverst på toppen står bjergets ældste vers. Nu mangler et stykke, og alting går på tværs.
+- [ ] `k4-rimfod.7 (vims)`: Vi kan hjælpe! Tror jeg. Undskyld, hvis vi ikke kan.
+- [ ] `k4-rimfod.8 (rimfod)`: Tag denne sten. Den er glat og god. Den bærer en bro, når du mangler mod.
+- [ ] `k4-rimfod.9 (rimfod)`: Jeg tager den lange vej og venter på jer der. Øv. Der og her. Det er bare ikke fair.
+- [ ] `k4-op.opgavetekst`: Find rimene ved ekkostenene, og klatr op ad bjerget.
+- [ ] `k4-kloeften.1 (fortaeller)`: Stien fører ind i en smal kløft mellem to klipper. Alt, hvad I siger, kommer tilbage.
+- [ ] `k4-kloeften.2 (aeseloere)`: Hej?
+- [ ] `k4-kloeften.3 (fortaeller)`: Hej ... vej ... dej ... sej ...
+- [ ] `k4-kloeften.4 (vims)`: Det svarer forkert. Eller også svarer det bare med rim. Undskyld, jeg ved ikke, hvad der er værst.
+- [ ] `k4-ekko-moede.opgavetekst`: Gå hen til ekkoet i kløften.
+- [ ] `k4-ekko-moede.1 (ekko)`: Gentag ... gentag. Jeg kan kun gentage ... tage ... kage ...
+- [ ] `k4-ekko-moede.2 (aeseloere)`: Et ekko. Det har ingen egne ord. Det tager andres ord og råber dem forkert tilbage.
+- [ ] `k4-ekko-moede.3 (ekko)`: Slip ... slip ... jeg giver ikke slip ... slip ...
+- [ ] `k4-ekko-moede.4 (aeseloere)`: Svar det med rigtige rim. Ord, der lyder ens til sidst. Så bliver det stille.
+- [ ] `k4-ekko.opgavetekst`: Kæmp mod ekkoerne i kløften.
+- [ ] `k4-ekko-slut.1 (ekko)`: Stille ... stille ... endelig stille.
+- [ ] `k4-ekko-slut.2 (fortaeller)`: Ekkoet folder sig sammen til en lille, rund lyd og triller ned ad bjerget.
+- [ ] `k4-ekko-slut.3 (aeseloere)`: Rim er ord, der lyder ens til sidst. Hus og mus. Sten og ben. Det er ikke svært, når man lytter.
+- [ ] `k4-til-toppen.opgavetekst`: Gå op mod toppen.
+- [ ] `k4-toppen.opgavetekst`: Undersøg tavlen af sten på toppen.
+- [ ] `k4-toppen.1 (fortaeller)`: På toppen står en tavle af sten med bjergets ældste digt. Rimfod sidder ved siden af og venter.
+- [ ] `k4-toppen.2 (rimfod)`: Her står det digt, som bjerget er bygget af. Men se, det sidste vers er brækket af.
+- [ ] `k4-toppen.3 (fortaeller)`: Du lægger hånden på stenen. Den er kold. Så bliver den varm, ligesom en dyne om aftenen.
+- [ ] `k4-toppen.4 (aeseloere)`: Du var væk igen. Hvad så du?
+- [ ] `k4-toppen.5 (fortaeller)`: En stemme, der læste højt i mørket. Og en historie, du drømte videre på.
+- [ ] `k4-toppen.6 (fortaeller)`: Lanternen i din taske blafrer. Den lyder som Mor Lanterne.
+- [ ] `k4-toppen.7 (lanterne)`: Kom ind, kom ind. Ved du hvad? De bedste historier har tit mange fejl i første udkast. Fejl kan rettes. Historien er din.
+- [ ] `k4-toppen.8 (aeseloere)`: Der mangler også ord i de første vers. Ord, der rimer. Kan du finde dem?
+- [ ] `k4-digt.opgavetekst`: Find de rim, der mangler i digtet.
+- [ ] `k4-digt-slut.1 (fortaeller)`: Du finder det sidste rim. Stregerne på stenen gløder et øjeblik.
+- [ ] `k4-digt-slut.2 (rimfod)`: Tak, I små. Nu står de vers, som de skal stå.
+- [ ] `k4-digt-slut.3 (fortaeller)`: Men det sidste vers er stadig væk. Under tavlen ligger kun to ord og blafrer i vinden: Og så.
+- [ ] `k4-digt-slut.4 (aeseloere)`: Den Ufærdige. Han har taget det sidste vers. Endnu en slutning, der er forsvundet.
+- [ ] `k4-moerke.1 (fortaeller)`: Vinden holder op med at rime. Det bliver helt stille på toppen.
+- [ ] `k4-moerke.2 (ufaerdige)`: Og så ...
+- [ ] `k4-moerke.3 (fortaeller)`: Nede i dalen, under bjerget, ligger noget mørkt og fladt. Det ligner en kælder fuld af gammelt papir.
+- [ ] `k4-moerke.4 (rimfod)`: Pas godt på jer, I små. Jeg står her på toppen og kigger på.
+- [ ] `k4-moerke.5 (aeseloere)`: Kom. Sporet fører ned. Mod noget, der lugter af gammelt papir og blyant.
 
 ## Stumme bogstaver
 
