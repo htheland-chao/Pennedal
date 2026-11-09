@@ -1864,18 +1864,27 @@ input[type='range'] {
 /* Lille højttalerikon ved navnet i dialogen (Henrik, 1. november 2026: knapperne var for store). */
 .laes-op-ikon {
   margin-left: 0.5rem;
-  min-width: 2rem;
-  min-height: 2rem;
-  padding: 0 0.3rem;
-  border: 2px solid var(--blaek);
-  background: #fbf7ec;
+  min-width: 1.75rem;
+  min-height: 1.75rem;
+  padding: 0 0.25rem;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background: transparent;
   cursor: pointer;
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   line-height: 1;
   vertical-align: middle;
+  opacity: 0.55;
+  transition: opacity 0.15s;
+}
+.laes-op-ikon:hover,
+.laes-op-ikon:focus-visible,
+.laes-op-ikon[aria-pressed='true'] {
+  opacity: 1;
 }
 .laes-op-ikon[aria-pressed='true'] {
-  background: var(--guld-lys);
+  border-color: var(--blaek);
+  background: #fbf7ec;
 }
 .laes-op-ikon:focus-visible {
   outline: 3px solid var(--fokus);
