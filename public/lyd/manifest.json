@@ -2297,6 +2297,13 @@
       "kilde": "Stumme bogstaver / kold.saetning",
       "lavet": "2026-11-04"
     },
+    "12a65abfeb77b7": {
+      "figur": "fortaeller",
+      "tekst": "Den Ufærdige står mellem reolerne. Den er lavet af streger af blyant, der aldrig blev tegnet færdige.",
+      "fil": "12a65abfeb77b7.ogg",
+      "kilde": "Kapitel 5 / k5-twist.2",
+      "lavet": "2026-11-09"
+    },
     "12ad9267808121": {
       "figur": "fortaeller",
       "tekst": "Gå ind gennem porten.",
@@ -4015,5 +4022,5 @@
   },
   "model": "gemini-3.8-flash-tts",
   "i_alt": 859,
-  "mangler": 286
+  "mangler": 285
 }
