@@ -11,7 +11,7 @@ const BILLEDER = 'test-results/skaermbilleder';
 async function laesDialog(page: Page) {
   const dialog = page.locator('dialog.dialogboks');
   await dialog.waitFor({ state: 'visible', timeout: 10_000 }).catch(() => undefined);
-  for (let i = 0; i < 25 && (await dialog.isVisible()); i++) {
+  for (let i = 0; i < 60 && (await dialog.isVisible()); i++) {
     await dialog
       .getByRole('button', { name: 'Videre' })
       .click({ timeout: 3_000 })
@@ -59,9 +59,11 @@ function genreSvar(id: string): string {
 async function genreOpgaver(page: Page, objekt: string, forkertFoerst: boolean) {
   const opg = page.locator('dialog.opgave .genre-opgave');
   // Står hovedpersonen allerede ved figuren lige efter en dialog, kan et enkelt klik gå tabt. Prøv igen.
-  for (let i = 0; i < 3 && !(await opg.isVisible()); i++) {
-    await gaaTil(page, objekt);
-    await opg.waitFor({ state: 'visible', timeout: 5_000 }).catch(() => undefined);
+  for (let i = 0; i < 4 && !(await opg.isVisible()); i++) {
+    if (i < 2) await gaaTil(page, objekt);
+    // Som eleven: knappen Undersøg i sidepanelet.
+    else await page.getByRole('complementary').getByRole('button', { name: /^Undersøg/ }).click().catch(() => undefined);
+    await opg.waitFor({ state: 'visible', timeout: 6_000 }).catch(() => undefined);
   }
   for (let i = 0; i < 3; i++) {
     await expect(opg).toBeVisible({ timeout: 15_000 });
