@@ -536,7 +536,47 @@ const hytte: Sang = {
   ],
 };
 
+/**
+ * De halve lande (kapitel 7): en vandrende melodi i D-dorisk, der stopper midt i frasen, som om den ikke er skrevet færdig.
+ * Hvert andet sted mangler en tone. Den lave, skæve tone er væk med "Mindre uhygge".
+ */
+const halve: Sang = {
+  bpm: 88,
+  spor: [
+    {
+      lyd: 'trekant',
+      styrke: 0.28,
+      noder:
+        'D2 - - - A2 - - - | C2 - - - G2 - - - | D2 - - - A2 - - - | E2 - - - B2 - - - | ' +
+        'D2 - - - A2 - - - | C2 - - - G2 - - - | Bb1 - - - F2 - - - | A1 - - - - - - -',
+    },
+    {
+      lyd: 'firkant',
+      styrke: 0.11,
+      noder:
+        'D5 . E5 . F5 . G5 . | A5 - - - . . . . | G5 . F5 . E5 . D5 . | B4 - - - . . . . | ' +
+        'D5 . E5 . F5 . A5 . | C6 - B5 - . . . . | A5 . G5 . F5 . E5 . | . . . . . . . .',
+    },
+    {
+      lyd: 'trekant',
+      styrke: 0.07,
+      noder: arpeggio([
+        ['D3', 'F3', 'A3'], ['C3', 'E3', 'G3'], ['D3', 'F3', 'A3'], ['E3', 'G3', 'B3'],
+        ['D3', 'F3', 'A3'], ['C3', 'E3', 'G3'], ['Bb2', 'D3', 'F3'], ['A2', 'C#3', 'E3'],
+      ]),
+    },
+    {
+      lyd: 'firkant',
+      styrke: 0.03,
+      uhygge: true,
+      noder:
+        '. . . . . . . . | . . . . . . Ab3 - | . . . . . . . . | . . . . . . . . | ' +
+        '. . . . . . . . | . . . . . . . . | . . . . . . Ab3 - | . . . . . . . .',
+    },
+  ],
+};
+
 /** Viskeskovens bane: samme sang som skoven, lidt hurtigere, fordi man løber og hopper. */
 const viskesti: Sang = { ...viskeskov, bpm: viskeskov.bpm + 14 };
 
-export const SANGE: Record<string, Sang> = { bibliotek, kaelder, pennedal, floden, fyrtaarn, eng, torv, smoeger, trykkeri, tage, forside, ufaerdige, intro, minde, viskeskov, kamp, viskesti, rimbjerg, arkiv, blaeksoe, hytte };
+export const SANGE: Record<string, Sang> = { bibliotek, kaelder, pennedal, floden, fyrtaarn, eng, torv, smoeger, trykkeri, tage, forside, ufaerdige, intro, minde, viskeskov, kamp, viskesti, rimbjerg, arkiv, blaeksoe, hytte, halve };

@@ -1,6 +1,6 @@
 # Korrekturliste - Pennedal
 
-Lavet 2026-11-09. 1599 tekster.
+Lavet 2026-11-09. 1758 tekster.
 
 Sæt kryds, når en tekst er læst. Bevidste fejl står under "Bevidste fejl" og skal ikke rettes.
 Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), så læs hele teksten.
@@ -74,7 +74,6 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `intro.2`: De bliver lagt i en skuffe. Og så bliver de glemt.
 - [ ] `intro.3`: Men et sted bag ordene ligger et land, hvor alt engang blev skrevet til live.
 - [ ] `intro.4`: Nu forsvinder slutningerne. Én efter én.
-- [ ] `intro.4.hvisken`: Og så ...
 - [ ] `intro.5`: I en kælder under et skolebibliotek er der en skuffe, som er begyndt at hviske.
 - [ ] `intro.5.slut`: Den hvisker til dig.
 - [ ] `intro.af`: Et spil af Theland Studios
@@ -661,6 +660,34 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `minde.skaar6b.1`: Nogen rydder op i dit værelse. Skuffen i skrivebordet bliver tømt.
 - [ ] `minde.skaar6b.2`: Alt det gamle bliver lagt i en kasse med bøger, der skal gives væk.
 - [ ] `minde.skaar6b.3`: Øverst i kassen ligger noget grønt. Kassen står ved døren og venter.
+- [ ] `taler.prinsesse`: Prinsesse Hilde
+- [ ] `taler.lup`: Kommissær Lup
+- [ ] `taler.grumsen`: Grumsen
+- [ ] `taler.bip`: Bip
+- [ ] `genre.titel`: Historier, der mangler noget
+- [ ] `genre.klassificer`: Hvilken genre er det her?
+- [ ] `genre.kendetegn`: Hvad hører til i en historie af genren {genre}?
+- [ ] `genre.rigtig`: Ja. Det passer til genren {genre}.
+- [ ] `genre.fejl.klassificer`: Det er ikke en historie af genren {valgt}. Kig efter kendetegnene. Hvad sker der, og hvor foregår det?
+- [ ] `genre.fejl.kendetegn`: {valgt} hører til en anden genre end {genre}. Hvad er kendetegnene for {genre}?
+- [ ] `genre.regel`: Hver genre har sine kendetegn. Eventyr har magi og prøver. Krimier har spor og en opklaring. Gysere har mørke og uhygge. Science fiction har fremtid og opfindelser.
+- [ ] `genre.eksempel`: Fodtrin på loftet midt om natten hører til en gyser. Et rumskib på vej til Mars hører til science fiction.
+- [ ] `ordsten.genre.titel`: Den halve planke
+- [ ] `ordsten.genre.intro`: Planken er kun en streg. Find genren, så bliver planken tegnet færdig.
+- [ ] `mission.blad.lupsspor`: Du fandt et af Kommissær Lups spor ({antal} af {ialt}).
+- [ ] `minde.soeskendet.titel`: Nogen ved skuffen
+- [ ] `minde.soeskendet.1`: Det er eftermiddag. Døren til dit værelse står åben.
+- [ ] `minde.soeskendet.2`: Nogen står ved dit skrivebord og trækker skuffen ud. To hænder leder mellem papirerne.
+- [ ] `minde.soeskendet.3`: De leder efter noget grønt. De finder det ikke.
+- [ ] `minde.soeskendet.4`: De siger ikke noget. Men de bliver stående længe ved skuffen.
+- [ ] `minde.skaar7a.titel`: Kassen på biblioteket
+- [ ] `minde.skaar7a.1`: En kasse med gamle bøger står på disken i skolebiblioteket.
+- [ ] `minde.skaar7a.2`: En stor, rolig hånd løfter låget og tager noget grønt op.
+- [ ] `minde.skaar7a.3`: Hånden bladrer langsomt. Så lægger den hæftet til side, et sted for sig selv.
+- [ ] `minde.skaar7b.titel`: Skyggen på vejen
+- [ ] `minde.skaar7b.1`: Mange år senere sidder du i en bus og kigger ud ad vinduet.
+- [ ] `minde.skaar7b.2`: En lille skygge glider hen over vejen, og et øjeblik ligner den en, du kender.
+- [ ] `minde.skaar7b.3`: Du tænker: Hvad blev der egentlig af ham?
 
 ## Kapitel 1
 
@@ -1295,6 +1322,101 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `k6-slut.3 (vims)`: Det ser ufærdigt ud. Undskyld. Det var en dum ting at sige.
 - [ ] `k6-slut.4 (fortaeller)`: Du tager det grønne hæfte frem. Den sidste side er stadig tom. Men nu ved du, hvor du skal hen.
 
+## Kapitel 7
+
+- [ ] `titel`: De halve lande
+- [ ] `sted.halvelande`: De halve lande
+- [ ] `objekt.prinsesse`: Prinsesse Hilde ved tårnet
+- [ ] `objekt.lup`: Kommissær Lup
+- [ ] `objekt.grumsen`: Grumsen i det mørke hus
+- [ ] `objekt.bip`: Robotten Bip
+- [ ] `objekt.fodnote`: Fru Fodnote
+- [ ] `objekt.rimfod`: Rimfod
+- [ ] `objekt.klatten`: Klatten
+- [ ] `objekt.ufaerdige`: Den Ufærdige
+- [ ] `objekt.spor1`: et spor af blæk
+- [ ] `objekt.spor2`: et spor af blæk
+- [ ] `objekt.spor3`: et spor af blæk
+- [ ] `objekt.halvbro`: skiltet ved den halve bro
+- [ ] `sted.halvebroen`: Den halve bro
+- [ ] `objekt.maal`: enden af den halve bro
+- [ ] `sted.halvebroen.udflugt.opgavetekst`: Gå over den halve bro. Den er kun tegnet halvt færdig, og det er svært med vilje.
+- [ ] `sted.halvebroen.udflugt.spoergsmaal`: Vil du gå ud på den halve bro?
+- [ ] `sted.halvebroen.udflugt.ja`: Gå ud på broen
+- [ ] `sted.halvebroen.udflugt.nej`: Ikke nu
+- [ ] `sted.halvebroen.udflugt.ind.1 (aeseloere)`: Broen er kun tegnet halvt. Nogle planker er bare en streg.
+- [ ] `sted.halvebroen.udflugt.ind.2 (rimfod)`: En bro, der er halv, er svær at gå. Men for enden lyser noget, som du kan få.
+- [ ] `sted.halvebroen.udflugt.faerdig.1 (fortaeller)`: For enden af broen, hvor stregen stopper, ligger en lille, lysende papirstump. Det er et hukommelsesskår.
+- [ ] `sted.halvebroen.udflugt.faerdig.2 (vims)`: Du gik på en bro, der ikke var der. Undskyld, men det var ret sejt.
+- [ ] `sted.halvebroen.udflugt.igen.1 (aeseloere)`: Igen? Broen er stadig kun halv. Det er du ikke.
+- [ ] `mission.lupsspor.titel`: Kommissær Lups gamle sag
+- [ ] `mission.lupsspor.intro`: Kommissær Lup sorterer sine gamle sager. Hjælp ham med at finde genren, eller det, der hører til en genre.
+- [ ] `mission.lupsspor.start.1 (lup)`: Hm. Jeg har en gammel sag, der aldrig blev løst. Tre spor af blæk er forsvundet i De halve lande.
+- [ ] `mission.lupsspor.start.2 (lup)`: Find de tre spor for mig. Så kan vi se, hvor de fører hen.
+- [ ] `mission.lupsspor.mangler.1 (lup)`: Har du fundet sporene? Små fodaftryk af blæk. Kig efter dem.
+- [ ] `mission.lupsspor.klar.1 (lup)`: Tre spor! De fører til min gamle kasse med sager. Hjælp mig med at sortere dem efter genre.
+- [ ] `mission.lupsspor.faerdig.1 (lup)`: Sagen er opklaret. Sporene var dine egne. Du har gået her før, for længe siden.
+- [ ] `mission.lupsspor.faerdig.2 (fortaeller)`: Nederst i kassen ligger en lille, lysende papirstump. Det er et hukommelsesskår.
+- [ ] `mission.lupsspor.efter.1 (lup)`: Hm. Godt arbejde. Jeg har lavet en mappe til dig. Den er tom endnu.
+- [ ] `k7-ankomst.1 (fortaeller)`: På den anden side af Blæksøen begynder De halve lande. Alt her er kun tegnet halvt. Træer uden toppe. Huse med kun to vægge.
+- [ ] `k7-ankomst.2 (klatten)`: Jeg sejlede jer over i min båd. Den er lavet af en avis. Den Frygtelige har sans for stil.
+- [ ] `k7-ankomst.3 (aeseloere)`: Her havner alle de historier, der aldrig blev skrevet færdige. Eventyr, krimier, gysere. Alle mangler de noget.
+- [ ] `k7-ankomst.4 (fodnote)`: ¹ Jeg tog bussen. ² Der går ingen bus hertil. Jeg tog den alligevel.
+- [ ] `k7-ankomst.5 (rimfod)`: Jeg kom med, for jeg er ikke dum. Det er her, det hele skal ende og begynde.
+- [ ] `k7-ankomst.6 (vims)`: Alle er her. Det er rart. Undskyld, at jeg synes, det er rart.
+- [ ] `k7-ankomst.7 (fortaeller)`: Fire historier er strandet her. Hver af dem mangler det vigtigste. Måske kan du hjælpe dem.
+- [ ] `k7-prinsesse.opgavetekst`: Tal med prinsessen ved tårnet.
+- [ ] `k7-prinsesse.1 (prinsesse)`: Endelig! Jeg har ventet i dette tårn i tre hundrede sider. Der kommer ingen prins.
+- [ ] `k7-prinsesse.2 (prinsesse)`: Så jeg har besluttet at redde mig selv. Men broen ned fra tårnet er kun halvt tegnet.
+- [ ] `k7-prinsesse.3 (rimfod)`: Min sten kan bære en bro, hvis du lægger den, hvor stregen stopper.
+- [ ] `k7-prinsesse.4 (fortaeller)`: Du lægger Rimfods sten for enden af den halve bro. Stregen bliver længere, og broen tegner sig færdig.
+- [ ] `k7-prinsesse.5 (prinsesse)`: Tak! Men mit eventyr mangler stadig noget. Jeg kan ikke huske, hvad et eventyr skal have. Hjælper du mig?
+- [ ] `k7-eventyr.opgavetekst`: Hjælp prinsessen med at finde det, et eventyr skal have.
+- [ ] `k7-lup.opgavetekst`: Find Kommissær Lup.
+- [ ] `k7-lup.1 (prinsesse)`: Nu ved jeg det. Magi, prøver og en helt. Og helten er mig. Farvel, tårn!
+- [ ] `k7-lup.2 (lup)`: Hm. Hm, hm. Undskyld, jeg tænker. Jeg har tænkt i tolv år.
+- [ ] `k7-lup.3 (lup)`: Jeg er Kommissær Lup. Min krimi mangler opklaringen. Jeg har sporene, men ingen ved, hvad en krimi er.
+- [ ] `k7-lup.4 (fodnote)`: ¹ En krimi uden opklaring er bare en historie om en, der er forvirret.
+- [ ] `k7-krimi.opgavetekst`: Hjælp Kommissær Lup med at finde det, en krimi skal have.
+- [ ] `k7-grumsen.opgavetekst`: Kig ind i det mørke hus.
+- [ ] `k7-grumsen.1 (lup)`: Opklaret! Det var gartneren. Det er altid ... nej, det var ikke gartneren. Men nu ved jeg, hvordan jeg finder ud af det.
+- [ ] `k7-grumsen.2 (fortaeller)`: I det mørke hus sidder et stort monster med pels og hjemmesko. Det har tændt alle lamperne.
+- [ ] `k7-grumsen.3 (grumsen)`: Hej. Jeg er Grumsen. Jeg skulle være monsteret i en gyser. Men jeg blev bange og gik hjem.
+- [ ] `k7-grumsen.4 (grumsen)`: Nu er gyseren slet ikke uhyggelig. Den er bare en historie om et hus. Hvad gør en gyser uhyggelig?
+- [ ] `k7-gyser.opgavetekst`: Hjælp Grumsen med at finde det, en gyser skal have.
+- [ ] `k7-bip.opgavetekst`: Find robotten Bip.
+- [ ] `k7-bip.1 (grumsen)`: Mørke, knirkende døre og noget ukendt. Brr. Jeg tør godt, hvis jeg holder lampen.
+- [ ] `k7-bip.2 (bip)`: Bip. Goddag. Jeg er Bip. Jeg kommer fra en historie, der foregår i fremtiden.
+- [ ] `k7-bip.3 (bip)`: Men min fremtid er gået i stå. Den ligner bare i dag. Hvad skal der til, for at det bliver science fiction?
+- [ ] `k7-sf.opgavetekst`: Hjælp Bip med at finde det, science fiction skal have.
+- [ ] `k7-genrer-slut.1 (bip)`: Rumskibe, robotter og opfindelser. Min fremtid kører igen. Bip bip.
+- [ ] `k7-genrer-slut.2 (fortaeller)`: Rundt om dig begynder De halve lande at tegne sig færdige. Træerne får toppe. Husene får fire vægge.
+- [ ] `k7-genrer-slut.3 (aeseloere)`: Fire historier, der fik det, de manglede. Du er god til det her. Bedre, end du tror.
+- [ ] `k7-fristelse.opgavetekst`: Gå hen til den mørke skikkelse midt på vejen.
+- [ ] `k7-fristelse.1 (fortaeller)`: Så bliver alt stille. Midt på vejen står Den Ufærdige.
+- [ ] `k7-fristelse.2 (ufaerdige)`: Jeg kan give jer en slutning. Hver af jer. Alt, I skal gøre, er at gå med mig.
+- [ ] `k7-fristelse.3 (ufaerdige)`: Vims. Du kan få en slutning, hvor du aldrig er bange.
+- [ ] `k7-fristelse.4 (vims)`: Undskyld. Men nej. Jeg er bange sammen med mine venner. Det er bedre.
+- [ ] `k7-fristelse.5 (ufaerdige)`: Fodnote. Du kan få en slutning øverst på siden.
+- [ ] `k7-fristelse.6 (fodnote)`: ¹ Nej tak. Alt det vigtige står nederst.
+- [ ] `k7-fristelse.7 (ufaerdige)`: Klatten. Du har aldrig fået en slutning. Jeg kan give dig en.
+- [ ] `k7-fristelse.8 (klatten)`: Den Frygtelige har allerede en slutning. Den hedder venner. Den er frygtelig god.
+- [ ] `k7-fristelse.9 (ufaerdige)`: Bogmærke. Jeg kan glatte dig ud. Det er det, du altid har ønsket.
+- [ ] `k7-fristelse.10 (aeseloere)`: Det er sandt. Men jeg vil hellere glattes ud sammen med den, der tilgav mig.
+- [ ] `k7-fristelse.11 (aeseloere)`: Jeg ... undskyld. Jeg kommer tilbage. Det lover jeg.
+- [ ] `k7-fristelse.12 (fortaeller)`: Æseløre flyver hen til Den Ufærdige. Han kigger ikke på dig.
+- [ ] `k7-fristelse.13 (ufaerdige)`: Så er I færre. Vi ses på den sidste side.
+- [ ] `k7-kamp.opgavetekst`: Stå imod Den Ufærdiges væsner.
+- [ ] `k7-kamp-slut.1 (fortaeller)`: Væsnerne falder til ro, og Den Ufærdige glider væk mellem de halve træer.
+- [ ] `k7-kamp-slut.2 (vims)`: Vi klarede det. Også selvom vi var færre. Undskyld, at jeg siger det højt.
+- [ ] `k7-kamp-slut.3 (aeseloere)`: Du stod helt fast. Jeg var stolt. Det må du ikke sige til nogen.
+- [ ] `k7-kamp-slut.4 (fodnote)`: ¹ Han er ikke væk for altid. Ingen er væk for altid i en god historie.
+- [ ] `k7-slut.opgavetekst`: Tal med Rimfod.
+- [ ] `k7-slut.1 (rimfod)`: Bag De halve lande ligger den sidste side. Den er tom, og den er din.
+- [ ] `k7-slut.2 (fortaeller)`: Du tager det grønne hæfte frem. Den sidste side er stadig tom. Men den venter på dig.
+- [ ] `k7-slut.3 (klatten)`: Jeg går med til den sidste side. Den Frygtelige vil ikke gå glip af slutningen.
+- [ ] `k7-slut.4 (fortaeller)`: Du savner Æseløre. Men du ved, at han kommer tilbage.
+
 ## Stumme bogstaver
 
 - [ ] `regel.d`: Efter l, n og r kan d være stumt. Du kan ikke høre d'et, men det skal med.
@@ -1458,6 +1580,49 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `k14`: Kagerne er til dig. De smager lidt af sand.
 - [ ] `k15`: I nat drømte jeg, at chefen kom tilbage. Han stod ved trappen og kiggede ind.
 - [ ] `k16`: Jeg har lært noget. Hvis jeg skriver forkert, er det ikke farligt. Jeg retter det bare, og så bliver ordene lidt smukkere.
+
+## Genrer
+
+- [ ] `navn.eventyr`: Eventyr
+- [ ] `regel.eventyr`: Et eventyr foregår tit for længe siden. Der er magi, en helt, der skal klare prøver, og ofte tre af noget. Til sidst vinder det gode.
+- [ ] `eksempel.eventyr`: Der var engang en prinsesse, der skulle klare tre prøver.
+- [ ] `kendetegn.eventyr`: en fe, der giver tre ønsker, en drage i et tårn, en fattig dreng, der bliver konge, en trylleformular, tre prøver, helten skal klare, Der var engang
+- [ ] `navn.krimi`: Krimi
+- [ ] `regel.krimi`: En krimi handler om en forbrydelse. En detektiv leder efter spor og mistænkte, og til sidst bliver sagen opklaret.
+- [ ] `eksempel.krimi`: Detektiven fandt et fingeraftryk på vinduet.
+- [ ] `kendetegn.krimi`: et fingeraftryk på vinduet, en detektiv med en lup, en stjålen diamant, tre mistænkte, et alibi, opklaringen til sidst
+- [ ] `navn.gyser`: Gyser
+- [ ] `regel.gyser`: En gyser skal gøre læseren lidt bange. Der er en uhyggelig stemning, mørke, mærkelige lyde og noget ukendt, der kommer tættere på.
+- [ ] `eksempel.gyser`: Midt om natten knirkede døren til kælderen.
+- [ ] `kendetegn.gyser`: en dør, der knirker i mørket, fodtrin på loftet, en skygge bag gardinet, en lyd, ingen kan forklare, et gammelt, tomt hus, noget, der banker på ruden
+- [ ] `navn.sf`: Science fiction
+- [ ] `regel.sf`: Science fiction foregår tit i fremtiden eller ude i rummet. Der er robotter, rumskibe og opfindelser, som ikke findes endnu.
+- [ ] `eksempel.sf`: Rumskibet landede på en planet med to sole.
+- [ ] `kendetegn.sf`: et rumskib på vej til Mars, en robot, der kan tale, en tidsmaskine, en by under havet i år 3000, en hjelm, der kan læse tanker, en planet med to sole
+- [ ] `e1`: Der var engang en fattig pige, der boede i skoven. En dag mødte hun en ræv, der kunne tale. _(Genre: Eventyr)_
+- [ ] `e2`: Prinsen skulle klare tre prøver for at redde sin søster. Den første prøve var at tæmme en drage. _(Genre: Eventyr)_
+- [ ] `e3`: Den gamle kone gav drengen en magisk nød. Når han knækkede den, ville han få et ønske opfyldt. _(Genre: Eventyr)_
+- [ ] `e4`: Kongen lovede halvdelen af sit rige til den, der kunne få prinsessen til at le. Mange prøvede, men ingen lykkedes. _(Genre: Eventyr)_
+- [ ] `e5`: Hver nat kom en hvid hjort til slottet. Den, der fulgte efter den, kom aldrig tilbage, sagde folk. _(Genre: Eventyr)_
+- [ ] `e6`: Da klokken slog tolv, blev guldet til sten igen. Men pigen havde gemt én mønt i sin sko. _(Genre: Eventyr)_
+- [ ] `k1`: Nogen havde stjålet kagen fra bageriet i nat. Detektiven fandt et spor af mel på trappen. _(Genre: Krimi)_
+- [ ] `k2`: Politiet havde tre mistænkte. Men kun én af dem havde nøglen til kælderen. _(Genre: Krimi)_
+- [ ] `k3`: Hvor var du klokken otte i aftes, spurgte kommissæren. Jeg var hjemme, sagde manden, men hans sko var våde. _(Genre: Krimi)_
+- [ ] `k4`: Maleriet var væk, men alarmen havde ikke lydt. Det måtte være en, der kendte koden. _(Genre: Krimi)_
+- [ ] `k5`: Hun lagde de tre breve ved siden af hinanden. Den samme lille plet af blæk sad i hjørnet af dem alle. _(Genre: Krimi)_
+- [ ] `k6`: Gartneren smilede lidt for høfligt. Detektiven skrev noget i sin notesbog og sagde ingenting. _(Genre: Krimi)_
+- [ ] `g1`: Det var mørkt i huset, og strømmen var gået. Så hørte hun fodtrin på loftet. _(Genre: Gyser)_
+- [ ] `g2`: Døren knirkede langsomt op, selvom der ikke var nogen. En kold vind blæste ind i rummet. _(Genre: Gyser)_
+- [ ] `g3`: Hver aften klokken ni bankede det tre gange på ruden. Men vinduet var på tredje sal. _(Genre: Gyser)_
+- [ ] `g4`: Dukken på hylden havde altid kigget mod døren. I morges kiggede den på ham. _(Genre: Gyser)_
+- [ ] `g5`: Hunden ville ikke gå ind i skoven. Den stod bare og knurrede ad noget, ingen andre kunne se. _(Genre: Gyser)_
+- [ ] `g6`: Han tændte lommelygten og lyste ned i kælderen. Trappen var længere, end han huskede. _(Genre: Gyser)_
+- [ ] `s1`: Rumskibet landede på en rød planet. Kaptajnen tog sin hjelm på og åbnede lugen. _(Genre: Science fiction)_
+- [ ] `s2`: Robotten kunne lave mad, gøre rent og tale fem sprog. Men den kunne ikke lide mandage. _(Genre: Science fiction)_
+- [ ] `s3`: I år 3000 boede alle mennesker i byer under havet. Fiskene svømmede forbi vinduerne i skolen. _(Genre: Science fiction)_
+- [ ] `s4`: Maskinen begyndte at summe, og lyset blev blåt. Da hun åbnede øjnene, var der gået hundrede år. _(Genre: Science fiction)_
+- [ ] `s5`: Computeren havde lært at drømme. Hver nat skrev den små digte, som ingen havde bedt om. _(Genre: Science fiction)_
+- [ ] `s6`: Signalet kom fra en stjerne langt borte. Det gentog den samme melodi igen og igen. _(Genre: Science fiction)_
 
 ## Og-ormen
 

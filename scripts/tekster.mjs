@@ -102,6 +102,16 @@ export function alleTekster() {
     });
   }
 
+  // Genrerne i De halve lande (kapitel 7).
+  const gen = laes('ord/genre.json');
+  for (const [g, navn] of Object.entries(gen.navne)) {
+    ud.push({ kilde: 'Genrer', id: `navn.${g}`, tekst: navn });
+    ud.push({ kilde: 'Genrer', id: `regel.${g}`, tekst: gen.regler[g] });
+    ud.push({ kilde: 'Genrer', id: `eksempel.${g}`, tekst: gen.eksempler[g] });
+    ud.push({ kilde: 'Genrer', id: `kendetegn.${g}`, tekst: gen.kendetegn[g].join(', ') });
+  }
+  for (const x of gen.tekster) ud.push({ kilde: 'Genrer', id: x.id, tekst: x.tekst, note: `Genre: ${gen.navne[x.genre]}` });
+
   const og = laes('ord/ogorm.json');
   for (const t of og.tekster) {
     ud.push({

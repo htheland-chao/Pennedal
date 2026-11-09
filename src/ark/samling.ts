@@ -25,6 +25,7 @@ import { TING_IKONER } from '../game/pixel/ting';
 import { STUMMING, TOMORD, VIMS } from '../game/pixel/viskeskov';
 import { FODNOTETAL, FRU_FODNOTE, HAEFTE_KORT, TVIVL, UFAERDIGE_KORT } from '../game/pixel/arkiv';
 import { BREV, hytte, KRUSEDULLE, POSTSNEGL } from '../game/pixel/blaeksoe';
+import { BIP, GRUMSEN, LUP, PRINSESSE, SPOR } from '../game/pixel/halvelande';
 
 export type Element = { navn: string; kort: Tegnkort };
 export type Gruppe = {
@@ -89,6 +90,11 @@ export function grupper(): Gruppe[] {
         { navn: 'Postsneglen', kort: POSTSNEGL },
         { navn: 'et vådt brev', kort: BREV },
         { navn: 'Klattens hytte', kort: hytte() },
+        { navn: 'Prinsesse Hilde', kort: PRINSESSE },
+        { navn: 'Kommissær Lup', kort: LUP },
+        { navn: 'Grumsen', kort: GRUMSEN },
+        { navn: 'Bip', kort: BIP },
+        { navn: 'et spor', kort: SPOR },
         { navn: 'stumming', kort: STUMMING },
         { navn: 'skygge', kort: SKYGGE },
         { navn: 'voksen', kort: voksen('#6a4a8a') },

@@ -1,0 +1,200 @@
+{
+  "navne": {
+    "eventyr": "Eventyr",
+    "krimi": "Krimi",
+    "gyser": "Gyser",
+    "sf": "Science fiction"
+  },
+  "regler": {
+    "eventyr": "Et eventyr foregår tit for længe siden. Der er magi, en helt, der skal klare prøver, og ofte tre af noget. Til sidst vinder det gode.",
+    "krimi": "En krimi handler om en forbrydelse. En detektiv leder efter spor og mistænkte, og til sidst bliver sagen opklaret.",
+    "gyser": "En gyser skal gøre læseren lidt bange. Der er en uhyggelig stemning, mørke, mærkelige lyde og noget ukendt, der kommer tættere på.",
+    "sf": "Science fiction foregår tit i fremtiden eller ude i rummet. Der er robotter, rumskibe og opfindelser, som ikke findes endnu."
+  },
+  "eksempler": {
+    "eventyr": "Der var engang en prinsesse, der skulle klare tre prøver.",
+    "krimi": "Detektiven fandt et fingeraftryk på vinduet.",
+    "gyser": "Midt om natten knirkede døren til kælderen.",
+    "sf": "Rumskibet landede på en planet med to sole."
+  },
+  "kendetegn": {
+    "eventyr": [
+      "en fe, der giver tre ønsker",
+      "en drage i et tårn",
+      "en fattig dreng, der bliver konge",
+      "en trylleformular",
+      "tre prøver, helten skal klare",
+      "Der var engang"
+    ],
+    "krimi": [
+      "et fingeraftryk på vinduet",
+      "en detektiv med en lup",
+      "en stjålen diamant",
+      "tre mistænkte",
+      "et alibi",
+      "opklaringen til sidst"
+    ],
+    "gyser": [
+      "en dør, der knirker i mørket",
+      "fodtrin på loftet",
+      "en skygge bag gardinet",
+      "en lyd, ingen kan forklare",
+      "et gammelt, tomt hus",
+      "noget, der banker på ruden"
+    ],
+    "sf": [
+      "et rumskib på vej til Mars",
+      "en robot, der kan tale",
+      "en tidsmaskine",
+      "en by under havet i år 3000",
+      "en hjelm, der kan læse tanker",
+      "en planet med to sole"
+    ]
+  },
+  "tekster": [
+    {
+      "id": "e1",
+      "genre": "eventyr",
+      "svaerhed": 1,
+      "tekst": "Der var engang en fattig pige, der boede i skoven. En dag mødte hun en ræv, der kunne tale."
+    },
+    {
+      "id": "e2",
+      "genre": "eventyr",
+      "svaerhed": 1,
+      "tekst": "Prinsen skulle klare tre prøver for at redde sin søster. Den første prøve var at tæmme en drage."
+    },
+    {
+      "id": "e3",
+      "genre": "eventyr",
+      "svaerhed": 2,
+      "tekst": "Den gamle kone gav drengen en magisk nød. Når han knækkede den, ville han få et ønske opfyldt."
+    },
+    {
+      "id": "e4",
+      "genre": "eventyr",
+      "svaerhed": 2,
+      "tekst": "Kongen lovede halvdelen af sit rige til den, der kunne få prinsessen til at le. Mange prøvede, men ingen lykkedes."
+    },
+    {
+      "id": "e5",
+      "genre": "eventyr",
+      "svaerhed": 3,
+      "tekst": "Hver nat kom en hvid hjort til slottet. Den, der fulgte efter den, kom aldrig tilbage, sagde folk."
+    },
+    {
+      "id": "e6",
+      "genre": "eventyr",
+      "svaerhed": 3,
+      "tekst": "Da klokken slog tolv, blev guldet til sten igen. Men pigen havde gemt én mønt i sin sko."
+    },
+    {
+      "id": "k1",
+      "genre": "krimi",
+      "svaerhed": 1,
+      "tekst": "Nogen havde stjålet kagen fra bageriet i nat. Detektiven fandt et spor af mel på trappen."
+    },
+    {
+      "id": "k2",
+      "genre": "krimi",
+      "svaerhed": 1,
+      "tekst": "Politiet havde tre mistænkte. Men kun én af dem havde nøglen til kælderen."
+    },
+    {
+      "id": "k3",
+      "genre": "krimi",
+      "svaerhed": 2,
+      "tekst": "Hvor var du klokken otte i aftes, spurgte kommissæren. Jeg var hjemme, sagde manden, men hans sko var våde."
+    },
+    {
+      "id": "k4",
+      "genre": "krimi",
+      "svaerhed": 2,
+      "tekst": "Maleriet var væk, men alarmen havde ikke lydt. Det måtte være en, der kendte koden."
+    },
+    {
+      "id": "k5",
+      "genre": "krimi",
+      "svaerhed": 3,
+      "tekst": "Hun lagde de tre breve ved siden af hinanden. Den samme lille plet af blæk sad i hjørnet af dem alle."
+    },
+    {
+      "id": "k6",
+      "genre": "krimi",
+      "svaerhed": 3,
+      "tekst": "Gartneren smilede lidt for høfligt. Detektiven skrev noget i sin notesbog og sagde ingenting."
+    },
+    {
+      "id": "g1",
+      "genre": "gyser",
+      "svaerhed": 1,
+      "tekst": "Det var mørkt i huset, og strømmen var gået. Så hørte hun fodtrin på loftet."
+    },
+    {
+      "id": "g2",
+      "genre": "gyser",
+      "svaerhed": 1,
+      "tekst": "Døren knirkede langsomt op, selvom der ikke var nogen. En kold vind blæste ind i rummet."
+    },
+    {
+      "id": "g3",
+      "genre": "gyser",
+      "svaerhed": 2,
+      "tekst": "Hver aften klokken ni bankede det tre gange på ruden. Men vinduet var på tredje sal."
+    },
+    {
+      "id": "g4",
+      "genre": "gyser",
+      "svaerhed": 2,
+      "tekst": "Dukken på hylden havde altid kigget mod døren. I morges kiggede den på ham."
+    },
+    {
+      "id": "g5",
+      "genre": "gyser",
+      "svaerhed": 3,
+      "tekst": "Hunden ville ikke gå ind i skoven. Den stod bare og knurrede ad noget, ingen andre kunne se."
+    },
+    {
+      "id": "g6",
+      "genre": "gyser",
+      "svaerhed": 3,
+      "tekst": "Han tændte lommelygten og lyste ned i kælderen. Trappen var længere, end han huskede."
+    },
+    {
+      "id": "s1",
+      "genre": "sf",
+      "svaerhed": 1,
+      "tekst": "Rumskibet landede på en rød planet. Kaptajnen tog sin hjelm på og åbnede lugen."
+    },
+    {
+      "id": "s2",
+      "genre": "sf",
+      "svaerhed": 1,
+      "tekst": "Robotten kunne lave mad, gøre rent og tale fem sprog. Men den kunne ikke lide mandage."
+    },
+    {
+      "id": "s3",
+      "genre": "sf",
+      "svaerhed": 2,
+      "tekst": "I år 3000 boede alle mennesker i byer under havet. Fiskene svømmede forbi vinduerne i skolen."
+    },
+    {
+      "id": "s4",
+      "genre": "sf",
+      "svaerhed": 2,
+      "tekst": "Maskinen begyndte at summe, og lyset blev blåt. Da hun åbnede øjnene, var der gået hundrede år."
+    },
+    {
+      "id": "s5",
+      "genre": "sf",
+      "svaerhed": 3,
+      "tekst": "Computeren havde lært at drømme. Hver nat skrev den små digte, som ingen havde bedt om."
+    },
+    {
+      "id": "s6",
+      "genre": "sf",
+      "svaerhed": 3,
+      "tekst": "Signalet kom fra en stjerne langt borte. Det gentog den samme melodi igen og igen."
+    }
+  ]
+}

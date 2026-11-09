@@ -1,5 +1,5 @@
 import { useMemo, useRef, useState } from 'react';
-import { fortaellersaetninger, historiebro, korrekturData, ogorm, raaber, rimord, stumme, t, type BevisjagtTrin, type OpgaveTrin } from '../content';
+import { fortaellersaetninger, genreData, historiebro, korrekturData, ogorm, raaber, rimord, stumme, t, type BevisjagtTrin, type OpgaveTrin } from '../content';
 import type { Haendelse, Niveau } from '../engine/tilpasning';
 import { lavHviskeOpgave, type HviskeOpgave as HOpgave } from '../mechanics/hviske';
 import { vaelgOgTekst } from '../mechanics/ogorm';
@@ -12,6 +12,8 @@ import { lavKlassificer, type KlassificerSaetning } from '../mechanics/fortaelle
 import { SynsvinkelOpgave } from '../ui/SynsvinkelOpgave';
 import { FEJL_FAERDIGHED, FEJL_TYPER, vaelgTekst, type FejlType, type KorrekturTekst } from '../mechanics/korrektur';
 import { KorrekturOpgave } from '../ui/KorrekturOpgave';
+import { GENRER, lavGenreOpgave, type GenreOpgave as GOpgave } from '../mechanics/genre';
+import { GenreOpgave } from '../ui/GenreOpgave';
 import { OpgaveRamme } from '../ui/OpgaveRamme';
 import { HviskeOpgave } from '../ui/HviskeOpgave';
 import { OgormOpgave } from '../ui/OgormOpgave';
@@ -31,7 +33,7 @@ type Faelles = {
 };
 
 /** Ord og tekster, der er brugt i denne session, så de ikke kommer igen med det samme. */
-const brugt = { hviske: [] as string[], og: [] as string[], bro: [] as string[], raab: [] as string[], rim: [] as string[], fort: [] as string[], korrektur: [] as string[] };
+const brugt = { hviske: [] as string[], og: [] as string[], bro: [] as string[], raab: [] as string[], rim: [] as string[], fort: [] as string[], korrektur: [] as string[], genre: [] as string[] };
 
 function husk(liste: string[], id: string, maks = 8) {
   liste.push(id);
@@ -238,7 +240,40 @@ function KorrekturVindue({ trin, niveau, niveauFor, loeste, onSvar, onLoest, onP
   );
 }
 
+/** De halve lande (kapitel 7): find genren i et tekststykke, eller find det, der hører til trinnets genre. Reglen følger genren. */
+function GenreVindue({ trin, niveau, loeste, onSvar, onLoest, onPause }: Faelles & { trin: OpgaveTrin }) {
+  const [o, setO] = useState<GOpgave>(() => lavGenreOpgave(genreData, loeste, trin.genre, niveau, Math.random, brugt.genre));
+  const niveauRef = useRef(niveau);
+  niveauRef.current = niveau;
+  // Et tekststykke får den samlede regel om genrer, så reglen ikke afslører svaret. Et kendetegn får genrens egen regel.
+  const klassificer = o.art === 'klassificer';
+  const andre = useMemo(
+    () => (klassificer ? [t('rim.regel'), t('fortaeller.regel')] : GENRER.filter((g) => g !== o.genre).map((g) => genreData.regler[g])),
+    [o.genre, klassificer],
+  );
+  return (
+    <OpgaveRamme
+      titel={t('genre.titel')}
+      antal={trin.antal}
+      loeste={loeste}
+      regel={klassificer ? t('genre.regel') : genreData.regler[o.genre]}
+      eksempel={klassificer ? t('genre.eksempel') : genreData.eksempler[o.genre]}
+      andreRegler={andre}
+      onSvar={onSvar}
+      onPause={onPause}
+      onLoest={() => {
+        husk(brugt.genre, o.id, 12);
+        onLoest();
+        setO(lavGenreOpgave(genreData, loeste + 1, trin.genre, niveauRef.current, Math.random, brugt.genre));
+      }}
+    >
+      {(api) => <GenreOpgave key={`${o.id}-${loeste}`} opgave={o} api={api} />}
+    </OpgaveRamme>
+  );
+}
+
 export function OpgaveVindue(props: Faelles & { trin: OpgaveTrin }) {
+  if (props.trin.mekanik === 'genre') return <GenreVindue {...props} />;
   if (props.trin.mekanik === 'korrektur') return <KorrekturVindue {...props} />;
   if (props.trin.mekanik === 'synsvinkel') return <SynsvinkelVindue {...props} />;
   if (props.trin.mekanik === 'rim') return <RimVindue {...props} />;

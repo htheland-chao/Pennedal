@@ -1,6 +1,6 @@
 /** Tegner platformbaner set fra siden: byens tage om natten og Viskeskovens hvide sti. Kræver en browser. */
 import { BFELT, erFast, type Bane } from '../bane';
-import { hash, lerred } from './lerred';
+import { halvtTegnet, hash, lerred } from './lerred';
 import type { Tegnkort } from './sprites';
 
 const hx = (s: string): [number, number, number] => [parseInt(s.slice(1, 3), 16), parseInt(s.slice(3, 5), 16), parseInt(s.slice(5, 7), 16)];
@@ -21,6 +21,7 @@ export function tegnBane(bane: Bane, tema = ''): HTMLCanvasElement {
   if (tema === 'rimbjerg') return tegnBjergbane(bane);
   if (tema === 'arkiv') return tegnArkivbane(bane);
   if (tema === 'blaeksoe') return tegnSoebane(bane);
+  if (tema === 'halve') return halvtTegnet(tegnSkovbane(bane), 0.5);
   const W = bane.bredde * BFELT;
   const H = bane.hoejde * BFELT;
   const c = lerred(W, H);
@@ -498,4 +499,9 @@ export function tegnSoeBaggrund(bredde: number, hoejde: number): HTMLCanvasEleme
   g.fillStyle = '#0f0e1c';
   g.fillRect(0, bund, bredde, hoejde - bund);
   return c;
+}
+
+/** Baggrunden over den halve bro: skovens bleg baggrund, men kun halvt tegnet. */
+export function tegnHalvBaggrund(bredde: number, hoejde: number): HTMLCanvasElement {
+  return halvtTegnet(tegnSkovBaggrund(bredde, hoejde), 0.55);
 }

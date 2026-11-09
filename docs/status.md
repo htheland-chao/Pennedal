@@ -6,7 +6,7 @@ Regler og stak står i `CLAUDE.md`. Historien står i `docs/historie.md`, grafik
 
 ## Hvad der findes
 
-- **Kapitel 1-6 kan spilles.** Kapitel 1 (Pennedal og kælderen), kapitel 2 (byen og trykkeriet med bane og escape room), kapitel 3 (Viskeskoven med turbaserede kampe, platformbanen med viskede planker, sidemissionen Halvsangen, den lange hvide sti og to skår), kapitel 4 (Rimbjerget med Rimfod, ekkostenene, kampen i Ekkokløften, digtet med rim og rytme, Rimfods sætning, den iskolde kam og to skår), kapitel 5 (Fodnoternes kælder med Fru Fodnote, bøgerne der sorteres efter fortæller, kartoteksskabet som escape room, kampen mod Den Tvivlende Sætning, tilbageblikket Skyggen bliver tegnet, twist 1, sidemissionen med fodnotetallene, De høje reoler og to skår) og kapitel 6 (Blæksøen med Klattens hytte, korrektur af Klattens tekster, twist 2 med Æseløre, kampen mod Krusedullerne med Klatten på holdet, Postsneglens breve, stenene over søen og to skår).
+- **Kapitel 1-7 kan spilles.** Kapitel 1 (Pennedal og kælderen), kapitel 2 (byen og trykkeriet med bane og escape room), kapitel 3 (Viskeskoven med turbaserede kampe, platformbanen med viskede planker, sidemissionen Halvsangen, den lange hvide sti og to skår), kapitel 4 (Rimbjerget med Rimfod, ekkostenene, kampen i Ekkokløften, digtet med rim og rytme, Rimfods sætning, den iskolde kam og to skår), kapitel 5 (Fodnoternes kælder med Fru Fodnote, bøgerne der sorteres efter fortæller, kartoteksskabet som escape room, kampen mod Den Tvivlende Sætning, tilbageblikket Skyggen bliver tegnet, twist 1, sidemissionen med fodnotetallene, De høje reoler og to skår) og kapitel 6 (Blæksøen med Klattens hytte, korrektur af Klattens tekster, twist 2 med Æseløre, kampen mod Krusedullerne med Klatten på holdet, Postsneglens breve, stenene over søen og to skår) og kapitel 7 (De halve lande med fire genrer, fristelsen, tilbageblikket Nogen ved skuffen, kampen, hvor holdet afhænger af elevens valg, Kommissær Lups spor, Den halve bro og to skår).
 - **Intro, tilbageblik, taske, turbaserede kampe, Og-orm, avatardesigner med pixelgrafik** og baggrundsmusik pr. tema.
 - **Layout** (9. november 2026): spillet fylder skærmen uden rammer. Opgaven står i et lille kort øverst til venstre, taske og menu i hjørnet, Undersøg-knappen nederst i midten. Dialogen er en tekstboks nederst over spillet, menuen glider ind fra højre.
 - **Animationer** (9. november 2026): Æseløre folder sig ud af skuffen og flagrer frem. Portalen fra kælderen til Pennedal (hvirvel, fald, åbning med blade). Et blækstrøg ved alle andre stedskift. Kampen har animationer for hvert slag, angreb, ting og evne (`src/ui/kampEffekter.ts` og `.fx-*` i styles.css).
@@ -20,10 +20,12 @@ Regler og stak står i `CLAUDE.md`. Historien står i `docs/historie.md`, grafik
 - **Animationer** (9. november 2026, fortsat): ord falder på plads, når et væsen bliver roligt. En ny ting flyver ned i tasken, og tasken hopper. Tågebanker og en tynd regn i Viskeskoven.
 - **Kampe** (3. november 2026): turbaserede som i gamle rollespil, med hold, skade, svagheder, hjælpernes evner, ting fra tasken og blødt nederlag. Se `docs/historie.md` under Kampe.
 - **Lyd:** Gemini-stemmer pr. figur i `src/content/stemmer.json`. Stemmerne kan få rumklang, mens de afspilles (`src/ui/rumklang.ts`, profiler under `rum` i `stemmer.json`): hviskestemmen, introen og tilbageblik. Klippene er uberørte, og rummet kan slås fra i indstillingerne. "Mindre uhygge" halverer det. Aldrig på opgaver, feedback og enkeltord, fordi det gør tale sværere at forstå.
-- **Test og værktøj:** Hop direkte til et sted med `?hop` (se README). `?debug=1` viser billeder pr. sekund. `?lyd=1` er korrektursiden for lyd.
+- **Test og værktøj:** Hop direkte til et sted med `?hop` (se README). Med `&valg=aeseloere.tilgivet&venlighed=1` kan man hoppe ind med valg og venlighed (kun til test, gemmes aldrig). `?debug=1` viser billeder pr. sekund. `?lyd=1` er korrektursiden for lyd.
 - **Grafikark:** `npm run grafik:ark` tegner alle pixelfigurer på én side, gemmer billeder i `test-results/ark/` og skriver advarsler om størrelse og farver. Nye pixelfigurer skal tilføjes i `src/ark/samling.ts`, så de kommer med.
 
 ## Beslutninger (Henrik)
+
+- 9. november 2026: Kapitel 7 har fire genrer (eventyr, krimi, gyser, science fiction) og bruger `laes.forstaaelse` (ingen ny gemmekode). Hjælperne går kun midlertidigt: Æseløre går med Den Ufærdige, hvis eleven ikke tilgav ham, og Klatten er kun med, hvis eleven var venlig. Ingen straffes i opgaverne. Hviskningen "Og så ..." er fjernet fra introen.
 
 - 9. november 2026: Kapitel 6 får korrektur som "find og vælg" (tryk på fejlen, vælg blandt tre stavemåder). Klattens fejl er stumme bogstaver, dobbeltkonsonant, udsagnsord i datid og navneord i bestemt flertal. Kapitlet har en kort kamp, hvor Klatten er med, hvis eleven har været venlig.
 
@@ -43,7 +45,8 @@ Regler og stak står i `CLAUDE.md`. Historien står i `docs/historie.md`, grafik
 - **Lyd:** Den nye Og-orm-instruks (`ogorm.klip.instruks`) mangler sit klip. Tilføj den til testen i `src/ui/oplaesning.test.ts`, når lydjobbet har lavet den.
 
 - **Lyd:** Mange klip mangler stadig. Status: `npm run lyd:status` eller `public/lyd/manifest.json`. Googles dagskvote på 100 klip gør, at det tager flere dage.
-- **Kapitel 7-8** står i `docs/historie.md`.
+- **Kapitel 8** står i `docs/historie.md`. Hjælpere, der gik i kapitel 7 (Æseløre uden tilgivelse), skal komme tilbage i kapitel 8.
+- **Kapitel 7, nyt og ikke set af Henrik:** De halve lande (pletter, der kun er tegnet med blyant), fire nye figurer (Prinsesse Hilde, Kommissær Lup, Grumsen og Bip) med nye stemmer, sangen `halve` og banen Den halve bro. Genreteksterne står i `src/content/ord/genre.json`. Klippene mangler, til lydjobbet har kørt.
 - **Kapitel 6, nyt og ikke set af Henrik:** grafikken til Blæksøen (sort sø, Klattens hytte, Krusedullerne, Postsneglen), banen Stenene over Blæksøen, kampens baggrund og sangene `blaeksoe` og `hytte`. Postsneglen (stemmen Gacrux) og Krusedullerne (Sadachbia) er nye stemmer, og kapitel 6-klippene mangler, til lydjobbet har kørt. Korrekturopgavens fejl (16 tekster) bør ses igennem af Henrik: står i `src/content/ord/korrektur.json` og i korrekturlisten.
 - **Kapitel 5, nyt og ikke set af Henrik:** grafikken til arkivet (reoler, Fru Fodnote, Den Tvivlende Sætning, Den Ufærdiges blege øjne i mørket), banen De høje reoler, kampens baggrund og sangen `arkiv`. Fru Fodnote (stemmen Pulcherrima) og Den Tvivlende Sætning (Puck) er nye stemmer, og alle kapitel 5-klip mangler, til lydjobbet har kørt.
 - **Fru Fodnote kommenterer gemmekoden** (fra `docs/historie.md`) er ikke bygget.
@@ -57,6 +60,7 @@ Regler og stak står i `CLAUDE.md`. Historien står i `docs/historie.md`, grafik
 - Hvordan rumklangen lyder (Henrik skal lytte og vurdere mængden) og dens processorforbrug på Chromebook Gen 2. Målt i Chrome: lyden går gennem rummet og klinger ud efter klippet.
 - Kapitel 5 er gennemspillet i Chrome (`e2e/kapitel5.spec.ts`, med sidemission og udflugt), men ikke på Chromebook. Banen De høje reoler er kun tjekket med `kanKlares`, ikke spillet med tastatur.
 - Kapitel 6 er gennemspillet i Chrome (`e2e/kapitel6.spec.ts`): venlig vej med Klatten på holdet og vejen, hvor man sniger sig ind. Ikke på Chromebook. Banen Stenene over Blæksøen er kun tjekket med `kanKlares`.
+- Kapitel 7 er gennemspillet i Chrome (`e2e/kapitel7.spec.ts`) ad begge veje. Ikke på Chromebook. Den halve bro er kun tjekket med `kanKlares`.
 - At lydjobbet selv lægger spillet ud, når det har lavet klip, ved den planlagte kørsel.
 
 ## Kendte fejl og faldgruber

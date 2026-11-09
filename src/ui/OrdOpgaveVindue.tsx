@@ -1,6 +1,8 @@
 import { useMemo, useState } from 'react';
-import { fortaellersaetninger, korrekturData, rimord, synonymer, t, type OrdOpgaveArt } from '../content';
+import { fortaellersaetninger, genreData, korrekturData, rimord, synonymer, t, type OrdOpgaveArt } from '../content';
 import { lavKrusedulleOpgave, type FejlType } from '../mechanics/korrektur';
+import { lavGenreOpgave } from '../mechanics/genre';
+import { genreEtiket, genreFejl, genreSpoergsmaal } from './GenreOpgave';
 import { helSaetning, lavFortsaet } from '../mechanics/fortaeller';
 import { lavTomordOpgave } from '../mechanics/kamp';
 import { lavOpgaveAfArt } from '../mechanics/rim';
@@ -40,6 +42,10 @@ type Visning = {
   eksempel: string;
   /** Den færdighed, svaret tæller på, hvis den afhænger af opgaven. */
   faerdighed?: string;
+  /** Teksten på en svarknap, hvis den ikke er selve svaret (genrernes navne). */
+  etiket?: (m: string) => string;
+  /** Vis ikke ordet (spørgsmålet står allerede i spoergsmaal). */
+  skjulOrd?: boolean;
 };
 
 function lav(art: OrdOpgaveArt, niveau: number, rnd: () => number, brugt: string[]): Visning {
@@ -56,6 +62,23 @@ function lav(art: OrdOpgaveArt, niveau: number, rnd: () => number, brugt: string
       fejl: (valgt) => t('kamp.tomordet.fejl', { valgt, ord: o.ord }),
       regel: t('kamp.tomordet.regel'),
       eksempel: t('kamp.tomordet.eksempel'),
+    };
+  }
+  if (art === 'genre') {
+    // De halve lande (kapitel 7): skiftevis et tekststykke og et kendetegn.
+    const o = lavGenreOpgave(genreData, brugt.length, undefined, niveau, rnd, brugt);
+    return {
+      id: o.id,
+      ord: o.art === 'klassificer' ? o.tekst : genreSpoergsmaal(o),
+      spoergsmaal: genreSpoergsmaal(o),
+      svar: o.svar,
+      muligheder: [...o.muligheder],
+      etiket: (m) => genreEtiket(o, m),
+      rigtig: t('genre.rigtig', { genre: genreData.navne[o.genre] }),
+      fejl: (valgt) => genreFejl(o, valgt),
+      regel: o.art === 'klassificer' ? t('genre.regel') : genreData.regler[o.genre],
+      eksempel: o.art === 'klassificer' ? t('genre.eksempel') : genreData.eksempler[o.genre],
+      skjulOrd: o.art === 'kendetegn',
     };
   }
   if (art === 'stavning') {
@@ -152,6 +175,8 @@ export function OrdOpgaveVindue({ titel, intro, antal, niveau, art = 'synonym', 
           <mark>{opgave.saetning.vist}</mark>
           {opgave.saetning.efter}
         </p>
+      ) : opgave.skjulOrd ? (
+        <span data-opgave-id={opgave.id} data-opgave-art={art} hidden />
       ) : (
         <p className="kamp-saetning" data-opgave-id={opgave.id} data-opgave-art={art}>
           <mark>{opgave.ord}</mark>
@@ -170,7 +195,7 @@ export function OrdOpgaveVindue({ titel, intro, antal, niveau, art = 'synonym', 
             disabled={rigtigt || forkerte.includes(m)}
             onClick={() => svar(m)}
           >
-            {m}
+            {opgave.etiket ? opgave.etiket(m) : m}
           </button>
         ))}
       </div>

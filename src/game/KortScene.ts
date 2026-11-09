@@ -4,7 +4,7 @@ import type { StedObjekt } from '../content';
 import type { Avatar } from '../engine/gem';
 import { erFastTegn, FELT, feltMidte, feltVed, felterVed, findVej, laesKort, type Felt, type Kort } from './kort';
 import { bordflade, erInde, HOLM, KARTOTEK, KASSE, LOGBOG, PLANTE, PORT, PRESSE, reol, SPRINGVAND, STIGE, tegnRum, trappe, vindueslys } from './pixel/inde';
-import { belysning, blegt, hash, lavLys, lavSkygge, lysOpsaetning, lavTaagebanker, lavVignet, partikelBilleder, sne, tegnGrund, tegnkortTilLerred, tegnTraeskygger, traePladser, tegnVand, VARMT, type Farve } from './pixel/lerred';
+import { belysning, blegt, halvtTegnet, hash, lavLys, lavSkygge, lysOpsaetning, lavTaagebanker, lavVignet, partikelBilleder, sne, tegnGrund, tegnkortTilLerred, tegnTraeskygger, traePladser, tegnVand, VARMT, type Farve } from './pixel/lerred';
 import { aande, gangRamme, hvileTilstand, lukOejne } from './pixel/liv';
 import { indenfor, partikelTrin, partiklerFor, stedTone, vignetStyrke, type Partikel } from './stemning';
 import { avatarPixel, BLADE, FUGL, fyrtaarn, KLATTEN, LANTERNE, moerkere, papirtrae, PIL, PLANKE, SKILT, STOLPE, TALEBOBLE, voksen, type Retning, type Tegnkort } from './pixel/sprites';
@@ -12,6 +12,7 @@ import { GRENPORT, HALVFUGL, ORDBLAD, STUMMING, TOMORD, VIMS } from './pixel/vis
 import { DIGTSTEN, EKKO, granMedSne, RIMFOD } from './pixel/rimbjerg';
 import { FODNOTETAL, FRU_FODNOTE, HAEFTE_KORT, TVIVL, UFAERDIGE_KORT } from './pixel/arkiv';
 import { BREV, hytte, KRUSEDULLE, POSTSNEGL } from './pixel/blaeksoe';
+import { BIP, GRUMSEN, LUP, PRINSESSE, SPOR } from './pixel/halvelande';
 import type { VerdenData, VerdenKroge } from './typer';
 
 /**
@@ -30,15 +31,15 @@ export const SKALA = 1;
 export const skarpZoom = (z: number) => Math.max(1, Math.floor(z + 1e-6));
 const FART = 70; // pixel pr. sekund i pixelverdenen
 const NAER = 24;
-const FASTE_FORMER = new Set(['gnom', 'skilt', 'person', 'skab', 'port', 'kasse', 'presse', 'borger', 'doer', 'stige', 'vims', 'tomord', 'stumming', 'halvfugl', 'grenport', 'rimfod', 'ekko', 'digtsten', 'fodnote', 'tvivl', 'ufaerdige', 'hytte', 'snegl', 'krusedulle', 'fugl']);
+const FASTE_FORMER = new Set(['gnom', 'skilt', 'person', 'skab', 'port', 'kasse', 'presse', 'borger', 'doer', 'stige', 'vims', 'tomord', 'stumming', 'halvfugl', 'grenport', 'rimfod', 'ekko', 'digtsten', 'fodnote', 'tvivl', 'ufaerdige', 'hytte', 'snegl', 'krusedulle', 'fugl', 'prinsesse', 'lup', 'grumsen', 'bip']);
 /** Figurer med deres eget pixelbillede i stedet for en almindelig voksen. */
 const PERSONER: Record<string, Tegnkort> = { holm: HOLM };
 /** Hvor højt over feltets midte pilen svæver for hver form. */
-const PIL_HOEJDE: Record<string, number> = { gnom: 20, person: 27, skilt: 16, bog: 12, doer: 22, skab: 24, port: 22, kasse: 14, presse: 16, stige: 24, vims: 20, tomord: 18, stumming: 18, halvfugl: 16, ordblad: 10, grenport: 16, rimfod: 26, ekko: 20, digtsten: 20, fodnote: 16, tvivl: 17, fodnotetal: 9, haefte: 10, ufaerdige: 23, hytte: 38, snegl: 16, brev: 9, krusedulle: 18, fugl: 12 };
+const PIL_HOEJDE: Record<string, number> = { gnom: 20, person: 27, skilt: 16, bog: 12, doer: 22, skab: 24, port: 22, kasse: 14, presse: 16, stige: 24, vims: 20, tomord: 18, stumming: 18, halvfugl: 16, ordblad: 10, grenport: 16, rimfod: 26, ekko: 20, digtsten: 20, fodnote: 16, tvivl: 17, fodnotetal: 9, haefte: 10, ufaerdige: 23, hytte: 38, snegl: 16, brev: 9, krusedulle: 18, fugl: 12, prinsesse: 18, lup: 17, grumsen: 17, bip: 17, spor: 10 };
 
 type Lyskilde = { x: number; y: number; billede: HTMLCanvasElement };
 /** Former, der lever: de blinker og trækker vejret, når de står stille. Hvilke tegn i tegnkortet der er øjne. */
-const LEVENDE: Record<string, string[]> = { gnom: ['O', 'o'], person: ['E'], borger: ['E'], vims: ['E'], tomord: ['E'], stumming: ['E'], halvfugl: ['E'], rimfod: ['E'], ekko: ['E'], fodnote: ['E'], tvivl: ['E'], snegl: ['E'], krusedulle: ['E'] };
+const LEVENDE: Record<string, string[]> = { gnom: ['O', 'o'], person: ['E'], borger: ['E'], vims: ['E'], tomord: ['E'], stumming: ['E'], halvfugl: ['E'], rimfod: ['E'], ekko: ['E'], fodnote: ['E'], tvivl: ['E'], snegl: ['E'], krusedulle: ['E'], prinsesse: ['E'], lup: ['E'], grumsen: ['E'], bip: ['B'] };
 
 export class KortScene extends Phaser.Scene {
   private data_!: VerdenData;
@@ -191,7 +192,7 @@ export class KortScene extends Phaser.Scene {
     // Jorden og vandet for dette sted. Indendørs: gulv og vægge.
     const grund0 = inde ? tegnRum(this.kort, tema === 'kaelder' || tema === 'arkiv' ? 'sten' : 'trae') : tegnGrund(this.kort);
     if (!inde) tegnTraeskygger(grund0, this.kort, [22, 26, 30, 34].map((h) => Math.round(h * 0.36) * 2 + 1));
-    const grund = tema === 'viskeskov' ? blegt(grund0, 0.8) : tema === 'rimbjerg' ? sne(grund0) : grund0;
+    const grund = tema === 'viskeskov' ? blegt(grund0, 0.8) : tema === 'rimbjerg' ? sne(grund0) : tema === 'halve' ? halvtTegnet(grund0) : grund0;
     this.add.image(0, 0, this.tekstur(`px-grund-${tema}`, grund, true)).setOrigin(0).setDepth(-100000);
     for (let i = 0; i < 3; i++) this.tekstur(`px-vand-${tema}-${i}`, tegnVand(this.kort, i, tema), true);
     this.vand = this.add.image(0, 0, `px-vand-${tema}-0`).setOrigin(0).setDepth(-99999);
@@ -257,13 +258,18 @@ export class KortScene extends Phaser.Scene {
       else if (o.form === 'brev') noegle = this.tekstur('px-brev', BREV);
       else if (o.form === 'krusedulle') noegle = this.tekstur('px-krusedulle', KRUSEDULLE);
       else if (o.form === 'fugl') noegle = 'px-fugl';
+      else if (o.form === 'prinsesse') noegle = this.tekstur('px-prinsesse', PRINSESSE);
+      else if (o.form === 'lup') noegle = this.tekstur('px-lup', LUP);
+      else if (o.form === 'grumsen') noegle = this.tekstur('px-grumsen', GRUMSEN);
+      else if (o.form === 'bip') noegle = this.tekstur('px-bip', BIP);
+      else if (o.form === 'spor') noegle = this.tekstur('px-spor', SPOR);
       else if (o.form === 'borger') noegle = this.tekstur(`px-person-${o.farve}`, voksen(o.farve, o.lys ? '#3a2a20' : '#6b4a2b'));
       else if (o.form === 'bog') {
         // Bogen ligger fladt på disken og tegnes oven på den.
         billeder.push(this.add.image(o.felt[0] * FELT + 2, o.felt[1] * FELT + 2, this.tekstur('px-logbog', LOGBOG)).setOrigin(0).setDepth(o.felt[1] * FELT + 16));
       }
       if (noegle) {
-        if (['gnom', 'person', 'borger', 'vims', 'tomord', 'stumming', 'fodnote', 'tvivl', 'snegl', 'krusedulle', 'fugl'].includes(o.form)) billeder.push(this.add.image(midte.x, midte.y, 'px-skygge').setOrigin(0.5, 0.5).setDepth(midte.y - 1));
+        if (['gnom', 'person', 'borger', 'vims', 'tomord', 'stumming', 'fodnote', 'tvivl', 'snegl', 'krusedulle', 'fugl', 'prinsesse', 'lup', 'grumsen', 'bip'].includes(o.form)) billeder.push(this.add.image(midte.x, midte.y, 'px-skygge').setOrigin(0.5, 0.5).setDepth(midte.y - 1));
         const hoved = this.add.image(midte.x, midte.y, noegle).setOrigin(0.5, 1).setDepth(midte.y).setData('y0', midte.y);
         billeder.push(hoved);
         const oejne = LEVENDE[o.form];
@@ -375,6 +381,10 @@ export class KortScene extends Phaser.Scene {
     if (o.form === 'tvivl') return TVIVL;
     if (o.form === 'snegl') return POSTSNEGL;
     if (o.form === 'krusedulle') return KRUSEDULLE;
+    if (o.form === 'prinsesse') return PRINSESSE;
+    if (o.form === 'lup') return LUP;
+    if (o.form === 'grumsen') return GRUMSEN;
+    if (o.form === 'bip') return BIP;
     return null;
   }
 

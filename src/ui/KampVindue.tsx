@@ -59,6 +59,8 @@ type Props = {
   taske: readonly string[];
   /** Klatten er med på holdet (kapitel 6 og frem, når eleven har været venlig mod ham). */
   klattenMed?: boolean;
+  /** Hjælpere, der ikke er med i denne kamp (kapitel 7: Æseløre, hvis eleven ikke tilgav ham). */
+  uden?: readonly HjaelperId[];
   onSvar: (faerdighed: string, rigtigt: boolean, forsoeg: number) => Tilpasning;
   onFremskridt: (givet: number) => void;
   onVundet: () => void;
@@ -157,12 +159,12 @@ function piletaster(e: KeyboardEvent<HTMLElement>) {
 /** Nogle små stykker blæk eller lys, der flyver ud fra et punkt. Retningerne er faste, så det ser ens ud hver gang. */
 const STYKKER = Array.from({ length: 10 }, (_, i) => ({ a: (i / 10) * 360 + (i % 2) * 17, r: 0.7 + (i % 3) * 0.25 }));
 
-export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, taske, klattenMed, onSvar, onFremskridt, onVundet, onPause }: Props) {
+export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, taske, klattenMed, uden = [], onSvar, onFremskridt, onVundet, onPause }: Props) {
   const { indstillinger } = useApp();
   const daempet = indstillinger.mindreUhygge;
   const vaesner = trin.vaesner ?? [trin.vaesen];
   const hjaelpere: HjaelperId[] = [
-    ...(trin.hold ?? ['aeseloere', ...(trin.hjaelper === 'vims' ? (['vims'] as const) : [])]),
+    ...(trin.hold ?? ['aeseloere', ...(trin.hjaelper === 'vims' ? (['vims'] as const) : [])]).filter((h) => !uden.includes(h)),
     ...(klattenMed ? (['klatten'] as const) : []),
   ];
   const slagListe = trin.slag ?? SLAG;

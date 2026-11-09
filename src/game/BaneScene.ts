@@ -2,7 +2,7 @@ import Phaser from 'phaser';
 import type { Avatar } from '../engine/gem';
 import { BFELT, erFare, erFast, erPlanke, erVisket, find, FYSIK, laesBane, viskedeGrupper, type Bane } from './bane';
 import { SKALA, VIS_B, VIS_H } from './KortScene';
-import { checkpoint, MAAL, NY_PLANKE, tegnBane, tegnBjergBaggrund, tegnByBaggrund, tegnSkovBaggrund, tegnTaage, VARDE, tegnArkivBaggrund, tegnSoeBaggrund } from './pixel/banetegn';
+import { checkpoint, MAAL, NY_PLANKE, tegnBane, tegnBjergBaggrund, tegnByBaggrund, tegnSkovBaggrund, tegnTaage, VARDE, tegnArkivBaggrund, tegnHalvBaggrund, tegnSoeBaggrund } from './pixel/banetegn';
 import { ekkosten } from './pixel/rimbjerg';
 import { GRENPORT, ordsten } from './pixel/viskeskov';
 import { tegnkortTilLerred } from './pixel/lerred';
@@ -129,7 +129,7 @@ export class BaneScene extends Phaser.Scene {
 
     // Baggrunden er halvt så bred plus skærmen, fordi den flytter sig med halv fart.
     this.add
-      .image(0, 0, this.tekstur(`px-bane-bag-${tema}`, (skov ? tegnSkovBaggrund : bjerg ? tegnBjergBaggrund : tema === 'arkiv' ? tegnArkivBaggrund : tema === 'blaeksoe' ? tegnSoeBaggrund : tegnByBaggrund)(Math.ceil(W / 2) + VIS_B, Math.max(H, VIS_H)), true))
+      .image(0, 0, this.tekstur(`px-bane-bag-${tema}`, (skov ? tegnSkovBaggrund : bjerg ? tegnBjergBaggrund : tema === 'arkiv' ? tegnArkivBaggrund : tema === 'blaeksoe' ? tegnSoeBaggrund : tema === 'halve' ? tegnHalvBaggrund : tegnByBaggrund)(Math.ceil(W / 2) + VIS_B, Math.max(H, VIS_H)), true))
       .setOrigin(0)
       .setScrollFactor(0.5, 0)
       .setDepth(-2);
