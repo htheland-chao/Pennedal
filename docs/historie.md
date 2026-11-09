@@ -124,6 +124,8 @@ Klattens hjem. Han er hjemme, fordi chefen har smidt ham ud. Hvis man hjalp ham 
 
 Midt i kapitlet indrømmer Æseløre, hvad han er (twist 2).
 
+**Bygget 9. november 2026:** Blæksøens bred og Klattens hytte. Ved døren: har eleven hjulpet Klatten i kapitel 3, åbner han selv. Ellers er døren låst, og man kan snige sig ind i Klattens kappe (Vims visker låsen ud). Alle kan give ham kappen tilbage (`kappe.givet`, venlighed). I hytten ligger hans fejl i kasser, og eleven ser, at det er de samme fejl, som eleven selv lavede engang. Æseløre håner Klatten for sidste gang. Opgaven Klattens tekster: find et forkert stavet ord, og vælg den rigtige stavemåde (stumme bogstaver, dobbeltkonsonant, udsagnsord i datid, navneord i bestemt flertal). Hver fejl tæller på sin egen færdighed, og teksten vælges efter den svageste. Twist 2 ved søen med mindet Hjørnet bliver foldet og et valg (`aeseloere.tilgivet`). Kampen mod Krusedullerne og en Stumming. Klatten er med på holdet, hvis eleven har været venlig mod ham (han viser en af sine gamle fejl, og han kan farve holdet sort). Sidemissionen Postsneglens breve giver skår `k6a` (mindet Klatten på siden, hvor klatten kom fra). Den frivillige, svære udfordring Stenene over Blæksøen giver skår `k6b` (mindet Kassen ved døren). Nye sange: blaeksoe og hytte.
+
 ### Kapitel 7: De halve lande
 
 Grænselandet, hvor alle ufærdige historier i Pennedal havner. Hvert område er en genre, der mangler det vigtigste: et eventyr uden en prins at redde, en krimi, hvor ingen kan finde opklaringen, en gyser, hvor monsteret er gået hjem. Eleven hjælper dem med det, de mangler, og lærer genrernes kendetegn. Den Ufærdiges væsner er overalt.
@@ -176,7 +178,7 @@ Hvert kapitel har ét tilbageblik i historien og op til to ekstra, som kun låse
 - Teksterne står i `tekster/da.json` som `minde.<id>.<nr>`, og en mildere udgave til "Mindre uhygge" som `minde.<id>.<nr>.mild`. Listen over minder står i `src/content/minder.ts` (rækkefølgen er fast).
 - Minderne gemmes ikke. Tasken regner ud, hvilke minder eleven er kommet forbi, også hvis de blev sprunget over.
 - Lærerkig viser alle minder, så Henrik kan se dem, før klassen spiller.
-- Bygget: 1 Blæk og regn (`k1-aeseloere`), 2 Røde streger (`k2-trykkeri`) og 3 Køkkenbordet (`k3-vims`). Hukommelsesskår: `k3a` Viskelæderet og `k3b` Hæftet på gulvet (9. november 2026). Kapitel 4: Godnathistorien, `k4a` Skyggen i margenen og `k4b` Døren på klem. Kapitel 5: 5 Skyggen bliver tegnet (`k5-haeftet`), `k5a` Fodnoten i hæftet og `k5b` Hvad skriver du? Skårenes minder står i `SKAAR_MINDE` i `src/content/minder.ts`.
+- Bygget: 1 Blæk og regn (`k1-aeseloere`), 2 Røde streger (`k2-trykkeri`) og 3 Køkkenbordet (`k3-vims`). Hukommelsesskår: `k3a` Viskelæderet og `k3b` Hæftet på gulvet (9. november 2026). Kapitel 4: Godnathistorien, `k4a` Skyggen i margenen og `k4b` Døren på klem. Kapitel 5: 5 Skyggen bliver tegnet (`k5-haeftet`), `k5a` Fodnoten i hæftet og `k5b` Hvad skriver du? Kapitel 6: 6 Hjørnet bliver foldet (`k6-twist`), `k6a` Klatten på siden og `k6b` Kassen ved døren. Skårenes minder står i `SKAAR_MINDE` i `src/content/minder.ts`.
 
 ### Hukommelsesskår (valgfrie)
 

@@ -33,6 +33,8 @@ export function tjekTekster(tekster = alleTekster(), stave = lavStavekontrol()) 
     if (/[–—]/.test(ren)) fund.push({ ...t, problem: 'Tankestreg. Brug bindestreg (-).' });
     if (/ {2,}/.test(ren)) fund.push({ ...t, problem: 'Dobbelt mellemrum.' });
     if (/\s[,.!?]/.test(ren.replace(/\s\.\.\./g, ''))) fund.push({ ...t, problem: 'Mellemrum før tegn.' });
+    // Klattens tekster med bevidste stavefejl: kun formen tjekkes. Den rettede udgave står for sig og stavetjekkes.
+    if (t.bevidstStavning) continue;
     const ord = ren
       .replace(/\{\w+\}/g, '')
       .split(/[^A-Za-zÆØÅæøåéü'-]+/)

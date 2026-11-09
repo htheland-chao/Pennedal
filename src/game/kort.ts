@@ -47,7 +47,7 @@ export const erSti = (c: string) => c === '.' || c === 'L';
 export const erBrosten = (c: string) => c === 'o' || c === ':';
 export const erVand = (c: string) => c === '~' || c === 'M' || c === 'q';
 const INDE_FAST = new Set([...'KVvWRrDBPkSUdHwf']);
-export const erFastTegn = (c: string) => c === '#' || erVand(c) || c === 'p' || c === 'F' || INDE_FAST.has(c);
+export const erFastTegn = (c: string) => c === '#' || erVand(c) || c === 'p' || c === 'F' || c === 'h' || INDE_FAST.has(c);
 
 /** Feltet, en pixelposition ligger i. */
 export const feltVed = (x: number, y: number): Felt => [Math.floor(x / FELT), Math.floor(y / FELT)];

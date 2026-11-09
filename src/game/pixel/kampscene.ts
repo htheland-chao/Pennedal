@@ -35,6 +35,7 @@ export function tegnKampBaggrund(tema: string, moerk: boolean): HTMLCanvasElemen
     p[i + 3] = 255;
   };
   if (tema === 'arkiv') return tegnArkivKamp(c, moerk);
+  if (tema === 'blaeksoe') return tegnBlaeksoeKamp(c, moerk);
   const himmel = moerk ? HIMMEL_MOERK : HIMMEL;
   for (let y = 0; y < KAMP_H; y++)
     for (let x = 0; x < KAMP_B; x++) {
@@ -117,6 +118,50 @@ function tegnArkivKamp(c: HTMLCanvasElement, moerk: boolean): HTMLCanvasElement 
   return c;
 }
 
+/**
+ * Kampen ved Blæksøen (kapitel 6): aftenhimmel, en sort sø med violette glimt langs horisonten og en græsbred,
+ * hvor kampen står. moerk gør himlen mørkere (uhygge).
+ */
+function tegnBlaeksoeKamp(c: HTMLCanvasElement, moerk: boolean): HTMLCanvasElement {
+  const g = c.getContext('2d')!;
+  const d = g.createImageData(KAMP_B, KAMP_H);
+  const p = d.data;
+  const HIMMEL_AFTEN = (moerk ? ['#1c1a30', '#2a2442', '#3a2e52'] : ['#3a3a6a', '#5a4a7a', '#a0708a']).map(hx);
+  const SOE = ['#0f0e1c', '#15132a'].map(hx);
+  const GLIMT = hx('#5a4f8a');
+  const BRED = hx('#2a2030');
+  const SOE_BUND = HORISONT + 26;
+  for (let y = 0; y < KAMP_H; y++)
+    for (let x = 0; x < KAMP_B; x++) {
+      const i = (y * KAMP_B + x) * 4;
+      let f: [number, number, number];
+      if (y < HORISONT) {
+        const t = (y / HORISONT) * (HIMMEL_AFTEN.length - 1);
+        const a = Math.floor(t);
+        f = HIMMEL_AFTEN[Math.min(HIMMEL_AFTEN.length - 1, a + (t - a > bay(x, y) ? 1 : 0))];
+      } else if (y < SOE_BUND) {
+        f = SOE[hash(x >> 2, y >> 1) < 0.5 ? 0 : 1];
+        if (hash(Math.floor(x / 5), y) > 0.94) f = GLIMT;
+        if (y === SOE_BUND - 1 || y === SOE_BUND - 2) f = BRED;
+      } else {
+        const dx = (x - 160) / 150;
+        const dy = (y - 128) / 42;
+        const lysning = dx * dx + dy * dy < 1;
+        const h = hash(x, y);
+        f = GRAES[Math.floor(h * GRAES.length) % GRAES.length];
+        if (lysning) f = LYSNING[(h > 0.55 ? 1 : 0) as 0 | 1];
+        if (!lysning && h > 0.97) f = SOE[0];
+        if (y > 168 && bay(x, y) < (y - 168) / 14) f = SKYGGE;
+      }
+      p[i] = f[0];
+      p[i + 1] = f[1];
+      p[i + 2] = f[2];
+      p[i + 3] = 255;
+    }
+  g.putImageData(d, 0, 0);
+  return c;
+}
+
 /** Markøren: en gylden pennespids, der peger på det valgte væsen (9 x 7). */
 export const MARKOER: Tegnkort = {
   raekker: ['KKKK.....', 'KyYYKK...', 'KYYYYYKK.', 'KYYkkkkYK', 'KYYYYYKK.', 'KyYYKK...', 'KKKK.....'],
@@ -133,4 +178,6 @@ export const HOLD_PLADS: [number, number][] = [
   [238, 116],
   [262, 138],
   [236, 160],
+  // Klatten (kapitel 6) står yderst til højre.
+  [288, 150],
 ];

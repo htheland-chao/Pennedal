@@ -15,6 +15,9 @@
     "laes.rim": { "omraade": "fortolkning", "maal": ["eleven kan undersøge virkemidler.", "Eleven har viden om enkle metoder til at afdække virkemidler i en tekst."], "klassetrin": "efter 4. (undersøgelse)" },
     "laes.ordforraad": { "omraade": "laesning", "maal": ["eleven kan udlede dele af ords betydning fra konteksten.", "Eleven har viden om ordforståelsesstrategier."], "klassetrin": "efter 6. (sprogforståelse)" },
     "fort.fortaeller_tid": { "omraade": "fortolkning", "maal": ["eleven kan undersøge fortællerpositioner.", "Eleven har viden om fortællertyper."], "klassetrin": "efter 6. (undersøgelse)" },
+    "stav.vokal_dobbeltkonsonant": { "omraade": "fremstilling", "maal": ["eleven kan stave alle almindelige ord sikkert.", "Eleven har viden om bøjningssystemer og ords oprindelse."], "klassetrin": "efter 6. (korrektur)" },
+    "stav.verbum_datid": { "omraade": "fremstilling", "maal": ["eleven kan stave med udgangspunkt i ordenes betydningsdele.", "Eleven har viden om morfemer, ordklasser, lydfølgeregler og opslagsteknologier."], "klassetrin": "efter 4. (korrektur)" },
+    "stav.navneord_endelse": { "omraade": "fremstilling", "maal": ["eleven kan stave med udgangspunkt i ordenes betydningsdele.", "Eleven har viden om morfemer, ordklasser, lydfølgeregler og opslagsteknologier."], "klassetrin": "efter 4. (korrektur)" },
     "laes.praecision": { "omraade": "laesning", "maal": ["Eleven kan opdage egne forståelsesproblemer og anvende relevante strategier til at afhjælpe dem og få overblik over teksten."], "klassetrin": "efter 6. (opmærksomhedspunkt)" }
   }
 }

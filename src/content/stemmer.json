@@ -72,6 +72,14 @@
     "tvivl": {
       "stemme": "Puck",
       "stil": "Say this as a confused, wobbly sentence that keeps changing its mind mid-sentence. Nervous, a bit silly. Native Danish."
+    },
+    "snegl": {
+      "stemme": "Gacrux",
+      "stil": "Say this very slowly and kindly, like an old, unhurried snail who delivers the mail and has never been in a hurry in his life. Warm and calm. Native Danish."
+    },
+    "krusedulle": {
+      "stemme": "Sadachbia",
+      "stil": "Say this fast and scratchy, like a hasty scribble that is a bit lost and confused. Silly, never scary. Native Danish."
     }
   },
   "rum": {

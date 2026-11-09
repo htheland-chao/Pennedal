@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
-import { fortaellersaetninger, rimord, synonymer, t, type OrdOpgaveArt } from '../content';
+import { fortaellersaetninger, korrekturData, rimord, synonymer, t, type OrdOpgaveArt } from '../content';
+import { lavKrusedulleOpgave, type FejlType } from '../mechanics/korrektur';
 import { helSaetning, lavFortsaet } from '../mechanics/fortaeller';
 import { lavTomordOpgave } from '../mechanics/kamp';
 import { lavOpgaveAfArt } from '../mechanics/rim';
@@ -14,8 +15,8 @@ type Props = {
   niveau: number;
   /** Slags opgave: synonymer (Viskeskoven), rim eller ord, der ikke rimer (Rimbjerget). */
   art?: OrdOpgaveArt;
-  /** Svar til tilpasningen (rigtigt eller forkert og hvilket forsøg). */
-  onSvar: (rigtigt: boolean, forsoeg: number) => void;
+  /** Svar til tilpasningen (rigtigt eller forkert og hvilket forsøg). faerdighed er sat, når opgaven selv ved det (stavning). */
+  onSvar: (rigtigt: boolean, forsoeg: number, faerdighed?: string) => void;
   onFaerdig: () => void;
   /** Gå væk uden at være færdig. Intet går tabt. */
   onPause: () => void;
@@ -37,6 +38,8 @@ type Visning = {
   fejl: (valgt: string) => string;
   regel: string;
   eksempel: string;
+  /** Den færdighed, svaret tæller på, hvis den afhænger af opgaven. */
+  faerdighed?: string;
 };
 
 function lav(art: OrdOpgaveArt, niveau: number, rnd: () => number, brugt: string[]): Visning {
@@ -53,6 +56,24 @@ function lav(art: OrdOpgaveArt, niveau: number, rnd: () => number, brugt: string
       fejl: (valgt) => t('kamp.tomordet.fejl', { valgt, ord: o.ord }),
       regel: t('kamp.tomordet.regel'),
       eksempel: t('kamp.tomordet.eksempel'),
+    };
+  }
+  if (art === 'stavning') {
+    // Klattens fejl (kapitel 6): vælg den rigtige stavemåde for det markerede ord.
+    const o = lavKrusedulleOpgave(korrekturData.tekster, niveau, rnd, brugt);
+    const type = (o.fejlType ?? 'stumme') as FejlType;
+    return {
+      id: o.id,
+      ord: o.ord,
+      saetning: { foer: o.foer, vist: o.vist, efter: o.efter, hel: o.saetning },
+      spoergsmaal: t('korrektur.spoergsmaal', { ord: o.ord }),
+      svar: o.svar,
+      muligheder: o.muligheder,
+      rigtig: t('korrektur.rigtig', { svar: o.svar }),
+      fejl: (valgt) => t('korrektur.fejl', { valgt }),
+      regel: korrekturData.regler[type],
+      eksempel: korrekturData.eksempler[type],
+      faerdighed: o.faerdighed,
     };
   }
   if (art === 'fortaeller') {
@@ -103,7 +124,7 @@ export function OrdOpgaveVindue({ titel, intro, antal, niveau, art = 'synonym', 
   function svar(m: string) {
     setValgt(m);
     const r = m === opgave.svar;
-    onSvar(r, forkerte.length + 1);
+    onSvar(r, forkerte.length + 1, opgave.faerdighed);
     if (!r) setForkerte((f) => [...f, m]);
   }
 

@@ -1,0 +1,344 @@
+{
+  "regler": {
+    "stumme": "Nogle ord har et bogstav, man ikke kan høre. Foran v og j kan h være stumt (hvor, hjem). Efter l, n og r kan d være stumt (rund, sand). Efter l kan v være stumt (selv).",
+    "dobbelt": "Efter en kort vokal skriver man to ens konsonanter, når der kommer en vokal bagefter (komme, lille, trappen). Kommer der ikke en vokal bagefter, er der kun én (kom).",
+    "datid": "Lyt efter udsagnsordet i datid. Kan du høre -ede, skriver du -ede (hoppede, svømmede). Kan du høre -te, skriver du -te (spiste, råbte).",
+    "endelse": "Find først flertal. Ender flertal på -er, får ordet -erne (kasser, kasserne). Ender flertal på -e eller ingenting, får ordet -ene (huse, husene, sten, stenene)."
+  },
+  "eksempler": {
+    "stumme": "hvem, hjælpe, rund, selv",
+    "dobbelt": "lille, kommer, vipper, men kom",
+    "datid": "hoppede, tegnede, spiste, kørte",
+    "endelse": "siderne, kagerne, bordene, ordene"
+  },
+  "tekster": [
+    {
+      "id": "k01",
+      "svaerhed": 1,
+      "tekst": "Chefen smed mig ud i går. Nu er jeg {0} ved Blæksøen i min {1} hytte.",
+      "fejl": [
+        {
+          "skrevet": "jemme",
+          "rigtig": "hjemme",
+          "ekstra": "hjæmme",
+          "type": "stumme"
+        },
+        {
+          "skrevet": "lile",
+          "rigtig": "lille",
+          "ekstra": "lill",
+          "type": "dobbelt"
+        }
+      ]
+    },
+    {
+      "id": "k02",
+      "svaerhed": 1,
+      "tekst": "Jeg {0} hele vejen hjem. Så {1} jeg tre klatter brød.",
+      "fejl": [
+        {
+          "skrevet": "hoppte",
+          "rigtig": "hoppede",
+          "ekstra": "hopede",
+          "type": "datid"
+        },
+        {
+          "skrevet": "spisede",
+          "rigtig": "spiste",
+          "ekstra": "spisde",
+          "type": "datid"
+        }
+      ]
+    },
+    {
+      "id": "k03",
+      "svaerhed": 1,
+      "tekst": "{0} er min kappe? Jeg kan ikke {1} finde den.",
+      "fejl": [
+        {
+          "skrevet": "Vor",
+          "rigtig": "Hvor",
+          "ekstra": "Hvoor",
+          "type": "stumme"
+        },
+        {
+          "skrevet": "sel",
+          "rigtig": "selv",
+          "ekstra": "self",
+          "type": "stumme"
+        }
+      ]
+    },
+    {
+      "id": "k04",
+      "svaerhed": 1,
+      "tekst": "Alle {0} i min hytte er fulde af fejl. Jeg har ikke tid til at {1} dem.",
+      "fejl": [
+        {
+          "skrevet": "kassene",
+          "rigtig": "kasserne",
+          "ekstra": "kasserene",
+          "type": "endelse"
+        },
+        {
+          "skrevet": "tæle",
+          "rigtig": "tælle",
+          "ekstra": "tællle",
+          "type": "dobbelt"
+        }
+      ]
+    },
+    {
+      "id": "k05",
+      "svaerhed": 1,
+      "tekst": "Jeg er Klatten den Frygtelige. Når jeg {0}, gemmer alle sig under {1}.",
+      "fejl": [
+        {
+          "skrevet": "komer",
+          "rigtig": "kommer",
+          "ekstra": "kommmer",
+          "type": "dobbelt"
+        },
+        {
+          "skrevet": "borderne",
+          "rigtig": "bordene",
+          "ekstra": "bordne",
+          "type": "endelse"
+        }
+      ]
+    },
+    {
+      "id": "k06",
+      "svaerhed": 2,
+      "tekst": "I går {0} chefen efter mig. Han ville have {1} tilbage. Men jeg havde allerede spist dem.",
+      "fejl": [
+        {
+          "skrevet": "råbede",
+          "rigtig": "råbte",
+          "ekstra": "råpte",
+          "type": "datid"
+        },
+        {
+          "skrevet": "kagene",
+          "rigtig": "kagerne",
+          "ekstra": "kagerene",
+          "type": "endelse"
+        }
+      ]
+    },
+    {
+      "id": "k07",
+      "svaerhed": 2,
+      "tekst": "Søen er sort og {0}. Om sommeren {1} jeg i den hver dag.",
+      "fejl": [
+        {
+          "skrevet": "run",
+          "rigtig": "rund",
+          "ekstra": "runnd",
+          "type": "stumme"
+        },
+        {
+          "skrevet": "svømte",
+          "rigtig": "svømmede",
+          "ekstra": "svømede",
+          "type": "datid"
+        }
+      ]
+    },
+    {
+      "id": "k08",
+      "svaerhed": 2,
+      "tekst": "{0} skriver altid forkert? Det gør jeg! Men i dag {1} jeg et helt kort uden en eneste klat.",
+      "fejl": [
+        {
+          "skrevet": "Vem",
+          "rigtig": "Hvem",
+          "ekstra": "Hvemm",
+          "type": "stumme"
+        },
+        {
+          "skrevet": "tegnte",
+          "rigtig": "tegnede",
+          "ekstra": "tejnede",
+          "type": "datid"
+        }
+      ]
+    },
+    {
+      "id": "k09",
+      "svaerhed": 2,
+      "tekst": "{0} i min hytte er krøllede. Når det blæser, {1} hele taget.",
+      "fejl": [
+        {
+          "skrevet": "Sidene",
+          "rigtig": "Siderne",
+          "ekstra": "Sideerne",
+          "type": "endelse"
+        },
+        {
+          "skrevet": "viper",
+          "rigtig": "vipper",
+          "ekstra": "vippper",
+          "type": "dobbelt"
+        }
+      ]
+    },
+    {
+      "id": "k10",
+      "svaerhed": 2,
+      "tekst": "Vims siger, at jeg skal {0} ham med at finde krummer. {1} skulle jeg det?",
+      "fejl": [
+        {
+          "skrevet": "jælpe",
+          "rigtig": "hjælpe",
+          "ekstra": "hjælbe",
+          "type": "stumme"
+        },
+        {
+          "skrevet": "Vorfor",
+          "rigtig": "Hvorfor",
+          "ekstra": "Hvorfår",
+          "type": "stumme"
+        }
+      ]
+    },
+    {
+      "id": "k11",
+      "svaerhed": 3,
+      "tekst": "Chefen {0} mig væk, fordi jeg ikke kunne stave. Nu sidder jeg {1} og læser {2} fra dengang.",
+      "fejl": [
+        {
+          "skrevet": "sendede",
+          "rigtig": "sendte",
+          "ekstra": "sente",
+          "type": "datid"
+        },
+        {
+          "skrevet": "stile",
+          "rigtig": "stille",
+          "ekstra": "stillle",
+          "type": "dobbelt"
+        },
+        {
+          "skrevet": "breverne",
+          "rigtig": "brevene",
+          "ekstra": "brevne",
+          "type": "endelse"
+        }
+      ]
+    },
+    {
+      "id": "k12",
+      "svaerhed": 3,
+      "tekst": "Jeg {0} meget på chefen i nat. Jeg talte alle {1} i søen, og jeg {2} til tolv.",
+      "fejl": [
+        {
+          "skrevet": "tænkede",
+          "rigtig": "tænkte",
+          "ekstra": "tængte",
+          "type": "datid"
+        },
+        {
+          "skrevet": "stenerne",
+          "rigtig": "stenene",
+          "ekstra": "stennene",
+          "type": "endelse"
+        },
+        {
+          "skrevet": "komm",
+          "rigtig": "kom",
+          "ekstra": "khom",
+          "type": "dobbelt"
+        }
+      ]
+    },
+    {
+      "id": "k13",
+      "svaerhed": 3,
+      "tekst": "Da jeg var {0}, sagde alle, at mine klatter var grimme. Men jeg {1} at blive ved, og nu skriver jeg {2} mine breve.",
+      "fejl": [
+        {
+          "skrevet": "lile",
+          "rigtig": "lille",
+          "ekstra": "lilde",
+          "type": "dobbelt"
+        },
+        {
+          "skrevet": "prøvte",
+          "rigtig": "prøvede",
+          "ekstra": "prøvde",
+          "type": "datid"
+        },
+        {
+          "skrevet": "sel",
+          "rigtig": "selv",
+          "ekstra": "selvv",
+          "type": "stumme"
+        }
+      ]
+    },
+    {
+      "id": "k14",
+      "svaerhed": 1,
+      "tekst": "{0} er til dig. De smager lidt af {1}.",
+      "fejl": [
+        {
+          "skrevet": "Kagene",
+          "rigtig": "Kagerne",
+          "ekstra": "Kagerene",
+          "type": "endelse"
+        },
+        {
+          "skrevet": "san",
+          "rigtig": "sand",
+          "ekstra": "sannd",
+          "type": "stumme"
+        }
+      ]
+    },
+    {
+      "id": "k15",
+      "svaerhed": 2,
+      "tekst": "I nat {0} jeg, at chefen kom tilbage. Han stod ved {1} og kiggede ind.",
+      "fejl": [
+        {
+          "skrevet": "drømmede",
+          "rigtig": "drømte",
+          "ekstra": "drømde",
+          "type": "datid"
+        },
+        {
+          "skrevet": "trapen",
+          "rigtig": "trappen",
+          "ekstra": "trappeen",
+          "type": "dobbelt"
+        }
+      ]
+    },
+    {
+      "id": "k16",
+      "svaerhed": 3,
+      "tekst": "Jeg har lært noget. {0} jeg skriver forkert, er det ikke farligt. Jeg retter det bare, og så bliver {1} lidt {2}.",
+      "fejl": [
+        {
+          "skrevet": "Vis",
+          "rigtig": "Hvis",
+          "ekstra": "Hviss",
+          "type": "stumme"
+        },
+        {
+          "skrevet": "orderne",
+          "rigtig": "ordene",
+          "ekstra": "ordeene",
+          "type": "endelse"
+        },
+        {
+          "skrevet": "smukere",
+          "rigtig": "smukkere",
+          "ekstra": "smukkkere",
+          "type": "dobbelt"
+        }
+      ]
+    }
+  ]
+}

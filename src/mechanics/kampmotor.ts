@@ -13,23 +13,27 @@
 import type { VaesenId } from './kamp';
 
 /** Slags slag. Hvert slag er en lille danskfaglig opgave. */
-export type Slag = 'synonym' | 'stumt' | 'rim' | 'fortaeller';
+export type Slag = 'synonym' | 'stumt' | 'rim' | 'fortaeller' | 'ret';
 /** Slagene, en kamp har, hvis trinnet ikke selv siger det (kapitel 3). Rim kommer i kapitel 4. */
 export const SLAG: Slag[] = ['synonym', 'stumt'];
-export const SLAG_FAERDIGHED: Record<Slag, string> = { synonym: 'laes.ordforraad', stumt: 'stav.stumme', rim: 'laes.rim', fortaeller: 'fort.fortaeller_tid' };
+export const SLAG_FAERDIGHED: Record<Slag, string> = { synonym: 'laes.ordforraad', stumt: 'stav.stumme', rim: 'laes.rim', fortaeller: 'fort.fortaeller_tid', ret: 'stav.vokal_dobbeltkonsonant' };
 /** Hvilket væsen hvert slag svarer til i opgavemotoren (src/mechanics/kamp.ts). */
-export const SLAG_OPGAVE: Record<Slag, VaesenId> = { synonym: 'tomordet', stumt: 'stumming', rim: 'ekko', fortaeller: 'tvivl' };
+export const SLAG_OPGAVE: Record<Slag, VaesenId> = { synonym: 'tomordet', stumt: 'stumming', rim: 'ekko', fortaeller: 'tvivl', ret: 'krusedulle' };
 /** Hvert væsen er svagt over for ét slag. */
-export const SVAGHED: Record<VaesenId, Slag> = { tomordet: 'synonym', stumming: 'stumt', ekko: 'rim', tvivl: 'fortaeller' };
+export const SVAGHED: Record<VaesenId, Slag> = { tomordet: 'synonym', stumming: 'stumt', ekko: 'rim', tvivl: 'fortaeller', krusedulle: 'ret' };
 
-export type MedlemId = 'avatar' | 'aeseloere' | 'vims';
+export type MedlemId = 'avatar' | 'aeseloere' | 'vims' | 'klatten';
 export type HjaelperId = Exclude<MedlemId, 'avatar'>;
-export const MAKS_LIV: Record<MedlemId, number> = { avatar: 12, aeseloere: 8, vims: 8 };
+export const MAKS_LIV: Record<MedlemId, number> = { avatar: 12, aeseloere: 8, vims: 8, klatten: 8 };
 
-/** Hjælpernes evner. forklar og visk hjælper med næste slag, lap helbreder, slet fjerner et varslet angreb. */
-export type EvneId = 'forklar' | 'lap' | 'visk' | 'slet';
-export const EVNER: Record<HjaelperId, EvneId[]> = { aeseloere: ['forklar', 'lap'], vims: ['visk', 'slet'] };
-export const LADNINGER: Record<EvneId, number> = { forklar: 2, lap: 2, visk: 2, slet: 1 };
+/**
+ * Hjælpernes evner. forklar og visk hjælper med næste slag, lap helbreder, slet fjerner et varslet angreb.
+ * Klatten (kapitel 6): fejl viser en forkert mulighed som hans egen gamle fejl (den forsvinder), og skjul farver
+ * holdet sort, så alle varslede angreb i denne runde rammer ved siden af.
+ */
+export type EvneId = 'forklar' | 'lap' | 'visk' | 'slet' | 'fejl' | 'skjul';
+export const EVNER: Record<HjaelperId, EvneId[]> = { aeseloere: ['forklar', 'lap'], vims: ['visk', 'slet'], klatten: ['fejl', 'skjul'] };
+export const LADNINGER: Record<EvneId, number> = { forklar: 2, lap: 2, visk: 2, slet: 1, fejl: 2, skjul: 1 };
 export const LAP_LIV = 4;
 
 /** Ting fra tasken, der kan bruges én gang pr. kamp. */
@@ -41,7 +45,7 @@ export const KRUMMER_LIV = 3;
 export const KOMBI = 3;
 export const SKADE = { slag: 2, svag: 4, stort: 3, stortSvag: 5 };
 
-export type AngrebId = 'aed' | 'gab' | 'stjael' | 'hvisk' | 'gentag' | 'raab' | 'skift' | 'bland';
+export type AngrebId = 'aed' | 'gab' | 'stjael' | 'hvisk' | 'gentag' | 'raab' | 'skift' | 'bland' | 'klat' | 'sproejt';
 type AngrebInfo = { id: AngrebId; skade: number; alle: boolean };
 export const ANGREB: Record<VaesenId, AngrebInfo[]> = {
   tomordet: [
@@ -61,6 +65,11 @@ export const ANGREB: Record<VaesenId, AngrebInfo[]> = {
   tvivl: [
     { id: 'bland', skade: 3, alle: false },
     { id: 'skift', skade: 1, alle: true },
+  ],
+  // Krusedullerne (kapitel 6) er chefens kludder: de kaster en klat og sprøjter blæk ud over hele holdet.
+  krusedulle: [
+    { id: 'klat', skade: 3, alle: false },
+    { id: 'sproejt', skade: 1, alle: true },
   ],
 };
 
@@ -263,6 +272,10 @@ export function brugEvne(k0: Kamp, evne: EvneId, v: { hvem?: MedlemId; fjende?: 
     const foer = m.liv;
     m.liv = Math.min(m.maks, m.liv + LAP_LIV);
     return { kamp: k, haendelser: [{ type: 'evne', evne, hvem: m.id, liv: m.liv - foer }] };
+  }
+  if (evne === 'skjul') {
+    for (const f of k.fjender) f.varsel = null;
+    return { kamp: k, haendelser: [{ type: 'evne', evne }] };
   }
   if (evne === 'slet') {
     const f = k.fjender.find((x) => x.nr === v.fjende && x.varsel) ?? k.fjender.find((x) => x.varsel);

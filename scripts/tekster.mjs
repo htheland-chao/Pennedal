@@ -10,7 +10,7 @@ export function renTekst(tekst) {
     .replace(/\{[sbn]\}/g, '');
 }
 
-/** @returns {{ kilde: string, id: string, tekst: string, bevidstFejl?: boolean, note?: string }[]} */
+/** @returns {{ kilde: string, id: string, tekst: string, bevidstFejl?: boolean, bevidstStavning?: boolean, note?: string }[]} */
 export function alleTekster() {
   const ud = [];
   const da = laes('tekster/da.json');
@@ -75,6 +75,31 @@ export function alleTekster() {
     ud.push({ kilde: 'Stumme bogstaver', id: `${o.ord}.ord`, tekst: o.ord });
     ud.push({ kilde: 'Stumme bogstaver', id: `${o.ord}.saetning`, tekst: o.saetning });
     ud.push({ kilde: 'Stumme bogstaver', id: `${o.ord}.forklaring`, tekst: o.forklaring });
+  }
+
+  // Fru Fodnotes bøger og Den Tvivlende Sætning (kapitel 5).
+  const fort = laes('ord/fortaeller.json');
+  for (const o of fort.klassificer) ud.push({ kilde: 'Fortæller', id: o.id, tekst: o.tekst });
+  for (const o of fort.fortsaet) {
+    ud.push({ kilde: 'Fortæller', id: o.id, tekst: `${o.foer} ${o.svar} ${o.efter}` });
+    ud.push({ kilde: 'Fortæller', id: `${o.id}.forkerte`, tekst: o.forkerte.join(', '), note: 'Forkerte valg: de skifter fortæller.' });
+  }
+
+  // Klattens tekster (kapitel 6): den rettede tekst stavetjekkes. Klattens fejl og de andre forkerte stavemåder er bevidste.
+  const kor = laes('ord/korrektur.json');
+  for (const [type, regel] of Object.entries(kor.regler)) ud.push({ kilde: 'Klattens tekster', id: `regel.${type}`, tekst: regel });
+  for (const [type, eks] of Object.entries(kor.eksempler)) ud.push({ kilde: 'Klattens tekster', id: `eksempel.${type}`, tekst: eks });
+  for (const k of kor.tekster) {
+    const udfyld = (felt) => k.tekst.replace(/\{(\d+)\}/g, (_, n) => k.fejl[Number(n)][felt]);
+    ud.push({ kilde: 'Klattens tekster', id: k.id, tekst: udfyld('rigtig') });
+    ud.push({
+      kilde: 'Klattens tekster',
+      id: `${k.id}.klatten`,
+      tekst: udfyld('skrevet'),
+      bevidstFejl: true,
+      bevidstStavning: true,
+      note: `Bevidste fejl: ${k.fejl.map((f) => `${f.skrevet} (ret: ${f.rigtig}, ${f.type}, også forkert: ${f.ekstra})`).join('; ')}`,
+    });
   }
 
   const og = laes('ord/ogorm.json');

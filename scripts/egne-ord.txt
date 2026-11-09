@@ -117,3 +117,10 @@ bogvognen
 fodnotetal
 fodnotetallene
 tristeste
+# Kapitel 6 (9. november 2026): Blæksøen og Postsneglen.
+Blæksøen
+Blæksøens
+Postsneglen
+Postsneglens
+# Endelsen -ede i reglen om udsagnsord i datid (ikke et ord i sig selv).
+ede

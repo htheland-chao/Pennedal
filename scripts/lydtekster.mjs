@@ -107,7 +107,7 @@ export function alleLydtekster(stemmer = hentStemmer()) {
     tilfoej('fortaeller', t(id), `Minder / ${id}`);
 
   // Kampe (src/ui/KampVindue.tsx): væsnernes egne ord, sætningerne til knappen Læs og beskederne.
-  for (const v of ['tomordet', 'stumming', 'tvivl']) {
+  for (const v of ['tomordet', 'stumming', 'tvivl', 'krusedulle']) {
     tilfoej(v, t(`kamp.${v}.lyt`), `Kampe / kamp.${v}.lyt`);
     tilfoej('fortaeller', t(`kamp.${v}.rolig`), `Kampe / kamp.${v}.rolig`);
   }
@@ -161,6 +161,29 @@ export function alleLydtekster(stemmer = hentStemmer()) {
     tilfoej('aeseloere', t(id), `Beskeder / ${id}`);
   tilfoej('aeseloere', `${t('feedback.regel')}: ${t('fortaeller.regel')}`, 'Beskeder / fortaeller.regel');
   tilfoej('aeseloere', `${t('feedback.eksempel')}: ${t('fortaeller.eksempel')}`, 'Beskeder / fortaeller.eksempel');
+
+  // Klattens tekster (kapitel 6): teksten læses op, som Klatten skrev den. Sætningerne i kampen og på stenene læses rettet.
+  const kor = laes('ord/korrektur.json');
+  for (const k of kor.tekster) {
+    tilfoej('klatten', k.tekst.replace(/\{(\d+)\}/g, (_, n) => k.fejl[Number(n)].skrevet), `Klattens tekster / ${k.id}`);
+    // Hver fejls sætning (som saetningMed i src/mechanics/korrektur.ts).
+    k.fejl.forEach((f, nr) => {
+      const plads = k.tekst.indexOf(`{${nr}}`);
+      const start = Math.max(...['. ', '? ', '! '].map((x) => k.tekst.lastIndexOf(x, plads)).map((i) => (i < 0 ? 0 : i + 2)));
+      const ender = ['.', '?', '!'].map((x) => k.tekst.indexOf(x, plads)).filter((i) => i >= 0);
+      const slut = ender.length ? Math.min(...ender) + 1 : k.tekst.length;
+      const ret = (x) => x.replace(/\{(\d+)\}/g, (_, n) => k.fejl[Number(n)].rigtig);
+      tilfoej('fortaeller', ret(k.tekst.slice(start, slut)), `Klattens tekster / ${k.id}.${nr}`);
+    });
+  }
+  for (const id of ['korrektur.instruks.en', 'korrektur.faerdig']) tilfoej('fortaeller', t(id), `Opgaver / ${id}`);
+  for (const antal of [2, 3]) tilfoej('fortaeller', t('korrektur.instruks', { antal }), `Opgaver / korrektur.instruks.${antal}`);
+  for (const [type, regel] of Object.entries(kor.regler)) tilfoej('aeseloere', `${t('feedback.regel')}: ${regel}`, `Beskeder / korrektur.regel.${type}`);
+  for (const [type, eks] of Object.entries(kor.eksempler)) tilfoej('aeseloere', `${t('feedback.eksempel')}: ${eks}`, `Beskeder / korrektur.eksempel.${type}`);
+  tilfoej('aeseloere', `${t('feedback.regel')}: ${t('korrektur.find.regel')}`, 'Beskeder / korrektur.find.regel');
+  tilfoej('aeseloere', `${t('feedback.eksempel')}: ${t('korrektur.find.eksempel')}`, 'Beskeder / korrektur.find.eksempel');
+  for (const id of ['kamp.klatten.ingen', 'korrektur.klatten.1', 'korrektur.klatten.2', 'korrektur.klatten.3', 'korrektur.klatten.4'])
+    tilfoej('klatten', t(id), `Kampe og opgaver / ${id}`);
 
   for (const h of laes('ord/historiebro.json').historier) {
     for (const [traek, tekst] of Object.entries(h.planker)) tilfoej('fortaeller', tekst, `Historiebroen / ${h.id}.${traek}`);

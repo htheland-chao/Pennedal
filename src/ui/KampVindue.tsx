@@ -1,10 +1,12 @@
 import { useEffect, useMemo, useRef, useState, type CSSProperties, type KeyboardEvent, type ReactNode } from 'react';
-import { fortaellersaetninger, kapitler, rimord, stumme, synonymer, t, type KampTrin, type TekstId } from '../content';
+import { fortaellersaetninger, kapitler, korrekturData, rimord, stumme, synonymer, t, type KampTrin, type TekstId } from '../content';
+import { lavKrusedulleOpgave, type FejlType } from '../mechanics/korrektur';
+import { KRUSEDULLE } from '../game/pixel/blaeksoe';
 import type { Avatar } from '../engine/gem';
 import type { Haendelse as Tilpasning } from '../engine/tilpasning';
 import { FJENDE_PLADS, HOLD_PLADS, KAMP_B, KAMP_H, MARKOER, tegnKampBaggrund } from '../game/pixel/kampscene';
 import { tegnkortTilLerred } from '../game/pixel/lerred';
-import { avatarPixel, FUGL, type Tegnkort } from '../game/pixel/sprites';
+import { avatarPixel, FUGL, KLATTEN, type Tegnkort } from '../game/pixel/sprites';
 import { STUMMING, TOMORD, VIMS } from '../game/pixel/viskeskov';
 import { EKKO } from '../game/pixel/rimbjerg';
 import { TVIVL } from '../game/pixel/arkiv';
@@ -55,6 +57,8 @@ type Props = {
   avatar: Avatar;
   avatarNavn: string;
   taske: readonly string[];
+  /** Klatten er med på holdet (kapitel 6 og frem, når eleven har været venlig mod ham). */
+  klattenMed?: boolean;
   onSvar: (faerdighed: string, rigtigt: boolean, forsoeg: number) => Tilpasning;
   onFremskridt: (givet: number) => void;
   onVundet: () => void;
@@ -75,13 +79,13 @@ type Visning =
   | { type: 'afspil' }
   | { type: 'slut' };
 
-const SPRITE: Record<VaesenId, Tegnkort> = { tomordet: TOMORD, stumming: STUMMING, ekko: EKKO, tvivl: TVIVL };
+const SPRITE: Record<VaesenId, Tegnkort> = { tomordet: TOMORD, stumming: STUMMING, ekko: EKKO, tvivl: TVIVL, krusedulle: KRUSEDULLE };
 /** Figurernes størrelse på scenen (gange pixel). */
 const FJENDE_SKALA = 2.4;
 const HOLD_SKALA = 1.8;
 
 /** Ord, der er brugt i denne session, så de ikke kommer igen med det samme. */
-const brugt: Record<VaesenId, string[]> = { tomordet: [], stumming: [], ekko: [], tvivl: [] };
+const brugt: Record<VaesenId, string[]> = { tomordet: [], stumming: [], ekko: [], tvivl: [], krusedulle: [] };
 function nyOpgave(vaesen: VaesenId, niveau: number): KampOpgave {
   const o =
     vaesen === 'tomordet'
@@ -90,7 +94,9 @@ function nyOpgave(vaesen: VaesenId, niveau: number): KampOpgave {
         ? lavEkkoOpgave(rimord.rim, niveau, Math.random, brugt.ekko)
         : vaesen === 'tvivl'
           ? lavTvivlOpgave(fortaellersaetninger.fortsaet, niveau, Math.random, brugt.tvivl)
-        : lavStummingOpgave(stumme.ord, niveau, Math.random, brugt.stumming);
+          : vaesen === 'krusedulle'
+            ? lavKrusedulleOpgave(korrekturData.tekster, niveau, Math.random, brugt.krusedulle)
+            : lavStummingOpgave(stumme.ord, niveau, Math.random, brugt.stumming);
   brugt[vaesen].push(o.id);
   if (brugt[vaesen].length > 8) brugt[vaesen].shift();
   return o;
@@ -100,6 +106,10 @@ function regelFor(o: KampOpgave): { regel: string; eksempel: string } {
   if (o.vaesen === 'tomordet') return { regel: t('kamp.tomordet.regel'), eksempel: t('kamp.tomordet.eksempel') };
   if (o.vaesen === 'ekko') return { regel: t('rim.regel'), eksempel: t('rim.eksempel') };
   if (o.vaesen === 'tvivl') return { regel: t('fortaeller.regel'), eksempel: t('fortaeller.eksempel') };
+  if (o.vaesen === 'krusedulle') {
+    const type = (o.fejlType ?? 'stumme') as FejlType;
+    return { regel: korrekturData.regler[type], eksempel: korrekturData.eksempler[type] };
+  }
   const andre = stumme.ord
     .filter((x) => x.type === o.type && x.ord !== o.ord && x.svaerhed === 1)
     .slice(0, 3)
@@ -147,11 +157,14 @@ function piletaster(e: KeyboardEvent<HTMLElement>) {
 /** Nogle små stykker blæk eller lys, der flyver ud fra et punkt. Retningerne er faste, så det ser ens ud hver gang. */
 const STYKKER = Array.from({ length: 10 }, (_, i) => ({ a: (i / 10) * 360 + (i % 2) * 17, r: 0.7 + (i % 3) * 0.25 }));
 
-export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, taske, onSvar, onFremskridt, onVundet, onPause }: Props) {
+export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, taske, klattenMed, onSvar, onFremskridt, onVundet, onPause }: Props) {
   const { indstillinger } = useApp();
   const daempet = indstillinger.mindreUhygge;
   const vaesner = trin.vaesner ?? [trin.vaesen];
-  const hjaelpere: HjaelperId[] = trin.hold ?? ['aeseloere', ...(trin.hjaelper === 'vims' ? (['vims'] as const) : [])];
+  const hjaelpere: HjaelperId[] = [
+    ...(trin.hold ?? ['aeseloere', ...(trin.hjaelper === 'vims' ? (['vims'] as const) : [])]),
+    ...(klattenMed ? (['klatten'] as const) : []),
+  ];
   const slagListe = trin.slag ?? SLAG;
   const [kamp, setKamp] = useState<Kamp>(() =>
     startKamp({
@@ -229,7 +242,7 @@ export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, ta
     const h = avatarPixel(avatar, 'hoejre', 0);
     return { ...h, raekker: h.raekker.map((r) => [...r].reverse().join('')) };
   }, [avatar]);
-  const holdKort: Record<MedlemId, Tegnkort> = { avatar: avatarKort, aeseloere: FUGL, vims: VIMS };
+  const holdKort: Record<MedlemId, Tegnkort> = { avatar: avatarKort, aeseloere: FUGL, vims: VIMS, klatten: KLATTEN };
 
   const fjendeSted = (nr: number): [number, number] => FJENDE_PLADS[Math.min(2, kamp.fjender.length - 1)][nr] ?? [70, 130];
   const holdSted = (id: MedlemId): [number, number] => HOLD_PLADS[Math.max(0, kamp.hold.findIndex((m) => m.id === id))] ?? HOLD_PLADS[0];
@@ -338,7 +351,7 @@ export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, ta
   function svar(valg: string) {
     if (visning.type !== 'opgave' || visning.svaret || visning.vaek.includes(valg)) return;
     const rigtigt = tjekKamp(visning.opgave, valg);
-    onSvar(SLAG_FAERDIGHED[visning.slag], rigtigt, 1);
+    onSvar(visning.opgave.faerdighed ?? SLAG_FAERDIGHED[visning.slag], rigtigt, 1);
     setVisning({ ...visning, svaret: valg });
   }
 
@@ -351,7 +364,7 @@ export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, ta
     afslutRunde(r.kamp, r.haendelser);
   }
 
-  function evneIOpgave(evne: 'forklar' | 'visk') {
+  function evneIOpgave(evne: 'forklar' | 'visk' | 'fejl') {
     if (visning.type !== 'opgave' || visning.svaret) return;
     const r = brugEvne(kamp, evne);
     if (!r.haendelser.length) return;
@@ -360,7 +373,8 @@ export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, ta
     else {
       const m = viskUd(visning.opgave, visning.vaek, Math.random);
       setVisning({ ...visning, vaek: m ? [...visning.vaek, m] : visning.vaek });
-      setNotat(m ? t('kamp.vims.visk') : t('kamp.vims.ingen'));
+      if (evne === 'fejl') setNotat(m ? t('kamp.klatten.fejl', { ord: m }) : t('kamp.klatten.ingen'));
+      else setNotat(m ? t('kamp.vims.visk') : t('kamp.vims.ingen'));
     }
   }
 
@@ -521,7 +535,11 @@ export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, ta
       </div>
     );
   else if (visning.type === 'hjaelper') {
-    const evner: EvneId[] = [...(hjaelpere.includes('aeseloere') ? (['lap'] as const) : []), ...(hjaelpere.includes('vims') ? (['visk', 'slet'] as const) : [])];
+    const evner: EvneId[] = [
+      ...(hjaelpere.includes('aeseloere') ? (['lap'] as const) : []),
+      ...(hjaelpere.includes('vims') ? (['visk', 'slet'] as const) : []),
+      ...(hjaelpere.includes('klatten') ? (['skjul'] as const) : []),
+    ];
     menu = (
       <fieldset className="kamp-menu" onKeyDown={piletaster}>
         <legend>{t('kamp.menu.hjaelpere')}</legend>
@@ -759,6 +777,11 @@ export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, ta
                     {hjaelpere.includes('vims') && (
                       <button type="button" className="knap knap-lille" disabled={!kanBrugeEvne(kamp, 'visk')} onClick={() => evneIOpgave('visk')}>
                         {t('kamp.evne.visk', { antal: kamp.evner.visk ?? 0 })}
+                      </button>
+                    )}
+                    {hjaelpere.includes('klatten') && (
+                      <button type="button" className="knap knap-lille" disabled={!kanBrugeEvne(kamp, 'fejl')} onClick={() => evneIOpgave('fejl')}>
+                        {t('kamp.evne.fejl', { antal: kamp.evner.fejl ?? 0 })}
                       </button>
                     )}
                   </div>

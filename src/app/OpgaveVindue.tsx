@@ -1,5 +1,5 @@
-import { useRef, useState } from 'react';
-import { fortaellersaetninger, historiebro, ogorm, raaber, rimord, stumme, t, type BevisjagtTrin, type OpgaveTrin } from '../content';
+import { useMemo, useRef, useState } from 'react';
+import { fortaellersaetninger, historiebro, korrekturData, ogorm, raaber, rimord, stumme, t, type BevisjagtTrin, type OpgaveTrin } from '../content';
 import type { Haendelse, Niveau } from '../engine/tilpasning';
 import { lavHviskeOpgave, type HviskeOpgave as HOpgave } from '../mechanics/hviske';
 import { vaelgOgTekst } from '../mechanics/ogorm';
@@ -10,6 +10,8 @@ import { lavOpgaveAfArt, type RimOpgave as ROpgave } from '../mechanics/rim';
 import { RimOpgave } from '../ui/RimOpgave';
 import { lavKlassificer, type KlassificerSaetning } from '../mechanics/fortaeller';
 import { SynsvinkelOpgave } from '../ui/SynsvinkelOpgave';
+import { FEJL_FAERDIGHED, FEJL_TYPER, vaelgTekst, type FejlType, type KorrekturTekst } from '../mechanics/korrektur';
+import { KorrekturOpgave } from '../ui/KorrekturOpgave';
 import { OpgaveRamme } from '../ui/OpgaveRamme';
 import { HviskeOpgave } from '../ui/HviskeOpgave';
 import { OgormOpgave } from '../ui/OgormOpgave';
@@ -19,14 +21,17 @@ import { Modal } from '../ui/Modal';
 
 type Faelles = {
   niveau: Niveau;
+  /** Niveauet for en anden færdighed end trinnets (Klattens tekster øver fire slags stavning). */
+  niveauFor?: (faerdighed: string) => number;
   loeste: number;
-  onSvar: (rigtigt: boolean, forsoeg: number) => Haendelse;
+  /** Svaret tæller på trinnets færdighed, eller på faerdighed, hvis den er givet. */
+  onSvar: (rigtigt: boolean, forsoeg: number, faerdighed?: string) => Haendelse;
   onLoest: (info?: { ord?: string; historie?: boolean }) => void;
   onPause: () => void;
 };
 
 /** Ord og tekster, der er brugt i denne session, så de ikke kommer igen med det samme. */
-const brugt = { hviske: [] as string[], og: [] as string[], bro: [] as string[], raab: [] as string[], rim: [] as string[], fort: [] as string[] };
+const brugt = { hviske: [] as string[], og: [] as string[], bro: [] as string[], raab: [] as string[], rim: [] as string[], fort: [] as string[], korrektur: [] as string[] };
 
 function husk(liste: string[], id: string, maks = 8) {
   liste.push(id);
@@ -194,7 +199,47 @@ function SynsvinkelVindue({ trin, niveau, loeste, onSvar, onLoest, onPause }: Fa
   );
 }
 
+/**
+ * Klattens tekster (kapitel 6): find et forkert ord, og vælg den rigtige stavemåde. Hver rettet fejl er én opgave.
+ * Er teksten rettet, kommer der en ny. Svaret tæller på den færdighed, fejlen hører til, og reglen følger fejlen.
+ */
+function KorrekturVindue({ trin, niveau, niveauFor, loeste, onSvar, onLoest, onPause }: Faelles & { trin: OpgaveTrin }) {
+  const niveauer = () => Object.fromEntries(FEJL_TYPER.map((x) => [x, niveauFor?.(FEJL_FAERDIGHED[x]) ?? niveau])) as Record<FejlType, number>;
+  const [tekst, setTekst] = useState<KorrekturTekst>(() => vaelgTekst(korrekturData.tekster, niveauer(), Math.random, brugt.korrektur));
+  const [rettede, setRettede] = useState<number[]>([]);
+  const [valgt, setValgt] = useState<number | null>(null);
+  const type: FejlType = valgt !== null ? tekst.fejl[valgt].type : (tekst.fejl.find((_, i) => !rettede.includes(i))?.type ?? 'stumme');
+  const andreRegler = useMemo(() => FEJL_TYPER.filter((x) => x !== type).map((x) => korrekturData.regler[x]), [type]);
+  return (
+    <OpgaveRamme
+      titel={t('korrektur.titel')}
+      antal={trin.antal}
+      loeste={loeste}
+      regel={korrekturData.regler[type]}
+      eksempel={korrekturData.eksempler[type]}
+      andreRegler={andreRegler}
+      onSvar={(r, f) => onSvar(r, f, FEJL_FAERDIGHED[type])}
+      onPause={onPause}
+      onLoest={() => {
+        const nye = valgt === null ? rettede : [...rettede, valgt];
+        setValgt(null);
+        onLoest();
+        if (nye.length >= tekst.fejl.length) {
+          husk(brugt.korrektur, tekst.id);
+          setTekst(vaelgTekst(korrekturData.tekster, niveauer(), Math.random, brugt.korrektur));
+          setRettede([]);
+        } else setRettede(nye);
+      }}
+    >
+      {(api) => (
+        <KorrekturOpgave key={`${tekst.id}-${loeste}`} tekst={tekst} rettede={rettede} valgt={valgt} onVaelg={setValgt} api={api} />
+      )}
+    </OpgaveRamme>
+  );
+}
+
 export function OpgaveVindue(props: Faelles & { trin: OpgaveTrin }) {
+  if (props.trin.mekanik === 'korrektur') return <KorrekturVindue {...props} />;
   if (props.trin.mekanik === 'synsvinkel') return <SynsvinkelVindue {...props} />;
   if (props.trin.mekanik === 'rim') return <RimVindue {...props} />;
   if (props.trin.mekanik === 'hviske') return <HviskeVindue {...props} />;
