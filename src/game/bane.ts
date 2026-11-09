@@ -8,6 +8,8 @@
  *   S  start                      C  checkpoint (en lanterne)
  *   M  målet                      K  hvor Klatten starter (han løber foran)
  *   ~  vand under byen (som blæk: tilbage til checkpoint)
+ *   v  visket planke: kan ikke bære, før ordet er skrevet tilbage ved ordstenen foran (Viskeskoven)
+ *   O  ordsten: et rigtigt synonym skriver den næste gruppe viskede planker tilbage
  */
 export const BFELT = 16;
 
@@ -44,6 +46,7 @@ export function laesBane(raekker: string[]): Bane {
 export const erFast = (c: string) => c === '#';
 export const erPlanke = (c: string) => c === '=';
 export const erFare = (c: string) => c === '^' || c === '~';
+export const erVisket = (c: string) => c === 'v';
 /** Kan man stå på feltet ovenfra? */
 export const kanStaa = (c: string) => erFast(c) || erPlanke(c);
 
@@ -70,7 +73,9 @@ export function standpladser(bane: Bane): Set<string> {
  * Bredde først over standpladserne: gå til naboen, falde ned eller hoppe over et hul.
  * Returnerer de checkpoints og mål, der ikke kan nås (tom liste = banen kan klares).
  */
-export function kanKlares(bane: Bane): string[] {
+export function kanKlares(bane0: Bane): string[] {
+  // Viskede planker tæller som planker: eleven kan altid skrive dem tilbage ved ordstenen.
+  const bane: Bane = { ...bane0, tegn: (x, y) => (erVisket(bane0.tegn(x, y)) ? '=' : bane0.tegn(x, y)) };
   const steder = standpladser(bane);
   const [start] = find(bane, 'S');
   if (!start) return ['S mangler'];
@@ -117,4 +122,29 @@ export function kanKlares(bane: Bane): string[] {
   for (const c of ['C', 'M'])
     for (const [x, y] of find(bane, c)) if (!naaet.has(`${x},${y}`)) mangler.push(`${c} (${x}, ${y})`);
   return mangler;
+}
+
+/**
+ * Grupper af viskede planker, sorteret fra venstre. Ordsten nummer i (fra venstre) skriver gruppe i tilbage.
+ * En gruppe er viskede planker, der hænger sammen vandret eller lodret.
+ */
+export function viskedeGrupper(bane: Bane): [number, number][][] {
+  const set = new Set(find(bane, 'v').map(([x, y]) => `${x},${y}`));
+  const grupper: [number, number][][] = [];
+  for (const start of find(bane, 'v')) {
+    const k0 = `${start[0]},${start[1]}`;
+    if (!set.has(k0)) continue;
+    set.delete(k0);
+    const g: [number, number][] = [start];
+    for (let i = 0; i < g.length; i++)
+      for (const [dx, dy] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) {
+        const k = `${g[i][0] + dx},${g[i][1] + dy}`;
+        if (set.has(k)) {
+          set.delete(k);
+          g.push([g[i][0] + dx, g[i][1] + dy]);
+        }
+      }
+    grupper.push(g);
+  }
+  return grupper.sort((a, b) => Math.min(...a.map((p) => p[0])) - Math.min(...b.map((p) => p[0])));
 }

@@ -28,6 +28,17 @@ export function alleTekster() {
     for (const [stedId, sted] of Object.entries(k.steder)) {
       ud.push({ kilde, id: `sted.${stedId}`, tekst: sted.navn });
       for (const o of sted.objekter) ud.push({ kilde, id: `objekt.${o.id}`, tekst: o.navn });
+      (sted.intro ?? []).forEach((r, i) => replik(`sted.${stedId}.intro.${i + 1}`, r));
+      const u = sted.udflugt;
+      if (u) {
+        for (const felt of ['opgavetekst', 'spoergsmaal', 'ja', 'nej']) ud.push({ kilde, id: `sted.${stedId}.udflugt.${felt}`, tekst: u[felt] });
+        for (const felt of ['ind', 'faerdig', 'igen']) u[felt].forEach((r, i) => replik(`sted.${stedId}.udflugt.${felt}.${i + 1}`, r));
+      }
+    }
+    for (const [id, m] of Object.entries(k.missioner ?? {})) {
+      ud.push({ kilde, id: `mission.${id}.titel`, tekst: m.titel });
+      ud.push({ kilde, id: `mission.${id}.intro`, tekst: m.intro });
+      for (const felt of ['start', 'mangler', 'klar', 'faerdig', 'efter']) m[felt].forEach((r, i) => replik(`mission.${id}.${felt}.${i + 1}`, r));
     }
     for (const trin of k.trin) {
       if (trin.opgavetekst) ud.push({ kilde, id: `${trin.id}.opgavetekst`, tekst: trin.opgavetekst });

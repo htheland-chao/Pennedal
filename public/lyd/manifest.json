@@ -2507,13 +2507,6 @@
       "kilde": "Kapitel 3 / k3-vims.10",
       "lavet": "2026-11-01"
     },
-    "184425a7ebcc14": {
-      "figur": "fortaeller",
-      "tekst": "Følg stien mod lysningen.",
-      "fil": "184425a7ebcc14.ogg",
-      "kilde": "Kapitel 3 / k3-til-lysning.opgavetekst",
-      "lavet": "2026-11-03"
-    },
     "1847599b4cfa3d": {
       "figur": "vims",
       "tekst": "Undskyld! Undskyld, at jeg sidder her. Og undskyld, at jeg undskylder.",
@@ -3321,6 +3314,6 @@
     }
   },
   "model": "gemini-3.8-flash-tts",
-  "i_alt": 474,
-  "mangler": 0
+  "i_alt": 499,
+  "mangler": 26
 }

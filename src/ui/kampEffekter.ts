@@ -14,6 +14,7 @@ export type EffektType =
   | 'svag'
   | 'tal'
   | 'oploes'
+  | 'ordplads'
   | 'kombi'
   | 'skjold'
   | 'lap'
@@ -95,7 +96,13 @@ export function trinFor(hs: Haendelse[], p: Pladser, navn: { fjende: (nr: number
       }
       case 'rolig': {
         const [x, y] = p.fjende(h.fjende);
-        ud.push({ effekter: [{ type: 'oploes', x, y }], linje: { noegle: 'kamp.kort.rolig', vaerdier: { navn: navn.fjende(h.fjende) } }, varighed: 1000, oploest: [h.fjende] });
+        // Væsnet smelter, og de ord, det havde ædt, falder på plads som en linje (Henrik, 9. november 2026).
+        ud.push({
+          effekter: [{ type: 'oploes', x, y }, { type: 'ordplads', x, y: y - 18 }],
+          linje: { noegle: 'kamp.kort.rolig', vaerdier: { navn: navn.fjende(h.fjende) } },
+          varighed: 1300,
+          oploest: [h.fjende],
+        });
         break;
       }
       case 'kombi':

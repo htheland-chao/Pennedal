@@ -88,3 +88,72 @@ export function somPortraet(t: Tegnkort, side = 24): Tegnkort {
   ];
   return { raekker, palet: t.palet };
 }
+
+/**
+ * Halvsangen (kapitel 3, sidemission): en lille, bleg fugl på en knækket gren. Den synger kun halve toner.
+ * Tegnet til Pennedal 9. november 2026. Ingen bogstaver.
+ */
+export const HALVFUGL: Tegnkort = {
+  raekker: [
+    '.....KKK........',
+    '....KWWWK.......',
+    '...KWWEWWK......',
+    '...KWWWWWKOO....',
+    '..KWWWWWWWKO....',
+    '.KWwWWWWWWK.....',
+    '.KWwwWWWWWK.....',
+    '..KWwwwWWK......',
+    '...KKWWKK.......',
+    '.....OKO........',
+    'TTTTTTTTTTTTT...',
+    'tTTtTTTTtTTTt...',
+    '..........t.....',
+  ],
+  palet: { K: '#3a3550', W: '#f4f1ea', w: '#cfc8da', E: '#1b1b24', O: '#e5b84c', T: '#8a7656', t: '#6b5a40' },
+};
+
+/** Et hvidt blad med et ord, der er ved at blive visket ud. Streger, ingen bogstaver. */
+export const ORDBLAD: Tegnkort = {
+  raekker: ['....KK..', '..KKWWK.', '.KWWWWWK', 'KWdWdWWK', 'KWWdWdWK', '.KWWWWK.', '..KKKK..', '...K....'],
+  palet: { K: '#8a8aa0', W: '#ffffff', d: '#b9bfcf' },
+};
+
+/** En port af hvide grene: indgangen til den lange hvide sti, og målet på banerne i Viskeskoven. */
+export const GRENPORT: Tegnkort = {
+  raekker: [
+    '..KKKKKKKKKKKK..',
+    '.KWWwWWWWWwWWWK.',
+    'KWWK........KWWK',
+    'KWK..........KWK',
+    'KWK..........KwK',
+    'KwK..........KWK',
+    'KWK..........KWK',
+    'KWK..........KWK',
+    'KWK..........KwK',
+    'KwK..........KWK',
+    'KWK..........KWK',
+    'KWK..........KWK',
+    'KWK..........KWK',
+    'KKK..........KKK',
+  ],
+  palet: { K: '#6a6488', W: '#f3f0fa', w: '#cfc8da' },
+};
+
+/** Ordstenen på banen: en bleg sten med en tom side. Lyser, indtil ordet er skrevet tilbage. */
+export function ordsten(loest: boolean): Tegnkort {
+  return {
+    raekker: [
+      '....KKKKKK....',
+      '...KGGGGGGK...',
+      '..KGPPPPPPGK..',
+      '..KGPddddPGK..',
+      '..KGPPPPPPGK..',
+      '.KGGPddPPPGGK.',
+      '.KGGPPPPPPGGK.',
+      'KGgGGGGGGGGgGK',
+      'KGggGGGGGGggGK',
+      'KKKKKKKKKKKKKK',
+    ],
+    palet: { K: '#5a5a6e', G: '#c4c4d2', g: '#a8a8b8', P: loest ? '#f4efe0' : '#ffe9a8', d: loest ? '#2a2f48' : '#e5b84c' },
+  };
+}

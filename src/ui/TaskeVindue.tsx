@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type CSSProperties } from 'react';
 import { t, type TekstId } from '../content';
 import type { TingId } from '../engine/taske';
 import { Modal } from './Modal';
@@ -86,17 +86,40 @@ export function TaskeVindue({ ting, minder = [], rumTing, onLuk }: { ting: TingI
 /** En lille besked, når der kommer en ny ting i tasken. Forsvinder af sig selv. */
 export function NyTingBesked({ ting, onFaerdig }: { ting: TingId | null; onFaerdig: () => void }) {
   const [vis, setVis] = useState<TingId | null>(null);
+  /** Hvor tasken står på skærmen, så tingen kan flyve derhen (Henrik, 9. november 2026). */
+  const [maal, setMaal] = useState<{ x: number; y: number } | null>(null);
   useEffect(() => {
     if (!ting) return;
     setVis(ting);
+    const knap = document.querySelector('.hud-knapper .knap');
+    const r = knap?.getBoundingClientRect();
+    setMaal(r ? { x: r.left + r.width / 2, y: r.top + r.height / 2 } : null);
+    // Tasken hopper, når tingen lander.
+    const hop = setTimeout(() => {
+      knap?.classList.add('taske-hop');
+      setTimeout(() => knap?.classList.remove('taske-hop'), 600);
+    }, 1300);
     const h = setTimeout(() => {
       setVis(null);
       onFaerdig();
     }, 6000);
-    return () => clearTimeout(h);
+    return () => {
+      clearTimeout(h);
+      clearTimeout(hop);
+    };
   }, [ting, onFaerdig]);
   return (
     <div className="ny-ting" aria-live="polite">
+      {vis && maal && (
+        <span
+          key={vis}
+          className="ny-ting-flyv"
+          aria-hidden="true"
+          style={{ '--tx': `${maal.x - window.innerWidth / 2}px`, '--ty': `${maal.y - window.innerHeight / 2}px` } as CSSProperties}
+        >
+          <TingIkon ting={vis} />
+        </span>
+      )}
       {vis && (
         <p>
           <TingIkon ting={vis} /> {t('taske.ny', { navn: tingNavn(vis) })}

@@ -8,6 +8,8 @@ export type VerdenKroge = {
   onHint?: (pos: { x: number; y: number } | null) => void;
   /** Platformbane: true, når Æseløre skal tilbyde at bære hovedpersonen over. */
   onHjaelp?: (vis: boolean) => void;
+  /** Platformbane i Viskeskoven: hovedpersonen står ved ordsten nummer nr (fra venstre), som ikke er løst. */
+  onOrdsten?: (nr: number) => void;
 };
 
 export type VerdenData = {
@@ -20,4 +22,6 @@ export type VerdenData = {
   baneKlaret?: boolean;
   /** Objekter, der ikke skal vises lige nu, fx Klatten, når han er løbet. */
   skjulte?: string[];
+  /** Platformbane: en frivillig, svær bane. Æseløre tilbyder ikke at bære hovedpersonen over. */
+  svaer?: boolean;
 };

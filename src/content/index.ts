@@ -27,7 +27,7 @@ export function harTekst(id: string): id is TekstId {
   return id in da;
 }
 
-export type Taler = 'holm' | 'aeseloere' | 'klatten' | 'lanterne' | 'fortaeller' | 'portvagt' | 'raaber' | 'borgmester' | 'ufaerdige' | 'vims' | 'tomordet' | 'stumming';
+export type Taler = 'holm' | 'aeseloere' | 'klatten' | 'lanterne' | 'fortaeller' | 'portvagt' | 'raaber' | 'borgmester' | 'ufaerdige' | 'vims' | 'tomordet' | 'stumming' | 'halvfugl';
 
 export type Replik = { taler: Taler; tekst: string; bevidstFejl?: boolean };
 
@@ -50,6 +50,44 @@ export type StedObjekt = {
   snakker?: boolean;
   /** Objektet lyser om natten, fx en lanterne. */
   lys?: boolean;
+  /**
+   * Frivilligt (Henrik, 9. november 2026): kan undersøges når som helst på stedet, uden for kapitlets trin.
+   *   mission: den, der giver kapitlets sidemission. blad: noget, man samler til missionen.
+   *   udflugt: indgangen til et frivilligt sted (feltet udflugt), fx en svær platformbane.
+   */
+  frivillig?: 'mission' | 'blad' | 'udflugt';
+  udflugt?: string;
+};
+
+/** En frivillig, svær udfordring på et sted for sig selv. Belønningen er et hukommelsesskår (docs/historie.md). */
+export type Udflugt = {
+  skaar: string;
+  /** Stedet, man kommer fra og vender tilbage til. */
+  fra: string;
+  opgavetekst: string;
+  ind: Replik[];
+  spoergsmaal: string;
+  ja: string;
+  nej: string;
+  faerdig: Replik[];
+  /** Når man klarer den igen og allerede har skåret. */
+  igen: Replik[];
+};
+
+/** En sidemission: find bladene, og hjælp den, der gav missionen, med en opgave. Belønningen er et hukommelsesskår. */
+export type Mission = {
+  giver: string;
+  blade: string[];
+  skaar: string;
+  /** Antal opgaver til sidst. */
+  antal: number;
+  titel: string;
+  intro: string;
+  start: Replik[];
+  mangler: Replik[];
+  klar: Replik[];
+  faerdig: Replik[];
+  efter: Replik[];
 };
 
 export type Sted = {
@@ -61,6 +99,10 @@ export type Sted = {
   startFelt?: [number, number];
   /** Platformbane set fra siden (se src/game/bane.ts). Et sted har enten kort eller bane. */
   bane?: string[];
+  /** Replikker, der vises, når man kommer til stedet, fx Æseløre, der forklarer en bane. Er ikke et trin. */
+  intro?: Replik[];
+  /** Stedet er en frivillig udflugt (se Udflugt). */
+  udflugt?: Udflugt;
   objekter: StedObjekt[];
 };
 
@@ -176,6 +218,8 @@ export type Kapitel = {
   fuglFra?: string;
   steder: Record<string, Sted>;
   trin: Trin[];
+  /** Sidemissioner i kapitlet (frivillige). */
+  missioner?: Record<string, Mission>;
 };
 
 // JSON giver tal-lister som number[]. Testene i kapitel.test.ts tjekker, at felterne har to tal.

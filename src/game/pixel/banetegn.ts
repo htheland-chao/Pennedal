@@ -1,4 +1,4 @@
-/** Tegner platformbaner set fra siden: byens tage om natten. Kræver en browser. */
+/** Tegner platformbaner set fra siden: byens tage om natten og Viskeskovens hvide sti. Kræver en browser. */
 import { BFELT, erFast, type Bane } from '../bane';
 import { hash, lerred } from './lerred';
 import type { Tegnkort } from './sprites';
@@ -11,8 +11,13 @@ const PLANKE = { top: hx('#c9a46a'), a: hx('#a07a4a'), kant: hx('#5a3a28') };
 const BLAEK = { a: hx('#141629'), b: hx('#1d2140'), glans: hx('#4f6fa8') };
 const VAND = { a: hx('#14203f'), b: hx('#1a2a52'), krus: hx('#2c3f73') };
 
+const SKOVBUND = { top: hx('#e8e6ee'), graes: hx('#c9cfc4'), a: hx('#b8ad9c'), b: hx('#a99f8e'), sten: hx('#8f8a80') };
+const TOMRUM = { a: hx('#eceaf2'), b: hx('#e2e0ea'), streg: hx('#d2cfdc') };
+const VISKET = hx('#b9b4c8');
+
 /** Banens forgrund: tage, mure, planker, blæk og vand. Tegnes én gang. Luft er gennemsigtig. */
-export function tegnBane(bane: Bane): HTMLCanvasElement {
+export function tegnBane(bane: Bane, tema = ''): HTMLCanvasElement {
+  if (tema === 'viskesti') return tegnSkovbane(bane);
   const W = bane.bredde * BFELT;
   const H = bane.hoejde * BFELT;
   const c = lerred(W, H);
@@ -117,4 +122,107 @@ export const MAAL: Tegnkort = {
     'KWYyyyyyyyyYWK', 'KWYYYYYYYYYYWK', 'KWWWWWWWWWWWWK', 'KKKKKKKKKKKKKK',
   ],
   palet: { K: '#2a170f', W: '#6b4a2b', Y: '#e5b84c', y: '#ffe9a8' },
+};
+
+/**
+ * Viskeskovens bane (Henrik, 9. november 2026): bleg skovbund med hvidt græs, planker af lyst træ,
+ * et hvidt tomrum, hvor noget er visket væk, og viskede planker, der kun står som en svag, stiplet kant.
+ */
+function tegnSkovbane(bane: Bane): HTMLCanvasElement {
+  const W = bane.bredde * BFELT;
+  const H = bane.hoejde * BFELT;
+  const c = lerred(W, H);
+  const g = c.getContext('2d')!;
+  const img = g.createImageData(W, H);
+  const p = img.data;
+  const saet = (X: number, Y: number, col: [number, number, number]) => {
+    const o = (Y * W + X) * 4;
+    p[o] = col[0];
+    p[o + 1] = col[1];
+    p[o + 2] = col[2];
+    p[o + 3] = 255;
+  };
+  for (let ty = 0; ty < bane.hoejde; ty++)
+    for (let tx = 0; tx < bane.bredde; tx++) {
+      const t = bane.tegn(tx, ty);
+      for (let py = 0; py < BFELT; py++)
+        for (let px = 0; px < BFELT; px++) {
+          const X = tx * BFELT + px;
+          const Y = ty * BFELT + py;
+          const r = hash(X, Y);
+          if (erFast(t)) {
+            const top = !erFast(bane.tegn(tx, ty - 1));
+            if (top && py < 2) saet(X, Y, SKOVBUND.top);
+            else if (top && py < 5) saet(X, Y, r < 0.35 ? SKOVBUND.top : SKOVBUND.graes);
+            else saet(X, Y, r > 0.97 ? SKOVBUND.sten : hash(X >> 2, Y >> 2) < 0.5 ? SKOVBUND.a : SKOVBUND.b);
+          } else if (t === '=') {
+            if (py < 5) saet(X, Y, py === 0 ? PLANKE.top : py === 4 ? PLANKE.kant : X % 8 === 0 ? PLANKE.kant : PLANKE.a);
+          } else if (t === 'v') {
+            // Kun en svag, stiplet kant, hvor planken var.
+            if ((py === 0 || py === 4) && (X >> 1) % 2 === 0) saet(X, Y, VISKET);
+          } else if (t === '^') {
+            if (py >= 11) saet(X, Y, py === 11 && r > 0.6 ? BLAEK.glans : r < 0.5 ? BLAEK.a : BLAEK.b);
+          } else if (t === '~') {
+            saet(X, Y, hash(X >> 3, Y >> 1) > 0.94 ? TOMRUM.streg : r < 0.5 ? TOMRUM.a : TOMRUM.b);
+          }
+        }
+    }
+  g.putImageData(img, 0, 0);
+  return c;
+}
+
+/** Baggrunden i Viskeskoven: bleg himmel og tre lag af hvide træer, der bliver svagere bagud. */
+export function tegnSkovBaggrund(bredde: number, hoejde: number): HTMLCanvasElement {
+  const c = lerred(bredde, hoejde);
+  const g = c.getContext('2d')!;
+  const himmel = g.createLinearGradient(0, 0, 0, hoejde);
+  himmel.addColorStop(0, '#dcdbe6');
+  himmel.addColorStop(1, '#f1f0f5');
+  g.fillStyle = himmel;
+  g.fillRect(0, 0, bredde, hoejde);
+  const lag: [string, number, number][] = [['#e4e2ec', 70, 9], ['#d6d3e0', 52, 13], ['#c4c0d2', 36, 17]];
+  lag.forEach(([farve, hoej, afstand], li) => {
+    g.fillStyle = farve;
+    for (let x = 0; x < bredde; x += afstand) {
+      const h = hoej + Math.floor(hash(x, li * 7) * 30);
+      const b = 6 + Math.floor(hash(x, li * 5 + 1) * 6);
+      const fod = hoejde - 10 + li * 4;
+      // Et spidst papirtræ: trekant i trin.
+      for (let k = 0; k < h; k++) {
+        const w = Math.max(1, Math.round((k / h) * b));
+        g.fillRect(x - w, fod - h + k, w * 2 + 1, 1);
+      }
+      g.fillRect(x, fod, 1, 10);
+    }
+  });
+  return c;
+}
+
+/** Tågen, der følger hovedpersonen: hvid og tæt i kanten, åben i midten, hvor lanternen lyser. Dither, ingen bløde kanter. */
+export function tegnTaage(b: number, h: number, hul: number): HTMLCanvasElement {
+  const c = lerred(b, h);
+  const g = c.getContext('2d')!;
+  const img = g.createImageData(b, h);
+  const p = img.data;
+  const BAY = [0, 8, 2, 10, 12, 4, 14, 6, 3, 11, 1, 9, 15, 7, 13, 5];
+  for (let y = 0; y < h; y++)
+    for (let x = 0; x < b; x++) {
+      const d = Math.hypot(x + 0.5 - b / 2, (y + 0.5 - h / 2) * 1.3) / hul;
+      const s = Math.min(1, Math.max(0, (d - 0.55) / 0.9));
+      const trin = Math.floor(s * 4 + BAY[(y & 3) * 4 + (x & 3)] / 16) / 4;
+      if (trin <= 0) continue;
+      const o = (y * b + x) * 4;
+      p[o] = 244;
+      p[o + 1] = 243;
+      p[o + 2] = 250;
+      p[o + 3] = Math.round(trin * 150);
+    }
+  g.putImageData(img, 0, 0);
+  return c;
+}
+
+/** En ny planke, der lige er skrevet tilbage. */
+export const NY_PLANKE: Tegnkort = {
+  raekker: ['TTTTTTTTTTTTTTTT', 'PPPPPPPkPPPPPPPk', 'PPPPPPPkPPPPPPPk', 'PPPPPPPkPPPPPPPk', 'kkkkkkkkkkkkkkkk'],
+  palet: { T: '#e8cf9a', P: '#c9a46a', k: '#7a5a3a' },
 };

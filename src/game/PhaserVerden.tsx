@@ -6,6 +6,9 @@ import { BaneScene } from './BaneScene';
 import { KortScene, SKALA, VIS_B, VIS_H } from './KortScene';
 import type { VerdenKroge } from './typer';
 
+/** Det, React kan bede en platformbane om. */
+export type BaneStyring = { styr: (knap: 'venstre' | 'hoejre' | 'hop', nede: boolean) => void; baerOver: () => void; genskab: (nr: number) => void };
+
 type Props = {
   stedId: string;
   sted: Sted;
@@ -29,7 +32,9 @@ type Props = {
   /** Kan kaldes for at gå hen til et objekt og undersøge det. */
   gaaTilRef?: MutableRefObject<((id: string) => void) | null>;
   /** Platformbane: knapperne på skærmen og Æselørets hjælp. */
-  baneRef?: MutableRefObject<{ styr: (knap: 'venstre' | 'hoejre' | 'hop', nede: boolean) => void; baerOver: () => void } | null>;
+  baneRef?: MutableRefObject<BaneStyring | null>;
+  /** Platformbane: en frivillig, svær bane uden hjælp. */
+  svaer?: boolean;
 };
 
 export function PhaserVerden(props: Props) {
@@ -42,7 +47,7 @@ export function PhaserVerden(props: Props) {
   const aktivNoegle = useRef(sceneNoegle(props.sted));
   const scene = () => spil.current?.scene.getScene(aktivNoegle.current) as KortScene | BaneScene | undefined;
   const stoerrelse = (): [number, number] => [VIS_B * SKALA, VIS_H * SKALA];
-  const sceneData = () => ({ sted: props.sted, aktiv: props.aktiv, aktive: props.aktive, mindreUhygge: props.mindreUhygge, skjulte: props.skjulte, baneKlaret: props.baneKlaret });
+  const sceneData = () => ({ sted: props.sted, aktiv: props.aktiv, aktive: props.aktive, mindreUhygge: props.mindreUhygge, skjulte: props.skjulte, baneKlaret: props.baneKlaret, svaer: props.svaer });
 
   // Opret spillet én gang.
   useEffect(() => {
@@ -65,6 +70,7 @@ export function PhaserVerden(props: Props) {
       onNaer: (id: string | null) => kroge.current.onNaer(id),
       onHint: (pos: { x: number; y: number } | null) => kroge.current.onHint?.(pos),
       onHjaelp: (vis: boolean) => kroge.current.onHjaelp?.(vis),
+      onOrdsten: (nr: number) => kroge.current.onOrdsten?.(nr),
     } satisfies VerdenKroge);
     game.registry.set('avatar', props.avatar);
     const foerste = aktivNoegle.current;
@@ -143,6 +149,10 @@ export function PhaserVerden(props: Props) {
         baerOver: () => {
           const s = scene();
           if (s instanceof BaneScene) s.baerOver();
+        },
+        genskab: (nr) => {
+          const s = scene();
+          if (s instanceof BaneScene) s.genskab(nr);
         },
       };
   });

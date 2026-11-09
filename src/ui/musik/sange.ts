@@ -380,7 +380,7 @@ const kamp: Sang = {
       styrke: 0.12,
       noder:
         'D5 . F5 . A5 - G5 F5 | E5 . F5 . D5 - - . | D5 . F5 . Bb5 - A5 G5 | A5 - - . G5 - E5 . | ' +
-        'D5 . F5 . A5 - D6 C8 | Bb5 - A5 - G5 - Eb5 - | F5 . D5 . Bb4 - D5 F5 | E5 - C#5 - A4 - - .',
+        'D5 . F5 . A5 - D6 C6 | Bb5 - A5 - G5 - Eb5 - | F5 . D5 . Bb4 - D5 F5 | E5 - C#5 - A4 - - .',
     },
     {
       lyd: 'savtak',
@@ -407,4 +407,7 @@ const kamp: Sang = {
   ],
 };
 
-export const SANGE: Record<string, Sang> = { bibliotek, kaelder, pennedal, floden, fyrtaarn, eng, torv, smoeger, trykkeri, tage, forside, ufaerdige, intro, minde, viskeskov, kamp };
+/** Viskeskovens bane: samme sang som skoven, lidt hurtigere, fordi man løber og hopper. */
+const viskesti: Sang = { ...viskeskov, bpm: viskeskov.bpm + 14 };
+
+export const SANGE: Record<string, Sang> = { bibliotek, kaelder, pennedal, floden, fyrtaarn, eng, torv, smoeger, trykkeri, tage, forside, ufaerdige, intro, minde, viskeskov, kamp, viskesti };

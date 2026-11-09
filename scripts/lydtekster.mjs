@@ -41,6 +41,18 @@ export function alleLydtekster(stemmer = hentStemmer()) {
       if (trin.saetninger) tilfoej('fortaeller', trin.saetninger.map(renTekst).join(' '), `${navn} / ${trin.id}.saetninger`);
     }
 
+  // Frivilligt indhold (9. november 2026): intro på et sted, udflugter og sidemissioner.
+  for (const k of kapitler) {
+    const navn = `Kapitel ${k.kapitel}`;
+    for (const [stedId, sted] of Object.entries(k.steder)) {
+      (sted.intro ?? []).forEach((r, i) => tilfoej(r.taler, r.tekst, `${navn} / ${stedId}.intro.${i + 1}`));
+      const u = sted.udflugt;
+      if (u) for (const felt of ['ind', 'faerdig', 'igen']) u[felt].forEach((r, i) => tilfoej(r.taler, r.tekst, `${navn} / ${stedId}.${felt}.${i + 1}`));
+    }
+    for (const [id, m] of Object.entries(k.missioner ?? {}))
+      for (const felt of ['start', 'mangler', 'klar', 'faerdig', 'efter']) m[felt].forEach((r, i) => tilfoej(r.taler, r.tekst, `${navn} / ${id}.${felt}.${i + 1}`));
+  }
+
   for (const o of laes('ord/stumme.json').ord) tilfoej('ord', o.ord, `Stumme bogstaver / ${o.ord}`);
   for (const [id, k] of Object.entries(laes('ordkort.json'))) tilfoej('ord', k.ord, `Ordkort / ${id}`);
 

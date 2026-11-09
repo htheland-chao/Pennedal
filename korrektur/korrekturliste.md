@@ -1,6 +1,6 @@
 # Korrekturliste - Pennedal
 
-Lavet 2026-11-01. 911 tekster.
+Lavet 2026-11-09. 1062 tekster.
 
 Sæt kryds, når en tekst er læst. Bevidste fejl står under "Bevidste fejl" og skal ikke rettes.
 Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), så læs hele teksten.
@@ -78,9 +78,6 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `intro.5`: I en kælder under et skolebibliotek er der en skuffe, som er begyndt at hviske.
 - [ ] `intro.5.slut`: Den hvisker til dig.
 - [ ] `intro.af`: Et spil af Theland Studios
-- [ ] `intro.fortaeller.nuvaerende`: Fortæller: nuværende stemme. Prøv den gamle mand
-- [ ] `intro.fortaeller.gammel`: Fortæller: den gamle mand. Skift tilbage
-- [ ] `intro.fortaeller.mangler`: Den gamle mands stemme er ikke lavet endnu. Indtil da fortæller den nuværende stemme.
 - [ ] `intro.begynd`: Begynd eventyret
 - [ ] `intro.spring`: Spring introen over
 - [ ] `intro.videre`: Videre
@@ -121,7 +118,7 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `verden.menu`: Menu
 - [ ] `verden.sted`: Du er her: {sted}
 - [ ] `menu.titel`: Menu
-- [ ] `menu.gemmekode`: Vis gemmekode
+- [ ] `menu.gem`: Gem spillet
 - [ ] `menu.samling`: Din samling
 - [ ] `menu.avatar`: Skift udseende
 - [ ] `menu.indstillinger`: Indstillinger
@@ -168,6 +165,11 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `bevisjagt.vaelg.saetning`: sætning {nr}
 - [ ] `bevisjagt.regel`: Svaret står i teksten. Læs sætningerne én ad gangen, og find den, der passer præcist til spørgsmålet.
 - [ ] `ogorm.titel`: Og-ormen
+- [ ] `ogorm.klip.instruks`: Og-ormen har spist punktummerne og sat "og" i stedet. Klip ormen over med saksen, der hvor én tanke slutter, og en ny begynder.
+- [ ] `ogorm.klip.her`: Klip ormen over ved dette og
+- [ ] `ogorm.klip.stort`: Klip! Ormen er delt i to. {ord} får stort begyndelsesbogstav, fordi en ny sætning begynder.
+- [ ] `ogorm.klip.tilbage`: Der er {antal} steder tilbage at klippe.
+- [ ] `ogorm.klip.tilbage.et`: Der er ét sted tilbage at klippe.
 - [ ] `ogorm.instruks`: Og-ormen har ædt punktummerne og sat "og" i stedet. Nu er teksten én lang sætning. Gør den til flere sætninger igen.
 - [ ] `ogorm.trin.1`: Læs teksten. Find steder, hvor én tanke slutter, og en ny begynder.
 - [ ] `ogorm.trin.2`: Tryk på "og" lige dér. Så bliver det til et punktum.
@@ -225,6 +227,8 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `bro.eksempel`: Problem: Lyset er stjålet. Hjemkomst: Frøen hopper hjem med lyset.
 - [ ] `gem.titel`: Din gemmekode
 - [ ] `gem.del.slut`: Du har klaret del {nr}. Godt gået!
+- [ ] `gem.del.kvittering`: Du har klaret del {nr}. Spillet er gemt på denne computer. Vil du fortsætte et andet sted, så vælg Gem spillet i menuen.
+- [ ] `kvittering.luk`: Luk
 - [ ] `gem.forklaring`: Spillet er gemt på denne computer. Vil du fortsætte på en anden computer, så skriv koden ned eller tag et billede af QR-koden.
 - [ ] `gem.qr`: QR-kode med din gemmekode
 - [ ] `gem.kopier`: Kopiér koden
@@ -286,7 +290,7 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `laerer.luk`: Luk
 - [ ] `indst.titel`: Indstillinger
 - [ ] `indst.oplaesning`: Læs tekster op automatisk
-- [ ] `indst.introgammel`: Introen fortælles af en dyb, gammel mandestemme
+- [ ] `indst.rumklang`: Stemmerne får lidt rum, når nogen hvisker, i introen og i tilbageblik
 - [ ] `indst.autovidere`: Gå selv videre, når en replik er læst op
 - [ ] `indst.musik`: Baggrundsmusik
 - [ ] `indst.musik.styrke`: Lydstyrke for musik
@@ -340,6 +344,8 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `lyd.kopieret`: Kopieret
 - [ ] `lyd.figur.ord`: Enkelte ord
 - [ ] `lyd.tilbage`: Tilbage til spillet
+- [ ] `minde.nyt`: {titel}. Det ligger nu i tasken, så du kan se det, når du har lyst.
+- [ ] `minde.se.nu`: Se mindet nu
 - [ ] `minde.blaek.titel`: Et minde: Blæk og regn
 - [ ] `minde.blaek.1`: Regnen trommer mod en rude. Det er aften, og lampen over bordet summer svagt.
 - [ ] `minde.blaek.2`: En hånd holder om en blyant. Den holder alt for hårdt, så knoerne bliver helt hvide.
@@ -377,7 +383,7 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `kamp.hvad`: Hvad gør du?
 - [ ] `kamp.naeste`: Næste tur
 - [ ] `kamp.videre`: Videre
-- [ ] `kamp.forklaring`: Der er ingen tid, og du kan ikke tabe. Lyt og Læs giver hjælp. Gå væk, hvis du vil holde pause. Væsnet venter.
+- [ ] `kamp.forklaring`: Der er ingen tid. Væsnerne viser altid, hvad de gør næste gang. Et forkert svar rammer ved siden af, men koster ikke liv. Lyt giver et tip og viser væsnets svage punkt. Gå væk, hvis du vil holde pause. Kampen bliver husket.
 - [ ] `kamp.vims`: Spørg Vims
 - [ ] `kamp.vims.visk`: Vims visker en forkert mulighed ud. Undskyld, hvis det var den, du ville vælge.
 - [ ] `kamp.vims.ingen`: Vims kigger på mulighederne. Der er ikke mere, han tør viske ud. Nu må du selv vælge.
@@ -385,7 +391,7 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `kamp.tomordet.angreb`: Tomordet æder et ord i sætningen.
 - [ ] `kamp.tomordet.spoergsmaal`: Hvilket ord betyder det samme som {ord}?
 - [ ] `kamp.tomordet.lyt`: Jeg er så sulten. Giv mig et ord, der betyder det samme. Prøv at sætte dit ord ind i sætningen. Lyder den stadig rigtig, er det godt.
-- [ ] `kamp.tomordet.rigtig`: Ja. Ordet {svar} betyder det samme som {ord}. Tomordet tygger tilfreds.
+- [ ] `kamp.tomordet.rigtig`: Ja. Ordet {svar} betyder det samme som {ord}.
 - [ ] `kamp.tomordet.fejl`: Ordet {valgt} betyder ikke det samme som {ord}. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.
 - [ ] `kamp.tomordet.rolig`: Tomordet er mæt og helt roligt.
 - [ ] `kamp.tomordet.regel`: Synonymer er ord, der betyder det samme eller næsten det samme. Du kan bytte dem ud, uden at sætningen skifter betydning.
@@ -398,7 +404,118 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `kamp.stumming.fejl`: Der mangler ikke et {valgt} her. Kig på bogstavet lige før eller lige efter hullet.
 - [ ] `kamp.stumming.rolig`: Stummingen giver slip på bogstaverne og bliver helt stille.
 - [ ] `kamp.stumming.eksempel`: Andre ord med samme slags stumme bogstav: {ord}.
+- [ ] `kamp.menu.slaa`: Slå
+- [ ] `kamp.kort.ramt`: {navn} -{skade}
+- [ ] `kamp.kort.svag`: Svagt punkt! {navn} -{skade}
+- [ ] `kamp.kort.forbi`: Forbi! Slaget rammer ved siden af.
+- [ ] `kamp.kort.rolig`: {navn} falder sammen til blæk.
+- [ ] `kamp.kort.kombi`: Tre i træk! Stort slag er klar.
+- [ ] `kamp.kort.forsvar`: Holdet dækker sig.
+- [ ] `kamp.kort.lap`: Æseløre lapper {hvem}: +{liv}
+- [ ] `kamp.kort.slet`: Vims visker angrebet fra {navn} ud.
+- [ ] `kamp.kort.visk`: Vims gør viskelæderet klar til næste slag.
+- [ ] `kamp.kort.lanterne`: Lanternen blænder væsnerne!
+- [ ] `kamp.kort.krummer`: Krummer til hele holdet!
+- [ ] `kamp.kort.punktum`: Punktum! {navn} må stoppe.
+- [ ] `kamp.kort.angreb.aed`: {navn} æder et ord fra {hvem}!
+- [ ] `kamp.kort.angreb.gab`: {navn} gaber, og mørket suger!
+- [ ] `kamp.kort.angreb.stjael`: {navn} stjæler fra {hvem}!
+- [ ] `kamp.kort.angreb.hvisk`: {navn} hvisker koldt!
+- [ ] `kamp.kort.afvist`: {hvem} tager ingen skade.
+- [ ] `kamp.kort.misser`: {navn} er blændet og rammer forbi.
+- [ ] `kamp.kort.lammet`: {navn} står stille bag punktummet.
+- [ ] `kamp.kort.faldet`: {hvem} er slået omkuld.
+- [ ] `kamp.kort.vundet`: Sejr!
+- [ ] `kamp.kort.slaaet`: Holdet er slået tilbage.
+- [ ] `kamp.varsel.kort`: {skade} mod {hvem}
+- [ ] `kamp.varsel.kort.alle`: {skade} mod alle
+- [ ] `kamp.liv.kort`: {liv}/{maks}
+- [ ] `kamp.spring`: Spring over
+- [ ] `kamp.slaa.nu`: Slå!
+- [ ] `kamp.slut.vundet`: Sejr
+- [ ] `kamp.slut.slaaet`: Slået tilbage
+- [ ] `kamp.hjaelp`: Hjælp
+- [ ] `kamp.menu.forsvar`: Forsvar
+- [ ] `kamp.menu.hjaelpere`: Hjælpere
+- [ ] `kamp.menu.taske`: Taske
+- [ ] `kamp.tilbage`: Tilbage
+- [ ] `kamp.slag.hvad`: Hvordan vil du slå?
+- [ ] `kamp.slag.synonym`: Slå med et synonym
+- [ ] `kamp.slag.stumt`: Slå med et stumt bogstav
+- [ ] `kamp.slag.stort`: Stort slag, der rammer alle: {slag}
+- [ ] `kamp.maal.hvem`: Hvem vil du slå?
+- [ ] `kamp.maal.lyt`: Hvem vil du lytte til?
+- [ ] `kamp.svaghed.ukendt`: svagt punkt: ukendt
+- [ ] `kamp.svaghed.synonym`: svagt punkt: synonymer
+- [ ] `kamp.svaghed.stumt`: svagt punkt: stumme bogstaver
+- [ ] `kamp.lyt.svag`: Nu ved du, at {navn} har {svaghed}.
+- [ ] `kamp.liv`: {liv} af {maks} liv
+- [ ] `kamp.medlem.liv`: {navn}: {liv} af {maks} liv
+- [ ] `kamp.vaesner`: Væsner
+- [ ] `kamp.holdet`: Holdet
+- [ ] `kamp.runde`: Runde {runde}
+- [ ] `kamp.kombi`: Rigtige i træk: {antal} af {maks}
+- [ ] `kamp.stort.klar`: Tre rigtige i træk. Stort slag er klar.
+- [ ] `kamp.varsel.overskrift`: Det gør væsnerne næste gang
+- [ ] `kamp.varsel.aed`: {navn} gør klar til at æde et ord fra {hvem}: {skade} skade.
+- [ ] `kamp.varsel.gab`: {navn} åbner sit hule gab mod hele holdet: {skade} skade til hver.
+- [ ] `kamp.varsel.stjael`: {navn} vil stjæle et bogstav fra {hvem}: {skade} skade.
+- [ ] `kamp.varsel.hvisk`: {navn} vil hviske koldt til hele holdet: {skade} skade til hver.
+- [ ] `kamp.haendelse.ramt`: {navn} mister {skade} liv.
+- [ ] `kamp.haendelse.svag`: Svagt punkt! {navn} mister {skade} liv.
+- [ ] `kamp.haendelse.forbi`: Slaget rammer ved siden af {navn}.
+- [ ] `kamp.haendelse.rolig`: {navn} falder sammen til en stille plet blæk.
+- [ ] `kamp.haendelse.kombi`: Tre rigtige i træk. Næste gang kan du slå et stort slag, der rammer alle.
+- [ ] `kamp.haendelse.forsvar`: Du dækker holdet. Al skade bliver halveret i denne runde.
+- [ ] `kamp.haendelse.forklar`: Æseløre forklarer reglen, før du svarer.
+- [ ] `kamp.haendelse.lap`: Æseløre folder et hjørne om sårene. {hvem} får {liv} liv igen.
+- [ ] `kamp.haendelse.slet`: Vims visker angrebet fra {navn} ud, før det kommer. Undskyld.
+- [ ] `kamp.haendelse.lanterne`: Lanternen lyser op. Væsnerne bliver blændet og rammer ved siden af i denne runde.
+- [ ] `kamp.haendelse.krummer`: Holdet deler krummerne. Alle får {liv} liv igen.
+- [ ] `kamp.haendelse.punktum`: Du sætter et punktum foran {navn}. Det må stoppe og stå stille en runde.
+- [ ] `kamp.haendelse.angreb.aed`: {navn} æder et ord fra {hvem}. {hvem} mister {skade} liv.
+- [ ] `kamp.haendelse.angreb.gab`: {navn} gaber, og mørket suger. {hvem} mister {skade} liv.
+- [ ] `kamp.haendelse.angreb.stjael`: {navn} stjæler et bogstav fra {hvem}. {hvem} mister {skade} liv.
+- [ ] `kamp.haendelse.angreb.hvisk`: {navn} hvisker koldt. {hvem} mister {skade} liv.
+- [ ] `kamp.haendelse.afvist`: Angrebet fra {navn} prikker kun til {hvem}. Intet liv mistet.
+- [ ] `kamp.haendelse.misser`: {navn} er blændet af lyset og rammer ved siden af.
+- [ ] `kamp.haendelse.lammet`: {navn} står stille bag punktummet.
+- [ ] `kamp.haendelse.faldet`: {hvem} er slået omkuld. Æseløre kan lappe sårene.
+- [ ] `kamp.vundet`: Alle væsner er faldet sammen. Vejen er fri.
+- [ ] `kamp.slaaet`: Holdet er slået tilbage. Væsnerne beholder deres sår, og I har fuldt liv, når I prøver igen.
+- [ ] `kamp.evne.forklar`: Æseløre: forklar reglen ({antal} tilbage)
+- [ ] `kamp.evne.lap`: Æseløre: lap et sår ({antal} tilbage)
+- [ ] `kamp.evne.visk`: Vims: visk en forkert mulighed ud ({antal} tilbage)
+- [ ] `kamp.evne.slet`: Vims: visk et angreb ud ({antal} tilbage)
+- [ ] `kamp.evne.forklaring`: Hjælperne handler ved siden af dig. Hver hjælper kan gøre én ting pr. runde. Æseløre kan også forklare, og Vims kan viske ud, mens du slår.
+- [ ] `kamp.lap.hvem`: Hvem skal lappes?
+- [ ] `kamp.slet.hvem`: Hvilket angreb skal Vims viske ud?
+- [ ] `kamp.punktum.hvem`: Hvem skal stoppes af punktummet?
+- [ ] `kamp.ting.lanterne`: Lanterne: blænd væsnerne i en runde
+- [ ] `kamp.ting.krummer`: Krummer: alle får {liv} liv igen
+- [ ] `kamp.ting.punktum`: Punktum: stop et væsen i en runde
+- [ ] `kamp.ting.ingen`: Der er ikke noget i tasken, du kan bruge i en kamp.
 - [ ] `valg.vaelg`: Vælg
+- [ ] `taler.halvfugl`: Halvsangen
+- [ ] `ordsten.titel`: Ordstenen
+- [ ] `ordsten.intro`: Et ord er ved at blive visket ud. Find et ord, der betyder det samme, så kommer planken igen.
+- [ ] `ordsten.genskab`: Skriv planken tilbage
+- [ ] `ordsten.igen`: Prøv igen
+- [ ] `ordsten.vaek`: Gå væk fra stenen
+- [ ] `ordopgave.nr`: Ord {nr} af {antal}
+- [ ] `ordopgave.videre`: Næste ord
+- [ ] `ordopgave.faerdig`: Færdig
+- [ ] `mission.blad`: Du fandt et hvidt blad med et ord ({antal} af {ialt}).
+- [ ] `skaar.fundet`: Et hukommelsesskår: {titel}
+- [ ] `udflugt.tilbage`: Gå tilbage
+- [ ] `minde.skaar3a.titel`: Viskelæderet
+- [ ] `minde.skaar3a.1`: Du sidder ved køkkenbordet igen. Det grønne hæfte ligger åbent foran dig.
+- [ ] `minde.skaar3a.2`: Et ord ser forkert ud, og du visker det ud. Og igen. Papiret bliver tyndt og gråt.
+- [ ] `minde.skaar3a.3`: Så skriver du et andet ord, der betyder det samme. Det er lettere at stave. Historien går videre.
+- [ ] `minde.skaar3b.titel`: Hæftet på gulvet
+- [ ] `minde.skaar3b.1`: Et klasseværelse efter sidste time. Stolene står oppe på bordene, og det er helt stille.
+- [ ] `minde.skaar3b.2`: Noget grønt ligger under et bord. Et hæfte med en skygge med store øjne på forsiden.
+- [ ] `minde.skaar3b.3`: En voksen hånd samler det op, børster støvet af og lægger det forsigtigt ned i en taske.
 
 ## Kapitel 1
 
@@ -618,6 +735,40 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `sted.lysningen`: Den hvide lysning
 - [ ] `objekt.stumming`: væsnet, der hvisker
 - [ ] `objekt.klatten`: Klatten
+- [ ] `objekt.halvfugl`: fuglen på grenen
+- [ ] `objekt.blad1`: et hvidt blad
+- [ ] `objekt.blad2`: et hvidt blad
+- [ ] `objekt.blad3`: et hvidt blad
+- [ ] `objekt.hvidsti`: den lange hvide sti
+- [ ] `sted.viskestien`: Den viskede sti
+- [ ] `objekt.maal`: vejen ind i lysningen
+- [ ] `sted.viskestien.intro.1 (aeseloere)`: Hov. Stien er væk. Plankerne er visket ud.
+- [ ] `sted.viskestien.intro.2 (vims)`: Undskyld! Det var mig. Jeg blev bange for en sky, og så kom jeg til at viske. Undskyld, at jeg undskylder.
+- [ ] `sted.viskestien.intro.3 (aeseloere)`: Se de hvide sten ved hullerne. Det er ordsten. Giv dem et ord, der betyder det samme, så skriver de plankerne tilbage.
+- [ ] `sted.viskestien.intro.4 (fortaeller)`: Lanternen lyser lidt op i den hvide tåge. Gå hen til en ordsten for at skrive en planke tilbage.
+- [ ] `sted.hvidesti`: Den lange hvide sti
+- [ ] `objekt.maal`: enden af den lange sti
+- [ ] `sted.hvidesti.udflugt.opgavetekst`: Kom helt til enden af den lange hvide sti. Den er svær med vilje.
+- [ ] `sted.hvidesti.udflugt.spoergsmaal`: Vil du gå den lange hvide sti?
+- [ ] `sted.hvidesti.udflugt.ja`: Gå ind på stien
+- [ ] `sted.hvidesti.udflugt.nej`: Ikke nu
+- [ ] `sted.hvidesti.udflugt.ind.1 (aeseloere)`: Den sti er lang og næsten helt hvid. Der er kun én lanterne, og jeg bærer dig ikke over.
+- [ ] `sted.hvidesti.udflugt.ind.2 (aeseloere)`: Den er svær med vilje. Du behøver ikke at gå den for at komme videre. Men for enden glimter noget.
+- [ ] `sted.hvidesti.udflugt.faerdig.1 (fortaeller)`: For enden af stien ligger en lille, lysende papirstump i en bunke krummer fra et viskelæder. Det er et hukommelsesskår.
+- [ ] `sted.hvidesti.udflugt.faerdig.2 (aeseloere)`: Du klarede den. Jeg sagde ingenting hele vejen. Det var svært for mig.
+- [ ] `sted.hvidesti.udflugt.igen.1 (aeseloere)`: Du klarede den igen. Skåret har du allerede, men nu ved vi, at det ikke var held.
+- [ ] `mission.halvsang.titel`: Halvsangens sang
+- [ ] `mission.halvsang.intro`: Find et ord, der betyder det samme, så fuglen kan synge sin sang igen.
+- [ ] `mission.halvsang.start.1 (halvfugl)`: Pip ... pi ... Åh. Undskyld. Min sang er gået i stykker.
+- [ ] `mission.halvsang.start.2 (halvfugl)`: Skoven har visket tre ord ud af min sang. De blæste væk som blade.
+- [ ] `mission.halvsang.start.3 (aeseloere)`: Vi kan lede efter dem. Hvide blade med et ord på. De ligger her i lysningen.
+- [ ] `mission.halvsang.start.4 (halvfugl)`: Vil I det? Så synger jeg hele sangen for jer.
+- [ ] `mission.halvsang.mangler.1 (halvfugl)`: Har I fundet bladene? Jeg mangler stadig nogle. Kig efter noget hvidt, der glimter i græsset.
+- [ ] `mission.halvsang.klar.1 (halvfugl)`: I fandt dem alle tre! Men ordene er blevet blege. Hjælp mig med at finde ord, der betyder det samme, så jeg kan synge dem.
+- [ ] `mission.halvsang.faerdig.1 (halvfugl)`: Nu kan jeg synge hele sangen igen. Tak!
+- [ ] `mission.halvsang.faerdig.2 (fortaeller)`: Fuglen synger, og en lille, lysende papirstump daler ned fra grenen. Det er et hukommelsesskår.
+- [ ] `mission.halvsang.faerdig.3 (aeseloere)`: Den skal vi passe godt på. Den husker noget, du har glemt.
+- [ ] `mission.halvsang.efter.1 (halvfugl)`: Tralala, hele sangen! Kommer I forbi igen, synger jeg den en gang til.
 - [ ] `k3-ankomst.1 (fortaeller)`: Blæksporet fører ind i en skov. Men noget er galt. Træerne er blege, som om nogen har prøvet at viske dem ud.
 - [ ] `k3-ankomst.2 (aeseloere)`: Viskeskoven. Her plejer der at være farver. Og fugle. Og ord på skiltene.
 - [ ] `k3-ankomst.3 (fortaeller)`: En fugl synger et par toner. Så stopper den midt i det hele.
@@ -631,7 +782,7 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `k3-tomordet-moede.2 (aeseloere)`: Et Tomord. Det æder ord og efterlader huller. Det er derfor, skiltet er tomt.
 - [ ] `k3-tomordet-moede.3 (tomordet)`: Giv mig et ord, der betyder det samme. Så bliver jeg mæt. Måske.
 - [ ] `k3-tomordet-moede.4 (aeseloere)`: Det er ikke farligt. Bare sulten og lidt uhøfligt. Hver gang det æder et ord, finder du et andet ord, der betyder det samme. Så falder det til ro.
-- [ ] `k3-tomordet.opgavetekst`: Gør Tomordet roligt.
+- [ ] `k3-tomordet.opgavetekst`: Kæmp mod Tomordet.
 - [ ] `k3-tomordet-slut.1 (tomordet)`: Åh. Ord, der betyder det samme. De smager dobbelt så godt.
 - [ ] `k3-tomordet-slut.2 (fortaeller)`: Tomordet bliver helt roligt. Det folder sig sammen til et lille, glad ord og hopper ind mellem træerne.
 - [ ] `k3-tomordet-slut.3 (aeseloere)`: Synonymer. Det er ord, der betyder det samme eller næsten det samme. Når et ord bliver væk, kan et andet tit tage dets plads.
@@ -647,7 +798,7 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `k3-vims.8 (vims)`: Var det mig? Undskyld. Jeg tror, jeg kom til at viske et hul i noget, der ikke var skoven.
 - [ ] `k3-vims.9 (vims)`: Må jeg komme med? Jeg kan godt være modig. Næsten. Og jeg har krummer med, hvis noget skal viskes ud.
 - [ ] `k3-vims.10 (aeseloere)`: Fint. Men hvis du visker mig ud, kommer jeg efter dig.
-- [ ] `k3-til-lysning.opgavetekst`: Følg stien mod lysningen.
+- [ ] `k3-til-lysning.opgavetekst`: Skriv plankerne tilbage ved ordstenene, og kom over til lysningen.
 - [ ] `k3-lysning.1 (fortaeller)`: Stien ender i en lysning. Alt er hvidt her, også himlen.
 - [ ] `k3-lysning.2 (fortaeller)`: Midt i lysningen sidder Klatten. Han kan ikke komme væk. Han sidder fast i en sætning, der aldrig blev skrevet færdig.
 - [ ] `k3-lysning.4 (aeseloere)`: Det hedder sidder, med to d'er. Og jo, du sidder fast.
@@ -656,9 +807,9 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `k3-stumming-moede.1 (stumming)`: Hys. Jeg samler på bogstaver, man ikke kan høre. Dem savner ingen.
 - [ ] `k3-stumming-moede.2 (aeseloere)`: En Stumming. Den stjæler stumme bogstaver. Find det bogstav, der mangler, så giver den slip.
 - [ ] `k3-stumming-moede.3 (vims)`: Hvis du vil have hjælp, kan jeg viske en forkert mulighed ud. Bare spørg. Undskyld.
-- [ ] `k3-stumming.opgavetekst`: Gør Stummingen rolig.
+- [ ] `k3-stumming.opgavetekst`: Kæmp mod væsnerne i lysningen.
 - [ ] `k3-stumming-slut.1 (stumming)`: Nå. Du kan høre dem, selvom de ikke siger noget. Så må du få dem tilbage.
-- [ ] `k3-stumming-slut.2 (fortaeller)`: Stummingen lægger bogstaverne fra sig og lister ind mellem træerne.
+- [ ] `k3-stumming-slut.2 (fortaeller)`: Væsnerne lægger bogstaverne fra sig og lister ind mellem træerne.
 - [ ] `k3-klatten.opgavetekst`: Gå hen til Klatten.
 - [ ] `k3-klatten.1 (klatten)`: Hvad glor du på? Jeg er den Frygtelige. Jeg har bare travlt med at sidde stille.
 - [ ] `k3-klatten.2 (fortaeller)`: Rundt om Klatten svæver to ord fra en halv sætning: Og så. De holder ham fast som et reb.

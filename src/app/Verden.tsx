@@ -1,13 +1,15 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { avatarnavn, hentKapitel, kapitler, t, type Replik, type RumFund, type RumTrin, type Trin, type ValgMulighed } from '../content';
+import { avatarnavn, hentKapitel, kapitler, t, type DialogValg, type Replik, type RumFund, type RumTrin, type Trin, type ValgMulighed } from '../content';
 import { erFaerdighed } from '../engine/faerdigheder';
 import type { GemtSpil, Indstillinger } from '../engine/gem';
 import { afslutTrin, aktueltSted, aktueltTrin, kapitelSlut } from '../engine/kapitel';
 import { MAKS_VENLIGHED, minderFor, nyeTing, taskeFor, type TingId } from '../engine/taske';
+import { antalBlade, bladFundet, medSkaar, missionFor, missionStartet, missionStatus, skjulteBlade } from '../engine/frivillig';
 import { KampVindue } from '../ui/KampVindue';
 import { registrerSvar, type Haendelse } from '../engine/tilpasning';
-import { PhaserVerden } from '../game/PhaserVerden';
-import { erMinde, mindeTitel, type MindeId } from '../content/minder';
+import { PhaserVerden, type BaneStyring } from '../game/PhaserVerden';
+import { erMinde, mindeTitel, SKAAR_MINDE, skaarMinder, type MindeId } from '../content/minder';
+import { OrdOpgaveVindue } from '../ui/OrdOpgaveVindue';
 import { DialogBoks } from '../ui/DialogBoks';
 import { Kvittering } from '../ui/Kvittering';
 import { Overgang, type OvergangType } from '../ui/Overgang';
@@ -35,7 +37,9 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
   const kapitel = hentKapitel(spil.kapitel)!;
   const trin = aktueltTrin(spil, kapitel);
   const slut = kapitelSlut(spil, kapitel);
-  const stedId = aktueltSted(spil, kapitel);
+  // Udflugt (Henrik, 9. november 2026): et frivilligt sted, fx en svær platformbane. Er ikke et trin og gemmes ikke.
+  const [udflugt, setUdflugt] = useState<string | null>(null);
+  const stedId = udflugt ?? aktueltSted(spil, kapitel);
   const forrigeSted = useRef(stedId);
   const sted = kapitel.steder[stedId];
   const [aktivtTrin, setAktivtTrin] = useState<Trin | null>(null);
@@ -66,7 +70,13 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
     if (typeof location === 'undefined' || !new URLSearchParams(location.search).has('hop')) return;
     (window as unknown as { __pennedal?: unknown }).__pennedal = { gaaTil: (id: string) => gaaTilRef.current?.(id) };
   }, []);
-  const baneRef = useRef<{ styr: (knap: 'venstre' | 'hoejre' | 'hop', nede: boolean) => void; baerOver: () => void } | null>(null);
+  const baneRef = useRef<BaneStyring | null>(null);
+  /** Viskeskovens bane: den ordsten, eleven står ved og svarer på. */
+  const [ordsten, setOrdsten] = useState<number | null>(null);
+  /** Sidemissionens opgave til sidst (Halvsangens sang). */
+  const [missionOpgave, setMissionOpgave] = useState<string | null>(null);
+  /** Steder, hvis intro er vist i denne omgang. */
+  const [introVist, setIntroVist] = useState<string[]>([]);
   /** Platformbane: Æseløre tilbyder hjælp efter nogle fald. */
   const [hjaelp, setHjaelp] = useState(false);
   const spilRef = useRef(spil);
@@ -94,8 +104,8 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
 
   // Platformbane: er målet (skift-trinnet med objektet maal på stedet) allerede klaret?
   const maalNr = kapitel.trin.findIndex((x) => x.sted === stedId && x.objekt === 'maal');
-  const baneKlaret = !!sted.bane && maalNr >= 0 && spil.trin > maalNr;
-  const aktivtObjekt = trin && !aktivtTrin ? trin.objekt : null;
+  const baneKlaret = !udflugt && !!sted.bane && maalNr >= 0 && spil.trin > maalNr;
+  const aktivtObjekt = udflugt ? 'maal' : trin && !aktivtTrin ? trin.objekt : null;
   // Objekter, der er forsvundet, fordi kapitlet er nået forbi deres skjulFra-trin.
   const skjulteObjekter = sted.objekter
     .filter((o) => {
@@ -113,7 +123,7 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
   const fuglNr = kapitel.fuglFra ? kapitel.trin.findIndex((t) => t.id === kapitel.fuglFra) : -1;
   // Han vises først, når skuffen bliver åbnet (fuglFra-trinnets dialog), ikke allerede når man træder ind i kælderen.
   const fuglSkjult = fuglNr >= 0 && (spil.trin < fuglNr || (spil.trin === fuglNr && aktivtTrin?.id !== kapitel.fuglFra));
-  const skjulte = fuglSkjult ? [...skjulteObjekter, 'aeseloere'] : skjulteObjekter;
+  const skjulte = [...(fuglSkjult ? [...skjulteObjekter, 'aeseloere'] : skjulteObjekter), ...skjulteBlade(spil, kapitel)];
 
   // Tal igen (Henrik, 1. november 2026): den, man har talt med på dette sted, kan man gå hen til igen
   // og høre den seneste samtale. Et valg vises med den mulighed, eleven valgte.
@@ -126,13 +136,21 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
     }
     return m;
   }, [kapitel, spil.trin, spil.valg, stedId]);
-  const [gentagelse, setGentagelse] = useState<Replik[] | null>(null);
+  /** En dialog uden for trinnene: tal igen, sidemissionen eller en udflugt. efter kaldes, når den lukker. */
+  const [gentagelse, setGentagelse] = useState<{ replikker: Replik[]; valg?: DialogValg; efter?: (valgt: ValgMulighed | null) => void } | null>(null);
+  const gentagValg = useRef<ValgMulighed | null>(null);
   const kanGentages = Object.keys(gentag).filter((id) => !skjulte.includes(id) && id !== trin?.objekt && sted.objekter.some((o) => o.id === id && o.felt));
-  const undersoegbare = aktive ?? (kanGentages.length && !slut ? [...(aktivtObjekt ? [aktivtObjekt] : []), ...kanGentages] : undefined);
+  // Frivillige ting på stedet: kan undersøges når som helst, også når kapitlet er slut.
+  const frivillige = udflugt ? [] : sted.objekter.filter((o) => o.frivillig && o.felt && !skjulte.includes(o.id)).map((o) => o.id);
+  const undersoegbare =
+    aktive ??
+    (kanGentages.length || frivillige.length
+      ? [...(aktivtObjekt && !slut ? [aktivtObjekt] : []), ...(slut ? [] : kanGentages), ...frivillige]
+      : undefined);
   /** Navnet på det, opgaven handler om (knappen i panelet). */
   const aktivtNavn = sted.objekter.find((o) => o.id === aktivtObjekt)?.navn;
   /** Navnet på det, hovedpersonen står ved og kan undersøge lige nu. */
-  const objektNavn = sted.objekter.find((o) => o.id === (rum || (naer && kanGentages.includes(naer)) ? naer : aktivtObjekt))?.navn;
+  const objektNavn = sted.objekter.find((o) => o.id === (rum || (naer && (kanGentages.includes(naer) || frivillige.includes(naer))) ? naer : aktivtObjekt))?.navn;
 
   const startTrin = useCallback(
     (t: Trin) => {
@@ -148,8 +166,15 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
 
   // Trin uden objekt starter af sig selv. Et escape room er ikke et vindue, det er hele stedet.
   useEffect(() => {
-    if (trin && trin.objekt === null && trin.type !== 'rum' && !aktivtTrin && !andetVindueAabent) startTrin(trin);
-  }, [trin, aktivtTrin, andetVindueAabent, startTrin]);
+    if (!udflugt && trin && trin.objekt === null && trin.type !== 'rum' && !aktivtTrin && !andetVindueAabent) startTrin(trin);
+  }, [trin, aktivtTrin, andetVindueAabent, startTrin, udflugt]);
+
+  // Et sted med intro (fx Viskeskovens bane): Æseløre forklarer, første gang man kommer dertil i denne omgang.
+  useEffect(() => {
+    if (!sted.intro || baneKlaret || introVist.includes(stedId) || aktivtTrin || andetVindueAabent || gentagelse) return;
+    setIntroVist((v) => [...v, stedId]);
+    setGentagelse({ replikker: sted.intro });
+  }, [stedId, sted.intro, baneKlaret, introVist, aktivtTrin, andetVindueAabent, gentagelse]);
 
   // Mørket: når Den Ufærdige er til stede, forsvinder farverne, og hans musik tager over.
   const moerke = !!aktivtTrin?.moerke;
@@ -193,13 +218,92 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
     if (r.slutDel) onDelSlut(r.slutDel);
   }
 
+  /** Et nyt hukommelsesskår: gem det og vis en besked med mindet. */
+  function nytSkaar(skaar: string) {
+    const s = spilRef.current;
+    const nyt = medSkaar(s, skaar);
+    spilRef.current = nyt;
+    opdater(nyt);
+    const minde = SKAAR_MINDE[skaar];
+    if (minde) setNytSkaar(minde);
+  }
+  const [nytSkaarMinde, setNytSkaar] = useState<MindeId | null>(null);
+  const skjulSkaar = useCallback(() => setNytSkaar(null), []);
+  const [bladBesked, setBladBesked] = useState<string | null>(null);
+  const skjulBlad = useCallback(() => setBladBesked(null), []);
+
+  /** Frivillige ting: sidemissionen, bladene og indgangen til en udflugt. */
+  function frivilligHandling(id: string) {
+    const o = sted.objekter.find((x) => x.id === id);
+    if (!o) return;
+    if (o.frivillig === 'udflugt' && o.udflugt) {
+      const u = kapitel.steder[o.udflugt]?.udflugt;
+      if (!u) return;
+      setGentagelse({
+        replikker: u.ind,
+        valg: { spoergsmaal: u.spoergsmaal, muligheder: [{ tekst: u.ja, replikker: [] }, { tekst: u.nej, replikker: [] }] },
+        efter: (m) => {
+          if (m?.tekst === u.ja) {
+            setHjaelp(false);
+            setUdflugt(o.udflugt!);
+          }
+        },
+      });
+      return;
+    }
+    const mf = missionFor(kapitel, id);
+    if (!mf) return;
+    const { id: mid, mission } = mf;
+    const s = spilRef.current;
+    const status = missionStatus(s, mid, mission);
+    if (o.frivillig === 'blad') {
+      if (status !== 'samler' || s.valg[bladFundet(id)] === 'ja') return;
+      const nyt: GemtSpil = { ...s, valg: { ...s.valg, [bladFundet(id)]: 'ja' } };
+      spilRef.current = nyt;
+      opdater(nyt);
+      setBladBesked(t('mission.blad', { antal: antalBlade(nyt, mission), ialt: mission.blade.length }));
+      return;
+    }
+    if (status === 'ny') {
+      const nyt: GemtSpil = { ...s, valg: { ...s.valg, [missionStartet(mid)]: 'ja' } };
+      spilRef.current = nyt;
+      opdater(nyt);
+      setGentagelse({ replikker: mission.start });
+    } else if (status === 'samler') setGentagelse({ replikker: mission.mangler });
+    else if (status === 'klar') setGentagelse({ replikker: mission.klar, efter: () => setMissionOpgave(mid) });
+    else setGentagelse({ replikker: mission.efter });
+  }
+
+  /** Udflugten er klaret: skåret (første gang), en kort dialog, og så tilbage. */
+  function udflugtKlaret() {
+    const u = udflugt ? kapitel.steder[udflugt]?.udflugt : undefined;
+    if (!u) return;
+    const foerste = !spilRef.current.skaar.includes(u.skaar);
+    setGentagelse({
+      replikker: foerste ? u.faerdig : u.igen,
+      efter: () => {
+        setUdflugt(null);
+        setHjaelp(false);
+        if (foerste) nytSkaar(u.skaar);
+      },
+    });
+  }
+
   function interaktion(id: string) {
+    if (udflugt) {
+      if (id === 'maal' && !gentagelse) udflugtKlaret();
+      return;
+    }
+    if (!aktivtTrin && !andetVindueAabent && !gentagelse && !rumVindue && frivillige.includes(id) && id !== trin?.objekt) {
+      frivilligHandling(id);
+      return;
+    }
     if (rum && !aktivtTrin && !rumVindue && !andetVindueAabent && aktive?.includes(id)) {
       rumHandling(rum, id);
       return;
     }
     if (!aktivtTrin && !andetVindueAabent && !gentagelse && !rum && trin?.objekt !== id && gentag[id] && kanGentages.includes(id)) {
-      setGentagelse(gentag[id]);
+      setGentagelse({ replikker: gentag[id] });
       return;
     }
     if (aktivtTrin || andetVindueAabent || gentagelse || !trin || trin.objekt !== id) return;
@@ -252,7 +356,9 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
     opdater(nyt);
   }
 
-  const laast = !!aktivtTrin || andetVindueAabent || !!rumVindue || visTaske || !!gentagelse;
+  const laast = !!aktivtTrin || andetVindueAabent || !!rumVindue || visTaske || !!gentagelse || ordsten !== null || !!missionOpgave;
+  const minder = [...minderFor(spil, kapitler), ...skaarMinder(spil.skaar)];
+  const udflugtInfo = udflugt ? sted.udflugt : undefined;
 
   return (
     <main className={`verden tema-${sted.tema}${moerke ? ' moerke' : ''}${moerke && indstillinger.mindreUhygge ? ' moerke-mild' : ''}`}>
@@ -263,13 +369,14 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
           aktiv={aktivtObjekt}
           aktive={undersoegbare}
           baneKlaret={baneKlaret}
+          svaer={!!udflugt}
           avatar={spil.avatar}
           skjulte={skjulte}
           laast={laast}
           mindreUhygge={indstillinger.mindreUhygge}
           forskraekSignal={forskraek}
           taler={taler}
-          kroge={{ onInteraktion: interaktion, onNaer: setNaer, onHint: setHint, onHjaelp: setHjaelp }}
+          kroge={{ onInteraktion: interaktion, onNaer: setNaer, onHint: setHint, onHjaelp: setHjaelp, onOrdsten: setOrdsten }}
           label={t('verden.sted', { sted: sted.navn })}
           fpsRef={fpsRef}
           baneRef={baneRef}
@@ -320,7 +427,17 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
 
       <aside className="panel hud">
         <p className="sted-navn">{t('verden.sted', { sted: sted.navn })}</p>
-        {sted.bane && !slut && trin?.objekt === 'maal' && (
+        {udflugtInfo && (
+          <>
+            <p className="naeste-overskrift">{t('verden.naeste')}</p>
+            <p className="naeste-tekst">{udflugtInfo.opgavetekst}</p>
+            <p className="lille-tekst">{t('bane.styring')}</p>
+            <button type="button" className="knap" onClick={() => setUdflugt(null)}>
+              {t('udflugt.tilbage')}
+            </button>
+          </>
+        )}
+        {!udflugt && sted.bane && !slut && trin?.objekt === 'maal' && (
           <>
             <p className="naeste-overskrift">{t('verden.naeste')}</p>
             <p className="naeste-tekst">{trin?.opgavetekst ?? t('bane.maal')}</p>
@@ -335,7 +452,7 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
             )}
           </>
         )}
-        {slut ? (
+        {udflugt ? null : slut ? (
           <>
             <p className="stor-ros">{t('samling.kapitel.slut', { nr: spil.kapitel })}</p>
             <button type="button" className="knap knap-primaer" onClick={onKapitelSlut}>
@@ -408,7 +525,7 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
       </aside>
 
       {visTaske && (
-        <TaskeVindue ting={tingITasken} minder={minderFor(spil, kapitler)} rumTing={taske.map((k) => spil.valg[`taske.${k}`])} onLuk={() => setVisTaske(false)} />
+        <TaskeVindue ting={tingITasken} minder={minder} rumTing={taske.map((k) => spil.valg[`taske.${k}`])} onLuk={() => setVisTaske(false)} />
       )}
       {rum && rumVindue?.type === 'fund' && (
         <FundVindue
@@ -429,7 +546,63 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
           onLuk={() => setRumVindue(null)}
         />
       )}
-      {gentagelse && <DialogBoks replikker={gentagelse} onFaerdig={() => setGentagelse(null)} onTaler={setTaler} />}
+      {gentagelse && (
+        <DialogBoks
+          replikker={gentagelse.replikker}
+          valg={gentagelse.valg}
+          onValg={(m) => (gentagValg.current = m)}
+          onFaerdig={() => {
+            const efter = gentagelse.efter;
+            const valgt = gentagValg.current;
+            gentagValg.current = null;
+            setGentagelse(null);
+            efter?.(valgt);
+          }}
+          onTaler={setTaler}
+        />
+      )}
+      {ordsten !== null && (
+        <OrdOpgaveVindue
+          titel={t('ordsten.titel')}
+          intro={t('ordsten.intro')}
+          antal={1}
+          niveau={niveauFor('laes.ordforraad')}
+          onSvar={(r, f) => onSvar('laes.ordforraad', r, f)}
+          faerdigTekst={t('ordsten.genskab')}
+          pauseTekst={t('ordsten.vaek')}
+          onFaerdig={() => {
+            baneRef.current?.genskab(ordsten);
+            setOrdsten(null);
+          }}
+          onPause={() => setOrdsten(null)}
+        />
+      )}
+      {missionOpgave && kapitel.missioner?.[missionOpgave] && (
+        <OrdOpgaveVindue
+          titel={kapitel.missioner[missionOpgave].titel}
+          intro={kapitel.missioner[missionOpgave].intro}
+          antal={kapitel.missioner[missionOpgave].antal}
+          niveau={niveauFor('laes.ordforraad')}
+          onSvar={(r, f) => onSvar('laes.ordforraad', r, f)}
+          faerdigTekst={t('ordopgave.faerdig')}
+          pauseTekst={t('ordsten.vaek')}
+          onFaerdig={() => {
+            const m = kapitel.missioner![missionOpgave];
+            setMissionOpgave(null);
+            setGentagelse({ replikker: m.faerdig, efter: () => nytSkaar(m.skaar) });
+          }}
+          onPause={() => setMissionOpgave(null)}
+        />
+      )}
+      {bladBesked && <Kvittering tekst={bladBesked} onSkjul={skjulBlad} luk={t('kvittering.luk')} />}
+      {nytSkaarMinde && !aktivtTrin && !gentagelse && (
+        <Kvittering
+          tekst={t('skaar.fundet', { titel: mindeTitel(nytSkaarMinde) })}
+          onSkjul={skjulSkaar}
+          luk={t('kvittering.luk')}
+          handling={{ tekst: t('minde.se.nu'), onKlik: () => { setVisMinde(nytSkaarMinde); setNytSkaar(null); } }}
+        />
+      )}
       {/* Dialogen venter, til overgangen mellem steder er færdig (et dialogvindue ligger altid øverst i browseren). */}
       {aktivtTrin?.type === 'dialog' && !overgang && (
         <DialogBoks

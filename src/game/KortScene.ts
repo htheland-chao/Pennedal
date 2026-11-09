@@ -4,11 +4,11 @@ import type { StedObjekt } from '../content';
 import type { Avatar } from '../engine/gem';
 import { erFastTegn, FELT, feltMidte, feltVed, felterVed, findVej, laesKort, type Felt, type Kort } from './kort';
 import { bordflade, erInde, HOLM, KARTOTEK, KASSE, LOGBOG, PLANTE, PORT, PRESSE, reol, SPRINGVAND, STIGE, tegnRum, trappe, vindueslys } from './pixel/inde';
-import { belysning, blegt, hash, lavLys, lavSkygge, lysOpsaetning, lavVignet, partikelBilleder, tegnGrund, tegnkortTilLerred, tegnTraeskygger, traePladser, tegnVand, VARMT, type Farve } from './pixel/lerred';
+import { belysning, blegt, hash, lavLys, lavSkygge, lysOpsaetning, lavTaagebanker, lavVignet, partikelBilleder, tegnGrund, tegnkortTilLerred, tegnTraeskygger, traePladser, tegnVand, VARMT, type Farve } from './pixel/lerred';
 import { aande, gangRamme, hvileTilstand, lukOejne } from './pixel/liv';
 import { indenfor, partikelTrin, partiklerFor, stedTone, vignetStyrke, type Partikel } from './stemning';
 import { avatarPixel, BLADE, FUGL, fyrtaarn, KLATTEN, LANTERNE, moerkere, papirtrae, PIL, PLANKE, SKILT, STOLPE, TALEBOBLE, voksen, type Retning, type Tegnkort } from './pixel/sprites';
-import { STUMMING, TOMORD, VIMS } from './pixel/viskeskov';
+import { GRENPORT, HALVFUGL, ORDBLAD, STUMMING, TOMORD, VIMS } from './pixel/viskeskov';
 import type { VerdenData, VerdenKroge } from './typer';
 
 /**
@@ -27,15 +27,15 @@ export const SKALA = 1;
 export const skarpZoom = (z: number) => Math.max(1, Math.floor(z + 1e-6));
 const FART = 70; // pixel pr. sekund i pixelverdenen
 const NAER = 24;
-const FASTE_FORMER = new Set(['gnom', 'skilt', 'person', 'skab', 'port', 'kasse', 'presse', 'borger', 'doer', 'stige', 'vims', 'tomord', 'stumming']);
+const FASTE_FORMER = new Set(['gnom', 'skilt', 'person', 'skab', 'port', 'kasse', 'presse', 'borger', 'doer', 'stige', 'vims', 'tomord', 'stumming', 'halvfugl', 'grenport']);
 /** Figurer med deres eget pixelbillede i stedet for en almindelig voksen. */
 const PERSONER: Record<string, Tegnkort> = { holm: HOLM };
 /** Hvor højt over feltets midte pilen svæver for hver form. */
-const PIL_HOEJDE: Record<string, number> = { gnom: 20, person: 27, skilt: 16, bog: 12, doer: 22, skab: 24, port: 22, kasse: 14, presse: 16, stige: 24, vims: 20, tomord: 18, stumming: 18 };
+const PIL_HOEJDE: Record<string, number> = { gnom: 20, person: 27, skilt: 16, bog: 12, doer: 22, skab: 24, port: 22, kasse: 14, presse: 16, stige: 24, vims: 20, tomord: 18, stumming: 18, halvfugl: 16, ordblad: 10, grenport: 16 };
 
 type Lyskilde = { x: number; y: number; billede: HTMLCanvasElement };
 /** Former, der lever: de blinker og trækker vejret, når de står stille. Hvilke tegn i tegnkortet der er øjne. */
-const LEVENDE: Record<string, string[]> = { gnom: ['O', 'o'], person: ['E'], borger: ['E'], vims: ['E'], tomord: ['E'], stumming: ['E'] };
+const LEVENDE: Record<string, string[]> = { gnom: ['O', 'o'], person: ['E'], borger: ['E'], vims: ['E'], tomord: ['E'], stumming: ['E'], halvfugl: ['E'] };
 
 export class KortScene extends Phaser.Scene {
   private data_!: VerdenData;
@@ -88,6 +88,8 @@ export class KortScene extends Phaser.Scene {
   private partikler: { billede: Phaser.GameObjects.Image; p: Partikel; noegle: string }[] = [];
   private forgrund: { billede: Phaser.GameObjects.Image; x: number; y: number }[] = [];
   private vignet: HTMLCanvasElement | null = null;
+  /** Tågebanker i Viskeskoven: to lag, der driver med hver sin fart og glider forskelligt med kameraet. */
+  private taage: { billeder: Phaser.GameObjects.Image[]; fart: number; faktor: number; y: number }[] = [];
   /** Figurer, der blinker og trækker vejret: billedet, nøglen til det almindelige billede og en fase. */
   private levende: { billede: Phaser.GameObjects.Image; noegle: string; fase: number }[] = [];
   /** Træerne, så de kan blive gennemsigtige, når de står foran en figur. */
@@ -114,6 +116,7 @@ export class KortScene extends Phaser.Scene {
     this.faesteLys = [];
     this.partikler = [];
     this.forgrund = [];
+    this.taage = [];
     this.levende = [];
     this.traeBilleder = [];
   }
@@ -231,6 +234,9 @@ export class KortScene extends Phaser.Scene {
       else if (o.form === 'vims') noegle = this.tekstur('px-vims', VIMS);
       else if (o.form === 'tomord') noegle = this.tekstur('px-tomord', TOMORD);
       else if (o.form === 'stumming') noegle = this.tekstur('px-stumming', STUMMING);
+      else if (o.form === 'halvfugl') noegle = this.tekstur('px-halvfugl', HALVFUGL);
+      else if (o.form === 'ordblad') noegle = this.tekstur('px-ordblad', ORDBLAD);
+      else if (o.form === 'grenport') noegle = this.tekstur('px-grenport', GRENPORT);
       else if (o.form === 'borger') noegle = this.tekstur(`px-person-${o.farve}`, voksen(o.farve, o.lys ? '#3a2a20' : '#6b4a2b'));
       else if (o.form === 'bog') {
         // Bogen ligger fladt på disken og tegnes oven på den.
@@ -337,6 +343,7 @@ export class KortScene extends Phaser.Scene {
     if (o.form === 'vims') return VIMS;
     if (o.form === 'tomord') return TOMORD;
     if (o.form === 'stumming') return STUMMING;
+    if (o.form === 'halvfugl') return HALVFUGL;
     return null;
   }
 
@@ -359,6 +366,15 @@ export class KortScene extends Phaser.Scene {
           this.partikler.push({ billede: this.add.image(p.x, p.y, n0).setDepth(dybde).setOrigin(0.5), p, noegle: `px-partikel-${art}` });
         }
       }
+    if (tema === 'viskeskov') {
+      const B = VIS_B * 2;
+      for (const [i, lag] of [{ fart: 4, faktor: 0.25, y: 0.15, alpha: 0.45 }, { fart: 9, faktor: -0.15, y: 0.55, alpha: 0.32 }].entries()) {
+        const noegle = this.tekstur(`px-taagebanke-${i}`, lavTaagebanker(B, 70, i + 3));
+        const a = this.data_.mindreUhygge ? lag.alpha * 0.6 : lag.alpha;
+        const billeder = [0, 1].map(() => this.add.image(0, 0, noegle).setOrigin(0).setDepth(999_100 + i).setAlpha(a));
+        this.taage.push({ billeder, fart: this.roligt ? 0 : lag.fart, faktor: lag.faktor, y: lag.y });
+      }
+    }
     if (inde) return;
     // Grene i forgrunden: mørke trækroner langs kortets nederste kant, der glider lidt hurtigere end resten,
     // så verden får dybde, når kameraet flytter sig.
@@ -725,6 +741,13 @@ export class KortScene extends Phaser.Scene {
       d.billede.setPosition(Math.round(d.p.x), Math.round(d.p.y)).setAlpha(Math.round(alpha * 4) / 4);
       const n = `${d.noegle}-${ramme}`;
       if (d.billede.texture.key !== n) d.billede.setTexture(n);
+    }
+    // Tågebankerne driver langsomt og ligger fast på skærmen, men glider lidt med kameraet (parallakse).
+    for (const l of this.taage) {
+      // Billedet skaleres med zoomen, så det fylder det samme på skærmen. Bredden i verden er derfor width / z.
+      const b = l.billeder[0].width / z;
+      const forskud = (((this.ur * l.fart + vx * l.faktor) % b) + b) % b;
+      l.billeder.forEach((img, i) => img.setPosition(Math.round(vx - forskud + i * b), Math.round(vy + bh * l.y)).setScale(1 / z));
     }
     const cx = vx + bw / 2;
     const cy = vy + bh / 2;
