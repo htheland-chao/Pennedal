@@ -34,6 +34,7 @@ export function tegnKampBaggrund(tema: string, moerk: boolean): HTMLCanvasElemen
     p[i + 2] = f[2];
     p[i + 3] = 255;
   };
+  if (tema === 'arkiv') return tegnArkivKamp(c, moerk);
   const himmel = moerk ? HIMMEL_MOERK : HIMMEL;
   for (let y = 0; y < KAMP_H; y++)
     for (let x = 0; x < KAMP_B; x++) {
@@ -66,6 +67,53 @@ export function tegnKampBaggrund(tema: string, moerk: boolean): HTMLCanvasElemen
     g.drawImage(trae, Math.round(i * 24 - 6 + hash(i, 3) * 10), HORISONT + 6 - trae.height);
   }
   if (tema === 'viskeskov') blegt(c, moerk ? 0.25 : 0.5);
+  return c;
+}
+
+/**
+ * Kampen i Fodnoternes kælder (kapitel 5): et stengulv med en lyskreds i midten og reoler langs den bagerste væg.
+ * moerk gør væggen mørkere (uhygge).
+ */
+function tegnArkivKamp(c: HTMLCanvasElement, moerk: boolean): HTMLCanvasElement {
+  const g = c.getContext('2d')!;
+  const d = g.createImageData(KAMP_B, KAMP_H);
+  const p = d.data;
+  const VAEG = (moerk ? ['#16121e', '#1e1828'] : ['#2a2236', '#332a40']).map(hx);
+  const STEN = ['#4a4452', '#544c5c', '#3e3946'].map(hx);
+  const LYS = ['#6a6070', '#7a6e7a'].map(hx);
+  const FUGE = hx('#2a2530');
+  const RYGGE = ['#7a2e2e', '#2e4a6b', '#4e6a3a', '#8a6a2e', '#5a3a6b'].map(hx);
+  for (let y = 0; y < KAMP_H; y++)
+    for (let x = 0; x < KAMP_B; x++) {
+      const i = (y * KAMP_B + x) * 4;
+      let f: [number, number, number];
+      if (y < HORISONT) {
+        // Reoler: hylder hver 12. pixel med bogrygge, mørke stolper imellem.
+        const stolpe = x % 64 < 3;
+        const hylde = y % 12 >= 10;
+        if (stolpe || hylde || y < 8) f = VAEG[0];
+        else {
+          const bog = Math.floor(x / 3);
+          const top = 1 + Math.floor(hash(bog, Math.floor(y / 12)) * 4);
+          f = y % 12 < top ? VAEG[1] : x % 3 === 0 ? VAEG[0] : RYGGE[Math.floor(hash(bog, 3 + Math.floor(y / 12)) * RYGGE.length) % RYGGE.length];
+        }
+      } else {
+        // Stenfliser med fuger og en lyskreds, hvor kampen står.
+        const dx = (x - 160) / 150;
+        const dy = (y - 128) / 42;
+        const lys = dx * dx + dy * dy < 1;
+        const raekke = Math.floor((y - HORISONT) / 10);
+        const fuge = (y - HORISONT) % 10 === 9 || (x + raekke * 8) % 20 === 0;
+        const h = hash(x, y);
+        f = fuge ? FUGE : lys ? LYS[h > 0.6 ? 1 : 0] : STEN[Math.floor(h * STEN.length) % STEN.length];
+        if (y > 168 && bay(x, y) < (y - 168) / 14) f = FUGE;
+      }
+      p[i] = f[0];
+      p[i + 1] = f[1];
+      p[i + 2] = f[2];
+      p[i + 3] = 255;
+    }
+  g.putImageData(d, 0, 0);
   return c;
 }
 

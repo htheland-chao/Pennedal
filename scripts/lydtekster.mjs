@@ -107,7 +107,7 @@ export function alleLydtekster(stemmer = hentStemmer()) {
     tilfoej('fortaeller', t(id), `Minder / ${id}`);
 
   // Kampe (src/ui/KampVindue.tsx): væsnernes egne ord, sætningerne til knappen Læs og beskederne.
-  for (const v of ['tomordet', 'stumming']) {
+  for (const v of ['tomordet', 'stumming', 'tvivl']) {
     tilfoej(v, t(`kamp.${v}.lyt`), `Kampe / kamp.${v}.lyt`);
     tilfoej('fortaeller', t(`kamp.${v}.rolig`), `Kampe / kamp.${v}.rolig`);
   }
@@ -151,6 +151,16 @@ export function alleLydtekster(stemmer = hentStemmer()) {
       .join(', ');
     tilfoej('aeseloere', `${t('feedback.eksempel')}: ${t('hviske.eksempel', { ord: eksempler })}`, `Beskeder / hviske.eksempel.${o.ord}`);
   }
+
+  // Fru Fodnotes bøger og Den Tvivlende Sætning (kapitel 5): sætningerne, spørgsmålene, reglen og eksemplet.
+  const fort = laes('ord/fortaeller.json');
+  for (const o of fort.klassificer) tilfoej('fortaeller', o.tekst, `Fortæller / ${o.id}`);
+  for (const o of fort.fortsaet) tilfoej('fortaeller', `${o.foer} ... ${o.efter}`, `Fortæller / ${o.id}`);
+  for (const id of ['fortaeller.spoergsmaal', 'fortaeller.fortsaet.spoergsmaal']) tilfoej('fortaeller', t(id), `Opgaver / ${id}`);
+  for (const id of ['fortaeller.rigtig.jeg', 'fortaeller.rigtig.hanhun', 'fortaeller.fejl.jeg', 'fortaeller.fejl.hanhun'])
+    tilfoej('aeseloere', t(id), `Beskeder / ${id}`);
+  tilfoej('aeseloere', `${t('feedback.regel')}: ${t('fortaeller.regel')}`, 'Beskeder / fortaeller.regel');
+  tilfoej('aeseloere', `${t('feedback.eksempel')}: ${t('fortaeller.eksempel')}`, 'Beskeder / fortaeller.eksempel');
 
   for (const h of laes('ord/historiebro.json').historier) {
     for (const [traek, tekst] of Object.entries(h.planker)) tilfoej('fortaeller', tekst, `Historiebroen / ${h.id}.${traek}`);

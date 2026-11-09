@@ -64,6 +64,14 @@
     "ekko": {
       "stemme": "Enceladus",
       "stil": "Say this as a hollow, airy echo in a mountain cave, whispery and distant, as if the words bounce back. Native Danish."
+    },
+    "fodnote": {
+      "stemme": "Pulcherrima",
+      "stil": "Say this as a very small, very proper old lady with very big opinions. Precise, a little fussy, dry humour, slightly fast. Native Danish."
+    },
+    "tvivl": {
+      "stemme": "Puck",
+      "stil": "Say this as a confused, wobbly sentence that keeps changing its mind mid-sentence. Nervous, a bit silly. Native Danish."
     }
   },
   "rum": {

@@ -6,7 +6,7 @@ Regler og stak står i `CLAUDE.md`. Historien står i `docs/historie.md`, grafik
 
 ## Hvad der findes
 
-- **Kapitel 1-4 kan spilles.** Kapitel 1 (Pennedal og kælderen), kapitel 2 (byen og trykkeriet med bane og escape room), kapitel 3 (Viskeskoven med turbaserede kampe, platformbanen med viskede planker, sidemissionen Halvsangen, den lange hvide sti og to skår) og kapitel 4 (Rimbjerget med Rimfod, ekkostenene, kampen i Ekkokløften, digtet med rim og rytme, Rimfods sætning, den iskolde kam og to skår).
+- **Kapitel 1-5 kan spilles.** Kapitel 1 (Pennedal og kælderen), kapitel 2 (byen og trykkeriet med bane og escape room), kapitel 3 (Viskeskoven med turbaserede kampe, platformbanen med viskede planker, sidemissionen Halvsangen, den lange hvide sti og to skår) og kapitel 4 (Rimbjerget med Rimfod, ekkostenene, kampen i Ekkokløften, digtet med rim og rytme, Rimfods sætning, den iskolde kam og to skår) og kapitel 5 (Fodnoternes kælder med Fru Fodnote, bøgerne der sorteres efter fortæller, kartoteksskabet som escape room, kampen mod Den Tvivlende Sætning, tilbageblikket Skyggen bliver tegnet, twist 1, sidemissionen med fodnotetallene, De høje reoler og to skår).
 - **Intro, tilbageblik, taske, turbaserede kampe, Og-orm, avatardesigner med pixelgrafik** og baggrundsmusik pr. tema.
 - **Layout** (9. november 2026): spillet fylder skærmen uden rammer. Opgaven står i et lille kort øverst til venstre, taske og menu i hjørnet, Undersøg-knappen nederst i midten. Dialogen er en tekstboks nederst over spillet, menuen glider ind fra højre.
 - **Animationer** (9. november 2026): Æseløre folder sig ud af skuffen og flagrer frem. Portalen fra kælderen til Pennedal (hvirvel, fald, åbning med blade). Et blækstrøg ved alle andre stedskift. Kampen har animationer for hvert slag, angreb, ting og evne (`src/ui/kampEffekter.ts` og `.fx-*` i styles.css).
@@ -40,7 +40,9 @@ Regler og stak står i `CLAUDE.md`. Historien står i `docs/historie.md`, grafik
 - **Lyd:** Den nye Og-orm-instruks (`ogorm.klip.instruks`) mangler sit klip. Tilføj den til testen i `src/ui/oplaesning.test.ts`, når lydjobbet har lavet den.
 
 - **Lyd:** Mange klip mangler stadig. Status: `npm run lyd:status` eller `public/lyd/manifest.json`. Googles dagskvote på 100 klip gør, at det tager flere dage.
-- **Kapitel 4-8** står i `docs/historie.md`. Hukommelsesskårene er ikke bygget.
+- **Kapitel 6-8** står i `docs/historie.md`.
+- **Kapitel 5, nyt og ikke set af Henrik:** grafikken til arkivet (reoler, Fru Fodnote, Den Tvivlende Sætning, Den Ufærdiges blege øjne i mørket), banen De høje reoler, kampens baggrund og sangen `arkiv`. Fru Fodnote (stemmen Pulcherrima) og Den Tvivlende Sætning (Puck) er nye stemmer, og alle kapitel 5-klip mangler, til lydjobbet har kørt.
+- **Fru Fodnote kommenterer gemmekoden** (fra `docs/historie.md`) er ikke bygget.
 - **Hovedfarve i designeren** har kun virkning, når hovedet har hætte eller kasket.
 
 ## Ikke testet
@@ -49,9 +51,12 @@ Regler og stak står i `CLAUDE.md`. Historien står i `docs/historie.md`, grafik
 - Kampenes balance med rigtige elever (simuleret i `kampmotor.test.ts`).
 - Touch på rigtige enheder.
 - Hvordan rumklangen lyder (Henrik skal lytte og vurdere mængden) og dens processorforbrug på Chromebook Gen 2. Målt i Chrome: lyden går gennem rummet og klinger ud efter klippet.
+- Kapitel 5 er gennemspillet i Chrome (`e2e/kapitel5.spec.ts`, med sidemission og udflugt), men ikke på Chromebook. Banen De høje reoler er kun tjekket med `kanKlares`, ikke spillet med tastatur.
 - At lydjobbet selv lægger spillet ud, når det har lavet klip, ved den planlagte kørsel.
 
 ## Kendte fejl og faldgruber
+
+- **Rettet 9. november 2026:** i et escape room kunne de frivillige ting (sidemission, blade og udflugt) ikke undersøges. Og et klik på en ting kunne undersøge en anden ting, der stod lige så tæt på. Nu vinder den ting, man klikkede på.
 
 - **Lydjobbet fejlede 2.-3. november 2026**, fordi grenen `lyd/auto-main` stod tilbage med et manifest, der stred mod main. Rettet i PR #40: jobbet starter nu forfra fra main, hvis grenen strider.
 - **Gennemspil kapitel 1 lokalt** fejler kun på en favicon-404 til sidst. Kør med `CHROMIUM_STI=/opt/pw-browsers/chromium-1243/chrome-linux64/chrome`.

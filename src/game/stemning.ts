@@ -37,6 +37,9 @@ export function partiklerFor(tema: string): { art: PartikelArt; antal: number }[
     case 'kaelder':
     case 'trykkeri':
       return [{ art: 'stoev', antal: 18 }];
+    case 'arkiv':
+      // Fodnoternes kælder (kapitel 5): mere støv, gamle papirer.
+      return [{ art: 'stoev', antal: 26 }];
     default:
       return [];
   }
@@ -106,6 +109,6 @@ export function stedTone(tema: string, mindreUhygge: boolean): [number, number, 
  * hjørnerne højst bliver. Tre trin med Bayer-dither, så den passer til pixelgrafikken. Mørkere i kælderen og om natten.
  */
 export function vignetStyrke(tema: string, mindreUhygge: boolean): number {
-  const s = tema === 'kaelder' || tema === 'trykkeri' ? 0.32 : tema === 'pennedal' || tema === 'floden' || tema === 'fyrtaarn' ? 0.26 : 0.18;
+  const s = tema === 'kaelder' || tema === 'trykkeri' || tema === 'arkiv' ? 0.32 : tema === 'pennedal' || tema === 'floden' || tema === 'fyrtaarn' ? 0.26 : 0.18;
   return mindreUhygge ? s * 0.5 : s;
 }

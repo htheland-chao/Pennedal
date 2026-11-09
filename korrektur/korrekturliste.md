@@ -1,6 +1,6 @@
 # Korrekturliste - Pennedal
 
-Lavet 2026-11-09. 1197 tekster.
+Lavet 2026-11-09. 1348 tekster.
 
 Sæt kryds, når en tekst er læst. Bevidste fejl står under "Bevidste fejl" og skal ikke rettes.
 Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), så læs hele teksten.
@@ -564,6 +564,52 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `minde.skaar4b.1`: Det er aften. Døren til dit værelse står på klem, og en stribe lys falder ind over gulvet.
 - [ ] `minde.skaar4b.2`: Nogen står i døråbningen og kigger hen på skrivebordet. Så går de ind og åbner skuffen.
 - [ ] `minde.skaar4b.3`: De leder længe. Så lukker de skuffen stille igen og bliver stående lidt.
+- [ ] `taler.fodnote`: Fru Fodnote
+- [ ] `taler.tvivl`: Den Tvivlende Sætning
+- [ ] `fortaeller.titel`: Fru Fodnotes bøger
+- [ ] `fortaeller.spoergsmaal`: Hvem fortæller i denne sætning?
+- [ ] `fortaeller.jeg`: En jeg-fortæller
+- [ ] `fortaeller.hanhun`: En han- eller hun-fortæller
+- [ ] `fortaeller.rigtig.jeg`: Ja. Den, der fortæller, er selv med og siger jeg.
+- [ ] `fortaeller.rigtig.hanhun`: Ja. Den, der fortæller, fortæller om en anden.
+- [ ] `fortaeller.fejl.jeg`: Ikke helt. Kig efter ordene jeg, mig og min. Står de der, er fortælleren selv med i historien.
+- [ ] `fortaeller.fejl.hanhun`: Ikke helt. Her er der ingen, der siger jeg. Fortælleren fortæller om en anden.
+- [ ] `fortaeller.fortsaet.spoergsmaal`: Hvilket ord holder fast i den samme fortæller?
+- [ ] `fortaeller.fortsaet.rigtig`: Ja. {svar} passer til den, der allerede fortæller.
+- [ ] `fortaeller.fortsaet.fejl`: {valgt} skifter fortæller midt i det hele. Se på den første sætning. Hvem handler den om?
+- [ ] `fortaeller.regel`: En jeg-fortæller er selv med i historien og siger jeg. En han- eller hun-fortæller fortæller om en anden og siger han, hun eller et navn. Hold fast i den samme fortæller hele vejen.
+- [ ] `fortaeller.eksempel`: Jeg åbnede døren. Jeg kiggede ind. Mira åbnede døren. Hun kiggede ind.
+- [ ] `ordsten.fortaeller.titel`: Den gamle bog
+- [ ] `ordsten.fortaeller.intro`: Hylden er væk. Gør sætningen færdig med den samme fortæller, så kommer hylden tilbage.
+- [ ] `kamp.tvivl.navn`: Den Tvivlende Sætning
+- [ ] `kamp.tvivl.angreb`: Sætningen skifter fortæller midt i det hele.
+- [ ] `kamp.tvivl.spoergsmaal`: Hvilket ord holder fast i den samme fortæller?
+- [ ] `kamp.tvivl.lyt`: Jeg er ... han er ... hun er ... Jeg kan ikke bestemme mig. Se på den første sætning. Hvem fortæller den om?
+- [ ] `kamp.tvivl.rigtig`: Ja. {svar} holder fast i den samme fortæller.
+- [ ] `kamp.tvivl.fejl`: {valgt} skifter fortæller. Se på den første sætning. Hvem handler den om?
+- [ ] `kamp.tvivl.rolig`: Sætningen holder fast i én fortæller og falder til ro.
+- [ ] `kamp.slag.fortaeller`: Slå med én fortæller
+- [ ] `kamp.svaghed.fortaeller`: svagt punkt: én fortæller
+- [ ] `kamp.kort.angreb.bland`: {navn} blander fortællerne mod {hvem}!
+- [ ] `kamp.kort.angreb.skift`: {navn} skifter fortæller, så alle bliver svimle!
+- [ ] `kamp.varsel.bland`: {navn} vil blande fortællerne mod {hvem}: {skade} skade.
+- [ ] `kamp.varsel.skift`: {navn} vil skifte fortæller, så hele holdet bliver svimmelt: {skade} skade til hver.
+- [ ] `kamp.haendelse.angreb.bland`: {navn} blander fortællerne. {hvem} mister {skade} liv.
+- [ ] `kamp.haendelse.angreb.skift`: {navn} skifter fortæller. {hvem} mister {skade} liv.
+- [ ] `minde.skyggen.titel`: Skyggen bliver tegnet
+- [ ] `minde.skyggen.1`: Det er sent. Du sidder ved skrivebordet med det grønne hæfte foran dig.
+- [ ] `minde.skyggen.2`: Du tegner en lille skygge med store, runde øjne på forsiden. Den ser lidt bange ud. Og lidt modig.
+- [ ] `minde.skyggen.3`: Inde i hæftet skriver du: Skyggen ledte efter et sted at høre til.
+- [ ] `minde.skyggen.4`: Så skriver du: Og så ... Blyanten stopper. Du ved ikke, hvad der skal ske.
+- [ ] `minde.skaar5a.titel`: Fodnoten i hæftet
+- [ ] `minde.skaar5a.1`: En side i det grønne hæfte. Nederst har du skrevet noget med meget lille skrift.
+- [ ] `minde.skaar5a.2`: Der står: Skyggen er ikke farlig. Den er bare alene.
+- [ ] `minde.skaar5a.3`: Du tegner en lille stjerne ved siden af, så du kan finde det igen.
+- [ ] `minde.skaar5b.titel`: Hvad skriver du?
+- [ ] `minde.skaar5b.1`: Du sidder i vindueskarmen med hæftet på knæene. Det regner på ruden.
+- [ ] `minde.skaar5b.2`: En stemme fra døren spørger: Hvad skriver du?
+- [ ] `minde.skaar5b.3`: Du lukker hæftet hurtigt og siger: Ingenting.
+- [ ] `mission.blad.fodnotetal`: Du fandt et af Fru Fodnotes små fodnotetal ({antal} af {ialt}).
 
 ## Kapitel 1
 
@@ -970,6 +1016,114 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `k4-moerke.3 (fortaeller)`: Nede i dalen, under bjerget, ligger noget mørkt og fladt. Det ligner en kælder fuld af gammelt papir.
 - [ ] `k4-moerke.4 (rimfod)`: Pas godt på jer, I små. Jeg står her på toppen og kigger på.
 - [ ] `k4-moerke.5 (aeseloere)`: Kom. Sporet fører ned. Mod noget, der lugter af gammelt papir og blyant.
+
+## Kapitel 5
+
+- [ ] `titel`: Fodnoternes kælder
+- [ ] `sted.arkivet`: Fodnoternes arkiv
+- [ ] `objekt.fodnote`: den lille dame nede ved gulvet
+- [ ] `objekt.bogvognen`: bogvognen med de blandede bøger
+- [ ] `objekt.kasse1`: en kasse med kartotekskort
+- [ ] `objekt.kasse2`: en kasse under hylden
+- [ ] `objekt.bunke`: en bunke gamle bøger
+- [ ] `objekt.seddel`: en gammel seddel
+- [ ] `objekt.kartotek`: kartoteksskabet
+- [ ] `objekt.lem`: lemmen i gulvet
+- [ ] `objekt.tal1`: en lille, hvid lap
+- [ ] `objekt.tal2`: en lille, hvid lap
+- [ ] `objekt.tal3`: en lille, hvid lap
+- [ ] `objekt.reolstige`: stigen op ad de høje reoler
+- [ ] `sted.dybarkivet`: Det inderste arkiv
+- [ ] `objekt.tvivl`: sætningen, der vrider sig
+- [ ] `objekt.haefte`: noget grønt på gulvet
+- [ ] `objekt.ufaerdige`: Den Ufærdige
+- [ ] `sted.reolerne`: De høje reoler
+- [ ] `objekt.maal`: toppen af reolerne
+- [ ] `sted.reolerne.udflugt.opgavetekst`: Klatr helt op ad de høje reoler. Det er svært med vilje.
+- [ ] `sted.reolerne.udflugt.spoergsmaal`: Vil du klatre op ad de høje reoler?
+- [ ] `sted.reolerne.udflugt.ja`: Klatr op
+- [ ] `sted.reolerne.udflugt.nej`: Ikke nu
+- [ ] `sted.reolerne.udflugt.ind.1 (aeseloere)`: Reolerne går helt op i mørket. Man kan klatre på dem, men det er langt, og der er næsten intet lys.
+- [ ] `sted.reolerne.udflugt.ind.2 (aeseloere)`: Den er svær med vilje. Du behøver ikke at klatre for at komme videre. Men øverst oppe glimter noget.
+- [ ] `sted.reolerne.udflugt.faerdig.1 (fortaeller)`: Øverst oppe, bag den sidste bog, ligger en lille, lysende papirstump. Det er et hukommelsesskår.
+- [ ] `sted.reolerne.udflugt.faerdig.2 (fodnote)`: ¹ Ingen har været deroppe i hundrede år. ² Jeg har heller ikke. Jeg bor nederst.
+- [ ] `sted.reolerne.udflugt.igen.1 (aeseloere)`: Igen? Reolerne er ved at kende dig.
+- [ ] `mission.fodnotetal.titel`: Fru Fodnotes tal
+- [ ] `mission.fodnotetal.intro`: Vælg det ord, der holder fast i den samme fortæller, så fodnoterne passer til sætningerne.
+- [ ] `mission.fodnotetal.start.1 (fodnote)`: Hør her. Mine tre fodnotetal er væk. Et, to og tre. Uden dem ved ingen, hvilken fodnote der hører til hvor.
+- [ ] `mission.fodnotetal.start.2 (fodnote)`: ¹ Det er en katastrofe. ² En lille en.
+- [ ] `mission.fodnotetal.start.3 (aeseloere)`: Små, hvide lapper. De ligger nok rundt omkring i arkivet.
+- [ ] `mission.fodnotetal.mangler.1 (fodnote)`: Har du fundet mine tal? Kig efter små, hvide lapper på gulvet.
+- [ ] `mission.fodnotetal.klar.1 (fodnote)`: Du fandt dem alle tre! Nu skal de på plads. Hjælp mig med at gøre sætningerne færdige, så fortælleren ikke skifter undervejs.
+- [ ] `mission.fodnotetal.faerdig.1 (fodnote)`: Et, to, tre. Alt er på plads. ¹ Jeg er rørt. ² Det står ingen steder, men det er jeg.
+- [ ] `mission.fodnotetal.faerdig.2 (fortaeller)`: Ud af en fodnote falder en lille, lysende papirstump. Det er et hukommelsesskår.
+- [ ] `mission.fodnotetal.efter.1 (fodnote)`: ¹ Tak igen. Jeg har skrevet en fodnote om dig. Den er meget pæn.
+- [ ] `k5-ankomst.1 (fortaeller)`: Stien ned fra bjerget ender ved en trappe under jorden. Nederst står du i et kæmpe arkiv. Hylderne går helt op i mørket.
+- [ ] `k5-ankomst.2 (aeseloere)`: Fodnoternes kælder. Her bor alle de små kommentarer fra alle bøger. Pas på. De har meget at sige.
+- [ ] `k5-ankomst.3 (vims)`: Her støver. Undskyld. Det er ikke mig, der støver. Tror jeg.
+- [ ] `k5-ankomst.4 (fodnote)`: ¹ Det er ikke ham, der støver. Det er arkivet. Jeg har en fodnote om det.
+- [ ] `k5-ankomst.5 (fortaeller)`: Stemmen kommer nede fra gulvet. Helt nederst.
+- [ ] `k5-fodnote.opgavetekst`: Find den, der taler nede ved gulvet.
+- [ ] `k5-fodnote.1 (fodnote)`: God dag. Jeg er Fru Fodnote. Jeg bor nederst på siden, hvor ingen kigger, men hvor alt det vigtige står.
+- [ ] `k5-fodnote.2 (aeseloere)`: Hun er meget lille.
+- [ ] `k5-fodnote.3 (fodnote)`: ¹ Jeg er ikke lille. Jeg er skrevet med en mindre skrift. Det er en vigtig forskel.
+- [ ] `k5-fodnote.4 (fodnote)`: Mine bøger er blandet sammen. Nogle er fortalt af en, der siger jeg. Andre fortæller om en, der hedder han eller hun. Vil du hjælpe mig med at sortere dem?
+- [ ] `k5-fodnote.5 (aeseloere)`: En jeg-fortæller er selv med i historien. En han- eller hun-fortæller fortæller om en anden. Det er lettere, end hun får det til at lyde.
+- [ ] `k5-fodnote.6 (fodnote)`: ¹ Han har ret. Det irriterer mig. ² Det her er en fodnote til min fodnote. Den siger bare, at det stadig irriterer mig.
+- [ ] `k5-sorter.opgavetekst`: Sortér Fru Fodnotes bøger efter, hvem der fortæller.
+- [ ] `k5-sorter-slut.1 (fodnote)`: Perfekt sorteret. Jeg har næsten ingen fodnoter til det. ¹ Næsten.
+- [ ] `k5-sorter-slut.2 (fodnote)`: Men vi har et andet problem. Kartoteksskabet er låst, og bag det er lemmen til det inderste arkiv. Der skal tre små messingskilte i låsen. Jeg har mistet dem. Igen.
+- [ ] `k5-sorter-slut.3 (aeseloere)`: Så leder vi. Kig i kasserne og bunkerne.
+- [ ] `k5-sorter-slut.4 (fodnote)`: ¹ Husk i øvrigt at gemme dit spil i menuen. Din gemmekode er noget af det smukkeste, jeg har set længe. Især bindestregerne.
+- [ ] `k5-rum.opgavetekst`: Find de tre messingskilte, og find koden til kartoteksskabet.
+- [ ] `k5-rum.kasse1`: Mellem kartotekskortene ligger et lille messingskilt. Det er koldt og glat. Du lægger det i tasken.
+- [ ] `k5-rum.kasse1.ting`: Et messingskilt
+- [ ] `k5-rum.kasse2`: Under hylden, bag en sok fra en gammel roman, ligger endnu et messingskilt. Du lægger det i tasken.
+- [ ] `k5-rum.kasse2.ting`: Et messingskilt mere
+- [ ] `k5-rum.bunke`: I den nederste bog i bunken ligger et messingskilt som bogmærke. Du lægger det i tasken.
+- [ ] `k5-rum.bunke.ting`: Det tredje messingskilt
+- [ ] `k5-rum.seddel`: Det er en gammel seddel med Fru Fodnotes lille, pæne skrift.
+- [ ] `k5-rum.seddel.1`: Jeg sorterer fodnoter hver morgen.
+- [ ] `k5-rum.seddel.2`: Han kommer altid for sent.
+- [ ] `k5-rum.seddel.3`: Jeg støver bøgerne af.
+- [ ] `k5-rum.seddel.4`: Hun har en meget lille støvekost.
+- [ ] `k5-rum.seddel.5`: Jeg kan godt lide stilhed.
+- [ ] `k5-rum.seddel.6`: Hun synes, at arkivet er for mørkt.
+- [ ] `k5-rum.laas.mangler`: Kartoteksskabet har tre små, tomme rammer i låsen. Der mangler noget, før du kan prøve koden.
+- [ ] `k5-rum.laas.gaade`: Du sætter de tre messingskilte i rammerne. Så lyser tre tal-hjul op. Under dem står der: "Jeg, han, hun. Hvor mange sætninger begynder med hvert ord i min gamle seddel?"
+- [ ] `k5-rum.laas.aabnet`: Tal-hjulene klikker på plads. Kartoteksskabet glider til side, og bag det er en lem i gulvet.
+- [ ] `k5-rum.laas.regel`: Læs sedlen igen, og se på det første ord i hver sætning. En jeg-sætning fortæller om den, der skriver. En han- eller hun-sætning fortæller om en anden.
+- [ ] `k5-rum.laas.eksempel`: "Jeg støver bøgerne af" begynder med jeg. "Han kommer altid for sent" begynder med han.
+- [ ] `k5-lem.1 (fodnote)`: ¹ Jeg vidste godt, at koden var 312. Jeg ville bare se, om du kunne finde den. ² Det er ikke sandt. Jeg havde glemt den.
+- [ ] `k5-lem.2 (aeseloere)`: Lemmen fører ned til det inderste arkiv. Kom.
+- [ ] `k5-ned.opgavetekst`: Kravl ned gennem lemmen i gulvet.
+- [ ] `k5-dybarkiv.1 (fortaeller)`: Lemmen fører ned i det inderste arkiv. Her står de bøger, ingen har skrevet færdig.
+- [ ] `k5-dybarkiv.2 (fodnote)`: ¹ Her ligger alle de historier, der aldrig fik en slutning. Det er det tristeste sted i hele kælderen. Og det mest støvede.
+- [ ] `k5-dybarkiv.3 (fortaeller)`: Midt mellem reolerne står en sætning og vrider sig. Den kan ikke bestemme sig.
+- [ ] `k5-tvivl-moede.opgavetekst`: Gå hen til sætningen, der vrider sig.
+- [ ] `k5-tvivl-moede.1 (tvivl)`: Jeg er en sætning. Hun er en sætning. Nej, jeg ... han ... hvem fortæller mig?
+- [ ] `k5-tvivl-moede.2 (aeseloere)`: En sætning, der skifter fortæller midt i det hele. Den bliver ved, til ingen kan følge med.
+- [ ] `k5-tvivl-moede.3 (tvivl)`: Jeg vil ikke være én ting! Han vil være alting! Jeg ... hun ... av.
+- [ ] `k5-tvivl-moede.4 (aeseloere)`: Hjælp den med at holde fast i én fortæller. Vælg det ord, der passer til den, der allerede fortæller.
+- [ ] `k5-kamp.opgavetekst`: Hjælp sætningerne med at holde fast i én fortæller.
+- [ ] `k5-kamp-slut.1 (tvivl)`: Jeg ... jeg er en sætning. Jeg. Bare jeg. Det er dejligt roligt.
+- [ ] `k5-kamp-slut.2 (fortaeller)`: Sætningen lægger sig til rette på en hylde og falder i søvn med et lille punktum.
+- [ ] `k5-kamp-slut.3 (fortaeller)`: Bag hylden ligger noget grønt på gulvet.
+- [ ] `k5-haeftet.opgavetekst`: Undersøg det grønne, der ligger på gulvet.
+- [ ] `k5-haeftet.1 (fortaeller)`: Det er et grønt hæfte. På forsiden er der tegnet en lille skygge med store, runde øjne.
+- [ ] `k5-haeftet.2 (fortaeller)`: Du kender det. Du ved ikke hvorfor, men du kender det.
+- [ ] `k5-haeftet.3 (fortaeller)`: Du åbner hæftet. Siderne er fulde af en håndskrift, du har set før. Din egen.
+- [ ] `k5-haeftet.4 (fortaeller)`: På den sidste side står der: Skyggen ledte efter et sted at høre til. Og så ...
+- [ ] `k5-haeftet.5 (fortaeller)`: Mere står der ikke.
+- [ ] `k5-twist.1 (fortaeller)`: Lanternen blafrer. Bag dig er der nogen.
+- [ ] `k5-twist.2 (fortaeller)`: Den Ufærdige står mellem reolerne. Den er lavet af streger af blyant, der aldrig blev tegnet færdige.
+- [ ] `k5-twist.3 (fortaeller)`: For første gang vender den sig helt om og kigger på dig.
+- [ ] `k5-twist.4 (ufaerdige)`: Der er du jo.
+- [ ] `k5-twist.5 (aeseloere)`: Kom væk herfra. Nu.
+- [ ] `k5-twist.6 (fortaeller)`: Men du bliver stående. For nu forstår du det. Den Ufærdige er ikke en fremmed. Den er din historie. Den, du aldrig skrev færdig.
+- [ ] `k5-twist.7 (ufaerdige)`: Og så ...
+- [ ] `k5-twist.8 (fortaeller)`: Så er den væk. Tilbage i støvet står kun to ord: Og så.
+- [ ] `k5-twist.9 (fodnote)`: ¹ Jeg er ikke overrasket. Det stod i min fodnote på den allerførste side. ² Ingen læser fodnoter. Derfor vidste ingen det.
 
 ## Stumme bogstaver
 

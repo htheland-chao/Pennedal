@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { historiebro, ogorm, raaber, rimord, stumme, t, type BevisjagtTrin, type OpgaveTrin } from '../content';
+import { fortaellersaetninger, historiebro, ogorm, raaber, rimord, stumme, t, type BevisjagtTrin, type OpgaveTrin } from '../content';
 import type { Haendelse, Niveau } from '../engine/tilpasning';
 import { lavHviskeOpgave, type HviskeOpgave as HOpgave } from '../mechanics/hviske';
 import { vaelgOgTekst } from '../mechanics/ogorm';
@@ -8,6 +8,8 @@ import { lavRaaberOpgave, type RaaberSaetning } from '../mechanics/raaber';
 import { RaaberOpgave } from '../ui/RaaberOpgave';
 import { lavOpgaveAfArt, type RimOpgave as ROpgave } from '../mechanics/rim';
 import { RimOpgave } from '../ui/RimOpgave';
+import { lavKlassificer, type KlassificerSaetning } from '../mechanics/fortaeller';
+import { SynsvinkelOpgave } from '../ui/SynsvinkelOpgave';
 import { OpgaveRamme } from '../ui/OpgaveRamme';
 import { HviskeOpgave } from '../ui/HviskeOpgave';
 import { OgormOpgave } from '../ui/OgormOpgave';
@@ -24,7 +26,7 @@ type Faelles = {
 };
 
 /** Ord og tekster, der er brugt i denne session, så de ikke kommer igen med det samme. */
-const brugt = { hviske: [] as string[], og: [] as string[], bro: [] as string[], raab: [] as string[], rim: [] as string[] };
+const brugt = { hviske: [] as string[], og: [] as string[], bro: [] as string[], raab: [] as string[], rim: [] as string[], fort: [] as string[] };
 
 function husk(liste: string[], id: string, maks = 8) {
   liste.push(id);
@@ -166,7 +168,34 @@ function RimVindue({ trin, niveau, loeste, onSvar, onLoest, onPause }: Faelles &
   );
 }
 
+/** Fru Fodnotes bøger (kapitel 5): sortér sætningerne efter, hvem der fortæller. */
+function SynsvinkelVindue({ trin, niveau, loeste, onSvar, onLoest, onPause }: Faelles & { trin: OpgaveTrin }) {
+  const [o, setO] = useState<KlassificerSaetning>(() => lavKlassificer(fortaellersaetninger.klassificer, niveau, Math.random, brugt.fort));
+  const niveauRef = useRef(niveau);
+  niveauRef.current = niveau;
+  return (
+    <OpgaveRamme
+      titel={t('fortaeller.titel')}
+      antal={trin.antal}
+      loeste={loeste}
+      regel={t('fortaeller.regel')}
+      eksempel={t('fortaeller.eksempel')}
+      andreRegler={[t('rim.regel'), t('kamp.tomordet.regel')]}
+      onSvar={onSvar}
+      onPause={onPause}
+      onLoest={() => {
+        husk(brugt.fort, o.id);
+        onLoest();
+        setO(lavKlassificer(fortaellersaetninger.klassificer, niveauRef.current, Math.random, brugt.fort));
+      }}
+    >
+      {(api) => <SynsvinkelOpgave key={`${o.id}-${loeste}`} opgave={o} api={api} />}
+    </OpgaveRamme>
+  );
+}
+
 export function OpgaveVindue(props: Faelles & { trin: OpgaveTrin }) {
+  if (props.trin.mekanik === 'synsvinkel') return <SynsvinkelVindue {...props} />;
   if (props.trin.mekanik === 'rim') return <RimVindue {...props} />;
   if (props.trin.mekanik === 'hviske') return <HviskeVindue {...props} />;
   if (props.trin.mekanik === 'ogorm') return <OgormVindue {...props} />;

@@ -111,3 +111,9 @@ ekkostenene
 Ekkokløften
 kløften
 stenkind
+# Kapitel 5 (9. november 2026): sammensatte ord fra Fodnoternes kælder og bøjningen af trist.
+bogvogn
+bogvognen
+fodnotetal
+fodnotetallene
+tristeste

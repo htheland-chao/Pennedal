@@ -6,8 +6,9 @@
  */
 import { bland, vaelg } from '../engine/tilfaeldig';
 import { lavRimOpgave, type RimOrd } from './rim';
+import { helSaetning, lavFortsaet, type FortsaetSaetning } from './fortaeller';
 
-export type VaesenId = 'tomordet' | 'stumming' | 'ekko';
+export type VaesenId = 'tomordet' | 'stumming' | 'ekko' | 'tvivl';
 
 export type Synonym = { id: string; ord: string; saetning: string; svar: string; forkerte: string[]; svaerhed: number };
 export type StummeOrd = { ord: string; stumt: number; type: 'd' | 'h' | 'v'; svaerhed: number; saetning: string };
@@ -124,6 +125,25 @@ export function lavEkkoOpgave(ord: RimOrd[], niveau: number, rnd: () => number, 
     foer: '',
     vist: `${o.ord} ... ${o.ord} ... ${o.ord}`,
     efter: '',
+    svar: o.svar,
+    muligheder: o.muligheder,
+  };
+}
+
+/**
+ * Den Tvivlende Sætning (kapitel 5) kan ikke bestemme sig for, hvem der fortæller. Eleven vælger det ord,
+ * der holder fast i den samme fortæller i næste sætning.
+ */
+export function lavTvivlOpgave(liste: FortsaetSaetning[], niveau: number, rnd: () => number, brugt: string[] = []): KampOpgave {
+  const o = lavFortsaet(liste, niveau, rnd, brugt);
+  return {
+    vaesen: 'tvivl',
+    id: o.id,
+    ord: o.svar,
+    saetning: helSaetning(o, '...'),
+    foer: `${o.foer} `,
+    vist: '___',
+    efter: ` ${o.efter}`,
     svar: o.svar,
     muligheder: o.muligheder,
   };

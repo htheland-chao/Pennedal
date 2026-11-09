@@ -9,6 +9,8 @@ import synonymData from './ord/synonymer.json';
 import kapitel3Data from './kapitler/kapitel3.json';
 import kapitel4Data from './kapitler/kapitel4.json';
 import rimData from './ord/rim.json';
+import fortaellerData from './ord/fortaeller.json';
+import kapitel5Data from './kapitler/kapitel5.json';
 import ordkortData from './ordkort.json';
 import navneData from './avatar/navne.json';
 import deleData from './avatar/dele.json';
@@ -29,7 +31,7 @@ export function harTekst(id: string): id is TekstId {
   return id in da;
 }
 
-export type Taler = 'holm' | 'aeseloere' | 'klatten' | 'lanterne' | 'fortaeller' | 'portvagt' | 'raaber' | 'borgmester' | 'ufaerdige' | 'vims' | 'tomordet' | 'stumming' | 'halvfugl' | 'rimfod' | 'ekko';
+export type Taler = 'holm' | 'aeseloere' | 'klatten' | 'lanterne' | 'fortaeller' | 'portvagt' | 'raaber' | 'borgmester' | 'ufaerdige' | 'vims' | 'tomordet' | 'stumming' | 'halvfugl' | 'rimfod' | 'ekko' | 'fodnote' | 'tvivl';
 
 export type Replik = { taler: Taler; tekst: string; bevidstFejl?: boolean };
 
@@ -77,7 +79,7 @@ export type Udflugt = {
 };
 
 /** De slags ordopgaver, som ordsten og sidemissioner kan bruge. */
-export type OrdOpgaveArt = 'synonym' | 'rim' | 'ikkerim';
+export type OrdOpgaveArt = 'synonym' | 'rim' | 'ikkerim' | 'fortaeller';
 
 /** En sidemission: find bladene, og hjælp den, der gav missionen, med en opgave. Belønningen er et hukommelsesskår. */
 export type Mission = {
@@ -109,7 +111,7 @@ export type Sted = {
   /** Replikker, der vises, når man kommer til stedet, fx Æseløre, der forklarer en bane. Er ikke et trin. */
   intro?: Replik[];
   /** Platformbane: hvilken slags opgave ordstenene giver. Uden feltet: synonymer. */
-  ordsten?: 'synonym' | 'rim';
+  ordsten?: 'synonym' | 'rim' | 'fortaeller';
   /** Stedet er en frivillig udflugt (se Udflugt). */
   udflugt?: Udflugt;
   objekter: StedObjekt[];
@@ -150,22 +152,22 @@ export type DialogValg = { spoergsmaal: string; muligheder: ValgMulighed[] };
 /** En rolig kamp mod et væsen (src/mechanics/kamp.ts). antal er det mindste antal ture. */
 export type KampTrin = FaellesTrin & {
   type: 'kamp';
-  vaesen: 'tomordet' | 'stumming' | 'ekko';
+  vaesen: 'tomordet' | 'stumming' | 'ekko' | 'tvivl';
   faerdighed: string;
   antal: number;
   /** En hjælper, der kan bruge en tur på at hjælpe. */
   hjaelper?: 'vims';
   /** Flere væsner i samme kamp. Uden feltet er det kun vaesen. */
-  vaesner?: ('tomordet' | 'stumming' | 'ekko')[];
+  vaesner?: ('tomordet' | 'stumming' | 'ekko' | 'tvivl')[];
   /** Hjælperne på holdet. Uden feltet: Æseløre, og Vims hvis hjaelper er vims. */
   hold?: ('aeseloere' | 'vims')[];
   /** De slags slag, avataren kan bruge. Uden feltet: alle. */
-  slag?: ('synonym' | 'stumt' | 'rim')[];
+  slag?: ('synonym' | 'stumt' | 'rim' | 'fortaeller')[];
 };
 export type SkiftTrin = FaellesTrin & { type: 'skift'; tilSted: string };
 export type OpgaveTrin = FaellesTrin & {
   type: 'opgave';
-  mekanik: 'hviske' | 'ogorm' | 'historiebro' | 'raaber' | 'rim';
+  mekanik: 'hviske' | 'ogorm' | 'historiebro' | 'raaber' | 'rim' | 'synsvinkel';
   faerdighed: string;
   antal: number;
 };
@@ -232,7 +234,7 @@ export type Kapitel = {
 };
 
 // JSON giver tal-lister som number[]. Testene i kapitel.test.ts tjekker, at felterne har to tal.
-export const kapitler: Kapitel[] = [kapitel1Data, kapitel2Data, kapitel3Data, kapitel4Data].map((k) => k as unknown as Kapitel);
+export const kapitler: Kapitel[] = [kapitel1Data, kapitel2Data, kapitel3Data, kapitel4Data, kapitel5Data].map((k) => k as unknown as Kapitel);
 
 export function hentKapitel(nr: number): Kapitel | undefined {
   return kapitler.find((k) => k.kapitel === nr);
@@ -257,6 +259,12 @@ export type Traek = 'problem' | 'portal' | 'verden' | 'konflikt' | 'loesning' | 
 export type Historie = { id: string; titel: string; planker: Record<Traek, string>; fremmed: string };
 export type Synonym = { id: string; ord: string; saetning: string; svar: string; forkerte: string[]; svaerhed: number };
 export const synonymer = synonymData as { faerdighed: string; ord: Synonym[] };
+/** Fortæller og synsvinkel (kapitel 5, Fodnoternes kælder). */
+export const fortaellersaetninger = fortaellerData as unknown as {
+  faerdighed: string;
+  klassificer: { id: string; tekst: string; fortaeller: 'jeg' | 'hanhun'; svaerhed: number }[];
+  fortsaet: { id: string; foer: string; efter: string; svar: string; forkerte: string[]; svaerhed: number }[];
+};
 /** Rim og stavelser (kapitel 4, Rimbjerget). */
 export const rimord = rimData as { faerdighed: string; rim: { ord: string; rimer: string[]; forkerte: string[]; svaerhed: number }[]; stavelser: { ord: string; dele: string; svaerhed: number }[] };
 

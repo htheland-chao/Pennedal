@@ -116,6 +116,8 @@ Under siderne i alle bøger bor fodnoterne. Fru Fodnote er en meget lille dame m
 
 Kapitlet ender med twist 1. Fru Fodnote er den eneste, der ikke er overrasket. Hun har en fodnote om det.
 
+**Bygget 9. november 2026:** Fodnoternes arkiv med Fru Fodnote, der taler i fodnoter (¹ og ²). Opgaven Fru Fodnotes bøger: læs en sætning, og sortér bogen efter, om det er en jeg-fortæller eller en han- eller hun-fortæller (`fort.fortaeller_tid`, ingen ny færdighed og ingen ny gemmekode). Escape room: tre messingskilte og koden fra Fru Fodnotes seddel (tæl sætninger, der begynder med jeg, han og hun: 312) åbner kartoteksskabet og lemmen. Det inderste arkiv med kampen mod to Tvivlende Sætninger og et Ekko (slag: én fortæller og rim, Vims på holdet). Den Tvivlende Sætning skifter fortæller og slås ved at vælge det ord, der holder fast i den samme fortæller. Tilbageblikket Skyggen bliver tegnet ved det grønne hæfte og twist 1: Den Ufærdige siger "Der er du jo.", og Fru Fodnote har en fodnote om det. Sidemissionen Fru Fodnotes tal (find tre fodnotetal, og gør sætningerne færdige med den samme fortæller) giver skår `k5a` (mindet Fodnoten i hæftet). Den frivillige, svære udfordring De høje reoler giver skår `k5b` (mindet Hvad skriver du?). Ny sang til temaet arkiv.
+
 ### Kapitel 6: Blæksøen
 
 Klattens hjem. Han er hjemme, fordi chefen har smidt ham ud. Hvis man hjalp ham i kapitel 3 og har været venlig, inviterer han indenfor. Ellers må man snige sig ind (Klattens kappe fra kapitel 1 er en forklædning). I hytten ligger alle hans fejl samlet i kasser, og eleven kan se, at det er de samme fejl, som eleven selv kender. Korrekturopgaver, hvor man retter Klattens tekster, og Klatten lærer af det.
@@ -174,7 +176,7 @@ Hvert kapitel har ét tilbageblik i historien og op til to ekstra, som kun låse
 - Teksterne står i `tekster/da.json` som `minde.<id>.<nr>`, og en mildere udgave til "Mindre uhygge" som `minde.<id>.<nr>.mild`. Listen over minder står i `src/content/minder.ts` (rækkefølgen er fast).
 - Minderne gemmes ikke. Tasken regner ud, hvilke minder eleven er kommet forbi, også hvis de blev sprunget over.
 - Lærerkig viser alle minder, så Henrik kan se dem, før klassen spiller.
-- Bygget: 1 Blæk og regn (`k1-aeseloere`), 2 Røde streger (`k2-trykkeri`) og 3 Køkkenbordet (`k3-vims`). Hukommelsesskår: `k3a` Viskelæderet og `k3b` Hæftet på gulvet (9. november 2026). Skårenes minder står i `SKAAR_MINDE` i `src/content/minder.ts`.
+- Bygget: 1 Blæk og regn (`k1-aeseloere`), 2 Røde streger (`k2-trykkeri`) og 3 Køkkenbordet (`k3-vims`). Hukommelsesskår: `k3a` Viskelæderet og `k3b` Hæftet på gulvet (9. november 2026). Kapitel 4: Godnathistorien, `k4a` Skyggen i margenen og `k4b` Døren på klem. Kapitel 5: 5 Skyggen bliver tegnet (`k5-haeftet`), `k5a` Fodnoten i hæftet og `k5b` Hvad skriver du? Skårenes minder står i `SKAAR_MINDE` i `src/content/minder.ts`.
 
 ### Hukommelsesskår (valgfrie)
 

@@ -5,9 +5,12 @@
 import type { Tegnkort } from './sprites';
 import { HALVFUGL, somPortraet, STUMMING, TOMORD, VIMS } from './viskeskov';
 import { EKKO, RIMFOD } from './rimbjerg';
+import { FRU_FODNOTE, TVIVL } from './arkiv';
 
-export const PORTRAETTER: Record<'holm' | 'lanterne' | 'klatten' | 'aeseloere' | 'fortaeller' | 'portvagt' | 'raaber' | 'borgmester' | 'ufaerdige' | 'vims' | 'tomordet' | 'stumming' | 'halvfugl' | 'rimfod' | 'ekko', Tegnkort> = {
+export const PORTRAETTER: Record<'holm' | 'lanterne' | 'klatten' | 'aeseloere' | 'fortaeller' | 'portvagt' | 'raaber' | 'borgmester' | 'ufaerdige' | 'vims' | 'tomordet' | 'stumming' | 'halvfugl' | 'rimfod' | 'ekko' | 'fodnote' | 'tvivl', Tegnkort> = {
   vims: somPortraet(VIMS),
+  fodnote: somPortraet(FRU_FODNOTE),
+  tvivl: somPortraet(TVIVL),
   rimfod: somPortraet(RIMFOD),
   ekko: somPortraet(EKKO),
   halvfugl: somPortraet(HALVFUGL),
