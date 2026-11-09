@@ -5,7 +5,7 @@ import { SKALA, VIS_B, VIS_H } from './KortScene';
 import { checkpoint, MAAL, tegnBane, tegnByBaggrund } from './pixel/banetegn';
 import { tegnkortTilLerred } from './pixel/lerred';
 import { avatarPixel, FUGL, KLATTEN, SKYGGE, type Tegnkort } from './pixel/sprites';
-import type { VerdenData, VerdenKroge } from './VerdenScene';
+import type { VerdenData, VerdenKroge } from './typer';
 
 /** Efter så mange fald tilbyder Æseløre at bære hovedpersonen over. */
 export const HJAELP_EFTER = 3;
