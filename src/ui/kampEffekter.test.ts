@@ -49,3 +49,15 @@ describe('kampens animationer', () => {
     expect(t.flatMap((x) => x.effekter).filter((e) => e.type === 'stort')).toHaveLength(1);
   });
 });
+
+describe('lyd til kampens trin', () => {
+  it('vælger én lyd pr. trin, og et væsen, der opløses, overdøver slaget', async () => {
+    const { lydForTrin } = await import('./kampEffekter');
+    expect(lydForTrin({ effekter: [{ type: 'straale' }] })).toBe('slag');
+    expect(lydForTrin({ effekter: [{ type: 'straale' }], oploest: [0] })).toBe('smelter');
+    expect(lydForTrin({ effekter: [{ type: 'stort' }] })).toBe('stort');
+    expect(lydForTrin({ effekter: [{ type: 'angreb-aed' }] })).toBe('skade');
+    expect(lydForTrin({ effekter: [{ type: 'sejr' }], oploest: [1] })).toBe('sejr');
+    expect(lydForTrin({ effekter: [{ type: 'tal' }] })).toBeNull();
+  });
+});

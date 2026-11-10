@@ -296,6 +296,9 @@ test('banen: slippes en piletast, mens ordstenens opgave er åben, løber hovedp
   const efter = await x();
   await page.waitForTimeout(2000);
   expect(Math.abs((await x()) - efter)).toBeLessThan(4);
+  // Lydeffekterne (10. november 2026): skridt, rigtigt svar og planken, der dukker op.
+  const lyde = await page.evaluate(() => (window as unknown as { __effekter?: string[] }).__effekter ?? []);
+  for (const l of ['skridt', 'rigtig', 'planke']) expect(lyde, l).toContain(l);
   expect(fejl).toEqual([]);
 });
 

@@ -37,12 +37,13 @@ import {
   type MedlemId,
   type Slag,
 } from '../mechanics/kampmotor';
-import { trinFor, type Effekt, type Trin } from './kampEffekter';
+import { lydForTrin, trinFor, type Effekt, type Trin } from './kampEffekter';
 import { useApp } from './Kontekst';
 import { hentMusikOverride, saetMusikOverride } from './musik/afspiller';
 import { Modal } from './Modal';
 import { beskedDele } from './OpgaveRamme';
 import { LaesOpKnap } from './Tekst';
+import { spilEffekt } from './effekter';
 
 /**
  * Turbaseret kamp i fuld skærm (Henrik, 8. november 2026): som Pokémon, Final Fantasy og Expedition 33.
@@ -236,6 +237,7 @@ export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, ta
   useEffect(() => {
     const foer = hentMusikOverride();
     saetMusikOverride('kamp');
+    spilEffekt('kampstart');
     return () => saetMusikOverride(foer);
   }, []);
 
@@ -303,6 +305,8 @@ export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, ta
       return;
     }
     const tr = a.trin[a.i++];
+    const lyd = lydForTrin(tr);
+    if (lyd) spilEffekt(lyd);
     setEffekter(tr.effekter.map((e) => ({ ...e, id: ++effektNr.current })));
     if (tr.linje) setLinje(t(tr.linje.noegle as TekstId, tr.linje.vaerdier));
     if (tr.fjendeLiv || tr.holdLiv)
@@ -372,6 +376,7 @@ export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, ta
     if (visning.type !== 'opgave' || visning.svaret || visning.vaek.includes(valg)) return;
     const rigtigt = tjekKamp(visning.opgave, valg);
     onSvar(visning.opgave.faerdighed ?? SLAG_FAERDIGHED[visning.slag], rigtigt, 1);
+    spilEffekt(rigtigt ? 'rigtig' : 'forkert');
     setVisning({ ...visning, svaret: valg });
   }
 

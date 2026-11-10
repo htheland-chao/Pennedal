@@ -13,6 +13,7 @@ import {
 } from '../engine/gem';
 import { aktueltSted, kapitelSlut, naesteKapitel, spilVedIKapitler } from '../engine/kapitel';
 import { saetMusik } from '../ui/musik/afspiller';
+import { saetEffekter } from '../ui/effekter';
 import { AvatarDesigner } from '../ui/AvatarDesigner';
 import { GemmekodeVindue, IndlaesSide } from '../ui/Gemmekode';
 import { Intro } from '../ui/Intro';
@@ -106,6 +107,9 @@ export function App() {
   useEffect(() => {
     saetMusik({ tema: musikTema, til: indstillinger.musik, styrke: indstillinger.musikStyrke, mild: indstillinger.mindreUhygge });
   }, [musikTema, indstillinger.musik, indstillinger.musikStyrke, indstillinger.mindreUhygge]);
+  useEffect(() => {
+    saetEffekter({ til: indstillinger.effekter, styrke: indstillinger.effektStyrke, mild: indstillinger.mindreUhygge });
+  }, [indstillinger.effekter, indstillinger.effektStyrke, indstillinger.mindreUhygge]);
   const vindueAabent = !!(ordkort || visIndstillinger || visMenu || gemmekode);
 
   return (

@@ -15,6 +15,7 @@ import { BREV, hytte, KRUSEDULLE, POSTSNEGL } from './pixel/blaeksoe';
 import { BIP, GRUMSEN, LUP, PRINSESSE, SPOR } from './pixel/halvelande';
 import { HALVSAETNING, LILLE_SKYGGE } from './pixel/sidstesiden';
 import type { VerdenData, VerdenKroge } from './typer';
+import { spilEffekt } from '../ui/effekter';
 
 /**
  * Pixelgrafikken tegnes i 320 x 180. Spillets lærred skifter til den størrelse, når et sted har kort,
@@ -886,6 +887,7 @@ export class KortScene extends Phaser.Scene {
         }
         gaar = true;
       }
+      if (gaar) spilEffekt('skridt');
       // E undersøger. Enter og mellemrum virker også, så tastaturbrugere ikke skal lære noget nyt.
       if (t && this.naer && (Phaser.Input.Keyboard.JustDown(t.e) || Phaser.Input.Keyboard.JustDown(t.enter) || Phaser.Input.Keyboard.JustDown(t.mellemrum))) {
         this.kroge?.onInteraktion(this.naer);

@@ -21,6 +21,7 @@ import { NyTingBesked, TaskeVindue } from '../ui/TaskeVindue';
 import { LaesOpKnap } from '../ui/Tekst';
 import { Ydelse } from '../ui/Ydelse';
 import { BevisjagtVindue, OpgaveVindue } from './OpgaveVindue';
+import { spilEffekt } from '../ui/effekter';
 
 type Props = {
   spil: GemtSpil;
@@ -73,6 +74,7 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
     const fra = forrigeSted.current;
     forrigeSted.current = stedId;
     if (fra === stedId) return;
+    spilEffekt('sted');
     setOvergang((o) => ({ type: fra === 'kaelder' && stedId === 'pennedal' ? 'portal' : 'skift', nr: (o?.nr ?? 0) + 1 }));
   }, [stedId]);
   const [naer, setNaer] = useState<string | null>(null);
@@ -256,6 +258,7 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
 
   /** Et nyt hukommelsesskår: gem det og vis en besked med mindet. */
   function nytSkaar(skaar: string) {
+    spilEffekt('skaar');
     const s = spilRef.current;
     const nyt = medSkaar(s, skaar);
     spilRef.current = nyt;
@@ -550,7 +553,10 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
         )}
         {/* Fuld skærm (Henrik, 8. november 2026): taske og menu står som små knapper i hjørnet over spillet. */}
         <div className="hud-knapper">
-          <button type="button" className="knap" onClick={() => setVisTaske(true)} disabled={!!aktivtTrin || !!rumVindue}>
+          <button type="button" className="knap" onClick={() => {
+            spilEffekt('taske');
+            setVisTaske(true);
+          }} disabled={!!aktivtTrin || !!rumVindue}>
             {t('taske.knap')} ({tingITasken.length + taske.length})
           </button>
           <button type="button" className="knap" onClick={onMenu}>
