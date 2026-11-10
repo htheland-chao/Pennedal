@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { FAERDIGHEDER } from './faerdigheder';
 import { registrerSvar, START_STATUS, type FaerdighedsStatus } from './tilpasning';
-import { KODE_LAENGDE, KODE_LAENGDE_V1, KODE_LAENGDE_V2, laesGemmekode, lavGemmekode, normaliserKode } from './gemmekode';
+import { KODE_LAENGDE, KODE_LAENGDE_V1, KODE_LAENGDE_V2, KODE_LAENGDE_V3, laesGemmekode, lavGemmekode, normaliserKode } from './gemmekode';
 import { gemIndstillinger, gemSpil, hentGemtSpil, hentIndstillinger, nytSpil, STANDARD_AVATAR, STANDARD_INDSTILLINGER, validerGemtSpil } from './gem';
 import { lavCsv } from './csv';
 
@@ -131,6 +131,44 @@ describe('gemmekode', () => {
     expect(r.spil.venlighed).toBe(2);
     expect(r.spil.valg).toEqual({ 'klatten.hjulpet': 'ja' });
     expect(r.spil.faerdigheder['laes.ordforraad'].niveau).toBe(4);
+  });
+
+  it('gemmer slutningens valg fra kapitel 8 (version 4)', () => {
+    const valg = { 'aeseloere.tilgivet': 'ja', 'slut.sted.haefte': 'ja', 'slut.hvem.os': 'ja', 'slut.ogsaa.ny': 'ja', 'skygge.navn.fnug': 'ja', 'taske.noegle': 'Nøgle' };
+    const r = laesGemmekode(lavGemmekode({ ...spil, valg }), maks);
+    expect(r.ok).toBe(true);
+    if (!r.ok) return;
+    expect(r.spil.valg).toEqual({ 'aeseloere.tilgivet': 'ja', 'slut.sted.haefte': 'ja', 'slut.hvem.os': 'ja', 'slut.ogsaa.ny': 'ja', 'skygge.navn.fnug': 'ja' });
+    // Uden valg i slutningen kommer der heller ingen med tilbage.
+    const r2 = laesGemmekode(lavGemmekode({ ...spil, valg: { 'slut.hvem.laesere': 'ja' } }), maks);
+    expect(r2.ok && r2.spil.valg).toEqual({ 'slut.hvem.laesere': 'ja' });
+  });
+
+  it('hver mulighed i slutningens valg kan gemmes og læses tilbage', async () => {
+    const { SLUT_VALG } = await import('./taske');
+    for (const g of SLUT_VALG) {
+      expect(g.muligheder.length + 1).toBeLessThanOrEqual(2 ** g.bits);
+      for (const m of g.muligheder) {
+        const r = laesGemmekode(lavGemmekode({ ...spil, valg: { [`${g.gruppe}.${m}`]: 'ja' } }), maks);
+        expect(r.ok && r.spil.valg, `${g.gruppe}.${m}`).toEqual({ [`${g.gruppe}.${m}`]: 'ja' });
+      }
+    }
+  });
+
+  it('kan stadig læse en kode fra version 3', () => {
+    // Lavet med gemmekoden fra før version 4 (10. november 2026): kapitel 8, trin 5, tre skår, venlighed 3, Æseløre tilgivet.
+    // Slutningens valg (slut.sted.dig) var med i spillet, men ikke i koden.
+    const r = laesGemmekode('E0MW-9M04-GG00-0000-0000-0000-004G-GC24-DH', () => 20);
+    expect(r.ok).toBe(true);
+    if (!r.ok) return;
+    expect(KODE_LAENGDE_V3).toBe(34);
+    expect(r.spil.kapitel).toBe(8);
+    expect(r.spil.trin).toBe(5);
+    expect(r.spil.skaar).toEqual(['k3a', 'k5b', 'k7a']);
+    expect(r.spil.venlighed).toBe(3);
+    expect(r.spil.valg).toEqual({ 'aeseloere.tilgivet': 'ja' });
+    expect(r.spil.faerdigheder['laes.rim'].niveau).toBe(3);
+    expect(r.spil.avatar.hud).toBe(3);
   });
 
   it('afviser en kode med et trin, der ikke findes', () => {

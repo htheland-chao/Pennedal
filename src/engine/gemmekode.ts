@@ -1,6 +1,6 @@
 import { FAERDIGHEDER, OPLAASNINGER } from './faerdigheder';
 import { AVATAR_DELE, AVATAR_GRAENSER, nytSpil, type Avatar, type GemtSpil } from './gem';
-import { MAKS_VENLIGHED, SKAAR, VIGTIGE_VALG } from './taske';
+import { MAKS_VENLIGHED, SKAAR, SLUT_VALG, VIGTIGE_VALG } from './taske';
 import type { Niveau } from './tilpasning';
 
 /**
@@ -11,10 +11,11 @@ import type { Niveau } from './tilpasning';
  *
  * Version 2 (31. oktober 2026) har også hukommelsesskår, Klattens venlighed og vigtige valg.
  * Tasken står ikke i koden, den regnes ud fra kapitel og trin (se taske.ts).
- * Koder fra version 1 kan stadig læses. De er kortere, så længden afslører versionen.
+ * Version 4 (10. november 2026) har også slutningens valg fra kapitel 8, så de følger med til en anden computer.
+ * Koder fra ældre versioner kan stadig læses. Versionen står i de første 3 bit.
  */
 const ALFABET = '0123456789ABCDEFGHJKMNPQRSTVWXYZ';
-const VERSION = 3;
+const VERSION = 4;
 /** Færdighederne, der fandtes i version 1 og 2. Nye færdigheder kommer med i version 3 og frem, til sidst i koden. */
 const FAERDIGHEDER_V1 = FAERDIGHEDER.slice(0, 19);
 const KONTROL_TEGN = 2;
@@ -51,14 +52,19 @@ const FELTER_V2: Felt[] = [
  */
 const FELTER_V3: Felt[] = [...FELTER_V2, ...FAERDIGHEDER.slice(FAERDIGHEDER_V1.length).map((f) => ({ navn: `f.${f}`, bits: 3 }))];
 
+/** Version 4 (10. november 2026, kapitel 8): alt fra version 3 og derefter slutningens valg, ét felt pr. gruppe. */
+const FELTER_V4: Felt[] = [...FELTER_V3, ...SLUT_VALG.map((g) => ({ navn: g.gruppe, bits: g.bits }))];
+
 /** Felterne i hver version. Versionen står i de første 3 bit, så den kan læses, før resten er kendt. */
-const FELTER: Record<number, Felt[]> = { 1: FELTER_V1, 2: FELTER_V2, 3: FELTER_V3 };
+const FELTER: Record<number, Felt[]> = { 1: FELTER_V1, 2: FELTER_V2, 3: FELTER_V3, 4: FELTER_V4 };
+const NYESTE = FELTER[VERSION];
 const tegnFor = (felter: Felt[]) => Math.ceil(felter.reduce((s, f) => s + f.bits, 0) / 5);
-const DATA_TEGN = tegnFor(FELTER_V3);
+const DATA_TEGN = tegnFor(NYESTE);
 export const KODE_LAENGDE = DATA_TEGN + KONTROL_TEGN;
 /** Længden på gamle koder (version 1 og 2). De kan stadig læses. */
 export const KODE_LAENGDE_V1 = tegnFor(FELTER_V1) + KONTROL_TEGN;
 export const KODE_LAENGDE_V2 = tegnFor(FELTER_V2) + KONTROL_TEGN;
+export const KODE_LAENGDE_V3 = tegnFor(FELTER_V3) + KONTROL_TEGN;
 
 function kontrol(tegn: string): string {
   // FNV-1a, 32 bit. Vi bruger 10 bit = 2 tegn.
@@ -86,9 +92,11 @@ export function lavGemmekode(spil: GemtSpil): string {
   };
   for (const d of AVATAR_DELE) vaerdier[`avatar.${d}`] = spil.avatar[d];
   for (const f of FAERDIGHEDER) vaerdier[`f.${f}`] = spil.faerdigheder[f].niveau - 1;
+  // Slutningens valg: nummeret på den valgte mulighed i gruppen, 0 når der ikke er valgt.
+  for (const g of SLUT_VALG) vaerdier[g.gruppe] = g.muligheder.findIndex((m) => spil.valg[`${g.gruppe}.${m}`] === 'ja') + 1;
 
   let bits = '';
-  for (const felt of FELTER_V3) {
+  for (const felt of NYESTE) {
     const v = vaerdier[felt.navn];
     if (v < 0 || v >= 2 ** felt.bits) throw new Error(`Værdien for ${felt.navn} er uden for området`);
     bits += v.toString(2).padStart(felt.bits, '0');
@@ -163,6 +171,13 @@ export function laesGemmekode(input: string, maksTrin: (kapitel: number) => numb
     for (const [i, id] of VIGTIGE_VALG.entries()) if (v.valg & (1 << i)) spil.valg[id] = 'ja';
     // Ubrugte bit skal være 0, ellers er koden ikke lavet af spillet.
     if (v.valg >> VIGTIGE_VALG.length) return { ok: false, fejl: 'indhold' };
+  }
+  for (const g of SLUT_VALG) {
+    const nr = v[g.gruppe];
+    // Gruppen fandtes ikke i kodens version, eller der er ikke valgt endnu.
+    if (nr === undefined || nr === 0) continue;
+    if (nr > g.muligheder.length) return { ok: false, fejl: 'indhold' };
+    spil.valg[`${g.gruppe}.${g.muligheder[nr - 1]}`] = 'ja';
   }
   for (const f of FAERDIGHEDER) {
     // Færdigheder, der ikke fandtes i kodens version, starter på niveau 1 (som i et nyt spil).
