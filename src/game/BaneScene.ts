@@ -9,6 +9,7 @@ import { tegnkortTilLerred } from './pixel/lerred';
 import { avatarPixel, FUGL, KLATTEN, SKYGGE, type Tegnkort } from './pixel/sprites';
 import type { VerdenData, VerdenKroge } from './typer';
 import { spilEffekt } from '../ui/effekter';
+import { glid } from './kamera';
 
 /** Efter så mange fald tilbyder Æseløre at bære hovedpersonen over. */
 export const HJAELP_EFTER = 3;
@@ -33,6 +34,8 @@ export class BaneScene extends Phaser.Scene {
   private paaJorden = false;
   private sidenJord = 0;
   private hopBuffer = 0;
+  /** Hvor langt kameraet kigger frem. */
+  private fremad = 0;
   private retning: 1 | -1 = 1;
   private gaaTid = 0;
   private ur = 0;
@@ -191,6 +194,7 @@ export class BaneScene extends Phaser.Scene {
     cam.setOrigin(0, 0).setBounds(0, 0, W, Math.max(H, VIS_H)).setRoundPixels(true);
     cam.setZoom(SKALA);
     cam.centerOn(fra.x, VIS_H / 2);
+    this.fremad = 0;
 
     const kb = this.input.keyboard;
     if (kb) {
@@ -466,8 +470,9 @@ export class BaneScene extends Phaser.Scene {
 
     // Kameraet følger med og kigger lidt frem.
     const cam = this.cameras.main;
-    const sigt = x + this.retning * 30;
-    cam.scrollX += (sigt - VIS_B / 2 - cam.scrollX) * Math.min(1, dt * 4);
+    // Fremadkigget glider for sig selv, så en vending ikke giver et ryk (10. november 2026).
+    this.fremad = glid(this.fremad, this.retning * 30, dt, 2.5);
+    cam.scrollX = glid(cam.scrollX, x + this.fremad - VIS_B / 2, dt, 5);
     cam.scrollY = Math.max(0, this.bane.hoejde * BFELT - VIS_H);
     this.taage?.setPosition(Math.round(x), Math.round(y - 10));
   }
