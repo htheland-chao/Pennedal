@@ -102,6 +102,16 @@ export function alleTekster() {
     });
   }
 
+  // Halvsætningerne (kapitel 8).
+  const halv = laes('ord/halvsaetning.json');
+  for (const [k, v] of Object.entries(halv.regler)) ud.push({ kilde: 'Halvsætninger', id: `regel.${k}`, tekst: v });
+  for (const [k, v] of Object.entries(halv.eksempler)) ud.push({ kilde: 'Halvsætninger', id: `eksempel.${k}`, tekst: v });
+  for (const x of halv.slut) {
+    ud.push({ kilde: 'Halvsætninger', id: x.id, tekst: `${x.foer} ${x.svar}` });
+    ud.push({ kilde: 'Halvsætninger', id: `${x.id}.forkerte`, tekst: x.forkerte.join(' '), note: 'Forkerte slutninger: de passer ikke til begyndelsen.' });
+  }
+  for (const x of halv.tegn) ud.push({ kilde: 'Halvsætninger', id: x.id, tekst: `${x.saetning}${x.tegn}` });
+
   // Genrerne i De halve lande (kapitel 7).
   const gen = laes('ord/genre.json');
   for (const [g, navn] of Object.entries(gen.navne)) {

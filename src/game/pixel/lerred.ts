@@ -372,7 +372,7 @@ export type Belysning = 'nat' | 'morgen' | 'moerke' | 'dag';
 export function belysning(tema: string): Belysning {
   if (tema === 'bibliotek' || tema === 'hytte') return 'morgen';
   if (tema === 'kaelder' || tema === 'trykkeri' || tema === 'arkiv') return 'moerke';
-  if (tema === 'eng' || tema === 'torv' || tema === 'smoeger' || tema === 'viskeskov' || tema === 'halve') return 'dag';
+  if (tema === 'eng' || tema === 'torv' || tema === 'smoeger' || tema === 'viskeskov' || tema === 'halve' || tema === 'siden') return 'dag';
   return 'nat';
 }
 export function lysOpsaetning(b: Belysning, mindreUhygge: boolean): { tone: Farve; spillerLys: number } {
@@ -457,6 +457,17 @@ export function halvtTegnet(c: HTMLCanvasElement, andel = 0.45): HTMLCanvasEleme
       p[i + 2] = f[2];
     }
   g.putImageData(d, 0, 0);
+  return c;
+}
+
+/** Den sidste side (kapitel 8): alt er kun tegnet med blyant på linjeret papir med en rød margen. */
+export function linjeretPapir(c: HTMLCanvasElement): HTMLCanvasElement {
+  halvtTegnet(c, 1.2);
+  const g = c.getContext('2d')!;
+  g.fillStyle = 'rgba(120, 150, 210, 0.35)';
+  for (let y = 22; y < c.height; y += 24) g.fillRect(0, y, c.width, 1);
+  g.fillStyle = 'rgba(210, 90, 90, 0.45)';
+  g.fillRect(40, 0, 1, c.height);
   return c;
 }
 

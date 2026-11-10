@@ -8,7 +8,7 @@ import { bland, vaelg } from '../engine/tilfaeldig';
 import { lavRimOpgave, type RimOrd } from './rim';
 import { helSaetning, lavFortsaet, type FortsaetSaetning } from './fortaeller';
 
-export type VaesenId = 'tomordet' | 'stumming' | 'ekko' | 'tvivl' | 'krusedulle';
+export type VaesenId = 'tomordet' | 'stumming' | 'ekko' | 'tvivl' | 'krusedulle' | 'halvsaetning';
 
 export type Synonym = { id: string; ord: string; saetning: string; svar: string; forkerte: string[]; svaerhed: number };
 export type StummeOrd = { ord: string; stumt: number; type: 'd' | 'h' | 'v'; svaerhed: number; saetning: string };

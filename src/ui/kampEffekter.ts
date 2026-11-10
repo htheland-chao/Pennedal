@@ -58,6 +58,8 @@ const ANGREB_TEKST: Record<AngrebId, string> = {
   bland: 'kamp.kort.angreb.bland',
   klat: 'kamp.kort.angreb.klat',
   sproejt: 'kamp.kort.angreb.sproejt',
+  stop: 'kamp.kort.angreb.stop',
+  tomt: 'kamp.kort.angreb.tomt',
 };
 const TING_TEKST: Record<KampTingId, string> = { lanterne: 'kamp.kort.lanterne', krummer: 'kamp.kort.krummer', punktum: 'kamp.kort.punktum' };
 

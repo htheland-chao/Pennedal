@@ -1,7 +1,9 @@
 import { useEffect, useMemo, useRef, useState, type CSSProperties, type KeyboardEvent, type ReactNode } from 'react';
-import { fortaellersaetninger, kapitler, korrekturData, rimord, stumme, synonymer, t, type KampTrin, type TekstId } from '../content';
+import { fortaellersaetninger, halvData, kapitler, korrekturData, rimord, stumme, synonymer, t, type KampTrin, type TekstId } from '../content';
 import { lavKrusedulleOpgave, type FejlType } from '../mechanics/korrektur';
 import { KRUSEDULLE } from '../game/pixel/blaeksoe';
+import { HALVSAETNING } from '../game/pixel/sidstesiden';
+import { lavHalvsaetningOpgave } from '../mechanics/halvsaetning';
 import type { Avatar } from '../engine/gem';
 import type { Haendelse as Tilpasning } from '../engine/tilpasning';
 import { FJENDE_PLADS, HOLD_PLADS, KAMP_B, KAMP_H, MARKOER, tegnKampBaggrund } from '../game/pixel/kampscene';
@@ -81,13 +83,15 @@ type Visning =
   | { type: 'afspil' }
   | { type: 'slut' };
 
-const SPRITE: Record<VaesenId, Tegnkort> = { tomordet: TOMORD, stumming: STUMMING, ekko: EKKO, tvivl: TVIVL, krusedulle: KRUSEDULLE };
+const SPRITE: Record<VaesenId, Tegnkort> = { tomordet: TOMORD, stumming: STUMMING, ekko: EKKO, tvivl: TVIVL, krusedulle: KRUSEDULLE, halvsaetning: HALVSAETNING };
 /** Figurernes størrelse på scenen (gange pixel). */
 const FJENDE_SKALA = 2.4;
 const HOLD_SKALA = 1.8;
 
 /** Ord, der er brugt i denne session, så de ikke kommer igen med det samme. */
-const brugt: Record<VaesenId, string[]> = { tomordet: [], stumming: [], ekko: [], tvivl: [], krusedulle: [] };
+const brugt: Record<VaesenId, string[]> = { tomordet: [], stumming: [], ekko: [], tvivl: [], krusedulle: [], halvsaetning: [] };
+/** Halvsætningerne skifter mellem en slutning og et sætningstegn. */
+let halvNr = 0;
 function nyOpgave(vaesen: VaesenId, niveau: number): KampOpgave {
   const o =
     vaesen === 'tomordet'
@@ -98,6 +102,8 @@ function nyOpgave(vaesen: VaesenId, niveau: number): KampOpgave {
           ? lavTvivlOpgave(fortaellersaetninger.fortsaet, niveau, Math.random, brugt.tvivl)
           : vaesen === 'krusedulle'
             ? lavKrusedulleOpgave(korrekturData.tekster, niveau, Math.random, brugt.krusedulle)
+            : vaesen === 'halvsaetning'
+              ? lavHalvsaetningOpgave(halvData, halvNr++, niveau, Math.random, brugt.halvsaetning)
             : lavStummingOpgave(stumme.ord, niveau, Math.random, brugt.stumming);
   brugt[vaesen].push(o.id);
   if (brugt[vaesen].length > 8) brugt[vaesen].shift();
@@ -108,6 +114,10 @@ function regelFor(o: KampOpgave): { regel: string; eksempel: string } {
   if (o.vaesen === 'tomordet') return { regel: t('kamp.tomordet.regel'), eksempel: t('kamp.tomordet.eksempel') };
   if (o.vaesen === 'ekko') return { regel: t('rim.regel'), eksempel: t('rim.eksempel') };
   if (o.vaesen === 'tvivl') return { regel: t('fortaeller.regel'), eksempel: t('fortaeller.eksempel') };
+  if (o.vaesen === 'halvsaetning') {
+    const type = o.fejlType === 'tegn' ? 'tegn' : 'slut';
+    return { regel: halvData.regler[type], eksempel: halvData.eksempler[type] };
+  }
   if (o.vaesen === 'krusedulle') {
     const type = (o.fejlType ?? 'stumme') as FejlType;
     return { regel: korrekturData.regler[type], eksempel: korrekturData.eksempler[type] };

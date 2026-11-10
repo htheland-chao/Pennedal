@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { KLATTEN_VEN, opfyldt, udvaelg } from './betingelse';
+import { ALLE_SKAAR, KLATTEN_VEN, opfyldt, SAND_SLUTNING, udvaelg } from './betingelse';
 
 const spil = (valg: Record<string, string> = {}, venlighed = 0) => ({ valg, venlighed });
 
@@ -23,5 +23,13 @@ describe('betingelser på replikker', () => {
     const r = [{ tekst: 'a' }, { tekst: 'b', hvis: { valg: 'x' } }, { tekst: 'c', hvis: { ikkeValg: 'x' } }];
     expect(udvaelg(r, spil()).map((x) => x.tekst)).toEqual(['a', 'c']);
     expect(udvaelg(r, spil({ x: 'ja' })).map((x) => x.tekst)).toEqual(['a', 'b']);
+  });
+  it('den sande slutning kræver alle skår og venlighed', () => {
+    expect(opfyldt(SAND_SLUTNING, { valg: {}, venlighed: 1, skaar: ALLE_SKAAR })).toBe(true);
+    expect(opfyldt(SAND_SLUTNING, { valg: {}, venlighed: 0, skaar: ALLE_SKAAR })).toBe(false);
+    expect(opfyldt(SAND_SLUTNING, { valg: {}, venlighed: 3, skaar: ALLE_SKAAR.slice(1) })).toBe(false);
+    expect(opfyldt({ alleSkaar: false }, { valg: {}, venlighed: 3, skaar: [] })).toBe(true);
+    expect(opfyldt({ ikke: SAND_SLUTNING }, { valg: {}, venlighed: 0, skaar: ALLE_SKAAR })).toBe(true);
+    expect(opfyldt({ ikke: SAND_SLUTNING }, { valg: {}, venlighed: 1, skaar: ALLE_SKAAR })).toBe(false);
   });
 });

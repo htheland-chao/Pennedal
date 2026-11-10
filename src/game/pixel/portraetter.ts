@@ -8,8 +8,9 @@ import { EKKO, RIMFOD } from './rimbjerg';
 import { FRU_FODNOTE, TVIVL } from './arkiv';
 import { POSTSNEGL } from './blaeksoe';
 import { BIP, GRUMSEN, LUP, PRINSESSE } from './halvelande';
+import { HALVSAETNING, LILLE_SKYGGE } from './sidstesiden';
 
-export const PORTRAETTER: Record<'holm' | 'lanterne' | 'klatten' | 'aeseloere' | 'fortaeller' | 'portvagt' | 'raaber' | 'borgmester' | 'ufaerdige' | 'vims' | 'tomordet' | 'stumming' | 'halvfugl' | 'rimfod' | 'ekko' | 'fodnote' | 'tvivl' | 'snegl' | 'prinsesse' | 'lup' | 'grumsen' | 'bip', Tegnkort> = {
+export const PORTRAETTER: Record<'holm' | 'lanterne' | 'klatten' | 'aeseloere' | 'fortaeller' | 'portvagt' | 'raaber' | 'borgmester' | 'ufaerdige' | 'vims' | 'tomordet' | 'stumming' | 'halvfugl' | 'rimfod' | 'ekko' | 'fodnote' | 'tvivl' | 'snegl' | 'prinsesse' | 'lup' | 'grumsen' | 'bip' | 'skyggen' | 'halvsaetning', Tegnkort> = {
   vims: somPortraet(VIMS),
   fodnote: somPortraet(FRU_FODNOTE),
   tvivl: somPortraet(TVIVL),
@@ -18,6 +19,8 @@ export const PORTRAETTER: Record<'holm' | 'lanterne' | 'klatten' | 'aeseloere' |
   lup: somPortraet(LUP),
   grumsen: somPortraet(GRUMSEN),
   bip: somPortraet(BIP),
+  skyggen: somPortraet(LILLE_SKYGGE),
+  halvsaetning: somPortraet(HALVSAETNING),
   rimfod: somPortraet(RIMFOD),
   ekko: somPortraet(EKKO),
   halvfugl: somPortraet(HALVFUGL),

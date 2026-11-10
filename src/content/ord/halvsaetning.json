@@ -1,0 +1,211 @@
+{
+  "regler": {
+    "slut": "En sætning skal hænge sammen. Slutningen skal passe til begyndelsen, så det hele giver mening.",
+    "tegn": "Et spørgsmål slutter med spørgsmålstegn. Noget, man råber, eller en ordre slutter tit med udråbstegn. Alle andre sætninger slutter med punktum."
+  },
+  "eksempler": {
+    "slut": "Mira tog regnjakken på, fordi det regnede.",
+    "tegn": "Hvor er du? Pas på! Jeg er her."
+  },
+  "tegnNavne": {
+    ".": "Punktum (.)",
+    "?": "Spørgsmålstegn (?)",
+    "!": "Udråbstegn (!)"
+  },
+  "slut": [
+    {
+      "id": "s01",
+      "svaerhed": 1,
+      "foer": "Mira tog regnjakken på, fordi",
+      "svar": "det regnede.",
+      "forkerte": [
+        "solen skinnede.",
+        "hun var mæt."
+      ]
+    },
+    {
+      "id": "s02",
+      "svaerhed": 1,
+      "foer": "Hunden logrede med halen, da",
+      "svar": "den så sin ejer.",
+      "forkerte": [
+        "den sov.",
+        "den var vred på alle."
+      ]
+    },
+    {
+      "id": "s03",
+      "svaerhed": 1,
+      "foer": "Om vinteren er det koldt, så",
+      "svar": "man skal have hue på.",
+      "forkerte": [
+        "man går i badetøj.",
+        "isen smelter."
+      ]
+    },
+    {
+      "id": "s04",
+      "svaerhed": 1,
+      "foer": "Bageren stod tidligt op for at",
+      "svar": "bage brød til byen.",
+      "forkerte": [
+        "sove længe.",
+        "gå i seng."
+      ]
+    },
+    {
+      "id": "s05",
+      "svaerhed": 2,
+      "foer": "Lanternen gik ud, og derfor",
+      "svar": "blev der helt mørkt.",
+      "forkerte": [
+        "blev der meget lyst.",
+        "begyndte solen at skinne."
+      ]
+    },
+    {
+      "id": "s06",
+      "svaerhed": 2,
+      "foer": "Selvom Vims var bange,",
+      "svar": "gik han med ind i mørket.",
+      "forkerte": [
+        "var han slet ikke bange.",
+        "blev han hjemme for at være modig."
+      ]
+    },
+    {
+      "id": "s07",
+      "svaerhed": 2,
+      "foer": "Klatten øvede sig hver dag, og til sidst",
+      "svar": "kunne han stave næsten alle ordene.",
+      "forkerte": [
+        "glemte han, hvordan man staver.",
+        "holdt han op med at øve sig."
+      ]
+    },
+    {
+      "id": "s08",
+      "svaerhed": 2,
+      "foer": "Da Rimfod endelig sagde noget uden rim,",
+      "svar": "blev han så glad, at han grinede.",
+      "forkerte": [
+        "rimede det på alle ordene.",
+        "sagde han ingenting."
+      ]
+    },
+    {
+      "id": "s09",
+      "svaerhed": 3,
+      "foer": "Skyggen havde ledt længe efter et sted at høre til, men",
+      "svar": "alle steder var allerede fulde.",
+      "forkerte": [
+        "den fandt det med det samme.",
+        "den ledte slet ikke."
+      ]
+    },
+    {
+      "id": "s10",
+      "svaerhed": 3,
+      "foer": "Hvis man aldrig skriver en slutning,",
+      "svar": "bliver historien aldrig færdig.",
+      "forkerte": [
+        "er historien helt færdig.",
+        "skriver den sig selv færdig."
+      ]
+    },
+    {
+      "id": "s11",
+      "svaerhed": 3,
+      "foer": "Æseløre foldede sig sammen om natten, så",
+      "svar": "han ikke blæste væk.",
+      "forkerte": [
+        "han kunne flyve længere.",
+        "vinden kunne tage ham."
+      ]
+    },
+    {
+      "id": "s12",
+      "svaerhed": 3,
+      "foer": "Det første udkast var fuld af fejl, og alligevel",
+      "svar": "var det en god historie.",
+      "forkerte": [
+        "var der ingen fejl i det.",
+        "var det ikke skrevet."
+      ]
+    }
+  ],
+  "tegn": [
+    {
+      "id": "t01",
+      "svaerhed": 1,
+      "saetning": "Hvor er min lanterne",
+      "tegn": "?"
+    },
+    {
+      "id": "t02",
+      "svaerhed": 1,
+      "saetning": "Skyggen sad stille ved vinduet",
+      "tegn": "."
+    },
+    {
+      "id": "t03",
+      "svaerhed": 1,
+      "saetning": "Pas på, broen er ved at falde",
+      "tegn": "!"
+    },
+    {
+      "id": "t04",
+      "svaerhed": 1,
+      "saetning": "Kan du hjælpe mig med at finde vejen",
+      "tegn": "?"
+    },
+    {
+      "id": "t05",
+      "svaerhed": 2,
+      "saetning": "Klatten spiste tre klatter brød til morgenmad",
+      "tegn": "."
+    },
+    {
+      "id": "t06",
+      "svaerhed": 2,
+      "saetning": "Stop, du må ikke gå derind",
+      "tegn": "!"
+    },
+    {
+      "id": "t07",
+      "svaerhed": 2,
+      "saetning": "Hvem har skrevet den sidste side",
+      "tegn": "?"
+    },
+    {
+      "id": "t08",
+      "svaerhed": 2,
+      "saetning": "Fru Fodnote skrev alt det vigtige nederst",
+      "tegn": "."
+    },
+    {
+      "id": "t09",
+      "svaerhed": 3,
+      "saetning": "Hvorfor stoppede historien lige der",
+      "tegn": "?"
+    },
+    {
+      "id": "t10",
+      "svaerhed": 3,
+      "saetning": "Hurra, vi fandt den sidste side",
+      "tegn": "!"
+    },
+    {
+      "id": "t11",
+      "svaerhed": 3,
+      "saetning": "Holm gemte hæftet i en kasse for sig selv",
+      "tegn": "."
+    },
+    {
+      "id": "t12",
+      "svaerhed": 3,
+      "saetning": "Ved du, hvad der sker bagefter",
+      "tegn": "?"
+    }
+  ]
+}

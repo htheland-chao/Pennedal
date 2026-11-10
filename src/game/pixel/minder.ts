@@ -644,7 +644,30 @@ function tegnSkyggenPaaVejen(): HTMLCanvasElement {
   return c;
 }
 
-const TEGN: Record<MindeId, () => HTMLCanvasElement> = { blaek: tegnBlaek, streger: tegnStreger, koekkenbord: tegnKoekkenbord, skaar3a: tegnViskelaeder, skaar3b: tegnHaeftetPaaGulvet, godnat: tegnGodnat, skaar4a: tegnSkyggenIMargenen, skaar4b: tegnDoerenPaaKlem, skyggen: tegnSkyggen, skaar5a: tegnFodnotenIHaeftet, skaar5b: tegnVindueskarmen, foldet: tegnFoldet, skaar6a: tegnKlattenPaaSiden, skaar6b: tegnKassenVedDoeren, soeskendet: tegnSoeskendet, skaar7a: tegnKassenPaaBiblioteket, skaar7b: tegnSkyggenPaaVejen };
+/** Kapitel 8, Skuffen: en hånd skubber det grønne hæfte ind i en skuffe. Ingen ansigter. */
+function tegnSkuffen(): HTMLCanvasElement {
+  const c = lerred(B, H);
+  const g = c.getContext('2d')!;
+  for (let y = 0; y < H; y++) for (let x = 0; x < B; x++) felt(g, x, y, 1, 1, hash(x, y) > 0.94 ? '#c8b896' : '#d6c6a2');
+  // Skrivebordet forfra med en halvt lukket skuffe.
+  felt(g, 20, 30, 280, 150, P.kontur);
+  felt(g, 22, 32, 276, 146, '#6b4a30');
+  felt(g, 60, 80, 200, 60, P.kontur);
+  felt(g, 62, 82, 196, 56, '#8a6a45');
+  felt(g, 70, 90, 180, 14, '#3a2a20');
+  felt(g, 150, 118, 20, 6, '#e5c03a');
+  // Hæftet, der forsvinder ind i skuffen.
+  felt(g, 110, 76, 80, 18, P.kontur);
+  felt(g, 111, 77, 78, 16, '#4e7a52');
+  felt(g, 111, 77, 78, 2, '#6a9a6c');
+  // Hånden, der skubber.
+  felt(g, 186, 70, 30, 22, P.hud);
+  felt(g, 186, 90, 30, 3, P.hudSkygge);
+  felt(g, 182, 74, 8, 10, P.hud);
+  return c;
+}
+
+const TEGN: Record<MindeId, () => HTMLCanvasElement> = { blaek: tegnBlaek, streger: tegnStreger, koekkenbord: tegnKoekkenbord, skaar3a: tegnViskelaeder, skaar3b: tegnHaeftetPaaGulvet, godnat: tegnGodnat, skaar4a: tegnSkyggenIMargenen, skaar4b: tegnDoerenPaaKlem, skyggen: tegnSkyggen, skaar5a: tegnFodnotenIHaeftet, skaar5b: tegnVindueskarmen, foldet: tegnFoldet, skaar6a: tegnKlattenPaaSiden, skaar6b: tegnKassenVedDoeren, soeskendet: tegnSoeskendet, skaar7a: tegnKassenPaaBiblioteket, skaar7b: tegnSkyggenPaaVejen, skuffen: tegnSkuffen };
 
 const cache = new Map<MindeId, string | null>();
 /** Billedet til et minde som data-URL. Uden canvas (fx i enhedstests) bliver det null, og mindet vises kun som tekst. */

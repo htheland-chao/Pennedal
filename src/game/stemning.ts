@@ -42,6 +42,9 @@ export function partiklerFor(tema: string): { art: PartikelArt; antal: number }[
       return [{ art: 'ildflue', antal: 14 }];
     case 'hytte':
       return [{ art: 'stoev', antal: 10 }];
+    case 'siden':
+      // Den sidste side (kapitel 8): kun et par fnug af viskelæder, ellers er der helt stille.
+      return [{ art: 'fnug', antal: 8 }];
     case 'halve':
       // De halve lande (kapitel 7): papirblade og fnug af viskelæder i luften.
       return [

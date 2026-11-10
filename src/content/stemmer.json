@@ -96,6 +96,14 @@
     "bip": {
       "stemme": "Iapetus",
       "stil": "Say this like a friendly little robot, clear and even, with small cheerful pauses. Native Danish."
+    },
+    "skyggen": {
+      "stemme": "Enceladus",
+      "stil": "Say this softly and slowly, warm and a little shy, like a small shadow who has finally found a place to belong. Not cold any more. Native Danish."
+    },
+    "halvsaetning": {
+      "stemme": "Achird",
+      "stil": "Say this calmly and a bit puzzled, like a sentence that stops in the middle and is waiting for its ending. Gentle, never scary. Native Danish."
     }
   },
   "rum": {

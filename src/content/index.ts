@@ -1,6 +1,7 @@
 import type { Betingelse } from '../engine/betingelse';
 import type { FejlType, KorrekturTekst } from '../mechanics/korrektur';
 import type { Genre, GenreData } from '../mechanics/genre';
+import type { HalvData } from '../mechanics/halvsaetning';
 import da from './tekster/da.json';
 import kapitel1Data from './kapitler/kapitel1.json';
 import kapitel2Data from './kapitler/kapitel2.json';
@@ -15,6 +16,8 @@ import rimData from './ord/rim.json';
 import fortaellerData from './ord/fortaeller.json';
 import korrekturJson from './ord/korrektur.json';
 import genreJson from './ord/genre.json';
+import halvJson from './ord/halvsaetning.json';
+import kapitel8Data from './kapitler/kapitel8.json';
 import kapitel7Data from './kapitler/kapitel7.json';
 import kapitel6Data from './kapitler/kapitel6.json';
 import kapitel5Data from './kapitler/kapitel5.json';
@@ -38,7 +41,7 @@ export function harTekst(id: string): id is TekstId {
   return id in da;
 }
 
-export type Taler = 'holm' | 'aeseloere' | 'klatten' | 'lanterne' | 'fortaeller' | 'portvagt' | 'raaber' | 'borgmester' | 'ufaerdige' | 'vims' | 'tomordet' | 'stumming' | 'halvfugl' | 'rimfod' | 'ekko' | 'fodnote' | 'tvivl' | 'snegl' | 'prinsesse' | 'lup' | 'grumsen' | 'bip';
+export type Taler = 'holm' | 'aeseloere' | 'klatten' | 'lanterne' | 'fortaeller' | 'portvagt' | 'raaber' | 'borgmester' | 'ufaerdige' | 'vims' | 'tomordet' | 'stumming' | 'halvfugl' | 'rimfod' | 'ekko' | 'fodnote' | 'tvivl' | 'snegl' | 'prinsesse' | 'lup' | 'grumsen' | 'bip' | 'skyggen' | 'halvsaetning';
 
 /** En replik. Med hvis vises den kun, når betingelsen er opfyldt (src/engine/betingelse.ts). */
 export type Replik = { taler: Taler; tekst: string; bevidstFejl?: boolean; hvis?: Betingelse };
@@ -157,18 +160,19 @@ export type DialogTrin = FaellesTrin & {
 
 /** En valgmulighed i en dialog. saet gemmes i spil.valg, og venlighed lægges til Klattens venlighed. */
 export type ValgMulighed = { tekst: string; saet?: string; venlighed?: number; replikker: Replik[]; hvis?: Betingelse };
-export type DialogValg = { spoergsmaal: string; muligheder: ValgMulighed[] };
+/** Et valg i en dialog. Med hvis kommer valget kun, når betingelsen er opfyldt (kapitel 8: Skyggens navn). */
+export type DialogValg = { spoergsmaal: string; muligheder: ValgMulighed[]; hvis?: Betingelse };
 
 /** En rolig kamp mod et væsen (src/mechanics/kamp.ts). antal er det mindste antal ture. */
 export type KampTrin = FaellesTrin & {
   type: 'kamp';
-  vaesen: 'tomordet' | 'stumming' | 'ekko' | 'tvivl' | 'krusedulle';
+  vaesen: 'tomordet' | 'stumming' | 'ekko' | 'tvivl' | 'krusedulle' | 'halvsaetning';
   faerdighed: string;
   antal: number;
   /** En hjælper, der kan bruge en tur på at hjælpe. */
   hjaelper?: 'vims';
   /** Flere væsner i samme kamp. Uden feltet er det kun vaesen. */
-  vaesner?: ('tomordet' | 'stumming' | 'ekko' | 'tvivl' | 'krusedulle')[];
+  vaesner?: ('tomordet' | 'stumming' | 'ekko' | 'tvivl' | 'krusedulle' | 'halvsaetning')[];
   /** Hjælperne på holdet. Uden feltet: Æseløre, og Vims hvis hjaelper er vims. */
   hold?: ('aeseloere' | 'vims')[];
   /** Klatten kommer med på holdet, når betingelsen er opfyldt (kapitel 6: venlig mod ham). */
@@ -176,7 +180,7 @@ export type KampTrin = FaellesTrin & {
   /** Hjælpere, der kun er med, når betingelsen er opfyldt (kapitel 7: Æseløre, hvis eleven tilgav ham). */
   holdHvis?: { aeseloere?: Betingelse; vims?: Betingelse };
   /** De slags slag, avataren kan bruge. Uden feltet: alle. */
-  slag?: ('synonym' | 'stumt' | 'rim' | 'fortaeller' | 'ret')[];
+  slag?: ('synonym' | 'stumt' | 'rim' | 'fortaeller' | 'ret' | 'slut')[];
 };
 export type SkiftTrin = FaellesTrin & { type: 'skift'; tilSted: string };
 export type OpgaveTrin = FaellesTrin & {
@@ -252,7 +256,7 @@ export type Kapitel = {
 };
 
 // JSON giver tal-lister som number[]. Testene i kapitel.test.ts tjekker, at felterne har to tal.
-export const kapitler: Kapitel[] = [kapitel1Data, kapitel2Data, kapitel3Data, kapitel4Data, kapitel5Data, kapitel6Data, kapitel7Data].map((k) => k as unknown as Kapitel);
+export const kapitler: Kapitel[] = [kapitel1Data, kapitel2Data, kapitel3Data, kapitel4Data, kapitel5Data, kapitel6Data, kapitel7Data, kapitel8Data].map((k) => k as unknown as Kapitel);
 
 export function hentKapitel(nr: number): Kapitel | undefined {
   return kapitler.find((k) => k.kapitel === nr);
@@ -279,6 +283,9 @@ export type Synonym = { id: string; ord: string; saetning: string; svar: string;
 export const synonymer = synonymData as { faerdighed: string; ord: Synonym[] };
 /** Fortæller og synsvinkel (kapitel 5, Fodnoternes kælder). */
 /** Klattens tekster med stavefejl (kapitel 6): regler og eksempler pr. slags fejl. */
+/** Halvsætningerne på Den sidste side (kapitel 8). */
+export const halvData = halvJson as unknown as HalvData;
+
 /** Genrerne i De halve lande (kapitel 7). */
 export const genreData = genreJson as unknown as GenreData;
 

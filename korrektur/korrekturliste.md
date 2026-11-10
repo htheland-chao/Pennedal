@@ -1,6 +1,6 @@
 # Korrekturliste - Pennedal
 
-Lavet 2026-11-09. 1758 tekster.
+Lavet 2026-11-10. 1919 tekster.
 
 Sæt kryds, når en tekst er læst. Bevidste fejl står under "Bevidste fejl" og skal ikke rettes.
 Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), så læs hele teksten.
@@ -688,6 +688,28 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `minde.skaar7b.1`: Mange år senere sidder du i en bus og kigger ud ad vinduet.
 - [ ] `minde.skaar7b.2`: En lille skygge glider hen over vejen, og et øjeblik ligner den en, du kender.
 - [ ] `minde.skaar7b.3`: Du tænker: Hvad blev der egentlig af ham?
+- [ ] `taler.skyggen`: Skyggen
+- [ ] `taler.halvsaetning`: Halvsætningen
+- [ ] `kamp.halvsaetning.navn`: Halvsætningen
+- [ ] `kamp.halvsaetning.angreb`: Halvsætningen stopper midt i, og alle venter.
+- [ ] `kamp.halvsaetning.spoergsmaal`: Hvordan bliver sætningen færdig?
+- [ ] `kamp.halvsaetning.lyt`: Halvsætningen begyndte på noget og stoppede. Den mangler enten en slutning, der passer, eller et tegn til sidst.
+- [ ] `kamp.halvsaetning.rigtig`: Ja. Nu er sætningen færdig: {svar}
+- [ ] `kamp.halvsaetning.fejl`: {valgt} passer ikke helt. Læs sætningen igen, og se på reglen.
+- [ ] `kamp.halvsaetning.rolig`: Halvsætningen sætter et punktum og bliver helt rolig.
+- [ ] `kamp.slag.slut`: Slå med en slutning
+- [ ] `kamp.svaghed.slut`: svagt punkt: en slutning, der passer
+- [ ] `kamp.kort.angreb.stop`: {navn} stopper midt i, og {hvem} venter og venter!
+- [ ] `kamp.kort.angreb.tomt`: {navn} efterlader et tomt hul for hele holdet!
+- [ ] `kamp.varsel.stop`: {navn} vil stoppe midt i foran {hvem}: {skade} skade.
+- [ ] `kamp.varsel.tomt`: {navn} vil lave et tomt hul for hele holdet: {skade} skade til hver.
+- [ ] `kamp.haendelse.angreb.stop`: {navn} stopper midt i. {hvem} mister {skade} liv.
+- [ ] `kamp.haendelse.angreb.tomt`: {navn} laver et tomt hul. {hvem} mister {skade} liv.
+- [ ] `minde.skuffen.titel`: Skuffen
+- [ ] `minde.skuffen.1`: Du står ved skrivebordet med det grønne hæfte i hånden.
+- [ ] `minde.skuffen.2`: Lige før grinede nogen af din historie, og det svier stadig.
+- [ ] `minde.skuffen.3`: Du lægger hæftet i skuffen og skubber den i. Så hårdt, at den smækker.
+- [ ] `minde.skuffen.4`: Nu ved du noget, du ikke vidste dengang. Historien var ikke dårlig. Den var bare ikke færdig.
 
 ## Kapitel 1
 
@@ -1417,6 +1439,108 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `k7-slut.3 (klatten)`: Jeg går med til den sidste side. Den Frygtelige vil ikke gå glip af slutningen.
 - [ ] `k7-slut.4 (fortaeller)`: Du savner Æseløre. Men du ved, at han kommer tilbage.
 
+## Kapitel 8
+
+- [ ] `titel`: Den sidste side
+- [ ] `sted.sidstesiden`: Den sidste side
+- [ ] `objekt.halvsaetning`: sætningen, der stopper midt i
+- [ ] `objekt.ufaerdige`: Den Ufærdige
+- [ ] `objekt.skyggen`: Skyggen
+- [ ] `objekt.vims`: Vims
+- [ ] `objekt.fodnote`: Fru Fodnote
+- [ ] `objekt.klatten`: Klatten
+- [ ] `objekt.lys`: en dør af hvidt lys
+- [ ] `sted.biblioteket`: Skolebiblioteket
+- [ ] `objekt.holm`: hr. Holm
+- [ ] `k8-ankomst.1 (fortaeller)`: Bag De halve lande ligger den sidste side. Den er hvid og stille, og alt her er kun tegnet med blyant.
+- [ ] `k8-ankomst.2 (fortaeller)`: Så hører du en lyd af papir, og et lille, foldet hjørne lander på din skulder.
+- [ ] `k8-ankomst.3 (aeseloere)`: Jeg sagde jo, at jeg kom tilbage. Den Ufærdige kunne ikke glatte mig ud. Det kan kun en slutning.
+- [ ] `k8-ankomst.4 (aeseloere)`: Undskyld. Igen. Jeg er her nu, og jeg går ikke mere.
+- [ ] `k8-ankomst.5 (aeseloere)`: Her er den. Den sidste side. Den, du aldrig skrev.
+- [ ] `k8-ankomst.6 (vims)`: Her er så stille. Undskyld, at jeg hvisker.
+- [ ] `k8-ankomst.7 (fodnote)`: ¹ Det er helt normalt at hviske på en tom side. Den er ikke vant til lyde.
+- [ ] `k8-ankomst.8 (klatten)`: Den Frygtelige er her også. Selvfølgelig. Hvem skulle ellers lave klatter?
+- [ ] `k8-halvsaetning.opgavetekst`: Tal med sætningen, der stopper midt i.
+- [ ] `k8-halvsaetning.1 (halvsaetning)`: Jeg er en sætning. Jeg begyndte på noget, og så ...
+- [ ] `k8-halvsaetning.2 (fortaeller)`: Sætningen stopper. Den kigger forvirret på dig. Bag den står flere sætninger, der også stopper midt i.
+- [ ] `k8-halvsaetning.3 (aeseloere)`: Det er Halvsætninger. De er ikke farlige. De mangler bare en slutning. Eller et punktum.
+- [ ] `k8-kamp.opgavetekst`: Hjælp Halvsætningerne med at blive færdige.
+- [ ] `k8-kamp-slut.1 (fortaeller)`: Halvsætningerne bliver hele. En efter en sætter de et punktum og går stille væk over siden.
+- [ ] `k8-kamp-slut.2 (halvsaetning)`: Tak. Nu ved jeg, hvordan jeg slutter. Det er en rar følelse.
+- [ ] `k8-kamp-slut.3 (aeseloere)`: Nu er der kun én tilbage, der mangler en slutning.
+- [ ] `k8-moede.opgavetekst`: Gå hen til Den Ufærdige.
+- [ ] `k8-moede.1 (ufaerdige)`: Der er du. Du kom tilbage.
+- [ ] `k8-moede.2 (fortaeller)`: Den Ufærdige er ikke stor mere. Den er en lille skygge med store, runde øjne. Den, du tegnede på hæftet for længe siden.
+- [ ] `k8-moede.3 (ufaerdige)`: Jeg ledte efter et sted at høre til. Og så ... stoppede du. Jeg har ventet lige siden.
+- [ ] `k8-moede.4 (ufaerdige)`: Jeg tog slutningerne fra de andre historier, fordi jeg ikke selv havde en. Det var ikke pænt. Undskyld.
+- [ ] `k8-moede.5 (ufaerdige)`: Vil du skrive min slutning?
+- [ ] `k8-sted.1 (fortaeller)`: Du tager blyanten frem. Den første sætning står der allerede: Der var engang en lille skygge, der ledte efter et sted at høre til.
+- [ ] `k8-sted.valg`: Hvor hører Skyggen til?
+- [ ] `k8-sted.valg.1`: I hæftet, på den sidste side
+- [ ] `k8-sted.valg.1.1 (fortaeller)`: Du skriver: Skyggen fandt et sted på den sidste side i det grønne hæfte.
+- [ ] `k8-sted.valg.2`: I biblioteket, mellem alle bøgerne
+- [ ] `k8-sted.valg.2.1 (fortaeller)`: Du skriver: Skyggen fandt et sted i biblioteket, mellem alle bøgerne.
+- [ ] `k8-sted.valg.3`: Ved siden af dig, hvor du går
+- [ ] `k8-sted.valg.3.1 (fortaeller)`: Du skriver: Skyggen fandt et sted lige ved siden af dig, hvor du går.
+- [ ] `k8-hvem.1 (ufaerdige)`: Hvem er der, når jeg kommer frem?
+- [ ] `k8-hvem.valg`: Hvem er der, når historien slutter?
+- [ ] `k8-hvem.valg.1`: Alle hjælperne
+- [ ] `k8-hvem.valg.1.1 (fortaeller)`: Du skriver: Der ventede alle hjælperne, og de havde gemt en plads til den.
+- [ ] `k8-hvem.valg.2`: Kun Skyggen og dig
+- [ ] `k8-hvem.valg.2.1 (fortaeller)`: Du skriver: Der var kun to, Skyggen og den, der havde tegnet den.
+- [ ] `k8-hvem.valg.3`: Et helt bibliotek af læsere
+- [ ] `k8-hvem.valg.3.1 (fortaeller)`: Du skriver: Der sad et helt bibliotek af læsere, som gerne ville høre historien.
+- [ ] `k8-ogsaa.1 (aeseloere)`: Nu mangler kun den sidste sætning. Den, der begynder med Og så.
+- [ ] `k8-ogsaa.valg`: Hvordan slutter sætningen efter Og så ...?
+- [ ] `k8-ogsaa.valg.1`: Og så var Skyggen ikke alene mere.
+- [ ] `k8-ogsaa.valg.1.1 (fortaeller)`: Du skriver: Og så var Skyggen ikke alene mere.
+- [ ] `k8-ogsaa.valg.2`: Og så fik Skyggen et sted at høre til.
+- [ ] `k8-ogsaa.valg.2.1 (fortaeller)`: Du skriver: Og så fik Skyggen et sted at høre til.
+- [ ] `k8-ogsaa.valg.3`: Og så begyndte en helt ny historie.
+- [ ] `k8-ogsaa.valg.3.1 (fortaeller)`: Du skriver: Og så begyndte en helt ny historie.
+- [ ] `k8-oplaesning.1 (fortaeller)`: Du læser hele slutningen højt. Der var engang en lille skygge, der ledte efter et sted at høre til.
+- [ ] `k8-oplaesning.2 (fortaeller)`: Den fandt et sted på den sidste side i det grønne hæfte.
+- [ ] `k8-oplaesning.3 (fortaeller)`: Den fandt et sted i biblioteket, mellem alle bøgerne.
+- [ ] `k8-oplaesning.4 (fortaeller)`: Den fandt et sted lige ved siden af dig, hvor du går.
+- [ ] `k8-oplaesning.5 (fortaeller)`: Der ventede alle hjælperne, og de havde gemt en plads til den.
+- [ ] `k8-oplaesning.6 (fortaeller)`: Der var kun to, Skyggen og den, der havde tegnet den.
+- [ ] `k8-oplaesning.7 (fortaeller)`: Der sad et helt bibliotek af læsere, som gerne ville høre historien.
+- [ ] `k8-oplaesning.8 (fortaeller)`: Og så var Skyggen ikke alene mere.
+- [ ] `k8-oplaesning.9 (fortaeller)`: Og så fik Skyggen et sted at høre til.
+- [ ] `k8-oplaesning.10 (fortaeller)`: Og så begyndte en helt ny historie.
+- [ ] `k8-oplaesning.11 (fortaeller)`: Du sætter et punktum. Så bliver der helt stille på siden.
+- [ ] `k8-oplaesning.12 (fortaeller)`: Den Ufærdige ryster lidt. Så er den ikke ufærdig mere. Den er bare Skyggen. Den er lille, rund og meget glad.
+- [ ] `k8-oplaesning.13 (aeseloere)`: Mærker du det? Jeg bliver glat. Helt glat. Tak fordi du tilgav mig. Det var den bedste slutning, jeg kunne få.
+- [ ] `k8-oplaesning.14 (aeseloere)`: Mærker du det? Jeg bliver glat. Jeg fortjente det måske ikke. Men tak.
+- [ ] `k8-oplaesning.15 (vims)`: Jeg græder ikke. Det er bare støv fra blyanten. Undskyld.
+- [ ] `k8-oplaesning.16 (fodnote)`: ¹ Den bedste slutning er den, der bliver skrevet.
+- [ ] `k8-skyggen.opgavetekst`: Sig farvel til Skyggen.
+- [ ] `k8-skyggen.1 (skyggen)`: Tak. Nu har jeg en slutning. Og et sted at være.
+- [ ] `k8-skyggen.2 (skyggen)`: Men jeg har aldrig haft et navn. Vil du give mig et?
+- [ ] `k8-skyggen.3 (skyggen)`: Måske finder jeg et navn en dag. Det må du gerne hjælpe mig med, hvis du kommer igen.
+- [ ] `k8-skyggen.valg`: Hvad skal Skyggen hedde?
+- [ ] `k8-skyggen.valg.1`: Skumring
+- [ ] `k8-skyggen.valg.1.1 (skyggen)`: Skumring. Det er et godt navn. Det er mit navn.
+- [ ] `k8-skyggen.valg.1.2 (fortaeller)`: Bag i det grønne hæfte ligger en lille seddel, som du aldrig har set før. Der står: Den var faktisk god. Undskyld.
+- [ ] `k8-skyggen.valg.2`: Pip
+- [ ] `k8-skyggen.valg.2.1 (skyggen)`: Pip. Det er et godt navn. Det er mit navn.
+- [ ] `k8-skyggen.valg.2.2 (fortaeller)`: Bag i det grønne hæfte ligger en lille seddel, som du aldrig har set før. Der står: Den var faktisk god. Undskyld.
+- [ ] `k8-skyggen.valg.3`: Lille Mørk
+- [ ] `k8-skyggen.valg.3.1 (skyggen)`: Lille Mørk. Det er et godt navn. Det er mit navn.
+- [ ] `k8-skyggen.valg.3.2 (fortaeller)`: Bag i det grønne hæfte ligger en lille seddel, som du aldrig har set før. Der står: Den var faktisk god. Undskyld.
+- [ ] `k8-skyggen.valg.4`: Fnug
+- [ ] `k8-skyggen.valg.4.1 (skyggen)`: Fnug. Det er et godt navn. Det er mit navn.
+- [ ] `k8-skyggen.valg.4.2 (fortaeller)`: Bag i det grønne hæfte ligger en lille seddel, som du aldrig har set før. Der står: Den var faktisk god. Undskyld.
+- [ ] `k8-hjem.opgavetekst`: Gå gennem døren af hvidt lys.
+- [ ] `k8-holm.opgavetekst`: Tal med hr. Holm.
+- [ ] `k8-holm.1 (fortaeller)`: Du vågner i skolebiblioteket. Lyset falder ind ad vinduerne, og hr. Holm sidder ved disken.
+- [ ] `k8-holm.2 (holm)`: Godt, at du kom tilbage.
+- [ ] `k8-holm.3 (holm)`: Jeg har noget at sige dig. Det var mig, der fandt dit hæfte. Det lå i en kasse med bøger, der skulle smides ud.
+- [ ] `k8-holm.4 (holm)`: Jeg gemte det, fordi det var for godt til at smide ud. Selv med alle fejlene. Næsten alle gode historier har mange fejl i første udkast.
+- [ ] `k8-holm.5 (fortaeller)`: Han rækker dig et nyt, tomt kladdehæfte. Det er grønt.
+- [ ] `k8-holm.6 (holm)`: Til den næste historie.
+- [ ] `k8-holm.7 (fodnote)`: ¹ Slut. ² Eller rettere: begyndelsen.
+
 ## Stumme bogstaver
 
 - [ ] `regel.d`: Efter l, n og r kan d være stumt. Du kan ikke høre d'et, men det skal med.
@@ -1580,6 +1704,49 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `k14`: Kagerne er til dig. De smager lidt af sand.
 - [ ] `k15`: I nat drømte jeg, at chefen kom tilbage. Han stod ved trappen og kiggede ind.
 - [ ] `k16`: Jeg har lært noget. Hvis jeg skriver forkert, er det ikke farligt. Jeg retter det bare, og så bliver ordene lidt smukkere.
+
+## Halvsætninger
+
+- [ ] `regel.slut`: En sætning skal hænge sammen. Slutningen skal passe til begyndelsen, så det hele giver mening.
+- [ ] `regel.tegn`: Et spørgsmål slutter med spørgsmålstegn. Noget, man råber, eller en ordre slutter tit med udråbstegn. Alle andre sætninger slutter med punktum.
+- [ ] `eksempel.slut`: Mira tog regnjakken på, fordi det regnede.
+- [ ] `eksempel.tegn`: Hvor er du? Pas på! Jeg er her.
+- [ ] `s01`: Mira tog regnjakken på, fordi det regnede.
+- [ ] `s01.forkerte`: solen skinnede. hun var mæt. _(Forkerte slutninger: de passer ikke til begyndelsen.)_
+- [ ] `s02`: Hunden logrede med halen, da den så sin ejer.
+- [ ] `s02.forkerte`: den sov. den var vred på alle. _(Forkerte slutninger: de passer ikke til begyndelsen.)_
+- [ ] `s03`: Om vinteren er det koldt, så man skal have hue på.
+- [ ] `s03.forkerte`: man går i badetøj. isen smelter. _(Forkerte slutninger: de passer ikke til begyndelsen.)_
+- [ ] `s04`: Bageren stod tidligt op for at bage brød til byen.
+- [ ] `s04.forkerte`: sove længe. gå i seng. _(Forkerte slutninger: de passer ikke til begyndelsen.)_
+- [ ] `s05`: Lanternen gik ud, og derfor blev der helt mørkt.
+- [ ] `s05.forkerte`: blev der meget lyst. begyndte solen at skinne. _(Forkerte slutninger: de passer ikke til begyndelsen.)_
+- [ ] `s06`: Selvom Vims var bange, gik han med ind i mørket.
+- [ ] `s06.forkerte`: var han slet ikke bange. blev han hjemme for at være modig. _(Forkerte slutninger: de passer ikke til begyndelsen.)_
+- [ ] `s07`: Klatten øvede sig hver dag, og til sidst kunne han stave næsten alle ordene.
+- [ ] `s07.forkerte`: glemte han, hvordan man staver. holdt han op med at øve sig. _(Forkerte slutninger: de passer ikke til begyndelsen.)_
+- [ ] `s08`: Da Rimfod endelig sagde noget uden rim, blev han så glad, at han grinede.
+- [ ] `s08.forkerte`: rimede det på alle ordene. sagde han ingenting. _(Forkerte slutninger: de passer ikke til begyndelsen.)_
+- [ ] `s09`: Skyggen havde ledt længe efter et sted at høre til, men alle steder var allerede fulde.
+- [ ] `s09.forkerte`: den fandt det med det samme. den ledte slet ikke. _(Forkerte slutninger: de passer ikke til begyndelsen.)_
+- [ ] `s10`: Hvis man aldrig skriver en slutning, bliver historien aldrig færdig.
+- [ ] `s10.forkerte`: er historien helt færdig. skriver den sig selv færdig. _(Forkerte slutninger: de passer ikke til begyndelsen.)_
+- [ ] `s11`: Æseløre foldede sig sammen om natten, så han ikke blæste væk.
+- [ ] `s11.forkerte`: han kunne flyve længere. vinden kunne tage ham. _(Forkerte slutninger: de passer ikke til begyndelsen.)_
+- [ ] `s12`: Det første udkast var fuld af fejl, og alligevel var det en god historie.
+- [ ] `s12.forkerte`: var der ingen fejl i det. var det ikke skrevet. _(Forkerte slutninger: de passer ikke til begyndelsen.)_
+- [ ] `t01`: Hvor er min lanterne?
+- [ ] `t02`: Skyggen sad stille ved vinduet.
+- [ ] `t03`: Pas på, broen er ved at falde!
+- [ ] `t04`: Kan du hjælpe mig med at finde vejen?
+- [ ] `t05`: Klatten spiste tre klatter brød til morgenmad.
+- [ ] `t06`: Stop, du må ikke gå derind!
+- [ ] `t07`: Hvem har skrevet den sidste side?
+- [ ] `t08`: Fru Fodnote skrev alt det vigtige nederst.
+- [ ] `t09`: Hvorfor stoppede historien lige der?
+- [ ] `t10`: Hurra, vi fandt den sidste side!
+- [ ] `t11`: Holm gemte hæftet i en kasse for sig selv.
+- [ ] `t12`: Ved du, hvad der sker bagefter?
 
 ## Genrer
 

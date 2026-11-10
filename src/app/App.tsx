@@ -1,3 +1,4 @@
+import { ALLE_SKAAR } from '../engine/betingelse';
 import { useCallback, useEffect, useState } from 'react';
 import { hentKapitel, kapitler, navne, t } from '../content';
 import {
@@ -33,13 +34,14 @@ type Skaerm = 'start' | 'intro' | 'ny-avatar' | 'ret-avatar' | 'verden' | 'indla
 const HOP = typeof location !== 'undefined' ? new URLSearchParams(location.search).get('hop') : null;
 const HOP_SPIL = HOP ? medHopValg(spilVedIKapitler(kapitler, HOP, nytSpil(STANDARD_AVATAR, { adjektiv: 0, dyr: 0 }))) : null;
 
-/** Til test med ?hop: &valg=a,b sætter valg, og &venlighed=n sætter Klattens venlighed (fx for at spille den venlige vej). */
+/** Til test med ?hop: &valg=a,b sætter valg, &venlighed=n sætter Klattens venlighed, og &skaar=alle giver alle hukommelsesskår. */
 function medHopValg(spil: GemtSpil | null): GemtSpil | null {
   if (!spil || typeof location === 'undefined') return spil;
   const q = new URLSearchParams(location.search);
   const valg = (q.get('valg') ?? '').split(',').filter(Boolean);
   const venlighed = Number(q.get('venlighed') ?? spil.venlighed);
-  return { ...spil, valg: { ...spil.valg, ...Object.fromEntries(valg.map((v) => [v, 'ja'])) }, venlighed: Number.isFinite(venlighed) ? venlighed : spil.venlighed };
+  const skaar = q.get('skaar') === 'alle' ? [...ALLE_SKAAR] : spil.skaar;
+  return { ...spil, skaar, valg: { ...spil.valg, ...Object.fromEntries(valg.map((v) => [v, 'ja'])) }, venlighed: Number.isFinite(venlighed) ? venlighed : spil.venlighed };
 }
 
 export function App() {
