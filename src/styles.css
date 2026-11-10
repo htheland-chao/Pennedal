@@ -3655,6 +3655,9 @@ dialog.modal.menu-skuffe {
   .niveau-besked.niveau-op,
   .niveau-besked.niveau-op::before {
     animation: none;
+  }
+}
+
 /* Overgangen ind i kampen (10. november 2026): ti bjælker af blæk glider ind og ud igen. */
 .kamp-overgang {
   position: fixed;
