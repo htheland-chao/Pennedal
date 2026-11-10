@@ -120,6 +120,13 @@
       "kilde": "Tasken / logbog",
       "lavet": "2026-11-01"
     },
+    "00e5f4f6f169ab": {
+      "figur": "ufaerdige",
+      "tekst": "Klatten. Du har aldrig fået en slutning. Jeg kan give dig en.",
+      "fil": "00e5f4f6f169ab.ogg",
+      "kilde": "Kapitel 7 / k7-fristelse.7",
+      "lavet": "2026-11-10"
+    },
     "00f66a238e5a5b": {
       "figur": "raaber",
       "tekst": "Bageren åbner sin butik klokken syv.",
@@ -4729,5 +4736,5 @@
   },
   "model": "gemini-3.8-flash-tts",
   "i_alt": 1079,
-  "mangler": 404
+  "mangler": 403
 }
