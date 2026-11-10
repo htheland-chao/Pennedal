@@ -325,6 +325,9 @@
   "uhygge.ryst": "Pludselig bliver alt mørkt et øjeblik.",
 
   "debug.fps": "Billeder pr. sekund",
+  "debug.snit": "snit over 10 sekunder",
+  "debug.laveste": "laveste",
+  "debug.skala": "skala",
   "debug.hukommelse": "Hukommelse",
 
   "faerdighed.stav.stumme": "Stumme bogstaver",
