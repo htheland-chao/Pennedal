@@ -9,6 +9,7 @@ import { lavOpgaveAfArt } from '../mechanics/rim';
 import { Modal } from './Modal';
 import { beskedDele } from './OpgaveRamme';
 import { LaesOpKnap } from './Tekst';
+import { spilEffekt } from './effekter';
 
 type Props = {
   titel: string;
@@ -149,6 +150,7 @@ export function OrdOpgaveVindue({ titel, intro, antal, niveau, art = 'synonym', 
     setValgt(m);
     const r = m === opgave.svar;
     onSvar(r, forkerte.length + 1, opgave.faerdighed);
+    spilEffekt(r ? 'rigtig' : 'forkert');
     if (!r) setForkerte((f) => [...f, m]);
   }
 

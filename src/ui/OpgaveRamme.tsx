@@ -4,6 +4,7 @@ import { bland } from '../engine/tilfaeldig';
 import { REGEL_EFTER_FORSOEG, type Haendelse } from '../engine/tilpasning';
 import { Modal } from './Modal';
 import { LaesOpKnap, type Del } from './Tekst';
+import { spilEffekt } from './effekter';
 
 export type OpgaveApi = {
   /** Kaldes af mekanikken, når eleven har svaret. */
@@ -69,6 +70,7 @@ export function OpgaveRamme(props: Props) {
     if (fase !== 'svar') return;
     setBeskedNr((n) => n + 1);
     const haendelse = onSvar(rigtigt, forsoeg);
+    spilEffekt(haendelse === 'op' ? 'niveau' : rigtigt ? 'rigtig' : 'forkert');
     setNiveauBesked(haendelse === 'op' ? t('opgave.niveau.op') : haendelse === 'ned' ? t('opgave.niveau.ned') : null);
     if (rigtigt) {
       const tekst =

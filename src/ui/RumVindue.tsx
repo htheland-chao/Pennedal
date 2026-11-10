@@ -3,6 +3,7 @@ import { t, type RumFund, type RumTrin } from '../content';
 import { Modal } from './Modal';
 import { beskedDele } from './OpgaveRamme';
 import { LaesOpKnap } from './Tekst';
+import { spilEffekt } from './effekter';
 
 /** Normaliserer et svar: store og små bogstaver, mellemrum og bindestreger tæller ikke. */
 export const renSvar = (s: string) => s.toLocaleLowerCase('da-DK').replace(/[\s-]/g, '');
@@ -74,6 +75,7 @@ export function KodeVindue({
   function tjek() {
     const ok = laas.svar.some((s) => renSvar(s) === renSvar(kode));
     onSvar(ok, forsoeg);
+    spilEffekt(ok ? 'rigtig' : 'forkert');
     setNr((n) => n + 1);
     if (ok) setStatus('aaben');
     else {

@@ -63,6 +63,9 @@ async function kaemp(page: Page) {
       const slut = kamp.locator('.kamp-slut');
       if (await slut.getByText('Vejen er fri').isVisible()) {
         await page.screenshot({ path: `${BILLEDER}/k4-kamp-vundet.png` });
+        // Lydeffekter i kampen (10. november 2026).
+        const lyde = await page.evaluate(() => (window as unknown as { __effekter?: string[] }).__effekter ?? []);
+        for (const l of ['kampstart', 'slag', 'smelter']) expect(lyde, l).toContain(l);
         await slut.getByRole('button', { name: 'Videre', exact: true }).click();
         await expect(kamp).toHaveCount(0);
         return;

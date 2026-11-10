@@ -8,6 +8,7 @@ import { GRENPORT, ordsten } from './pixel/viskeskov';
 import { tegnkortTilLerred } from './pixel/lerred';
 import { avatarPixel, FUGL, KLATTEN, SKYGGE, type Tegnkort } from './pixel/sprites';
 import type { VerdenData, VerdenKroge } from './typer';
+import { spilEffekt } from '../ui/effekter';
 
 /** Efter så mange fald tilbyder Æseløre at bære hovedpersonen over. */
 export const HJAELP_EFTER = 3;
@@ -259,6 +260,7 @@ export class BaneScene extends Phaser.Scene {
       const px = x * BFELT;
       const py = y * BFELT;
       const b = this.add.image(px, py, 'px-ny-planke').setOrigin(0).setDepth(1);
+      if (animer && i === 0) spilEffekt('planke');
       if (!animer || this.roligt) return;
       b.setAlpha(0).setY(py - 6);
       this.tweens.add({ targets: b, alpha: 1, y: py, duration: 260, delay: i * 90, ease: 'Back.Out' });
@@ -335,6 +337,7 @@ export class BaneScene extends Phaser.Scene {
     this.sidenJord = this.paaJorden ? 0 : this.sidenJord + dt;
     this.hopBuffer = Math.max(0, this.hopBuffer - dt);
     if (this.hopBuffer > 0 && this.sidenJord <= FYSIK.coyote) {
+      spilEffekt('hop');
       this.vy = -FYSIK.hop;
       this.hopBuffer = 0;
       this.sidenJord = FYSIK.coyote + 1;
@@ -351,6 +354,8 @@ export class BaneScene extends Phaser.Scene {
     if (!this.fastVed(nx + (this.vx > 0 ? B : -B), y - 2) && !this.fastVed(nx + (this.vx > 0 ? B : -B), y - H + 2)) x = nx;
     else this.vx = 0;
     let ny = y + this.vy * dt;
+    const varPaaJorden = this.paaJorden;
+    const faldFart = this.vy;
     this.paaJorden = false;
     if (this.vy >= 0) {
       // Lander på noget fast eller en planke, der var under fødderne før.
@@ -371,6 +376,8 @@ export class BaneScene extends Phaser.Scene {
     }
     y = ny;
     this.spiller.setPosition(x, y);
+    if (this.paaJorden && !varPaaJorden && faldFart > 140) spilEffekt('landing');
+    else if (this.paaJorden && Math.abs(this.vx) > 30) spilEffekt('skridt');
 
     // Fare: blæk, vand eller ud af banen forneden.
     const midt = this.tegn(Math.floor(x / BFELT), Math.floor((y - 4) / BFELT));

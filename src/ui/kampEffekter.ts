@@ -27,6 +27,28 @@ export type EffektType =
   | 'sejr'
   | 'nederlag';
 
+/**
+ * Lydeffekten til et trin i kampen (Henrik, 10. november 2026). Højst én pr. trin, så lydene ikke hober sig op.
+ * Rækkefølgen er vigtig: et væsen, der opløses, overdøver slaget, der ramte det.
+ */
+export function lydForTrin(tr: { effekter: { type: EffektType }[]; oploest?: number[]; faldet?: unknown[] }):
+  | 'sejr'
+  | 'smelter'
+  | 'stort'
+  | 'slag'
+  | 'skade'
+  | 'heling'
+  | null {
+  const typer = new Set(tr.effekter.map((e) => e.type));
+  if (typer.has('sejr')) return 'sejr';
+  if (tr.oploest?.length || typer.has('oploes')) return 'smelter';
+  if (typer.has('stort') || typer.has('kombi')) return 'stort';
+  if (typer.has('straale') || typer.has('nedslag')) return 'slag';
+  if ([...typer].some((t) => t.startsWith('angreb-')) || tr.faldet?.length) return 'skade';
+  if (typer.has('lap') || typer.has('krummer') || typer.has('skjold') || typer.has('lys') || typer.has('punktum')) return 'heling';
+  return null;
+}
+
 /** Placeringer er i procent af scenen (0-100). tx/ty er målet for noget, der flyver. */
 export type Effekt = { type: EffektType; x: number; y: number; tx?: number; ty?: number; tekst?: string; slags?: 'skade' | 'liv' | 'info' };
 
