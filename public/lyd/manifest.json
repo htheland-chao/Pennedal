@@ -36,6 +36,13 @@
       "kilde": "Kapitel 3 / k3-lysning.1",
       "lavet": "2026-11-01"
     },
+    "00518f9e798dbb": {
+      "figur": "fortaeller",
+      "tekst": "Du tager Klattens kappe på. Den er sort og alt for stor, men nu ligner du næsten en blækklat.",
+      "fil": "00518f9e798dbb.ogg",
+      "kilde": "Kapitel 6 / k6-doer.valg3.1",
+      "lavet": "2026-11-10"
+    },
     "0053aa4e419a80": {
       "figur": "ord",
       "tekst": "held",
@@ -70,6 +77,13 @@
       "fil": "008824dff8ca28.ogg",
       "kilde": "Kapitel 1 / k1-aeseloere.4",
       "lavet": "2026-10-31"
+    },
+    "008c44fd95882c": {
+      "figur": "aeseloere",
+      "tekst": "De halve lande. Det er der, Den Ufærdige er på vej hen.",
+      "fil": "008c44fd95882c.ogg",
+      "kilde": "Kapitel 6 / k6-slut.2",
+      "lavet": "2026-11-10"
     },
     "009119c08580ec": {
       "figur": "fortaeller",
@@ -134,6 +148,13 @@
       "kilde": "Stumme bogstaver / hvad.saetning",
       "lavet": "2026-11-04"
     },
+    "01157fe9e967df": {
+      "figur": "vims",
+      "tekst": "Undskyld. Der er blæk på stien. Små klatter. Hele vejen derhen.",
+      "fil": "01157fe9e967df.ogg",
+      "kilde": "Kapitel 6 / k6-ankomst.2",
+      "lavet": "2026-11-10"
+    },
     "0116ece9c9df71": {
       "figur": "vims",
       "tekst": "Undskyld! Det var mig. Jeg blev bange for en sky, og så kom jeg til at viske. Undskyld, at jeg undskylder.",
@@ -182,6 +203,20 @@
       "fil": "015789820d6f00.ogg",
       "kilde": "Kapitel 3 / k3-klatten.opgavetekst",
       "lavet": "2026-11-03"
+    },
+    "015f5251ccf65e": {
+      "figur": "fortaeller",
+      "tekst": "Sporet ender ved en sø, der er helt sort og blank. Ved bredden står en lille, skæv hytte af krøllede sider.",
+      "fil": "015f5251ccf65e.ogg",
+      "kilde": "Kapitel 6 / k6-ankomst.3",
+      "lavet": "2026-11-10"
+    },
+    "016cd12453a0a1": {
+      "figur": "aeseloere",
+      "tekst": "Nej. Det er noget, jeg øver mig på. Ligesom stavning.",
+      "fil": "016cd12453a0a1.ogg",
+      "kilde": "Kapitel 6 / k6-kamp-slut.5",
+      "lavet": "2026-11-10"
     },
     "016d2d7cc47411": {
       "figur": "portvagt",
@@ -281,6 +316,13 @@
       "kilde": "Kapitel 3 / k3-klatten.1",
       "lavet": "2026-11-01"
     },
+    "020fc5c2da3338": {
+      "figur": "vims",
+      "tekst": "Jeg kan viske låsen ud. Undskyld, lås.",
+      "fil": "020fc5c2da3338.ogg",
+      "kilde": "Kapitel 6 / k6-doer.valg3.2",
+      "lavet": "2026-11-10"
+    },
     "021cb6d9f8c9fc": {
       "figur": "fortaeller",
       "tekst": "Der er en hemmelig sti i skoven.",
@@ -322,6 +364,13 @@
       "fil": "0233c88e5700b6.ogg",
       "kilde": "Ordkort / typeskab",
       "lavet": "2026-11-01"
+    },
+    "0247c8926638b2": {
+      "figur": "fortaeller",
+      "tekst": "Så bliver alt stille. Midt på vejen står Den Ufærdige.",
+      "fil": "0247c8926638b2.ogg",
+      "kilde": "Kapitel 7 / k7-fristelse.1",
+      "lavet": "2026-11-10"
     },
     "0258bc7d3142de": {
       "figur": "fortaeller",
@@ -498,6 +547,13 @@
       "kilde": "Kapitel 2 / k2-lem.1",
       "lavet": "2026-10-31"
     },
+    "0358ac6c1b44b1": {
+      "figur": "vims",
+      "tekst": "Han mener, at det var godt.",
+      "fil": "0358ac6c1b44b1.ogg",
+      "kilde": "Kapitel 6 / k6-korrektur-slut.2",
+      "lavet": "2026-11-10"
+    },
     "036b075f796c41": {
       "figur": "fortaeller",
       "tekst": "Læs logbogen på disken.",
@@ -603,12 +659,33 @@
       "kilde": "Kapitel 4 / k4-moerke.4",
       "lavet": "2026-11-09"
     },
+    "0441477db146b9": {
+      "figur": "aeseloere",
+      "tekst": "Tak. Det ... tak. Jeg ved ikke, hvad man siger nu. Det står ikke i nogen ordbog.",
+      "fil": "0441477db146b9.ogg",
+      "kilde": "Kapitel 6 / k6-twist.valg1.1",
+      "lavet": "2026-11-10"
+    },
     "04532622552d04": {
       "figur": "ord",
       "tekst": "smøge",
       "fil": "04532622552d04.ogg",
       "kilde": "Ordkort / smoege",
       "lavet": "2026-11-01"
+    },
+    "0478668105371e": {
+      "figur": "fortaeller",
+      "tekst": "Du kender dem. Hvor uden h. Lille med ét l. Det er de samme fejl, som du selv lavede engang.",
+      "fil": "0478668105371e.ogg",
+      "kilde": "Kapitel 6 / k6-kasser.2",
+      "lavet": "2026-11-10"
+    },
+    "049da44d677976": {
+      "figur": "prinsesse",
+      "tekst": "Tak! Men mit eventyr mangler stadig noget. Jeg kan ikke huske, hvad et eventyr skal have. Hjælper du mig?",
+      "fil": "049da44d677976.ogg",
+      "kilde": "Kapitel 7 / k7-prinsesse.5",
+      "lavet": "2026-11-10"
     },
     "049da57b562fb8": {
       "figur": "aeseloere",
@@ -630,6 +707,13 @@
       "fil": "04ced1fd54f038.ogg",
       "kilde": "Beskeder / bro.fejl.placering.4.verden",
       "lavet": "2026-11-05"
+    },
+    "04d6520d92e166": {
+      "figur": "ufaerdige",
+      "tekst": "Fodnote. Du kan få en slutning øverst på siden.",
+      "fil": "04d6520d92e166.ogg",
+      "kilde": "Kapitel 7 / k7-fristelse.5",
+      "lavet": "2026-11-10"
     },
     "04d6d91100ac0b": {
       "figur": "fortaeller",
@@ -673,6 +757,13 @@
       "kilde": "Kapitel 2 / k2-rum.presse",
       "lavet": "2026-11-03"
     },
+    "051e72024d714b": {
+      "figur": "aeseloere",
+      "tekst": "Døren er låst. Han har ikke glemt, at vi lod ham sidde i skoven.",
+      "fil": "051e72024d714b.ogg",
+      "kilde": "Kapitel 6 / k6-doer.5",
+      "lavet": "2026-11-10"
+    },
     "05314a62e5a4d5": {
       "figur": "ord",
       "tekst": "hvalp",
@@ -687,6 +778,20 @@
       "kilde": "Minder / minde.skaar3a.1",
       "lavet": "2026-11-09"
     },
+    "053e17b0a2ce07": {
+      "figur": "aeseloere",
+      "tekst": "Hvad er der i dem?",
+      "fil": "053e17b0a2ce07.ogg",
+      "kilde": "Kapitel 6 / k6-hytten.5",
+      "lavet": "2026-11-10"
+    },
+    "053e40b95ba3cf": {
+      "figur": "aeseloere",
+      "tekst": "Jeg er ikke en side fra en ordbog. Det har jeg aldrig været.",
+      "fil": "053e40b95ba3cf.ogg",
+      "kilde": "Kapitel 6 / k6-twist.3",
+      "lavet": "2026-11-10"
+    },
     "0544c67f7ad25f": {
       "figur": "fortaeller",
       "tekst": "Tal-hjulene klikker på plads. Typeskabet glider til side, og bag det står en stige op til en lem i loftet.",
@@ -694,12 +799,26 @@
       "kilde": "Kapitel 2 / k2-rum.laas.aabnet",
       "lavet": "2026-11-03"
     },
+    "055be507bf1da3": {
+      "figur": "fortaeller",
+      "tekst": "Indenfor er der varmt og rodet. Overalt står kasser, stablet helt op til loftet.",
+      "fil": "055be507bf1da3.ogg",
+      "kilde": "Kapitel 6 / k6-hytten.1",
+      "lavet": "2026-11-10"
+    },
     "056456a51d12f2": {
       "figur": "ord",
       "tekst": "hjul",
       "fil": "056456a51d12f2.ogg",
       "kilde": "Stumme bogstaver / hjul",
       "lavet": "2026-10-31"
+    },
+    "056beb514fabaf": {
+      "figur": "fortaeller",
+      "tekst": "Du lægger kappen foran døren. Døren går op på klem, og en sort hånd tager kappen ind.",
+      "fil": "056beb514fabaf.ogg",
+      "kilde": "Kapitel 6 / k6-doer.valg1.1",
+      "lavet": "2026-11-10"
     },
     "056e7bbaea8441": {
       "figur": "fortaeller",
@@ -778,6 +897,13 @@
       "kilde": "Beskeder / bro.fejl.placering.6.loesning",
       "lavet": "2026-11-05"
     },
+    "05e3fd3a1b27cc": {
+      "figur": "fortaeller",
+      "tekst": "Æseløre lyder, som han plejer. Men han kigger ikke på dig. Det har han ikke gjort, siden I forlod arkivet.",
+      "fil": "05e3fd3a1b27cc.ogg",
+      "kilde": "Kapitel 6 / k6-ankomst.5",
+      "lavet": "2026-11-10"
+    },
     "0612ebed1e12ca": {
       "figur": "aeseloere",
       "tekst": "Planke 3 står forkert. Hvordan kommer hovedpersonen ind i den magiske verden?",
@@ -826,6 +952,20 @@
       "fil": "067ae06a23edc7.ogg",
       "kilde": "Stumme bogstaver / vild.saetning",
       "lavet": "2026-11-04"
+    },
+    "067dd16df20a04": {
+      "figur": "klatten",
+      "tekst": "Hvad? Du siger aldrig noget pænt.",
+      "fil": "067dd16df20a04.ogg",
+      "kilde": "Kapitel 6 / k6-kamp-slut.4",
+      "lavet": "2026-11-10"
+    },
+    "0685ca9e8d97c4": {
+      "figur": "klatten",
+      "tekst": "Kan du lære mig det? Ikke fordi jeg har brug for det. Bare sådan for sjov.",
+      "fil": "0685ca9e8d97c4.ogg",
+      "kilde": "Kapitel 6 / k6-kasser.7",
+      "lavet": "2026-11-10"
     },
     "06897d812334ee": {
       "figur": "fortaeller",
@@ -911,6 +1051,13 @@
       "kilde": "Opgaver / bro.instruks",
       "lavet": "2026-11-04"
     },
+    "07390e471d9e47": {
+      "figur": "fortaeller",
+      "tekst": "Du lægger Rimfods sten for enden af den halve bro. Stregen bliver længere, og broen tegner sig færdig.",
+      "fil": "07390e471d9e47.ogg",
+      "kilde": "Kapitel 7 / k7-prinsesse.4",
+      "lavet": "2026-11-10"
+    },
     "073b4982eed454": {
       "figur": "fortaeller",
       "tekst": "Hej ... vej ... dej ... sej ...",
@@ -946,6 +1093,13 @@
       "kilde": "Minder / minde.blaek.2",
       "lavet": "2026-11-03"
     },
+    "07669200435839": {
+      "figur": "grumsen",
+      "tekst": "Mørke, knirkende døre og noget ukendt. Brr. Jeg tør godt, hvis jeg holder lampen.",
+      "fil": "07669200435839.ogg",
+      "kilde": "Kapitel 7 / k7-bip.1",
+      "lavet": "2026-11-10"
+    },
     "078f048ead1ca5": {
       "figur": "ord",
       "tekst": "byråd",
@@ -959,6 +1113,13 @@
       "fil": "07a22c6acc72ba.ogg",
       "kilde": "Stumme bogstaver / hvor.saetning",
       "lavet": "2026-11-04"
+    },
+    "07a2e3c462cb54": {
+      "figur": "prinsesse",
+      "tekst": "Så jeg har besluttet at redde mig selv. Men broen ned fra tårnet er kun halvt tegnet.",
+      "fil": "07a2e3c462cb54.ogg",
+      "kilde": "Kapitel 7 / k7-prinsesse.2",
+      "lavet": "2026-11-10"
     },
     "07b5a3d5cbd6e9": {
       "figur": "aeseloere",
@@ -1015,6 +1176,13 @@
       "fil": "08206002e9cfb8.ogg",
       "kilde": "Kapitel 3 / halvsang.start.1",
       "lavet": "2026-11-09"
+    },
+    "084ff2da69c55f": {
+      "figur": "fortaeller",
+      "tekst": "Så begynder søen at boble. Op af blækket kravler små, sorte kruseduller. De er tegnet så hurtigt, at de ikke ved, hvad de skal være.",
+      "fil": "084ff2da69c55f.ogg",
+      "kilde": "Kapitel 6 / k6-krusedul.1",
+      "lavet": "2026-11-10"
     },
     "085701a614cd38": {
       "figur": "fortaeller",
@@ -1107,12 +1275,26 @@
       "kilde": "Beskeder / bro.fejl.placering.6.verden",
       "lavet": "2026-11-05"
     },
+    "09246e05a7e26c": {
+      "figur": "fortaeller",
+      "tekst": "Du tager det grønne hæfte frem. Den sidste side er stadig tom. Men nu ved du, hvor du skal hen.",
+      "fil": "09246e05a7e26c.ogg",
+      "kilde": "Kapitel 6 / k6-slut.4",
+      "lavet": "2026-11-10"
+    },
     "092483afabd966": {
       "figur": "klatten",
       "tekst": "Øv. Øv, øv, øv. Der er ikke flere tage.",
       "fil": "092483afabd966.ogg",
       "kilde": "Kapitel 2 / k2-fanget.1",
       "lavet": "2026-10-31"
+    },
+    "092b156ce2c93a": {
+      "figur": "klatten",
+      "tekst": "Hov! Hvem er du? Du har min kappe på! Den Frygtelige lader sig ikke snyde.",
+      "fil": "092b156ce2c93a.ogg",
+      "kilde": "Kapitel 6 / k6-hytten.2",
+      "lavet": "2026-11-10"
     },
     "0967a18360fff0": {
       "figur": "fortaeller",
@@ -1142,6 +1324,20 @@
       "kilde": "Kapitel 5 / k5-haeftet.5",
       "lavet": "2026-11-09"
     },
+    "098e89429541c2": {
+      "figur": "fortaeller",
+      "tekst": "I det mørke hus sidder et stort monster med pels og hjemmesko. Det har tændt alle lamperne.",
+      "fil": "098e89429541c2.ogg",
+      "kilde": "Kapitel 7 / k7-grumsen.2",
+      "lavet": "2026-11-10"
+    },
+    "099e773b16e1f6": {
+      "figur": "aeseloere",
+      "tekst": "Det er da ikke svært. Man skal bare stave rigtigt. Det hedder hvor med h, Klatten.",
+      "fil": "099e773b16e1f6.ogg",
+      "kilde": "Kapitel 6 / k6-kasser.4",
+      "lavet": "2026-11-10"
+    },
     "09be461c0db40d": {
       "figur": "fortaeller",
       "tekst": "Held og lykke på rejsen!",
@@ -1170,6 +1366,13 @@
       "kilde": "Kapitel 1 / k1-floden.1",
       "lavet": "2026-10-31"
     },
+    "09d7073d0114e8": {
+      "figur": "fortaeller",
+      "tekst": "Vims visker, og låsen forsvinder. Døren går op uden en lyd.",
+      "fil": "09d7073d0114e8.ogg",
+      "kilde": "Kapitel 6 / k6-doer.valg3.3",
+      "lavet": "2026-11-10"
+    },
     "09dad3bcb01112": {
       "figur": "aeseloere",
       "tekst": "Eksempel: Sækken ligger på taget. Hvor er sækken? Stop tyven!",
@@ -1190,6 +1393,13 @@
       "fil": "09e285e5b0f9c5.ogg",
       "kilde": "Beskeder / bro.fejl.placering.1.loesning",
       "lavet": "2026-11-04"
+    },
+    "09eff1ed45932c": {
+      "figur": "fortaeller",
+      "tekst": "I tasken ligger Klattens kappe. Den, han tabte bag skiltet i Pennedal.",
+      "fil": "09eff1ed45932c.ogg",
+      "kilde": "Kapitel 6 / k6-doer.6",
+      "lavet": "2026-11-10"
     },
     "09f1f71147e479": {
       "figur": "vims",
@@ -1232,6 +1442,13 @@
       "fil": "0a39b06476b225.ogg",
       "kilde": "Kapitel 4 / k4-ekko-slut.2",
       "lavet": "2026-11-09"
+    },
+    "0a409fec0747e2": {
+      "figur": "vims",
+      "tekst": "Undskyld. Men nej. Jeg er bange sammen med mine venner. Det er bedre.",
+      "fil": "0a409fec0747e2.ogg",
+      "kilde": "Kapitel 7 / k7-fristelse.4",
+      "lavet": "2026-11-10"
     },
     "0a8add0ccc7c17": {
       "figur": "fortaeller",
@@ -1401,6 +1618,13 @@
       "kilde": "Kapitel 2 / k2-rum.seddel.3",
       "lavet": "2026-11-03"
     },
+    "0b6d0383ae9627": {
+      "figur": "ufaerdige",
+      "tekst": "Der er du jo.",
+      "fil": "0b6d0383ae9627.ogg",
+      "kilde": "Kapitel 5 / k5-twist.4",
+      "lavet": "2026-11-10"
+    },
     "0b72b7c31d3e63": {
       "figur": "aeseloere",
       "tekst": "Du klarede den. Jeg sagde ingenting hele vejen. Det var svært for mig.",
@@ -1414,6 +1638,13 @@
       "fil": "0b81eefcc22ead.ogg",
       "kilde": "Kapitel 2 / k2-moerke.1",
       "lavet": "2026-10-31"
+    },
+    "0b8d02af71e9fe": {
+      "figur": "vims",
+      "tekst": "Det ser ufærdigt ud. Undskyld. Det var en dum ting at sige.",
+      "fil": "0b8d02af71e9fe.ogg",
+      "kilde": "Kapitel 6 / k6-slut.3",
+      "lavet": "2026-11-10"
     },
     "0bd2cf06d89880": {
       "figur": "aeseloere",
@@ -1436,6 +1667,13 @@
       "kilde": "Kapitel 5 / k5-ankomst.2",
       "lavet": "2026-11-09"
     },
+    "0be29afdebac44": {
+      "figur": "klatten",
+      "tekst": "Hvorfor kigger du sådan? De er mine. Jeg har haft dem, så længe jeg kan huske.",
+      "fil": "0be29afdebac44.ogg",
+      "kilde": "Kapitel 6 / k6-kasser.3",
+      "lavet": "2026-11-10"
+    },
     "0bed59d6cacbf2": {
       "figur": "aeseloere",
       "tekst": "Sætningen er et råb eller en ordre. Derfor skal den have udråbstegn.",
@@ -1443,12 +1681,33 @@
       "kilde": "Beskeder / raaber.fejl.udraab",
       "lavet": "2026-11-03"
     },
+    "0c0123d5103cee": {
+      "figur": "fodnote",
+      "tekst": "¹ Nej tak. Alt det vigtige står nederst.",
+      "fil": "0c0123d5103cee.ogg",
+      "kilde": "Kapitel 7 / k7-fristelse.6",
+      "lavet": "2026-11-10"
+    },
+    "0c0df1b65222dc": {
+      "figur": "fodnote",
+      "tekst": "¹ En krimi uden opklaring er bare en historie om en, der er forvirret.",
+      "fil": "0c0df1b65222dc.ogg",
+      "kilde": "Kapitel 7 / k7-lup.4",
+      "lavet": "2026-11-10"
+    },
     "0c1a8458532bc7": {
       "figur": "vims",
       "tekst": "Hov. Nu blev jeg bange igen.",
       "fil": "0c1a8458532bc7.ogg",
       "kilde": "Kapitel 3 / k3-vims.4",
       "lavet": "2026-11-01"
+    },
+    "0c1c5e26b3723a": {
+      "figur": "fortaeller",
+      "tekst": "Efter arkivet går I længe uden at sige noget. Så stopper Vims.",
+      "fil": "0c1c5e26b3723a.ogg",
+      "kilde": "Kapitel 6 / k6-ankomst.1",
+      "lavet": "2026-11-10"
     },
     "0c1d08e3775bd8": {
       "figur": "tomordet",
@@ -1492,12 +1751,26 @@
       "kilde": "Kapitel 2 / k2-opslag.opgavetekst",
       "lavet": "2026-11-03"
     },
+    "0c6460d9fb799f": {
+      "figur": "fortaeller",
+      "tekst": "Så er den væk. Tilbage i støvet står kun to ord: Og så.",
+      "fil": "0c6460d9fb799f.ogg",
+      "kilde": "Kapitel 5 / k5-twist.8",
+      "lavet": "2026-11-10"
+    },
     "0c85e1738b8cb8": {
       "figur": "ord",
       "tekst": "kartoteksskab",
       "fil": "0c85e1738b8cb8.ogg",
       "kilde": "Ordkort / kartoteksskab",
       "lavet": "2026-11-01"
+    },
+    "0c888927d7f8bb": {
+      "figur": "rimfod",
+      "tekst": "Min sten kan bære en bro, hvis du lægger den, hvor stregen stopper.",
+      "fil": "0c888927d7f8bb.ogg",
+      "kilde": "Kapitel 7 / k7-prinsesse.3",
+      "lavet": "2026-11-10"
     },
     "0c8a1441a4776d": {
       "figur": "fortaeller",
@@ -1527,6 +1800,13 @@
       "kilde": "Kapitel 1 / k1-floden.3",
       "lavet": "2026-10-31"
     },
+    "0c918374948690": {
+      "figur": "vims",
+      "tekst": "Han gik ud til søen. Han så trist ud. Undskyld, at jeg lagde mærke til det.",
+      "fil": "0c918374948690.ogg",
+      "kilde": "Kapitel 6 / k6-korrektur-slut.5",
+      "lavet": "2026-11-10"
+    },
     "0c9677172012c6": {
       "figur": "fortaeller",
       "tekst": "Gå hen til det, der hvisker.",
@@ -1547,6 +1827,13 @@
       "fil": "0ca46c59add8d2.ogg",
       "kilde": "Synonymer / kaempestor",
       "lavet": "2026-11-04"
+    },
+    "0ca9453255ec36": {
+      "figur": "rimfod",
+      "tekst": "Jeg kom med, for jeg er ikke dum. Det er her, det hele skal ende og begynde.",
+      "fil": "0ca9453255ec36.ogg",
+      "kilde": "Kapitel 7 / k7-ankomst.5",
+      "lavet": "2026-11-10"
     },
     "0caab01936acf2": {
       "figur": "aeseloere",
@@ -1569,12 +1856,26 @@
       "kilde": "Råberens tegn / raab-20",
       "lavet": "2026-11-03"
     },
+    "0cb336bf79ceb1": {
+      "figur": "grumsen",
+      "tekst": "Nu er gyseren slet ikke uhyggelig. Den er bare en historie om et hus. Hvad gør en gyser uhyggelig?",
+      "fil": "0cb336bf79ceb1.ogg",
+      "kilde": "Kapitel 7 / k7-grumsen.4",
+      "lavet": "2026-11-10"
+    },
     "0cc0f6852b165d": {
       "figur": "rimfod",
       "tekst": "Ekkoet i kløften har stjålet min ro. Det råber forkerte rim, både én gang og to.",
       "fil": "0cc0f6852b165d.ogg",
       "kilde": "Kapitel 4 / k4-rimfod.5",
       "lavet": "2026-11-09"
+    },
+    "0cd9e50bb592eb": {
+      "figur": "klatten",
+      "tekst": "Kom bare ind. Men tør fødderne af. Med blæk.",
+      "fil": "0cd9e50bb592eb.ogg",
+      "kilde": "Kapitel 6 / k6-doer.valg1.3",
+      "lavet": "2026-11-10"
     },
     "0cf0ff941288b3": {
       "figur": "aeseloere",
@@ -1674,6 +1975,20 @@
       "kilde": "Kapitel 2 / k2-rum.laas.eksempel",
       "lavet": "2026-11-03"
     },
+    "0dca1e2735d508": {
+      "figur": "klatten",
+      "tekst": "Jeg tager med jer. Ikke fordi I er mine venner. Den Frygtelige har bare ikke andet at lave.",
+      "fil": "0dca1e2735d508.ogg",
+      "kilde": "Kapitel 6 / k6-kamp-slut.6",
+      "lavet": "2026-11-10"
+    },
+    "0ddc3b04aada83": {
+      "figur": "vims",
+      "tekst": "Det var ikke pænt sagt. Undskyld, at jeg siger det. Igen.",
+      "fil": "0ddc3b04aada83.ogg",
+      "kilde": "Kapitel 6 / k6-kasser.5",
+      "lavet": "2026-11-10"
+    },
     "0ddd3343965284": {
       "figur": "fortaeller",
       "tekst": "Vognen har et løst hjul.",
@@ -1723,12 +2038,26 @@
       "kilde": "Beskeder / bro.fejl.placering.1.hjemkomst",
       "lavet": "2026-11-04"
     },
+    "0e4416bdf7970d": {
+      "figur": "fodnote",
+      "tekst": "¹ Jeg er ikke overrasket. Det stod i min fodnote på den allerførste side. ² Ingen læser fodnoter. Derfor vidste ingen det.",
+      "fil": "0e4416bdf7970d.ogg",
+      "kilde": "Kapitel 5 / k5-twist.9",
+      "lavet": "2026-11-10"
+    },
     "0e5cb3edad41b9": {
       "figur": "aeseloere",
       "tekst": "En Stumming. Den stjæler stumme bogstaver. Find det bogstav, der mangler, så giver den slip.",
       "fil": "0e5cb3edad41b9.ogg",
       "kilde": "Kapitel 3 / k3-stumming-moede.2",
       "lavet": "2026-11-01"
+    },
+    "0e63fda4563078": {
+      "figur": "aeseloere",
+      "tekst": "Det hjørne er mig. Jeg er et æseløre. Et bogmærke.",
+      "fil": "0e63fda4563078.ogg",
+      "kilde": "Kapitel 6 / k6-twist.5",
+      "lavet": "2026-11-10"
     },
     "0e6e3805370bca": {
       "figur": "aeseloere",
@@ -1751,12 +2080,26 @@
       "kilde": "Kapitel 3 / k3-vims.7",
       "lavet": "2026-11-01"
     },
+    "0e9cc259140997": {
+      "figur": "bip",
+      "tekst": "Men min fremtid er gået i stå. Den ligner bare i dag. Hvad skal der til, for at det bliver science fiction?",
+      "fil": "0e9cc259140997.ogg",
+      "kilde": "Kapitel 7 / k7-bip.3",
+      "lavet": "2026-11-10"
+    },
     "0ea4d28f3e6f2a": {
       "figur": "aeseloere",
       "tekst": "Her har de trykt byens bøger i hundrede år. Og nogen har haft travlt i nat.",
       "fil": "0ea4d28f3e6f2a.ogg",
       "kilde": "Kapitel 2 / k2-trykkeri.3",
       "lavet": "2026-10-31"
+    },
+    "0eac25d09d64a1": {
+      "figur": "aeseloere",
+      "tekst": "Her havner alle de historier, der aldrig blev skrevet færdige. Eventyr, krimier, gysere. Alle mangler de noget.",
+      "fil": "0eac25d09d64a1.ogg",
+      "kilde": "Kapitel 7 / k7-ankomst.3",
+      "lavet": "2026-11-10"
     },
     "0ed337450bacf7": {
       "figur": "fodnote",
@@ -1765,12 +2108,26 @@
       "kilde": "Kapitel 5 / k5-fodnote.1",
       "lavet": "2026-11-09"
     },
+    "0ee190c860aa52": {
+      "figur": "bip",
+      "tekst": "Rumskibe, robotter og opfindelser. Min fremtid kører igen. Bip bip.",
+      "fil": "0ee190c860aa52.ogg",
+      "kilde": "Kapitel 7 / k7-genrer-slut.1",
+      "lavet": "2026-11-10"
+    },
     "0ee6b9c21b64ae": {
       "figur": "fortaeller",
       "tekst": "Smøgerne er så smalle, at husene næsten rører hinanden. Larmen fra torvet bliver svagere og svagere.",
       "fil": "0ee6b9c21b64ae.ogg",
       "kilde": "Kapitel 2 / k2-smoeger.1",
       "lavet": "2026-10-31"
+    },
+    "0ef22d14349948": {
+      "figur": "prinsesse",
+      "tekst": "Nu ved jeg det. Magi, prøver og en helt. Og helten er mig. Farvel, tårn!",
+      "fil": "0ef22d14349948.ogg",
+      "kilde": "Kapitel 7 / k7-lup.1",
+      "lavet": "2026-11-10"
     },
     "0f2fb58c2eb519": {
       "figur": "aeseloere",
@@ -1785,6 +2142,13 @@
       "fil": "0f32cc49049ea1.ogg",
       "kilde": "Kapitel 1 / k1-klatten.5",
       "lavet": "2026-10-31"
+    },
+    "0f41467c6e3009": {
+      "figur": "lup",
+      "tekst": "Hm. Hm, hm. Undskyld, jeg tænker. Jeg har tænkt i tolv år.",
+      "fil": "0f41467c6e3009.ogg",
+      "kilde": "Kapitel 7 / k7-lup.2",
+      "lavet": "2026-11-10"
     },
     "0f462db3eb9509": {
       "figur": "aeseloere",
@@ -1848,6 +2212,13 @@
       "fil": "0fc97e0fc44b61.ogg",
       "kilde": "Kapitel 4 / k4-moerke.5",
       "lavet": "2026-11-09"
+    },
+    "0fdbcb401e9088": {
+      "figur": "vims",
+      "tekst": "Alle er her. Det er rart. Undskyld, at jeg synes, det er rart.",
+      "fil": "0fdbcb401e9088.ogg",
+      "kilde": "Kapitel 7 / k7-ankomst.6",
+      "lavet": "2026-11-10"
     },
     "0fec1119cf5c79": {
       "figur": "fortaeller",
@@ -1933,6 +2304,13 @@
       "kilde": "Kapitel 4 / k4-rimfod.8",
       "lavet": "2026-11-09"
     },
+    "10513d02c5c649": {
+      "figur": "klatten",
+      "tekst": "Fejlene er ikke væk. Men nu er de noget, jeg kan lære af. De bor i en pæn kasse nu.",
+      "fil": "10513d02c5c649.ogg",
+      "kilde": "Kapitel 6 / k6-korrektur-slut.3",
+      "lavet": "2026-11-10"
+    },
     "10548e93687f4c": {
       "figur": "fortaeller",
       "tekst": "Skuffen bliver større og større. Et hvidt lys fylder hele kælderen, og pludselig falder du.",
@@ -1995,6 +2373,13 @@
       "fil": "10b344642ebe7a.ogg",
       "kilde": "Kapitel 1 / k1-logbog.k1-logbog-2.forkert.4",
       "lavet": "2026-11-01"
+    },
+    "10b86d8131a6f6": {
+      "figur": "aeseloere",
+      "tekst": "Blæksøen. Klattens hjem. Det lugter af blæk og dårlig stavning.",
+      "fil": "10b86d8131a6f6.ogg",
+      "kilde": "Kapitel 6 / k6-ankomst.4",
+      "lavet": "2026-11-10"
     },
     "10bb4ed67eeb4b": {
       "figur": "fortaeller",
@@ -2122,6 +2507,13 @@
       "kilde": "Stumme bogstaver / hvem",
       "lavet": "2026-10-31"
     },
+    "11670ac98fe0dc": {
+      "figur": "fortaeller",
+      "tekst": "Den sidste Krusedulle retter sig ud. Den bliver til et lille, pænt ord og flyder væk på søen.",
+      "fil": "11670ac98fe0dc.ogg",
+      "kilde": "Kapitel 6 / k6-kamp-slut.1",
+      "lavet": "2026-11-10"
+    },
     "118e4ad026ec36": {
       "figur": "fortaeller",
       "tekst": "Klatten vil være berømt.",
@@ -2135,6 +2527,13 @@
       "fil": "11947240fe9482.ogg",
       "kilde": "Beskeder / raaber.fejl.spoergsmaal",
       "lavet": "2026-11-03"
+    },
+    "119b00dce74e42": {
+      "figur": "fortaeller",
+      "tekst": "På den anden side af søen kan du se noget. Et land, der kun er halvt tegnet. Træer uden toppe. Huse med kun to vægge.",
+      "fil": "119b00dce74e42.ogg",
+      "kilde": "Kapitel 6 / k6-slut.1",
+      "lavet": "2026-11-10"
     },
     "119db59a23c732": {
       "figur": "aeseloere",
@@ -2184,6 +2583,20 @@
       "fil": "11ebde23e1ff86.ogg",
       "kilde": "Kapitel 2 / k2-jagt.2",
       "lavet": "2026-10-31"
+    },
+    "11f8e0194c9afc": {
+      "figur": "aeseloere",
+      "tekst": "Det var godt gjort, Klatten.",
+      "fil": "11f8e0194c9afc.ogg",
+      "kilde": "Kapitel 6 / k6-kamp-slut.3",
+      "lavet": "2026-11-10"
+    },
+    "11fa6cfe71924d": {
+      "figur": "aeseloere",
+      "tekst": "Den Ufærdige vil ikke have, at noget bliver færdigt. Heller ikke Klattens tekster.",
+      "fil": "11fa6cfe71924d.ogg",
+      "kilde": "Kapitel 6 / k6-krusedul.3",
+      "lavet": "2026-11-10"
     },
     "11ffa6a9b86580": {
       "figur": "ord",
@@ -2332,6 +2745,27 @@
       "kilde": "Kapitel 5 / k5-sorter-slut.2",
       "lavet": "2026-11-09"
     },
+    "12cf97e77f789c": {
+      "figur": "fortaeller",
+      "tekst": "Du løfter låget. Kassen er fuld af små papirlapper. På hver lap står et ord, der er stavet lidt forkert.",
+      "fil": "12cf97e77f789c.ogg",
+      "kilde": "Kapitel 6 / k6-kasser.1",
+      "lavet": "2026-11-10"
+    },
+    "12d65957554dfe": {
+      "figur": "fortaeller",
+      "tekst": "På den anden side af Blæksøen begynder De halve lande. Alt her er kun tegnet halvt. Træer uden toppe. Huse med kun to vægge.",
+      "fil": "12d65957554dfe.ogg",
+      "kilde": "Kapitel 7 / k7-ankomst.1",
+      "lavet": "2026-11-10"
+    },
+    "12fb7d5e30cbfd": {
+      "figur": "fortaeller",
+      "tekst": "Du banker på. Det lyder som at banke på en stak papir.",
+      "fil": "12fb7d5e30cbfd.ogg",
+      "kilde": "Kapitel 6 / k6-doer.1",
+      "lavet": "2026-11-10"
+    },
     "130160da336586": {
       "figur": "aeseloere",
       "tekst": "Låsen sidder fast. Koden passer ikke endnu.",
@@ -2352,6 +2786,13 @@
       "fil": "1317d85c77bca9.ogg",
       "kilde": "Minder / minde.skaar3a.3",
       "lavet": "2026-11-09"
+    },
+    "131b8546119a2c": {
+      "figur": "klatten",
+      "tekst": "Hvem der? Nå, det er dig. Dig fra skoven. Med punktummet.",
+      "fil": "131b8546119a2c.ogg",
+      "kilde": "Kapitel 6 / k6-doer.2",
+      "lavet": "2026-11-10"
     },
     "132685b7beac74": {
       "figur": "fortaeller",
@@ -2388,6 +2829,13 @@
       "kilde": "Kapitel 4 / k4-kloeften.4",
       "lavet": "2026-11-09"
     },
+    "136cf192e7ab67": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Det burde jeg. Jeg vil prøve at gøre det godt igen.",
+      "fil": "136cf192e7ab67.ogg",
+      "kilde": "Kapitel 6 / k6-twist.valg2.1",
+      "lavet": "2026-11-10"
+    },
     "136de469832728": {
       "figur": "aeseloere",
       "tekst": "Hver planke er en del af en historie. Læg dem i den rigtige rækkefølge, så holder broen.",
@@ -2408,6 +2856,13 @@
       "fil": "137bc107b9f51d.ogg",
       "kilde": "Kapitel 2 / k2-fanget.5",
       "lavet": "2026-11-01"
+    },
+    "137d7fd44c15f4": {
+      "figur": "klatten",
+      "tekst": "Min kappe! Den har jeg ledt efter i ... Jeg har ikke ledt efter den. Den Frygtelige leder aldrig.",
+      "fil": "137d7fd44c15f4.ogg",
+      "kilde": "Kapitel 6 / k6-doer.valg1.2",
+      "lavet": "2026-11-10"
     },
     "13918783c9dbfd": {
       "figur": "aeseloere",
@@ -2507,6 +2962,13 @@
       "kilde": "Stumme bogstaver / gulv",
       "lavet": "2026-11-01"
     },
+    "13e08171811672": {
+      "figur": "aeseloere",
+      "tekst": "Kom væk herfra. Nu.",
+      "fil": "13e08171811672.ogg",
+      "kilde": "Kapitel 5 / k5-twist.5",
+      "lavet": "2026-11-10"
+    },
     "13ea075d501636": {
       "figur": "fortaeller",
       "tekst": "Det lugter af blæk. Du kender den lugt. Du ved bare ikke hvorfra.",
@@ -2520,6 +2982,13 @@
       "fil": "140267612e9ca5.ogg",
       "kilde": "Stumme bogstaver / tolv.saetning",
       "lavet": "2026-11-04"
+    },
+    "1402c0cdd482f2": {
+      "figur": "klatten",
+      "tekst": "Så I det? Jeg viste dem mine gamle fejl, og så blev de helt forvirrede. Det var et frygtelig godt trick.",
+      "fil": "1402c0cdd482f2.ogg",
+      "kilde": "Kapitel 6 / k6-kamp-slut.2",
+      "lavet": "2026-11-10"
     },
     "1405e2a8f9e8ee": {
       "figur": "fortaeller",
@@ -2668,6 +3137,13 @@
       "kilde": "Kapitel 2 / k2-moerke.13",
       "lavet": "2026-10-31"
     },
+    "153606a6443db9": {
+      "figur": "aeseloere",
+      "tekst": "Jeg burde have sagt det fra starten. Undskyld.",
+      "fil": "153606a6443db9.ogg",
+      "kilde": "Kapitel 6 / k6-twist.7",
+      "lavet": "2026-11-10"
+    },
     "1562dae1f9f022": {
       "figur": "ord",
       "tekst": "kold",
@@ -2695,6 +3171,13 @@
       "fil": "156d3b5a076d4a.ogg",
       "kilde": "Beskeder / bro.fejl.placering.6.portal",
       "lavet": "2026-11-05"
+    },
+    "159f1e219204e7": {
+      "figur": "aeseloere",
+      "tekst": "Jeg har ikke været helt ærlig over for dig.",
+      "fil": "159f1e219204e7.ogg",
+      "kilde": "Kapitel 6 / k6-twist.2",
+      "lavet": "2026-11-10"
     },
     "159f20ba378564": {
       "figur": "aeseloere",
@@ -2766,6 +3249,13 @@
       "kilde": "Stumme bogstaver / selv",
       "lavet": "2026-10-31"
     },
+    "162d56b280f04f": {
+      "figur": "fortaeller",
+      "tekst": "Men du bliver stående. For nu forstår du det. Den Ufærdige er ikke en fremmed. Den er din historie. Den, du aldrig skrev færdig.",
+      "fil": "162d56b280f04f.ogg",
+      "kilde": "Kapitel 5 / k5-twist.6",
+      "lavet": "2026-11-10"
+    },
     "1650c42ec1b86d": {
       "figur": "fortaeller",
       "tekst": "Skriv de to bogstaver, der mangler. Det ene er stumt.",
@@ -2786,6 +3276,13 @@
       "fil": "1665fb26dbe771.ogg",
       "kilde": "Beskeder / bro.fejl.placering.3.loesning",
       "lavet": "2026-11-05"
+    },
+    "1668f2ad333e95": {
+      "figur": "klatten",
+      "tekst": "Den Frygtelige gemmer sig ikke. Ikke i dag. Jeg hjælper jer!",
+      "fil": "1668f2ad333e95.ogg",
+      "kilde": "Kapitel 6 / k6-krusedul.4",
+      "lavet": "2026-11-10"
     },
     "166fe13ad17169": {
       "figur": "stumming",
@@ -2843,6 +3340,20 @@
       "kilde": "Beskeder / bro.fejl.placering.3.verden",
       "lavet": "2026-11-05"
     },
+    "16c1e3e415fa59": {
+      "figur": "fodnote",
+      "tekst": "¹ Jeg tog bussen. ² Der går ingen bus hertil. Jeg tog den alligevel.",
+      "fil": "16c1e3e415fa59.ogg",
+      "kilde": "Kapitel 7 / k7-ankomst.4",
+      "lavet": "2026-11-10"
+    },
+    "16d444718c4d9c": {
+      "figur": "klatten",
+      "tekst": "Nå. Du ligner mig faktisk lidt i den. Bliv bare. Men rør ikke ved noget.",
+      "fil": "16d444718c4d9c.ogg",
+      "kilde": "Kapitel 6 / k6-hytten.3",
+      "lavet": "2026-11-10"
+    },
     "16dcf1584781b5": {
       "figur": "ord",
       "tekst": "rund",
@@ -2884,6 +3395,13 @@
       "fil": "171ab9120d37bf.ogg",
       "kilde": "Kapitel 3 / k3-ankomst.2",
       "lavet": "2026-11-01"
+    },
+    "173694fc58d3de": {
+      "figur": "grumsen",
+      "tekst": "Hej. Jeg er Grumsen. Jeg skulle være monsteret i en gyser. Men jeg blev bange og gik hjem.",
+      "fil": "173694fc58d3de.ogg",
+      "kilde": "Kapitel 7 / k7-grumsen.3",
+      "lavet": "2026-11-10"
     },
     "1746c81487479d": {
       "figur": "lanterne",
@@ -3046,6 +3564,13 @@
       "kilde": "Råberens tegn / raab-12",
       "lavet": "2026-11-03"
     },
+    "1862dc930e3b7b": {
+      "figur": "aeseloere",
+      "tekst": "Det er fair. Jeg venter. Det er jeg god til.",
+      "fil": "1862dc930e3b7b.ogg",
+      "kilde": "Kapitel 6 / k6-twist.valg3.1",
+      "lavet": "2026-11-10"
+    },
     "1867194b6d836f": {
       "figur": "fortaeller",
       "tekst": "Farverne løber ud af tagene. Månerne slukker, én efter én.",
@@ -3158,6 +3683,13 @@
       "kilde": "Kapitel 3 / k3-lysning.4",
       "lavet": "2026-11-01"
     },
+    "19059ca8439eb9": {
+      "figur": "klatten",
+      "tekst": "Jeg gemmer mig bare under bordet. Det er en strategi.",
+      "fil": "19059ca8439eb9.ogg",
+      "kilde": "Kapitel 6 / k6-krusedul.5",
+      "lavet": "2026-11-10"
+    },
     "191e4e2383adad": {
       "figur": "fortaeller",
       "tekst": "Skiltet er helt hvidt. Der har stået noget, men ordene er visket ud. Kun to ord er tilbage: Pas på.",
@@ -3228,12 +3760,33 @@
       "kilde": "Tasken / haefte",
       "lavet": "2026-11-01"
     },
+    "198ce11f1b7c95": {
+      "figur": "klatten",
+      "tekst": "Chefen har smidt mig ud. Han siger, at jeg ikke kan stave. Det kan jeg godt. Bare ikke rigtigt.",
+      "fil": "198ce11f1b7c95.ogg",
+      "kilde": "Kapitel 6 / k6-doer.3",
+      "lavet": "2026-11-10"
+    },
     "19904363ca28a1": {
       "figur": "ord",
       "tekst": "hvad",
       "fil": "19904363ca28a1.ogg",
       "kilde": "Stumme bogstaver / hvad",
       "lavet": "2026-10-31"
+    },
+    "1996d538bd2a39": {
+      "figur": "klatten",
+      "tekst": "Velkommen til mit hjem. Det er ikke et rodet hjem. Det er et hjem med mange kasser.",
+      "fil": "1996d538bd2a39.ogg",
+      "kilde": "Kapitel 6 / k6-hytten.4",
+      "lavet": "2026-11-10"
+    },
+    "19bc139077b714": {
+      "figur": "aeseloere",
+      "tekst": "Det var en dårlig joke. Jeg øver mig.",
+      "fil": "19bc139077b714.ogg",
+      "kilde": "Kapitel 6 / k6-twist.valg1.2",
+      "lavet": "2026-11-10"
     },
     "19bdeba5a74dcd": {
       "figur": "raaber",
@@ -3248,6 +3801,13 @@
       "fil": "19d1a92f92e832.ogg",
       "kilde": "Kapitel 3 / halvsang.faerdig.1",
       "lavet": "2026-11-09"
+    },
+    "19d8a8ab274489": {
+      "figur": "prinsesse",
+      "tekst": "Endelig! Jeg har ventet i dette tårn i tre hundrede sider. Der kommer ingen prins.",
+      "fil": "19d8a8ab274489.ogg",
+      "kilde": "Kapitel 7 / k7-prinsesse.1",
+      "lavet": "2026-11-10"
     },
     "19e232923a17c2": {
       "figur": "aeseloere",
@@ -3333,6 +3893,13 @@
       "kilde": "Kapitel 4 / k4-toppen.2",
       "lavet": "2026-11-09"
     },
+    "1a6541c8eb37b6": {
+      "figur": "klatten",
+      "tekst": "Fejl. Alle mine fejl. Chefen sagde, at jeg skulle gemme dem, så ingen kunne se dem.",
+      "fil": "1a6541c8eb37b6.ogg",
+      "kilde": "Kapitel 6 / k6-hytten.6",
+      "lavet": "2026-11-10"
+    },
     "1a65ff866d02d1": {
       "figur": "aeseloere",
       "tekst": "Det er Og-ormen. Hver gang nogen binder sætninger sammen med \"og\", bliver den længere. Til sidst spærrer den hele vejen.",
@@ -3389,6 +3956,13 @@
       "kilde": "Beskeder / opgave.ros.1",
       "lavet": "2026-11-04"
     },
+    "1a9c759018a00c": {
+      "figur": "bip",
+      "tekst": "Bip. Goddag. Jeg er Bip. Jeg kommer fra en historie, der foregår i fremtiden.",
+      "fil": "1a9c759018a00c.ogg",
+      "kilde": "Kapitel 7 / k7-bip.2",
+      "lavet": "2026-11-10"
+    },
     "1aa86a8ea8017a": {
       "figur": "vims",
       "tekst": "Vims visker en forkert mulighed ud. Undskyld, hvis det var den, du ville vælge.",
@@ -3403,6 +3977,13 @@
       "kilde": "Beskeder / bro.fejl.placering.5.problem",
       "lavet": "2026-11-05"
     },
+    "1ab6dc9321879e": {
+      "figur": "klatten",
+      "tekst": "Du må godt beholde den. Den er alligevel for stor. Kom ind.",
+      "fil": "1ab6dc9321879e.ogg",
+      "kilde": "Kapitel 6 / k6-doer.valg2.1",
+      "lavet": "2026-11-10"
+    },
     "1ad6dd37fe604e": {
       "figur": "aeseloere",
       "tekst": "Se de hvide sten ved hullerne. Det er ordsten. Giv dem et ord, der betyder det samme, så skriver de plankerne tilbage.",
@@ -3416,6 +3997,13 @@
       "fil": "1ad708f4cf48be.ogg",
       "kilde": "Kapitel 5 / k5-fodnote.6",
       "lavet": "2026-11-09"
+    },
+    "1ad87ed1db44d6": {
+      "figur": "klatten",
+      "tekst": "Jeg sejlede jer over i min båd. Den er lavet af en avis. Den Frygtelige har sans for stil.",
+      "fil": "1ad87ed1db44d6.ogg",
+      "kilde": "Kapitel 7 / k7-ankomst.2",
+      "lavet": "2026-11-10"
     },
     "1ae511e2503aa3": {
       "figur": "fortaeller",
@@ -3494,12 +4082,33 @@
       "kilde": "Kapitel 1 / k1-holm.opgavetekst",
       "lavet": "2026-11-01"
     },
+    "1b8985aca1781b": {
+      "figur": "klatten",
+      "tekst": "Jeg bliver her. Men måske kommer jeg forbi en dag. Måske.",
+      "fil": "1b8985aca1781b.ogg",
+      "kilde": "Kapitel 6 / k6-kamp-slut.7",
+      "lavet": "2026-11-10"
+    },
     "1ba19cc7c7136d": {
       "figur": "rimfod",
       "tekst": "Jeg tager den lange vej og venter på jer der. Øv. Der og her. Det er bare ikke fair.",
       "fil": "1ba19cc7c7136d.ogg",
       "kilde": "Kapitel 4 / k4-rimfod.9",
       "lavet": "2026-11-09"
+    },
+    "1ba1d6d2aaff76": {
+      "figur": "fortaeller",
+      "tekst": "Æseløre sidder helt ude ved vandet. Han har foldet det ene øre ned.",
+      "fil": "1ba1d6d2aaff76.ogg",
+      "kilde": "Kapitel 6 / k6-twist.1",
+      "lavet": "2026-11-10"
+    },
+    "1bb3e0c212027b": {
+      "figur": "aeseloere",
+      "tekst": "Kan du huske hæftet? Den aften, du stoppede, foldede du hjørnet på siden ned, så du kunne finde den igen.",
+      "fil": "1bb3e0c212027b.ogg",
+      "kilde": "Kapitel 6 / k6-twist.4",
+      "lavet": "2026-11-10"
     },
     "1bb4edcbcbd129": {
       "figur": "aeseloere",
@@ -3514,6 +4123,13 @@
       "fil": "1bc4e4ee437cd2.ogg",
       "kilde": "Råberens tegn / raab-16",
       "lavet": "2026-11-03"
+    },
+    "1bce8700c5c2d9": {
+      "figur": "lup",
+      "tekst": "Opklaret! Det var gartneren. Det er altid ... nej, det var ikke gartneren. Men nu ved jeg, hvordan jeg finder ud af det.",
+      "fil": "1bce8700c5c2d9.ogg",
+      "kilde": "Kapitel 7 / k7-grumsen.1",
+      "lavet": "2026-11-10"
     },
     "1bd5d130fe1373": {
       "figur": "fortaeller",
@@ -3564,6 +4180,13 @@
       "kilde": "Beskeder / bro.fejl.placering.4.loesning",
       "lavet": "2026-11-05"
     },
+    "1c1ff62f998141": {
+      "figur": "klatten",
+      "tekst": "Jeg har lige rettet mine egne tekster. Næsten selv. Det er det mest frygtelige, jeg nogensinde har gjort.",
+      "fil": "1c1ff62f998141.ogg",
+      "kilde": "Kapitel 6 / k6-korrektur-slut.1",
+      "lavet": "2026-11-10"
+    },
     "1c35ac3b04d4e0": {
       "figur": "fortaeller",
       "tekst": "Hvad skete der med ordbogen?",
@@ -3612,6 +4235,13 @@
       "fil": "1c8f4479f02dba.ogg",
       "kilde": "Kapitel 3 / k3-klatten.5",
       "lavet": "2026-11-01"
+    },
+    "1c9ca19c0866d3": {
+      "figur": "ufaerdige",
+      "tekst": "Jeg kan give jer en slutning. Hver af jer. Alt, I skal gøre, er at gå med mig.",
+      "fil": "1c9ca19c0866d3.ogg",
+      "kilde": "Kapitel 7 / k7-fristelse.2",
+      "lavet": "2026-11-10"
     },
     "1cb6f6ee427180": {
       "figur": "fortaeller",
@@ -3760,12 +4390,26 @@
       "kilde": "Stumme bogstaver / ild",
       "lavet": "2026-10-31"
     },
+    "1e5bb6b5459a5e": {
+      "figur": "fortaeller",
+      "tekst": "Rundt om dig begynder De halve lande at tegne sig færdige. Træerne får toppe. Husene får fire vægge.",
+      "fil": "1e5bb6b5459a5e.ogg",
+      "kilde": "Kapitel 7 / k7-genrer-slut.2",
+      "lavet": "2026-11-10"
+    },
     "1e5d6b0087b189": {
       "figur": "klatten",
       "tekst": "Hvad? Hvorfor gjorde du det? Jeg er jo din fjende.",
       "fil": "1e5d6b0087b189.ogg",
       "kilde": "Kapitel 3 / k3-klatten.valg1.2",
       "lavet": "2026-11-01"
+    },
+    "1e5ffb21a5137e": {
+      "figur": "fortaeller",
+      "tekst": "Du kigger dig om efter Æseløre. Han er ikke i hytten.",
+      "fil": "1e5ffb21a5137e.ogg",
+      "kilde": "Kapitel 6 / k6-korrektur-slut.4",
+      "lavet": "2026-11-10"
     },
     "1e7f240d431ce7": {
       "figur": "fortaeller",
@@ -3788,6 +4432,13 @@
       "kilde": "Råberens tegn / raab-14",
       "lavet": "2026-11-03"
     },
+    "1ea1bdfdd43c06": {
+      "figur": "ufaerdige",
+      "tekst": "Vims. Du kan få en slutning, hvor du aldrig er bange.",
+      "fil": "1ea1bdfdd43c06.ogg",
+      "kilde": "Kapitel 7 / k7-fristelse.3",
+      "lavet": "2026-11-10"
+    },
     "1ea87e1c11f523": {
       "figur": "fortaeller",
       "tekst": "Stemmen kommer ikke fra ét sted. Den kommer fra skyggerne mellem tagene, fra revnerne i stenene, fra lige bag dig.",
@@ -3801,6 +4452,20 @@
       "fil": "1eb008e14c844e.ogg",
       "kilde": "Kapitel 5 / k5-lem.1",
       "lavet": "2026-11-09"
+    },
+    "1eb40ac26cf3f0": {
+      "figur": "fortaeller",
+      "tekst": "Fire historier er strandet her. Hver af dem mangler det vigtigste. Måske kan du hjælpe dem.",
+      "fil": "1eb40ac26cf3f0.ogg",
+      "kilde": "Kapitel 7 / k7-ankomst.7",
+      "lavet": "2026-11-10"
+    },
+    "1eb601fa12873f": {
+      "figur": "klatten",
+      "tekst": "Gå væk! Her bor ingen. Især ikke Klatten den Frygtelige.",
+      "fil": "1eb601fa12873f.ogg",
+      "kilde": "Kapitel 6 / k6-doer.4",
+      "lavet": "2026-11-10"
     },
     "1ebba1ce7f7c94": {
       "figur": "fortaeller",
@@ -3830,12 +4495,26 @@
       "kilde": "Kapitel 5 / k5-ankomst.5",
       "lavet": "2026-11-09"
     },
+    "1ec3235e9de885": {
+      "figur": "aeseloere",
+      "tekst": "Jeg har ventet på den side i lang tid. Jeg lokkede dig herhen, fordi jeg kun kan blive glattet ud, hvis historien bliver færdig.",
+      "fil": "1ec3235e9de885.ogg",
+      "kilde": "Kapitel 6 / k6-twist.6",
+      "lavet": "2026-11-10"
+    },
     "1ecaaad7f3e14d": {
       "figur": "fortaeller",
       "tekst": "Klatten vil løbe sin vej.",
       "fil": "1ecaaad7f3e14d.ogg",
       "kilde": "Synonymer / loebe",
       "lavet": "2026-11-04"
+    },
+    "1ecdb3b6804854": {
+      "figur": "aeseloere",
+      "tekst": "Fire historier, der fik det, de manglede. Du er god til det her. Bedre, end du tror.",
+      "fil": "1ecdb3b6804854.ogg",
+      "kilde": "Kapitel 7 / k7-genrer-slut.3",
+      "lavet": "2026-11-10"
     },
     "1efd0dafff5d54": {
       "figur": "aeseloere",
@@ -3970,6 +4649,13 @@
       "kilde": "Stumme bogstaver / guld.saetning",
       "lavet": "2026-11-04"
     },
+    "1fc6fa848e4bf0": {
+      "figur": "fortaeller",
+      "tekst": "Klatten bliver lille og grå. Du ved, hvordan det føles. Fejl er ikke farlige. Det er grinet, der gør ondt.",
+      "fil": "1fc6fa848e4bf0.ogg",
+      "kilde": "Kapitel 6 / k6-kasser.6",
+      "lavet": "2026-11-10"
+    },
     "1fcbaf6c1c0659": {
       "figur": "aeseloere",
       "tekst": "Eksempel: Hus og bolig er synonymer. Vi bor i et gult hus. Vi bor i en gul bolig.",
@@ -3983,6 +4669,13 @@
       "fil": "1fd07adf0fc2f8.ogg",
       "kilde": "Ordkort / trykkeriet",
       "lavet": "2026-11-01"
+    },
+    "1fd1b5537ae714": {
+      "figur": "lup",
+      "tekst": "Jeg er Kommissær Lup. Min krimi mangler opklaringen. Jeg har sporene, men ingen ved, hvad en krimi er.",
+      "fil": "1fd1b5537ae714.ogg",
+      "kilde": "Kapitel 7 / k7-lup.3",
+      "lavet": "2026-11-10"
     },
     "1fd895c91be7a8": {
       "figur": "aeseloere",
@@ -4012,6 +4705,13 @@
       "kilde": "Kapitel 1 / k1-over-floden.opgavetekst",
       "lavet": "2026-11-03"
     },
+    "1fee86ce11b478": {
+      "figur": "klatten",
+      "tekst": "Det er chefens kruseduller! Han sender dem, når nogen er ved at blive færdig med noget.",
+      "fil": "1fee86ce11b478.ogg",
+      "kilde": "Kapitel 6 / k6-krusedul.2",
+      "lavet": "2026-11-10"
+    },
     "1ff186fae2b54f": {
       "figur": "aeseloere",
       "tekst": "Det lød ikke godt. Det lød slet ikke godt.",
@@ -4029,5 +4729,5 @@
   },
   "model": "gemini-3.8-flash-tts",
   "i_alt": 1079,
-  "mangler": 504
+  "mangler": 404
 }
