@@ -3692,3 +3692,60 @@ dialog.modal.menu-skuffe {
     display: none;
   }
 }
+
+/* Titelkortet (10. november 2026): kapitlets navn og mål, og "Sidst i Pennedal", når man fortsætter. */
+.kapitelkort {
+  text-align: center;
+}
+.kapitelkort-sidst {
+  margin: 0;
+  font-family: var(--pixelskrift);
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  color: var(--tekst-svag);
+}
+.kapitelkort-nr {
+  margin: 0.4rem 0 0;
+  font-family: var(--pixelskrift);
+  font-size: 1rem;
+  color: #8a5a1e;
+}
+.kapitelkort-titel {
+  margin: 0.1rem 0 1rem;
+  font-family: var(--pixelskrift);
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  line-height: 1.1;
+  animation: kapitelkort-ind 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+.kapitelkort-blok {
+  margin: 0.8rem auto;
+  max-width: 32rem;
+  padding: 0.7rem 1rem;
+  border-left: 6px solid #f0c45a;
+  background: rgb(240 196 90 / 0.12);
+  text-align: left;
+}
+.kapitelkort-blok h3 {
+  margin: 0 0 0.2rem;
+  font-size: 0.95rem;
+}
+.kapitelkort-blok p {
+  margin: 0;
+  font-size: 1.1rem;
+}
+.kapitelkort .knaprad {
+  justify-content: center;
+  margin-top: 1rem;
+}
+.skaar-taeller {
+  font-weight: 700;
+}
+@keyframes kapitelkort-ind {
+  from { opacity: 0; transform: translateX(-2.5rem); letter-spacing: 0.3em; }
+  to { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .kapitelkort-titel {
+    animation: none;
+  }
+}

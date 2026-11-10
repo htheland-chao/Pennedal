@@ -97,8 +97,14 @@ export function alleLydtekster(stemmer = hentStemmer()) {
   tilfoej('aeseloere', `${t('feedback.regel')}: ${t('raaber.regel')}`, 'Beskeder / raaber.regel');
   tilfoej('aeseloere', `${t('feedback.eksempel')}: ${t('raaber.eksempel')}`, 'Beskeder / raaber.eksempel');
 
+  // Titelkortet (src/ui/Kapitelkort.tsx): kapitlets nummer og navn og målet.
+  for (const k of kapitler) {
+    tilfoej('fortaeller', `${t('kapitelkort.kapitel', { nr: k.kapitel })}. ${k.titel}.`, `Titelkort / kapitel ${k.kapitel}`);
+    tilfoej('fortaeller', k.maal, `Titelkort / kapitel ${k.kapitel}.maal`);
+  }
+
   // Introen (src/ui/Intro.tsx).
-  for (const id of ['intro.1', 'intro.2', 'intro.3', 'intro.4', 'intro.5', 'intro.5.slut'])
+  for (const id of ['intro.1', 'intro.2', 'intro.3', 'intro.4', 'intro.5', 'intro.5.slut', 'intro.6', 'intro.6.slut'])
     tilfoej('fortaeller', t(id), `Introen / ${id}`);
 
   // Minderne (src/ui/Tilbageblik.tsx, teksterne i src/content/minder.ts): hver del er et klip, også de milde udgaver.

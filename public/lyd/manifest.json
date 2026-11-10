@@ -1737,6 +1737,13 @@
       "kilde": "Beskeder / regel",
       "lavet": "2026-11-05"
     },
+    "0c3a50c717069c": {
+      "figur": "fortaeller",
+      "tekst": "Nogen inde i historierne tager deres slutninger. Find ud af, hvem det er, og stop det. Og find ud af, hvorfor skuffen kalder på netop dig.",
+      "fil": "0c3a50c717069c.ogg",
+      "kilde": "Introen / intro.6.slut",
+      "lavet": "2026-11-10"
+    },
     "0c4bc7cbab2613": {
       "figur": "aeseloere",
       "tekst": "Her binder \"og\" to ting sammen i samme sætning, fx \"brød og smør\". Det \"og\" skal blive.",
@@ -3080,6 +3087,13 @@
       "fil": "14632aa58d8ce9.ogg",
       "kilde": "Historiebroen / bro-froeen.hjemkomst",
       "lavet": "2026-11-05"
+    },
+    "147c84931604b0": {
+      "figur": "fortaeller",
+      "tekst": "Det er din skole. Og på dit skolebibliotek er bøgerne ved at blive tomme. Ord forsvinder, og historier stopper midt i en sætning.",
+      "fil": "147c84931604b0.ogg",
+      "kilde": "Introen / intro.6",
+      "lavet": "2026-11-10"
     },
     "1497f7d787933e": {
       "figur": "fortaeller",
@@ -4742,6 +4756,6 @@
     }
   },
   "model": "gemini-3.8-flash-tts",
-  "i_alt": 1092,
-  "mangler": 415
+  "i_alt": 1113,
+  "mangler": 434
 }

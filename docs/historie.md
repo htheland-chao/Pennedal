@@ -71,7 +71,10 @@ Introen (`src/ui/Intro.tsx`, 31. oktober 2026) kommer, når man starter et nyt e
 4. Pennedal under tre måner. "Men et sted bag ordene ligger et land, hvor alt engang blev skrevet til live."
 5. Månerne slukker, og en skygge glider over landet. "Nu forsvinder slutningerne. Én efter én." Den Ufærdige hvisker: "Og så ..."
 6. Kartoteksskabet i kælderen. Den nederste skuffe lyser. "I en kælder under et skolebibliotek er der en skuffe, som er begyndt at hviske. Den hvisker til dig."
-7. Titlen, "Et spil af Theland Studios" og knappen "Begynd eventyret".
+7. Samme kælder (Henrik, 10. november 2026): "Det er din skole. Og på dit skolebibliotek er bøgerne ved at blive tomme." Og: "Nogen inde i historierne tager deres slutninger. Find ud af, hvem det er, og stop det. Og find ud af, hvorfor skuffen kalder på netop dig." Så ved eleven, hvem den er, hvad der er på spil, og hvad den skal, uden at twistet bliver afsløret.
+8. Titlen, "Et spil af Theland Studios" og knappen "Begynd eventyret".
+
+Hvert kapitel har et mål i én sætning (`maal` i kapitlet), som står på titelkortet, når kapitlet begynder, og under "Sidst i Pennedal", når eleven fortsætter.
 
 Værelset og det grønne glimt er avatarens eget værelse og hæftet. Det bliver først klart ved twist 1.
 
@@ -186,7 +189,7 @@ Hvert kapitel har ét tilbageblik i historien og op til to ekstra, som kun låse
 
 ### Hukommelsesskår (valgfrie)
 
-Små lysende papirstumper, gemt i hvert kapitel (to pr. kapitel, typisk bag en svær platformbane eller en hemmelig dør). De låser ekstra tilbageblik op, som giver flere detaljer: hvordan Holm fandt hæftet, at søskendet fortrød, og at avataren tit tænkte på Skyggen bagefter. Alle skår giver den sande slutning.
+Spillet siger det tydeligt (10. november 2026): beskeden viser "3 af 10", første skår forklarer, at skår er stumper af det, man har glemt, og tasken har en tæller. Små lysende papirstumper, gemt i hvert kapitel (to pr. kapitel, typisk bag en svær platformbane eller en hemmelig dør). De låser ekstra tilbageblik op, som giver flere detaljer: hvordan Holm fandt hæftet, at søskendet fortrød, og at avataren tit tænkte på Skyggen bagefter. Alle skår giver den sande slutning.
 
 ## Tasken
 

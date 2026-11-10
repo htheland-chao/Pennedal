@@ -131,6 +131,7 @@ test('kapitel 1 kan spilles fra start til slut, og gemmekoden virker', async ({ 
     [3, 'Men et sted bag ordene'],
     [4, 'Nu forsvinder slutningerne.'],
     [5, 'Den hvisker til dig.'],
+    [6, 'hvorfor skuffen kalder på netop dig.'],
   ] as const) {
     await page.locator('.intro-knapper').getByRole('button', { name: 'Videre' }).click();
     await expect(page.locator('.intro-tekst')).toContainText(tekst);
@@ -150,6 +151,15 @@ test('kapitel 1 kan spilles fra start til slut, og gemmekoden virker', async ({ 
   await expect(page.getByText(/Kappe er låst/)).toBeVisible();
   await billede(page, '02-avatar');
   await page.getByRole('button', { name: 'Klar til eventyret' }).click();
+
+  // Titelkortet: kapitlets navn og mål (10. november 2026).
+  const kort = page.locator('dialog.kapitelkort');
+  await expect(kort).toContainText('Kapitel 1');
+  await expect(kort).toContainText('Den glemte skuffe');
+  await expect(kort).toContainText('Dit mål');
+  await billede(page, '02b-titelkort');
+  await kort.getByRole('button', { name: 'Begynd kapitlet' }).click();
+  await expect(kort).toHaveCount(0);
 
   // Del 1: biblioteket.
   await expect(page.getByText('Tal med hr. Holm.')).toBeVisible();
@@ -269,6 +279,12 @@ test('kapitel 1 kan spilles fra start til slut, og gemmekoden virker', async ({ 
   await page.getByLabel('Gemmekode').fill(kode!.replace(/-/g, '').toLowerCase());
   await page.getByRole('button', { name: 'Fortsæt', exact: true }).click();
   await page.getByRole('button', { name: 'Ja, start forfra' }).click();
+  // Sidst i Pennedal: kapitlet, målet og det næste, man skal gøre.
+  const sidst = page.locator('dialog.kapitelkort.fortsat');
+  await expect(sidst).toContainText('Sidst i Pennedal');
+  await expect(sidst).toContainText('Det næste, du skal gøre');
+  await billede(page, '13-sidst-i-pennedal');
+  await sidst.getByRole('button', { name: 'Videre' }).click();
   // Koden er gemt fra menuen i Pennedal, så spillet fortsætter dér: enten ankomsten eller mødet med Klatten.
   await expect(page.locator('dialog.dialogboks').filter({ hasText: 'Du lander blødt' }).or(page.locator('.panel').getByRole('button', { name: 'Undersøg Klatten' }))).toBeVisible();
 
@@ -311,6 +327,11 @@ test('intet går ud over kanten på en mobil, hverken stående eller liggende', 
     await page.getByRole('button', { name: 'Spring introen over' }).tap();
     expect(await forBred(), `avatar ${viewport.width}`).toBe(false);
     await page.getByRole('button', { name: 'Klar til eventyret' }).tap();
+    // Titelkortet skal også passe på en mobil.
+    await expect(page.locator('dialog.kapitelkort')).toBeVisible();
+    expect(await forBred(), `titelkort ${viewport.width}`).toBe(false);
+    await page.screenshot({ path: `${BILLEDER}/02c-titelkort-mobil-${viewport.width}.png` });
+    await page.locator('dialog.kapitelkort').getByRole('button', { name: 'Begynd kapitlet' }).tap();
     await expect(page.locator('.panel').getByRole('button', { name: 'Undersøg hr. Holm' })).toBeVisible();
     expect(await forBred(), `verden ${viewport.width}`).toBe(false);
     await ctx.close();
