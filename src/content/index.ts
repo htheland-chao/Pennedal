@@ -245,6 +245,8 @@ export type Trin = DialogTrin | SkiftTrin | OpgaveTrin | BevisjagtTrin | RumTrin
 export type Kapitel = {
   kapitel: number;
   titel: string;
+  /** Kapitlets mål i én sætning. Vises på titelkortet, når kapitlet begynder, og når man fortsætter et spil. */
+  maal: string;
   /** Æseløre er først med fra dette trin (i kapitel 1 flyver han ud af skuffen). Uden feltet er han med fra start. */
   fuglFra?: string;
   /** Æseløre går fra dette trin og resten af kapitlet, hvis betingelsen er opfyldt (kapitel 7: ikke tilgivet). */

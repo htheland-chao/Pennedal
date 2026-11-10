@@ -22,6 +22,7 @@ import { LaesOpKnap } from '../ui/Tekst';
 import { Ydelse } from '../ui/Ydelse';
 import { BevisjagtVindue, OpgaveVindue } from './OpgaveVindue';
 import { spilEffekt } from '../ui/effekter';
+import { ALLE_SKAAR } from '../engine/betingelse';
 
 type Props = {
   spil: GemtSpil;
@@ -109,6 +110,12 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
   // Tasken regnes ud fra, hvor langt eleven er (se src/engine/taske.ts).
   const tingITasken = useMemo(() => taskeFor(spil, kapitler), [spil.kapitel, spil.trin, spil.valg]);
   const [visTaske, setVisTaske] = useState(false);
+  /** Den dialog, der er vist på skærmen. En ny dialog starter først, når andre vinduer er lukket. */
+  const [dialogIGang, setDialogIGang] = useState<string | null>(null);
+  useEffect(() => {
+    if (!aktivtTrin) setDialogIGang(null);
+    else if (aktivtTrin.type === 'dialog' && !overgang && !andetVindueAabent) setDialogIGang(aktivtTrin.id);
+  }, [aktivtTrin, overgang, andetVindueAabent]);
   const [nyTing, setNyTing] = useState<TingId | null>(null);
   const forrigeTaske = useRef(tingITasken);
   useEffect(() => {
@@ -570,7 +577,7 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
       </aside>
 
       {visTaske && (
-        <TaskeVindue ting={tingITasken} minder={minder} rumTing={taske.map((k) => spil.valg[`taske.${k}`])} onLuk={() => setVisTaske(false)} />
+        <TaskeVindue ting={tingITasken} minder={minder} skaar={spil.skaar.length} rumTing={taske.map((k) => spil.valg[`taske.${k}`])} onLuk={() => setVisTaske(false)} />
       )}
       {rum && rumVindue?.type === 'fund' && (
         <FundVindue
@@ -644,14 +651,18 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
       {bladBesked && <Kvittering tekst={bladBesked} onSkjul={skjulBlad} luk={t('kvittering.luk')} />}
       {nytSkaarMinde && !aktivtTrin && !gentagelse && (
         <Kvittering
-          tekst={t('skaar.fundet', { titel: mindeTitel(nytSkaarMinde) })}
+          tekst={`${t('skaar.fundet', { titel: mindeTitel(nytSkaarMinde), antal: spil.skaar.length, ialt: ALLE_SKAAR.length })}${
+            spil.skaar.length === 1 ? ` ${t('skaar.forklaring')}` : ''
+          }`}
           onSkjul={skjulSkaar}
           luk={t('kvittering.luk')}
           handling={{ tekst: t('minde.se.nu'), onKlik: () => { setVisMinde(nytSkaarMinde); setNytSkaar(null); } }}
         />
       )}
-      {/* Dialogen venter, til overgangen mellem steder er færdig (et dialogvindue ligger altid øverst i browseren). */}
-      {aktivtTrin?.type === 'dialog' && !overgang && (
+      {/* Dialogen venter, til overgangen mellem steder er færdig (et dialogvindue ligger altid øverst i browseren).
+          En ny dialog venter også, mens menuen eller et andet vindue er åbent, ellers lægger den sig over menuens knapper.
+          En dialog, der allerede er i gang, bliver stående. */}
+      {aktivtTrin?.type === 'dialog' && !overgang && (dialogIGang === aktivtTrin.id || !andetVindueAabent) && (
         <DialogBoks
           replikker={trinDialog?.replikker ?? []}
           valg={trinDialog?.valg}

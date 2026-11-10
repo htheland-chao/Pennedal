@@ -6,6 +6,7 @@ import { TingIkon } from './PixelPortraet';
 import { LaesOpKnap } from './Tekst';
 import { erMinde, mindeTitel, type MindeId } from '../content/minder';
 import { Tilbageblik } from './Tilbageblik';
+import { ALLE_SKAAR } from '../engine/betingelse';
 
 export const tingNavn = (id: TingId) => t(`ting.${id}.navn` as TekstId);
 export const tingTekst = (id: TingId) => t(`ting.${id}.tekst` as TekstId);
@@ -30,13 +31,15 @@ export function TingListe({ ting }: { ting: TingId[] }) {
 }
 
 /** Minderne (tilbageblik), eleven har mødt. Hvert kan ses igen. */
-export function MinderListe({ minder }: { minder: string[] }) {
+export function MinderListe({ minder, skaar }: { minder: string[]; skaar?: number }) {
   const [vis, setVis] = useState<MindeId | null>(null);
   const liste = minder.filter(erMinde);
   return (
     <>
       <h3>{t('minder.titel')}</h3>
       <p className="lille-tekst">{t('minder.intro')}</p>
+      {/* Tæller for hukommelsesskår (Henrik, 10. november 2026), så eleven ved, hvad skårene er til. */}
+      {skaar !== undefined && <p className="skaar-taeller">{t('minder.skaar', { antal: skaar, ialt: ALLE_SKAAR.length })}</p>}
       {liste.length === 0 ? (
         <p>{t('minder.tom')}</p>
       ) : (
@@ -57,13 +60,25 @@ export function MinderListe({ minder }: { minder: string[] }) {
 }
 
 /** Tasken: alt, eleven har fundet og har med sig. Ting fra det escape room, man er i, står for sig. */
-export function TaskeVindue({ ting, minder = [], rumTing, onLuk }: { ting: TingId[]; minder?: string[]; rumTing: string[]; onLuk: () => void }) {
+export function TaskeVindue({
+  ting,
+  minder = [],
+  skaar,
+  rumTing,
+  onLuk,
+}: {
+  ting: TingId[];
+  minder?: string[];
+  skaar?: number;
+  rumTing: string[];
+  onLuk: () => void;
+}) {
   return (
     <Modal titel={t('taske.titel')} onLuk={onLuk} klasse="taske-vindue">
       <h2>{t('taske.titel')}</h2>
       <p className="lille-tekst">{t('taske.intro')}</p>
       <TingListe ting={ting} />
-      <MinderListe minder={minder} />
+      <MinderListe minder={minder} skaar={skaar} />
       {rumTing.length > 0 && (
         <>
           <h3>{t('taske.rum')}</h3>
