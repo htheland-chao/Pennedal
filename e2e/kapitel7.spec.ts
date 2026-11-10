@@ -81,6 +81,18 @@ async function genreOpgaver(page: Page, objekt: string, forkertFoerst: boolean) 
   }
 }
 
+/** Starter kampen hos Den Ufærdige. Et klik, mens scenen er låst (fx under mørket), går tabt, så der prøves igen og til sidst med knappen Undersøg. */
+async function startKamp(page: Page) {
+  const kamp = page.locator('dialog.kamp');
+  for (let i = 0; i < 4 && !(await kamp.isVisible()); i++) {
+    if (i < 2) await gaaTil(page, 'ufaerdige');
+    else await page.getByRole('complementary').getByRole('button', { name: /^Undersøg/ }).click().catch(() => undefined);
+    await kamp.waitFor({ state: 'visible', timeout: 8_000 }).catch(() => undefined);
+  }
+  await expect(kamp).toBeVisible({ timeout: 30_000 });
+  return kamp;
+}
+
 /** Små genreopgaver i sidemissionen og på broen. */
 async function smaaGenre(page: Page, antal: number, sidste: string) {
   const v = page.locator('dialog.ord-opgave');
@@ -212,9 +224,7 @@ test('kapitel 7: De halve lande, fire genrer, fristelsen og kampen med hele hold
   await venterPaa(page, 'glattes ud sammen med den, der tilgav mig');
   await page.screenshot({ path: `${BILLEDER}/k7-04-fristelse.png` });
   await laesDialog(page);
-  await gaaTil(page, 'ufaerdige');
-  const kamp = page.locator('dialog.kamp');
-  await expect(kamp).toBeVisible({ timeout: 30_000 });
+  const kamp = await startKamp(page);
   for (const navn of ['Æseløre', 'Vims', 'Klatten']) await expect(kamp.locator('.kamp-navn').filter({ hasText: navn })).toHaveCount(1);
   await kaemp(page, 'k7-kamp');
   await laesDialog(page);
@@ -238,9 +248,7 @@ test('kapitel 7: uden tilgivelse går Æseløre med Den Ufærdige, og kampen er 
   await gaaTil(page, 'ufaerdige');
   await venterPaa(page, 'Jeg kommer tilbage. Det lover jeg.');
   await laesDialog(page);
-  await gaaTil(page, 'ufaerdige');
-  const kamp = page.locator('dialog.kamp');
-  await expect(kamp).toBeVisible({ timeout: 30_000 });
+  const kamp = await startKamp(page);
   await expect(kamp.locator('.kamp-navn').filter({ hasText: 'Æseløre' })).toHaveCount(0);
   await expect(kamp.locator('.kamp-navn').filter({ hasText: 'Klatten' })).toHaveCount(0);
   await expect(kamp.locator('.kamp-navn').filter({ hasText: 'Vims' })).toHaveCount(1);
