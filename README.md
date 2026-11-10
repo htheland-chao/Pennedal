@@ -33,6 +33,8 @@ Der gemmes ingen navne, ingen e-mail og ingen elevtekster. Hostingudbyderen (Fir
 
 Hop direkte til et sted: tilføj `?hop` til linket for at få en liste over steder, eller fx https://htheland-chao.github.io/Pennedal/?hop=kaelder. Et hop-spil bliver ikke gemt.
 
+Mål grafikken på en Chromebook: https://htheland-chao.github.io/Pennedal/?hop=pennedal&debug=1&skala=2 viser billeder pr. sekund øverst. Skift `skala=2` til `skala=1` eller `skala=4` for at sammenligne. Skalaen ændrer kun, hvor mange pixel der tegnes, ikke hvordan grafikken ser ud.
+
 Til eleverne skal spillet senere ligge på Firebase (se herunder). Du kan også køre det på din egen computer:
 
 1. Installér Node.js (LTS-udgaven) fra [nodejs.org](https://nodejs.org).

@@ -28,7 +28,16 @@ export const VIS_H = 180;
  * Før gled zoomen fx gennem 1,37 i 320 x 180, så pixlerne "flød". Et forsøg med 4 gange så stor intern
  * opløsning gav skarpe kvarte trin, men kostede for meget (5 i stedet for 42 billeder pr. sekund i testbrowseren).
  */
-export const SKALA = 1;
+/**
+ * Til måling på Chromebook (Henrik, 10. november 2026): ?skala=2 eller ?skala=4 i adressen tegner kort og baner i
+ * 2 eller 4 gange så høj intern opløsning. Grafikken er den samme (bare forstørret), så det måler kun, hvad flere
+ * pixel koster. Uden parameteren er skalaen 1.
+ */
+export const SKALA = ((): number => {
+  if (typeof location === 'undefined') return 1;
+  const n = Number(new URLSearchParams(location.search).get('skala'));
+  return n === 2 || n === 3 || n === 4 ? n : 1;
+})();
 /** Zoomen rundet ned til et helt trin, så hver verdenspixel er et helt antal skærmpixel, og begge figurer stadig kan ses. */
 export const skarpZoom = (z: number) => Math.max(1, Math.floor(z + 1e-6));
 const FART = 70; // pixel pr. sekund i pixelverdenen
