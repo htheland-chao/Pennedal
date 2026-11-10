@@ -7,6 +7,7 @@ import { helSaetning, lavFortsaet } from '../mechanics/fortaeller';
 import { lavTomordOpgave } from '../mechanics/kamp';
 import { lavOpgaveAfArt } from '../mechanics/rim';
 import { Modal } from './Modal';
+import { beskedDele } from './OpgaveRamme';
 import { LaesOpKnap } from './Tekst';
 
 type Props = {
@@ -212,6 +213,12 @@ export function OrdOpgaveVindue({ titel, intro, antal, niveau, art = 'synonym', 
               </p>
             </div>
           </div>
+          {/* Æseløre læser beskeden, reglen og eksemplet op (Henrik, 10. november 2026). */}
+          <LaesOpKnap
+            key={valgt}
+            auto
+            dele={beskedDele(rigtigt ? opgave.rigtig : opgave.fejl(valgt), { regel: opgave.regel, eksempel: opgave.eksempel }, null, false)}
+          />
         </div>
       )}
       <div className="knaprad">

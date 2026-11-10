@@ -141,6 +141,11 @@ export function alleLydtekster(stemmer = hentStemmer()) {
   for (const r of regler) tilfoej('aeseloere', `${t('feedback.regel')}: ${r}`, 'Beskeder / regel');
   for (const id of ['ogorm.eksempel', 'bro.eksempel', 'bevisjagt.eksempel'])
     tilfoej('aeseloere', `${t('feedback.eksempel')}: ${t(id)}`, `Beskeder / ${id}`);
+  // Rim og rytme (kapitel 4, Ekkoet i kampen) har også Æseløres stemme (Henrik, 10. november 2026).
+  for (const id of ['rim', 'rytme']) {
+    tilfoej('aeseloere', `${t('feedback.regel')}: ${t(`${id}.regel`)}`, `Beskeder / ${id}.regel`);
+    tilfoej('aeseloere', `${t('feedback.eksempel')}: ${t(`${id}.eksempel`)}`, `Beskeder / ${id}.eksempel`);
+  }
   // Eksemplet i Hviskeskuffen: de tre første lette ord med samme regel (som HviskeVindue i OpgaveVindue.tsx).
   for (const o of stumme.ord) {
     const eksempler = stumme.ord
@@ -149,6 +154,8 @@ export function alleLydtekster(stemmer = hentStemmer()) {
       .map((x) => x.ord)
       .join(', ');
     tilfoej('aeseloere', `${t('feedback.eksempel')}: ${t('hviske.eksempel', { ord: eksempler })}`, `Beskeder / hviske.eksempel.${o.ord}`);
+    // Stummingen i kampen bruger samme ord, men sin egen sætning (regelFor i src/ui/KampVindue.tsx).
+    tilfoej('aeseloere', `${t('feedback.eksempel')}: ${t('kamp.stumming.eksempel', { ord: eksempler })}`, `Beskeder / kamp.stumming.eksempel.${o.ord}`);
   }
 
   // Fru Fodnotes bøger og Den Tvivlende Sætning (kapitel 5): sætningerne, spørgsmålene, reglen og eksemplet.
