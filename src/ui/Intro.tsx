@@ -19,7 +19,7 @@ import { LaesOpKnap, type Del } from './Tekst';
  * (se docs/historie.md): man ser en skuffe blive lukket, men ikke hvad der ligger i den.
  * Al tekst er HTML, grafikken er pixelbilleder, og bevægelsen er CSS. Kan springes over.
  */
-type SceneId = 'studie' | 'regn' | 'skuffe' | 'land' | 'moerke' | 'kaelder' | 'titel';
+type SceneId = 'studie' | 'regn' | 'skuffe' | 'land' | 'moerke' | 'kaelder' | 'opgave' | 'titel';
 type Scene = { id: SceneId; tekst?: TekstId; hvisken?: TekstId; slut?: TekstId };
 
 export const SCENER: Scene[] = [
@@ -29,6 +29,8 @@ export const SCENER: Scene[] = [
   { id: 'land', tekst: 'intro.3' },
   { id: 'moerke', tekst: 'intro.4' },
   { id: 'kaelder', tekst: 'intro.5', slut: 'intro.5.slut' },
+  // Hvem du er, hvad der er på spil, og hvad du skal (Henrik, 10. november 2026). Twistet afsløres ikke.
+  { id: 'opgave', tekst: 'intro.6', slut: 'intro.6.slut' },
   { id: 'titel' },
 ];
 
@@ -93,7 +95,7 @@ function Billede({ scene, b }: { scene: SceneId; b: Billeder }) {
         </span>
       </>
     );
-  if (scene === 'kaelder')
+  if (scene === 'kaelder' || scene === 'opgave')
     return (
       <span className="intro-lag intro-zoom">
         <img className="intro-lag" src={b.kaelder} alt="" />

@@ -26,6 +26,7 @@ import { OrdkortVindue } from '../ui/OrdkortVindue';
 import { Kvittering } from '../ui/Kvittering';
 import { Samling } from '../ui/Samling';
 import { Verden } from './Verden';
+import { Kapitelkort } from '../ui/Kapitelkort';
 
 type Skaerm = 'start' | 'intro' | 'ny-avatar' | 'ret-avatar' | 'verden' | 'indlaes' | 'laerer' | 'samling' | 'hop';
 
@@ -90,6 +91,7 @@ export function App() {
 
   function brugIndlaest(s: GemtSpil) {
     opdater(s);
+    visKort('fortsat');
     setVentendeIndlaes(null);
     setSkaerm('verden');
   }
@@ -110,7 +112,10 @@ export function App() {
   useEffect(() => {
     saetEffekter({ til: indstillinger.effekter, styrke: indstillinger.effektStyrke, mild: indstillinger.mindreUhygge });
   }, [indstillinger.effekter, indstillinger.effektStyrke, indstillinger.mindreUhygge]);
-  const vindueAabent = !!(ordkort || visIndstillinger || visMenu || gemmekode);
+  /** Titelkortet: når et kapitel begynder ('start'), eller når man fortsætter et spil ('fortsat'). Ikke i hop-test. */
+  const [kapitelkort, setKapitelkort] = useState<'start' | 'fortsat' | null>(null);
+  const visKort = (k: 'start' | 'fortsat') => !HOP_SPIL && setKapitelkort(k);
+  const vindueAabent = !!(ordkort || visIndstillinger || visMenu || gemmekode || kapitelkort);
 
   return (
     <Kontekst.Provider value={{ indstillinger, visOrdkort }}>
@@ -118,7 +123,15 @@ export function App() {
         <Titelskaerm fod={t('app.pladsholder')}>
           <div className="startknapper">
             {spil && (
-              <button type="button" className="knap knap-primaer" onClick={() => setSkaerm('verden')} autoFocus>
+              <button
+                type="button"
+                className="knap knap-primaer"
+                onClick={() => {
+                  visKort('fortsat');
+                  setSkaerm('verden');
+                }}
+                autoFocus
+              >
                 {t('start.fortsaet')}
               </button>
             )}
@@ -182,6 +195,7 @@ export function App() {
           onAnnuller={() => setSkaerm('start')}
           onFaerdig={(avatar, navn) => {
             opdater(nytSpil(avatar, navn));
+            visKort('start');
             setSkaerm('verden');
           }}
         />
@@ -219,6 +233,16 @@ export function App() {
         />
       )}
 
+      {skaerm === 'verden' && spil && kapitel && kapitelkort && (
+        <Kapitelkort
+          kapitel={kapitel}
+          fortsat={kapitelkort === 'fortsat'}
+          naeste={kapitel.trin.slice(spil.trin).find((x) => x.opgavetekst)?.opgavetekst}
+          skaar={spil.skaar.length}
+          onVidere={() => setKapitelkort(null)}
+        />
+      )}
+
       {skaerm === 'samling' && spil && (
         <Samling
           spil={spil}
@@ -233,6 +257,7 @@ export function App() {
             const n = naesteKapitel(kapitler, spil.kapitel);
             if (!n) return;
             opdater({ ...spil, kapitel: n.kapitel, trin: 0, trinFremskridt: 0 });
+            visKort('start');
             setSkaerm('verden');
           }}
         />
