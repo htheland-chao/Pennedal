@@ -2633,6 +2633,13 @@
       "kilde": "Kapitel 3 / k3-klatten.valg2.2",
       "lavet": "2026-11-01"
     },
+    "1229c547b8b4db": {
+      "figur": "klatten",
+      "tekst": "Den Frygtelige har allerede en slutning. Den hedder venner. Den er frygtelig god.",
+      "fil": "1229c547b8b4db.ogg",
+      "kilde": "Kapitel 7 / k7-fristelse.8",
+      "lavet": "2026-11-10"
+    },
     "122fc8cda148d7": {
       "figur": "fodnote",
       "tekst": "¹ Det er ikke ham, der støver. Det er arkivet. Jeg har en fodnote om det.",
@@ -4735,6 +4742,6 @@
     }
   },
   "model": "gemini-3.8-flash-tts",
-  "i_alt": 1079,
-  "mangler": 403
+  "i_alt": 1092,
+  "mangler": 415
 }
