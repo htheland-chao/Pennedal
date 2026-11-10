@@ -30,6 +30,18 @@ export type SkaarId = (typeof SKAAR)[number];
  */
 export const VIGTIGE_VALG = ['klatten.hjulpet', 'kappe.givet', 'aeseloere.tilgivet'] as const;
 
+/**
+ * Slutningens valg i kapitel 8. Eleven vælger én mulighed i hver gruppe. I gemmekoden (fra version 4) står gruppens
+ * nummer for valget (1 = første mulighed), og 0 betyder, at der ikke er valgt endnu.
+ * Rækkefølgen er fast: nye grupper og muligheder kommer kun til sidst.
+ */
+export const SLUT_VALG: readonly { gruppe: string; muligheder: readonly string[]; bits: number }[] = [
+  { gruppe: 'slut.sted', muligheder: ['bibliotek', 'dig', 'haefte'], bits: 2 },
+  { gruppe: 'slut.hvem', muligheder: ['hjaelpere', 'laesere', 'os'], bits: 2 },
+  { gruppe: 'slut.ogsaa', muligheder: ['alene', 'hjem', 'ny'], bits: 2 },
+  { gruppe: 'skygge.navn', muligheder: ['skumring', 'pip', 'lillemoerk', 'fnug'], bits: 3 },
+];
+
 /** Klattens venlighed går fra 0 til 7 (3 bit i gemmekoden). */
 export const MAKS_VENLIGHED = 7;
 

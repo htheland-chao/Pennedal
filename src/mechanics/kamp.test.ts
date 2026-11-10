@@ -65,17 +65,16 @@ describe('rolige kampe', () => {
     }
   });
 
-  it('valg i dialoger: mindst to muligheder, og det, der gemmes, er et vigtigt valg (undtagen slutningens valg)', async () => {
-    const { VIGTIGE_VALG } = await import('../engine/taske');
+  it('valg i dialoger: mindst to muligheder, og det, der gemmes, er et vigtigt valg (eller en mulighed i slutningens valg)', async () => {
+    const { SLUT_VALG, VIGTIGE_VALG } = await import('../engine/taske');
     const valg = kapitler.flatMap((k) => k.trin).flatMap((t) => (t.type === 'dialog' && t.valg ? [t.valg] : []));
     expect(valg.length).toBeGreaterThan(0);
     for (const v of valg) {
       expect(v.muligheder.length).toBeGreaterThanOrEqual(2);
       for (const m of v.muligheder) {
         expect(m.replikker.length).toBeGreaterThan(0);
-        // Slutningens valg i kapitel 8 (slut.*, skygge.navn.*) bruges kun i det samme kapitel og gemmes i browseren,
-        // ikke i gemmekoden. Alle andre valg skal være vigtige valg, der følger med i gemmekoden.
-        if (m.saet && !/^(slut|skygge\.navn)\./.test(m.saet)) expect(VIGTIGE_VALG as readonly string[]).toContain(m.saet);
+        // Alle valg skal følge med i gemmekoden: enten et vigtigt valg eller en mulighed i slutningens valg (kapitel 8).
+        if (m.saet) expect([...VIGTIGE_VALG, ...SLUT_VALG.flatMap((g) => g.muligheder.map((x) => `${g.gruppe}.${x}`))]).toContain(m.saet);
       }
     }
   });

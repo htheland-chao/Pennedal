@@ -43,7 +43,12 @@ export function GemmekodeVindue({ spil, del, onLuk }: { spil: GemtSpil; del?: nu
       <h2>{t('gem.titel')}</h2>
       <p>{t('gem.forklaring')}</p>
       <p className="gemmekode" data-gemmekode={kode}>
-        {kode}
+        {/* Hver gruppe på fire tegn holdes samlet, så koden aldrig deles midt i en gruppe. Teksten er den samme som koden. */}
+        {kode.split('-').map((gruppe, i, alle) => (
+          <span key={i} className="kode-gruppe">
+            {i < alle.length - 1 ? `${gruppe}-` : gruppe}
+          </span>
+        ))}
       </p>
       {qr && <img className="qr" src={qr} alt={t('gem.qr')} width={220} height={220} />}
       <div className="knaprad">

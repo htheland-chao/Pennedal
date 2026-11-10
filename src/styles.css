@@ -738,7 +738,10 @@ legend {
   border-radius: 12px;
   padding: 0.6rem;
   text-align: center;
-  word-break: break-all;
+}
+.kode-gruppe {
+  display: inline-block;
+  white-space: nowrap;
 }
 .qr {
   display: block;

@@ -166,3 +166,30 @@ test('kapitel 8: Æseløre kommer tilbage, og uden alle skår får Skyggen intet
   await laesDialog(page);
   expect(fejl).toEqual([]);
 });
+
+test('kapitel 8: slutningens valg følger med i gemmekoden til en anden computer', async ({ page, browser }) => {
+  test.setTimeout(120_000);
+  const fejl: string[] = [];
+  page.on('pageerror', (e) => fejl.push(e.message));
+  const valg = ['aeseloere.tilgivet', 'slut.sted.haefte', 'slut.hvem.os', 'slut.ogsaa.ny', 'skygge.navn.fnug'];
+  await page.goto(`/?hop=k8-hjem&valg=${valg.join(',')}&venlighed=1&skaar=alle`);
+  await page.getByRole('button', { name: 'Menu' }).click();
+  await page.getByRole('button', { name: 'Gem spillet' }).click();
+  const kode = (await page.locator('.gemmekode').getAttribute('data-gemmekode'))!;
+  // Version 4 er 36 tegn (9 grupper á 4).
+  expect(kode.replace(/-/g, '')).toHaveLength(36);
+
+  // En anden computer: en tom browser uden noget gemt.
+  const anden = await browser.newContext();
+  const side = await anden.newPage();
+  side.on('pageerror', (e) => fejl.push(e.message));
+  await side.goto('/');
+  await side.getByRole('button', { name: 'Fortsæt med en gemmekode' }).click();
+  await side.getByLabel('Gemmekode').fill(kode);
+  await side.getByRole('button', { name: 'Fortsæt', exact: true }).click();
+  await expect(side.locator('main.verden')).toBeVisible({ timeout: 30_000 });
+  const gemt = await side.evaluate(() => JSON.parse(localStorage.getItem('pennedal.gemtspil.v1') ?? '{}'));
+  for (const v of valg) expect(gemt.valg?.[v], v).toBe('ja');
+  await anden.close();
+  expect(fejl).toEqual([]);
+});
