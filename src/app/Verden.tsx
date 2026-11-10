@@ -22,6 +22,7 @@ import { LaesOpKnap } from '../ui/Tekst';
 import { Ydelse } from '../ui/Ydelse';
 import { BevisjagtVindue, OpgaveVindue } from './OpgaveVindue';
 import { spilEffekt } from '../ui/effekter';
+import { skalaFraAdresse } from '../game/KortScene';
 import { ALLE_SKAAR } from '../engine/betingelse';
 
 type Props = {
@@ -32,6 +33,8 @@ type Props = {
   onMenu: () => void;
   onDelSlut: (del: number) => void;
   onKapitelSlut: () => void;
+  /** Fin grafik gik for langsomt: skift til hurtig grafik. */
+  onLangsomGrafik?: () => void;
 };
 
 /** Kun de replikker og valgmuligheder, hvis betingelse er opfyldt. */
@@ -53,7 +56,7 @@ function ordFaerdighed(art: OrdOpgaveArt | undefined): FaerdighedId {
 
 const DEBUG = typeof location !== 'undefined' && new URLSearchParams(location.search).has('debug');
 
-export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu, onDelSlut, onKapitelSlut }: Props) {
+export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu, onDelSlut, onKapitelSlut, onLangsomGrafik }: Props) {
   const kapitel = hentKapitel(spil.kapitel)!;
   const trin = aktueltTrin(spil, kapitel);
   const slut = kapitelSlut(spil, kapitel);
@@ -110,6 +113,9 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
   // Tasken regnes ud fra, hvor langt eleven er (se src/engine/taske.ts).
   const tingITasken = useMemo(() => taskeFor(spil, kapitler), [spil.kapitel, spil.trin, spil.valg]);
   const [visTaske, setVisTaske] = useState(false);
+  // Grafik (10. november 2026): fin som standard, hurtig hvis eleven har valgt det, eller spillet har skiftet selv.
+  // Under automatiske test er den hurtig, medmindre ?skala står i adressen.
+  const skala = skalaFraAdresse() ?? (indstillinger.grafik === 'hurtig' || navigator.webdriver ? 1 : 2);
   /** Den dialog, der er vist på skærmen. En ny dialog starter først, når andre vinduer er lukket. */
   const [dialogIGang, setDialogIGang] = useState<string | null>(null);
   useEffect(() => {
@@ -431,6 +437,9 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
     <main className={`verden tema-${sted.tema}${moerke ? ' moerke' : ''}${moerke && indstillinger.mindreUhygge ? ' moerke-mild' : ''}`}>
       <div className="spilflade-ramme">
         <PhaserVerden
+          key={`skala-${skala}`}
+          skala={skala}
+          onLangsom={onLangsomGrafik}
           stedId={stedId}
           sted={sted}
           aktiv={aktivtObjekt}

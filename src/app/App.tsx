@@ -230,6 +230,7 @@ export function App() {
           onMenu={() => setVisMenu(true)}
           onDelSlut={(del) => setKvittering(t('gem.del.kvittering', { nr: del }))}
           onKapitelSlut={() => setSkaerm('samling')}
+          onLangsomGrafik={() => skiftIndstillinger({ ...indstillinger, grafik: 'hurtig' })}
         />
       )}
 

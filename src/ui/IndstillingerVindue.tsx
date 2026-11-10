@@ -72,6 +72,18 @@ export function IndstillingerVindue({ indstillinger: i, onSkift, onLuk }: Props)
           />
         </label>
         <p className="lille-tekst">{t('indst.musik.forklaring')}</p>
+        <fieldset>
+          <legend>{t('indst.grafik')}</legend>
+          <label className="afkryds">
+            <input type="radio" name="grafik" checked={i.grafik === 'fin'} onChange={() => onSkift({ ...i, grafik: 'fin' })} />
+            {t('indst.grafik.fin')}
+          </label>
+          <label className="afkryds">
+            <input type="radio" name="grafik" checked={i.grafik === 'hurtig'} onChange={() => onSkift({ ...i, grafik: 'hurtig' })} />
+            {t('indst.grafik.hurtig')}
+          </label>
+          <p className="lille-tekst">{t('indst.grafik.forklaring')}</p>
+        </fieldset>
         <label className="afkryds">
           <input type="checkbox" checked={i.effekter} onChange={(e) => onSkift({ ...i, effekter: e.target.checked })} />
           {t('indst.effekter')}
