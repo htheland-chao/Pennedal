@@ -16,6 +16,7 @@ import { BIP, GRUMSEN, LUP, PRINSESSE, SPOR } from './pixel/halvelande';
 import { HALVSAETNING, LILLE_SKYGGE } from './pixel/sidstesiden';
 import type { VerdenData, VerdenKroge } from './typer';
 import { spilEffekt } from '../ui/effekter';
+import { glid } from './kamera';
 
 /**
  * Pixelgrafikken tegnes i 320 x 180. Spillets lærred skifter til den størrelse, når et sted har kort,
@@ -92,6 +93,8 @@ export class KortScene extends Phaser.Scene {
   private naer: string | null = null;
   private laast = false;
   private kam = { x: 0, y: 0 };
+  /** Hvor langt kameraet kigger frem i gåretningen. Glider langsomt, så en vending ikke giver et ryk. */
+  private fremad = { x: 0, y: 0 };
   /** Lyset tegnes kun forfra, når noget har flyttet sig. Det sparer meget på langsomme computere. */
   private sidsteLys = '';
   /** Dialog: hvem der taler, kameraets zoom og talebobben. */
@@ -340,7 +343,8 @@ export class KortScene extends Phaser.Scene {
     const cam = this.cameras.main;
     cam.setZoom(SKALA).setBounds(0, 0, W, H).setRoundPixels(true);
     this.kam = { x: start.x, y: start.y - 10 };
-    this.flytKamera(1);
+    this.fremad = { x: 0, y: 0 };
+    this.flytKamera(Infinity);
     this.lavStemning(tema, inde);
 
     const kb = this.input.keyboard;
@@ -781,10 +785,18 @@ export class KortScene extends Phaser.Scene {
     this.kroge?.onHint?.(pos);
   }
 
-  private flytKamera(f: number) {
+  /**
+   * Kameraet (rettet 10. november 2026): glidningen regnes efter tid, ikke efter billeder. Før flyttede kameraet 12 %
+   * pr. billede, så det på en skærm med 240 billeder pr. sekund nåede frem fire gange så hurtigt og rykkede ved hver
+   * vending. Fremadkigget glider nu for sig selv (cirka et halvt sekund), og kameraet følger efter (cirka 0,15 sekund).
+   * dt = Infinity sætter kameraet på plads med det samme.
+   */
+  private flytKamera(dt: number, fart = 7) {
     const [lx, ly] = { op: [0, -1], ned: [0, 1], venstre: [-1, 0], hoejre: [1, 0] }[this.retning];
-    let mx = this.spiller.x + lx * 22;
-    let my = this.spiller.y - 10 + ly * 26;
+    this.fremad.x = glid(this.fremad.x, lx * 18, dt, 2.5);
+    this.fremad.y = glid(this.fremad.y, ly * 14, dt, 2.5);
+    let mx = this.spiller.x + this.fremad.x;
+    let my = this.spiller.y - 10 + this.fremad.y;
     if (this.taler) {
       // Under dialog: midt imellem hovedpersonen og den, der taler.
       const p = this.talerPunkt();
@@ -792,8 +804,8 @@ export class KortScene extends Phaser.Scene {
       // Kameraet sigter lidt under figurerne, så de står over dialogboksen nederst.
       my = (p ? (this.spiller.y + p.y) / 2 : this.spiller.y) + 6;
     }
-    this.kam.x += (mx - this.kam.x) * f;
-    this.kam.y += (my - this.kam.y) * f;
+    this.kam.x = glid(this.kam.x, mx, dt, fart);
+    this.kam.y = glid(this.kam.y, my, dt, fart);
     const z = skarpZoom(this.zoom);
     const bw = VIS_B / z;
     const bh = VIS_H / z;
@@ -1014,7 +1026,7 @@ export class KortScene extends Phaser.Scene {
 
     // Kamera og lys. Zoomen klipper i hele trin, mens kameraet glider hen til figurerne.
     this.zoom = skarpZoom(this.zoomMaal);
-    const { vx, vy, z } = this.flytKamera(this.taler ? 0.1 : 0.12);
+    const { vx, vy, z } = this.flytKamera(dt, this.taler ? 6 : 7);
     this.lysLag.setPosition(vx, vy).setScale(1 / z);
     this.opdaterStemning(dt, vx, vy, z);
     this.gennemsigtigeTraeer();
