@@ -37,6 +37,23 @@ describe('indtaling af opgaver og beskeder', () => {
     expect(findes('aeseloere', t('bro.fejl.placering', { nr: 3, hint: t('bro.hint.konflikt') }))).toBe(true);
   });
 
+  it('har klip med Æseløres stemme til alle regler og eksempler, også i kampene (Henrik, 10. november 2026)', () => {
+    const par: { regel: string; eksempel: string }[] = [
+      { regel: t('rim.regel'), eksempel: t('rim.eksempel') },
+      { regel: t('rytme.regel'), eksempel: t('rytme.eksempel') },
+      { regel: t('kamp.tomordet.regel'), eksempel: t('kamp.tomordet.eksempel') },
+      { regel: t('fortaeller.regel'), eksempel: t('fortaeller.eksempel') },
+      { regel: t('genre.regel'), eksempel: t('genre.eksempel') },
+      { regel: t('korrektur.find.regel'), eksempel: t('korrektur.find.eksempel') },
+    ];
+    // Stummingen: reglen for ordets type og tre andre lette ord med samme regel (som regelFor i KampVindue.tsx).
+    for (const o of stumme.ord) {
+      const andre = stumme.ord.filter((x) => x.type === o.type && x.ord !== o.ord && x.svaerhed === 1).slice(0, 3).map((x) => x.ord).join(', ');
+      par.push({ regel: stumme.regler[o.type as keyof typeof stumme.regler], eksempel: t('kamp.stumming.eksempel', { ord: andre }) });
+    }
+    for (const p of par) for (const d of beskedDele('', p, null, false).slice(1)) expect(findes('aeseloere', d.tekst), d.tekst).toBe(true);
+  });
+
   it('har klip til instrukserne i opgaverne', () => {
     // ogorm.klip.instruks (den nye Og-orm, 8. november 2026) kommer med her, når lydjobbet har lavet klippet.
     for (const id of ['hviske.instruks.vaelg', 'hviske.instruks.helt', 'bro.instruks', 'bevisjagt.instruks'] as const)

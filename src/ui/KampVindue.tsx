@@ -768,6 +768,8 @@ export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, ta
                     <p>
                       <strong>{t('feedback.eksempel')}:</strong> {regel.eksempel}
                     </p>
+                    {/* Æseløre siger selv reglen, når eleven beder ham forklare den (Henrik, 10. november 2026). */}
+                    <LaesOpKnap auto dele={beskedDele('', regel, null, false)} />
                   </div>
                 )}
                 <div className="kamp-muligheder">

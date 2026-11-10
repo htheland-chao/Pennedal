@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import { t, type TekstId } from '../content';
 import { muligheder, ordI, somTekst, stykker, type KorrekturTekst } from '../mechanics/korrektur';
-import type { OpgaveApi } from './OpgaveRamme';
+import { beskedDele, type OpgaveApi } from './OpgaveRamme';
 import { LaesOpKnap } from './Tekst';
 
 type Props = {
@@ -121,6 +121,7 @@ export function KorrekturOpgave({ tekst, rettede, valgt, onVaelg, api }: Props) 
               <strong>{t('feedback.eksempel')}:</strong> {t('korrektur.find.eksempel')}
             </p>
           </div>
+          <LaesOpKnap key={tip} auto dele={beskedDele(tip, { regel: t('korrektur.find.regel'), eksempel: t('korrektur.find.eksempel') }, null, false)} />
         </div>
       )}
       {valgt !== null && !api.loest && (
