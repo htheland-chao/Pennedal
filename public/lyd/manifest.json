@@ -638,6 +638,13 @@
       "kilde": "Beskeder / raaber.regel",
       "lavet": "2026-11-03"
     },
+    "03f02c148b5264": {
+      "figur": "fortaeller",
+      "tekst": "Det er mærkeligt. Skuffen virker bekendt, men du kan ikke huske hvorfor. Det er, som om der mangler stykker i din hukommelse.",
+      "fil": "03f02c148b5264.ogg",
+      "kilde": "Kapitel 1 / k1-aeseloere.4",
+      "lavet": "2026-11-10"
+    },
     "040840ac6d3624": {
       "figur": "fortaeller",
       "tekst": "Følg sporet hen til døren for enden af smøgen.",
@@ -4757,5 +4764,5 @@
   },
   "model": "gemini-3.8-flash-tts",
   "i_alt": 1113,
-  "mangler": 434
+  "mangler": 433
 }
