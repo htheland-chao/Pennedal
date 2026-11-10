@@ -2592,7 +2592,7 @@ dialog.modal.kampscene::backdrop {
   padding: 0;
 }
 .kampscene .kamp-hold {
-  right: 1rem;
+  left: 1rem;
   top: 1rem;
   width: min(15rem, 40vw);
   background: rgb(14 16 30 / 0.78);
@@ -2634,7 +2634,7 @@ dialog.modal.kampscene::backdrop {
   animation: kamp-varsel 0.8s ease-in-out infinite;
 }
 .kampscene .kamp-styring {
-  left: 1rem;
+  right: 1rem;
   bottom: 1rem;
   width: min(25rem, 54vw);
   max-height: calc(100dvh - 2rem);
@@ -2653,6 +2653,7 @@ dialog.modal.kampscene::backdrop {
 }
 .kampscene .kamp-opgave-kort {
   left: 50%;
+  right: auto;
   transform: translateX(-50%);
   width: min(42rem, calc(100vw - 2rem));
   background: var(--papir);
@@ -2743,7 +2744,7 @@ dialog.modal.kampscene::backdrop {
 .kamp-hjaelp-knap {
   position: absolute;
   z-index: 5;
-  left: 1rem;
+  right: 1rem;
   top: 1rem;
   padding: 0.4rem 0.8rem;
   border: 2px solid #f4efe0;
@@ -2754,7 +2755,7 @@ dialog.modal.kampscene::backdrop {
   cursor: pointer;
 }
 .kamp-hjaelp {
-  left: 1rem;
+  right: 1rem;
   top: 3.75rem;
   width: min(26rem, calc(100vw - 2rem));
 }
@@ -3126,6 +3127,7 @@ dialog.modal.kampscene::backdrop {
 @media (max-width: 760px) {
   .kampscene .kamp-styring {
     width: calc(100vw - 2rem);
+    right: 1rem;
     bottom: auto;
     top: 3.5rem;
   }
@@ -3408,4 +3410,177 @@ dialog.modal.menu-skuffe {
 .korrektur-klatten {
   margin-top: 0.6em;
   font-style: italic;
+}
+
+/* ============================================================
+   Titelskærmen (Henrik, 10. november 2026): en pixelscene i fuld skærm med titel og menu ovenpå.
+   ============================================================ */
+.titelskaerm {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  background: #0b1026;
+  color: #f4efe0;
+}
+.titel-scene {
+  position: absolute;
+  inset: 0;
+  container-type: size;
+}
+.titel-billede {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 100%;
+  image-rendering: pixelated;
+}
+/* Fyrets lyskegle, der langsomt fejer hen over havet. */
+.titel-fyrlys {
+  position: absolute;
+  left: var(--lx);
+  top: var(--ly);
+  width: 60vmax;
+  height: 6vmax;
+  transform-origin: 0 50%;
+  transform: translateY(-50%) rotate(170deg);
+  background: linear-gradient(90deg, rgb(255 233 168 / 0.55), rgb(255 233 168 / 0.12) 55%, transparent);
+  clip-path: polygon(0 45%, 100% 0, 100% 100%, 0 55%);
+  animation: titel-fyr 9s ease-in-out infinite alternate;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+@keyframes titel-fyr {
+  from { transform: translateY(-50%) rotate(150deg); opacity: 0.9; }
+  to { transform: translateY(-50%) rotate(205deg); opacity: 0.6; }
+}
+.titel-fugl {
+  position: absolute;
+  width: clamp(28px, 4vw, 56px);
+  image-rendering: pixelated;
+  left: -10%;
+  top: 18%;
+  animation: titel-flyv 26s linear infinite;
+}
+@keyframes titel-flyv {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(30vw, -4vh); }
+  50% { transform: translate(60vw, 3vh); }
+  75% { transform: translate(90vw, -2vh); }
+  100% { transform: translate(125vw, 2vh); }
+}
+.titel-ildflue {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #ffe9a8;
+  box-shadow: 0 0 6px 2px rgb(255 214 120 / 0.7);
+  animation: titel-ildflue 5s ease-in-out infinite;
+}
+@keyframes titel-ildflue {
+  0%, 100% { opacity: 0; transform: translate(0, 0); }
+  40% { opacity: 1; transform: translate(10px, -14px); }
+  70% { opacity: 0.6; transform: translate(-6px, -24px); }
+}
+.titel-indhold {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(0.8rem, 2.5vh, 1.6rem);
+  width: min(24rem, calc(100vw - 2rem));
+  margin-bottom: 16vh;
+}
+.titel-hoved {
+  text-align: center;
+}
+.titel-navn {
+  margin: 0;
+  font-family: var(--pixelskrift);
+  font-size: clamp(2.8rem, 8vw, 5.2rem);
+  line-height: 1;
+  letter-spacing: 0.04em;
+  color: #f0c45a;
+  text-shadow:
+    0 4px 0 #8a5a1e,
+    4px 4px 0 #1d1a2a,
+    -3px 0 0 #1d1a2a,
+    3px 0 0 #1d1a2a,
+    0 -3px 0 #1d1a2a,
+    0 8px 22px rgb(0 0 0 / 0.55);
+  animation: titel-svaev 4s ease-in-out infinite;
+}
+@keyframes titel-svaev {
+  50% { transform: translateY(-4px); }
+}
+.titel-undertitel {
+  margin: 0.5rem 0 0;
+  font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+  color: #f4efe0;
+  text-shadow: 2px 2px 0 #1d1a2a;
+}
+/* Menuen er en side af blæk med en gylden pixelkant. */
+.titel-menu {
+  width: 100%;
+  padding: 1.1rem 1.2rem 0.9rem;
+  background: rgb(14 16 34 / 0.82);
+  border: 4px solid #f0c45a;
+  box-shadow:
+    0 0 0 4px #1d1a2a,
+    6px 6px 0 4px rgb(0 0 0 / 0.45);
+  image-rendering: pixelated;
+}
+.titel-menu .startknapper {
+  display: grid;
+  gap: 0.6rem;
+  max-width: none;
+  margin: 0;
+}
+.titel-menu .knap {
+  width: 100%;
+  font-size: 1.1rem;
+}
+.titel-menu .knap-primaer {
+  border-image-source: var(--knap-guld);
+  color: #2a170f;
+  box-shadow: 0 4px 0 #8a5a1e;
+  font-weight: 700;
+}
+.titel-menu :focus-visible {
+  outline: 3px solid #fbf7ec;
+  outline-offset: 4px;
+}
+.titel-menu .knap-diskret {
+  color: #f4efe0;
+}
+.titel-fod {
+  position: fixed;
+  left: 1rem;
+  right: 1rem;
+  bottom: 0.6rem;
+  margin: 0;
+  font-size: 0.85rem;
+  color: #c9c2d6;
+  text-shadow: 1px 1px 0 #1d1a2a;
+  text-align: center;
+}
+@media (max-width: 760px) {
+  .titel-indhold {
+    margin-bottom: 4vh;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .titel-fyrlys,
+  .titel-fugl,
+  .titel-ildflue,
+  .titel-navn {
+    animation: none;
+  }
+  .titel-fugl {
+    display: none;
+  }
 }

@@ -84,6 +84,11 @@ type Visning =
   | { type: 'slut' };
 
 const SPRITE: Record<VaesenId, Tegnkort> = { tomordet: TOMORD, stumming: STUMMING, ekko: EKKO, tvivl: TVIVL, krusedulle: KRUSEDULLE, halvsaetning: HALVSAETNING };
+/** Et billede spejlet vandret. */
+const spejl = (k: Tegnkort): Tegnkort => ({ ...k, raekker: k.raekker.map((r) => [...r].reverse().join('')) });
+/** Hjælperne og væsnerne spejles, så alle kigger mod hinanden (holdet til venstre, væsnerne til højre). */
+const SPEJLET = { fugl: spejl(FUGL), vims: spejl(VIMS), klatten: spejl(KLATTEN) };
+const SPRITE_SPEJLET = Object.fromEntries(Object.entries(SPRITE).map(([k, v]) => [k, spejl(v)])) as Record<VaesenId, Tegnkort>;
 /** Figurernes størrelse på scenen (gange pixel). */
 const FJENDE_SKALA = 2.4;
 const HOLD_SKALA = 1.8;
@@ -205,6 +210,8 @@ export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, ta
   const [visLiv, setVisLiv] = useState<{ fjender: number[]; hold: Record<string, number> } | null>(null);
   const [ryst, setRyst] = useState<{ fjender: number[]; hold: MedlemId[]; skaerm: boolean; nr: number }>({ fjender: [], hold: [], skaerm: false, nr: 0 });
   const [oploest, setOploest] = useState<number[]>(() => kamp.fjender.filter((f) => f.liv <= 0).map((f) => f.nr));
+  // Kun de væsner, der falder til ro i denne afspilning, smelter. De, der allerede er væk, bliver væk (Henrik, 10. november 2026).
+  const [smelter, setSmelter] = useState<number[]>([]);
   const [faldet, setFaldet] = useState<MedlemId[]>([]);
   const afspilning = useRef<{ ur: number | null; trin: Trin[]; i: number; slut: (() => void) | null }>({ ur: null, trin: [], i: 0, slut: null });
   const effektNr = useRef(0);
@@ -249,12 +256,9 @@ export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, ta
   // Baggrunden følger stedets tema (Viskeskoven eller Rimbjerget).
   const tema = kapitler.find((k) => k.trin.some((x) => x.id === trin.id))?.steder[trin.sted]?.tema ?? 'viskeskov';
   const baggrund = uri(`kamp.${trin.sted}.${daempet}`, () => tegnKampBaggrund(tema, !daempet));
-  // Spillet laver venstre ved at spejle højre. Her spejles billedet, så avataren vender mod væsnerne.
-  const avatarKort = useMemo(() => {
-    const h = avatarPixel(avatar, 'hoejre', 0);
-    return { ...h, raekker: h.raekker.map((r) => [...r].reverse().join('')) };
-  }, [avatar]);
-  const holdKort: Record<MedlemId, Tegnkort> = { avatar: avatarKort, aeseloere: FUGL, vims: VIMS, klatten: KLATTEN };
+  // Holdet står til venstre og kigger mod højre, mod væsnerne. Hjælperne er tegnet, så de kigger mod venstre, og spejles.
+  const avatarKort = useMemo(() => avatarPixel(avatar, 'hoejre', 0), [avatar]);
+  const holdKort: Record<MedlemId, Tegnkort> = { avatar: avatarKort, aeseloere: SPEJLET.fugl, vims: SPEJLET.vims, klatten: SPEJLET.klatten };
 
   const fjendeSted = (nr: number): [number, number] => FJENDE_PLADS[Math.min(2, kamp.fjender.length - 1)][nr] ?? [70, 130];
   const holdSted = (id: MedlemId): [number, number] => HOLD_PLADS[Math.max(0, kamp.hold.findIndex((m) => m.id === id))] ?? HOLD_PLADS[0];
@@ -284,6 +288,7 @@ export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, ta
       setVisLiv(null);
       setKamp(ny);
       setOploest(ny.fjender.filter((f) => f.liv <= 0).map((f) => f.nr));
+      setSmelter([]);
       setFaldet(ny.hold.filter((m) => m.liv <= 0).map((m) => m.id));
       setVisning(ny.udfald ? { type: 'slut' } : { type: 'menu' });
       if (!ny.udfald) setLinje(null);
@@ -313,7 +318,10 @@ export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, ta
         return { fjender, hold };
       });
     if (tr.ryst) setRyst((r) => ({ fjender: tr.ryst?.fjender ?? [], hold: tr.ryst?.hold ?? [], skaerm: !!tr.ryst?.skaerm && !daempet, nr: r.nr + 1 }));
-    if (tr.oploest) setOploest((o) => [...new Set([...o, ...tr.oploest!])]);
+    if (tr.oploest) {
+      setOploest((o) => [...new Set([...o, ...tr.oploest!])]);
+      setSmelter((x) => [...x, ...tr.oploest!]);
+    }
     if (tr.faldet) setFaldet((f) => [...new Set([...f, ...tr.faldet!])]);
     a.ur = window.setTimeout(naesteTrin, tr.varighed);
   }
@@ -623,7 +631,7 @@ export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, ta
 
           {kamp.fjender.map((f) => {
             const sted = fjendeSted(f.nr);
-            const kort = SPRITE[f.vaesen];
+            const kort = SPRITE_SPEJLET[f.vaesen];
             const vaek = oploest.includes(f.nr);
             const ramt = ryst.fjender.includes(f.nr);
             const liv = livFjende(f.nr);
@@ -632,8 +640,8 @@ export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, ta
               <div key={f.nr}>
                 <img
                   key={`${f.nr}-${ramt ? ryst.nr : 0}-${vaek}`}
-                  className={`kamp-sprite kamp-fjende${vaek ? (liv <= 0 && visning.type === 'afspil' ? ' rolig' : ' borte') : ramt ? ' ramt' : ''}${f.lammet && !vaek ? ' lammet' : ''}`}
-                  src={uri(`vaesen.${f.vaesen}`, kort)}
+                  className={`kamp-sprite kamp-fjende${vaek ? (smelter.includes(f.nr) && visning.type === 'afspil' ? ' rolig' : ' borte') : ramt ? ' ramt' : ''}${f.lammet && !vaek ? ' lammet' : ''}`}
+                  src={uri(`vaesen.spejlet.${f.vaesen}`, kort)}
                   alt=""
                   aria-hidden="true"
                   style={plads(sted, kort, FJENDE_SKALA)}
@@ -671,7 +679,7 @@ export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, ta
                 <img
                   key={`${m.id}-${ramt ? ryst.nr : 0}`}
                   className={`kamp-sprite kamp-medlem${nede ? ' faldet' : ''}${ramt ? ' ramt' : ''}${slut === 'vundet' ? ' jubler' : ''}`}
-                  src={uri(m.id === 'avatar' ? `avatar.${JSON.stringify(avatar)}` : `medlem.${m.id}`, kort)}
+                  src={uri(m.id === 'avatar' ? `avatar.hoejre.${JSON.stringify(avatar)}` : `medlem.spejlet.${m.id}`, kort)}
                   alt=""
                   aria-hidden="true"
                   style={{ ...plads(HOLD_PLADS[i], kort, HOLD_SKALA), animationDelay: `${i * 0.2}s` }}

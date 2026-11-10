@@ -16,6 +16,7 @@ import { saetMusik } from '../ui/musik/afspiller';
 import { AvatarDesigner } from '../ui/AvatarDesigner';
 import { GemmekodeVindue, IndlaesSide } from '../ui/Gemmekode';
 import { Intro } from '../ui/Intro';
+import { Titelskaerm } from '../ui/Titelskaerm';
 import { IndstillingerVindue } from '../ui/IndstillingerVindue';
 import { Kontekst } from '../ui/Kontekst';
 import { Laererkig } from '../ui/Laererkig';
@@ -110,9 +111,7 @@ export function App() {
   return (
     <Kontekst.Provider value={{ indstillinger, visOrdkort }}>
       {skaerm === 'start' && (
-        <main className="side start">
-          <h1 className="titel">{t('app.titel')}</h1>
-          <p className="undertitel">{t('app.undertitel')}</p>
+        <Titelskaerm fod={t('app.pladsholder')}>
           <div className="startknapper">
             {spil && (
               <button type="button" className="knap knap-primaer" onClick={() => setSkaerm('verden')} autoFocus>
@@ -140,8 +139,7 @@ export function App() {
               {t('start.laererkig')}
             </button>
           </div>
-          <p className="lille-tekst">{t('app.pladsholder')}</p>
-        </main>
+        </Titelskaerm>
       )}
 
       {skaerm === 'hop' && (

@@ -18,6 +18,7 @@ Regler og stak står i `CLAUDE.md`. Historien står i `docs/historie.md`, grafik
 - **Betingelser på replikker** (9. november 2026): en replik eller en valgmulighed kan have `hvis` (et valg, der er taget eller ikke taget, eller Klattens venlighed). Se `src/engine/betingelse.ts`. Replikkerne vælges, når dialogen starter. Klatten kommer med i en kamp med feltet `klatten` på kamptrinnet. Har eleven givet Klatten kappen tilbage, er den ikke længere i tasken.
 - **Frivilligt indhold** (9. november 2026): sidemissioner (`missioner` i kapitlet) og udflugter (`udflugt` på et sted) er ikke trin, så gamle gemmekoder peger rigtigt. Belønningen er hukommelsesskår, som står i gemmekoden. Hvor langt man er i en mission, står kun i browseren. Skårenes minder ligger i tasken.
 - **Animationer** (9. november 2026, fortsat): ord falder på plads, når et væsen bliver roligt. En ny ting flyver ned i tasken, og tasken hopper. Tågebanker og en tynd regn i Viskeskoven.
+- **Titelskærm og kampside** (10. november 2026): startskærmen er en pixelscene i fuld skærm (`src/game/pixel/titel.ts`, `src/ui/Titelskaerm.tsx`): nattehimmel, måne, fyrtårn med lyskegle, blæksø, den åbne grønne notesbog med Skyggen på den blanke side, Æseløre der flyver forbi og ildfluer. Menuen står i en blækboks med guldkant. Alle animationer er slået fra ved "reducer bevægelse". I kampene står holdet nu til venstre og fjenderne til højre (figurerne er spejlet). Besejrede fjender viser ikke længere deres dødsanimation igen under senere angreb.
 - **Kampe** (3. november 2026): turbaserede som i gamle rollespil, med hold, skade, svagheder, hjælpernes evner, ting fra tasken og blødt nederlag. Se `docs/historie.md` under Kampe.
 - **Lyd:** Gemini-stemmer pr. figur i `src/content/stemmer.json`. Stemmerne kan få rumklang, mens de afspilles (`src/ui/rumklang.ts`, profiler under `rum` i `stemmer.json`): hviskestemmen, introen og tilbageblik. Klippene er uberørte, og rummet kan slås fra i indstillingerne. "Mindre uhygge" halverer det. Aldrig på opgaver, feedback og enkeltord, fordi det gør tale sværere at forstå.
 - **Test og værktøj:** Hop direkte til et sted med `?hop` (se README). Med `&valg=aeseloere.tilgivet&venlighed=1&skaar=alle` kan man hoppe ind med valg, venlighed og alle skår (kun til test, gemmes aldrig). `?debug=1` viser billeder pr. sekund. `?lyd=1` er korrektursiden for lyd.
@@ -56,6 +57,8 @@ Regler og stak står i `CLAUDE.md`. Historien står i `docs/historie.md`, grafik
 - **Hovedfarve i designeren** har kun virkning, når hovedet har hætte eller kasket.
 
 ## Ikke testet
+
+- Titelskærmen og den spejlede kamp er ikke set på Chromebook. Titelskærmen er kun set i 1366 x 768 og 390 x 800.
 
 - Chromebook (Lenovo 500e Gen 2): Henrik har testet, og det fungerer. Kampscenen i fuld skærm og animationerne er ikke testet på Chromebook.
 - Kampenes balance med rigtige elever (simuleret i `kampmotor.test.ts`).

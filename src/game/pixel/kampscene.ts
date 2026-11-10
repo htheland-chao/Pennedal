@@ -171,15 +171,18 @@ export const MARKOER: Tegnkort = {
 };
 
 /** Pladsen til hvert væsen (venstre side) og hvert medlem af holdet (højre side), som fodpunkt i 320 x 180. */
+/**
+ * Pladserne på scenen (320 x 180). Holdet står til venstre og væsnerne til højre (Henrik, 10. november 2026).
+ */
 export const FJENDE_PLADS: [number, number][][] = [
-  [[78, 132]],
-  [[66, 112], [96, 150]],
-  [[58, 104], [92, 128], [62, 156]],
+  [[242, 132]],
+  [[254, 112], [224, 150]],
+  [[262, 104], [228, 128], [258, 156]],
 ];
 export const HOLD_PLADS: [number, number][] = [
-  [238, 116],
-  [262, 138],
-  [236, 160],
-  // Klatten (kapitel 6) står yderst til højre.
-  [288, 150],
+  [82, 116],
+  [58, 138],
+  [84, 160],
+  // Klatten (kapitel 6) står yderst til venstre.
+  [32, 150],
 ];
