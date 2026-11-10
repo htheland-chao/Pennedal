@@ -18,7 +18,8 @@ Prototypen, der viser stilen: "Pennedal set oppefra" (Claude-artefakt). Den er t
 
 ## Mål
 
-- Intern opløsning: **320 x 180** (16:9). Spillet er 960 x 540, så pixelgrafikken forstørres præcis 3 gange.
+- Intern opløsning: **640 x 360** med fin grafik (standard fra 10. november 2026, Henrik: "gå med det pæneste") og **320 x 180** med hurtig grafik. Verden og figurer er stadig tegnet i 320 x 180-pixel, men lyset, gløden og vignetten tegnes i fuld opløsning og er bløde. Går fin grafik under 40 billeder pr. sekund de første sekunder, skifter spillet selv til hurtig og husker det (krav 8). Eleven kan også vælge under Indstillinger, Grafik. `?skala=1, 2, 3 eller 4` i adressen vinder altid (til måling).
+- Tilt-shift (sløring i top og bund) er prøvet og fravalgt: det slører hele billedet og gør pixelgrafik grim.
 - Felter: **16 x 16 px**.
 - Hovedperson: 16 x 24 px, 4 retninger (venstre er spejlet højre), 3 gangbilleder.
 - Klatten: 14 x 17 px. Æseløre: 16 x 10 px og flyver efter hovedpersonen.
@@ -45,7 +46,7 @@ Prototypen, der viser stilen: "Pennedal set oppefra" (Claude-artefakt). Den er t
 
 - Lyset kommer fra venstre: lys side til venstre, skygge til højre.
 - Nat: hele billedet ganges med grundtonen `rgb(140, 148, 217)`.
-- Lanternen og fyrtårnet lyser op med `rgb(255, 250, 219)` i 4 trin med Bayer-dither, ingen bløde overgange.
+- Lanternen og fyrtårnet lyser op med `rgb(255, 250, 219)`. Hurtig grafik: 4 trin med Bayer-dither. Fin grafik: blød overgang med en lysere kerne, og et varmt skær (glød, ADD på grafikkortet) om lanterner, lamper, trappelys og fyrtårnet.
 - "Mindre uhygge": grundtonen bliver lysere, fx `rgb(200, 205, 235)`.
 - Indendørs gælder tonen for stedet i stedet for nattens grundtone. Biblioteket: morgensol `rgb(236, 222, 200)` med lys skråt ind fra vinduerne og en lampe på disken. Kælderen: mørk `rgb(64, 62, 96)`, kun lygten og lyset fra trappen lyser. Med "Mindre uhygge" er kælderen `rgb(150, 148, 184)`.
 - Lys lægges oven på hinanden med "lighten", så det stærkeste vinder, hvor to lys mødes.

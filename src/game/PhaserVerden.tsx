@@ -3,7 +3,7 @@ import { useEffect, useRef, type MutableRefObject } from 'react';
 import type { Sted } from '../content';
 import type { Avatar } from '../engine/gem';
 import { BaneScene } from './BaneScene';
-import { KortScene, SKALA, VIS_B, VIS_H } from './KortScene';
+import { brugSkala, KortScene, SKALA, skalaFraAdresse, VIS_B, VIS_H } from './KortScene';
 import type { VerdenKroge } from './typer';
 
 /** Det, React kan bede en platformbane om. */
@@ -37,6 +37,10 @@ type Props = {
   baneRef?: MutableRefObject<BaneStyring | null>;
   /** Platformbane: en frivillig, svær bane uden hjælp. */
   svaer?: boolean;
+  /** Intern opløsning: 1 (320 x 180) eller 2 (640 x 360). Ændres den, skal komponenten have en ny key. */
+  skala: number;
+  /** Kaldes én gang, hvis fin grafik går for langsomt på denne computer. */
+  onLangsom?: () => void;
 };
 
 export function PhaserVerden(props: Props) {
@@ -54,6 +58,7 @@ export function PhaserVerden(props: Props) {
   // Opret spillet én gang.
   useEffect(() => {
     if (!beholder.current) return;
+    brugSkala(props.skala);
     const game = new Phaser.Game({
       type: Phaser.AUTO,
       parent: beholder.current,
@@ -80,7 +85,23 @@ export function PhaserVerden(props: Props) {
     game.scene.add('bane', BaneScene, foerste === 'bane', sceneData());
     spil.current = game;
     if (props.fpsRef) props.fpsRef.current = () => game.loop.actualFps;
+    // Fin grafik er for tung, hvis spillet efter et par sekunder kører under 40 billeder pr. sekund (krav 8: aldrig
+    // under 30 på en Chromebook Gen 2). Så skifter det til hurtig grafik og husker det. Ikke ved ?skala i adressen.
+    const maalinger: number[] = [];
+    const vagt: number | null =
+      props.skala > 1 && props.onLangsom && skalaFraAdresse() === null
+        ? window.setInterval(() => {
+            if (document.hidden) return;
+            maalinger.push(game.loop.actualFps);
+            if (maalinger.length < 12) return;
+            if (vagt !== null) window.clearInterval(vagt);
+            // De første målinger er opstart. Gennemsnittet af de sidste otte (4 sekunder) afgør.
+            const snit = maalinger.slice(-8).reduce((a, b) => a + b, 0) / 8;
+            if (snit < 40) props.onLangsom?.();
+          }, 500)
+        : null;
     return () => {
+      if (vagt !== null) window.clearInterval(vagt);
       game.destroy(true);
       spil.current = null;
     };

@@ -91,6 +91,8 @@ export type Indstillinger = {
   effekter: boolean;
   /** Styrke for lydeffekterne, 0-100. */
   effektStyrke: number;
+  /** Grafik: fin (640 x 360, blødt lys) eller hurtig (320 x 180). Spillet skifter selv til hurtig, hvis det går for langsomt. */
+  grafik: 'fin' | 'hurtig';
 };
 
 export const STANDARD_INDSTILLINGER: Indstillinger = {
@@ -107,6 +109,7 @@ export const STANDARD_INDSTILLINGER: Indstillinger = {
   musikStyrke: 50,
   effekter: true,
   effektStyrke: 60,
+  grafik: 'fin',
 };
 
 export const GEM_NOEGLE = 'pennedal.gemtspil.v1';
@@ -236,6 +239,7 @@ export function hentIndstillinger(lager: Storage | undefined = globalThis.localS
       musikStyrke: erTal(d.musikStyrke, 0, 100) ? d.musikStyrke : 50,
       effekter: typeof d.effekter === 'boolean' ? d.effekter : true,
       effektStyrke: erTal(d.effektStyrke, 0, 100) ? d.effektStyrke : 60,
+      grafik: d.grafik === 'hurtig' ? 'hurtig' : 'fin',
     };
   } catch {
     return { ...STANDARD_INDSTILLINGER };

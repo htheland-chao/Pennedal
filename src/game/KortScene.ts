@@ -4,7 +4,7 @@ import type { StedObjekt } from '../content';
 import type { Avatar } from '../engine/gem';
 import { erFastTegn, FELT, feltMidte, feltVed, felterVed, findVej, laesKort, type Felt, type Kort } from './kort';
 import { bordflade, erInde, HOLM, KARTOTEK, KASSE, LOGBOG, PLANTE, PORT, PRESSE, reol, SPRINGVAND, STIGE, tegnRum, trappe, vindueslys } from './pixel/inde';
-import { belysning, blegt, halvtTegnet, linjeretPapir, hash, lavLys, lavSkygge, lysOpsaetning, lavTaagebanker, lavVignet, partikelBilleder, sne, tegnGrund, tegnkortTilLerred, tegnTraeskygger, traePladser, tegnVand, VARMT, type Farve } from './pixel/lerred';
+import { belysning, blegt, halvtTegnet, linjeretPapir, hash, lavLys, lavSkygge, lysOpsaetning, lavTaagebanker, lavVignet, lysBredde, partikelBilleder, sne, tegnGrund, tegnkortTilLerred, tegnTraeskygger, traePladser, tegnVand, VARMT, type Farve } from './pixel/lerred';
 import { aande, gangRamme, hvileTilstand, lukOejne } from './pixel/liv';
 import { indenfor, partikelTrin, partiklerFor, stedTone, vignetStyrke, type Partikel } from './stemning';
 import { avatarPixel, BLADE, FUGL, fyrtaarn, KLATTEN, LANTERNE, moerkere, papirtrae, PIL, PLANKE, SKILT, STOLPE, TALEBOBLE, voksen, type Retning, type Tegnkort } from './pixel/sprites';
@@ -30,15 +30,19 @@ export const VIS_H = 180;
  * opløsning gav skarpe kvarte trin, men kostede for meget (5 i stedet for 42 billeder pr. sekund i testbrowseren).
  */
 /**
- * Til måling på Chromebook (Henrik, 10. november 2026): ?skala=2 eller ?skala=4 i adressen tegner kort og baner i
- * 2 eller 4 gange så høj intern opløsning. Grafikken er den samme (bare forstørret), så det måler kun, hvad flere
- * pixel koster. Uden parameteren er skalaen 1.
+ * Intern opløsning (Henrik, 10. november 2026: "gå med det pæneste"). 1 = 320 x 180, 2 = 640 x 360 (fin grafik:
+ * blødt lys i fuld opløsning). PhaserVerden sætter den med brugSkala, før spillet startes, og scenerne læser den,
+ * når de bygges. ?skala=1, 2, 3 eller 4 i adressen vinder altid (til måling).
  */
-export const SKALA = ((): number => {
-  if (typeof location === 'undefined') return 1;
+export let SKALA = 1;
+export function brugSkala(n: number) {
+  SKALA = n;
+}
+export function skalaFraAdresse(): number | null {
+  if (typeof location === 'undefined') return null;
   const n = Number(new URLSearchParams(location.search).get('skala'));
-  return n === 2 || n === 3 || n === 4 ? n : 1;
-})();
+  return n === 1 || n === 2 || n === 3 || n === 4 ? n : null;
+}
 /** Zoomen rundet ned til et helt trin, så hver verdenspixel er et helt antal skærmpixel, og begge figurer stadig kan ses. */
 export const skarpZoom = (z: number) => Math.max(1, Math.floor(z + 1e-6));
 const FART = 70; // pixel pr. sekund i pixelverdenen
@@ -74,6 +78,9 @@ export class KortScene extends Phaser.Scene {
   private faste = new Set<string>();
   private lyskilder: Lyskilde[] = [];
   private fyrLamper: { x: number; y: number }[] = [];
+  /** Fin grafik: glød om lyskilderne, lagt oven på med ADD på grafikkortet. Den sidste følger hovedpersonens lygte. */
+  private gloed: Phaser.GameObjects.Image[] = [];
+  private lygteGloed: Phaser.GameObjects.Image | null = null;
   private lygte: HTMLCanvasElement | null = null;
   private tone: Farve = [255, 255, 255];
   /** Lys, der ikke flytter sig: vinduer, lampen på disken og lyset fra trappen. */
@@ -133,6 +140,8 @@ export class KortScene extends Phaser.Scene {
     this.zoomMaal = 1;
     this.lyskilder = [];
     this.fyrLamper = [];
+    this.gloed = [];
+    this.lygteGloed = null;
     this.faesteLys = [];
     this.partikler = [];
     this.forgrund = [];
@@ -317,7 +326,7 @@ export class KortScene extends Phaser.Scene {
       }
       this.objektBilleder.set(o.id, billeder);
     }
-    this.objektlys = lavLys(46, 0.9, this.tone);
+    this.objektlys = lavLys(46, 0.9, this.tone, VARMT, SKALA);
     this.saetSkjulte(this.data_.skjulte ?? []);
 
     // Hovedpersonen og Æseløre.
@@ -332,12 +341,13 @@ export class KortScene extends Phaser.Scene {
 
     // Nattelys: et lag, der ganges på billedet. Lanternen og fyrtårnet lyser op.
     const tone = this.tone;
-    this.lygte = lys.spillerLys > 0 ? lavLys(lys.spillerLys, 0.95, tone) : null;
-    this.fyrlys = [lavLys(34, 0.75, tone), lavLys(40, 0.85, tone)];
+    this.lygte = lys.spillerLys > 0 ? lavLys(lys.spillerLys, 0.95, tone, VARMT, SKALA) : null;
+    this.fyrlys = [lavLys(34, 0.75, tone, VARMT, SKALA), lavLys(40, 0.85, tone, VARMT, SKALA)];
     if (inde) this.lavFaesteLys();
     if (this.textures.exists('px-lys')) this.textures.remove('px-lys');
-    this.lysTekstur = this.textures.createCanvas('px-lys', VIS_B, VIS_H)!;
-    this.lysTekstur.setFilter(Phaser.Textures.FilterMode.NEAREST);
+    // Fin grafik: lyslaget har samme opløsning som spillet (SKALA), og lyset er blødt.
+    this.lysTekstur = this.textures.createCanvas('px-lys', VIS_B * SKALA, VIS_H * SKALA)!;
+    this.lysTekstur.setFilter(SKALA > 1 ? Phaser.Textures.FilterMode.LINEAR : Phaser.Textures.FilterMode.NEAREST);
     this.lysLag = this.add.image(0, 0, 'px-lys').setOrigin(0).setDepth(1_000_000).setBlendMode(Phaser.BlendModes.MULTIPLY);
 
     const cam = this.cameras.main;
@@ -346,6 +356,7 @@ export class KortScene extends Phaser.Scene {
     this.fremad = { x: 0, y: 0 };
     this.flytKamera(Infinity);
     this.lavStemning(tema, inde);
+    this.byggGloed();
 
     const kb = this.input.keyboard;
     if (kb) {
@@ -412,7 +423,7 @@ export class KortScene extends Phaser.Scene {
    * Med reduceret bevægelse er der ingen partikler, og grenene står stille.
    */
   private lavStemning(tema: string, inde: boolean) {
-    this.vignet = lavVignet(VIS_B, VIS_H, vignetStyrke(tema, this.data_.mindreUhygge));
+    this.vignet = lavVignet(VIS_B * SKALA, VIS_H * SKALA, vignetStyrke(tema, this.data_.mindreUhygge), SKALA > 1);
     if (!this.roligt)
       for (const { art, antal } of partiklerFor(tema)) {
         const [a, b] = partikelBilleder(art);
@@ -473,8 +484,8 @@ export class KortScene extends Phaser.Scene {
     const k = this.kort;
     const morgensol: Farve = [255, 252, 240];
     const sol = vindueslys(this.tone, morgensol);
-    const lampe = lavLys(40, 0.7, this.tone, [255, 246, 222]);
-    const trappelys = lavLys(34, 0.8, this.tone, VARMT);
+    const lampe = lavLys(40, 0.7, this.tone, [255, 246, 222], SKALA);
+    const trappelys = lavLys(34, 0.8, this.tone, VARMT, SKALA);
     for (let ty = 0; ty < k.hoejde; ty++)
       for (let tx = 0; tx < k.bredde; tx++) {
         const c = k.tegn(tx, ty);
@@ -596,6 +607,37 @@ export class KortScene extends Phaser.Scene {
         const m = feltMidte(o.felt!);
         return { x: m.x + 7, y: m.y - 12, billede: this.objektlys };
       });
+    this.byggGloed();
+  }
+
+  /**
+   * Glød (fin grafik, 10. november 2026): et blødt, varmt skær om lanterner, lamper og fyrtårnet, som får lyset til
+   * at stråle ud over kanten. Tegnes af grafikkortet (ADD), så det koster næsten intet. Kun med fin grafik.
+   */
+  private byggGloed() {
+    for (const g of this.gloed) g.destroy();
+    this.gloed = [];
+    if (SKALA < 2) return;
+    if (!this.textures.exists('px-gloed')) {
+      const n = 64;
+      const c = this.textures.createCanvas('px-gloed', n, n)!;
+      const ctx = c.context;
+      const grad = ctx.createRadialGradient(n / 2, n / 2, 0, n / 2, n / 2, n / 2);
+      grad.addColorStop(0, 'rgba(255, 226, 160, 1)');
+      grad.addColorStop(0.25, 'rgba(255, 205, 130, 0.55)');
+      grad.addColorStop(0.6, 'rgba(255, 180, 110, 0.15)');
+      grad.addColorStop(1, 'rgba(255, 170, 100, 0)');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, n, n);
+      c.refresh();
+    }
+    const styrke = this.data_.mindreUhygge ? 0.3 : 0.4;
+    const lav = (x: number, y: number, r: number, a = styrke) =>
+      this.add.image(x, y, 'px-gloed').setDisplaySize(r * 2, r * 2).setBlendMode(Phaser.BlendModes.ADD).setAlpha(a).setDepth(1_000_001);
+    for (const l of this.fyrLamper) this.gloed.push(lav(l.x, l.y, 26, styrke + 0.15));
+    for (const l of this.faesteLys) this.gloed.push(lav(l.x, l.y, lysBredde(l.billede) * 0.35));
+    for (const l of this.lyskilder) this.gloed.push(lav(l.x, l.y, 22));
+    if (!this.lygteGloed?.scene && this.lygte) this.lygteGloed = lav(0, 0, 16, styrke * 0.8);
   }
 
   /**
@@ -1027,7 +1069,8 @@ export class KortScene extends Phaser.Scene {
     // Kamera og lys. Zoomen klipper i hele trin, mens kameraet glider hen til figurerne.
     this.zoom = skarpZoom(this.zoomMaal);
     const { vx, vy, z } = this.flytKamera(dt, this.taler ? 6 : 7);
-    this.lysLag.setPosition(vx, vy).setScale(1 / z);
+    this.lysLag.setPosition(vx, vy).setScale(1 / (z * SKALA));
+    if (this.lygteGloed) this.lygteGloed.setPosition(this.spiller.x, this.spiller.y - 12).setAlpha((this.data_.mindreUhygge ? 0.24 : 0.32) + (this.roligt ? 0 : Math.sin(this.ur * 7) * 0.04));
     this.opdaterStemning(dt, vx, vy, z);
     this.gennemsigtigeTraeer();
     const fyrRamme = Math.floor(this.ur * 1.2) % 2;
@@ -1038,13 +1081,17 @@ export class KortScene extends Phaser.Scene {
     const tone = this.tone;
     ctx.globalCompositeOperation = 'source-over';
     ctx.fillStyle = `rgb(${tone[0]}, ${tone[1]}, ${tone[2]})`;
-    ctx.fillRect(0, 0, VIS_B, VIS_H);
+    ctx.fillRect(0, 0, VIS_B * SKALA, VIS_H * SKALA);
     // "lighten": hvor to lys mødes, vinder det stærkeste, i stedet for at det sidste dækker.
     ctx.globalCompositeOperation = 'lighten';
-    // Lyslaget dækker det, kameraet ser. Med zoom er hver verdenspixel z pixel i laget.
-    ctx.imageSmoothingEnabled = false;
-    const tegnLys = (x: number, y: number, c: HTMLCanvasElement) =>
-      ctx.drawImage(c, Math.round((x - vx - c.width / 2) * z), Math.round((y - vy - c.height / 2) * z), Math.round(c.width * z), Math.round(c.height * z));
+    // Lyslaget dækker det, kameraet ser. Med zoom er hver verdenspixel z * SKALA pixel i laget.
+    ctx.imageSmoothingEnabled = SKALA > 1;
+    const k = z * SKALA;
+    const tegnLys = (x: number, y: number, c: HTMLCanvasElement) => {
+      const b = lysBredde(c);
+      const h = (c.height / c.width) * b;
+      ctx.drawImage(c, Math.round((x - vx - b / 2) * k), Math.round((y - vy - h / 2) * k), Math.round(b * k), Math.round(h * k));
+    };
     for (const l of this.fyrLamper) tegnLys(l.x, l.y, this.fyrlys[fyrRamme]);
     for (const l of this.faesteLys) tegnLys(l.x, l.y, l.billede);
     for (const l of this.lyskilder) tegnLys(l.x, l.y, l.billede);

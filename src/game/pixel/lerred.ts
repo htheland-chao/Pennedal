@@ -383,23 +383,40 @@ export function lysOpsaetning(b: Belysning, mindreUhygge: boolean): { tone: Farv
 }
 
 /** En lyskegle i 4 trin med Bayer-dither. Gennemsigtig uden for keglen. */
-export function lavLys(r: number, styrke: number, tone: Farve, farve: Farve = VARMT): HTMLCanvasElement {
-  const c = lerred(r * 2, r * 2);
+/**
+ * Et lys som et rundt billede. Med opl = 1 er det pixellys i fire trin med dither (320 x 180).
+ * Med opl > 1 (fin grafik, 10. november 2026) tegnes lyset i opl gange så høj opløsning med en blød overgang og en
+ * varm kerne, så det gløder. Billedets mål i verden er altid 2 * r, og opløsningen står i dataset.opl.
+ */
+export function lavLys(r: number, styrke: number, tone: Farve, farve: Farve = VARMT, opl = 1): HTMLCanvasElement {
+  const n = r * 2 * opl;
+  const c = lerred(n, n);
+  c.dataset.opl = String(opl);
   const g = c.getContext('2d')!;
-  const img = g.createImageData(r * 2, r * 2);
+  const img = g.createImageData(n, n);
   const p = img.data;
-  for (let y = 0; y < r * 2; y++)
-    for (let x = 0; x < r * 2; x++) {
-      const d = Math.hypot(x + 0.5 - r, (y + 0.5 - r) * 1.25);
-      const s = lysTrin(Math.pow(Math.max(0, 1 - d / r), 1.1) * styrke, x, y);
+  for (let y = 0; y < n; y++)
+    for (let x = 0; x < n; x++) {
+      const d = Math.hypot((x + 0.5) / opl - r, ((y + 0.5) / opl - r) * 1.25);
+      const raa = Math.max(0, 1 - d / r);
+      let s: number;
+      if (opl === 1) s = lysTrin(Math.pow(raa, 1.1) * styrke, x, y);
+      else {
+        // Blød kurve: et bredt skær og en lysere kerne i midten.
+        const blod = raa * raa * (3 - 2 * raa);
+        s = Math.min(1, (blod * 0.85 + Math.pow(raa, 6) * 0.35) * styrke);
+      }
       if (s <= 0) continue;
-      const o = (y * r * 2 + x) * 4;
+      const o = (y * n + x) * 4;
       for (let k = 0; k < 3; k++) p[o + k] = tone[k] + s * (farve[k] - tone[k]);
       p[o + 3] = 255;
     }
   g.putImageData(img, 0, 0);
   return c;
 }
+
+/** Hvor bredt et lysbillede er i verden (et lys i høj opløsning er opl gange så stort i pixel). */
+export const lysBredde = (c: HTMLCanvasElement) => c.width / Number(c.dataset.opl ?? 1);
 
 /** Lille skygge under figurer. */
 export function lavSkygge(b: number): HTMLCanvasElement {
@@ -499,7 +516,7 @@ export function partikelBilleder(art: string): [HTMLCanvasElement, HTMLCanvasEle
 }
 
 /** Vignetten til lyslaget: hvid i midten, mørkere mod hjørnerne i 4 trin med dither. Ganges på lyset. */
-export function lavVignet(w: number, h: number, styrke: number): HTMLCanvasElement {
+export function lavVignet(w: number, h: number, styrke: number, glat = false): HTMLCanvasElement {
   const c = lerred(w, h);
   const g = c.getContext('2d')!;
   const img = g.createImageData(w, h);
@@ -507,7 +524,8 @@ export function lavVignet(w: number, h: number, styrke: number): HTMLCanvasEleme
   for (let y = 0; y < h; y++)
     for (let x = 0; x < w; x++) {
       const d = Math.hypot((x + 0.5 - w / 2) / (w / 2), (y + 0.5 - h / 2) / (h / 2));
-      const s = lysTrin(Math.min(1, Math.max(0, (d - 0.62) / 0.6)), x, y);
+      const t = Math.min(1, Math.max(0, (d - 0.62) / 0.6));
+      const s = glat ? t * t * (3 - 2 * t) : lysTrin(t, x, y);
       const v = Math.round(255 * (1 - styrke * s));
       const o = (y * w + x) * 4;
       p[o] = v;
