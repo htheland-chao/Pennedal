@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from 'react';
 import { avatarnavn, harTekst, hentKapitel, kapitler, t, type DialogValg, type OrdOpgaveArt, type Replik, type RumFund, type RumTrin, type Trin, type ValgMulighed } from '../content';
 import { erFaerdighed, type FaerdighedId } from '../engine/faerdigheder';
 import { opfyldt, udvaelg } from '../engine/betingelse';
@@ -116,6 +116,24 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
     if (!aktivtTrin) setDialogIGang(null);
     else if (aktivtTrin.type === 'dialog' && !overgang && !andetVindueAabent) setDialogIGang(aktivtTrin.id);
   }, [aktivtTrin, overgang, andetVindueAabent]);
+  /**
+   * Et skår flyver op i tasken (Henrik, 10. november 2026): et lysende stykke papir flyver fra midten af skærmen hen
+   * til knappen Taske, som derefter pulserer. Slået fra med reducer bevægelse.
+   */
+  const taskeKnap = useRef<HTMLButtonElement>(null);
+  const [skaarFlyv, setSkaarFlyv] = useState<{ nr: number; x: number; y: number } | null>(null);
+  const [taskePuls, setTaskePuls] = useState(false);
+  function flyvTilTasken() {
+    if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return;
+    const r = taskeKnap.current?.getBoundingClientRect();
+    if (!r) return;
+    setSkaarFlyv((f) => ({ nr: (f?.nr ?? 0) + 1, x: r.left + r.width / 2, y: r.top + r.height / 2 }));
+    window.setTimeout(() => {
+      setSkaarFlyv(null);
+      setTaskePuls(true);
+      window.setTimeout(() => setTaskePuls(false), 900);
+    }, 1100);
+  }
   const [nyTing, setNyTing] = useState<TingId | null>(null);
   const forrigeTaske = useRef(tingITasken);
   useEffect(() => {
@@ -266,6 +284,7 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
   /** Et nyt hukommelsesskår: gem det og vis en besked med mindet. */
   function nytSkaar(skaar: string) {
     spilEffekt('skaar');
+    flyvTilTasken();
     const s = spilRef.current;
     const nyt = medSkaar(s, skaar);
     spilRef.current = nyt;
@@ -560,10 +579,16 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
         )}
         {/* Fuld skærm (Henrik, 8. november 2026): taske og menu står som små knapper i hjørnet over spillet. */}
         <div className="hud-knapper">
-          <button type="button" className="knap" onClick={() => {
-            spilEffekt('taske');
-            setVisTaske(true);
-          }} disabled={!!aktivtTrin || !!rumVindue}>
+          <button
+            type="button"
+            ref={taskeKnap}
+            className={`knap${taskePuls ? ' taske-puls' : ''}`}
+            onClick={() => {
+              spilEffekt('taske');
+              setVisTaske(true);
+            }}
+            disabled={!!aktivtTrin || !!rumVindue}
+          >
             {t('taske.knap')} ({tingITasken.length + taske.length})
           </button>
           <button type="button" className="knap" onClick={onMenu}>
@@ -576,6 +601,14 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
         </p>
       </aside>
 
+      {skaarFlyv && (
+        <span
+          key={skaarFlyv.nr}
+          className="skaar-flyv"
+          aria-hidden="true"
+          style={{ '--til-x': `${skaarFlyv.x}px`, '--til-y': `${skaarFlyv.y}px` } as CSSProperties}
+        />
+      )}
       {visTaske && (
         <TaskeVindue ting={tingITasken} minder={minder} skaar={spil.skaar.length} rumTing={taske.map((k) => spil.valg[`taske.${k}`])} onLuk={() => setVisTaske(false)} />
       )}

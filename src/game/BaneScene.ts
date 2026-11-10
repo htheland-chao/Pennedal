@@ -272,6 +272,27 @@ export class BaneScene extends Phaser.Scene {
     this.spurgt = null;
   }
 
+  /**
+   * Hop med fjedren (Henrik, 10. november 2026): hovedpersonen strækker sig ved hop og trykkes sammen ved landing.
+   * Fødderne bliver stående, fordi billedets origo er under fødderne.
+   */
+  private fjedr(sx: number, sy: number, ms: number) {
+    if (this.roligt) return;
+    this.tweens.killTweensOf(this.spiller);
+    this.spiller.setScale(sx, sy);
+    this.tweens.add({ targets: this.spiller, scaleX: 1, scaleY: 1, duration: ms, ease: 'Back.Out' });
+  }
+
+  /** Små støvpuf ved fødderne. */
+  private stoev(x: number, y: number, antal: number) {
+    if (this.roligt) return;
+    for (let k = 0; k < antal; k++) {
+      const side = k % 2 === 0 ? -1 : 1;
+      const p = this.add.rectangle(Math.round(x + side * (2 + k)), Math.round(y - 1), 2, 1, 0xe8dfc8).setDepth(6).setAlpha(0.9);
+      this.tweens.add({ targets: p, x: p.x + side * (5 + k * 2), y: p.y - 2 - (k % 3), alpha: 0, duration: 280 + k * 30, onComplete: () => p.destroy() });
+    }
+  }
+
   /** Knapperne på skærmen (touch) og musen. */
   styr(knap: 'venstre' | 'hoejre' | 'hop', nede: boolean) {
     this.touch[knap] = nede;
@@ -338,6 +359,8 @@ export class BaneScene extends Phaser.Scene {
     this.hopBuffer = Math.max(0, this.hopBuffer - dt);
     if (this.hopBuffer > 0 && this.sidenJord <= FYSIK.coyote) {
       spilEffekt('hop');
+      this.fjedr(0.85, 1.15, 160);
+      this.stoev(this.spiller.x, this.spiller.y, 2);
       this.vy = -FYSIK.hop;
       this.hopBuffer = 0;
       this.sidenJord = FYSIK.coyote + 1;
@@ -376,7 +399,11 @@ export class BaneScene extends Phaser.Scene {
     }
     y = ny;
     this.spiller.setPosition(x, y);
-    if (this.paaJorden && !varPaaJorden && faldFart > 140) spilEffekt('landing');
+    if (this.paaJorden && !varPaaJorden && faldFart > 140) {
+      spilEffekt('landing');
+      this.fjedr(1.2, 0.8, 150);
+      this.stoev(x, y, faldFart > 300 ? 6 : 4);
+    }
     else if (this.paaJorden && Math.abs(this.vx) > 30) spilEffekt('skridt');
 
     // Fare: blæk, vand eller ud af banen forneden.

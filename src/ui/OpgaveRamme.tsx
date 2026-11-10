@@ -141,7 +141,9 @@ export function OpgaveRamme(props: Props) {
             )}
           </div>
         )}
-        {niveauBesked && <p className="niveau-besked">{niveauBesked}</p>}
+        {niveauBesked && (
+          <p className={`niveau-besked${niveauBesked === t('opgave.niveau.op') ? ' niveau-op' : ''}`}>{niveauBesked}</p>
+        )}
         {besked && (
           <LaesOpKnap
             key={beskedNr}

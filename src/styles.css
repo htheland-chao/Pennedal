@@ -3592,6 +3592,72 @@ dialog.modal.menu-skuffe {
   }
 }
 
+/* Et skår flyver op i tasken (10. november 2026). */
+.skaar-flyv {
+  position: fixed;
+  left: 50vw;
+  top: 45vh;
+  z-index: 500;
+  width: 14px;
+  height: 18px;
+  background: #fff7d6;
+  border: 2px solid #f0c45a;
+  box-shadow: 0 0 10px 4px rgb(255 233 168 / 0.8);
+  pointer-events: none;
+  animation: skaar-flyv 1.1s cubic-bezier(0.5, 0, 0.3, 1) forwards;
+}
+@keyframes skaar-flyv {
+  0% { transform: translate(-50%, -50%) scale(0.3) rotate(0deg); opacity: 0; }
+  20% { transform: translate(-50%, -50%) scale(1.6) rotate(-12deg); opacity: 1; }
+  45% { left: 50vw; top: 45vh; transform: translate(-50%, -50%) scale(1.4) rotate(10deg); }
+  100% { left: var(--til-x); top: var(--til-y); transform: translate(-50%, -50%) scale(0.5) rotate(180deg); opacity: 0.6; }
+}
+.taske-puls {
+  animation: taske-puls 0.9s ease-out;
+}
+@keyframes taske-puls {
+  0% { box-shadow: 0 0 0 0 rgb(240 196 90 / 0.9); }
+  100% { box-shadow: 0 0 0 14px rgb(240 196 90 / 0); }
+}
+
+/* Nyt niveau: et gyldent glimt (10. november 2026). */
+.niveau-besked.niveau-op {
+  position: relative;
+  font-style: normal;
+  font-weight: 700;
+  color: var(--tekst);
+  animation: niveau-glimt 1.2s ease-out;
+}
+.niveau-besked.niveau-op::before {
+  content: '';
+  position: absolute;
+  left: -0.4rem;
+  top: 50%;
+  width: 0.6rem;
+  height: 0.6rem;
+  background: #f0c45a;
+  clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
+  transform: translate(-100%, -50%);
+  animation: niveau-stjerne 1.2s ease-out;
+}
+@keyframes niveau-glimt {
+  0% { background: rgb(240 196 90 / 0.6); }
+  100% { background: transparent; }
+}
+@keyframes niveau-stjerne {
+  0% { transform: translate(-100%, -50%) scale(0) rotate(0deg); }
+  50% { transform: translate(-100%, -50%) scale(1.8) rotate(90deg); }
+  100% { transform: translate(-100%, -50%) scale(1) rotate(180deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .skaar-flyv,
+  .taske-puls,
+  .niveau-besked.niveau-op,
+  .niveau-besked.niveau-op::before {
+    animation: none;
+  }
+}
+
 /* Overgangen ind i kampen (10. november 2026): ti bjælker af blæk glider ind og ud igen. */
 .kamp-overgang {
   position: fixed;
