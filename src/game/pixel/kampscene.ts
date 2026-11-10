@@ -2,7 +2,7 @@
  * Kampscenen (3. november 2026): en slette set skråt fra siden, væsner til venstre og holdet til højre.
  * 320 x 180 som resten af spillet. Tegnes én gang pr. kamp. Ingen bogstaver (docs/grafik.md).
  */
-import { blegt, halvtTegnet, hash, lerred, sne, tegnkortTilLerred } from './lerred';
+import { blegt, halvtTegnet, hash, linjeretPapir, lerred, sne, tegnkortTilLerred } from './lerred';
 import { granMedSne } from './rimbjerg';
 import { papirtrae, type Tegnkort } from './sprites';
 
@@ -69,6 +69,7 @@ export function tegnKampBaggrund(tema: string, moerk: boolean): HTMLCanvasElemen
   }
   if (tema === 'viskeskov') blegt(c, moerk ? 0.25 : 0.5);
   if (tema === 'halve') halvtTegnet(c, 0.4);
+  if (tema === 'siden') linjeretPapir(c);
   return c;
 }
 

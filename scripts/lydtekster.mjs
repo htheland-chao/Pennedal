@@ -106,7 +106,7 @@ export function alleLydtekster(stemmer = hentStemmer()) {
     tilfoej('fortaeller', t(id), `Minder / ${id}`);
 
   // Kampe (src/ui/KampVindue.tsx): væsnernes egne ord, sætningerne til knappen Læs og beskederne.
-  for (const v of ['tomordet', 'stumming', 'tvivl', 'krusedulle']) {
+  for (const v of ['tomordet', 'stumming', 'tvivl', 'krusedulle', 'halvsaetning']) {
     tilfoej(v, t(`kamp.${v}.lyt`), `Kampe / kamp.${v}.lyt`);
     tilfoej('fortaeller', t(`kamp.${v}.rolig`), `Kampe / kamp.${v}.rolig`);
   }
@@ -183,6 +183,15 @@ export function alleLydtekster(stemmer = hentStemmer()) {
   tilfoej('aeseloere', `${t('feedback.eksempel')}: ${t('korrektur.find.eksempel')}`, 'Beskeder / korrektur.find.eksempel');
   for (const id of ['kamp.klatten.ingen', 'korrektur.klatten.1', 'korrektur.klatten.2', 'korrektur.klatten.3', 'korrektur.klatten.4'])
     tilfoej('klatten', t(id), `Kampe og opgaver / ${id}`);
+
+  // Halvsætningerne (kapitel 8): sætningerne læses op færdige.
+  const halv = laes('ord/halvsaetning.json');
+  for (const x of halv.slut) tilfoej('fortaeller', `${x.foer} ${x.svar}`, `Halvsætninger / ${x.id}`);
+  for (const x of halv.tegn) tilfoej('fortaeller', `${x.saetning}${x.tegn}`, `Halvsætninger / ${x.id}`);
+  for (const k of ['slut', 'tegn']) {
+    tilfoej('aeseloere', `${t('feedback.regel')}: ${halv.regler[k]}`, `Beskeder / halvsaetning.regel.${k}`);
+    tilfoej('aeseloere', `${t('feedback.eksempel')}: ${halv.eksempler[k]}`, `Beskeder / halvsaetning.eksempel.${k}`);
+  }
 
   // Genrerne (kapitel 7): tekststykkerne, spørgsmålene, reglerne og eksemplerne.
   const gen = laes('ord/genre.json');

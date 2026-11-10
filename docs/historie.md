@@ -138,6 +138,8 @@ Alle hjælpere samles. Den Ufærdige tilbyder hver af dem en slutning, hvis de f
 
 Den Ufærdige venter. Rolige kampe mod ufærdige sætninger, som man skriver færdige. Til sidst står Skyggen over for avataren. Eleven vælger slutningen.
 
+**Bygget 10. november 2026:** Den sidste side, linjeret papir, hvor alt kun er tegnet med blyant. Æseløre kommer tilbage, hvis han gik i kapitel 7. Kampen mod tre Halvsætninger: vælg den slutning, der passer (`fort.struktur`), eller det rigtige sætningstegn (`tegn.saetningstegn`). Den Ufærdige er Skyggen, og den beder eleven skrive dens slutning med tre valg: hvor Skyggen hører til, hvem der er der, og sætningen efter Og så ... Slutningen læses op med elevens valg, Skyggen bliver lille og glad, Æseløre bliver glattet ud, og mindet Skuffen kommer. Den sande slutning (alle 10 skår og venlig mod Klatten): Skyggen får et navn (Skumring, Pip, Lille Mørk eller Fnug), og sedlen fra søskendet ligger i hæftet. Epilogen i skolebiblioteket: Holm fortæller, at han fandt og gemte hæftet, og at næsten alle gode historier har mange fejl i første udkast. Han rækker et nyt, grønt kladdehæfte frem. Fru Fodnote har den allersidste replik.
+
 ## Hjælpere
 
 Alle hjælpere er egne figurer. Hver får en stemme i `src/content/stemmer.json` og et portræt i `src/game/pixel/portraetter.ts`.

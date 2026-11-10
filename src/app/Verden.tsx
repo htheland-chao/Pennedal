@@ -36,7 +36,7 @@ type Props = {
 function tilpasDialog(replikker: Replik[], valg: DialogValg | undefined, spil: GemtSpil): { replikker: Replik[]; valg?: DialogValg } {
   return {
     replikker: udvaelg(replikker, spil),
-    valg: valg && { ...valg, muligheder: udvaelg(valg.muligheder, spil).map((m) => ({ ...m, replikker: udvaelg(m.replikker, spil) })) },
+    valg: !valg || !opfyldt(valg.hvis, spil) ? undefined : { ...valg, muligheder: udvaelg(valg.muligheder, spil).map((m) => ({ ...m, replikker: udvaelg(m.replikker, spil) })) },
   };
 }
 

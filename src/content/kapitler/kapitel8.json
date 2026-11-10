@@ -1,0 +1,488 @@
+{
+  "kapitel": 8,
+  "titel": "Den sidste side",
+  "steder": {
+    "sidstesiden": {
+      "navn": "Den sidste side",
+      "tema": "siden",
+      "start": {
+        "x": 0,
+        "y": 0
+      },
+      "startFelt": [13, 15],
+      "kort": [
+        "############################",
+        "###,,,,,,,,,,,,,,,,,,,,,,###",
+        "##,,,,,,,,,,,,,,,,,,,,,,,,##",
+        "#,,,,,#,,,,,,..,,,,,,#,,,,,#",
+        "#,,,,,,,,,,,,..,,,,,,,,,,,,#",
+        "#,,,,,,,,,,,,..,,,,,,,,,,,,#",
+        "#,,,,,,,,,,,,..,,,,,,,,,,,,#",
+        "#,,,,,,,,,,,,..,,,,,,,,,,,,#",
+        "#,,,,,,,,,,,,..,,,,,,,,,,,,#",
+        "#,,,,,,,,,,,,..,,,,,,,,,,,,#",
+        "#,,,,,,,,,,,,..,,,,,,,,,,,,#",
+        "#,,,,,,,,,,,,..,,,,,,,,,,,,#",
+        "#,,,,,,,,,,,,..,,,,,,,,,,,,#",
+        "#,,,,,,,,,,,,..,,,,,,,,,,,,#",
+        "#,,,,#,,,,,,,..,,,,,,,#,,,,#",
+        "#,,,,,,,,,,,,..,,,,,,,,,,,,#",
+        "##,,,,,,,,,,,..,,,,,,,,,,###",
+        "############################"
+      ],
+      "objekter": [
+        { "id": "halvsaetning", "navn": "sætningen, der stopper midt i", "x": 0, "y": 0, "w": 0, "h": 0, "form": "halvsaetning", "farve": "#c9a46a", "felt": [9, 9], "skjulFra": "k8-kamp-slut" },
+        { "id": "ufaerdige", "navn": "Den Ufærdige", "x": 0, "y": 0, "w": 0, "h": 0, "form": "ufaerdige", "farve": "#c9a46a", "felt": [14, 4], "skjulFra": "k8-oplaesning" },
+        { "id": "skyggen", "navn": "Skyggen", "x": 0, "y": 0, "w": 0, "h": 0, "form": "skygge", "farve": "#c9a46a", "felt": [14, 4], "visFra": "k8-oplaesning" },
+        { "id": "vims", "navn": "Vims", "x": 0, "y": 0, "w": 0, "h": 0, "form": "vims", "farve": "#c9a46a", "felt": [11, 12] },
+        { "id": "fodnote", "navn": "Fru Fodnote", "x": 0, "y": 0, "w": 0, "h": 0, "form": "fodnote", "farve": "#c9a46a", "felt": [17, 12] },
+        {
+          "id": "klatten",
+          "navn": "Klatten",
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "form": "gnom",
+          "farve": "#c9a46a",
+          "felt": [18, 9],
+          "hvis": {
+            "venlighed": 1
+          }
+        },
+        { "id": "lys", "navn": "en dør af hvidt lys", "x": 0, "y": 0, "w": 0, "h": 0, "form": "doer", "farve": "#c9a46a", "felt": [14, 2], "visFra": "k8-hjem" }
+      ]
+    },
+    "biblioteket": {
+      "navn": "Skolebiblioteket",
+      "tema": "bibliotek",
+      "start": {
+        "x": 0,
+        "y": 0
+      },
+      "startFelt": [9, 10],
+      "kort": [
+        "KVVVvvVVVVVVVVvvVVVK",
+        "KVVVvvVVVVVVVVvvVVVK",
+        "KRRR..RRRRRRRR..RRRK",
+        "K..................K",
+        "K..BB.....DDDD.....K",
+        "K..BB..............K",
+        "K......tttttt......K",
+        "K......tttttt..rr..K",
+        "K..BB..tttttt..rr..K",
+        "K..BB.............SK",
+        "K...P..............K",
+        "KKKKKKKKKddKKKKKKKKK"
+      ],
+      "objekter": [
+        { "id": "holm", "navn": "hr. Holm", "x": 0, "y": 0, "w": 0, "h": 0, "form": "person", "farve": "#7a5c3e", "felt": [10, 5] }
+      ]
+    }
+  },
+  "trin": [
+    {
+      "id": "k8-ankomst",
+      "type": "dialog",
+      "del": 1,
+      "sted": "sidstesiden",
+      "objekt": null,
+      "replikker": [
+        { "taler": "fortaeller", "tekst": "Bag De halve lande ligger den sidste side. Den er hvid og stille, og alt her er kun tegnet med blyant." },
+        {
+          "taler": "fortaeller",
+          "tekst": "Så hører du en lyd af papir, og et lille, foldet hjørne lander på din skulder.",
+          "hvis": {
+            "ikkeValg": "aeseloere.tilgivet"
+          }
+        },
+        {
+          "taler": "aeseloere",
+          "tekst": "Jeg sagde jo, at jeg kom tilbage. Den Ufærdige kunne ikke glatte mig ud. Det kan kun en slutning.",
+          "hvis": {
+            "ikkeValg": "aeseloere.tilgivet"
+          }
+        },
+        {
+          "taler": "aeseloere",
+          "tekst": "Undskyld. Igen. Jeg er her nu, og jeg går ikke mere.",
+          "hvis": {
+            "ikkeValg": "aeseloere.tilgivet"
+          }
+        },
+        {
+          "taler": "aeseloere",
+          "tekst": "Her er den. Den sidste side. Den, du aldrig skrev.",
+          "hvis": {
+            "valg": "aeseloere.tilgivet"
+          }
+        },
+        { "taler": "vims", "tekst": "Her er så stille. Undskyld, at jeg hvisker." },
+        { "taler": "fodnote", "tekst": "¹ Det er helt normalt at hviske på en tom side. Den er ikke vant til lyde." },
+        {
+          "taler": "klatten",
+          "tekst": "Den Frygtelige er her også. Selvfølgelig. Hvem skulle ellers lave klatter?",
+          "hvis": {
+            "venlighed": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "k8-halvsaetning",
+      "type": "dialog",
+      "del": 1,
+      "sted": "sidstesiden",
+      "objekt": "halvsaetning",
+      "opgavetekst": "Tal med sætningen, der stopper midt i.",
+      "replikker": [
+        { "taler": "halvsaetning", "tekst": "Jeg er en sætning. Jeg begyndte på noget, og så ..." },
+        { "taler": "fortaeller", "tekst": "Sætningen stopper. Den kigger forvirret på dig. Bag den står flere sætninger, der også stopper midt i." },
+        { "taler": "aeseloere", "tekst": "Det er Halvsætninger. De er ikke farlige. De mangler bare en slutning. Eller et punktum." }
+      ]
+    },
+    {
+      "id": "k8-kamp",
+      "type": "kamp",
+      "del": 1,
+      "sted": "sidstesiden",
+      "objekt": "halvsaetning",
+      "opgavetekst": "Hjælp Halvsætningerne med at blive færdige.",
+      "vaesen": "halvsaetning",
+      "vaesner": ["halvsaetning", "halvsaetning", "halvsaetning"],
+      "slag": ["slut"],
+      "faerdighed": "fort.struktur",
+      "antal": 4,
+      "hjaelper": "vims",
+      "klatten": {
+        "venlighed": 1
+      }
+    },
+    {
+      "id": "k8-kamp-slut",
+      "type": "dialog",
+      "del": 1,
+      "sted": "sidstesiden",
+      "objekt": null,
+      "slutDel": 1,
+      "replikker": [
+        { "taler": "fortaeller", "tekst": "Halvsætningerne bliver hele. En efter en sætter de et punktum og går stille væk over siden." },
+        { "taler": "halvsaetning", "tekst": "Tak. Nu ved jeg, hvordan jeg slutter. Det er en rar følelse." },
+        { "taler": "aeseloere", "tekst": "Nu er der kun én tilbage, der mangler en slutning." }
+      ]
+    },
+    {
+      "id": "k8-moede",
+      "type": "dialog",
+      "del": 2,
+      "sted": "sidstesiden",
+      "objekt": "ufaerdige",
+      "opgavetekst": "Gå hen til Den Ufærdige.",
+      "uhygge": true,
+      "replikker": [
+        { "taler": "ufaerdige", "tekst": "Der er du. Du kom tilbage." },
+        { "taler": "fortaeller", "tekst": "Den Ufærdige er ikke stor mere. Den er en lille skygge med store, runde øjne. Den, du tegnede på hæftet for længe siden." },
+        { "taler": "ufaerdige", "tekst": "Jeg ledte efter et sted at høre til. Og så ... stoppede du. Jeg har ventet lige siden." },
+        { "taler": "ufaerdige", "tekst": "Jeg tog slutningerne fra de andre historier, fordi jeg ikke selv havde en. Det var ikke pænt. Undskyld." },
+        { "taler": "ufaerdige", "tekst": "Vil du skrive min slutning?" }
+      ]
+    },
+    {
+      "id": "k8-sted",
+      "type": "dialog",
+      "del": 2,
+      "sted": "sidstesiden",
+      "objekt": null,
+      "replikker": [
+        { "taler": "fortaeller", "tekst": "Du tager blyanten frem. Den første sætning står der allerede: Der var engang en lille skygge, der ledte efter et sted at høre til." }
+      ],
+      "valg": {
+        "spoergsmaal": "Hvor hører Skyggen til?",
+        "muligheder": [
+          {
+            "tekst": "I hæftet, på den sidste side",
+            "saet": "slut.sted.haefte",
+            "replikker": [
+              { "taler": "fortaeller", "tekst": "Du skriver: Skyggen fandt et sted på den sidste side i det grønne hæfte." }
+            ]
+          },
+          {
+            "tekst": "I biblioteket, mellem alle bøgerne",
+            "saet": "slut.sted.bibliotek",
+            "replikker": [
+              { "taler": "fortaeller", "tekst": "Du skriver: Skyggen fandt et sted i biblioteket, mellem alle bøgerne." }
+            ]
+          },
+          {
+            "tekst": "Ved siden af dig, hvor du går",
+            "saet": "slut.sted.dig",
+            "replikker": [
+              { "taler": "fortaeller", "tekst": "Du skriver: Skyggen fandt et sted lige ved siden af dig, hvor du går." }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "k8-hvem",
+      "type": "dialog",
+      "del": 2,
+      "sted": "sidstesiden",
+      "objekt": null,
+      "replikker": [
+        { "taler": "ufaerdige", "tekst": "Hvem er der, når jeg kommer frem?" }
+      ],
+      "valg": {
+        "spoergsmaal": "Hvem er der, når historien slutter?",
+        "muligheder": [
+          {
+            "tekst": "Alle hjælperne",
+            "saet": "slut.hvem.hjaelpere",
+            "replikker": [
+              { "taler": "fortaeller", "tekst": "Du skriver: Der ventede alle hjælperne, og de havde gemt en plads til den." }
+            ]
+          },
+          {
+            "tekst": "Kun Skyggen og dig",
+            "saet": "slut.hvem.os",
+            "replikker": [
+              { "taler": "fortaeller", "tekst": "Du skriver: Der var kun to, Skyggen og den, der havde tegnet den." }
+            ]
+          },
+          {
+            "tekst": "Et helt bibliotek af læsere",
+            "saet": "slut.hvem.laesere",
+            "replikker": [
+              { "taler": "fortaeller", "tekst": "Du skriver: Der sad et helt bibliotek af læsere, som gerne ville høre historien." }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "k8-ogsaa",
+      "type": "dialog",
+      "del": 2,
+      "sted": "sidstesiden",
+      "objekt": null,
+      "replikker": [
+        { "taler": "aeseloere", "tekst": "Nu mangler kun den sidste sætning. Den, der begynder med Og så." }
+      ],
+      "valg": {
+        "spoergsmaal": "Hvordan slutter sætningen efter Og så ...?",
+        "muligheder": [
+          {
+            "tekst": "Og så var Skyggen ikke alene mere.",
+            "saet": "slut.ogsaa.alene",
+            "replikker": [
+              { "taler": "fortaeller", "tekst": "Du skriver: Og så var Skyggen ikke alene mere." }
+            ]
+          },
+          {
+            "tekst": "Og så fik Skyggen et sted at høre til.",
+            "saet": "slut.ogsaa.hjem",
+            "replikker": [
+              { "taler": "fortaeller", "tekst": "Du skriver: Og så fik Skyggen et sted at høre til." }
+            ]
+          },
+          {
+            "tekst": "Og så begyndte en helt ny historie.",
+            "saet": "slut.ogsaa.ny",
+            "replikker": [
+              { "taler": "fortaeller", "tekst": "Du skriver: Og så begyndte en helt ny historie." }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "k8-oplaesning",
+      "type": "dialog",
+      "del": 2,
+      "sted": "sidstesiden",
+      "objekt": null,
+      "tilbageblik": { "id": "skuffen", "foer": 1 },
+      "replikker": [
+        { "taler": "fortaeller", "tekst": "Du læser hele slutningen højt. Der var engang en lille skygge, der ledte efter et sted at høre til." },
+        {
+          "taler": "fortaeller",
+          "tekst": "Den fandt et sted på den sidste side i det grønne hæfte.",
+          "hvis": {
+            "valg": "slut.sted.haefte"
+          }
+        },
+        {
+          "taler": "fortaeller",
+          "tekst": "Den fandt et sted i biblioteket, mellem alle bøgerne.",
+          "hvis": {
+            "valg": "slut.sted.bibliotek"
+          }
+        },
+        {
+          "taler": "fortaeller",
+          "tekst": "Den fandt et sted lige ved siden af dig, hvor du går.",
+          "hvis": {
+            "valg": "slut.sted.dig"
+          }
+        },
+        {
+          "taler": "fortaeller",
+          "tekst": "Der ventede alle hjælperne, og de havde gemt en plads til den.",
+          "hvis": {
+            "valg": "slut.hvem.hjaelpere"
+          }
+        },
+        {
+          "taler": "fortaeller",
+          "tekst": "Der var kun to, Skyggen og den, der havde tegnet den.",
+          "hvis": {
+            "valg": "slut.hvem.os"
+          }
+        },
+        {
+          "taler": "fortaeller",
+          "tekst": "Der sad et helt bibliotek af læsere, som gerne ville høre historien.",
+          "hvis": {
+            "valg": "slut.hvem.laesere"
+          }
+        },
+        {
+          "taler": "fortaeller",
+          "tekst": "Og så var Skyggen ikke alene mere.",
+          "hvis": {
+            "valg": "slut.ogsaa.alene"
+          }
+        },
+        {
+          "taler": "fortaeller",
+          "tekst": "Og så fik Skyggen et sted at høre til.",
+          "hvis": {
+            "valg": "slut.ogsaa.hjem"
+          }
+        },
+        {
+          "taler": "fortaeller",
+          "tekst": "Og så begyndte en helt ny historie.",
+          "hvis": {
+            "valg": "slut.ogsaa.ny"
+          }
+        },
+        { "taler": "fortaeller", "tekst": "Du sætter et punktum. Så bliver der helt stille på siden." },
+        { "taler": "fortaeller", "tekst": "Den Ufærdige ryster lidt. Så er den ikke ufærdig mere. Den er bare Skyggen. Den er lille, rund og meget glad." },
+        {
+          "taler": "aeseloere",
+          "tekst": "Mærker du det? Jeg bliver glat. Helt glat. Tak fordi du tilgav mig. Det var den bedste slutning, jeg kunne få.",
+          "hvis": {
+            "valg": "aeseloere.tilgivet"
+          }
+        },
+        {
+          "taler": "aeseloere",
+          "tekst": "Mærker du det? Jeg bliver glat. Jeg fortjente det måske ikke. Men tak.",
+          "hvis": {
+            "ikkeValg": "aeseloere.tilgivet"
+          }
+        },
+        { "taler": "vims", "tekst": "Jeg græder ikke. Det er bare støv fra blyanten. Undskyld." },
+        { "taler": "fodnote", "tekst": "¹ Den bedste slutning er den, der bliver skrevet." }
+      ]
+    },
+    {
+      "id": "k8-skyggen",
+      "type": "dialog",
+      "del": 2,
+      "sted": "sidstesiden",
+      "objekt": "skyggen",
+      "opgavetekst": "Sig farvel til Skyggen.",
+      "replikker": [
+        { "taler": "skyggen", "tekst": "Tak. Nu har jeg en slutning. Og et sted at være." },
+        {
+          "taler": "skyggen",
+          "tekst": "Men jeg har aldrig haft et navn. Vil du give mig et?",
+          "hvis": {
+            "alleSkaar": true,
+            "venlighed": 1
+          }
+        },
+        {
+          "taler": "skyggen",
+          "tekst": "Måske finder jeg et navn en dag. Det må du gerne hjælpe mig med, hvis du kommer igen.",
+          "hvis": {
+            "ikke": {
+              "alleSkaar": true,
+              "venlighed": 1
+            }
+          }
+        }
+      ],
+      "valg": {
+        "hvis": {
+          "alleSkaar": true,
+          "venlighed": 1
+        },
+        "spoergsmaal": "Hvad skal Skyggen hedde?",
+        "muligheder": [
+          {
+            "tekst": "Skumring",
+            "saet": "skygge.navn.skumring",
+            "replikker": [
+              { "taler": "skyggen", "tekst": "Skumring. Det er et godt navn. Det er mit navn." },
+              { "taler": "fortaeller", "tekst": "Bag i det grønne hæfte ligger en lille seddel, som du aldrig har set før. Der står: Den var faktisk god. Undskyld." }
+            ]
+          },
+          {
+            "tekst": "Pip",
+            "saet": "skygge.navn.pip",
+            "replikker": [
+              { "taler": "skyggen", "tekst": "Pip. Det er et godt navn. Det er mit navn." },
+              { "taler": "fortaeller", "tekst": "Bag i det grønne hæfte ligger en lille seddel, som du aldrig har set før. Der står: Den var faktisk god. Undskyld." }
+            ]
+          },
+          {
+            "tekst": "Lille Mørk",
+            "saet": "skygge.navn.lillemoerk",
+            "replikker": [
+              { "taler": "skyggen", "tekst": "Lille Mørk. Det er et godt navn. Det er mit navn." },
+              { "taler": "fortaeller", "tekst": "Bag i det grønne hæfte ligger en lille seddel, som du aldrig har set før. Der står: Den var faktisk god. Undskyld." }
+            ]
+          },
+          {
+            "tekst": "Fnug",
+            "saet": "skygge.navn.fnug",
+            "replikker": [
+              { "taler": "skyggen", "tekst": "Fnug. Det er et godt navn. Det er mit navn." },
+              { "taler": "fortaeller", "tekst": "Bag i det grønne hæfte ligger en lille seddel, som du aldrig har set før. Der står: Den var faktisk god. Undskyld." }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "k8-hjem",
+      "type": "skift",
+      "del": 2,
+      "sted": "sidstesiden",
+      "objekt": "lys",
+      "opgavetekst": "Gå gennem døren af hvidt lys.",
+      "tilSted": "biblioteket"
+    },
+    {
+      "id": "k8-holm",
+      "type": "dialog",
+      "del": 2,
+      "sted": "biblioteket",
+      "objekt": "holm",
+      "opgavetekst": "Tal med hr. Holm.",
+      "slutKapitel": true,
+      "replikker": [
+        { "taler": "fortaeller", "tekst": "Du vågner i skolebiblioteket. Lyset falder ind ad vinduerne, og hr. Holm sidder ved disken." },
+        { "taler": "holm", "tekst": "Godt, at du kom tilbage." },
+        { "taler": "holm", "tekst": "Jeg har noget at sige dig. Det var mig, der fandt dit hæfte. Det lå i en kasse med bøger, der skulle smides ud." },
+        { "taler": "holm", "tekst": "Jeg gemte det, fordi det var for godt til at smide ud. Selv med alle fejlene. Næsten alle gode historier har mange fejl i første udkast." },
+        { "taler": "fortaeller", "tekst": "Han rækker dig et nyt, tomt kladdehæfte. Det er grønt." },
+        { "taler": "holm", "tekst": "Til den næste historie." },
+        { "taler": "fodnote", "tekst": "¹ Slut. ² Eller rettere: begyndelsen." }
+      ]
+    }
+  ]
+}

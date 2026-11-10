@@ -6,7 +6,7 @@ import { t, type TekstId } from './index';
  * (minde.<id>.<nr>.mild), som bruges med indstillingen "Mindre uhygge".
  * Rækkefølgen er fast: tilføj kun til sidst.
  */
-export const MINDER = ['blaek', 'streger', 'koekkenbord', 'skaar3a', 'skaar3b', 'godnat', 'skaar4a', 'skaar4b', 'skyggen', 'skaar5a', 'skaar5b', 'foldet', 'skaar6a', 'skaar6b', 'soeskendet', 'skaar7a', 'skaar7b'] as const;
+export const MINDER = ['blaek', 'streger', 'koekkenbord', 'skaar3a', 'skaar3b', 'godnat', 'skaar4a', 'skaar4b', 'skyggen', 'skaar5a', 'skaar5b', 'foldet', 'skaar6a', 'skaar6b', 'soeskendet', 'skaar7a', 'skaar7b', 'skuffen'] as const;
 export type MindeId = (typeof MINDER)[number];
 
 export const MINDE_INFO: Record<MindeId, { kapitel: number; dele: number; mild: number[] }> = {
@@ -27,6 +27,7 @@ export const MINDE_INFO: Record<MindeId, { kapitel: number; dele: number; mild: 
   soeskendet: { kapitel: 7, dele: 4, mild: [] },
   skaar7a: { kapitel: 7, dele: 3, mild: [] },
   skaar7b: { kapitel: 7, dele: 3, mild: [] },
+  skuffen: { kapitel: 8, dele: 4, mild: [] },
 };
 
 /** Ekstra minder, som hukommelsesskår låser op (docs/historie.md, "Hukommelsesskår"). */

@@ -576,7 +576,39 @@ const halve: Sang = {
   ],
 };
 
+/**
+ * Den sidste side (kapitel 8): rolig og lys, C-dur. En enkel melodi, der går hjem til grundtonen, som en historie,
+ * der endelig bliver færdig. Ingen uhygge her.
+ */
+const siden: Sang = {
+  bpm: 70,
+  spor: [
+    {
+      lyd: 'trekant',
+      styrke: 0.28,
+      noder:
+        'C3 - - - G2 - - - | A2 - - - E2 - - - | F2 - - - C3 - - - | G2 - - - - - - - | ' +
+        'C3 - - - G2 - - - | A2 - - - E2 - - - | F2 - - - G2 - - - | C3 - - - - - - -',
+    },
+    {
+      lyd: 'firkant',
+      styrke: 0.1,
+      noder:
+        'E5 - - - D5 - C5 - | C5 - - - B4 - . . | A4 - C5 - F5 - E5 - | D5 - - - - - . . | ' +
+        'E5 - - - G5 - E5 - | C5 - - - E5 - . . | F5 - E5 - D5 - B4 - | C5 - - - - - - -',
+    },
+    {
+      lyd: 'trekant',
+      styrke: 0.07,
+      noder: arpeggio([
+        ['C4', 'E4', 'G4'], ['A3', 'C4', 'E4'], ['F3', 'A3', 'C4'], ['G3', 'B3', 'D4'],
+        ['C4', 'E4', 'G4'], ['A3', 'C4', 'E4'], ['F3', 'A3', 'C4'], ['C4', 'E4', 'G4'],
+      ]),
+    },
+  ],
+};
+
 /** Viskeskovens bane: samme sang som skoven, lidt hurtigere, fordi man løber og hopper. */
 const viskesti: Sang = { ...viskeskov, bpm: viskeskov.bpm + 14 };
 
-export const SANGE: Record<string, Sang> = { bibliotek, kaelder, pennedal, floden, fyrtaarn, eng, torv, smoeger, trykkeri, tage, forside, ufaerdige, intro, minde, viskeskov, kamp, viskesti, rimbjerg, arkiv, blaeksoe, hytte, halve };
+export const SANGE: Record<string, Sang> = { bibliotek, kaelder, pennedal, floden, fyrtaarn, eng, torv, smoeger, trykkeri, tage, forside, ufaerdige, intro, minde, viskeskov, kamp, viskesti, rimbjerg, arkiv, blaeksoe, hytte, halve, siden };
