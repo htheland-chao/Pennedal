@@ -3288,6 +3288,10 @@ dialog.modal.dialogboks,
 .verden > .panel.hud {
   padding: 0.25rem 0.4rem;
 }
+/* Opgavekortet i kampen står på papir med mørk tekst. Den mørke ramme ovenfor dækkede papiret, så teksten forsvandt. */
+.kampscene .kamp-hud.kamp-opgave-kort {
+  border-image: var(--pixelramme-papir) 4 fill / 12px / 0 stretch;
+}
 dialog.modal.menu-skuffe {
   border: 0;
   border-left: 12px solid transparent;

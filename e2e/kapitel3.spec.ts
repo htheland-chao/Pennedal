@@ -274,3 +274,28 @@ test('kapitel 3: Halvsangens sidemission og den lange hvide sti giver hukommelse
   await expect(page.locator('dialog')).toContainText('Hæftet på gulvet');
   expect(fejl).toEqual([]);
 });
+
+test('banen: slippes en piletast, mens ordstenens opgave er åben, løber hovedpersonen ikke videre bagefter', async ({ page }) => {
+  test.setTimeout(120_000);
+  const fejl: string[] = [];
+  page.on('pageerror', (e) => fejl.push(e.message));
+  await page.goto('/?hop=k3-til-lysning');
+  await expect(page.locator('.sted-navn')).toContainText('Den viskede sti', { timeout: 30_000 });
+  await laesDialog(page);
+  const x = () => page.evaluate(() => (window as unknown as { __pennedal: { spillerX: () => number } }).__pennedal.spillerX());
+  // Som eleven: hold højre pil nede, til ordstenen spørger, og slip tasten, mens opgaven er åben.
+  await page.locator('.spilflade canvas').focus().catch(() => undefined);
+  await page.keyboard.down('ArrowRight');
+  const v = page.locator('dialog.ord-opgave');
+  await expect(v).toBeVisible({ timeout: 30_000 });
+  await page.keyboard.up('ArrowRight');
+  const id = await v.locator('[data-opgave-id]').getAttribute('data-opgave-id');
+  await v.getByRole('button', { name: synonymer.find((s) => s.id === id)!.svar, exact: true }).click();
+  await v.getByRole('button', { name: 'Skriv planken tilbage' }).click();
+  await expect(v).toHaveCount(0);
+  const efter = await x();
+  await page.waitForTimeout(2000);
+  expect(Math.abs((await x()) - efter)).toBeLessThan(4);
+  expect(fejl).toEqual([]);
+});
+
