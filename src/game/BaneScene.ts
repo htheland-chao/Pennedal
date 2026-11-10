@@ -217,8 +217,19 @@ export class BaneScene extends Phaser.Scene {
     for (const [id, b] of this.figurer) if (b.scene) b.setVisible(!skjulte.includes(id));
     if (this.klatten?.scene) this.klatten.setVisible(!skjulte.includes('klatten'));
   }
+  /** Til test: hovedpersonens vandrette plads i verden. */
+  spillerX(): number {
+    return this.spiller ? Math.round(this.spiller.x) : NaN;
+  }
+
   laas(laast: boolean) {
     this.laast = laast;
+    // Slippes en tast, mens en opgave er åben, opdager Phaser det ikke, og hovedpersonen løber videre bagefter.
+    // Derfor nulstilles taster og knapper på skærmen, både når der låses, og når der låses op.
+    this.input.keyboard?.resetKeys();
+    this.touch = { venstre: false, hoejre: false, hop: false };
+    this.hopBuffer = 0;
+    this.vx = 0;
     if (this.input.keyboard) this.input.keyboard.enabled = !laast;
   }
   forskraek() {

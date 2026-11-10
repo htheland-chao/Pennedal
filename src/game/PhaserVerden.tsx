@@ -31,6 +31,8 @@ type Props = {
   fpsRef?: MutableRefObject<() => number>;
   /** Kan kaldes for at gå hen til et objekt og undersøge det. */
   gaaTilRef?: MutableRefObject<((id: string) => void) | null>;
+  /** Til test: hovedpersonens vandrette plads i verden. */
+  spillerXRef?: MutableRefObject<(() => number) | null>;
   /** Platformbane: knapperne på skærmen og Æselørets hjælp. */
   baneRef?: MutableRefObject<BaneStyring | null>;
   /** Platformbane: en frivillig, svær bane uden hjælp. */
@@ -163,6 +165,7 @@ export function PhaserVerden(props: Props) {
         scene()?.gaaTilObjekt(id);
       };
     }
+    if (props.spillerXRef) props.spillerXRef.current = () => scene()?.spillerX() ?? NaN;
   });
 
   return (

@@ -650,10 +650,17 @@ export class KortScene extends Phaser.Scene {
     return { x: m.x, y: m.y, billede: billeder.find((b) => b.getData('y0') !== undefined) };
   }
 
+  /** Til test: hovedpersonens vandrette plads i verden. */
+  spillerX(): number {
+    return this.spiller ? Math.round(this.spiller.x) : NaN;
+  }
+
   laas(laast: boolean) {
     this.laast = laast;
     // Kun låsning stopper en tur. Ellers sletter oplåsningen efter en dialog en tur, der lige er startet.
     if (laast) this.vej = [];
+    // Slippes en tast under en dialog, opdager Phaser det ikke, og hovedpersonen går videre bagefter. Nulstil tasterne.
+    this.input.keyboard?.resetKeys();
     if (this.input.keyboard) this.input.keyboard.enabled = !laast;
   }
 
