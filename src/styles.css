@@ -3591,3 +3591,38 @@ dialog.modal.menu-skuffe {
     display: none;
   }
 }
+
+/* Overgangen ind i kampen (10. november 2026): ti bjælker af blæk glider ind og ud igen. */
+.kamp-overgang {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  grid-template-rows: repeat(10, 1fr);
+  pointer-events: none;
+  overflow: hidden;
+}
+.kamp-overgang span {
+  display: block;
+  background: #14112a;
+  box-shadow: 0 0 0 1px #14112a;
+  animation: kamp-bjaelke-v 1000ms steps(10) both;
+}
+.kamp-overgang span:nth-child(even) {
+  animation-name: kamp-bjaelke-h;
+}
+@keyframes kamp-bjaelke-v {
+  0% { transform: translateX(-100%); }
+  35%, 45% { transform: translateX(0); }
+  100% { transform: translateX(100%); }
+}
+@keyframes kamp-bjaelke-h {
+  0% { transform: translateX(100%); }
+  35%, 45% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .kamp-overgang {
+    display: none;
+  }
+}

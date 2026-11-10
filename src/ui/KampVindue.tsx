@@ -116,6 +116,11 @@ function nyOpgave(vaesen: VaesenId, niveau: number): KampOpgave {
   return o;
 }
 
+/** Sand, når eleven har bedt computeren om mindre bevægelse. Så er der ingen zoom, overgang eller slowmotion. */
+function roligBevaegelse(): boolean {
+  return typeof window !== 'undefined' && !!window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+}
+
 function regelFor(o: KampOpgave): { regel: string; eksempel: string } {
   if (o.vaesen === 'tomordet') return { regel: t('kamp.tomordet.regel'), eksempel: t('kamp.tomordet.eksempel') };
   if (o.vaesen === 'ekko') return { regel: t('rim.regel'), eksempel: t('rim.eksempel') };
@@ -211,6 +216,8 @@ export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, ta
   const [visLiv, setVisLiv] = useState<{ fjender: number[]; hold: Record<string, number> } | null>(null);
   const [ryst, setRyst] = useState<{ fjender: number[]; hold: MedlemId[]; skaerm: boolean; nr: number }>({ fjender: [], hold: [], skaerm: false, nr: 0 });
   const [oploest, setOploest] = useState<number[]>(() => kamp.fjender.filter((f) => f.liv <= 0).map((f) => f.nr));
+  const oploestRef = useRef(oploest);
+  oploestRef.current = oploest;
   // Kun de væsner, der falder til ro i denne afspilning, smelter. De, der allerede er væk, bliver væk (Henrik, 10. november 2026).
   const [smelter, setSmelter] = useState<number[]>([]);
   const [faldet, setFaldet] = useState<MedlemId[]>([]);
@@ -232,6 +239,32 @@ export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, ta
   useEffect(() => () => {
     if (afspilning.current.ur !== null) window.clearTimeout(afspilning.current.ur);
   }, []);
+
+  // Overgangen ind i kampen (Henrik, 10. november 2026): bjælker af blæk lukker og åbner skærmen som i gamle rollespil.
+  const [overgang, setOvergang] = useState(() => !roligBevaegelse());
+  useEffect(() => {
+    if (!overgang) return;
+    felt.current?.animate?.([{ scale: '1.25' }, { scale: '1.25', offset: 0.4 }, { scale: '1' }], { duration: 1000, easing: 'ease-out' });
+    const ur = window.setTimeout(() => setOvergang(false), 1000);
+    return () => window.clearTimeout(ur);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  /**
+   * Kameraet (Henrik, 10. november 2026): zoomer kort ind på den, der bliver ramt. Bruger CSS-egenskaben scale,
+   * så det ikke støder sammen med rystelsen, der bruger transform.
+   */
+  function kamera(x: number, y: number, zoom: number, varighed: number) {
+    if (!felt.current?.animate || roligBevaegelse()) return;
+    felt.current.animate(
+      [
+        { scale: '1', transformOrigin: `${x}% ${y}%` },
+        { scale: String(zoom), transformOrigin: `${x}% ${y}%`, offset: 0.35 },
+        { scale: String(zoom), transformOrigin: `${x}% ${y}%`, offset: 0.7 },
+        { scale: '1', transformOrigin: `${x}% ${y}%` },
+      ],
+      { duration: varighed, easing: 'ease-in-out' },
+    );
+  }
 
   // Kampmusik (9. november 2026): hurtig og ildevarslende, så længe kampen er åben. Bagefter spiller stedets musik igen.
   useEffect(() => {
@@ -307,6 +340,15 @@ export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, ta
     const tr = a.trin[a.i++];
     const lyd = lydForTrin(tr);
     if (lyd) spilEffekt(lyd);
+    // Det sidste væsen, der opløses, vises langsomt (som en filmisk slowmotion).
+    const sidste = !!tr.oploest?.length && kamp.fjender.every((f) => oploestRef.current.includes(f.nr) || tr.oploest!.includes(f.nr));
+    const fart = sidste && !roligBevaegelse() ? 0.5 : 1;
+    const ramt = tr.effekter.find((e) => e.type === 'nedslag' || e.type === 'oploes');
+    const angreb = tr.effekter.find((e) => e.type.startsWith('angreb-'));
+    // Varigheden er uden slowmotion: playbackRate herunder gør også kameraet langsommere.
+    if (ramt) kamera(ramt.x, ramt.y, sidste ? 1.3 : tr.effekter.some((e) => e.type === 'stort') ? 1.18 : 1.1, tr.varighed);
+    else if (angreb) kamera(angreb.tx ?? angreb.x, angreb.ty ?? angreb.y, 1.06, tr.varighed);
+    if (fart !== 1) requestAnimationFrame(() => felt.current?.getAnimations?.({ subtree: true }).forEach((x) => (x.playbackRate = fart)));
     setEffekter(tr.effekter.map((e) => ({ ...e, id: ++effektNr.current })));
     if (tr.linje) setLinje(t(tr.linje.noegle as TekstId, tr.linje.vaerdier));
     if (tr.fjendeLiv || tr.holdLiv)
@@ -327,7 +369,7 @@ export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, ta
       setSmelter((x) => [...x, ...tr.oploest!]);
     }
     if (tr.faldet) setFaldet((f) => [...new Set([...f, ...tr.faldet!])]);
-    a.ur = window.setTimeout(naesteTrin, tr.varighed);
+    a.ur = window.setTimeout(naesteTrin, tr.varighed / fart);
   }
 
   /** Spring animationerne over: alt sker med det samme. */
@@ -631,6 +673,13 @@ export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, ta
       <h2 className="sr-only">{t('kamp.titel')}</h2>
 
       <div className="kamp-skaerm" data-fase={visning.type}>
+        {overgang && (
+          <div className="kamp-overgang" aria-hidden="true">
+            {Array.from({ length: 10 }, (_, i) => (
+              <span key={i} style={{ animationDelay: `${(i % 5) * 40}ms` }} />
+            ))}
+          </div>
+        )}
         <div className="kamp-felt" ref={felt}>
           {baggrund && <img className="kamp-lag" src={baggrund} alt="" aria-hidden="true" />}
 
