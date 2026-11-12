@@ -15,6 +15,13 @@
       "kilde": "Kapitel 3 / k3-tomordet-moede.2",
       "lavet": "2026-11-01"
     },
+    "00167ba543a621": {
+      "figur": "fortaeller",
+      "tekst": "Jeg sorterer fodnoter hver morgen.",
+      "fil": "00167ba543a621.ogg",
+      "kilde": "Kapitel 5 / k5-rum.seddel.1",
+      "lavet": "2026-11-12"
+    },
     "002afb9c4f9454": {
       "figur": "aeseloere",
       "tekst": "Men hør. Plejer de ikke at holde en lille pause en gang imellem?",
@@ -140,6 +147,13 @@
       "fil": "00b254dfd52682.ogg",
       "kilde": "Kapitel 1 / k1-holm-2.2",
       "lavet": "2026-10-31"
+    },
+    "00ce3531c8852a": {
+      "figur": "aeseloere",
+      "tekst": "Eksempel: \"Jeg støver bøgerne af\" begynder med jeg. \"Han kommer altid for sent\" begynder med han.",
+      "fil": "00ce3531c8852a.ogg",
+      "kilde": "Kapitel 5 / k5-rum.laas.eksempel",
+      "lavet": "2026-11-12"
     },
     "00ce3ce31d0507": {
       "figur": "fortaeller",
@@ -792,6 +806,13 @@
       "kilde": "Kapitel 7 / halvebroen.ind.2",
       "lavet": "2026-11-12"
     },
+    "04017bbc66a643": {
+      "figur": "fortaeller",
+      "tekst": "Det er en gammel seddel med Fru Fodnotes lille, pæne skrift.",
+      "fil": "04017bbc66a643.ogg",
+      "kilde": "Kapitel 5 / k5-rum.seddel",
+      "lavet": "2026-11-12"
+    },
     "040840ac6d3624": {
       "figur": "fortaeller",
       "tekst": "Følg sporet hen til døren for enden af smøgen.",
@@ -1177,6 +1198,13 @@
       "kilde": "Råberens tegn / raab-22",
       "lavet": "2026-11-03"
     },
+    "065b114ccff9e8": {
+      "figur": "fortaeller",
+      "tekst": "Du sætter de tre messingskilte i rammerne. Så lyser tre tal-hjul op. Under dem står der: \"Jeg, han, hun. Hvor mange sætninger begynder med hvert ord i min gamle seddel?\"",
+      "fil": "065b114ccff9e8.ogg",
+      "kilde": "Kapitel 5 / k5-rum.laas.gaade",
+      "lavet": "2026-11-12"
+    },
     "065e45b76fb25b": {
       "figur": "aeseloere",
       "tekst": "Vi kan lede efter dem. Hvide blade med et ord på. De ligger her i lysningen.",
@@ -1520,6 +1548,13 @@
       "kilde": "Beskeder / bro.fejl.placering.4.hjemkomst",
       "lavet": "2026-11-05"
     },
+    "08828afbf202e9": {
+      "figur": "fortaeller",
+      "tekst": "Jeg kan godt lide stilhed.",
+      "fil": "08828afbf202e9.ogg",
+      "kilde": "Kapitel 5 / k5-rum.seddel.5",
+      "lavet": "2026-11-12"
+    },
     "08846e43b7eae3": {
       "figur": "aeseloere",
       "tekst": "Den sætning handler om pletterne. Find sætningen, der fortæller, hvad skikkelsen bar på.",
@@ -1554,6 +1589,13 @@
       "fil": "08c453f7aa014d.ogg",
       "kilde": "Stumme bogstaver / hvalp.saetning",
       "lavet": "2026-11-04"
+    },
+    "08f04894dec4d2": {
+      "figur": "fortaeller",
+      "tekst": "Hun har en meget lille støvekost.",
+      "fil": "08f04894dec4d2.ogg",
+      "kilde": "Kapitel 5 / k5-rum.seddel.4",
+      "lavet": "2026-11-12"
     },
     "091497577aa202": {
       "figur": "aeseloere",
@@ -1624,6 +1666,13 @@
       "fil": "0967a18360fff0.ogg",
       "kilde": "Kapitel 3 / k3-stumming.opgavetekst",
       "lavet": "2026-11-04"
+    },
+    "096a29954de935": {
+      "figur": "fortaeller",
+      "tekst": "Kapitel 1. Den glemte skuffe.",
+      "fil": "096a29954de935.ogg",
+      "kilde": "Titelkort / kapitel 1",
+      "lavet": "2026-11-12"
     },
     "0972f940ab450f": {
       "figur": "fortaeller",
@@ -1793,6 +1842,13 @@
       "kilde": "Kapitel 7 / k7-fristelse.4",
       "lavet": "2026-11-10"
     },
+    "0a591e66867944": {
+      "figur": "fortaeller",
+      "tekst": "Hun synes, at arkivet er for mørkt.",
+      "fil": "0a591e66867944.ogg",
+      "kilde": "Kapitel 5 / k5-rum.seddel.6",
+      "lavet": "2026-11-12"
+    },
     "0a61cf5d12d435": {
       "figur": "fortaeller",
       "tekst": "Sig farvel til Skyggen.",
@@ -1862,6 +1918,13 @@
       "fil": "0ad6ff39bbbd2c.ogg",
       "kilde": "Kapitel 3 / halvsang.start.2",
       "lavet": "2026-11-09"
+    },
+    "0ad7794f870320": {
+      "figur": "aeseloere",
+      "tekst": "Regel: Læs sedlen igen, og se på det første ord i hver sætning. En jeg-sætning fortæller om den, der skriver. En han- eller hun-sætning fortæller om en anden.",
+      "fil": "0ad7794f870320.ogg",
+      "kilde": "Kapitel 5 / k5-rum.laas.regel",
+      "lavet": "2026-11-12"
     },
     "0adf46fb9b7508": {
       "figur": "aeseloere",
@@ -2647,6 +2710,13 @@
       "kilde": "Kapitel 1 / k1-klatten.5",
       "lavet": "2026-10-31"
     },
+    "0f394ed36a48c2": {
+      "figur": "fortaeller",
+      "tekst": "I den nederste bog i bunken ligger et messingskilt som bogmærke. Du lægger det i tasken.",
+      "fil": "0f394ed36a48c2.ogg",
+      "kilde": "Kapitel 5 / k5-rum.bunke",
+      "lavet": "2026-11-12"
+    },
     "0f41467c6e3009": {
       "figur": "lup",
       "tekst": "Hm. Hm, hm. Undskyld, jeg tænker. Jeg har tænkt i tolv år.",
@@ -2766,6 +2836,13 @@
       "kilde": "Kapitel 5 / k5-kamp-slut.2",
       "lavet": "2026-11-09"
     },
+    "1004ad39cf333f": {
+      "figur": "fortaeller",
+      "tekst": "Han kommer altid for sent.",
+      "fil": "1004ad39cf333f.ogg",
+      "kilde": "Kapitel 5 / k5-rum.seddel.2",
+      "lavet": "2026-11-12"
+    },
     "1006e64abb93cc": {
       "figur": "fortaeller",
       "tekst": "Klatten er sur i dag.",
@@ -2821,6 +2898,13 @@
       "fil": "10372248d9a4e0.ogg",
       "kilde": "Kapitel 3 / k3-skilt.opgavetekst",
       "lavet": "2026-11-03"
+    },
+    "103af3e3c75355": {
+      "figur": "fortaeller",
+      "tekst": "Kartoteksskabet har tre små, tomme rammer i låsen. Der mangler noget, før du kan prøve koden.",
+      "fil": "103af3e3c75355.ogg",
+      "kilde": "Kapitel 5 / k5-rum.laas.mangler",
+      "lavet": "2026-11-12"
     },
     "10410174121b60": {
       "figur": "aeseloere",
@@ -3886,6 +3970,13 @@
       "kilde": "Kapitel 6 / k6-twist.7",
       "lavet": "2026-11-10"
     },
+    "156225554024bf": {
+      "figur": "fortaeller",
+      "tekst": "Jeg støver bøgerne af.",
+      "fil": "156225554024bf.ogg",
+      "kilde": "Kapitel 5 / k5-rum.seddel.3",
+      "lavet": "2026-11-12"
+    },
     "1562dae1f9f022": {
       "figur": "ord",
       "tekst": "kold",
@@ -3913,6 +4004,13 @@
       "fil": "156d3b5a076d4a.ogg",
       "kilde": "Beskeder / bro.fejl.placering.6.portal",
       "lavet": "2026-11-05"
+    },
+    "15834d016272b7": {
+      "figur": "fortaeller",
+      "tekst": "Tal-hjulene klikker på plads. Kartoteksskabet glider til side, og bag det er en lem i gulvet.",
+      "fil": "15834d016272b7.ogg",
+      "kilde": "Kapitel 5 / k5-rum.laas.aabnet",
+      "lavet": "2026-11-12"
     },
     "159f1e219204e7": {
       "figur": "aeseloere",
@@ -5923,6 +6021,13 @@
       "kilde": "Kapitel 6 / k6-krusedul.2",
       "lavet": "2026-11-10"
     },
+    "1fef73acc71021": {
+      "figur": "fortaeller",
+      "tekst": "Under hylden, bag en sok fra en gammel roman, ligger endnu et messingskilt. Du lægger det i tasken.",
+      "fil": "1fef73acc71021.ogg",
+      "kilde": "Kapitel 5 / k5-rum.kasse2",
+      "lavet": "2026-11-12"
+    },
     "1ff186fae2b54f": {
       "figur": "aeseloere",
       "tekst": "Det lød ikke godt. Det lød slet ikke godt.",
@@ -5954,5 +6059,5 @@
   },
   "model": "gemini-3.8-flash-tts",
   "i_alt": 1113,
-  "mangler": 263
+  "mangler": 248
 }
