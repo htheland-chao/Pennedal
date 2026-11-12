@@ -4,6 +4,7 @@ import {
   gaverFor,
   laesKode,
   laesRekordkode,
+  minNiveau,
   lavKode,
   nyTur,
   rekordkode,
@@ -27,10 +28,19 @@ describe('Blækdybet', () => {
     expect(a).not.toEqual(b);
   });
 
-  it('første rum er en blid ordsten, og hvert femte rum er et hvilested', () => {
+  it('første rum er en blid ordsten, og hvilestederne bliver sjældnere i dybet', () => {
     for (const froe of [1000, 4821, 9999]) {
       expect(rumFor(froe, 0).type).toBe('ordsten');
-      for (const d of [4, 9, 14, 19]) expect(rumFor(froe, d).type).toBe('hvile');
+      for (const d of [4, 9, 14, 23, 31]) expect(rumFor(froe, d).type).toBe('hvile');
+      for (const d of [19, 24, 29]) expect(rumFor(froe, d).type).not.toBe('hvile');
+    }
+  });
+
+  it('sværheden stiger med dybden, uanset elevens niveau, og topper på 5', () => {
+    expect([0, 2, 3, 6, 9, 12, 30].map(minNiveau)).toEqual([1, 1, 2, 3, 4, 5, 5]);
+    for (let d = 1; d < 40; d++) {
+      const r = rumFor(4821, d);
+      if (r.type !== 'hvile') expect(r.minNiveau).toBe(minNiveau(d));
     }
   });
 
@@ -43,6 +53,21 @@ describe('Blækdybet', () => {
         for (const v of r.vaesner) for (const s of VAESEN_INFO[v].slag) expect(r.slag).toContain(s);
         expect(erFaerdighed(r.faerdighed)).toBe(true);
       }
+  });
+
+  it('platformbaner kommer fra rum 2 og er steder med en bane i spillet', async () => {
+    const { kapitler } = await import('../content');
+    const steder = Object.fromEntries(kapitler.flatMap((k) => Object.entries(k.steder)));
+    let antal = 0;
+    for (let froe = 1000; froe < 1300; froe++)
+      for (let d = 0; d < 20; d++) {
+        const r = rumFor(froe, d);
+        if (r.type !== 'bane') continue;
+        antal++;
+        expect(d).toBeGreaterThanOrEqual(2);
+        expect(steder[r.sted]?.bane, r.sted).toBeTruthy();
+      }
+    expect(antal).toBeGreaterThan(300);
   });
 
   it('gaverne er altid tre forskellige', () => {
@@ -84,12 +109,12 @@ describe('Blækdybet', () => {
     expect(s.blaek).toBe(START_BLAEK);
     s = svar(s, false);
     expect(s.blaek).toBe(START_BLAEK - 1);
-    s = rumKlaret(s, { type: 'ordsten', art: 'synonym', antal: 2 });
+    s = rumKlaret(s, { type: 'ordsten', art: 'synonym', antal: 2, minNiveau: 1 });
     expect(svar(s, false).blaek).toBe(START_BLAEK - 1);
 
     // Stribe: alt rigtigt i et rum giver en dråbe tilbage.
     let r = vaelgGave({ ...nyTur(1), blaek: 2 }, 'stribe');
-    r = rumKlaret(svar(svar(r, true), true), { type: 'ordsten', art: 'synonym', antal: 2 });
+    r = rumKlaret(svar(svar(r, true), true), { type: 'ordsten', art: 'synonym', antal: 2, minNiveau: 1 });
     expect(r.blaek).toBe(3);
     expect(r.dybde).toBe(1);
   });

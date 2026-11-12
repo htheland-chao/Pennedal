@@ -222,5 +222,10 @@ export function alleLydtekster(stemmer = hentStemmer()) {
     for (const [traek, tekst] of Object.entries(h.planker)) tilfoej('fortaeller', tekst, `Historiebroen / ${h.id}.${traek}`);
     tilfoej('fortaeller', h.fremmed, `Historiebroen / ${h.id}.fremmed`);
   }
+  // Blækdybet (13. november 2026): fortælleren læser intro, regler, rum, gaver og slut op.
+  for (const id of ['dybet.intro', 'dybet.regel.blaek', 'dybet.regel.gaver', 'dybet.regel.rekord', 'dybet.gave.tekst', 'dybet.slut.tekst'])
+    tilfoej('fortaeller', t(id), `Blækdybet / ${id}`);
+  for (const rum of ['kamp', 'ordsten', 'hvile', 'bane']) tilfoej('fortaeller', t(`dybet.rum.${rum}.tekst`), `Blækdybet / rum.${rum}`);
+
   return ud;
 }

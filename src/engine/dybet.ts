@@ -2,7 +2,7 @@
  * Blækdybet (Henrik, 13. november 2026): en uendelig nedstigning, der låses op, når spillet er gennemført.
  * Ren logik, ingen React eller Phaser.
  *
- * - En tur er en række rum (kamp, ordsten, hvile). Rummene, væsnerne og gaverne bestemmes af et frø, så alle, der
+ * - En tur er en række rum (kamp, ordsten, platformbane, hvile). Rummene, væsnerne og gaverne bestemmes af et frø, så alle, der
  *   spiller samme udfordringskode (fx DYB-4821), får præcis den samme tur. Opgaverne følger elevens eget niveau.
  * - Blæk er liv: et forkert svar koster en dråbe. Når blækket er brugt, slutter turen.
  * - Rekorden er dybden (antal klarede rum) og derefter antal rigtige svar. Aldrig tid (krav 5: belønn aldrig fart).
@@ -17,9 +17,30 @@ export type OrdstenArt = 'synonym' | 'rim' | 'ikkerim' | 'fortaeller' | 'stavnin
 export type SlagId = 'synonym' | 'stumt' | 'rim' | 'fortaeller' | 'ret' | 'slut';
 
 export type Rum =
-  | { type: 'kamp'; vaesner: VaesenId[]; faerdighed: FaerdighedId; slag: SlagId[]; antal: number }
-  | { type: 'ordsten'; art: OrdstenArt; antal: number }
+  | { type: 'kamp'; vaesner: VaesenId[]; faerdighed: FaerdighedId; slag: SlagId[]; antal: number; minNiveau: number }
+  | { type: 'ordsten'; art: OrdstenArt; antal: number; minNiveau: number }
+  /** En platformbane fra spillet (stedets id). Ordstenene på banen giver opgaver i dybets sværhed. */
+  | { type: 'bane'; sted: BaneSted; minNiveau: number }
   | { type: 'hvile' };
+
+/** Platformbanerne fra kapitlerne, som dybet kan låne. Rækkefølgen bruges af frøet: tilføj kun til sidst. */
+export const BANER = ['tagene', 'viskestien', 'hvidesti', 'bjergstien', 'kammen', 'reolerne', 'soestenene', 'halvebroen'] as const;
+export type BaneSted = (typeof BANER)[number];
+
+/**
+ * Henrik, 13. november 2026: dybet er til de fagligt stærke elever og må bryde grundreglen om, at opgaverne følger
+ * elevens eget niveau. Fra dybde 3 hæves sværheden trin for trin, til alle møder det sværeste niveau fra dybde 12.
+ * Det er stadig muligt (samme opgaver som i spillet), men hårdt. Ingen tidsgrænser (krav 5 holdes).
+ */
+export function minNiveau(dybde: number): number {
+  if (dybde < 3) return 1;
+  return Math.min(5, 2 + Math.floor((dybde - 3) / 3));
+}
+
+/** Hvilesteder: hvert femte rum til og med dybde 14, derefter kun hvert ottende. */
+export function erHvile(dybde: number): boolean {
+  return dybde < 15 ? dybde % 5 === 4 : dybde % 8 === 7;
+}
 
 export type GaveId = 'blaek' | 'beholder' | 'vims' | 'klatten' | 'skjold' | 'stribe';
 export const GAVER: readonly GaveId[] = ['blaek', 'beholder', 'vims', 'klatten', 'skjold', 'stribe'];
@@ -61,7 +82,7 @@ export function laesKode(tekst: string): number | null {
   return m ? Number(m[1]) : null;
 }
 
-export function tilfaeldigtFrø(rnd: () => number = Math.random): number {
+export function tilfaeldigtFroe(rnd: () => number = Math.random): number {
   return 1000 + Math.floor(rnd() * 9000);
 }
 
@@ -70,19 +91,22 @@ export function tilfaeldigtFrø(rnd: () => number = Math.random): number {
 /** Rummet på en given dybde (0 er det første). Det samme frø og den samme dybde giver altid det samme rum. */
 export function rumFor(froe: number, dybde: number): Rum {
   const rnd = lavTilfaeldig(froe * 7919 + dybde * 104729 + 17);
-  // Det første rum er en ordsten, så man kommer blidt i gang. Hvert femte rum (4, 9, 14 ...) er et hvilested.
-  if (dybde === 0) return { type: 'ordsten', art: vaelg(['synonym', 'rim'] as const, rnd), antal: 2 };
-  if (dybde % 5 === 4) return { type: 'hvile' };
-  if (rnd() < 0.55) {
+  // Det første rum er en ordsten, så man kommer blidt i gang. Hvilestederne bliver sjældnere i dybet (erHvile).
+  if (dybde === 0) return { type: 'ordsten', art: vaelg(['synonym', 'rim'] as const, rnd), antal: 2, minNiveau: 1 };
+  if (erHvile(dybde)) return { type: 'hvile' };
+  const slag = rnd();
+  // Fra rum 2 kan der komme platformbaner (cirka hvert femte rum).
+  if (dybde >= 2 && slag >= 0.8) return { type: 'bane', sted: vaelg(BANER, rnd), minNiveau: minNiveau(dybde) };
+  if (slag < 0.45) {
     // Flere væsner jo dybere: 1 til at begynde med, 2 fra dybde 3, 3 fra dybde 8.
     const antalVaesner = dybde >= 8 ? 3 : dybde >= 3 ? 2 : 1;
     const hoved = vaelg(VAESNER, rnd);
     const vaesner: VaesenId[] = [hoved];
     while (vaesner.length < antalVaesner) vaesner.push(rnd() < 0.5 ? hoved : vaelg(VAESNER, rnd));
-    const slag = [...new Set(vaesner.flatMap((v) => VAESEN_INFO[v].slag))];
-    return { type: 'kamp', vaesner, faerdighed: VAESEN_INFO[hoved].faerdighed, slag, antal: Math.min(5, 3 + Math.floor(dybde / 6)) };
+    const slagListe = [...new Set(vaesner.flatMap((v) => VAESEN_INFO[v].slag))];
+    return { type: 'kamp', vaesner, faerdighed: VAESEN_INFO[hoved].faerdighed, slag: slagListe, antal: Math.min(5, 3 + Math.floor(dybde / 6)), minNiveau: minNiveau(dybde) };
   }
-  return { type: 'ordsten', art: vaelg(ORDSTEN, rnd), antal: Math.min(4, 2 + Math.floor(dybde / 6)) };
+  return { type: 'ordsten', art: vaelg(ORDSTEN, rnd), antal: Math.min(5, 2 + Math.floor(dybde / 5)), minNiveau: minNiveau(dybde) };
 }
 
 /** De tre gaver, man kan vælge mellem efter et rum. Altid tre forskellige. */
