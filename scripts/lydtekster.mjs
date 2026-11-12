@@ -218,6 +218,100 @@ export function alleLydtekster(stemmer = hentStemmer()) {
   tilfoej('aeseloere', `${t('feedback.regel')}: ${t('genre.regel')}`, 'Beskeder / genre.regel');
   tilfoej('aeseloere', `${t('feedback.eksempel')}: ${t('genre.eksempel')}`, 'Beskeder / genre.eksempel');
 
+  // Svarene i ordopgaver og kampe (13. november 2026): spørgsmålet, det rigtige svar og hvert forkert svar
+  // med Æseløres stemme, så al tekst er indtalt. Skabelonerne er de samme som i src/ui/OrdOpgaveVindue.tsx.
+  for (const o of laes('ord/synonymer.json').ord) {
+    tilfoej('fortaeller', t('kamp.tomordet.spoergsmaal', { ord: o.ord }), `Svar / synonym.${o.id}.spoergsmaal`);
+    tilfoej('aeseloere', t('kamp.tomordet.rigtig', { svar: o.svar, ord: o.ord }), `Svar / synonym.${o.id}.rigtig`);
+    for (const f of o.forkerte) tilfoej('aeseloere', t('kamp.tomordet.fejl', { valgt: f, ord: o.ord }), `Svar / synonym.${o.id}.${f}`);
+  }
+  const rimData = laes('ord/rim.json');
+  for (const o of rimData.rim) {
+    tilfoej('fortaeller', `${o.ord} ... ${o.ord} ... ${o.ord}`, `Svar / ekko.${o.ord}`);
+    for (const r of ['rim', 'ikkerim']) tilfoej('fortaeller', t(`rim.${r}.spoergsmaal`, { ord: o.ord }), `Svar / ${r}.${o.ord}.spoergsmaal`);
+    for (const x of o.rimer) {
+      tilfoej('aeseloere', t('rim.rim.rigtig', { svar: x, ord: o.ord }), `Svar / rim.${o.ord}.${x}`);
+      tilfoej('aeseloere', t('rim.ikkerim.fejl', { valgt: x, ord: o.ord }), `Svar / ikkerim.${o.ord}.${x}`);
+    }
+    for (const x of o.forkerte) {
+      tilfoej('aeseloere', t('rim.rim.fejl', { valgt: x, ord: o.ord }), `Svar / rim.${o.ord}.${x}`);
+      tilfoej('aeseloere', t('rim.ikkerim.rigtig', { svar: x, ord: o.ord }), `Svar / ikkerim.${o.ord}.${x}`);
+    }
+  }
+  for (const o of rimData.stavelser) {
+    const antal = o.dele.split('-').length;
+    tilfoej('fortaeller', t('rim.rytme.spoergsmaal', { ord: o.ord }), `Svar / rytme.${o.ord}.spoergsmaal`);
+    tilfoej('aeseloere', antal === 1 ? t('rim.rytme.rigtig.en', { ord: o.ord }) : t('rim.rytme.rigtig', { dele: o.dele, svar: antal }), `Svar / rytme.${o.ord}.rigtig`);
+    tilfoej('aeseloere', t('rim.rytme.fejl', { dele: o.dele }), `Svar / rytme.${o.ord}.fejl`);
+  }
+  for (const o of fort.fortsaet) {
+    tilfoej('aeseloere', t('fortaeller.fortsaet.rigtig', { svar: o.svar }), `Svar / fortsaet.${o.id}.rigtig`);
+    for (const f of o.forkerte) tilfoej('aeseloere', t('fortaeller.fortsaet.fejl', { valgt: f }), `Svar / fortsaet.${o.id}.${f}`);
+  }
+  for (const k of kor.tekster)
+    for (const f of k.fejl) {
+      tilfoej('fortaeller', t('korrektur.spoergsmaal', { ord: f.skrevet }), `Svar / korrektur.${k.id}.${f.skrevet}`);
+      tilfoej('aeseloere', t('korrektur.rigtig', { svar: f.rigtig }), `Svar / korrektur.${k.id}.${f.rigtig}`);
+      for (const valgt of [f.skrevet, f.ekstra].filter(Boolean)) tilfoej('aeseloere', t('korrektur.fejl', { valgt }), `Svar / korrektur.${k.id}.${valgt}`);
+    }
+  tilfoej('aeseloere', t('korrektur.ikke.fejl'), 'Svar / korrektur.ikke.fejl');
+  for (const [g, navn] of Object.entries(gen.navne)) {
+    tilfoej('aeseloere', t('genre.rigtig', { genre: navn }), `Svar / genre.${g}.rigtig`);
+    tilfoej('aeseloere', t('genre.fejl.klassificer', { valgt: navn }), `Svar / genre.${g}.fejl`);
+    for (const [andenG, liste] of Object.entries(gen.kendetegn))
+      if (andenG !== g) for (const k of liste) tilfoej('aeseloere', t('genre.fejl.kendetegn', { valgt: k, genre: navn.toLowerCase() }), `Svar / genre.${g}.${k}`);
+  }
+
+  // Svarene i kampene (src/ui/KampVindue.tsx: rigtig med svar og ord, fejl med valgt og ord).
+  for (const o of laes('ord/synonymer.json').ord) {
+    // Kampen bruger ordet, som det står i sætningen (fx med stort i starten).
+    const iSaetning = o.saetning.match(new RegExp(`(^|[^\\p{L}])(${o.ord})(?![\\p{L}])`, 'iu'))?.[2] ?? o.ord;
+    for (const ord of new Set([o.ord, iSaetning])) {
+      tilfoej('aeseloere', t('kamp.tomordet.rigtig', { svar: o.svar, ord }), `Kampsvar / tomordet.${o.id}`);
+      for (const f of o.forkerte.slice(0, 2)) tilfoej('aeseloere', t('kamp.tomordet.fejl', { valgt: f, ord }), `Kampsvar / tomordet.${o.id}.${f}`);
+    }
+  }
+  for (const o of stumme.ord) {
+    const iSaetning = o.saetning.match(new RegExp(`(^|[^\\p{L}])(${o.ord})(?![\\p{L}])`, 'iu'))?.[2] ?? o.ord;
+    tilfoej('aeseloere', t('kamp.stumming.rigtig', { ord: iSaetning, svar: o.ord[o.stumt] }), `Kampsvar / stumming.${o.ord}`);
+    const vist = `${iSaetning.slice(0, o.stumt)}_${iSaetning.slice(o.stumt + 1)}`;
+    tilfoej('fortaeller', t('kamp.stumming.spoergsmaal', { vist }), `Kampsvar / stumming.${o.ord}.spoergsmaal`);
+  }
+  for (const b of ['d', 'h', 'v']) tilfoej('aeseloere', t('kamp.stumming.fejl', { valgt: b }), `Kampsvar / stumming.fejl.${b}`);
+  for (const o of rimData.rim) {
+    for (const x of o.rimer) tilfoej('aeseloere', t('kamp.ekko.rigtig', { svar: x, ord: o.ord }), `Kampsvar / ekko.${o.ord}.${x}`);
+    for (const x of o.forkerte) tilfoej('aeseloere', t('kamp.ekko.fejl', { valgt: x, ord: o.ord }), `Kampsvar / ekko.${o.ord}.${x}`);
+  }
+  for (const o of fort.fortsaet) {
+    tilfoej('aeseloere', t('kamp.tvivl.rigtig', { svar: o.svar }), `Kampsvar / tvivl.${o.id}`);
+    for (const f of o.forkerte) tilfoej('aeseloere', t('kamp.tvivl.fejl', { valgt: f }), `Kampsvar / tvivl.${o.id}.${f}`);
+  }
+  for (const k of kor.tekster)
+    for (const f of k.fejl) {
+      tilfoej('aeseloere', t('kamp.krusedulle.rigtig', { svar: f.rigtig }), `Kampsvar / krusedulle.${k.id}.${f.rigtig}`);
+      for (const valgt of [f.skrevet, f.ekstra].filter(Boolean)) tilfoej('aeseloere', t('kamp.krusedulle.fejl', { valgt }), `Kampsvar / krusedulle.${k.id}.${valgt}`);
+      tilfoej('aeseloere', t('kamp.klatten.fejl', { ord: f.skrevet }), `Kampsvar / klatten.${k.id}.${f.skrevet}`);
+    }
+  for (const x of halv.slut) {
+    tilfoej('aeseloere', t('kamp.halvsaetning.rigtig', { svar: x.svar }), `Kampsvar / halvsaetning.${x.id}`);
+    for (const f of x.forkerte) tilfoej('aeseloere', t('kamp.halvsaetning.fejl', { valgt: f }), `Kampsvar / halvsaetning.${x.id}.${f}`);
+  }
+  for (const navn of Object.values(halv.tegnNavne ?? {})) {
+    tilfoej('aeseloere', t('kamp.halvsaetning.rigtig', { svar: navn }), `Kampsvar / halvsaetning.tegn.${navn}`);
+    tilfoej('aeseloere', t('kamp.halvsaetning.fejl', { valgt: navn }), `Kampsvar / halvsaetning.tegn.${navn}.fejl`);
+  }
+  for (const id of ['kamp.tomordet.spoergsmaal', 'kamp.tvivl.spoergsmaal', 'kamp.halvsaetning.spoergsmaal']) if (!id.includes('tomordet')) tilfoej('fortaeller', t(id), `Kampsvar / ${id}`);
+
+  // Og-ormen (kapitel 2): hele teksten og de stykker, der kommer, når eleven klipper ved et og.
+  for (const o of laes('ord/ogorm.json').tekster) {
+    const dele = o.tekst.replace(/\{n\}/g, '').split(/\s+og\{s\}\s+/);
+    for (let fra = 0; fra < dele.length; fra++)
+      for (let til = fra; til < dele.length; til++) tilfoej('fortaeller', dele.slice(fra, til + 1).join(' og ').replace(/\{[a-z]\}/g, ''), `Og-ormen / ${o.id}.${fra}-${til}`);
+  }
+
+  // Slutningen på en kamp og kampens forklaring.
+  for (const id of ['kamp.vundet', 'kamp.slaaet', 'kamp.forklaring']) tilfoej('fortaeller', t(id), `Kampe / ${id}`);
+
   for (const h of laes('ord/historiebro.json').historier) {
     for (const [traek, tekst] of Object.entries(h.planker)) tilfoej('fortaeller', tekst, `Historiebroen / ${h.id}.${traek}`);
     tilfoej('fortaeller', h.fremmed, `Historiebroen / ${h.id}.fremmed`);

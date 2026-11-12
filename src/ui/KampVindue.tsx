@@ -902,7 +902,7 @@ export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, ta
             <p className="kamp-slut-titel">{slut === 'vundet' ? t('kamp.slut.vundet') : t('kamp.slut.slaaet')}</p>
             <p>{slut === 'vundet' ? t('kamp.vundet') : t('kamp.slaaet')}</p>
             <div className="knaprad">
-              <LaesOpKnap tekst={slut === 'vundet' ? t('kamp.vundet') : t('kamp.slaaet')} auto />
+              <LaesOpKnap tekst={slut === 'vundet' ? t('kamp.vundet') : t('kamp.slaaet')} figur="fortaeller" auto />
               {slut === 'vundet' ? (
                 <button type="button" className="knap knap-primaer" onClick={onVundet} autoFocus>
                   {t('kamp.videre')}
@@ -922,7 +922,7 @@ export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, ta
         {hjaelp && (
           <div className="kamp-hud kamp-hjaelp">
             <p>{t('kamp.forklaring')}</p>
-            <LaesOpKnap tekst={t('kamp.forklaring')} ikon />
+            <LaesOpKnap tekst={t('kamp.forklaring')} figur="fortaeller" ikon />
           </div>
         )}
       </div>
