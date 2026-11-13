@@ -99,7 +99,8 @@ test('Blækdybet: en platformbane kan spilles og forlades', async ({ page }) => 
       await v.getByRole('button', { name: s.svar, exact: true }).click();
       await v.getByRole('button', { name: i === 0 ? 'Næste ord' : 'Videre ned', exact: true }).click();
     }
-    await page.locator('.dybet-gave').first().click();
+    // Gave efter rum 1 og derefter hvert tredje rum.
+    if (rum === 0) await page.locator('.dybet-gave').first().click();
   }
   await expect(page.getByRole('heading', { name: 'En sti over blækket' })).toBeVisible();
   await page.getByRole('button', { name: 'Gå ind' }).click();

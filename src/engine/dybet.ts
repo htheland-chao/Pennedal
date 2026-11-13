@@ -110,9 +110,22 @@ export function rumFor(froe: number, dybde: number): Rum {
 }
 
 /** De tre gaver, man kan vælge mellem efter et rum. Altid tre forskellige. */
-export function gaverFor(froe: number, dybde: number): GaveId[] {
+/**
+ * Gave efter rum 1 og derefter efter hvert tredje rum (spilletest 13. november 2026: en gave efter hvert rum
+ * gav så meget blæk, at stærke elever aldrig kom op igen, og turen blev lang og kedelig).
+ */
+export const faarGave = (dybde: number) => dybde === 1 || (dybde > 0 && dybde % 3 === 0);
+
+/** Gaver, man kun kan have én af (spilletest 13. november 2026: en gave mere af dem gør ingenting). */
+const EN_GANG: readonly GaveId[] = ['vims', 'klatten', 'stribe'];
+
+/**
+ * De tre gaver efter et rum. Samme kode og samme valg giver samme gaver. Gaver, man allerede har,
+ * og som kun virker én gang, kommer ikke igen.
+ */
+export function gaverFor(froe: number, dybde: number, har: readonly GaveId[] = []): GaveId[] {
   const rnd = lavTilfaeldig(froe * 31337 + dybde * 7 + 3);
-  const pulje = [...GAVER];
+  const pulje = GAVER.filter((g) => !(EN_GANG.includes(g) && har.includes(g)));
   const ud: GaveId[] = [];
   while (ud.length < 3) ud.push(pulje.splice(Math.floor(rnd() * pulje.length), 1)[0]);
   return ud;
@@ -131,26 +144,40 @@ export type Tur = {
   stribe: number;
   bedsteStribe: number;
   gaver: GaveId[];
-  /** Antal forkerte svar i det nuværende rum (til gaven skjold). */
+  /** Antal forkerte svar i det nuværende rum (til gaven stribe). */
   forkerteIRum: number;
+  /** Skjolde tilbage: så mange forkerte svar koster ikke blæk. */
+  skjold: number;
   slut: boolean;
 };
 
 export function nyTur(froe: number): Tur {
-  return { froe, dybde: 0, blaek: START_BLAEK, maksBlaek: MAKS_BLAEK, rigtige: 0, stribe: 0, bedsteStribe: 0, gaver: [], forkerteIRum: 0, slut: false };
+  return { froe, dybde: 0, blaek: START_BLAEK, maksBlaek: MAKS_BLAEK, rigtige: 0, stribe: 0, bedsteStribe: 0, gaver: [], forkerteIRum: 0, skjold: 0, slut: false };
 }
 
-/** Et svar i et rum. Et forkert svar koster en dråbe blæk, undtagen det første i hvert rum med gaven skjold. */
+/**
+ * Fra rum 25 koster et forkert svar to dråber, og fra rum 40 tre: trykket i dybet. Så slutter selv de bedste ture
+ * inden for en lektion eller to (simuleret 13. november 2026), og hvert rum kan stadig klares.
+ */
+export const TRYK_FRA = 24;
+export const STORT_TRYK_FRA = 39;
+export const SKJOLD_PR_GAVE = 2;
+
+/** Hvad et forkert svar koster i blæk på denne dybde. */
+export const fejlPris = (dybde: number) => (dybde >= STORT_TRYK_FRA ? 3 : dybde >= TRYK_FRA ? 2 : 1);
+
+/** Et svar i et rum. Et forkert svar koster blæk. Skjolde betaler først, én dråbe hver. */
 export function svar(tur: Tur, rigtigt: boolean): Tur {
   if (tur.slut) return tur;
   if (rigtigt) {
     const stribe = tur.stribe + 1;
     return { ...tur, rigtige: tur.rigtige + 1, stribe, bedsteStribe: Math.max(tur.bedsteStribe, stribe) };
   }
-  const skjold = tur.gaver.filter((g) => g === 'skjold').length;
-  const gratis = tur.forkerteIRum < skjold;
-  const blaek = gratis ? tur.blaek : tur.blaek - 1;
-  return { ...tur, stribe: 0, blaek, forkerteIRum: tur.forkerteIRum + 1, slut: blaek <= 0 };
+  // Et skjold tager én dråbe af prisen. Resten betales med blæk.
+  const pris = fejlPris(tur.dybde);
+  const skjold = Math.min(tur.skjold, pris);
+  const blaek = tur.blaek - (pris - skjold);
+  return { ...tur, stribe: 0, skjold: tur.skjold - skjold, blaek: Math.max(0, blaek), forkerteIRum: tur.forkerteIRum + 1, slut: blaek <= 0 };
 }
 
 /**
@@ -170,6 +197,7 @@ export function vaelgGave(tur: Tur, gave: GaveId): Tur {
   const gaver = [...tur.gaver, gave];
   if (gave === 'blaek') return { ...tur, gaver, blaek: Math.min(tur.maksBlaek, tur.blaek + 2) };
   if (gave === 'beholder') return { ...tur, gaver, maksBlaek: tur.maksBlaek + 1, blaek: tur.blaek + 1 };
+  if (gave === 'skjold') return { ...tur, gaver, skjold: tur.skjold + SKJOLD_PR_GAVE };
   return { ...tur, gaver };
 }
 

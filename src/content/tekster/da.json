@@ -756,7 +756,7 @@
   "dybet.titel": "Blækdybet",
   "dybet.intro": "Under den sidste side ligger Blækdybet. Her bor resterne af Den Ufærdiges halve historier. Gå så dybt ned, som du kan.",
   "dybet.regel.blaek": "Du har blæk. Et forkert svar koster en dråbe. Når blækket er brugt, er turen slut.",
-  "dybet.regel.gaver": "Efter hvert rum vælger du én af tre gaver.",
+  "dybet.regel.gaver": "Efter det første rum og siden hvert tredje rum vælger du én af tre gaver.",
   "dybet.regel.rekord": "Din rekord er, hvor dybt du kommer, og hvor mange rigtige svar du får. Tiden tæller ikke.",
   "dybet.din.rekord": "Din rekord: dybde {dybde} med {rigtige} rigtige.",
   "dybet.ny.tur": "Ny tur",
@@ -797,7 +797,7 @@
   "dybet.gave.klatten.navn": "Klatten følger med",
   "dybet.gave.klatten.tekst": "Klatten er med i alle kampe resten af turen.",
   "dybet.gave.skjold.navn": "Viskelæderskjold",
-  "dybet.gave.skjold.tekst": "Dit første forkerte svar i hvert rum koster ikke blæk.",
+  "dybet.gave.skjold.tekst": "To skjolde. Et skjold betaler en dråbe for dig, når du svarer forkert.",
   "dybet.gave.stribe.navn": "Fejlfri fjerpen",
   "dybet.gave.stribe.tekst": "Klarer du et rum uden fejl, får du en dråbe blæk tilbage.",
   "dybet.slut.titel": "Blækket er brugt",
@@ -805,5 +805,7 @@
   "dybet.ny.rekord": "Ny rekord!",
   "dybet.slut.tekst": "Du kravler op til den sidste side igen. Dybet venter, når du er klar.",
   "dybet.rekordkode": "Din rekordkode. Vis den til din lærer, eller skriv den på klassens liste:",
-  "dybet.igen.kode": "Prøv {kode} igen"
+  "dybet.igen.kode": "Prøv {kode} igen",
+  "dybet.skjold": "Skjolde: {antal}",
+  "dybet.tryk": "Så dybt nede trykker blækket: et forkert svar koster to dråber."
 }

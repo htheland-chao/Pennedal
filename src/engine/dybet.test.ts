@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   erBedre,
+  fejlPris,
   gaverFor,
   laesKode,
   laesRekordkode,
@@ -12,6 +13,7 @@ import {
   rumKlaret,
   START_BLAEK,
   svar,
+  TRYK_FRA,
   VAESEN_INFO,
   vaelgGave,
 } from './dybet';
@@ -70,8 +72,21 @@ describe('Blækdybet', () => {
     expect(antal).toBeGreaterThan(300);
   });
 
-  it('gaverne er altid tre forskellige', () => {
+  it('gaverne er altid tre forskellige, og en gave, der kun virker én gang, kommer ikke igen', () => {
     for (let d = 0; d < 50; d++) expect(new Set(gaverFor(4821, d)).size).toBe(3);
+    for (let d = 0; d < 50; d++) {
+      const g = gaverFor(4821, d, ['vims', 'klatten', 'stribe']);
+      expect(new Set(g).size).toBe(3);
+      for (const x of ['vims', 'klatten', 'stribe']) expect(g).not.toContain(x);
+    }
+  });
+
+  it('dybt nede (fra rum 25) koster et forkert svar to dråber, så selv de bedste ture slutter', () => {
+    expect(fejlPris(TRYK_FRA - 1)).toBe(1);
+    expect(fejlPris(TRYK_FRA)).toBe(2);
+    const t = svar({ ...nyTur(1), dybde: TRYK_FRA }, false);
+    expect(t.blaek).toBe(START_BLAEK - 2);
+    expect(svar({ ...nyTur(1), dybde: TRYK_FRA, blaek: 1 }, false)).toMatchObject({ blaek: 0, slut: true });
   });
 
   it('udfordringskoder tåler små bogstaver og mellemrum', () => {
@@ -103,12 +118,11 @@ describe('Blækdybet', () => {
     tur = vaelgGave({ ...tur, blaek: 5 }, 'blaek');
     expect(tur.blaek).toBe(6);
 
-    // Skjold: det første forkerte svar i hvert rum er gratis.
+    // Skjold: to forkerte svar er gratis. Så er skjoldet brugt (spilletest: før var det gratis i hvert rum).
     let s = vaelgGave(nyTur(1), 'skjold');
-    s = svar(s, false);
+    expect(s.skjold).toBe(2);
+    s = svar(svar(s, false), false);
     expect(s.blaek).toBe(START_BLAEK);
-    s = svar(s, false);
-    expect(s.blaek).toBe(START_BLAEK - 1);
     s = rumKlaret(s, { type: 'ordsten', art: 'synonym', antal: 2, minNiveau: 1 });
     expect(svar(s, false).blaek).toBe(START_BLAEK - 1);
 
