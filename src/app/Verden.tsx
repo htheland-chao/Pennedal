@@ -90,12 +90,14 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
   const fpsRef = useRef<() => number>(() => 0);
   const gaaTilRef = useRef<((id: string) => void) | null>(null);
   const spillerXRef = useRef<(() => number) | null>(null);
+  const baneKameraRef = useRef<(() => { x: number; y: number; sx: number; sy: number } | null) | null>(null);
   // Til test (kun med ?hop): lad gennemspilningen gå hen til et objekt og undersøge det.
   useEffect(() => {
     if (typeof location === 'undefined' || !new URLSearchParams(location.search).has('hop')) return;
     (window as unknown as { __pennedal?: unknown }).__pennedal = {
       gaaTil: (id: string) => gaaTilRef.current?.(id),
       spillerX: () => spillerXRef.current?.() ?? NaN,
+      baneKamera: () => baneKameraRef.current?.() ?? null,
     };
   }, []);
   const baneRef = useRef<BaneStyring | null>(null);
@@ -458,6 +460,7 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
           baneRef={baneRef}
           gaaTilRef={gaaTilRef}
           spillerXRef={spillerXRef}
+          baneKameraRef={baneKameraRef}
         />
         {sted.bane && !laast && (
           // Knapper på skærmen til platformbanen (touch og mus). Tastatur: pilene, A og D, og mellemrum eller W for at hoppe.
