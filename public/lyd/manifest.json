@@ -526,6 +526,13 @@
       "kilde": "Kapitel 4 / k4-moerke.1",
       "lavet": "2026-11-09"
     },
+    "028ee4adc3d375": {
+      "figur": "fortaeller",
+      "tekst": "Kapitel 2. Byen uden punktummer.",
+      "fil": "028ee4adc3d375.ogg",
+      "kilde": "Titelkort / kapitel 2",
+      "lavet": "2026-11-13"
+    },
     "02914b63addb16": {
       "figur": "fortaeller",
       "tekst": "Inde fra et andet rum er der nogen, der griner.",
@@ -2205,6 +2212,13 @@
       "fil": "0c6460d9fb799f.ogg",
       "kilde": "Kapitel 5 / k5-twist.8",
       "lavet": "2026-11-10"
+    },
+    "0c6cb7ab6d7f0e": {
+      "figur": "fortaeller",
+      "tekst": "Hjælp hr. Holm med at finde ud af, hvorfor ordene forsvinder fra bøgerne på skolebiblioteket.",
+      "fil": "0c6cb7ab6d7f0e.ogg",
+      "kilde": "Titelkort / kapitel 1.maal",
+      "lavet": "2026-11-13"
     },
     "0c708b420b71df": {
       "figur": "fortaeller",
@@ -6059,5 +6073,5 @@
   },
   "model": "gemini-3.8-flash-tts",
   "i_alt": 2138,
-  "mangler": 1273
+  "mangler": 1271
 }
