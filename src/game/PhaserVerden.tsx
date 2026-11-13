@@ -33,6 +33,8 @@ type Props = {
   gaaTilRef?: MutableRefObject<((id: string) => void) | null>;
   /** Til test: hovedpersonens vandrette plads i verden. */
   spillerXRef?: MutableRefObject<(() => number) | null>;
+  /** Til test: hvor hovedpersonen står på banen, og hvor på skærmen. */
+  baneKameraRef?: MutableRefObject<(() => { x: number; y: number; sx: number; sy: number } | null) | null>;
   /** Platformbane: knapperne på skærmen og Æselørets hjælp. */
   baneRef?: MutableRefObject<BaneStyring | null>;
   /** Platformbane: en frivillig, svær bane uden hjælp. */
@@ -187,6 +189,12 @@ export function PhaserVerden(props: Props) {
       };
     }
     if (props.spillerXRef) props.spillerXRef.current = () => scene()?.spillerX() ?? NaN;
+    if (props.baneKameraRef) {
+      props.baneKameraRef.current = () => {
+        const s = scene();
+        return s instanceof BaneScene ? s.kameraInfo() : null;
+      };
+    }
   });
 
   return (
