@@ -15,7 +15,7 @@ import { appendFileSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSyn
 import { join, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { taleTekst } from '../src/content/lydnoegle.mjs';
-import { alleLydtekster, hentStemmer } from './lydtekster.mjs';
+import { alleLydtekster, erDialog, hentStemmer } from './lydtekster.mjs';
 
 const ROD = fileURLToPath(new URL('..', import.meta.url));
 const MAPPE = resolve(process.env.LYD_MAPPE || join(ROD, 'public/lyd'));
@@ -158,14 +158,24 @@ async function main() {
     }
   }
 
-  // Introen og tasken først: de ses af alle, og Google tillader kun 100 klip i døgnet på Tier 1.
-  const forrest = (p) => (/^(Introen|Tasken) \//.test(p.kilde) ? 0 : 1);
+  // Dialogen først (den kræver hovedmodellen), og introen og tasken forrest: de ses af alle.
+  // Google tillader kun 100 klip i døgnet pr. model på Tier 1.
+  const forrest = (p) => (erDialog(p.kilde) ? 0 : 2) + (/^(Introen|Tasken) \//.test(p.kilde) ? 0 : 1);
   const mangler = poster.filter((p) => !m.filer[p.noegle]).sort((a, b) => forrest(a) - forrest(b));
   const lavet = [];
   const fejl = [];
   let stop = '';
   let googleSvar = '';
   let fatal = false;
+  // Henrik, 13. november 2026: dialog altid med hovedmodellen. Andre tekster med hovedmodellen, så længe dens kvote
+  // rækker, og derefter med Lite-modellen (egen kvote). Nøglen er den samme, så spillet finder klippet uanset model.
+  const brugt = new Set();
+  const lite = stemmer.modelLite || null;
+  const modelFor = (p) => {
+    if (!brugt.has(stemmer.model)) return stemmer.model;
+    if (!erDialog(p.kilde) && lite && !brugt.has(lite)) return lite;
+    return null;
+  };
 
   if (!kunStatus && mangler.length > 0) {
     if (!NOEGLE) {
@@ -178,31 +188,48 @@ async function main() {
         fatal = true;
       }
     } else {
-      for (const p of mangler.slice(0, MAKS)) {
-        try {
-          const lyd = await hentLyd(p.tekst, stemmer.figurer[p.figur], stemmer.model, stemmer.udtale);
-          const fil = `${p.noegle}.ogg`;
-          await tilOgg(lyd, join(MAPPE, fil));
-          m.filer[p.noegle] = { figur: p.figur, tekst: p.tekst, fil, kilde: p.kilde, lavet: new Date().toISOString().slice(0, 10) };
-          lavet.push(p);
-          skrivManifest(m);
-          console.log(`Lavet: ${p.kilde} (${p.figur})`);
-        } catch (e) {
-          if (e instanceof KvoteBrugt) {
-            stop = 'Dagens kvote hos Google er brugt. Resten bliver lavet ved næste kørsel.';
-            googleSvar = e.message;
+      let slut = false;
+      for (const p of mangler) {
+        if (lavet.length >= MAKS || slut) break;
+        // Prøv igen med Lite-modellen, hvis hovedmodellens kvote slipper op midt i (kun tekster, der ikke er dialog).
+        let spurgt = false;
+        for (;;) {
+          const model = modelFor(p);
+          if (!model) {
+            // Begge kvoter er brugt: stop. Ellers er resten dialog, som venter til i morgen.
+            if (brugt.has(stemmer.model) && (!lite || brugt.has(lite))) slut = true;
             break;
           }
-          if (e instanceof StopFejl) {
-            stop = e.message;
-            fatal = true;
-            process.exitCode = 1;
-            break;
+          try {
+            spurgt = true;
+            const lyd = await hentLyd(p.tekst, stemmer.figurer[p.figur], model, stemmer.udtale);
+            const fil = `${p.noegle}.ogg`;
+            await tilOgg(lyd, join(MAPPE, fil));
+            m.filer[p.noegle] = { figur: p.figur, tekst: p.tekst, fil, kilde: p.kilde, lavet: new Date().toISOString().slice(0, 10), model };
+            lavet.push({ ...p, model });
+            skrivManifest(m);
+            console.log(`Lavet: ${p.kilde} (${p.figur}, ${model})`);
+          } catch (e) {
+            if (e instanceof KvoteBrugt) {
+              brugt.add(model);
+              googleSvar = e.message;
+              stop = 'Dagens kvote hos Google er brugt. Resten bliver lavet ved næste kørsel.';
+              continue;
+            }
+            if (e instanceof StopFejl) {
+              stop = e.message;
+              fatal = true;
+              slut = true;
+              process.exitCode = 1;
+              break;
+            }
+            fejl.push(`${p.kilde}: ${e.message}`);
+            console.error(`Fejl ved ${p.kilde}: ${e.message}`);
           }
-          fejl.push(`${p.kilde}: ${e.message}`);
-          console.error(`Fejl ved ${p.kilde}: ${e.message}`);
+          break;
         }
-        if (PAUSE) await vent(PAUSE);
+        // Kun pause efter et rigtigt kald til Google (ikke for dialog, der springes over til i morgen).
+        if (PAUSE && spurgt) await vent(PAUSE);
       }
     }
   }
@@ -224,8 +251,8 @@ async function main() {
   if (googleSvar) linjer.push('', 'Googles svar:', '', '```', googleSvar.replace(/```/g, ''), '```');
   if (fejl.length) linjer.push('', '**Fejl:**', ...fejl.map((f) => `- ${f}`));
   if (lavet.length) {
-    linjer.push('', 'Lyt dem igennem på siden med `?lyd=1` efter adressen, før du godkender.', '', '| Figur | Tekst | Nøgle |', '| --- | --- | --- |');
-    for (const p of lavet) linjer.push(`| ${p.figur} | ${p.tekst.replace(/\|/g, '/')} | \`${p.noegle}\` |`);
+    linjer.push('', 'Lyt dem igennem på siden med `?lyd=1` efter adressen, før du godkender.', '', '| Figur | Tekst | Model | Nøgle |', '| --- | --- | --- | --- |');
+    for (const p of lavet) linjer.push(`| ${p.figur} | ${p.tekst.replace(/\|/g, '/')} | ${p.model === stemmer.model ? 'hoved' : 'lite'} | \`${p.noegle}\` |`);
   }
   skrivStatus(linjer);
   if (!fatal && fejl.length > 0 && lavet.length === 0) process.exitCode = 1;

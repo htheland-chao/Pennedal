@@ -10,7 +10,7 @@ import { renTekst } from '../src/content';
 import kapitel1 from '../src/content/kapitler/kapitel1.json';
 import { lydNoegle } from '../src/content/lydnoegle.mjs';
 import stemmer from '../src/content/stemmer.json';
-import { alleLydtekster } from '../scripts/lydtekster.mjs';
+import { alleLydtekster, erDialog } from '../scripts/lydtekster.mjs';
 
 const poster = alleLydtekster();
 const harFfmpeg = spawnSync('ffmpeg', ['-version']).status === 0;
@@ -125,9 +125,67 @@ describe('lydklip', () => {
           return x.tekst === r.text && f.stemme === r.voice && f.stil === r.style;
         });
         expect(p, r.text).toBeDefined();
-        expect(r.model).toBe(stemmer.model);
+        // Dialog altid med hovedmodellen. Andre tekster må prøves med Lite-modellen, når hovedmodellens kvote er brugt.
+        if (erDialog(p!.kilde)) expect(r.model).toBe(stemmer.model);
+        else expect([stemmer.model, stemmer.modelLite]).toContain(r.model);
         expect(r.key).toBe('test-noegle');
       }
+    } finally {
+      server.close();
+      rmSync(mappe, { recursive: true, force: true });
+    }
+  });
+
+  it('dialog laves kun med hovedmodellen, og andre tekster med Lite-modellen, når hovedmodellens kvote er brugt', () => {
+    expect(erDialog('Kapitel 3 / k3-moede.2')).toBe(true);
+    expect(erDialog('Introen / intro.1')).toBe(true);
+    expect(erDialog('Klattens tekster / k01')).toBe(true);
+    expect(erDialog('Kampe / kamp.tomordet.lyt')).toBe(true);
+    expect(erDialog('Kampsvar / tomordet.s01')).toBe(false);
+    expect(erDialog('Kampe og opgaver / x')).toBe(false);
+    expect(erDialog('Svar / synonym.s01')).toBe(false);
+    expect(erDialog('Beskeder / rum.forkert')).toBe(false);
+    expect(stemmer.modelLite).toMatch(/lite/);
+  });
+
+  it.skipIf(!harFfmpeg)('bruger Lite-modellen til tekster, der ikke er dialog, når hovedmodellens kvote er brugt', { timeout: 60_000 }, async () => {
+    const wav = spawnSync('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-f', 'lavfi', '-i', 'sine=frequency=440:duration=0.4', '-ar', '24000', '-ac', '1', '-c:a', 'pcm_s16le', '-f', 'wav', 'pipe:1']).stdout;
+    const modtaget: { model: string; text: string }[] = [];
+    let hoved = 0;
+    const server = createServer((req, res) => {
+      let krop = '';
+      req.on('data', (d) => (krop += d));
+      req.on('end', () => {
+        const j = JSON.parse(krop);
+        modtaget.push({ model: j.model, text: j.input[0].content[0].text });
+        if (j.model === stemmer.model && ++hoved > 1) {
+          res.writeHead(429, { 'content-type': 'application/json' });
+          res.end(JSON.stringify({ error: { message: 'Quota exceeded for metric: requests per day' } }));
+          return;
+        }
+        res.writeHead(200, { 'content-type': 'application/json' });
+        res.end(JSON.stringify({ steps: [{ type: 'model_output', content: [{ type: 'audio', mime_type: 'audio/wav', data: wav.toString('base64') }] }] }));
+      });
+    });
+    await new Promise<void>((ok) => server.listen(0, '127.0.0.1', ok));
+    const port = (server.address() as AddressInfo).port;
+    const mappe = mkdtempSync(join(tmpdir(), 'pennedal-lyd-'));
+    try {
+      const kode = await new Promise<number>((ok) => {
+        const p = spawn(process.execPath, ['scripts/lav-lyd.mjs'], {
+          env: { ...process.env, GEMINI_API_KEY: 'test-noegle', GEMINI_BASE: `http://127.0.0.1:${port}`, LYD_MAPPE: mappe, LYD_STATUS_FIL: join(mappe, 'status.md'), LYD_MAKS: '4', LYD_PAUSE_MS: '0', GITHUB_STEP_SUMMARY: '' },
+          stdio: 'ignore',
+        });
+        p.on('close', (k) => ok(k ?? 1));
+      });
+      expect(kode).toBe(0);
+      const m = JSON.parse(readFileSync(join(mappe, 'manifest.json'), 'utf8')) as { filer: Record<string, { kilde: string; model: string }> };
+      const filer = Object.values(m.filer);
+      expect(filer).toHaveLength(4);
+      // Det første klip er dialog med hovedmodellen. Resten er lavet med Lite og er ikke dialog.
+      expect(filer.filter((f) => f.model === stemmer.model)).toHaveLength(1);
+      for (const f of filer.filter((x) => x.model === stemmer.modelLite)) expect(erDialog(f.kilde), f.kilde).toBe(false);
+      expect(filer.filter((f) => f.model === stemmer.modelLite).length).toBe(3);
     } finally {
       server.close();
       rmSync(mappe, { recursive: true, force: true });

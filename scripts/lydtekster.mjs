@@ -6,6 +6,17 @@ import { renTekst } from './tekster.mjs';
 
 const laes = (sti) => JSON.parse(readFileSync(new URL(`../src/content/${sti}`, import.meta.url), 'utf8'));
 
+/**
+ * Henrik, 13. november 2026: replikker fra figurerne (dialog) skal altid indtales med hovedmodellen. Lite-modellen
+ * laver for vigtige fejl til dem. Regler, svar, beskeder og andre tekster, der ikke er historiens dialog, må laves med
+ * Lite-modellen, som har sin egen dagskvote. kilde er "Kategori / ...", som alleLydtekster giver den.
+ */
+const DIALOG = ['Introen', 'Minder', 'Titelkort', 'Gemmekode', 'Klattens tekster', 'Kampe'];
+export function erDialog(kilde) {
+  const kategori = kilde.split(' / ')[0];
+  return kategori.startsWith('Kapitel ') || DIALOG.includes(kategori);
+}
+
 export function hentStemmer() {
   return laes('stemmer.json');
 }

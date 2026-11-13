@@ -1,6 +1,8 @@
 export type FigurStemme = { stemme: string; stil: string };
 export type StemmeOpsaetning = {
   model: string;
+  /** Til tekster, der ikke er dialog, når hovedmodellens kvote er brugt (13. november 2026). */
+  modelLite?: string;
   figurer: Record<string, FigurStemme>;
   udtale?: Record<string, string>;
 };
