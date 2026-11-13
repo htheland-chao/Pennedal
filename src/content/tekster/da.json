@@ -653,7 +653,7 @@
   "korrektur.instruks": "Klatten har lavet {antal} fejl i teksten. Tryk på et ord, der er stavet forkert.",
   "korrektur.instruks.en": "Klatten har lavet én fejl mere. Tryk på det ord, der er stavet forkert.",
   "korrektur.faerdig": "Hele teksten er rettet.",
-  "korrektur.ikke.fejl": "{ord} er stavet rigtigt. Prøv et andet ord.",
+  "korrektur.ikke.fejl": "Det ord er stavet rigtigt. Prøv et andet ord.",
   "korrektur.find.regel": "Læs langsomt, ord for ord. Spørg dig selv, om ordet ser ud, som det plejer.",
   "korrektur.find.eksempel": "Klatten skriver lille med ét l. Ser det rigtigt ud? Nej, lille skal have to l'er.",
   "korrektur.spoergsmaal": "Hvordan staves {ord} rigtigt?",

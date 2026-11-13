@@ -88,7 +88,7 @@ export function OgormOpgave({ tekst, api }: { tekst: OgTekst; api: OpgaveApi }) 
               {si < dele.length - 1 && <span className="orm-punktum">.</span>}
             </div>
             {hoved && <img className="orm-hoved" src={hoved} alt="" aria-hidden="true" />}
-            <LaesOpKnap tekst={stykkeTekst(stykke)} ikon />
+            <LaesOpKnap tekst={stykkeTekst(stykke)} figur="fortaeller" ikon />
           </div>
         ))}
       </div>

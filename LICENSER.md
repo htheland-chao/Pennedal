@@ -3,6 +3,8 @@
 - **Pixelify Sans** (overskrifter og navne): SIL Open Font License 1.1, via `@fontsource/pixelify-sans`.
 - **Baggrundsmusik:** Komponeret til Pennedal og skrevet som noder i `src/ui/musik/sange.ts`. Tonerne laves i browseren, så der er ingen lydfiler og ingen fremmed licens.
 - **Grafik:** Al grafik er stadig pladsholdere tegnet med kode i projektet. Pixelgrafikken tegnes i `src/game/pixel/` ud fra tegnkort i `sprites.ts` (udendørs) og `inde.ts` (biblioteket og kælderen). Introen og Theland Studios' mærke (en fjerpen i et blækhus) tegnes i `src/game/pixel/intro.ts`, tingene i tasken i `src/game/pixel/ting.ts` minderne (tilbageblik) i `src/game/pixel/minder.ts` og Vims, Tomordet og Stummingen i `src/game/pixel/viskeskov.ts`. Avataren i menuerne tegnes i `src/ui/avatarSvg.ts`. `src/game/tegn.ts` bruges kun til steder uden kort. Billeder i ordkort og opgaver er emoji, som computerens egen skrifttype tegner. De er også pladsholdere.
+- **Ikonet i browserfanen** (`public/favicon.svg`): en gylden fjerpen over en blækklat, tegnet til Pennedal (13. november 2026).
+- **Lydeffekter:** Laves med kode i browseren i `src/ui/effekter.ts`. Ingen lydfiler og ingen fremmed licens.
 - **Stemmer:** Lydklippene i `public/lyd` er lavet med Google Gemini TTS (model og stemmer står i `src/content/stemmer.json`). Google gør ikke krav på det genererede indhold, jf. Gemini API Additional Terms of Service. Klippene laves kun ud fra spillets egne tekster.
 - **Atkinson Hyperlegible** (standardskrift): SIL Open Font License 1.1, via @fontsource.
 - **OpenDyslexic** (ordblindevenlig skrift): SIL Open Font License 1.1, via @fontsource.
