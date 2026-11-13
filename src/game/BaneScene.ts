@@ -37,6 +37,8 @@ export class BaneScene extends Phaser.Scene {
   private hopBuffer = 0;
   /** Hvor langt kameraet kigger frem. */
   private fremad = 0;
+  /** Kameraets midte vandret. Glider efter hovedpersonen. */
+  private kamX = 0;
   private retning: 1 | -1 = 1;
   private gaaTid = 0;
   private ur = 0;
@@ -142,8 +144,10 @@ export class BaneScene extends Phaser.Scene {
     const skov = tema === 'viskesti';
 
     // Baggrunden er halvt så bred plus skærmen, fordi den flytter sig med halv fart.
+    // Kameraet zoomer om sin midte, så baggrunden (som ikke følger med lodret) flyttes, så den står det samme sted
+    // med fin grafik (SKALA 2) som med hurtig (SKALA 1).
     this.add
-      .image(0, 0, this.tekstur(`px-bane-bag-${tema}`, (skov ? tegnSkovBaggrund : bjerg ? tegnBjergBaggrund : tema === 'arkiv' ? tegnArkivBaggrund : tema === 'blaeksoe' ? tegnSoeBaggrund : tema === 'halve' ? tegnHalvBaggrund : tegnByBaggrund)(Math.ceil(W / 2) + VIS_B, Math.max(H, VIS_H)), true))
+      .image((VIS_B * (SKALA - 1)) / 4, (VIS_H * (SKALA - 1)) / 2, this.tekstur(`px-bane-bag-${tema}`, (skov ? tegnSkovBaggrund : bjerg ? tegnBjergBaggrund : tema === 'arkiv' ? tegnArkivBaggrund : tema === 'blaeksoe' ? tegnSoeBaggrund : tema === 'halve' ? tegnHalvBaggrund : tegnByBaggrund)(Math.ceil(W / 2) + VIS_B, Math.max(H, VIS_H)), true))
       .setOrigin(0)
       .setScrollFactor(0.5, 0)
       .setDepth(-2);
@@ -200,10 +204,12 @@ export class BaneScene extends Phaser.Scene {
     }
 
     const cam = this.cameras.main;
-    // Tegnes i høj opløsning som kortet (SKALA). Med origo i hjørnet er scrollX venstre kant af det, man ser.
-    cam.setOrigin(0, 0).setBounds(0, 0, W, Math.max(H, VIS_H)).setRoundPixels(true);
+    // Tegnes i høj opløsning som kortet (SKALA). Kameraet styres med centerOn som på kortet (Henrik, 13. november 2026):
+    // med origo i hjørnet og zoom 2 (fin grafik) så man himlen i stedet for banen, fordi scroll og zoom ikke passede sammen.
+    cam.setBounds(0, 0, W, Math.max(H, VIS_H)).setRoundPixels(true);
     cam.setZoom(SKALA);
-    cam.centerOn(fra.x, VIS_H / 2);
+    this.kamX = fra.x;
+    cam.centerOn(fra.x, this.kamY());
     this.fremad = 0;
 
     const kb = this.input.keyboard;
@@ -235,6 +241,13 @@ export class BaneScene extends Phaser.Scene {
   /** Til test: hovedpersonens vandrette plads i verden. */
   spillerX(): number {
     return this.spiller ? Math.round(this.spiller.x) : NaN;
+  }
+  /** Til test: hovedpersonens plads i verden og på skærmen (0-1 af det, kameraet viser). */
+  kameraInfo() {
+    const v = this.cameras.main.worldView;
+    const x = this.spiller?.x ?? NaN;
+    const y = this.spiller?.y ?? NaN;
+    return { x: Math.round(x), y: Math.round(y), sx: (x - v.x) / v.width, sy: (y - v.y) / v.height };
   }
 
   laas(laast: boolean) {
@@ -483,9 +496,14 @@ export class BaneScene extends Phaser.Scene {
     const cam = this.cameras.main;
     // Fremadkigget glider for sig selv, så en vending ikke giver et ryk (10. november 2026).
     this.fremad = glid(this.fremad, this.retning * 30, dt, 2.5);
-    cam.scrollX = glid(cam.scrollX, x + this.fremad - VIS_B / 2, dt, 5);
-    cam.scrollY = Math.max(0, this.bane.hoejde * BFELT - VIS_H);
+    this.kamX = glid(this.kamX, x + this.fremad, dt, 5);
+    cam.centerOn(this.kamX, this.kamY());
     this.taage?.setPosition(Math.round(x), Math.round(y - 10));
+  }
+
+  /** Midten af det, kameraet viser lodret: banens bund står nederst i billedet. */
+  private kamY() {
+    return Math.max(VIS_H / 2, this.bane.hoejde * BFELT - VIS_H / 2);
   }
 
   /** Den højde, Klatten løber i: øverste faste felt under ham, ellers samme højde. */

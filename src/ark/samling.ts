@@ -5,6 +5,8 @@
 import { AVATAR_DELE, AVATAR_GRAENSER, STANDARD_AVATAR } from '../engine/gem';
 import { PORTRAETTER } from '../game/pixel/portraetter';
 import { finFigur } from '../game/pixel/fin';
+import { kampRammer } from '../game/pixel/kampliv';
+import { EKKO } from '../game/pixel/rimbjerg';
 import { portraetBilleder, type PortraetFigur } from '../game/pixel/levende';
 import {
   avatarPixel,
@@ -80,6 +82,24 @@ export function grupper(): Gruppe[] {
       skala: 4,
       ensStoerrelse: true,
       elementer: avatarValg,
+    },
+    {
+      id: 'kamp-liv',
+      titel: 'Liv i kampen: stå, træk vejret, læn frem og spred benene, træk vejret (fine figurer)',
+      skala: 4,
+      elementer: (
+        [
+          ['hovedperson', avatarPixel(STANDARD_AVATAR, 'hoejre', 0), 1, true],
+          ['vims', VIMS, 1, true],
+          ['klatten', KLATTEN, 1, true],
+          ['tomordet', TOMORD, -1, false],
+          ['stumming', STUMMING, -1, true],
+          ['ekko', EKKO, -1, true],
+          ['tvivl', TVIVL, -1, false],
+          ['krusedulle', KRUSEDULLE, -1, true],
+          ['halvsaetning', HALVSAETNING, -1, false],
+        ] as const
+      ).flatMap(([navn, kort, r, ben]) => kampRammer(kort, r, ben).map((k, i) => ({ navn: `${navn} ${i}`, kort: finFigur(k) }))),
     },
     {
       id: 'avatar-fin',
