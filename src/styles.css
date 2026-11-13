@@ -3749,3 +3749,296 @@ dialog.modal.menu-skuffe {
     animation: none;
   }
 }
+
+/* ============================================================
+   Blækdybet (13. november 2026): en mørk dybde med kort i titelskærmens stil.
+   ============================================================ */
+.dybet {
+  min-height: 100vh;
+  padding: 1.5rem 1rem 3rem;
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  gap: 1rem;
+  color: #f4efe0;
+  background:
+    radial-gradient(ellipse at 50% -10%, rgb(240 196 90 / 0.18), transparent 55%),
+    radial-gradient(circle at 20% 80%, rgb(80 60 140 / 0.35), transparent 40%),
+    linear-gradient(180deg, #1a1838 0%, #0b0a1c 60%, #05040e 100%);
+  position: relative;
+  overflow-x: hidden;
+}
+/* Langsomme blækbobler, der stiger op fra dybet. */
+.dybet::before,
+.dybet::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle, rgb(140 120 220 / 0.35) 0 3px, transparent 4px),
+    radial-gradient(circle, rgb(240 196 90 / 0.25) 0 2px, transparent 3px);
+  background-size: 180px 220px, 260px 300px;
+  background-position: 20px 0, 90px 60px;
+  animation: dybet-bobler 22s linear infinite;
+  opacity: 0.6;
+}
+.dybet::after {
+  background-size: 300px 340px, 140px 200px;
+  animation-duration: 34s;
+  opacity: 0.35;
+}
+@keyframes dybet-bobler {
+  from { background-position: 20px 0, 90px 60px; }
+  to { background-position: 20px -660px, 90px -600px; }
+}
+.dybet-kort {
+  position: relative;
+  z-index: 1;
+  width: min(36rem, 100%);
+  padding: 1.4rem 1.4rem 1.2rem;
+  background: rgb(14 16 34 / 0.88);
+  border: 4px solid #f0c45a;
+  box-shadow: 0 0 0 4px #1d1a2a, 6px 6px 0 4px rgb(0 0 0 / 0.45);
+}
+.dybet-kort .knap {
+  color: #1b1b24;
+}
+.dybet-kort .knap-diskret {
+  color: #fbf7ec;
+}
+.dybet-hud .lille-tekst {
+  color: #c9c3e0;
+}
+.dybet-kort .knap-primaer {
+  border-image-source: var(--knap-guld);
+  color: #2a170f;
+  font-weight: 700;
+}
+.dybet-kort :focus-visible {
+  outline: 3px solid #fbf7ec;
+  outline-offset: 3px;
+}
+.dybet-titel {
+  margin: 0 0 0.6rem;
+  font-family: var(--pixelskrift);
+  font-size: clamp(2.2rem, 7vw, 3.6rem);
+  color: #f0c45a;
+  text-shadow: 0 3px 0 #8a5a1e, 3px 3px 0 #1d1a2a;
+  text-align: center;
+}
+.dybet-kort h2 {
+  font-family: var(--pixelskrift);
+  color: #f0c45a;
+  margin: 0.2rem 0 0.6rem;
+}
+.dybet-regler {
+  padding-left: 1.2rem;
+}
+.dybet-regler li {
+  margin: 0.3rem 0;
+}
+.dybet-rekord,
+.dybet-ny-rekord {
+  font-weight: 700;
+  color: #f0c45a;
+}
+.dybet-ny-rekord {
+  font-size: 1.4rem;
+  animation: niveau-glimt 1.2s ease-out;
+}
+.dybet-kodeform {
+  display: grid;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+.dybet-kodeform label {
+  display: grid;
+  gap: 0.3rem;
+}
+.dybet-kodeform input {
+  font-size: 1.2rem;
+  padding: 0.5rem 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: #fbf7ec;
+  color: #1b1b24;
+  border: 3px solid #1d1a2a;
+}
+.dybet-hud {
+  position: relative;
+  z-index: 1;
+  width: min(36rem, 100%);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 1.2rem;
+  padding: 0.6rem 1rem;
+  background: rgb(14 16 34 / 0.75);
+  border: 2px solid rgb(240 196 90 / 0.6);
+}
+.dybet-hud p {
+  margin: 0;
+}
+.dybet-dybde {
+  font-family: var(--pixelskrift);
+  font-size: 1.4rem;
+  color: #f0c45a;
+}
+.dybet-blaek {
+  display: flex;
+  gap: 0.25rem;
+}
+/* En blækdråbe tegnet med CSS. Tom dråbe er kun en kant. */
+.dybet-draabe {
+  width: 0.95rem;
+  height: 0.95rem;
+  border: 2px solid #8c78dc;
+  border-radius: 0 50% 50% 50%;
+  transform: rotate(45deg);
+}
+.dybet-draabe.fuld {
+  background: radial-gradient(circle at 35% 35%, #8c78dc, #2c1f6b 70%);
+  box-shadow: 0 0 6px rgb(140 120 220 / 0.7);
+}
+.dybet-gaver-liste {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.85rem;
+}
+.dybet-gaver-liste li {
+  padding: 0.1rem 0.45rem;
+  border: 1px solid rgb(240 196 90 / 0.6);
+}
+.dybet-rum-nr {
+  margin: 0;
+  font-family: var(--pixelskrift);
+  color: #c9c2d6;
+}
+.dybet-rum-kamp {
+  border-color: #c85a5a;
+}
+.dybet-rum-hvile {
+  border-color: #ffe9a8;
+  box-shadow: 0 0 0 4px #1d1a2a, 0 0 40px 6px rgb(255 214 120 / 0.35);
+}
+.dybet-gaver {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
+  gap: 0.7rem;
+  margin-top: 0.8rem;
+}
+.dybet-gave {
+  display: grid;
+  gap: 0.35rem;
+  justify-items: center;
+  padding: 0.9rem 0.7rem;
+  font: inherit;
+  text-align: center;
+  color: #1b1b24;
+  background: #f4efe0;
+  border: 3px solid #1d1a2a;
+  box-shadow: 0 4px 0 #8a5a1e;
+  cursor: pointer;
+  transition: transform 0.12s ease-out;
+}
+.dybet-gave:hover,
+.dybet-gave:focus-visible {
+  transform: translateY(-3px);
+  outline: 3px solid #f0c45a;
+}
+/* Gavernes ikoner er små CSS-figurer (ingen bogstaver i grafikken). */
+.dybet-gave-ikon {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: #8c78dc;
+}
+.dybet-gave-blaek,
+.dybet-gave-beholder {
+  border-radius: 0 50% 50% 50%;
+  transform: rotate(45deg) scale(0.85);
+  background: radial-gradient(circle at 35% 35%, #8c78dc, #2c1f6b 70%);
+}
+.dybet-gave-beholder {
+  outline: 3px solid #f0c45a;
+}
+.dybet-gave-vims {
+  background: radial-gradient(circle at 50% 30%, #e7d6f2 0 45%, transparent 46%), linear-gradient(#f2a7b0 55%, #8fb3e0 55%);
+  border-radius: 40% 40% 20% 20%;
+}
+.dybet-gave-klatten {
+  background: #1d1a2a;
+  border-radius: 50% 50% 45% 45% / 30% 30% 70% 70%;
+  box-shadow: inset 6px -4px 0 -3px #fff, inset -6px -4px 0 -3px #fff;
+}
+.dybet-gave-skjold {
+  background: linear-gradient(135deg, #f2a7b0, #e46c7a);
+  border-radius: 20% 20% 50% 50%;
+}
+.dybet-gave-stribe {
+  background: linear-gradient(135deg, transparent 40%, #f0c45a 40% 60%, transparent 60%);
+  border-radius: 0;
+}
+.dybet-slut-tal {
+  font-size: 1.15rem;
+}
+.dybet-rekordkode {
+  font-family: ui-monospace, monospace;
+  font-size: 1.5rem;
+  letter-spacing: 0.06em;
+  padding: 0.5rem 0.8rem;
+  background: #fbf7ec;
+  color: #1b1b24;
+  text-align: center;
+  user-select: all;
+}
+.titel-menu .knap-dybet {
+  color: #f4efe0;
+  border-image-source: none;
+  border: 3px solid #8c78dc;
+  background: rgb(44 31 107 / 0.85);
+  box-shadow: 0 0 12px rgb(140 120 220 / 0.6);
+}
+@media (prefers-reduced-motion: reduce) {
+  .dybet::before,
+  .dybet::after,
+  .dybet-ny-rekord {
+    animation: none;
+  }
+}
+
+/* Blækdybet: en platformbane fylder hele skærmen, så den kan ses på en Chromebook (1366 x 768). */
+.dybet-bane {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.75rem;
+  background: #07060f;
+  color: #fbf7ec;
+}
+.dybet-bane .spilflade-ramme {
+  width: min(100%, calc((100vh - 6rem) * 16 / 9));
+}
+.dybet-bane-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem 1.2rem;
+}
+.dybet-bane-bar p {
+  margin: 0;
+}
+.dybet-bane-bar .knap-diskret {
+  color: #fbf7ec;
+}
