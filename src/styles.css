@@ -4222,3 +4222,34 @@ dialog.modal.taske-vindue .ting-tekst {
   font-style: normal;
   font-weight: 700;
 }
+/* Kampens Hjælp-knap og kvitteringen nederst til højre har samme pixelramme som resten (13. november 2026). */
+.kampscene .kamp-hjaelp-knap {
+  border: 10px solid transparent;
+  border-image: var(--pixelramme-moerk) 4 fill / 10px / 0 stretch;
+  border-radius: 0;
+  background: none;
+  min-height: 2.75rem;
+  padding: 0.1rem 0.5rem;
+  font-weight: 600;
+}
+.kampscene .kamp-hjaelp-knap:focus-visible {
+  outline: 3px solid #f0c45a;
+  outline-offset: 2px;
+}
+.kvittering {
+  border: 12px solid transparent;
+  border-image: var(--pixelramme-papir) 4 fill / 12px / 0 stretch;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  filter: drop-shadow(4px 5px 0 rgb(0 0 0 / 0.35));
+  padding: 0.4rem 0.6rem;
+}
+@media (forced-colors: active) {
+  .kampscene .kamp-hjaelp-knap,
+  .kvittering {
+    border-image: none;
+    border: 3px solid CanvasText;
+    background: Canvas;
+  }
+}
