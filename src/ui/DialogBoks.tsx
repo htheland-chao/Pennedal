@@ -3,7 +3,7 @@ import { useApp } from './Kontekst';
 import { daempMusik } from './musik/afspiller';
 import { t, type DialogValg, type Replik, type TekstId, type ValgMulighed } from '../content';
 import { Modal } from './Modal';
-import { PixelPortraet } from './PixelPortraet';
+import { LevendePortraet } from './PixelPortraet';
 import { LaesOpKnap, Tekst } from './Tekst';
 
 
@@ -33,6 +33,14 @@ export function DialogBoks({ replikker: grund, onFaerdig, onTaler, valg, onValg 
   const skalVaelge = !!valg && !valgt && sidste;
   const { indstillinger } = useApp();
   const [naeste, setNaeste] = useState<number | null>(null);
+  /** Munden i portrættet bevæger sig, mens repliken læses op, og kort, når en ny replik kommer frem. */
+  const [taler, setTaler] = useState(false);
+  const [nyReplik, setNyReplik] = useState(true);
+  useEffect(() => {
+    setNyReplik(true);
+    const tid = setTimeout(() => setNyReplik(false), 900);
+    return () => clearTimeout(tid);
+  }, [nr]);
 
   useEffect(() => {
     onTaler?.(r.taler);
@@ -82,12 +90,12 @@ export function DialogBoks({ replikker: grund, onFaerdig, onTaler, valg, onValg 
     <Modal titel={navn} klasse={`dialogboks taler-${r.taler}`}>
       <div className="dialog-indhold">
         <div className="portraet" aria-hidden="true">
-          <PixelPortraet figur={r.taler} />
+          <LevendePortraet figur={r.taler} taler={taler || nyReplik} />
         </div>
         <div className="dialog-tekst">
           <p className="taler-navn">
             {navn}
-            <LaesOpKnap tekst={r.tekst} figur={r.taler} auto key={nr} vedFaerdig={vedFaerdig} ikon />
+            <LaesOpKnap tekst={r.tekst} figur={r.taler} auto key={nr} vedFaerdig={vedFaerdig} vedTale={setTaler} ikon />
           </p>
           <p className={r.taler === 'fortaeller' ? 'fortaeller' : ''} aria-live="polite">
             <Tekst tekst={r.tekst} />

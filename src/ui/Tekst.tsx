@@ -48,6 +48,8 @@ type LaesOpProps = {
   figur?: Figur;
   /** Kaldes, når oplæsningen er nået helt til ende (ikke ved stop eller fejl). */
   vedFaerdig?: () => void;
+  /** Kaldes med sand, når oplæsningen begynder, og falsk, når den stopper. Bruges til portrættets mund. */
+  vedTale?: (taler: boolean) => void;
   /** Bruges ikke mere: knappen er altid et lille ikon. Findes, så gamle kald stadig passer. */
   ikon?: boolean;
 };
@@ -57,7 +59,7 @@ type LaesOpProps = {
  * Hver del bruger spillets indtalte klip, hvis det findes, og ellers computerens egen stemme.
  * Med auto starter oplæsningen af sig selv, når "Læs tekster op automatisk" er slået til.
  */
-export function LaesOpKnap({ tekst, dele, kunLokal, etiket, auto, figur, vedFaerdig }: LaesOpProps) {
+export function LaesOpKnap({ tekst, dele, kunLokal, etiket, auto, figur, vedFaerdig, vedTale }: LaesOpProps) {
   const { indstillinger } = useApp();
   const findes = useStemmeFindes();
   const { manifest, klar } = useLydManifest();
@@ -74,6 +76,11 @@ export function LaesOpKnap({ tekst, dele, kunLokal, etiket, auto, figur, vedFaer
   const styrke = indstillinger.taleStyrke;
   const vedFaerdigRef = useRef(vedFaerdig);
   vedFaerdigRef.current = vedFaerdig;
+  const vedTaleRef = useRef(vedTale);
+  vedTaleRef.current = vedTale;
+  useEffect(() => {
+    vedTaleRef.current?.(taler);
+  }, [taler]);
   const koersel = useRef(0);
   /** Sand, mens netop denne knap læser op. Så stopper den ikke andres oplæsning. */
   const spiller = useRef(false);

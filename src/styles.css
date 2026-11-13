@@ -1130,6 +1130,20 @@ input[type='range'] {
   }
 }
 
+/* Pixelportrætter i dialogen. Mens figuren taler, vipper portrættet en smule op og ned (pixeltrin). */
+.portraet .pixel-portraet.taler {
+  animation: portraet-tale 0.36s steps(1) infinite;
+}
+@keyframes portraet-tale {
+  50% {
+    transform: translateY(-2px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .portraet .pixel-portraet.taler {
+    animation: none;
+  }
+}
 /* Pixelportrætter i dialogen. */
 .portraet .pixel-portraet {
   width: 100%;

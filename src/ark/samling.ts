@@ -4,6 +4,7 @@
  */
 import { AVATAR_DELE, AVATAR_GRAENSER, STANDARD_AVATAR } from '../engine/gem';
 import { PORTRAETTER } from '../game/pixel/portraetter';
+import { portraetBilleder, type PortraetFigur } from '../game/pixel/levende';
 import {
   avatarPixel,
   BLADE,
@@ -58,6 +59,19 @@ export function grupper(): Gruppe[] {
       skala: 6,
       forventet: { b: 24, h: 24 },
       elementer: Object.entries(PORTRAETTER).map(([navn, kort]) => ({ navn, kort })),
+    },
+    {
+      id: 'portraetter-liv',
+      titel: 'Levende portrætter: blink og åben mund',
+      skala: 6,
+      forventet: { b: 24, h: 24 },
+      elementer: (Object.keys(PORTRAETTER) as PortraetFigur[]).flatMap((navn) => {
+        const b = portraetBilleder(navn);
+        return [
+          { navn: `${navn} blink`, kort: b.blink },
+          { navn: `${navn} tale`, kort: b.tale },
+        ];
+      }),
     },
     {
       id: 'avatar-valg',
