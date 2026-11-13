@@ -1,5 +1,6 @@
 {
   "model": "gemini-3.8-flash-tts",
+  "modelLite": "gemini-3.8-flash-lite-tts",
   "figurer": {
     "fortaeller": {
       "stemme": "Vindemiatrix",
