@@ -316,6 +316,28 @@ export class KortScene extends Phaser.Scene {
         // Den Ufærdiges blege øjne ses i mørket: de ligger over lyslaget.
         const oejne = { raekker: UFAERDIGE_KORT.raekker.map((r) => r.replace(/[^E]/g, '.')), palet: UFAERDIGE_KORT.palet };
         billeder.push(this.add.image(midte.x, midte.y, this.tekstur('px-ufaerdige-oejne', oejne)).setOrigin(0.5, 1).setDepth(1_000_001));
+        // Blækrøg stiger op fra Den Ufærdige (13. november 2026): små mørke fnug, der svæver op og blegner.
+        const b = Math.max(...UFAERDIGE_KORT.raekker.map((r) => r.length));
+        const h = UFAERDIGE_KORT.raekker.length;
+        let n = 0;
+        this.time.addEvent({
+          delay: 160,
+          loop: true,
+          callback: () => {
+            const figur = billeder[0] as Phaser.GameObjects.Image | undefined;
+            if (!figur?.visible) return;
+            n++;
+            const fx = midte.x + (hash(n, 7) - 0.5) * b * 0.9;
+            const fy = midte.y - hash(n, 13) * h * 0.8;
+            // Hvert tredje fnug er blegt og ses også i mørket (det ligger over lyslaget som øjnene).
+            const bleg = n % 3 === 0;
+            const fnug = this.add
+              .rectangle(fx, fy, bleg ? 1 : 2, 1, bleg ? 0x9a90d0 : 0x0b0a14)
+              .setDepth(bleg ? 1_000_000 : midte.y + 1)
+              .setAlpha(bleg ? 0.55 : 0.85);
+            this.tweens.add({ targets: fnug, y: fy - 10 - hash(n, 5) * 8, x: fx + (hash(n, 3) - 0.5) * 6, alpha: 0, duration: 1300, ease: 'Sine.Out', onComplete: () => fnug.destroy() });
+          },
+        });
       }
       if (o.lys) {
         billeder.push(this.add.image(midte.x + 7, midte.y - 9, 'px-lanterne').setOrigin(0.5, 1).setDepth(midte.y + 1));

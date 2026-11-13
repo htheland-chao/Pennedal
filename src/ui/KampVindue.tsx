@@ -7,6 +7,7 @@ import { lavHalvsaetningOpgave } from '../mechanics/halvsaetning';
 import type { Avatar } from '../engine/gem';
 import type { Haendelse as Tilpasning } from '../engine/tilpasning';
 import { FJENDE_PLADS, HOLD_PLADS, KAMP_B, KAMP_H, MARKOER, tegnKampBaggrund } from '../game/pixel/kampscene';
+import { finFigur } from '../game/pixel/fin';
 import { tegnkortTilLerred } from '../game/pixel/lerred';
 import { avatarPixel, FUGL, KLATTEN, type Tegnkort } from '../game/pixel/sprites';
 import { STUMMING, TOMORD, VIMS } from '../game/pixel/viskeskov';
@@ -162,6 +163,11 @@ function plads([x, y]: [number, number], kort: Tegnkort, skala = 1): CSSProperti
   const b = bredde(kort) * skala;
   const h = kort.raekker.length * skala;
   return { left: `${((x - b / 2) / KAMP_B) * 100}%`, top: `${((y - h) / KAMP_H) * 100}%`, width: `${(b / KAMP_B) * 100}%` };
+}
+/** En blød skygge på jorden under en figur (13. november 2026), så figurerne står på scenen. */
+function fodskygge([x, y]: [number, number], kort: Tegnkort, skala = 1): CSSProperties {
+  const b = bredde(kort) * skala * 0.8;
+  return { left: `${((x - b / 2) / KAMP_B) * 100}%`, top: `${((y - 3) / KAMP_H) * 100}%`, width: `${(b / KAMP_B) * 100}%`, height: `${(6 / KAMP_H) * 100}%` };
 }
 /** Et punkt i procent af scenen. */
 const procent = ([x, y]: [number, number]): [number, number] => [(x / KAMP_B) * 100, (y / KAMP_H) * 100];
@@ -692,10 +698,11 @@ export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, ta
             const [ex, ey] = procent([sted[0], sted[1] - kort.raekker.length * FJENDE_SKALA - 4]);
             return (
               <div key={f.nr}>
+                {!vaek && <span className="kamp-fodskygge" aria-hidden="true" style={fodskygge(sted, kort, FJENDE_SKALA)} />}
                 <img
                   key={`${f.nr}-${ramt ? ryst.nr : 0}-${vaek}`}
                   className={`kamp-sprite kamp-fjende${vaek ? (smelter.includes(f.nr) && visning.type === 'afspil' ? ' rolig' : ' borte') : ramt ? ' ramt' : ''}${f.lammet && !vaek ? ' lammet' : ''}`}
-                  src={uri(`vaesen.spejlet.${f.vaesen}`, kort)}
+                  src={uri(`vaesen.spejlet.fin.${f.vaesen}`, () => tegnkortTilLerred(finFigur(kort)))}
                   alt=""
                   aria-hidden="true"
                   style={plads(sted, kort, FJENDE_SKALA)}
@@ -730,10 +737,11 @@ export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, ta
             const nede = faldet.includes(m.id) && livMedlem(m.id) <= 0;
             return (
               <div key={m.id}>
+                {!nede && <span className="kamp-fodskygge hold" aria-hidden="true" style={fodskygge(HOLD_PLADS[i], kort, HOLD_SKALA)} />}
                 <img
                   key={`${m.id}-${ramt ? ryst.nr : 0}`}
                   className={`kamp-sprite kamp-medlem${nede ? ' faldet' : ''}${ramt ? ' ramt' : ''}${slut === 'vundet' ? ' jubler' : ''}`}
-                  src={uri(m.id === 'avatar' ? `avatar.hoejre.${JSON.stringify(avatar)}` : `medlem.spejlet.${m.id}`, kort)}
+                  src={uri(m.id === 'avatar' ? `avatar.hoejre.fin.${JSON.stringify(avatar)}` : `medlem.spejlet.fin.${m.id}`, () => tegnkortTilLerred(finFigur(kort)))}
                   alt=""
                   aria-hidden="true"
                   style={{ ...plads(HOLD_PLADS[i], kort, HOLD_SKALA), animationDelay: `${i * 0.2}s` }}
