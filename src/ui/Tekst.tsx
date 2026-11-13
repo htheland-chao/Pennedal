@@ -148,6 +148,9 @@ export function LaesOpKnap({ tekst, dele, kunLokal, etiket, auto, figur, vedFaer
   }, [noegle, auto, klar, findes, indstillinger.oplaesning, indstillinger.stemme, kunLokal]);
 
   if (liste.length === 0 || (!findes && !urls.some((u) => u))) return null;
+  // Henrik, 13. november 2026: når teksten læses op af sig selv med indtalt stemme, er knappen overflødig og skjules.
+  // Den bliver, hvor eleven har slået automatisk oplæsning fra, hvor der ikke er auto, eller hvor et klip mangler.
+  if (auto && indstillinger.oplaesning && kanAlt) return null;
   const navn = taler ? t('dialog.stop') : (etiket ?? t('dialog.laes.op'));
   // Altid et lille ikon (Henrik, 9. november 2026): navnet står i aria-label og title, så skærmlæsere og
   // musen stadig kan se, hvad knappen gør.
