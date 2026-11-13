@@ -25,9 +25,13 @@ test('fin grafik, der går for langsomt, skifter selv til hurtig', async ({ page
   test.setTimeout(90_000);
   // Lad som om, det ikke er en automatisk test, så spillet vælger fin grafik som hos en elev.
   await page.addInitScript(() => Object.defineProperty(navigator, 'webdriver', { get: () => false }));
-  // Gør browseren langsom med vilje (som en svag Chromebook), så testen ikke afhænger af, hvor hurtig testmaskinen er.
-  const cdp = await page.context().newCDPSession(page);
-  await cdp.send('Emulation.setCPUThrottlingRate', { rate: 8 });
+  // Gør spillet langsomt med vilje (som en svag Chromebook): hvert billede venter 45 ms, så spillet højst når ca. 20
+  // billeder pr. sekund, uanset hvor hurtig testmaskinen er. Før blev CPU'en bremset 8 gange, men på en hurtig
+  // GitHub-maskine nåede spillet alligevel over 40 billeder pr. sekund en gang imellem, og testen fejlede tilfældigt.
+  await page.addInitScript(() => {
+    const raf = window.requestAnimationFrame.bind(window);
+    window.requestAnimationFrame = (cb) => window.setTimeout(() => raf(cb), 45) as unknown as number;
+  });
   await page.goto('/?hop=kaelder');
   await expect(page.locator('main.verden')).toBeVisible({ timeout: 30_000 });
   const bredde = () => page.evaluate(() => document.querySelector('canvas')?.width);
