@@ -4,6 +4,8 @@
  */
 import { AVATAR_DELE, AVATAR_GRAENSER, STANDARD_AVATAR } from '../engine/gem';
 import { PORTRAETTER } from '../game/pixel/portraetter';
+import { finFigur } from '../game/pixel/fin';
+import { portraetBilleder, type PortraetFigur } from '../game/pixel/levende';
 import {
   avatarPixel,
   BLADE,
@@ -60,11 +62,36 @@ export function grupper(): Gruppe[] {
       elementer: Object.entries(PORTRAETTER).map(([navn, kort]) => ({ navn, kort })),
     },
     {
+      id: 'portraetter-liv',
+      titel: 'Levende portrætter: blink og åben mund',
+      skala: 6,
+      forventet: { b: 24, h: 24 },
+      elementer: (Object.keys(PORTRAETTER) as PortraetFigur[]).flatMap((navn) => {
+        const b = portraetBilleder(navn);
+        return [
+          { navn: `${navn} blink`, kort: b.blink },
+          { navn: `${navn} tale`, kort: b.tale },
+        ];
+      }),
+    },
+    {
       id: 'avatar-valg',
       titel: 'Avatardesigneren: hvert valg for sig, resten som standard',
       skala: 4,
       ensStoerrelse: true,
       elementer: avatarValg,
+    },
+    {
+      id: 'avatar-fin',
+      titel: 'Fin hovedperson (32 x 48, vist i halv størrelse i verden): almindelig og fin',
+      skala: 4,
+      elementer: [
+        ...retninger.filter((e) => e.navn.endsWith(' 0')).flatMap((e) => [
+          { navn: `${e.navn} 16x24`, kort: { raekker: e.kort.raekker.flatMap((r) => { const d = [...r].map((c) => c + c).join(''); return [d, d]; }), palet: e.kort.palet } },
+          { navn: `${e.navn} fin`, kort: finFigur(e.kort) },
+        ]),
+        ...avatarValg.filter((_, i) => i % 3 === 0).map((e) => ({ navn: `${e.navn} fin`, kort: finFigur(e.kort) })),
+      ],
     },
     {
       id: 'avatar-retninger',

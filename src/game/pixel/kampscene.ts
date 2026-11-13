@@ -175,9 +175,10 @@ export const MARKOER: Tegnkort = {
  * Pladserne på scenen (320 x 180). Holdet står til venstre og væsnerne til højre (Henrik, 10. november 2026).
  */
 export const FJENDE_PLADS: [number, number][][] = [
-  [[242, 132]],
-  [[254, 112], [224, 150]],
-  [[262, 104], [228, 128], [258, 156]],
+  [[244, 130]],
+  // Ingen væsner nede til højre, hvor menuen står (13. november 2026).
+  [[262, 106], [222, 138]],
+  [[236, 96], [288, 102], [246, 138]],
 ];
 export const HOLD_PLADS: [number, number][] = [
   [82, 116],

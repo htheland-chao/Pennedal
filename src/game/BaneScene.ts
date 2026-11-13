@@ -6,6 +6,7 @@ import { checkpoint, MAAL, NY_PLANKE, tegnBane, tegnBjergBaggrund, tegnByBaggrun
 import { ekkosten } from './pixel/rimbjerg';
 import { GRENPORT, ordsten } from './pixel/viskeskov';
 import { tegnkortTilLerred } from './pixel/lerred';
+import { finFigur } from './pixel/fin';
 import { avatarPixel, FUGL, KLATTEN, SKYGGE, type Tegnkort } from './pixel/sprites';
 import type { VerdenData, VerdenKroge } from './typer';
 import { spilEffekt } from '../ui/effekter';
@@ -104,10 +105,19 @@ export class BaneScene extends Phaser.Scene {
     return noegle;
   }
 
+  /** Hovedpersonens størrelse: den fine figur har dobbelt så mange pixel og vises i halv størrelse. */
+  private get grundSkala() {
+    return SKALA >= 2 ? 0.5 : 1;
+  }
+
   byggAvatar() {
     const a = this.registry.get('avatar') as Avatar | undefined;
     if (!a) return;
-    for (const f of [0, 1, 2] as const) this.tekstur(`px-side-${f}`, avatarPixel(a, 'hoejre', f), true);
+    // Fin grafik: hovedpersonen med dobbelt så mange pixel, vist i samme størrelse (13. november 2026).
+    for (const f of [0, 1, 2] as const) {
+      const t = avatarPixel(a, 'hoejre', f);
+      this.tekstur(`px-side-${f}`, SKALA >= 2 ? finFigur(t) : t, true);
+    }
   }
 
   create() {
@@ -165,7 +175,7 @@ export class BaneScene extends Phaser.Scene {
     // Er målet allerede nået, står hovedpersonen ved målet (fx hvis spillet blev genåbnet midt i slutscenen).
     const fra = this.data_.baneKlaret ? { x: this.maal.x - 24, y: this.maal.y } : this.start;
     if (this.data_.baneKlaret) this.faerdig = true;
-    this.spiller = this.add.image(fra.x, fra.y, 'px-side-0').setOrigin(0.5, 1).setDepth(5);
+    this.spiller = this.add.image(fra.x, fra.y, 'px-side-0').setOrigin(0.5, 1).setDepth(5).setScale(this.grundSkala);
     this.fugl = this.add.image(this.start.x - 16, this.start.y - 20, 'px-fugl').setOrigin(0.5, 1).setDepth(6);
     this.fugl.setVisible(!(this.data_.skjulte ?? []).includes('aeseloere'));
     const [k] = find(this.bane, 'K');
@@ -283,8 +293,9 @@ export class BaneScene extends Phaser.Scene {
   private fjedr(sx: number, sy: number, ms: number) {
     if (this.roligt) return;
     this.tweens.killTweensOf(this.spiller);
-    this.spiller.setScale(sx, sy);
-    this.tweens.add({ targets: this.spiller, scaleX: 1, scaleY: 1, duration: ms, ease: 'Back.Out' });
+    const g = this.grundSkala;
+    this.spiller.setScale(sx * g, sy * g);
+    this.tweens.add({ targets: this.spiller, scaleX: g, scaleY: g, duration: ms, ease: 'Back.Out' });
   }
 
   /** Små støvpuf ved fødderne. */
