@@ -78,7 +78,15 @@ export const ANGREB: Record<VaesenId, AngrebInfo[]> = {
   ],
 };
 
-export type Varsel = { angreb: AngrebId; skade: number; alle: boolean; maal: MedlemId | null };
+/** stort: et varslet stort angreb mod hele holdet (hver tredje runde). Forsvar halverer det. */
+export type Varsel = { angreb: AngrebId; skade: number; alle: boolean; maal: MedlemId | null; stort?: boolean };
+
+/**
+ * Spilletest 13. november 2026: Forsvar blev aldrig brugt. Nu samler ét væsen kræfter til et stort angreb mod hele
+ * holdet i hver tredje runde. Det varsles en runde før, så eleven kan vælge Forsvar.
+ */
+export const STORT_ANGREB_HVER = 3;
+export const STORT_ANGREB_EKSTRA = 2;
 export type Fjende = { nr: number; vaesen: VaesenId; maks: number; liv: number; varsel: Varsel | null; lammet: boolean };
 export type Medlem = { id: MedlemId; maks: number; liv: number };
 
@@ -192,6 +200,12 @@ function varsle(k: Kamp, rnd: () => number) {
     // Avataren bliver oftest valgt, så hjælperne sjældent falder først.
     const hvem = valg.alle ? null : rnd() < 0.5 || maal.length === 1 ? 'avatar' : maal[1 + Math.floor(rnd() * (maal.length - 1))].id;
     f.varsel = { angreb: valg.id, skade: Math.max(1, valg.skade + k.styrke), alle: valg.alle, maal: hvem };
+  }
+  // Hver tredje runde: det første væsen, der står, samler kræfter til et stort angreb mod hele holdet.
+  if (k.runde % STORT_ANGREB_HVER === 0) {
+    const f = levende(k.fjender)[0];
+    const alle = f && ANGREB[f.vaesen].find((a) => a.alle);
+    if (f && alle) f.varsel = { angreb: alle.id, skade: Math.max(1, alle.skade + STORT_ANGREB_EKSTRA + k.styrke), alle: true, maal: null, stort: true };
   }
 }
 

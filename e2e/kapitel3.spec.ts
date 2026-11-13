@@ -38,17 +38,33 @@ async function facit(page: Page): Promise<{ rigtig: string; forkert: string }> {
   return { rigtig, forkert: ['d', 'h', 'v'].find((b) => b !== rigtig)! };
 }
 
-/** Går hen til en ordsten og finder et synonym. Med forkertFoerst svares der først forkert (regel og eksempel). */
-async function ordsten(page: Page, nr: number, forkertFoerst = false) {
+/**
+ * Går hen til en ordsten og finder et synonym. Med forkertFoerst svares der først forkert (regel og eksempel).
+ * Med alleForkerte prøves alle forkerte først: så kommer der ét nyt ord, før stenen er klaret (spilletest 13. november 2026).
+ */
+async function ordsten(page: Page, nr: number, forkertFoerst: boolean | 'alle' = false) {
   await gaaTil(page, `ordsten-${nr}`);
   const v = page.locator('dialog.ord-opgave');
   await expect(v).toBeVisible({ timeout: 15_000 });
-  const id = await v.locator('[data-opgave-id]').getAttribute('data-opgave-id');
-  const s = synonymer.find((x) => x.id === id)!;
+  let id = await v.locator('[data-opgave-id]').getAttribute('data-opgave-id');
+  let s = synonymer.find((x) => x.id === id)!;
   if (forkertFoerst) {
     await v.getByRole('button', { name: s.forkerte[0], exact: true }).click();
     await expect(v.locator('.besked-fejl .regel')).toContainText('Regel');
     await expect(v.locator('.besked-fejl .regel')).toContainText('Eksempel');
+  }
+  if (forkertFoerst === 'alle') {
+    // Klik alle de andre forkerte muligheder, der står i vinduet.
+    for (const tekst of await v.locator('.kamp-mulighed:not([disabled])').allTextContents())
+      if (tekst.trim() !== s.svar) await v.getByRole('button', { name: tekst.trim(), exact: true }).click();
+    await v.getByRole('button', { name: s.svar, exact: true }).click();
+    await expect(v.locator('.ordopgave-ekstra')).toBeVisible();
+    await expect(v.getByRole('button', { name: 'Skriv planken tilbage' })).toHaveCount(0);
+    await v.getByRole('button', { name: 'Prøv et nyt ord' }).click();
+    const nytId = await v.locator('[data-opgave-id]').getAttribute('data-opgave-id');
+    expect(nytId).not.toBe(id);
+    id = nytId;
+    s = synonymer.find((x) => x.id === id)!;
   }
   await v.getByRole('button', { name: s.svar, exact: true }).click();
   await v.getByRole('button', { name: 'Skriv planken tilbage' }).click();
@@ -192,7 +208,7 @@ test('kapitel 3: Viskeskoven, turbaserede kampe, Vims, mindet og Klattens valg',
   await expect(page.locator('.sted-navn')).toContainText('Den viskede sti', { timeout: 30_000 });
   await laesDialog(page);
   await page.screenshot({ path: `${BILLEDER}/k3-bane.png` });
-  for (const nr of [0, 1, 2]) await ordsten(page, nr, nr === 0);
+  for (const nr of [0, 1, 2]) await ordsten(page, nr, nr === 0 ? true : nr === 1 ? 'alle' : false);
   await gaaTil(page, 'maal');
   await expect(page.locator('.sted-navn')).toContainText('Den hvide lysning', { timeout: 30_000 });
   await laesDialog(page);

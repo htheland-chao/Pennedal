@@ -352,7 +352,7 @@ export class KortScene extends Phaser.Scene {
       this.objektBilleder.set(o.id, billeder);
     }
     this.objektlys = lavLys(46, 0.9, this.tone, VARMT, SKALA);
-    this.saetSkjulte(this.data_.skjulte ?? []);
+    this.saetSkjulte(this.data_.skjulte ?? [], false);
 
     // Hovedpersonen og Æseløre.
     const start = feltMidte(sted.startFelt ?? [1, 1]);
@@ -612,7 +612,11 @@ export class KortScene extends Phaser.Scene {
     });
   }
 
-  saetSkjulte(skjulte: string[]) {
+  /**
+   * Viser og skjuler objekter. animer (13. november 2026, idélisten): figurer toner frem og væk i stedet for at
+   * blinke. Den Ufærdige toner langsomt frem i mørket, og Klatten flygter med en stribe blæk efter sig.
+   */
+  saetSkjulte(skjulte: string[], animer = true) {
     const fuglFoer = this.fugl?.scene ? this.fugl.visible : true;
     this.data_ = { ...this.data_, skjulte };
     const fuglNu = !skjulte.includes('aeseloere');
@@ -623,7 +627,28 @@ export class KortScene extends Phaser.Scene {
     this.faste.clear();
     for (const o of this.data_.sted.objekter) {
       const skjult = skjulte.includes(o.id);
-      for (const b of this.objektBilleder.get(o.id) ?? []) b.setVisible(!skjult);
+      for (const b of this.objektBilleder.get(o.id) ?? []) {
+        if (!animer || this.roligt || b.visible === !skjult) {
+          b.setVisible(!skjult);
+          continue;
+        }
+        this.tweens.killTweensOf(b);
+        if (!skjult) {
+          b.setVisible(true).setAlpha(0);
+          this.tweens.add({ targets: b, alpha: 1, duration: o.form === 'ufaerdige' ? 1800 : 500, ease: 'Sine.InOut' });
+        } else if (o.form === 'gnom') {
+          const x0 = b.x;
+          this.blaekStribe(b.x, b.y);
+          this.tweens.add({
+            targets: b,
+            x: x0 + 70,
+            alpha: 0,
+            duration: 750,
+            ease: 'Quad.In',
+            onComplete: () => b.setVisible(false).setAlpha(1).setX(x0),
+          });
+        } else this.tweens.add({ targets: b, alpha: 0, duration: 400, onComplete: () => b.setVisible(false).setAlpha(1) });
+      }
       if (!skjult && o.felt && FASTE_FORMER.has(o.form)) this.faste.add(`${o.felt[0]},${o.felt[1]}`);
     }
     this.lyskilder = this.data_.sted.objekter
@@ -633,6 +658,18 @@ export class KortScene extends Phaser.Scene {
         return { x: m.x + 7, y: m.y - 12, billede: this.objektlys };
       });
     this.byggGloed();
+  }
+
+  /** Klatten flygter (idélisten): små blækklatter bliver liggende i en stribe efter ham og tørrer langsomt ud. */
+  private blaekStribe(x: number, y: number) {
+    for (let i = 0; i < 9; i++)
+      this.time.delayedCall(i * 70, () => {
+        const klat = this.add
+          .rectangle(Math.round(x + i * 8 + (i % 2) * 2), Math.round(y - 1 - (i % 3)), i % 3 === 0 ? 3 : 2, 2, 0x14121f)
+          .setDepth(-99970)
+          .setAlpha(0.9);
+        this.tweens.add({ targets: klat, alpha: 0, delay: 2200, duration: 1800, onComplete: () => klat.destroy() });
+      });
   }
 
   /**

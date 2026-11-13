@@ -8,6 +8,7 @@ import type { Avatar } from '../engine/gem';
 import type { Haendelse as Tilpasning } from '../engine/tilpasning';
 import { FJENDE_PLADS, HOLD_PLADS, KAMP_B, KAMP_H, MARKOER, tegnKampBaggrund } from '../game/pixel/kampscene';
 import { finFigur } from '../game/pixel/fin';
+import { hentKendte, huskKendte } from '../engine/bestiarium';
 import { tegnkortTilLerred } from '../game/pixel/lerred';
 import { avatarPixel, FUGL, KLATTEN, type Tegnkort } from '../game/pixel/sprites';
 import { STUMMING, TOMORD, VIMS } from '../game/pixel/viskeskov';
@@ -210,8 +211,16 @@ export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, ta
   const [visning, setVisning] = useState<Visning>({ type: 'menu' });
   /** En kort linje fra en hjælper eller et tip, der ikke koster en tur. */
   const [notat, setNotat] = useState<string | null>(null);
-  /** Væsner, hvis svage punkt holdet kender (efter Lyt eller et træffende slag). */
-  const [kendt, setKendt] = useState<number[]>([]);
+  /** Væsner, hvis svage punkt holdet kender (efter Lyt eller et træffende slag). Huskes fra kamp til kamp i bestiariet. */
+  const [kendt, setKendt] = useState<number[]>(() => {
+    const kendte = hentKendte();
+    return kamp.fjender.filter((f) => kendte.includes(f.vaesen)).map((f) => f.nr);
+  });
+  useEffect(() => {
+    if (kendt.length) huskKendte(kendt.map((nr) => kamp.fjender[nr].vaesen));
+  }, [kendt]);
+  /** Et væsen varsler et stort angreb mod hele holdet: Forsvar er et godt valg (spilletest 13. november 2026). */
+  const stortVarslet = kamp.fjender.some((f) => f.liv > 0 && f.varsel?.stort);
   const [peg, setPeg] = useState<number | null>(null);
   const [hjaelp, setHjaelp] = useState(false);
   const viskNaeste = useRef(false);
@@ -290,7 +299,6 @@ export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, ta
       return `${navn} ${taeller[v]}`;
     });
     // Væsnerne ændrer sig ikke i en kamp.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const medlemNavn = (id: MedlemId) => (id === 'avatar' ? avatarNavn : t(`taler.${id}` as TekstId));
 
@@ -493,6 +501,7 @@ export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, ta
   const varselTekst = (nr: number) => {
     const f = kamp.fjender[nr];
     if (!f.varsel || f.liv <= 0) return null;
+    if (f.varsel.stort) return t('kamp.varsel.stort', { navn: navne[nr], skade: varselSkade(nr) });
     return t(`kamp.varsel.${f.varsel.angreb}` as TekstId, { navn: navne[nr], hvem: medlemNavn(f.varsel.maal ?? 'avatar'), skade: varselSkade(nr) });
   };
   /** Hvem væsnerne sigter på i næste runde. Vises som et rødt sigte over figuren. */
@@ -556,7 +565,7 @@ export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, ta
         </button>
         <button
           type="button"
-          className="knap"
+          className={`knap${stortVarslet ? ' knap-fremhaev' : ''}`}
           onClick={() => {
             const r = forsvar(kamp);
             afslutRunde(r.kamp, r.haendelser);
@@ -716,9 +725,13 @@ export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, ta
                     <span className="sr-only">{t('kamp.liv', { liv, maks: f.maks })}</span>
                     {kendt.includes(f.nr) && <span className="kamp-svag">{t(`kamp.svaghed.${SVAGHED[f.vaesen]}` as TekstId)}</span>}
                     {f.varsel && liv > 0 && visning.type !== 'afspil' && !slut && (
-                      <span className={`kamp-varsel${f.varsel.alle ? ' alle' : ''}`} title={varselTekst(f.nr) ?? ''}>
+                      <span className={`kamp-varsel${f.varsel.alle ? ' alle' : ''}${f.varsel.stort ? ' stort' : ''}`} title={varselTekst(f.nr) ?? ''}>
                         <span aria-hidden="true">{f.varsel.alle ? '⚡' : '⚔'} </span>
-                        {f.varsel.alle ? t('kamp.varsel.kort.alle', { skade: varselSkade(f.nr) }) : t('kamp.varsel.kort', { hvem: medlemNavn(f.varsel.maal ?? 'avatar'), skade: varselSkade(f.nr) })}
+                        {f.varsel.stort
+                          ? t('kamp.varsel.kort.stort', { skade: varselSkade(f.nr) })
+                          : f.varsel.alle
+                            ? t('kamp.varsel.kort.alle', { skade: varselSkade(f.nr) })
+                            : t('kamp.varsel.kort', { hvem: medlemNavn(f.varsel.maal ?? 'avatar'), skade: varselSkade(f.nr) })}
                         <span className="sr-only">{varselTekst(f.nr)}</span>
                       </span>
                     )}
