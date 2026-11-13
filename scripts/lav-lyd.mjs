@@ -13,7 +13,7 @@
 import { spawn } from 'node:child_process';
 import { appendFileSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { taleTekst } from '../src/content/lydnoegle.mjs';
 import { alleLydtekster, hentStemmer } from './lydtekster.mjs';
 
@@ -37,8 +37,8 @@ const FILTER = [
   'loudnorm=I=-18:TP=-2:LRA=11',
 ].join(',');
 
-class KvoteBrugt extends Error {}
-class StopFejl extends Error {}
+export class KvoteBrugt extends Error {}
+export class StopFejl extends Error {}
 
 const vent = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -69,7 +69,7 @@ function ventetid(tekst) {
   return m ? Math.ceil(Number(m[1])) : null;
 }
 
-async function hentLyd(tekst, figur, model, udtale) {
+export async function hentLyd(tekst, figur, model, udtale) {
   const krop = {
     model,
     input: [
@@ -110,7 +110,7 @@ async function hentLyd(tekst, figur, model, udtale) {
   throw new Error('Gav op efter 4 forsøg.');
 }
 
-function tilOgg(lyd, udfil) {
+export function tilOgg(lyd, udfil) {
   const erWav = lyd.data.subarray(0, 4).toString('latin1') === 'RIFF';
   const ind = erWav ? [] : ['-f', 's16le', '-ar', String(/rate=(\d+)/.exec(lyd.mime)?.[1] ?? 24000), '-ac', '1'];
   const args = ['-hide_banner', '-loglevel', 'error', '-y', ...ind, '-i', 'pipe:0', '-af', FILTER, '-ac', '1', '-c:a', 'libopus', '-b:a', '24k', '-f', 'ogg', udfil];
@@ -231,8 +231,11 @@ async function main() {
   if (!fatal && fejl.length > 0 && lavet.length === 0) process.exitCode = 1;
 }
 
-if (!existsSync(join(ROD, 'src/content/stemmer.json'))) {
-  console.error('Kør scriptet fra Pennedal-repoet.');
-  process.exit(1);
+// Kør kun, når scriptet startes direkte. Så kan lydprøven (scripts/lydproeve.mjs) bruge hentLyd og tilOgg.
+if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
+  if (!existsSync(join(ROD, 'src/content/stemmer.json'))) {
+    console.error('Kør scriptet fra Pennedal-repoet.');
+    process.exit(1);
+  }
+  await main();
 }
-await main();
