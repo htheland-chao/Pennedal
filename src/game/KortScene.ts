@@ -7,6 +7,7 @@ import { bordflade, erInde, HOLM, KARTOTEK, KASSE, LOGBOG, PLANTE, PORT, PRESSE,
 import { belysning, blegt, halvtTegnet, linjeretPapir, hash, lavLys, lavSkygge, lysOpsaetning, lavTaagebanker, lavVignet, lysBredde, partikelBilleder, sne, tegnGrund, tegnkortTilLerred, tegnTraeskygger, traePladser, tegnVand, VARMT, type Farve } from './pixel/lerred';
 import { aande, gangRamme, hvileTilstand, lukOejne } from './pixel/liv';
 import { indenfor, partikelTrin, partiklerFor, stedTone, vignetStyrke, type Partikel } from './stemning';
+import { finFigur } from './pixel/fin';
 import { avatarPixel, BLADE, FUGL, fyrtaarn, KLATTEN, LANTERNE, moerkere, papirtrae, PIL, PLANKE, SKILT, STOLPE, TALEBOBLE, voksen, type Retning, type Tegnkort } from './pixel/sprites';
 import { GRENPORT, HALVFUGL, ORDBLAD, STUMMING, TOMORD, VIMS } from './pixel/viskeskov';
 import { DIGTSTEN, EKKO, granMedSne, RIMFOD } from './pixel/rimbjerg';
@@ -171,11 +172,13 @@ export class KortScene extends Phaser.Scene {
     for (const r of ['ned', 'op', 'hoejre'] as const)
       for (const f of [0, 1, 2] as const) {
         const t = avatarPixel(a, r, f);
-        this.tekstur(`px-spiller-${r}-${f}`, t, true);
+        // Fin grafik: hovedpersonen med dobbelt så mange pixel (32 x 48), vist i samme størrelse (13. november 2026).
+        const lav = (k: Tegnkort) => (SKALA >= 2 ? finFigur(k) : k);
+        this.tekstur(`px-spiller-${r}-${f}`, lav(t), true);
         if (f !== 0) continue;
         // Stå stille: blinke (ikke bagfra) og trække vejret. Hoften er række 16 i hovedpersonens 24 rækker.
-        this.tekstur(`px-spiller-${r}-0-blink`, (r !== 'op' && lukOejne(t, ['E', 'W'])) || t, true);
-        this.tekstur(`px-spiller-${r}-0-aande`, aande(t, 16), true);
+        this.tekstur(`px-spiller-${r}-0-blink`, lav((r !== 'op' && lukOejne(t, ['E', 'W'])) || t), true);
+        this.tekstur(`px-spiller-${r}-0-aande`, lav(aande(t, 16)), true);
       }
     this.lanterne?.setVisible(a.tilbehoer === 3);
   }
@@ -332,7 +335,7 @@ export class KortScene extends Phaser.Scene {
     // Hovedpersonen og Æseløre.
     const start = feltMidte(sted.startFelt ?? [1, 1]);
     this.spillerSkygge = this.add.image(start.x, start.y, 'px-skygge').setOrigin(0.5, 0.5);
-    this.spiller = this.add.image(start.x, start.y, 'px-spiller-op-0').setOrigin(0.5, 1);
+    this.spiller = this.add.image(start.x, start.y, 'px-spiller-op-0').setOrigin(0.5, 1).setScale(SKALA >= 2 ? 0.5 : 1);
     this.lanterne = this.add.image(start.x, start.y, 'px-lanterne').setOrigin(0.5, 1);
     this.lanterne.setVisible((this.registry.get('avatar') as Avatar | undefined)?.tilbehoer === 3);
     this.fugl = this.add.image(start.x - 14, start.y + 4, 'px-fugl').setOrigin(0.5, 1).setVisible(!(this.data_.skjulte ?? []).includes('aeseloere'));
