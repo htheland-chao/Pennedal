@@ -1,0 +1,38 @@
+name: Lydprøve
+
+# Laver de samme seks replikker med andre Gemini-stemmemodeller, så Henrik kan høre forskellen (13. november 2026).
+# Startes kun i hånden. Klippene lægges som artefakt, ikke i repoet. Kun spillets faste tekster sendes til Google.
+
+on:
+  workflow_dispatch:
+    inputs:
+      modeller:
+        description: Modeller, adskilt med komma
+        default: 'gemini-3.8-flash-lite-tts,gemini-2.5-flash-tts,gemini-2.5-flash-preview-tts'
+
+permissions:
+  contents: read
+
+jobs:
+  proeve:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Installér ffmpeg
+        run: command -v ffmpeg || (sudo apt-get update && sudo apt-get install -y ffmpeg)
+      - run: npm ci
+      - name: Lav lydprøver
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          LYD_PROEVE_MODELLER: ${{ inputs.modeller }}
+        run: node scripts/lydproeve.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lydproeve
+          path: lydproeve/
+          retention-days: 7
