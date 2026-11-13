@@ -284,7 +284,7 @@ export function Blaekdybet({ spil, opdater, onTilbage }: { spil: GemtSpil; opdat
               <p className="dybet-rum-nr">{t('dybet.rum.nr', { nr: tur.dybde + 1 })}</p>
               <h2>{t(`dybet.rum.${rum.type}.titel`)}</h2>
               <p>{t(`dybet.rum.${rum.type}.tekst`)}</p>
-            {rum.type !== 'hvile' && fejlPris(tur.dybde) > 1 && <p className="besked besked-fejl dybet-tryk">{t('dybet.tryk')}</p>}
+              {rum.type !== 'hvile' && fejlPris(tur.dybde) > 1 && <p className="besked besked-fejl dybet-tryk">{t('dybet.tryk')}</p>}
               <LaesOpKnap key={`${tur.dybde}-${fase.nr}`} auto tekst={t(`dybet.rum.${rum.type}.tekst`)} figur="fortaeller" />
               <div className="knaprad">
                 {rum.type === 'hvile' ? (
@@ -378,6 +378,7 @@ export function Blaekdybet({ spil, opdater, onTilbage }: { spil: GemtSpil; opdat
               </div>
               {baneSten !== null && !tur.slut && (
                 <OrdOpgaveVindue
+                  ekstraOrd={false}
                   key={`banesten-${baneSten}`}
                   titel={t('dybet.rum.ordsten.titel')}
                   intro={ordstenIntro(baneArt(rum.sted))}
@@ -398,6 +399,7 @@ export function Blaekdybet({ spil, opdater, onTilbage }: { spil: GemtSpil; opdat
           )}
           {fase.inde && rum.type === 'ordsten' && !tur.slut && (
             <OrdOpgaveVindue
+              ekstraOrd={false}
               key={`ord-${tur.dybde}-${fase.nr}`}
               titel={t('dybet.rum.ordsten.titel')}
               intro={ordstenIntro(rum.art)}

@@ -4,6 +4,7 @@ import { hentKapitel, t } from '../content';
 import { validerGemtSpil, type GemtSpil } from '../engine/gem';
 import { KODE_LAENGDE, laesGemmekode, lavGemmekode } from '../engine/gemmekode';
 import { Modal } from './Modal';
+import { LaesOpKnap } from './Tekst';
 
 /** Filnavne uden æ, ø og å, så alle browsere gemmer filen med det rigtige navn. */
 export function filnavn(tekst: string): string {
@@ -26,6 +27,27 @@ export function hentFil(navn: string, indhold: string, type: string) {
   a.click();
   a.remove();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+/** Hvilken af Fru Fodnotes tre kommentarer koden får. Samme kode giver samme kommentar. */
+export function fodnoteNr(kode: string): 1 | 2 | 3 {
+  let sum = 0;
+  for (const c of kode) sum += c.charCodeAt(0);
+  return ((sum % 3) + 1) as 1 | 2 | 3;
+}
+
+/**
+ * Fru Fodnote kommenterer gemmekoden (docs/historie.md: hun bryder den fjerde væg). Kun når eleven har mødt hende
+ * (kapitel 5). Teksten er HTML nederst i vinduet, som hendes fodnoter i spillet.
+ */
+function FodnoteOmKoden({ kode }: { kode: string }) {
+  const tekst = t(`gem.fodnote.${fodnoteNr(kode)}`);
+  return (
+    <p className="gem-fodnote">
+      <span className="gem-fodnote-navn">{t('taler.fodnote')}:</span> {tekst}
+      <LaesOpKnap tekst={tekst} figur="fodnote" ikon />
+    </p>
+  );
 }
 
 export function GemmekodeVindue({ spil, del, onLuk }: { spil: GemtSpil; del?: number; onLuk: () => void }) {
@@ -51,6 +73,7 @@ export function GemmekodeVindue({ spil, del, onLuk }: { spil: GemtSpil; del?: nu
         ))}
       </p>
       {qr && <img className="qr" src={qr} alt={t('gem.qr')} width={220} height={220} />}
+      {spil.kapitel >= 5 && <FodnoteOmKoden kode={kode} />}
       <div className="knaprad">
         <button
           type="button"

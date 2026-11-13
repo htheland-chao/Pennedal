@@ -91,6 +91,24 @@ describe('kampmotoren', () => {
     expect(MAKS_LIV.avatar - medlem(med, 'avatar')!.liv).toBe(1);
   });
 
+  it('hver tredje runde varsler et væsen et stort angreb mod hele holdet, og forsvar halverer det', () => {
+    let k = startKamp(valg({ ture: 30 }));
+    const rnd = lavTilfaeldig(3);
+    for (let r = 1; r < 3; r++) {
+      expect(k.fjender[0].varsel?.stort).toBeFalsy();
+      k = fjendensTur(k, rnd).kamp;
+    }
+    expect(k.runde).toBe(3);
+    const v = k.fjender[0].varsel!;
+    expect(v).toMatchObject({ stort: true, alle: true });
+    expect(v.skade).toBeGreaterThanOrEqual(3);
+    const fuld = { ...k, hold: k.hold.map((m) => ({ ...m, liv: m.maks })) };
+    const uden = fjendensTur(fuld, lavTilfaeldig(2)).kamp;
+    const med = fjendensTur(forsvar(fuld).kamp, lavTilfaeldig(2)).kamp;
+    for (const m of uden.hold) expect(m.maks - m.liv).toBe(v.skade);
+    for (const m of med.hold.filter((x) => x.id !== 'avatar')) expect(m.maks - m.liv).toBe(Math.floor(v.skade / 2));
+  });
+
   it('Mindre uhygge halverer væsnernes skade', () => {
     const k = startKamp(valg({ daempet: true, ture: 12 }));
     k.fjender[0].varsel = { angreb: 'aed', skade: 3, alle: false, maal: 'avatar' };

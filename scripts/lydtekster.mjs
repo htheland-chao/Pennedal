@@ -316,6 +316,9 @@ export function alleLydtekster(stemmer = hentStemmer()) {
     for (const [traek, tekst] of Object.entries(h.planker)) tilfoej('fortaeller', tekst, `Historiebroen / ${h.id}.${traek}`);
     tilfoej('fortaeller', h.fremmed, `Historiebroen / ${h.id}.fremmed`);
   }
+  // Fru Fodnote kommenterer gemmekoden (13. november 2026).
+  for (const n of [1, 2, 3]) tilfoej('fodnote', t(`gem.fodnote.${n}`), `Gemmekode / fodnote.${n}`);
+
   // Blækdybet (13. november 2026): fortælleren læser intro, regler, rum, gaver og slut op.
   for (const id of ['dybet.intro', 'dybet.regel.blaek', 'dybet.regel.gaver', 'dybet.regel.rekord', 'dybet.gave.tekst', 'dybet.slut.tekst'])
     tilfoej('fortaeller', t(id), `Blækdybet / ${id}`);

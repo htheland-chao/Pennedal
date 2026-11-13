@@ -27,6 +27,8 @@ type Props = {
   /** Teksten på knappen, når det sidste ord er fundet. */
   faerdigTekst: string;
   pauseTekst: string;
+  /** Et nyt ord, når svaret er fundet ved at prøve alle muligheder (standard). Blækdybet slår det fra: der koster fejl blæk. */
+  ekstraOrd?: boolean;
 };
 
 /** Det, vinduet viser for én opgave, uanset slags. */
@@ -136,7 +138,7 @@ function lav(art: OrdOpgaveArt, niveau: number, rnd: () => number, brugt: string
  * Rimbjerget) og ord, der ikke rimer (Rimfods sætning). Ingen tid (krav 5). Et forkert svar giver regel og
  * eksempel (krav 6), og man prøver igen.
  */
-export function OrdOpgaveVindue({ titel, intro, antal, niveau, art = 'synonym', onSvar, onFaerdig, onPause, faerdigTekst, pauseTekst }: Props) {
+export function OrdOpgaveVindue({ titel, intro, antal, niveau, art = 'synonym', onSvar, onFaerdig, onPause, faerdigTekst, pauseTekst, ekstraOrd = true }: Props) {
   const rnd = useMemo(() => Math.random, []);
   const [nr, setNr] = useState(0);
   const [brugt, setBrugt] = useState<string[]>([]);
@@ -145,6 +147,13 @@ export function OrdOpgaveVindue({ titel, intro, antal, niveau, art = 'synonym', 
   const [forkerte, setForkerte] = useState<string[]>([]);
   const rigtigt = valgt === opgave.svar;
   const sidste = nr === antal - 1;
+  /**
+   * Spilletest 13. november 2026: har eleven prøvet alle de forkerte muligheder, er svaret fundet ved at prøve sig frem.
+   * Så kommer der ét nyt ord af samme slags, før stenen er klaret. Ingen straf, men ingen genvej. Højst én gang pr. sten.
+   */
+  const [ekstraBrugt, setEkstraBrugt] = useState(false);
+  const proevetSigFrem = rigtigt && opgave.muligheder.length >= 3 && forkerte.length >= opgave.muligheder.length - 1;
+  const ekstra = ekstraOrd && proevetSigFrem && !ekstraBrugt;
 
   function svar(m: string) {
     setValgt(m);
@@ -152,6 +161,15 @@ export function OrdOpgaveVindue({ titel, intro, antal, niveau, art = 'synonym', 
     onSvar(r, forkerte.length + 1, opgave.faerdighed);
     spilEffekt(r ? 'rigtig' : 'forkert');
     if (!r) setForkerte((f) => [...f, m]);
+  }
+
+  function nytOrd() {
+    setEkstraBrugt(true);
+    const nyBrugt = [...brugt, opgave.id];
+    setBrugt(nyBrugt);
+    setOpgave(lav(art, niveau, rnd, nyBrugt));
+    setValgt(null);
+    setForkerte([]);
   }
 
   function naeste() {
@@ -224,7 +242,14 @@ export function OrdOpgaveVindue({ titel, intro, antal, niveau, art = 'synonym', 
         </div>
       )}
       <div className="knaprad">
-        {rigtigt ? (
+        {ekstra ? (
+          <>
+            <p className="ordopgave-ekstra">{t('ordopgave.ekstra')}</p>
+            <button type="button" className="knap knap-primaer" autoFocus onClick={nytOrd}>
+              {t('ordopgave.ekstra.knap')}
+            </button>
+          </>
+        ) : rigtigt ? (
           <button type="button" className="knap knap-primaer" autoFocus onClick={naeste}>
             {sidste ? faerdigTekst : t('ordopgave.videre')}
           </button>

@@ -26,13 +26,16 @@ Gennemgangen bygger på koden, gennemspil i testbrowseren og en simulering af Bl
 
 1. **Klik dig igennem mulighederne (ordsten og opgaver).** Den forkerte mulighed lukkes, og et forkert svar koster intet. Med tre muligheder er man altid igennem på højst tre klik uden at læse. Tilpasningen ser det (kun rigtigt i første forsøg løfter niveauet), men eleven kommer videre alligevel.
    - Kan gå galt: gør vi det dyrt at fejle, bliver de svage elever straffet, og det bryder idéen bag krav 6.
-   - **Anbefaling:** når en elev har prøvet alle forkerte muligheder i samme opgave, kommer der ét nyt ord af samme slags, før stenen er klaret. Ingen straf, men ingen genvej. Kræver Henriks ja.
+   - **Anbefaling:** når en elev har prøvet alle forkerte muligheder i samme opgave, kommer der ét nyt ord af samme slags, før stenen er klaret. Ingen straf, men ingen genvej. **Bygget 13. november 2026.**
 2. **Slå med væsnets svaghed, hver gang.** Svaghederne er faste (Tomordet er svag over for synonymer osv.). Når eleven har lært dem, er "Lyt" overflødig, og "Forsvar" bruges aldrig, fordi nederlaget ikke koster noget.
-   - **Anbefaling:** a) Lyt huskes på tværs af kampe (som et lille bestiarium i tasken), så Lyt er nyttig første gang og ikke spildt bagefter. b) Forsvar får en grund: et varslet "stort angreb" hver tredje runde, som Forsvar halverer. Begge dele er små ændringer i `src/mechanics/kampmotor.ts`. Kræver Henriks ja.
+   - **Anbefaling:** a) Lyt huskes på tværs af kampe (som et lille bestiarium i tasken), så Lyt er nyttig første gang og ikke spildt bagefter. b) Forsvar får en grund: et varslet "stort angreb" hver tredje runde, som Forsvar halverer. **Bygget 13. november 2026** (bestiariet gemmes kun i browseren, ikke i tasken).
 3. **Blækdybet: Viskelæderskjoldet.** Før rettelsen gjorde et skjold den første fejl i hvert rum gratis, for altid. Med to skjolde var en stærk elev reelt udødelig. **Rettet.**
 4. **Blækdybet: Vims og Klatten to gange.** En gave mere af dem gjorde ingenting, men blev stadig tilbudt. **Rettet.**
 
-## 4. Rettet i nat (Blækdybet, PR #85)
+## 4. Rettet (Blækdybet i PR #85; ordsten og kampe 13. november om aftenen)
+
+- Ordsten: et nyt ord, når eleven har prøvet alle de forkerte muligheder (Henrik sagde ja).
+- Kampe: Lyt huskes i bestiariet, og et varslet stort angreb hver tredje runde giver Forsvar en grund (Henrik sagde ja).
 
 - Gave efter rum 1 og derefter hvert tredje rum (før: efter hvert rum).
 - Viskelæderskjoldet giver to skjolde. Et skjold betaler én dråbe af en fejl. Bruges op.
