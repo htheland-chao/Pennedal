@@ -26,16 +26,28 @@ import { OrdkortVindue } from '../ui/OrdkortVindue';
 import { Kvittering } from '../ui/Kvittering';
 import { Samling } from '../ui/Samling';
 import { Verden } from './Verden';
+import { Blaekdybet, dybetAabent } from './Blaekdybet';
 import { Kapitelkort } from '../ui/Kapitelkort';
 
-type Skaerm = 'start' | 'intro' | 'ny-avatar' | 'ret-avatar' | 'verden' | 'indlaes' | 'laerer' | 'samling' | 'hop';
+type Skaerm = 'start' | 'intro' | 'ny-avatar' | 'ret-avatar' | 'verden' | 'indlaes' | 'laerer' | 'samling' | 'hop' | 'dybet';
 
 /**
  * Til test: ?hop viser en liste over steder, ?hop=kaelder (et sted eller et trins id) starter direkte der.
  * Et hop-spil bliver aldrig gemt, så et rigtigt spil i browseren ikke bliver overskrevet.
  */
 const HOP = typeof location !== 'undefined' ? new URLSearchParams(location.search).get('hop') : null;
-const HOP_SPIL = HOP ? medHopValg(spilVedIKapitler(kapitler, HOP, nytSpil(STANDARD_AVATAR, { adjektiv: 0, dyr: 0 }))) : null;
+/** Til test: ?hop=dybet åbner Blækdybet med et gennemført spil, der ikke bliver gemt. */
+const DYBET_TEST = HOP === 'dybet';
+const HOP_SPIL = DYBET_TEST
+  ? gennemfoertSpil()
+  : HOP
+    ? medHopValg(spilVedIKapitler(kapitler, HOP, nytSpil(STANDARD_AVATAR, { adjektiv: 0, dyr: 0 })))
+    : null;
+function gennemfoertSpil(): GemtSpil | null {
+  const sidste = [...kapitler].sort((a, b) => b.kapitel - a.kapitel)[0];
+  const s = spilVedIKapitler(kapitler, sidste.trin[sidste.trin.length - 1].id, nytSpil(STANDARD_AVATAR, { adjektiv: 0, dyr: 0 }));
+  return s ? { ...s, trin: sidste.trin.length } : null;
+}
 
 /** Til test med ?hop: &valg=a,b sætter valg, &venlighed=n sætter Klattens venlighed, og &skaar=alle giver alle hukommelsesskår. */
 function medHopValg(spil: GemtSpil | null): GemtSpil | null {
@@ -48,7 +60,7 @@ function medHopValg(spil: GemtSpil | null): GemtSpil | null {
 }
 
 export function App() {
-  const [skaerm, setSkaerm] = useState<Skaerm>(HOP_SPIL ? 'verden' : HOP !== null ? 'hop' : 'start');
+  const [skaerm, setSkaerm] = useState<Skaerm>(DYBET_TEST ? 'dybet' : HOP_SPIL ? 'verden' : HOP !== null ? 'hop' : 'start');
   const [spil, setSpil] = useState<GemtSpil | null>(() => HOP_SPIL ?? hentGemtSpil());
   const [indstillinger, setIndstillinger] = useState<Indstillinger>(() => hentIndstillinger());
   const [ordkort, setOrdkort] = useState<string | null>(null);
@@ -105,7 +117,9 @@ export function App() {
       ? 'intro'
       : skaerm === 'verden' && spil && kapitel
         ? kapitel.steder[aktueltSted(spil, kapitel)]?.tema ?? 'forside'
-        : 'forside';
+        : skaerm === 'dybet'
+          ? 'siden'
+          : 'forside';
   useEffect(() => {
     saetMusik({ tema: musikTema, til: indstillinger.musik, styrke: indstillinger.musikStyrke, mild: indstillinger.mindreUhygge });
   }, [musikTema, indstillinger.musik, indstillinger.musikStyrke, indstillinger.mindreUhygge]);
@@ -143,6 +157,11 @@ export function App() {
             >
               {t('start.nyt')}
             </button>
+            {dybetAabent(spil) && (
+              <button type="button" className="knap knap-dybet" onClick={() => setSkaerm('dybet')}>
+                {t('start.dybet')}
+              </button>
+            )}
             <button type="button" className="knap" onClick={() => setSkaerm('indlaes')}>
               {t('start.indlaes')}
             </button>
@@ -263,6 +282,8 @@ export function App() {
           }}
         />
       )}
+
+      {skaerm === 'dybet' && spil && <Blaekdybet spil={spil} opdater={opdater} onTilbage={() => setSkaerm('start')} />}
 
       {skaerm === 'indlaes' && (
         <IndlaesSide
