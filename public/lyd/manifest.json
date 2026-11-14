@@ -29,6 +29,14 @@
       "kilde": "Minder / minde.skaar7a.1",
       "lavet": "2026-11-13"
     },
+    "0020836a079af9": {
+      "figur": "aeseloere",
+      "tekst": "Ikke helt. Kig efter ordene jeg, mig og min. Står de der, er fortælleren selv med i historien.",
+      "fil": "0020836a079af9.ogg",
+      "kilde": "Beskeder / fortaeller.fejl.jeg",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
     "002afb9c4f9454": {
       "figur": "aeseloere",
       "tekst": "Men hør. Plejer de ikke at holde en lille pause en gang imellem?",
@@ -134,6 +142,22 @@
       "kilde": "Kapitel 2 / k2-til-smoeger.opgavetekst",
       "lavet": "2026-11-03"
     },
+    "0094fadc3306ab": {
+      "figur": "fortaeller",
+      "tekst": "Jeg fandt en gammel bog. ... blæste støvet af den.",
+      "fil": "0094fadc3306ab.ogg",
+      "kilde": "Fortæller / f01",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "0098621d708100": {
+      "figur": "fodnote",
+      "tekst": "¹ En gemmekode er bare en meget lang fodnote til dit eventyr. Skriv den pænt af. ² Ja, også bindestregerne.",
+      "fil": "0098621d708100.ogg",
+      "kilde": "Gemmekode / fodnote.1",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
     "009acf31165542": {
       "figur": "fortaeller",
       "tekst": "Nu skal historien begynde.",
@@ -218,6 +242,22 @@
       "kilde": "Stumme bogstaver / hvad.saetning",
       "lavet": "2026-11-04"
     },
+    "01044fcc366273": {
+      "figur": "aeseloere",
+      "tekst": "Eksempel: Der var engang en prinsesse, der skulle klare tre prøver.",
+      "fil": "01044fcc366273.ogg",
+      "kilde": "Beskeder / genre.eksempel.eventyr",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "01082eae79daf4": {
+      "figur": "fortaeller",
+      "tekst": "Det var den værste dag i hele mit liv, tænkte jeg.",
+      "fil": "01082eae79daf4.ogg",
+      "kilde": "Fortæller / k15",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
     "01157fe9e967df": {
       "figur": "vims",
       "tekst": "Undskyld. Der er blæk på stien. Små klatter. Hele vejen derhen.",
@@ -295,12 +335,28 @@
       "kilde": "Kapitel 3 / k3-klatten.opgavetekst",
       "lavet": "2026-11-03"
     },
+    "01584c44cd2bb1": {
+      "figur": "aeseloere",
+      "tekst": "Eksempel: hoppede, tegnede, spiste, kørte",
+      "fil": "01584c44cd2bb1.ogg",
+      "kilde": "Beskeder / korrektur.eksempel.datid",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "015f5251ccf65e": {
       "figur": "fortaeller",
       "tekst": "Sporet ender ved en sø, der er helt sort og blank. Ved bredden står en lille, skæv hytte af krøllede sider.",
       "fil": "015f5251ccf65e.ogg",
       "kilde": "Kapitel 6 / k6-ankomst.3",
       "lavet": "2026-11-10"
+    },
+    "0168df08689ade": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Ordet munter betyder det samme som glad.",
+      "fil": "0168df08689ade.ogg",
+      "kilde": "Svar / synonym.glad.rigtig",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "016cd12453a0a1": {
       "figur": "aeseloere",
@@ -343,6 +399,14 @@
       "fil": "01859f3d4fdf5d.ogg",
       "kilde": "Kapitel 3 / k3-moerke.4",
       "lavet": "2026-11-01"
+    },
+    "0187907bbafb05": {
+      "figur": "fortaeller",
+      "tekst": "Kongen lovede halvdelen af sit rige til den, der kunne få prinsessen til at le. Mange prøvede, men ingen lykkedes.",
+      "fil": "0187907bbafb05.ogg",
+      "kilde": "Genrer / e4",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "018bcc377bf335": {
       "figur": "fortaeller",
@@ -414,6 +478,14 @@
       "kilde": "Beskeder / kamp.stumming.eksempel.hund",
       "lavet": "2026-11-13"
     },
+    "01c53874ff396b": {
+      "figur": "aeseloere",
+      "tekst": "Regel: Hver genre har sine kendetegn. Eventyr har magi og prøver. Krimier har spor og en opklaring. Gysere har mørke og uhygge. Science fiction har fremtid og opfindelser.",
+      "fil": "01c53874ff396b.ogg",
+      "kilde": "Beskeder / genre.regel",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "01c7762ace57a9": {
       "figur": "aeseloere",
       "tekst": "Planke 6 står forkert. Hvad er problemet i begyndelsen?",
@@ -434,6 +506,22 @@
       "fil": "01e571eb97f210.ogg",
       "kilde": "Kapitel 4 / rimfodsaetning.start.1",
       "lavet": "2026-11-12"
+    },
+    "01e8844998edfb": {
+      "figur": "fortaeller",
+      "tekst": "Den gamle mand tog hatten af. ... hilste høfligt på os alle sammen.",
+      "fil": "01e8844998edfb.ogg",
+      "kilde": "Fortæller / f09",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "01f44160646e79": {
+      "figur": "fortaeller",
+      "tekst": "Nu er jeg hjemme ved Blæksøen i min lille hytte.",
+      "fil": "01f44160646e79.ogg",
+      "kilde": "Klattens tekster / k01.0",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
     },
     "01f4af860541b7": {
       "figur": "aeseloere",
@@ -505,6 +593,14 @@
       "kilde": "Opgaver / hviske.instruks.skriv",
       "lavet": "2026-11-04"
     },
+    "02307d6fbd2f8e": {
+      "figur": "fortaeller",
+      "tekst": "Hvor er min kappe?",
+      "fil": "02307d6fbd2f8e.ogg",
+      "kilde": "Klattens tekster / k03.0",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
     "02330fcc01432e": {
       "figur": "fortaeller",
       "tekst": "Rimfod bliver helt stille. Så triller en stor tåre ned ad hans stenkind.",
@@ -518,6 +614,14 @@
       "fil": "0233c88e5700b6.ogg",
       "kilde": "Ordkort / typeskab",
       "lavet": "2026-11-01"
+    },
+    "023da5db7bb4ba": {
+      "figur": "fortaeller",
+      "tekst": "Der er ingen tid. Væsnerne viser altid, hvad de gør næste gang. Et forkert svar rammer ved siden af, men koster ikke liv. Lyt giver et tip og viser væsnets svage punkt. Gå væk, hvis du vil holde pause. Kampen bliver husket.",
+      "fil": "023da5db7bb4ba.ogg",
+      "kilde": "Kampe / kamp.forklaring",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
     },
     "0247c8926638b2": {
       "figur": "fortaeller",
@@ -603,6 +707,14 @@
       "kilde": "Stumme bogstaver / mand",
       "lavet": "2026-10-31"
     },
+    "02ae7bccae00c8": {
+      "figur": "fortaeller",
+      "tekst": "Kagerne er til dig.",
+      "fil": "02ae7bccae00c8.ogg",
+      "kilde": "Klattens tekster / k14.0",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
     "02afbcb20e8ef4": {
       "figur": "aeseloere",
       "tekst": "Han er ikke frygtelig. Han er bare klattet.",
@@ -617,12 +729,28 @@
       "kilde": "Introen / intro.1",
       "lavet": "2026-11-01"
     },
+    "02b8a11d678655": {
+      "figur": "fortaeller",
+      "tekst": "Robotten kunne lave mad, gøre rent og tale fem sprog. Men den kunne ikke lide mandage.",
+      "fil": "02b8a11d678655.ogg",
+      "kilde": "Genrer / s2",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "02bf3871c846ac": {
       "figur": "fortaeller",
       "tekst": "Hjælp Kommissær Lup med at finde det, en krimi skal have.",
       "fil": "02bf3871c846ac.ogg",
       "kilde": "Kapitel 7 / k7-krimi.opgavetekst",
       "lavet": "2026-11-12"
+    },
+    "02ccff6539bc77": {
+      "figur": "fortaeller",
+      "tekst": "Hvad hører til i en historie af genren krimi?",
+      "fil": "02ccff6539bc77.ogg",
+      "kilde": "Opgaver / genre.kendetegn.krimi",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "02e281aeec1691": {
       "figur": "fortaeller",
@@ -651,6 +779,14 @@
       "fil": "02f89939c146c2.ogg",
       "kilde": "Stumme bogstaver / land.saetning",
       "lavet": "2026-11-04"
+    },
+    "02ffbfbdd92269": {
+      "figur": "klatten",
+      "tekst": "Chefen smed mig ud i går. Nu er jeg jemme ved Blæksøen i min lile hytte.",
+      "fil": "02ffbfbdd92269.ogg",
+      "kilde": "Klattens tekster / k01",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
     },
     "03003ed77cdd4e": {
       "figur": "fortaeller",
@@ -785,6 +921,14 @@
       "kilde": "Råberens tegn / raab-18",
       "lavet": "2026-11-03"
     },
+    "0385a7557372fc": {
+      "figur": "fortaeller",
+      "tekst": "Maleriet var væk, men alarmen havde ikke lydt. Det måtte være en, der kendte koden.",
+      "fil": "0385a7557372fc.ogg",
+      "kilde": "Genrer / k4",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "0385f51ad920e7": {
       "figur": "aeseloere",
       "tekst": "Planke 5 står forkert. Hvem eller hvad står i vejen?",
@@ -805,6 +949,14 @@
       "fil": "03925d5d1293df.ogg",
       "kilde": "Kapitel 2 / k2-raaber-tak.2",
       "lavet": "2026-10-31"
+    },
+    "039384cdcd279b": {
+      "figur": "aeseloere",
+      "tekst": "Eksempel: Andre ord med samme slags stumme bogstav: hvid, hvem, hvor.",
+      "fil": "039384cdcd279b.ogg",
+      "kilde": "Beskeder / kamp.stumming.eksempel.hvad",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
     },
     "039cceb2189d36": {
       "figur": "fodnote",
@@ -904,12 +1056,36 @@
       "kilde": "Kapitel 4 / rimfodsaetning.efter.1",
       "lavet": "2026-11-12"
     },
+    "0427c6a58fb947": {
+      "figur": "aeseloere",
+      "tekst": "Regel: En gyser skal gøre læseren lidt bange. Der er en uhyggelig stemning, mørke, mærkelige lyde og noget ukendt, der kommer tættere på.",
+      "fil": "0427c6a58fb947.ogg",
+      "kilde": "Beskeder / genre.regel.gyser",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "0429e332229374": {
+      "figur": "aeseloere",
+      "tekst": "Eksempel: Andre ord med samme slags stumme bogstav: .",
+      "fil": "0429e332229374.ogg",
+      "kilde": "Beskeder / kamp.stumming.eksempel.selv",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
     "043a62d2cc9151": {
       "figur": "snegl",
       "tekst": "Nu kan brevene komme frem. Om et år eller to.",
       "fil": "043a62d2cc9151.ogg",
       "kilde": "Kapitel 6 / postbreve.faerdig.1",
       "lavet": "2026-11-12"
+    },
+    "043e78d38d797d": {
+      "figur": "fortaeller",
+      "tekst": "Når det blæser, vipper hele taget.",
+      "fil": "043e78d38d797d.ogg",
+      "kilde": "Klattens tekster / k09.1",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
     },
     "043eb005adaeff": {
       "figur": "rimfod",
@@ -925,12 +1101,84 @@
       "kilde": "Kapitel 6 / k6-twist.valg1.1",
       "lavet": "2026-11-10"
     },
+    "0447deb56097d3": {
+      "figur": "fortaeller",
+      "tekst": "Hvad hører til i en historie af genren gyser?",
+      "fil": "0447deb56097d3.ogg",
+      "kilde": "Opgaver / genre.kendetegn.gyser",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "04532622552d04": {
       "figur": "ord",
       "tekst": "smøge",
       "fil": "04532622552d04.ogg",
       "kilde": "Ordkort / smoege",
       "lavet": "2026-11-01"
+    },
+    "04577fa61090a8": {
+      "figur": "klatten",
+      "tekst": "Vims siger, at jeg skal jælpe ham med at finde krummer. Vorfor skulle jeg det?",
+      "fil": "04577fa61090a8.ogg",
+      "kilde": "Klattens tekster / k10",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "0465255276b639": {
+      "figur": "fortaeller",
+      "tekst": "Politiet havde tre mistænkte. Men kun én af dem havde nøglen til kælderen.",
+      "fil": "0465255276b639.ogg",
+      "kilde": "Genrer / k2",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "0469698bd48e27": {
+      "figur": "fortaeller",
+      "tekst": "Drengen tabte sin blyant. ... bukkede sig ned for at samle den op.",
+      "fil": "0469698bd48e27.ogg",
+      "kilde": "Fortæller / f06",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "046e115373bef8": {
+      "figur": "klatten",
+      "tekst": "Jeg tænkede meget på chefen i nat. Jeg talte alle stenerne i søen, og jeg komm til tolv.",
+      "fil": "046e115373bef8.ogg",
+      "kilde": "Klattens tekster / k12",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "0471868cf6bc7f": {
+      "figur": "fortaeller",
+      "tekst": "Hver nat kom en hvid hjort til slottet. Den, der fulgte efter den, kom aldrig tilbage, sagde folk.",
+      "fil": "0471868cf6bc7f.ogg",
+      "kilde": "Genrer / e5",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "047252623553a9": {
+      "figur": "fortaeller",
+      "tekst": "Men jeg prøvede at blive ved, og nu skriver jeg selv mine breve.",
+      "fil": "047252623553a9.ogg",
+      "kilde": "Klattens tekster / k13.1",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "0473b0712fee7d": {
+      "figur": "fortaeller",
+      "tekst": "Dukken på hylden havde altid kigget mod døren. I morges kiggede den på ham.",
+      "fil": "0473b0712fee7d.ogg",
+      "kilde": "Genrer / g4",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "0475db2ed4227d": {
+      "figur": "fortaeller",
+      "tekst": "De smager lidt af sand.",
+      "fil": "0475db2ed4227d.ogg",
+      "kilde": "Klattens tekster / k14.1",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
     },
     "0478668105371e": {
       "figur": "fortaeller",
@@ -974,6 +1222,22 @@
       "kilde": "Kapitel 1 / k1-ankomst.2",
       "lavet": "2026-10-31"
     },
+    "04bebba12ad578": {
+      "figur": "fortaeller",
+      "tekst": "Jeg kan ikke selv finde den.",
+      "fil": "04bebba12ad578.ogg",
+      "kilde": "Klattens tekster / k03.1",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "04cd7a0683597a": {
+      "figur": "fortaeller",
+      "tekst": "Hun var bange for mørket, men hun sagde det ikke til nogen.",
+      "fil": "04cd7a0683597a.ogg",
+      "kilde": "Fortæller / k05",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
     "04ced1fd54f038": {
       "figur": "aeseloere",
       "tekst": "Planke 4 står forkert. Hvad ser hovedpersonen, når den magiske verden begynder?",
@@ -1015,6 +1279,14 @@
       "fil": "04e218468e747c.ogg",
       "kilde": "Kapitel 8 / k8-oplaesning.8",
       "lavet": "2026-11-11"
+    },
+    "04e2467b635ab0": {
+      "figur": "fortaeller",
+      "tekst": "Det første udkast var fuld af fejl, og alligevel var det en god historie.",
+      "fil": "04e2467b635ab0.ogg",
+      "kilde": "Halvsætninger / s12",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "04e31e7a64baba": {
       "figur": "aeseloere",
@@ -1085,6 +1357,14 @@
       "fil": "053e40b95ba3cf.ogg",
       "kilde": "Kapitel 6 / k6-twist.3",
       "lavet": "2026-11-10"
+    },
+    "0540371d5ca291": {
+      "figur": "fortaeller",
+      "tekst": "Om vinteren er det koldt, så man skal have hue på.",
+      "fil": "0540371d5ca291.ogg",
+      "kilde": "Halvsætninger / s03",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "0544c67f7ad25f": {
       "figur": "fortaeller",
@@ -1191,6 +1471,14 @@
       "kilde": "Kapitel 1 / k1-aeseloere.5",
       "lavet": "2026-10-31"
     },
+    "05a7ee0c122fe7": {
+      "figur": "aeseloere",
+      "tekst": "Regel: Læs langsomt, ord for ord. Spørg dig selv, om ordet ser ud, som det plejer.",
+      "fil": "05a7ee0c122fe7.ogg",
+      "kilde": "Beskeder / korrektur.find.regel",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "05add3cd6442c1": {
       "figur": "lanterne",
       "tekst": "Her, tag den her lanterne. Du får brug for den.",
@@ -1218,6 +1506,14 @@
       "fil": "05c41d1ed391c7.ogg",
       "kilde": "Minder / minde.skaar6a.1",
       "lavet": "2026-11-13"
+    },
+    "05c4c9c54756a9": {
+      "figur": "aeseloere",
+      "tekst": "Ordet grim betyder ikke det samme som smuk. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
+      "fil": "05c4c9c54756a9.ogg",
+      "kilde": "Svar / synonym.smuk.grim",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "05d573d8176505": {
       "figur": "aeseloere",
@@ -1254,12 +1550,36 @@
       "kilde": "Minder / minde.skaar5b.1",
       "lavet": "2026-11-13"
     },
+    "0604a098c0e94c": {
+      "figur": "fortaeller",
+      "tekst": "Klatten har lavet 2 fejl i teksten. Tryk på et ord, der er stavet forkert.",
+      "fil": "0604a098c0e94c.ogg",
+      "kilde": "Opgaver / korrektur.instruks.2",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "0612ebed1e12ca": {
       "figur": "aeseloere",
       "tekst": "Planke 3 står forkert. Hvordan kommer hovedpersonen ind i den magiske verden?",
       "fil": "0612ebed1e12ca.ogg",
       "kilde": "Beskeder / bro.fejl.placering.3.portal",
       "lavet": "2026-11-05"
+    },
+    "06193382ffab45": {
+      "figur": "fortaeller",
+      "tekst": "Ingen havde set brevet, før det lå på bordet foran hende.",
+      "fil": "06193382ffab45.ogg",
+      "kilde": "Fortæller / k13",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "062000a3880d7f": {
+      "figur": "fortaeller",
+      "tekst": "Bageren stod tidligt op for at bage brød til byen.",
+      "fil": "062000a3880d7f.ogg",
+      "kilde": "Halvsætninger / s04",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "06211d658911c9": {
       "figur": "holm",
@@ -1288,6 +1608,14 @@
       "fil": "062ddf107b2c65.ogg",
       "kilde": "Historiebroen / bro-raeven.portal",
       "lavet": "2026-11-05"
+    },
+    "063109c6a981c8": {
+      "figur": "fortaeller",
+      "tekst": "Lanternen gik ud, og derfor blev der helt mørkt.",
+      "fil": "063109c6a981c8.ogg",
+      "kilde": "Halvsætninger / s05",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "0645f944e0d36e": {
       "figur": "aeseloere",
@@ -1338,6 +1666,14 @@
       "kilde": "Kapitel 6 / k6-kasser.7",
       "lavet": "2026-11-10"
     },
+    "06892bf7de15ed": {
+      "figur": "fortaeller",
+      "tekst": "Skyggen havde ledt længe efter et sted at høre til, men alle steder var allerede fulde.",
+      "fil": "06892bf7de15ed.ogg",
+      "kilde": "Halvsætninger / s09",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "06897d812334ee": {
       "figur": "fortaeller",
       "tekst": "Gå hen til væsnet på stien.",
@@ -1358,6 +1694,14 @@
       "fil": "06918b9415eb03.ogg",
       "kilde": "Synonymer / modig",
       "lavet": "2026-11-04"
+    },
+    "06a1b3d6b8b364": {
+      "figur": "aeseloere",
+      "tekst": "Eksempel: hvem, hjælpe, rund, selv",
+      "fil": "06a1b3d6b8b364.ogg",
+      "kilde": "Beskeder / korrektur.eksempel.stumme",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "06a8b3dac781ae": {
       "figur": "fortaeller",
@@ -1401,6 +1745,14 @@
       "kilde": "Kapitel 6 / postbreve.start.3",
       "lavet": "2026-11-12"
     },
+    "06d493e305372b": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord betyder det samme som glad?",
+      "fil": "06d493e305372b.ogg",
+      "kilde": "Svar / synonym.glad.spoergsmaal",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "06d6008790563f": {
       "figur": "fortaeller",
       "tekst": "De leder længe. Så lukker de skuffen stille igen og bliver stående lidt.",
@@ -1414,6 +1766,14 @@
       "fil": "06e7644f3509aa.ogg",
       "kilde": "Synonymer / snakke",
       "lavet": "2026-11-04"
+    },
+    "06ea4d667ac875": {
+      "figur": "fortaeller",
+      "tekst": "Han fandt en gammel bog under sengen.",
+      "fil": "06ea4d667ac875.ogg",
+      "kilde": "Fortæller / k03",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
     },
     "06ed058283e837": {
       "figur": "vims",
@@ -1471,6 +1831,14 @@
       "kilde": "Minder / minde.skaar4a.3",
       "lavet": "2026-11-13"
     },
+    "0734f843139158": {
+      "figur": "fortaeller",
+      "tekst": "Om aftenen sad jeg alene i mit værelse. ... tegnede en lille skygge i hæftet.",
+      "fil": "0734f843139158.ogg",
+      "kilde": "Fortæller / f10",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
     "07390e471d9e47": {
       "figur": "fortaeller",
       "tekst": "Du lægger Rimfods sten for enden af den halve bro. Stregen bliver længere, og broen tegner sig færdig.",
@@ -1520,6 +1888,14 @@
       "kilde": "Beskeder / rim.regel",
       "lavet": "2026-11-13"
     },
+    "0755dd67dd374f": {
+      "figur": "fortaeller",
+      "tekst": "Der var engang en fattig pige, der boede i skoven. En dag mødte hun en ræv, der kunne tale.",
+      "fil": "0755dd67dd374f.ogg",
+      "kilde": "Genrer / e1",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "075ab6ccf8232f": {
       "figur": "fortaeller",
       "tekst": "En hånd holder om en blyant. Den holder alt for hårdt, så knoerne bliver helt hvide.",
@@ -1548,6 +1924,14 @@
       "kilde": "Kapitel 8 / k8-holm.3",
       "lavet": "2026-11-11"
     },
+    "0794b442810075": {
+      "figur": "fortaeller",
+      "tekst": "Alle væsner er faldet sammen. Vejen er fri.",
+      "fil": "0794b442810075.ogg",
+      "kilde": "Kampe / kamp.vundet",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
     "07a22c6acc72ba": {
       "figur": "fortaeller",
       "tekst": "Hvor er bogens slutning?",
@@ -1562,6 +1946,22 @@
       "kilde": "Kapitel 7 / k7-prinsesse.2",
       "lavet": "2026-11-10"
     },
+    "07a35358978e4b": {
+      "figur": "aeseloere",
+      "tekst": "Regel: Et eventyr foregår tit for længe siden. Der er magi, en helt, der skal klare prøver, og ofte tre af noget. Til sidst vinder det gode.",
+      "fil": "07a35358978e4b.ogg",
+      "kilde": "Beskeder / genre.regel.eventyr",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "07a5507f639e67": {
+      "figur": "fortaeller",
+      "tekst": "Hele teksten er rettet.",
+      "fil": "07a5507f639e67.ogg",
+      "kilde": "Opgaver / korrektur.faerdig",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "07b5a3d5cbd6e9": {
       "figur": "aeseloere",
       "tekst": "En af plankerne passer ikke. Her løser en anden end hovedpersonen problemet.",
@@ -1575,6 +1975,14 @@
       "fil": "07b66274b8f859.ogg",
       "kilde": "Kapitel 7 / halvebroen.ind.1",
       "lavet": "2026-11-12"
+    },
+    "07b699d06e4290": {
+      "figur": "fortaeller",
+      "tekst": "Hendes mor råbte på hende, men hun lod, som om hun ikke hørte det.",
+      "fil": "07b699d06e4290.ogg",
+      "kilde": "Fortæller / k10",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
     },
     "07c3778d5464df": {
       "figur": "fortaeller",
@@ -1617,6 +2025,14 @@
       "fil": "07f526cf8ee496.ogg",
       "kilde": "Kapitel 3 / k3-stumming-moede.3",
       "lavet": "2026-11-01"
+    },
+    "080a72861187cb": {
+      "figur": "klatten",
+      "tekst": "Chefen sendede mig væk, fordi jeg ikke kunne stave. Nu sidder jeg stile og læser breverne fra dengang.",
+      "fil": "080a72861187cb.ogg",
+      "kilde": "Klattens tekster / k11",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
     },
     "080e7368ab4a53": {
       "figur": "fortaeller",
@@ -1666,6 +2082,14 @@
       "fil": "085701a614cd38.ogg",
       "kilde": "Stumme bogstaver / strand.saetning",
       "lavet": "2026-11-04"
+    },
+    "085ff4c5160ec7": {
+      "figur": "klatten",
+      "tekst": "Jeg har lært noget. Vis jeg skriver forkert, er det ikke farligt. Jeg retter det bare, og så bliver orderne lidt smukere.",
+      "fil": "085ff4c5160ec7.ogg",
+      "kilde": "Klattens tekster / k16",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
     },
     "08669a1198ea52": {
       "figur": "fortaeller",
@@ -1723,6 +2147,14 @@
       "kilde": "Beskeder / bro.fejl.placering.2.konflikt",
       "lavet": "2026-11-04"
     },
+    "08c219912ae93b": {
+      "figur": "aeseloere",
+      "tekst": "Eksempel: Andre ord med samme slags stumme bogstav: hvid, hvad, hvor.",
+      "fil": "08c219912ae93b.ogg",
+      "kilde": "Beskeder / kamp.stumming.eksempel.hvem",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
     "08c453f7aa014d": {
       "figur": "fortaeller",
       "tekst": "En lille hvalp leger i bladene.",
@@ -1737,6 +2169,14 @@
       "kilde": "Kapitel 5 / k5-rum.seddel.4",
       "lavet": "2026-11-12"
     },
+    "09102012d4ebf4": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Den, der fortæller, er selv med og siger jeg.",
+      "fil": "09102012d4ebf4.ogg",
+      "kilde": "Beskeder / fortaeller.rigtig.jeg",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
     "091497577aa202": {
       "figur": "aeseloere",
       "tekst": "Eksempel: Spørgsmål: Hvilken farve har papirfuglen? Bevis: \"Papirfuglen er hvid.\"",
@@ -1750,6 +2190,14 @@
       "fil": "09168500fc0490.ogg",
       "kilde": "Historiebroen / bro-raeven.fremmed",
       "lavet": "2026-11-05"
+    },
+    "091e4a5c7a0159": {
+      "figur": "fortaeller",
+      "tekst": "Da Rimfod endelig sagde noget uden rim, blev han så glad, at han grinede.",
+      "fil": "091e4a5c7a0159.ogg",
+      "kilde": "Halvsætninger / s08",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "091f143b2a53ee": {
       "figur": "aeseloere",
@@ -1835,6 +2283,14 @@
       "kilde": "Kapitel 3 / k3-moerke.3",
       "lavet": "2026-11-01"
     },
+    "09764c7870bd13": {
+      "figur": "aeseloere",
+      "tekst": "Eksempel: Detektiven fandt et fingeraftryk på vinduet.",
+      "fil": "09764c7870bd13.ogg",
+      "kilde": "Beskeder / genre.eksempel.krimi",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "097d6bf7f755ef": {
       "figur": "fortaeller",
       "tekst": "Her vokser bogstaverne på træer, og floderne er lavet af blæk.",
@@ -1862,6 +2318,14 @@
       "fil": "098e89429541c2.ogg",
       "kilde": "Kapitel 7 / k7-grumsen.2",
       "lavet": "2026-11-10"
+    },
+    "0993816884e710": {
+      "figur": "fortaeller",
+      "tekst": "Bedstemor lagde bogen fra sig. ... smilede og slukkede lampen.",
+      "fil": "0993816884e710.ogg",
+      "kilde": "Fortæller / f08",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
     },
     "099e773b16e1f6": {
       "figur": "aeseloere",
@@ -1982,6 +2446,14 @@
       "kilde": "Kapitel 2 / k2-moerke.8",
       "lavet": "2026-10-31"
     },
+    "0a0f1a9b18eeb0": {
+      "figur": "fortaeller",
+      "tekst": "Hvis man aldrig skriver en slutning, bliver historien aldrig færdig.",
+      "fil": "0a0f1a9b18eeb0.ogg",
+      "kilde": "Halvsætninger / s10",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "0a1c71ac6785ff": {
       "figur": "fortaeller",
       "tekst": "Blæksporet fører ind i en skov. Men noget er galt. Træerne er blege, som om nogen har prøvet at viske dem ud.",
@@ -2031,6 +2503,14 @@
       "kilde": "Kapitel 8 / k8-skyggen.opgavetekst",
       "lavet": "2026-11-12"
     },
+    "0a709037237cbe": {
+      "figur": "klatten",
+      "tekst": "Søen er sort og run. Om sommeren svømte jeg i den hver dag.",
+      "fil": "0a709037237cbe.ogg",
+      "kilde": "Klattens tekster / k07",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
     "0a8add0ccc7c17": {
       "figur": "fortaeller",
       "tekst": "Lanternen. Mor Lanternes lanterne. Den lyser af færdige historier og bliver aldrig helt mørk.",
@@ -2044,6 +2524,22 @@
       "fil": "0a91636932c5da.ogg",
       "kilde": "Historiebroen / bro-graevlingen.portal",
       "lavet": "2026-11-05"
+    },
+    "0a9690a1b63514": {
+      "figur": "aeseloere",
+      "tekst": "Eksempel: Mira tog regnjakken på, fordi det regnede.",
+      "fil": "0a9690a1b63514.ogg",
+      "kilde": "Beskeder / halvsaetning.eksempel.slut",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "0aa212b5cdc3d4": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Den, der fortæller, fortæller om en anden.",
+      "fil": "0aa212b5cdc3d4.ogg",
+      "kilde": "Beskeder / fortaeller.rigtig.hanhun",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
     },
     "0aa6acb748c15e": {
       "figur": "fortaeller",
@@ -2136,6 +2632,14 @@
       "kilde": "Kapitel 3 / hvidesti.faerdig.1",
       "lavet": "2026-11-09"
     },
+    "0b04ba31765201": {
+      "figur": "fortaeller",
+      "tekst": "Hvorfor skulle jeg det?",
+      "fil": "0b04ba31765201.ogg",
+      "kilde": "Klattens tekster / k10.1",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
     "0b04e6610f22db": {
       "figur": "fortaeller",
       "tekst": "Til sidst kommer hun hjem igen.",
@@ -2157,6 +2661,22 @@
       "kilde": "Minder / minde.koekkenbord.1",
       "lavet": "2026-11-03"
     },
+    "0b1391d0c792ae": {
+      "figur": "fortaeller",
+      "tekst": "Ved du, hvad der sker bagefter?",
+      "fil": "0b1391d0c792ae.ogg",
+      "kilde": "Halvsætninger / t12",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "0b1890d1ee335e": {
+      "figur": "klatten",
+      "tekst": "Da jeg var lile, sagde alle, at mine klatter var grimme. Men jeg prøvte at blive ved, og nu skriver jeg sel mine breve.",
+      "fil": "0b1890d1ee335e.ogg",
+      "kilde": "Klattens tekster / k13",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
     "0b19acea315bec": {
       "figur": "fortaeller",
       "tekst": "Midt på torvet står et springvand. Det er helt tørt, og bunden er plettet af noget sort.",
@@ -2170,6 +2690,14 @@
       "fil": "0b33fa14840161.ogg",
       "kilde": "Kampe / kamp.tomordet.rolig",
       "lavet": "2026-11-04"
+    },
+    "0b38082aa33a07": {
+      "figur": "fortaeller",
+      "tekst": "Signalet kom fra en stjerne langt borte. Det gentog den samme melodi igen og igen.",
+      "fil": "0b38082aa33a07.ogg",
+      "kilde": "Genrer / s6",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "0b435014e2b347": {
       "figur": "aeseloere",
@@ -2248,6 +2776,14 @@
       "kilde": "Kapitel 6 / postbreve.efter.1",
       "lavet": "2026-11-12"
     },
+    "0b7896a0f0290d": {
+      "figur": "fortaeller",
+      "tekst": "Han tændte lommelygten og lyste ned i kælderen. Trappen var længere, end han huskede.",
+      "fil": "0b7896a0f0290d.ogg",
+      "kilde": "Genrer / g6",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "0b81eefcc22ead": {
       "figur": "fortaeller",
       "tekst": "Pludselig bliver alt stille. Byens larm forsvinder, som når man smækker en bog i.",
@@ -2261,6 +2797,14 @@
       "fil": "0b8d02af71e9fe.ogg",
       "kilde": "Kapitel 6 / k6-slut.3",
       "lavet": "2026-11-10"
+    },
+    "0ba8a7be8d777b": {
+      "figur": "fortaeller",
+      "tekst": "Jeg har ikke tid til at tælle dem.",
+      "fil": "0ba8a7be8d777b.ogg",
+      "kilde": "Klattens tekster / k04.1",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
     },
     "0ba8ad92e06206": {
       "figur": "fortaeller",
@@ -2318,6 +2862,14 @@
       "kilde": "Beskeder / raaber.fejl.udraab",
       "lavet": "2026-11-03"
     },
+    "0bfd6369348516": {
+      "figur": "fortaeller",
+      "tekst": "Noah havde glemt sin madpakke derhjemme. ... måtte låne en bolle af sin bedste ven.",
+      "fil": "0bfd6369348516.ogg",
+      "kilde": "Fortæller / f14",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
     "0c0123d5103cee": {
       "figur": "fodnote",
       "tekst": "¹ Nej tak. Alt det vigtige står nederst.",
@@ -2352,6 +2904,14 @@
       "fil": "0c1d08e3775bd8.ogg",
       "kilde": "Kapitel 3 / k3-tomordet-moede.3",
       "lavet": "2026-11-01"
+    },
+    "0c22f7eb3594eb": {
+      "figur": "fortaeller",
+      "tekst": "Hele dagen ventede jeg på et brev. ... kiggede i postkassen mindst ti gange.",
+      "fil": "0c22f7eb3594eb.ogg",
+      "kilde": "Fortæller / f11",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
     },
     "0c24d021b3f25a": {
       "figur": "fortaeller",
@@ -2409,12 +2969,28 @@
       "kilde": "Kapitel 6 / k6-kamp.opgavetekst",
       "lavet": "2026-11-12"
     },
+    "0c5c77d3da2f28": {
+      "figur": "aeseloere",
+      "tekst": "Eksempel: siderne, kagerne, bordene, ordene",
+      "fil": "0c5c77d3da2f28.ogg",
+      "kilde": "Beskeder / korrektur.eksempel.endelse",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "0c6135b72faf22": {
       "figur": "fortaeller",
       "tekst": "Læs byrådets opslag.",
       "fil": "0c6135b72faf22.ogg",
       "kilde": "Kapitel 2 / k2-opslag.opgavetekst",
       "lavet": "2026-11-03"
+    },
+    "0c614aa9b9b199": {
+      "figur": "fortaeller",
+      "tekst": "Hunden ville ikke gå ind i skoven. Den stod bare og knurrede ad noget, ingen andre kunne se.",
+      "fil": "0c614aa9b9b199.ogg",
+      "kilde": "Genrer / g5",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "0c6460d9fb799f": {
       "figur": "fortaeller",
@@ -2436,6 +3012,30 @@
       "fil": "0c708b420b71df.ogg",
       "kilde": "Kapitel 8 / k8-hvem.valg2.1",
       "lavet": "2026-11-11"
+    },
+    "0c71a4bf46face": {
+      "figur": "aeseloere",
+      "tekst": "Regel: Science fiction foregår tit i fremtiden eller ude i rummet. Der er robotter, rumskibe og opfindelser, som ikke findes endnu.",
+      "fil": "0c71a4bf46face.ogg",
+      "kilde": "Beskeder / genre.regel.sf",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "0c71daa731a822": {
+      "figur": "klatten",
+      "tekst": "Jeg hoppte hele vejen hjem. Så spisede jeg tre klatter brød.",
+      "fil": "0c71daa731a822.ogg",
+      "kilde": "Klattens tekster / k02",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "0c85cb662b16a9": {
+      "figur": "fortaeller",
+      "tekst": "Ali kiggede op på hylden. ... kunne ikke nå den øverste bog.",
+      "fil": "0c85cb662b16a9.ogg",
+      "kilde": "Fortæller / f03",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
     },
     "0c85e1738b8cb8": {
       "figur": "ord",
@@ -2570,6 +3170,14 @@
       "kilde": "Beskeder / bro.fejl.placering.4.portal",
       "lavet": "2026-11-05"
     },
+    "0cfcb6303d74c8": {
+      "figur": "aeseloere",
+      "tekst": "Eksempel: Midt om natten knirkede døren til kælderen.",
+      "fil": "0cfcb6303d74c8.ogg",
+      "kilde": "Beskeder / genre.eksempel.gyser",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "0d0376225b92c2": {
       "figur": "fortaeller",
       "tekst": "Klatr op ad Rimbjerget, og red bjergets ældste digt, før Den Ufærdige tager det.",
@@ -2654,6 +3262,14 @@
       "kilde": "Kapitel 3 / k3-lysning.2",
       "lavet": "2026-11-01"
     },
+    "0d7105cb630de0": {
+      "figur": "fortaeller",
+      "tekst": "Prinsen skulle klare tre prøver for at redde sin søster. Den første prøve var at tæmme en drage.",
+      "fil": "0d7105cb630de0.ogg",
+      "kilde": "Genrer / e2",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "0d758137c0f03b": {
       "figur": "fortaeller",
       "tekst": "Vims' krummer. Små grå krummer fra et viskelæder. De kan viske næsten alt ud.",
@@ -2674,6 +3290,22 @@
       "fil": "0d7ba4d4090610.ogg",
       "kilde": "Kapitel 5 / fodnotetal.efter.1",
       "lavet": "2026-11-12"
+    },
+    "0d83690ee5163b": {
+      "figur": "aeseloere",
+      "tekst": "Ordet vred betyder ikke det samme som glad. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
+      "fil": "0d83690ee5163b.ogg",
+      "kilde": "Svar / synonym.glad.vred",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "0d8bda4f35c19d": {
+      "figur": "fortaeller",
+      "tekst": "Stop, du må ikke gå derind!",
+      "fil": "0d8bda4f35c19d.ogg",
+      "kilde": "Halvsætninger / t06",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "0d9bb939c371cb": {
       "figur": "fortaeller",
@@ -2794,6 +3426,14 @@
       "kilde": "Beskeder / bro.fejl.placering.1.hjemkomst",
       "lavet": "2026-11-04"
     },
+    "0e4113ec25f41c": {
+      "figur": "klatten",
+      "tekst": "Kagene er til dig. De smager lidt af san.",
+      "fil": "0e4113ec25f41c.ogg",
+      "kilde": "Klattens tekster / k14",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
     "0e4416bdf7970d": {
       "figur": "fodnote",
       "tekst": "¹ Jeg er ikke overrasket. Det stod i min fodnote på den allerførste side. ² Ingen læser fodnoter. Derfor vidste ingen det.",
@@ -2822,12 +3462,28 @@
       "kilde": "Kapitel 5 / k5-tvivl-moede.opgavetekst",
       "lavet": "2026-11-12"
     },
+    "0e583eaab17f31": {
+      "figur": "fortaeller",
+      "tekst": "Alle kasserne i min hytte er fulde af fejl.",
+      "fil": "0e583eaab17f31.ogg",
+      "kilde": "Klattens tekster / k04.0",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
     "0e5cb3edad41b9": {
       "figur": "aeseloere",
       "tekst": "En Stumming. Den stjæler stumme bogstaver. Find det bogstav, der mangler, så giver den slip.",
       "fil": "0e5cb3edad41b9.ogg",
       "kilde": "Kapitel 3 / k3-stumming-moede.2",
       "lavet": "2026-11-01"
+    },
+    "0e5d14613a56cf": {
+      "figur": "aeseloere",
+      "tekst": "Regel: En jeg-fortæller er selv med i historien og siger jeg. En han- eller hun-fortæller fortæller om en anden og siger han, hun eller et navn. Hold fast i den samme fortæller hele vejen.",
+      "fil": "0e5d14613a56cf.ogg",
+      "kilde": "Beskeder / fortaeller.regel",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
     },
     "0e63fda4563078": {
       "figur": "aeseloere",
@@ -2856,6 +3512,14 @@
       "fil": "0e81ef2523c1e5.ogg",
       "kilde": "Kapitel 5 / k5-haeftet.1",
       "lavet": "2026-11-09"
+    },
+    "0e99ceb99df0c7": {
+      "figur": "fortaeller",
+      "tekst": "Klatten spiste tre klatter brød til morgenmad.",
+      "fil": "0e99ceb99df0c7.ogg",
+      "kilde": "Halvsætninger / t05",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "0e9c76808b6442": {
       "figur": "fortaeller",
@@ -2955,6 +3619,22 @@
       "kilde": "Kapitel 7 / k7-lup.1",
       "lavet": "2026-11-10"
     },
+    "0efafa40ff2041": {
+      "figur": "fortaeller",
+      "tekst": "Den gamle kone gav drengen en magisk nød. Når han knækkede den, ville han få et ønske opfyldt.",
+      "fil": "0efafa40ff2041.ogg",
+      "kilde": "Genrer / e3",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "0f10f914aaef66": {
+      "figur": "fortaeller",
+      "tekst": "Så spiste jeg tre klatter brød.",
+      "fil": "0f10f914aaef66.ogg",
+      "kilde": "Klattens tekster / k02.1",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
     "0f12c8e1417924": {
       "figur": "holm",
       "tekst": "Godt, at du kom tilbage.",
@@ -2968,6 +3648,22 @@
       "fil": "0f180035ea6412.ogg",
       "kilde": "Kapitel 8 / k8-skyggen.valg1.2",
       "lavet": "2026-11-11"
+    },
+    "0f20369596586a": {
+      "figur": "fortaeller",
+      "tekst": "Da klokken slog tolv, blev guldet til sten igen. Men pigen havde gemt én mønt i sin sko.",
+      "fil": "0f20369596586a.ogg",
+      "kilde": "Genrer / e6",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "0f20e150049c04": {
+      "figur": "klatten",
+      "tekst": "Nå, sådan! Det skriver jeg op og lægger i min pæne kasse.",
+      "fil": "0f20e150049c04.ogg",
+      "kilde": "Kampe og opgaver / korrektur.klatten.1",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "0f2fb58c2eb519": {
       "figur": "aeseloere",
@@ -3011,6 +3707,22 @@
       "kilde": "Kapitel 4 / k4-moerke.3",
       "lavet": "2026-11-09"
     },
+    "0f7985f6321a10": {
+      "figur": "fortaeller",
+      "tekst": "Rumskibet landede på en rød planet. Kaptajnen tog sin hjelm på og åbnede lugen.",
+      "fil": "0f7985f6321a10.ogg",
+      "kilde": "Genrer / s1",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "0f7d223cbbed25": {
+      "figur": "fortaeller",
+      "tekst": "Rejs gennem skove, bjerge og søer af blæk.",
+      "fil": "0f7d223cbbed25.ogg",
+      "kilde": "Introen / intro.trailer.1",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
     "0f83575ef77983": {
       "figur": "aeseloere",
       "tekst": "Lemmen fører ned til det inderste arkiv. Kom.",
@@ -3046,12 +3758,52 @@
       "kilde": "Kapitel 2 / k2-rum.seddel.1",
       "lavet": "2026-11-03"
     },
+    "0f9b0fbc4ee68a": {
+      "figur": "fortaeller",
+      "tekst": "Og kæmp mod væsner, der har mistet deres ord.",
+      "fil": "0f9b0fbc4ee68a.ogg",
+      "kilde": "Introen / intro.trailer.4",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "0fa845de365d52": {
+      "figur": "klatten",
+      "tekst": "Vem skriver altid forkert? Det gør jeg! Men i dag tegnte jeg et helt kort uden en eneste klat.",
+      "fil": "0fa845de365d52.ogg",
+      "kilde": "Klattens tekster / k08",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "0fb0dfa8cb1e36": {
+      "figur": "fortaeller",
+      "tekst": "Hvem fortæller i denne sætning?",
+      "fil": "0fb0dfa8cb1e36.ogg",
+      "kilde": "Opgaver / fortaeller.spoergsmaal",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
     "0fb7fb56637b44": {
       "figur": "fortaeller",
       "tekst": "Gå hen til den mørke skikkelse midt på vejen.",
       "fil": "0fb7fb56637b44.ogg",
       "kilde": "Kapitel 7 / k7-fristelse.opgavetekst",
       "lavet": "2026-11-12"
+    },
+    "0fbbac86732be8": {
+      "figur": "fortaeller",
+      "tekst": "Jeg hoppede hele vejen hjem.",
+      "fil": "0fbbac86732be8.ogg",
+      "kilde": "Klattens tekster / k02.0",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "0fbdb9b477a816": {
+      "figur": "klatten",
+      "tekst": "I nat drømmede jeg, at chefen kom tilbage. Han stod ved trapen og kiggede ind.",
+      "fil": "0fbdb9b477a816.ogg",
+      "kilde": "Klattens tekster / k15",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
     },
     "0fbe66fe58341d": {
       "figur": "fortaeller",
@@ -3067,12 +3819,44 @@
       "kilde": "Kapitel 4 / k4-moerke.5",
       "lavet": "2026-11-09"
     },
+    "0fd7353a9bf703": {
+      "figur": "fortaeller",
+      "tekst": "Min mor råbte på mig, men jeg lod, som om jeg ikke hørte det.",
+      "fil": "0fd7353a9bf703.ogg",
+      "kilde": "Fortæller / k09",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
     "0fdbcb401e9088": {
       "figur": "vims",
       "tekst": "Alle er her. Det er rart. Undskyld, at jeg synes, det er rart.",
       "fil": "0fdbcb401e9088.ogg",
       "kilde": "Kapitel 7 / k7-ankomst.6",
       "lavet": "2026-11-10"
+    },
+    "0fdecf2b5f0c45": {
+      "figur": "fortaeller",
+      "tekst": "Siderne i min hytte er krøllede.",
+      "fil": "0fdecf2b5f0c45.ogg",
+      "kilde": "Klattens tekster / k09.0",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "0fe08dcce80286": {
+      "figur": "aeseloere",
+      "tekst": "Regel: Efter en kort vokal skriver man to ens konsonanter, når der kommer en vokal bagefter (komme, lille, trappen). Kommer der ikke en vokal bagefter, er der kun én (kom).",
+      "fil": "0fe08dcce80286.ogg",
+      "kilde": "Beskeder / korrektur.regel.dobbelt",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "0fe9f2f30818f5": {
+      "figur": "fortaeller",
+      "tekst": "Chefen sendte mig væk, fordi jeg ikke kunne stave.",
+      "fil": "0fe9f2f30818f5.ogg",
+      "kilde": "Klattens tekster / k11.0",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
     },
     "0fec1119cf5c79": {
       "figur": "fortaeller",
@@ -3130,6 +3914,22 @@
       "kilde": "Kapitel 2 / k2-rum.seddel.4",
       "lavet": "2026-11-03"
     },
+    "10130bc9cc8203": {
+      "figur": "fortaeller",
+      "tekst": "Hunden logrede med halen, da den så sin ejer.",
+      "fil": "10130bc9cc8203.ogg",
+      "kilde": "Halvsætninger / s02",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "101eda2d530c1e": {
+      "figur": "fortaeller",
+      "tekst": "Maskinen begyndte at summe, og lyset blev blåt. Da hun åbnede øjnene, var der gået hundrede år.",
+      "fil": "101eda2d530c1e.ogg",
+      "kilde": "Genrer / s4",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1020b611447ec3": {
       "figur": "fortaeller",
       "tekst": "Midt ude på søen, på den sidste sten, ligger en lille, lysende papirstump. Det er et hukommelsesskår.",
@@ -3137,12 +3937,28 @@
       "kilde": "Kapitel 6 / soestenene.faerdig.1",
       "lavet": "2026-11-12"
     },
+    "1022468174a648": {
+      "figur": "aeseloere",
+      "tekst": "Regel: En sætning skal hænge sammen. Slutningen skal passe til begyndelsen, så det hele giver mening.",
+      "fil": "1022468174a648.ogg",
+      "kilde": "Beskeder / halvsaetning.regel.slut",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1022e7bb737557": {
       "figur": "aeseloere",
       "tekst": "Eksempel: Andre ord med samme regel: hvid, hvem, hvad",
       "fil": "1022e7bb737557.ogg",
       "kilde": "Beskeder / hviske.eksempel.hvor",
       "lavet": "2026-11-05"
+    },
+    "10240366fbf970": {
+      "figur": "fortaeller",
+      "tekst": "Nu sidder jeg stille og læser brevene fra dengang.",
+      "fil": "10240366fbf970.ogg",
+      "kilde": "Klattens tekster / k11.1",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
     },
     "102902530e2cd5": {
       "figur": "ekko",
@@ -3242,12 +4058,28 @@
       "kilde": "Kapitel 3 / k3-moerke.2",
       "lavet": "2026-11-01"
     },
+    "10866cbf89fbaf": {
+      "figur": "fodnote",
+      "tekst": "¹ Pas godt på koden. Hvis du mister den, kan selv jeg ikke finde dit spil. ² Og jeg kan finde alt.",
+      "fil": "10866cbf89fbaf.ogg",
+      "kilde": "Gemmekode / fodnote.3",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
     "108b87041073eb": {
       "figur": "fortaeller",
       "tekst": "En af plankerne passer ikke i en god fantasyfortælling. Læg den til side.",
       "fil": "108b87041073eb.ogg",
       "kilde": "Opgaver / bro.instruks.fremmed",
       "lavet": "2026-11-04"
+    },
+    "10a0703640a4aa": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Ordet gnaven betyder det samme som sur.",
+      "fil": "10a0703640a4aa.ogg",
+      "kilde": "Svar / synonym.sur.rigtig",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "10a27d1a586882": {
       "figur": "fortaeller",
@@ -3277,6 +4109,14 @@
       "kilde": "Beskeder / bro.fejl.placering.5.portal",
       "lavet": "2026-11-05"
     },
+    "10afd496fb68b2": {
+      "figur": "fortaeller",
+      "tekst": "Fru Fodnote skrev alt det vigtige nederst.",
+      "fil": "10afd496fb68b2.ogg",
+      "kilde": "Halvsætninger / t08",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "10b344642ebe7a": {
       "figur": "aeseloere",
       "tekst": "Den sætning handler om døren, ikke om lyden. Find sætningen, der fortæller, hvad hr. Holm hørte.",
@@ -3297,6 +4137,14 @@
       "fil": "10bb4ed67eeb4b.ogg",
       "kilde": "Kapitel 3 / k3-klatten.2",
       "lavet": "2026-11-01"
+    },
+    "10c3815946ff38": {
+      "figur": "fortaeller",
+      "tekst": "Hvorfor stoppede historien lige der?",
+      "fil": "10c3815946ff38.ogg",
+      "kilde": "Halvsætninger / t09",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "10d67158c29894": {
       "figur": "snegl",
@@ -3347,6 +4195,14 @@
       "kilde": "Råberens tegn / raab-9",
       "lavet": "2026-11-03"
     },
+    "1107e6da8486e8": {
+      "figur": "fortaeller",
+      "tekst": "Æseløre foldede sig sammen om natten, så han ikke blæste væk.",
+      "fil": "1107e6da8486e8.ogg",
+      "kilde": "Halvsætninger / s11",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "110c9d705db9ae": {
       "figur": "fortaeller",
       "tekst": "Bag De halve lande ligger den sidste side. Den er hvid og stille, og alt her er kun tegnet med blyant.",
@@ -3360,6 +4216,14 @@
       "fil": "110f3bf45fcfcb.ogg",
       "kilde": "Kapitel 4 / k4-toppen.opgavetekst",
       "lavet": "2026-11-12"
+    },
+    "111265da71a0e2": {
+      "figur": "aeseloere",
+      "tekst": "Regel: Et spørgsmål slutter med spørgsmålstegn. Noget, man råber, eller en ordre slutter tit med udråbstegn. Alle andre sætninger slutter med punktum.",
+      "fil": "111265da71a0e2.ogg",
+      "kilde": "Beskeder / halvsaetning.regel.tegn",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "1117089bc3c23b": {
       "figur": "vims",
@@ -3417,6 +4281,14 @@
       "kilde": "Opgaver / hviske.instruks.helt",
       "lavet": "2026-11-04"
     },
+    "11271caf0b9756": {
+      "figur": "aeseloere",
+      "tekst": "Regel: Find først flertal. Ender flertal på -er, får ordet -erne (kasser, kasserne). Ender flertal på -e eller ingenting, får ordet -ene (huse, husene, sten, stenene).",
+      "fil": "11271caf0b9756.ogg",
+      "kilde": "Beskeder / korrektur.regel.endelse",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "112877aeb583e4": {
       "figur": "fortaeller",
       "tekst": "Du opdager et spor i den hvide tåge.",
@@ -3473,6 +4345,14 @@
       "kilde": "Stumme bogstaver / hvem",
       "lavet": "2026-10-31"
     },
+    "11601c6cee162b": {
+      "figur": "fortaeller",
+      "tekst": "Jeg talte alle stenene i søen, og jeg kom til tolv.",
+      "fil": "11601c6cee162b.ogg",
+      "kilde": "Klattens tekster / k12.1",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
     "11670ac98fe0dc": {
       "figur": "fortaeller",
       "tekst": "Den sidste Krusedulle retter sig ud. Den bliver til et lille, pænt ord og flyder væk på søen.",
@@ -3486,6 +4366,22 @@
       "fil": "11720e30ce52e2.ogg",
       "kilde": "Kapitel 4 / k4-op.opgavetekst",
       "lavet": "2026-11-12"
+    },
+    "1177407bc53e03": {
+      "figur": "fortaeller",
+      "tekst": "Jeg åbnede den tunge dør og gik ned ad trappen.",
+      "fil": "1177407bc53e03.ogg",
+      "kilde": "Fortæller / k01",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "11819a48ddd65c": {
+      "figur": "fortaeller",
+      "tekst": "Da jeg var lille, sagde alle, at mine klatter var grimme.",
+      "fil": "11819a48ddd65c.ogg",
+      "kilde": "Klattens tekster / k13.0",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
     },
     "1188f2b8b0b679": {
       "figur": "fortaeller",
@@ -3514,6 +4410,14 @@
       "fil": "11947240fe9482.ogg",
       "kilde": "Beskeder / raaber.fejl.spoergsmaal",
       "lavet": "2026-11-03"
+    },
+    "119568e5daf132": {
+      "figur": "fortaeller",
+      "tekst": "Hvad hører til i en historie af genren eventyr?",
+      "fil": "119568e5daf132.ogg",
+      "kilde": "Opgaver / genre.kendetegn.eventyr",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "119b00dce74e42": {
       "figur": "fortaeller",
@@ -3592,6 +4496,14 @@
       "kilde": "Kapitel 8 / k8-oplaesning.4",
       "lavet": "2026-11-11"
     },
+    "11f5681aa5d267": {
+      "figur": "fortaeller",
+      "tekst": "I år 3000 boede alle mennesker i byer under havet. Fiskene svømmede forbi vinduerne i skolen.",
+      "fil": "11f5681aa5d267.ogg",
+      "kilde": "Genrer / s3",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "11f8e0194c9afc": {
       "figur": "aeseloere",
       "tekst": "Det var godt gjort, Klatten.",
@@ -3620,12 +4532,28 @@
       "kilde": "Stumme bogstaver / sand",
       "lavet": "2026-10-31"
     },
+    "12032f8a1c93ae": {
+      "figur": "aeseloere",
+      "tekst": "Eksempel: lille, kommer, vipper, men kom",
+      "fil": "12032f8a1c93ae.ogg",
+      "kilde": "Beskeder / korrektur.eksempel.dobbelt",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1205984a9f56b8": {
       "figur": "fortaeller",
       "tekst": "Vims bliver bange, når det blæser.",
       "fil": "1205984a9f56b8.ogg",
       "kilde": "Synonymer / bange",
       "lavet": "2026-11-04"
+    },
+    "120a94bffe6d08": {
+      "figur": "fortaeller",
+      "tekst": "Jeg tænkte meget på chefen i nat.",
+      "fil": "120a94bffe6d08.ogg",
+      "kilde": "Klattens tekster / k12.0",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
     },
     "120f3be69fc55c": {
       "figur": "lanterne",
@@ -3647,6 +4575,14 @@
       "fil": "1229c547b8b4db.ogg",
       "kilde": "Kapitel 7 / k7-fristelse.8",
       "lavet": "2026-11-10"
+    },
+    "122af04323c24c": {
+      "figur": "fortaeller",
+      "tekst": "Om morgenen spiste Ali sin havregrød og kiggede ud ad vinduet.",
+      "fil": "122af04323c24c.ogg",
+      "kilde": "Fortæller / k07",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
     },
     "122fc8cda148d7": {
       "figur": "fodnote",
@@ -3690,12 +4626,28 @@
       "kilde": "Kapitel 2 / k2-portvagt.opgavetekst",
       "lavet": "2026-11-03"
     },
+    "1273771961053b": {
+      "figur": "fortaeller",
+      "tekst": "Pigen satte sig ved bordet. ... begyndte at skrive i sit hæfte.",
+      "fil": "1273771961053b.ogg",
+      "kilde": "Fortæller / f05",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1276f9c2b47629": {
       "figur": "aeseloere",
       "tekst": "Regel: Når en tanke er færdig, sætter du punktum. Den næste sætning starter med stort begyndelsesbogstav.",
       "fil": "1276f9c2b47629.ogg",
       "kilde": "Beskeder / regel",
       "lavet": "2026-11-05"
+    },
+    "1279804ad930dd": {
+      "figur": "fortaeller",
+      "tekst": "Vims siger, at jeg skal hjælpe ham med at finde krummer.",
+      "fil": "1279804ad930dd.ogg",
+      "kilde": "Klattens tekster / k10.0",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
     },
     "127da30ef3b67e": {
       "figur": "fortaeller",
@@ -3780,6 +4732,14 @@
       "fil": "12b8d2d281cfd9.ogg",
       "kilde": "Kapitel 4 / k4-rimfod.2",
       "lavet": "2026-11-09"
+    },
+    "12bd0fea0f56ca": {
+      "figur": "fortaeller",
+      "tekst": "Men i dag tegnede jeg et helt kort uden en eneste klat.",
+      "fil": "12bd0fea0f56ca.ogg",
+      "kilde": "Klattens tekster / k08.1",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
     },
     "12c22d5f3c4c82": {
       "figur": "fortaeller",
@@ -3914,6 +4874,14 @@
       "kilde": "Kapitel 1 / k1-floden.2",
       "lavet": "2026-10-31"
     },
+    "1370e9278b7cb9": {
+      "figur": "aeseloere",
+      "tekst": "Regel: En krimi handler om en forbrydelse. En detektiv leder efter spor og mistænkte, og til sidst bliver sagen opklaret.",
+      "fil": "1370e9278b7cb9.ogg",
+      "kilde": "Beskeder / genre.regel.krimi",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "13721880c2c452": {
       "figur": "lup",
       "tekst": "Sagen er opklaret. Sporene var dine egne. Du har gået her før, for længe siden.",
@@ -4040,6 +5008,14 @@
       "kilde": "Kapitel 2 / k2-rum.seddel.2",
       "lavet": "2026-11-03"
     },
+    "13bb5f30447034": {
+      "figur": "aeseloere",
+      "tekst": "Ordet glad betyder ikke det samme som sur. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
+      "fil": "13bb5f30447034.ogg",
+      "kilde": "Svar / synonym.sur.glad",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "13bbfe9ee8599e": {
       "figur": "ord",
       "tekst": "hvor",
@@ -4061,6 +5037,14 @@
       "kilde": "Råberens tegn / raab-4",
       "lavet": "2026-11-03"
     },
+    "13d26601652a02": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Ordet køn betyder det samme som smuk.",
+      "fil": "13d26601652a02.ogg",
+      "kilde": "Svar / synonym.smuk.rigtig",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "13d606b9bb2958": {
       "figur": "ord",
       "tekst": "gulv",
@@ -4081,6 +5065,14 @@
       "fil": "13df624fe02f81.ogg",
       "kilde": "Minder / minde.godnat.4",
       "lavet": "2026-11-13"
+    },
+    "13e00ea15847a9": {
+      "figur": "fortaeller",
+      "tekst": "I nat drømte jeg, at chefen kom tilbage.",
+      "fil": "13e00ea15847a9.ogg",
+      "kilde": "Klattens tekster / k15.0",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
     },
     "13e08171811672": {
       "figur": "aeseloere",
@@ -4123,6 +5115,14 @@
       "fil": "140d3ee0105668.ogg",
       "kilde": "Kampe / kamp.stumming.lyt",
       "lavet": "2026-11-04"
+    },
+    "141543b0114b56": {
+      "figur": "fortaeller",
+      "tekst": "Hun lagde de tre breve ved siden af hinanden. Den samme lille plet af blæk sad i hjørnet af dem alle.",
+      "fil": "141543b0114b56.ogg",
+      "kilde": "Genrer / k5",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "1419fd836bd326": {
       "figur": "fodnote",
@@ -4208,6 +5208,14 @@
       "kilde": "Introen / intro.6",
       "lavet": "2026-11-10"
     },
+    "148c42904fe047": {
+      "figur": "fortaeller",
+      "tekst": "Hver aften klokken ni bankede det tre gange på ruden. Men vinduet var på tredje sal.",
+      "fil": "148c42904fe047.ogg",
+      "kilde": "Genrer / g3",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1497f7d787933e": {
       "figur": "fortaeller",
       "tekst": "Skoven var rolig før.",
@@ -4292,6 +5300,14 @@
       "kilde": "Beskeder / raaber.fejl.punktum",
       "lavet": "2026-11-03"
     },
+    "14ef6b65abd009": {
+      "figur": "fortaeller",
+      "tekst": "Da skolen var slut, løb drengen hele vejen hjem til sin hund.",
+      "fil": "14ef6b65abd009.ogg",
+      "kilde": "Fortæller / k11",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1521f3c4eea974": {
       "figur": "aeseloere",
       "tekst": "Ved hvert hul står en ekkosten. Find et ord, der rimer, så kommer stenene tilbage. Lyt til slutningen af ordet.",
@@ -4319,6 +5335,14 @@
       "fil": "153606a6443db9.ogg",
       "kilde": "Kapitel 6 / k6-twist.7",
       "lavet": "2026-11-10"
+    },
+    "153ea8ecfd1d62": {
+      "figur": "fortaeller",
+      "tekst": "Fru Fodnote rettede på sine briller. ... havde en fodnote til alting.",
+      "fil": "153ea8ecfd1d62.ogg",
+      "kilde": "Fortæller / f13",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
     },
     "1547e32e35e7ee": {
       "figur": "aeseloere",
@@ -4362,6 +5386,14 @@
       "kilde": "Beskeder / bro.fejl.placering.6.portal",
       "lavet": "2026-11-05"
     },
+    "1570dda48ca670": {
+      "figur": "fortaeller",
+      "tekst": "Det var mørkt i huset, og strømmen var gået. Så hørte hun fodtrin på loftet.",
+      "fil": "1570dda48ca670.ogg",
+      "kilde": "Genrer / g1",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "15834d016272b7": {
       "figur": "fortaeller",
       "tekst": "Tal-hjulene klikker på plads. Kartoteksskabet glider til side, og bag det er en lem i gulvet.",
@@ -4404,6 +5436,14 @@
       "kilde": "Historiebroen / bro-musen.konflikt",
       "lavet": "2026-11-05"
     },
+    "15a61fcc4b8838": {
+      "figur": "klatten",
+      "tekst": "Det vidste jeg godt. Næsten.",
+      "fil": "15a61fcc4b8838.ogg",
+      "kilde": "Kampe og opgaver / korrektur.klatten.2",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "15b3d42523db92": {
       "figur": "aeseloere",
       "tekst": "Den er svær med vilje. Du behøver ikke at klatre for at komme videre. Men øverst oppe glimter noget.",
@@ -4417,6 +5457,14 @@
       "fil": "15bebd49b45e9b.ogg",
       "kilde": "Titelkort / kapitel 6.maal",
       "lavet": "2026-11-13"
+    },
+    "15c280d17e71fa": {
+      "figur": "fortaeller",
+      "tekst": "Om morgenen spiste jeg min havregrød og kiggede ud ad vinduet.",
+      "fil": "15c280d17e71fa.ogg",
+      "kilde": "Fortæller / k08",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
     },
     "15c4a454d06577": {
       "figur": "fortaeller",
@@ -4467,6 +5515,22 @@
       "kilde": "Minder / minde.streger.1",
       "lavet": "2026-11-03"
     },
+    "160c8abf00bfab": {
+      "figur": "aeseloere",
+      "tekst": "Eksempel: Andre ord med samme slags stumme bogstav: hvid, hvem, hvad.",
+      "fil": "160c8abf00bfab.ogg",
+      "kilde": "Beskeder / kamp.stumming.eksempel.hvor",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "16251122efc162": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord betyder det samme som sur?",
+      "fil": "16251122efc162.ogg",
+      "kilde": "Svar / synonym.sur.spoergsmaal",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1629034926a18d": {
       "figur": "ord",
       "tekst": "selv",
@@ -4480,6 +5544,14 @@
       "fil": "162d56b280f04f.ogg",
       "kilde": "Kapitel 5 / k5-twist.6",
       "lavet": "2026-11-10"
+    },
+    "163ea46f1bb20a": {
+      "figur": "fortaeller",
+      "tekst": "Jeg gik ned ad trappen. ... holdt godt fast i gelænderet.",
+      "fil": "163ea46f1bb20a.ogg",
+      "kilde": "Fortæller / f04",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
     },
     "1650c42ec1b86d": {
       "figur": "fortaeller",
@@ -4544,6 +5616,22 @@
       "kilde": "Kapitel 7 / k7-fristelse.12",
       "lavet": "2026-11-11"
     },
+    "168f620f328178": {
+      "figur": "fortaeller",
+      "tekst": "Klatten øvede sig hver dag, og til sidst kunne han stave næsten alle ordene.",
+      "fil": "168f620f328178.ogg",
+      "kilde": "Halvsætninger / s07",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "168f6589138a86": {
+      "figur": "aeseloere",
+      "tekst": "Regel: Lyt efter udsagnsordet i datid. Kan du høre -ede, skriver du -ede (hoppede, svømmede). Kan du høre -te, skriver du -te (spiste, råbte).",
+      "fil": "168f6589138a86.ogg",
+      "kilde": "Beskeder / korrektur.regel.datid",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1691089b82a855": {
       "figur": "fortaeller",
       "tekst": "Til alle i Sætningsbyen. I nat blev alle byens tegn stjålet fra trykkeriet. Nattevagten så en lille, sort skikkelse løbe over torvet med en tung sæk. Skikkelsen efterlod sorte pletter på brostenene. Pletterne fører ned i smøgen mod øst. Har du set noget, så kontakt byrådet.",
@@ -4557,6 +5645,14 @@
       "fil": "1693ce5d796421.ogg",
       "kilde": "Beskeder / bane.hjaelp.tekst",
       "lavet": "2026-11-03"
+    },
+    "16afaf1136860d": {
+      "figur": "fortaeller",
+      "tekst": "Ingen havde set brevet, før det lå på bordet foran mig.",
+      "fil": "16afaf1136860d.ogg",
+      "kilde": "Fortæller / k14",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
     },
     "16b101b623c1e0": {
       "figur": "fortaeller",
@@ -4593,6 +5689,14 @@
       "kilde": "Kapitel 7 / k7-ankomst.4",
       "lavet": "2026-11-10"
     },
+    "16d2bbaa66d2d6": {
+      "figur": "fortaeller",
+      "tekst": "Computeren havde lært at drømme. Hver nat skrev den små digte, som ingen havde bedt om.",
+      "fil": "16d2bbaa66d2d6.ogg",
+      "kilde": "Genrer / s5",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "16d444718c4d9c": {
       "figur": "klatten",
       "tekst": "Nå. Du ligner mig faktisk lidt i den. Bliv bare. Men rør ikke ved noget.",
@@ -4606,6 +5710,14 @@
       "fil": "16d8d08a6574db.ogg",
       "kilde": "Kapitel 8 / k8-sted.valg3.1",
       "lavet": "2026-11-11"
+    },
+    "16d8efffc3fa15": {
+      "figur": "klatten",
+      "tekst": "Den Frygtelige lærer hurtigt. Langsomt, men hurtigt.",
+      "fil": "16d8efffc3fa15.ogg",
+      "kilde": "Kampe og opgaver / korrektur.klatten.3",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "16dcf1584781b5": {
       "figur": "ord",
@@ -4669,6 +5781,14 @@
       "fil": "170993159d7d6b.ogg",
       "kilde": "Kapitel 8 / k8-sted.1",
       "lavet": "2026-11-11"
+    },
+    "170ebff480c70c": {
+      "figur": "fortaeller",
+      "tekst": "Jeg retter det bare, og så bliver ordene lidt smukkere.",
+      "fil": "170ebff480c70c.ogg",
+      "kilde": "Klattens tekster / k16.1",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
     },
     "171ab9120d37bf": {
       "figur": "aeseloere",
@@ -4782,6 +5902,14 @@
       "kilde": "Kapitel 7 / k7-kamp-slut.3",
       "lavet": "2026-11-11"
     },
+    "179ce00d9b2209": {
+      "figur": "fodnote",
+      "tekst": "¹ Jeg har læst din kode tre gange. Den er fuldkommen ulæselig. Det er meningen. ² Skriv den af alligevel.",
+      "fil": "179ce00d9b2209.ogg",
+      "kilde": "Gemmekode / fodnote.2",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
     "179f024fff1d82": {
       "figur": "aeseloere",
       "tekst": "Nu mangler kun den sidste sætning. Den, der begynder med Og så.",
@@ -4816,6 +5944,14 @@
       "fil": "17c3e60a168f1b.ogg",
       "kilde": "Stumme bogstaver / halv.saetning",
       "lavet": "2026-11-04"
+    },
+    "17c742e263f576": {
+      "figur": "klatten",
+      "tekst": "Klatten kigger på mulighederne. Der er ikke flere af hans gamle fejl her. Nu må du selv vælge.",
+      "fil": "17c742e263f576.ogg",
+      "kilde": "Kampe og opgaver / kamp.klatten.ingen",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "17d4aa37ffde61": {
       "figur": "lup",
@@ -4879,6 +6015,14 @@
       "fil": "1805b5340a0ab2.ogg",
       "kilde": "Minder / minde.skaar6a.2",
       "lavet": "2026-11-13"
+    },
+    "1812da0695c2af": {
+      "figur": "fortaeller",
+      "tekst": "Hvem skriver altid forkert?",
+      "fil": "1812da0695c2af.ogg",
+      "kilde": "Klattens tekster / k08.0",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
     },
     "18143bb11d8024": {
       "figur": "fortaeller",
@@ -4971,12 +6115,28 @@
       "kilde": "Kapitel 6 / k6-twist.valg3.1",
       "lavet": "2026-11-10"
     },
+    "1863ff8d4ec1bf": {
+      "figur": "fortaeller",
+      "tekst": "Holdet er slået tilbage. Væsnerne beholder deres sår, og I har fuldt liv, når I prøver igen.",
+      "fil": "1863ff8d4ec1bf.ogg",
+      "kilde": "Kampe / kamp.slaaet",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1867194b6d836f": {
       "figur": "fortaeller",
       "tekst": "Farverne løber ud af tagene. Månerne slukker, én efter én.",
       "fil": "1867194b6d836f.ogg",
       "kilde": "Kapitel 2 / k2-moerke.2",
       "lavet": "2026-10-31"
+    },
+    "18676540218074": {
+      "figur": "fortaeller",
+      "tekst": "Hvad hører til i en historie af genren science fiction?",
+      "fil": "18676540218074.ogg",
+      "kilde": "Opgaver / genre.kendetegn.sf",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "186cd82b0a6849": {
       "figur": "aeseloere",
@@ -5048,6 +6208,14 @@
       "kilde": "Kapitel 2 / k2-opslag.k2-opslag-1.standard",
       "lavet": "2026-11-03"
     },
+    "18b971888a0784": {
+      "figur": "aeseloere",
+      "tekst": "Eksempel: Klatten skriver lille med ét l. Ser det rigtigt ud? Nej, lille skal have to l'er.",
+      "fil": "18b971888a0784.ogg",
+      "kilde": "Beskeder / korrektur.find.eksempel",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "18ccdc8ab18111": {
       "figur": "holm",
       "tekst": "Hver morgen mangler der flere ord. Nogle bøger stopper midt i en sætning.",
@@ -5075,6 +6243,14 @@
       "fil": "18d7e6bb05f95c.ogg",
       "kilde": "Kapitel 7 / k7-slut.2",
       "lavet": "2026-11-11"
+    },
+    "18e248533e9a57": {
+      "figur": "fortaeller",
+      "tekst": "Selvom Vims var bange, gik han med ind i mørket.",
+      "fil": "18e248533e9a57.ogg",
+      "kilde": "Halvsætninger / s06",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "18e6bae4d478a9": {
       "figur": "borgmester",
@@ -5146,6 +6322,14 @@
       "kilde": "Kapitel 1 / k1-til-kaelder.opgavetekst",
       "lavet": "2026-11-01"
     },
+    "192dc199989aed": {
+      "figur": "fortaeller",
+      "tekst": "Hvor er min lanterne?",
+      "fil": "192dc199989aed.ogg",
+      "kilde": "Halvsætninger / t01",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "192f3010a53d2e": {
       "figur": "aeseloere",
       "tekst": "Igen? Broen er stadig kun halv. Det er du ikke.",
@@ -5173,6 +6357,14 @@
       "fil": "19431402246deb.ogg",
       "kilde": "Kapitel 7 / k7-slut.opgavetekst",
       "lavet": "2026-11-12"
+    },
+    "19464cc79dfed6": {
+      "figur": "fortaeller",
+      "tekst": "Da skolen var slut, løb jeg hele vejen hjem til min hund.",
+      "fil": "19464cc79dfed6.ogg",
+      "kilde": "Fortæller / k12",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
     },
     "19580543042e8a": {
       "figur": "aeseloere",
@@ -5216,6 +6408,14 @@
       "kilde": "Tasken / haefte",
       "lavet": "2026-11-01"
     },
+    "19788a9c0095b5": {
+      "figur": "fortaeller",
+      "tekst": "Han ville have kagerne tilbage.",
+      "fil": "19788a9c0095b5.ogg",
+      "kilde": "Klattens tekster / k06.1",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
     "198ce11f1b7c95": {
       "figur": "klatten",
       "tekst": "Chefen har smidt mig ud. Han siger, at jeg ikke kan stave. Det kan jeg godt. Bare ikke rigtigt.",
@@ -5244,12 +6444,28 @@
       "kilde": "Kapitel 6 / k6-hytten.4",
       "lavet": "2026-11-10"
     },
+    "19b53302eeb14b": {
+      "figur": "fortaeller",
+      "tekst": "Hvilken genre er det her?",
+      "fil": "19b53302eeb14b.ogg",
+      "kilde": "Opgaver / genre.klassificer",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "19bc139077b714": {
       "figur": "aeseloere",
       "tekst": "Det var en dårlig joke. Jeg øver mig.",
       "fil": "19bc139077b714.ogg",
       "kilde": "Kapitel 6 / k6-twist.valg1.2",
       "lavet": "2026-11-10"
+    },
+    "19bc447a68a16c": {
+      "figur": "aeseloere",
+      "tekst": "Eksempel: Jeg åbnede døren. Jeg kiggede ind. Mira åbnede døren. Hun kiggede ind.",
+      "fil": "19bc447a68a16c.ogg",
+      "kilde": "Beskeder / fortaeller.eksempel",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
     },
     "19bdeba5a74dcd": {
       "figur": "raaber",
@@ -5265,6 +6481,14 @@
       "kilde": "Minder / minde.godnat.3",
       "lavet": "2026-11-13"
     },
+    "19d08204596980": {
+      "figur": "aeseloere",
+      "tekst": "Eksempel: Hvor er du? Pas på! Jeg er her.",
+      "fil": "19d08204596980.ogg",
+      "kilde": "Beskeder / halvsaetning.eksempel.tegn",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "19d1a92f92e832": {
       "figur": "halvfugl",
       "tekst": "Nu kan jeg synge hele sangen igen. Tak!",
@@ -5279,6 +6503,14 @@
       "kilde": "Kapitel 7 / k7-prinsesse.1",
       "lavet": "2026-11-10"
     },
+    "19d9cae7ae0f4a": {
+      "figur": "fortaeller",
+      "tekst": "Pas på, broen er ved at falde!",
+      "fil": "19d9cae7ae0f4a.ogg",
+      "kilde": "Halvsætninger / t03",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "19dbb9863c265a": {
       "figur": "aeseloere",
       "tekst": "Der ligger sten ude i søen. Nogle er væk, så man skal hoppe langt.",
@@ -5286,12 +6518,28 @@
       "kilde": "Kapitel 6 / soestenene.ind.1",
       "lavet": "2026-11-12"
     },
+    "19de026f141135": {
+      "figur": "fortaeller",
+      "tekst": "Nogen havde stjålet kagen fra bageriet i nat. Detektiven fandt et spor af mel på trappen.",
+      "fil": "19de026f141135.ogg",
+      "kilde": "Genrer / k1",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "19e232923a17c2": {
       "figur": "aeseloere",
       "tekst": "Den planke hører til historien. Læg den tilbage på broen.",
       "fil": "19e232923a17c2.ogg",
       "kilde": "Beskeder / bro.fejl.fjernet",
       "lavet": "2026-11-04"
+    },
+    "19e248b402c42b": {
+      "figur": "fortaeller",
+      "tekst": "Mira løb ind i arkivet. ... var helt forpustet.",
+      "fil": "19e248b402c42b.ogg",
+      "kilde": "Fortæller / f02",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
     },
     "19e54a1166aac0": {
       "figur": "aeseloere",
@@ -5320,6 +6568,14 @@
       "fil": "1a0bc2d3d6822c.ogg",
       "kilde": "Kapitel 8 / k8-ogsaa.valg1.1",
       "lavet": "2026-11-11"
+    },
+    "1a113ace40b975": {
+      "figur": "fortaeller",
+      "tekst": "Hele vejen hjem tænkte jeg på det, læreren havde sagt. ... kunne ikke få det ud af hovedet.",
+      "fil": "1a113ace40b975.ogg",
+      "kilde": "Fortæller / f12",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
     },
     "1a158cd95b401e": {
       "figur": "raaber",
@@ -5468,6 +6724,14 @@
       "kilde": "Beskeder / opgave.ros.1",
       "lavet": "2026-11-04"
     },
+    "1a9ba1370d2431": {
+      "figur": "fortaeller",
+      "tekst": "Mira tog regnjakken på, fordi det regnede.",
+      "fil": "1a9ba1370d2431.ogg",
+      "kilde": "Halvsætninger / s01",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1a9c27bab6e027": {
       "figur": "aeseloere",
       "tekst": "Eksempel: Klap ordet banan langsomt. Det giver to klap, så banan har to stavelser. Elefant giver tre klap.",
@@ -5516,6 +6780,22 @@
       "fil": "1ab6dc9321879e.ogg",
       "kilde": "Kapitel 6 / k6-doer.valg2.1",
       "lavet": "2026-11-10"
+    },
+    "1ab82ed1826b76": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord holder fast i den samme fortæller?",
+      "fil": "1ab82ed1826b76.ogg",
+      "kilde": "Opgaver / fortaeller.fortsaet.spoergsmaal",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "1abda27ce55b78": {
+      "figur": "fortaeller",
+      "tekst": "Hvis jeg skriver forkert, er det ikke farligt.",
+      "fil": "1abda27ce55b78.ogg",
+      "kilde": "Klattens tekster / k16.0",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
     },
     "1acafc2676927a": {
       "figur": "aeseloere",
@@ -5573,6 +6853,14 @@
       "kilde": "Beskeder / bro.fejl.placering.1.verden",
       "lavet": "2026-11-04"
     },
+    "1b115bb510e8e1": {
+      "figur": "fortaeller",
+      "tekst": "Holm gemte hæftet i en kasse for sig selv.",
+      "fil": "1b115bb510e8e1.ogg",
+      "kilde": "Halvsætninger / t11",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1b17de49b4cfef": {
       "figur": "fortaeller",
       "tekst": "Sporet fører ud af skoven og op mod et bjerg. Sneen knirker under dine fødder.",
@@ -5600,6 +6888,22 @@
       "fil": "1b41c8a0e8391b.ogg",
       "kilde": "Opgaver / raaber.instruks",
       "lavet": "2026-11-03"
+    },
+    "1b44be1eb0cfc9": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord betyder det samme som smuk?",
+      "fil": "1b44be1eb0cfc9.ogg",
+      "kilde": "Svar / synonym.smuk.spoergsmaal",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "1b461cd96c12ae": {
+      "figur": "aeseloere",
+      "tekst": "Eksempel: Rumskibet landede på en planet med to sole.",
+      "fil": "1b461cd96c12ae.ogg",
+      "kilde": "Beskeder / genre.eksempel.sf",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "1b51c5fc65cc3d": {
       "figur": "skyggen",
@@ -5650,6 +6954,14 @@
       "kilde": "Kapitel 1 / k1-holm.opgavetekst",
       "lavet": "2026-11-01"
     },
+    "1b78c5f1e2e5a9": {
+      "figur": "fortaeller",
+      "tekst": "Hvor var du klokken otte i aftes, spurgte kommissæren. Jeg var hjemme, sagde manden, men hans sko var våde.",
+      "fil": "1b78c5f1e2e5a9.ogg",
+      "kilde": "Genrer / k3",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1b82ac3abd5798": {
       "figur": "fortaeller",
       "tekst": "Du folder hjørnet på siden ned, så du kan finde den igen i morgen.",
@@ -5685,6 +6997,14 @@
       "kilde": "Kapitel 6 / k6-twist.1",
       "lavet": "2026-11-10"
     },
+    "1baeeeee6b4179": {
+      "figur": "aeseloere",
+      "tekst": "Eksempel: Fodtrin på loftet midt om natten hører til en gyser. Et rumskib på vej til Mars hører til science fiction.",
+      "fil": "1baeeeee6b4179.ogg",
+      "kilde": "Beskeder / genre.eksempel",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1bb3e0c212027b": {
       "figur": "aeseloere",
       "tekst": "Kan du huske hæftet? Den aften, du stoppede, foldede du hjørnet på siden ned, så du kunne finde den igen.",
@@ -5719,6 +7039,14 @@
       "fil": "1bbcb3eed79860.ogg",
       "kilde": "Titelkort / kapitel 7",
       "lavet": "2026-11-13"
+    },
+    "1bc3a5b6d19feb": {
+      "figur": "fortaeller",
+      "tekst": "Jeg fandt en gammel bog under sengen.",
+      "fil": "1bc3a5b6d19feb.ogg",
+      "kilde": "Fortæller / k04",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
     },
     "1bc4036481cde7": {
       "figur": "fortaeller",
@@ -5762,6 +7090,22 @@
       "kilde": "Kapitel 1 / k1-hviske.opgavetekst",
       "lavet": "2026-11-01"
     },
+    "1bd8a505f72b74": {
+      "figur": "fortaeller",
+      "tekst": "Klatten har lavet 3 fejl i teksten. Tryk på et ord, der er stavet forkert.",
+      "fil": "1bd8a505f72b74.ogg",
+      "kilde": "Opgaver / korrektur.instruks.3",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "1be25f84922fc0": {
+      "figur": "fortaeller",
+      "tekst": "Om sommeren svømmede jeg i den hver dag.",
+      "fil": "1be25f84922fc0.ogg",
+      "kilde": "Klattens tekster / k07.1",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1be4286d3e71a5": {
       "figur": "fortaeller",
       "tekst": "Månen er rund i nat.",
@@ -5783,12 +7127,28 @@
       "kilde": "Kapitel 3 / k3-lysning.3",
       "lavet": "2026-11-01"
     },
+    "1c109464e61a1f": {
+      "figur": "fortaeller",
+      "tekst": "Mira åbnede den tunge dør og gik ned ad trappen.",
+      "fil": "1c109464e61a1f.ogg",
+      "kilde": "Fortæller / k02",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1c14d2e8e53841": {
       "figur": "fortaeller",
       "tekst": "Med et tungt suk glider porten op. Bag den summer byen som en bikube.",
       "fil": "1c14d2e8e53841.ogg",
       "kilde": "Kapitel 2 / k2-port-aaben.3",
       "lavet": "2026-10-31"
+    },
+    "1c14eb6f2eea70": {
+      "figur": "fortaeller",
+      "tekst": "Jeg var bange for mørket, men jeg sagde det ikke til nogen.",
+      "fil": "1c14eb6f2eea70.ogg",
+      "kilde": "Fortæller / k06",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
     },
     "1c1b7c6e41c71b": {
       "figur": "aeseloere",
@@ -5853,6 +7213,14 @@
       "kilde": "Kapitel 4 / k4-digt-slut.4",
       "lavet": "2026-11-09"
     },
+    "1c6b4f26fd2524": {
+      "figur": "fortaeller",
+      "tekst": "Find venner, der vil hjælpe dig.",
+      "fil": "1c6b4f26fd2524.ogg",
+      "kilde": "Introen / intro.trailer.3",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1c77e372c8c3fe": {
       "figur": "vims",
       "tekst": "Her er så stille. Undskyld, at jeg hvisker.",
@@ -5887,6 +7255,14 @@
       "fil": "1c8f4479f02dba.ogg",
       "kilde": "Kapitel 3 / k3-klatten.5",
       "lavet": "2026-11-01"
+    },
+    "1c8fcfa416e0cd": {
+      "figur": "fortaeller",
+      "tekst": "I går råbte chefen efter mig.",
+      "fil": "1c8fcfa416e0cd.ogg",
+      "kilde": "Klattens tekster / k06.0",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
     },
     "1c9ca19c0866d3": {
       "figur": "ufaerdige",
@@ -5930,12 +7306,36 @@
       "kilde": "Kapitel 4 / k4-ekko.opgavetekst",
       "lavet": "2026-11-12"
     },
+    "1cd4391f545616": {
+      "figur": "aeseloere",
+      "tekst": "Ikke helt. Her er der ingen, der siger jeg. Fortælleren fortæller om en anden.",
+      "fil": "1cd4391f545616.ogg",
+      "kilde": "Beskeder / fortaeller.fejl.hanhun",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "1ce6acb9cb17c9": {
+      "figur": "fortaeller",
+      "tekst": "Skyggen sad stille ved vinduet.",
+      "fil": "1ce6acb9cb17c9.ogg",
+      "kilde": "Halvsætninger / t02",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1ceebe36e57ea1": {
       "figur": "fortaeller",
       "tekst": "Du sætter et punktum. Så bliver der helt stille på siden.",
       "fil": "1ceebe36e57ea1.ogg",
       "kilde": "Kapitel 8 / k8-oplaesning.11",
       "lavet": "2026-11-11"
+    },
+    "1cf23affe4b4b7": {
+      "figur": "fortaeller",
+      "tekst": "Klatten har lavet én fejl mere. Tryk på det ord, der er stavet forkert.",
+      "fil": "1cf23affe4b4b7.ogg",
+      "kilde": "Opgaver / korrektur.instruks.en",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
     },
     "1cf3df465cb5bf": {
       "figur": "klatten",
@@ -5957,6 +7357,14 @@
       "fil": "1d0a59615f97d6.ogg",
       "kilde": "Historiebroen / bro-raeven.hjemkomst",
       "lavet": "2026-11-05"
+    },
+    "1d0bc1af3c4c3f": {
+      "figur": "aeseloere",
+      "tekst": "Ordet venlig betyder ikke det samme som sur. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
+      "fil": "1d0bc1af3c4c3f.ogg",
+      "kilde": "Svar / synonym.sur.venlig",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "1d1a6075152189": {
       "figur": "aeseloere",
@@ -5986,12 +7394,28 @@
       "kilde": "Kapitel 2 / k2-brev.opgavetekst",
       "lavet": "2026-11-03"
     },
+    "1d49e3b0e1868f": {
+      "figur": "fortaeller",
+      "tekst": "Han stod ved trappen og kiggede ind.",
+      "fil": "1d49e3b0e1868f.ogg",
+      "kilde": "Klattens tekster / k15.1",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1d62a93b109021": {
       "figur": "fortaeller",
       "tekst": "Du skal selv løse problemet.",
       "fil": "1d62a93b109021.ogg",
       "kilde": "Stumme bogstaver / selv.saetning",
       "lavet": "2026-11-04"
+    },
+    "1d640d25cbc1a9": {
+      "figur": "fortaeller",
+      "tekst": "Jeg hørte en lyd bag reolen. ... turde ikke kigge efter.",
+      "fil": "1d640d25cbc1a9.ogg",
+      "kilde": "Fortæller / f07",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
     },
     "1d74103700bcdc": {
       "figur": "fortaeller",
@@ -6049,6 +7473,14 @@
       "kilde": "Kapitel 4 / rimfodsaetning.faerdig.4",
       "lavet": "2026-11-12"
     },
+    "1dbdfec2e82683": {
+      "figur": "fortaeller",
+      "tekst": "Når jeg kommer, gemmer alle sig under bordene.",
+      "fil": "1dbdfec2e82683.ogg",
+      "kilde": "Klattens tekster / k05.0",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1de0d6f0d35a30": {
       "figur": "fortaeller",
       "tekst": "Der står: Skyggen er ikke farlig. Den er bare alene.",
@@ -6069,6 +7501,14 @@
       "fil": "1de95ac2131859.ogg",
       "kilde": "Kapitel 3 / k3-stumming-moede.1",
       "lavet": "2026-11-01"
+    },
+    "1deac7b77bff61": {
+      "figur": "fortaeller",
+      "tekst": "Gartneren smilede lidt for høfligt. Detektiven skrev noget i sin notesbog og sagde ingenting.",
+      "fil": "1deac7b77bff61.ogg",
+      "kilde": "Genrer / k6",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "1e0bafe01b6d91": {
       "figur": "fortaeller",
@@ -6111,6 +7551,46 @@
       "fil": "1e1647651a8f99.ogg",
       "kilde": "Stumme bogstaver / ild",
       "lavet": "2026-10-31"
+    },
+    "1e208af0c47328": {
+      "figur": "klatten",
+      "tekst": "I går råbede chefen efter mig. Han ville have kagene tilbage. Men jeg havde allerede spist dem.",
+      "fil": "1e208af0c47328.ogg",
+      "kilde": "Klattens tekster / k06",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "1e239f1951890c": {
+      "figur": "klatten",
+      "tekst": "Vor er min kappe? Jeg kan ikke sel finde den.",
+      "fil": "1e239f1951890c.ogg",
+      "kilde": "Klattens tekster / k03",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "1e28d5eb3047f2": {
+      "figur": "fortaeller",
+      "tekst": "Det var den værste dag i hele hans liv, tænkte han.",
+      "fil": "1e28d5eb3047f2.ogg",
+      "kilde": "Fortæller / k16",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "1e339d9bab7cf3": {
+      "figur": "fortaeller",
+      "tekst": "Søen er sort og rund.",
+      "fil": "1e339d9bab7cf3.ogg",
+      "kilde": "Klattens tekster / k07.0",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "1e4657ead27965": {
+      "figur": "aeseloere",
+      "tekst": "Regel: Nogle ord har et bogstav, man ikke kan høre. Foran v og j kan h være stumt (hvor, hjem). Efter l, n og r kan d være stumt (rund, sand). Efter l kan v være stumt (selv).",
+      "fil": "1e4657ead27965.ogg",
+      "kilde": "Beskeder / korrektur.regel.stumme",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "1e50b7dfc2959f": {
       "figur": "fodnote",
@@ -6161,12 +7641,28 @@
       "kilde": "Minder / minde.skaar5a.3",
       "lavet": "2026-11-13"
     },
+    "1e7da31df1ee3c": {
+      "figur": "fortaeller",
+      "tekst": "Døren knirkede langsomt op, selvom der ikke var nogen. En kold vind blæste ind i rummet.",
+      "fil": "1e7da31df1ee3c.ogg",
+      "kilde": "Genrer / g2",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1e7f240d431ce7": {
       "figur": "fortaeller",
       "tekst": "Læs spørgsmålet. Tryk derefter på den sætning, der beviser svaret.",
       "fil": "1e7f240d431ce7.ogg",
       "kilde": "Opgaver / bevisjagt.instruks",
       "lavet": "2026-11-04"
+    },
+    "1e7f882610d3ba": {
+      "figur": "klatten",
+      "tekst": "Alle kassene i min hytte er fulde af fejl. Jeg har ikke tid til at tæle dem.",
+      "fil": "1e7f882610d3ba.ogg",
+      "kilde": "Klattens tekster / k04",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
     },
     "1e92a7953bcbb7": {
       "figur": "aeseloere",
@@ -6189,12 +7685,28 @@
       "kilde": "Kapitel 8 / k8-hjem.opgavetekst",
       "lavet": "2026-11-12"
     },
+    "1ea0acdb75366a": {
+      "figur": "aeseloere",
+      "tekst": "Ordet træt betyder ikke det samme som glad. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
+      "fil": "1ea0acdb75366a.ogg",
+      "kilde": "Svar / synonym.glad.træt",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1ea1bdfdd43c06": {
       "figur": "ufaerdige",
       "tekst": "Vims. Du kan få en slutning, hvor du aldrig er bange.",
       "fil": "1ea1bdfdd43c06.ogg",
       "kilde": "Kapitel 7 / k7-fristelse.3",
       "lavet": "2026-11-10"
+    },
+    "1ea3f745b7844d": {
+      "figur": "klatten",
+      "tekst": "Sidene i min hytte er krøllede. Når det blæser, viper hele taget.",
+      "fil": "1ea3f745b7844d.ogg",
+      "kilde": "Klattens tekster / k09",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
     },
     "1ea61d7e195405": {
       "figur": "fortaeller",
@@ -6287,6 +7799,14 @@
       "kilde": "Kapitel 7 / k7-genrer-slut.3",
       "lavet": "2026-11-10"
     },
+    "1ee6631861776c": {
+      "figur": "fortaeller",
+      "tekst": "Hurra, vi fandt den sidste side!",
+      "fil": "1ee6631861776c.ogg",
+      "kilde": "Halvsætninger / t10",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1efd0dafff5d54": {
       "figur": "aeseloere",
       "tekst": "Rim er ord, der lyder ens til sidst. Hus og mus. Sten og ben. Det er ikke svært, når man lytter.",
@@ -6350,12 +7870,36 @@
       "kilde": "Minder / minde.soeskendet.3",
       "lavet": "2026-11-13"
     },
+    "1f410d6a60ee7a": {
+      "figur": "fortaeller",
+      "tekst": "Kan du hjælpe mig med at finde vejen?",
+      "fil": "1f410d6a60ee7a.ogg",
+      "kilde": "Halvsætninger / t04",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "1f41aa7c4a11c6": {
+      "figur": "klatten",
+      "tekst": "Hvis chefen kunne se mig nu. Han ville blive frygtelig sur.",
+      "fil": "1f41aa7c4a11c6.ogg",
+      "kilde": "Kampe og opgaver / korrektur.klatten.4",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1f5021d518fdff": {
       "figur": "aeseloere",
       "tekst": "Tag den bare. Han har alligevel aldrig vasket den.",
       "fil": "1f5021d518fdff.ogg",
       "kilde": "Kapitel 1 / k1-klatten-flygter.4",
       "lavet": "2026-10-31"
+    },
+    "1f6afdd59b04f3": {
+      "figur": "fortaeller",
+      "tekst": "Hvem har skrevet den sidste side?",
+      "fil": "1f6afdd59b04f3.ogg",
+      "kilde": "Halvsætninger / t07",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "1f6d846bf38cb1": {
       "figur": "halvfugl",
@@ -6448,6 +7992,14 @@
       "kilde": "Kapitel 8 / k8-skyggen.2",
       "lavet": "2026-11-11"
     },
+    "1fb0f07fdc5d96": {
+      "figur": "klatten",
+      "tekst": "Jeg er Klatten den Frygtelige. Når jeg komer, gemmer alle sig under borderne.",
+      "fil": "1fb0f07fdc5d96.ogg",
+      "kilde": "Klattens tekster / k05",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1fc318d3a0630c": {
       "figur": "fortaeller",
       "tekst": "Skatten er af rent guld.",
@@ -6461,6 +8013,14 @@
       "fil": "1fc6fa848e4bf0.ogg",
       "kilde": "Kapitel 6 / k6-kasser.6",
       "lavet": "2026-11-10"
+    },
+    "1fc8c11158e926": {
+      "figur": "fortaeller",
+      "tekst": "Hop over tagene i en by af ord.",
+      "fil": "1fc8c11158e926.ogg",
+      "kilde": "Introen / intro.trailer.2",
+      "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
     },
     "1fcbaf6c1c0659": {
       "figur": "aeseloere",
@@ -6576,6 +8136,6 @@
     }
   },
   "model": "gemini-3.8-flash-tts",
-  "i_alt": 2148,
-  "mangler": 1209
+  "i_alt": 2155,
+  "mangler": 1021
 }
