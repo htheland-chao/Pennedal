@@ -45,6 +45,7 @@ Regler og stak står i `CLAUDE.md`. Historien står i `docs/historie.md`, grafik
 - **Betingelser på replikker** (9. november 2026): en replik eller en valgmulighed kan have `hvis` (et valg, der er taget eller ikke taget, eller Klattens venlighed). Se `src/engine/betingelse.ts`. Replikkerne vælges, når dialogen starter. Klatten kommer med i en kamp med feltet `klatten` på kamptrinnet. Har eleven givet Klatten kappen tilbage, er den ikke længere i tasken.
 - **Frivilligt indhold** (9. november 2026): sidemissioner (`missioner` i kapitlet) og udflugter (`udflugt` på et sted) er ikke trin, så gamle gemmekoder peger rigtigt. Belønningen er hukommelsesskår, som står i gemmekoden. Hvor langt man er i en mission, står kun i browseren. Skårenes minder ligger i tasken.
 - **Animationer** (9. november 2026, fortsat): ord falder på plads, når et væsen bliver roligt. En ny ting flyver ned i tasken, og tasken hopper. Tågebanker og en tynd regn i Viskeskoven.
+- **Figurernes egne bevægelser og flere animationer** (14. november 2026): hver figur i kampene har sin egen bevægelse (`figurRammer` i `src/game/pixel/kampliv.ts`). Tomordet gaber og smækker kæben, Stumming ånder og vugger, Ekko pulserer i ringene, Tvivl vipper sine to halvdele hver sin vej, Krusedulle bølger, Halvsætning tripper med benene, Vims løfter hatten, Klattens top blafrer som en flamme, og Æseløre slår med vingerne. Hver figur har sin egen takt. Ved "reducer bevægelse" og når en figur er lammet eller væk, står den stille. Blækdybet har sin egen mørke kampbaggrund (`tegnDybetKamp`). Broen ved floden samler sig planke for planke, når den er bygget. Fyrtårnets lys blafrer og tænder, når man kommer ind (ikke ved "reducer bevægelse"). Og-ormen kryber væk efter sidste klip, og den rigtige tekst står tilbage under den. Alle billeder ses på arket `kamp-liv`.
 - **Titelskærm og kampside** (10. november 2026): startskærmen er en pixelscene i fuld skærm (`src/game/pixel/titel.ts`, `src/ui/Titelskaerm.tsx`): nattehimmel, måne, fyrtårn med lyskegle, blæksø, den åbne grønne notesbog med Skyggen på den blanke side, Æseløre der flyver forbi og ildfluer. Menuen står i en blækboks med guldkant. Alle animationer er slået fra ved "reducer bevægelse". I kampene står holdet nu til venstre og fjenderne til højre (figurerne er spejlet). Besejrede fjender viser ikke længere deres dødsanimation igen under senere angreb.
 - **Kampe** (3. november 2026): turbaserede som i gamle rollespil, med hold, skade, svagheder, hjælpernes evner, ting fra tasken og blødt nederlag. Se `docs/historie.md` under Kampe.
 - **Lyd:** Gemini-stemmer pr. figur i `src/content/stemmer.json`. Stemmerne kan få rumklang, mens de afspilles (`src/ui/rumklang.ts`, profiler under `rum` i `stemmer.json`): hviskestemmen, introen og tilbageblik. Klippene er uberørte, og rummet kan slås fra i indstillingerne. "Mindre uhygge" halverer det. Aldrig på opgaver, feedback og enkeltord, fordi det gør tale sværere at forstå.
@@ -69,7 +70,6 @@ Regler og stak står i `CLAUDE.md`. Historien står i `docs/historie.md`, grafik
 
 ## Åbent og mangler
 
-- **Flere animationer (idéliste, 9. november 2026):** broen der samler sig planke for planke, fyrtårnets lys der tænder, Og-ormen der kryber væk efter sidste klip. Bygget: ting i tasken, ord på plads, regn og tåge, Klatten der flygter med en blækstribe, Den Ufærdige der toner frem.
 - **Lyd:** Halvsangen er en ny figur med stemmen Leda. Hendes replikker, banens intro og udflugtens replikker mangler klip, til lydjobbet har kørt.
 - **Grafik i Viskeskovens bane** er en første udgave: bleg skovbund, hvidt tomrum og tåge. Henrik bør se den.
 - **Lyd:** Den nye Og-orm-instruks (`ogorm.klip.instruks`) mangler sit klip. Tilføj den til testen i `src/ui/oplaesning.test.ts`, når lydjobbet har lavet den.
@@ -82,7 +82,8 @@ Regler og stak står i `CLAUDE.md`. Historien står i `docs/historie.md`, grafik
 - **Hovedfarve i designeren** har kun virkning, når hovedet har hætte eller kasket.
 
 ## Ikke testet
-- **Blækdybet:** ikke spillet dybere end rum 3 i en test. Balancen i de dybe rum (rum 10-30) er kun regnet på, ikke prøvet af elever. Kampene i dybet bruger den almindelige kampbaggrund.
+- **Animationerne fra 14. november:** kun set i Chrome på en server, ikke på en Chromebook. Broen bygges uden for skærmen, hvis man ikke står ved den (sker kun i testen). Fyrtårnets blafren er svær at se på stillbilleder.
+- **Blækdybet:** ikke spillet dybere end rum 3 i en test. Balancen i de dybe rum (rum 10-30) er kun regnet på, ikke prøvet af elever.
 
 - Titelskærmen og den spejlede kamp er ikke set på Chromebook. Titelskærmen er kun set i 1366 x 768 og 390 x 800.
 

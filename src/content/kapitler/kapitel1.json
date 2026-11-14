@@ -104,7 +104,8 @@
         "#,,,,,##################"
       ],
       "objekter": [
-        { "id": "bro", "navn": "den brudte bro", "x": 520, "y": 330, "w": 200, "h": 80, "form": "bro", "farve": "#8a6a45", "felt": [14, 5] }
+        { "id": "bro", "navn": "den brudte bro", "x": 520, "y": 330, "w": 200, "h": 80, "form": "bro", "farve": "#8a6a45", "felt": [14, 5] },
+        { "id": "broen", "navn": "broen", "x": 520, "y": 330, "w": 200, "h": 80, "form": "broplanker", "farve": "#8a6a45", "felt": [14, 5], "visFra": "k1-over-floden" }
       ]
     },
     "fyrtaarn": {
