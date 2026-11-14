@@ -115,7 +115,7 @@ export function alleLydtekster(stemmer = hentStemmer()) {
   }
 
   // Introen (src/ui/Intro.tsx).
-  for (const id of ['intro.1', 'intro.2', 'intro.3', 'intro.4', 'intro.5', 'intro.5.slut', 'intro.6', 'intro.6.slut'])
+  for (const id of ['intro.1', 'intro.2', 'intro.3', 'intro.4', 'intro.5', 'intro.5.slut', 'intro.6', 'intro.6.slut', 'intro.trailer.1', 'intro.trailer.2', 'intro.trailer.3', 'intro.trailer.4'])
     tilfoej('fortaeller', t(id), `Introen / ${id}`);
 
   // Minderne (src/ui/Tilbageblik.tsx, teksterne i src/content/minder.ts): hver del er et klip, også de milde udgaver.
