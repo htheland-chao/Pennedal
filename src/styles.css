@@ -4474,3 +4474,103 @@ dialog.modal.dialogboks.taler-ufaerdige .taler-navn {
   box-shadow: none;
   filter: drop-shadow(6px 7px 0 rgb(0 0 0 / 0.45));
 }
+
+/* Introens trailer (14. november 2026): fire hurtige klip før titlen. Se src/ui/IntroTrailer.tsx. */
+.trailer-figur {
+  position: absolute;
+  display: block;
+  overflow: hidden;
+}
+.trailer-figur img {
+  display: block;
+  height: 100%;
+  width: calc(var(--n) * 100%);
+  max-width: none;
+  image-rendering: pixelated;
+  animation: trailer-strip calc(var(--n) * var(--ms)) steps(var(--n)) infinite;
+}
+@keyframes trailer-strip {
+  to { transform: translateX(-100%); }
+}
+.trailer-glimt {
+  overflow: hidden;
+  opacity: 0;
+  animation: trailer-vis 0.01s linear forwards;
+  animation-delay: calc(var(--i) * 1.75s);
+}
+@keyframes trailer-vis {
+  to { opacity: 1; }
+}
+.trailer-bag,
+.trailer-jord {
+  position: absolute;
+  left: 0;
+  width: 150%;
+  image-rendering: pixelated;
+  animation: trailer-pan-bag 1.9s linear both;
+  animation-delay: calc(var(--i) * 1.75s);
+}
+.trailer-bag {
+  top: 0;
+  height: 100%;
+}
+.trailer-jord {
+  bottom: 0;
+  height: 97.8%;
+  animation-name: trailer-pan-jord;
+}
+@keyframes trailer-pan-bag {
+  to { transform: translateX(-12%); }
+}
+@keyframes trailer-pan-jord {
+  to { transform: translateX(-33.3%); }
+}
+.trailer-by {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  image-rendering: pixelated;
+}
+.trailer-verden {
+  position: absolute;
+  left: 0;
+}
+.trailer-verden img {
+  image-rendering: pixelated;
+}
+.trailer-zoom {
+  animation: trailer-zoom 4.5s ease-out both;
+  transform-origin: 50% 75%;
+}
+@keyframes trailer-zoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.12); }
+}
+.trailer-slag {
+  position: absolute;
+  opacity: 0;
+  image-rendering: pixelated;
+}
+.trailer-ord {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  gap: 6%;
+  opacity: 0;
+}
+.trailer-ord b {
+  display: block;
+  flex: none;
+  width: calc(10% + var(--j) * 2%);
+  height: 0;
+  padding-bottom: 4%;
+  background: #f4efe0;
+  box-shadow: 0 0 6px #ffe9a8;
+  animation: trailer-ord-fald 0.6s cubic-bezier(0.3, 1.4, 0.5, 1) both;
+  animation-delay: calc(4.3s + var(--j) * 0.09s);
+}
+@keyframes trailer-ord-fald {
+  from { transform: translateY(-400%) rotate(calc(var(--j) * 23deg - 40deg)); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}

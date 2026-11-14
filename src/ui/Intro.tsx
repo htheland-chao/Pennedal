@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState, type CSSProperties, type MouseEvent } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties, type MouseEvent } from 'react';
 import { t, type TekstId } from '../content';
 import { tegnkortTilLerred } from '../game/pixel/lerred';
 import {
@@ -13,14 +13,18 @@ import {
 } from '../game/pixel/intro';
 import { useApp } from './Kontekst';
 import { LaesOpKnap, type Del } from './Tekst';
+import { TrailerKlip, type KlipId } from './IntroTrailer';
+
+const KLIP: SceneId[] = ['steder', 'bane', 'venner', 'kamp'];
 
 /**
  * Introen (31. oktober 2026). Den skal vække nysgerrighed uden at afsløre forhistorien
  * (se docs/historie.md): man ser en skuffe blive lukket, men ikke hvad der ligger i den.
  * Al tekst er HTML, grafikken er pixelbilleder, og bevægelsen er CSS. Kan springes over.
  */
-type SceneId = 'studie' | 'regn' | 'skuffe' | 'land' | 'moerke' | 'kaelder' | 'opgave' | 'titel';
-type Scene = { id: SceneId; tekst?: TekstId; hvisken?: TekstId; slut?: TekstId };
+type SceneId = 'studie' | 'regn' | 'skuffe' | 'land' | 'moerke' | 'kaelder' | 'opgave' | KlipId | 'titel';
+/** varighed: klippet varer mindst så længe (ms), også når teksten er læst op før. */
+type Scene = { id: SceneId; tekst?: TekstId; hvisken?: TekstId; slut?: TekstId; varighed?: number };
 
 export const SCENER: Scene[] = [
   { id: 'studie' },
@@ -31,6 +35,11 @@ export const SCENER: Scene[] = [
   { id: 'kaelder', tekst: 'intro.5', slut: 'intro.5.slut' },
   // Hvem du er, hvad der er på spil, og hvad du skal (Henrik, 10. november 2026). Twistet afsløres ikke.
   { id: 'opgave', tekst: 'intro.6', slut: 'intro.6.slut' },
+  // Traileren (Henrik, 14. november 2026): smagsprøver på spillet lige før titlen.
+  { id: 'steder', tekst: 'intro.trailer.1', varighed: 5300 },
+  { id: 'bane', tekst: 'intro.trailer.2', varighed: 6900 },
+  { id: 'venner', tekst: 'intro.trailer.3', varighed: 4300 },
+  { id: 'kamp', tekst: 'intro.trailer.4', varighed: 6300 },
   { id: 'titel' },
 ];
 
@@ -83,7 +92,8 @@ function Maaner({ b }: { b: Billeder }) {
   );
 }
 
-function Billede({ scene, b }: { scene: SceneId; b: Billeder }) {
+function Billede({ scene, b, mild }: { scene: SceneId; b: Billeder; mild: boolean }) {
+  if (KLIP.includes(scene)) return <TrailerKlip klip={scene as KlipId} mild={mild} />;
   if (scene === 'studie') return <img className="intro-maerke" src={b.maerke} alt="" />;
   if (scene === 'regn' || scene === 'skuffe')
     return (
@@ -121,6 +131,10 @@ export function Intro({ onFaerdig }: { onFaerdig: () => void }) {
   const scene = SCENER[nr];
   const sidste = nr === SCENER.length - 1;
   const b = useMemo(() => hentBilleder(), []);
+  const sceneStart = useRef(Date.now());
+  useEffect(() => {
+    sceneStart.current = Date.now();
+  }, [nr]);
 
   const videre = useCallback(() => {
     setNaeste(false);
@@ -138,9 +152,10 @@ export function Intro({ onFaerdig }: { onFaerdig: () => void }) {
   useEffect(() => {
     if (sidste || !indstillinger.autoVidere) return;
     let ms: number | null = null;
+    const gaaet = Date.now() - sceneStart.current;
     if (scene.id === 'studie') ms = STUDIE_MS;
-    else if (naeste) ms = PAUSE_MS;
-    else if (!indstillinger.oplaesning) ms = 4000 + dele.reduce((s, d) => s + d.tekst.length, 0) * 90;
+    else if (naeste) ms = scene.varighed ? Math.max(400, scene.varighed - gaaet) : PAUSE_MS;
+    else if (!indstillinger.oplaesning) ms = Math.max(scene.varighed ?? 0, 4000 + dele.reduce((s, d) => s + d.tekst.length, 0) * 90) - gaaet;
     if (ms === null) return;
     const ur = window.setTimeout(videre, ms);
     return () => window.clearTimeout(ur);
@@ -177,7 +192,7 @@ export function Intro({ onFaerdig }: { onFaerdig: () => void }) {
   return (
     <main className={`intro scene-${scene.id}${mild}`} aria-label={t('intro.titel')} onClick={trykVidere}>
       <div className="intro-scene" aria-hidden="true">
-        {b && <Billede key={scene.id === 'skuffe' ? 'regn' : scene.id} scene={scene.id} b={b} />}
+        {b && <Billede key={scene.id === 'skuffe' ? 'regn' : scene.id} scene={scene.id} b={b} mild={indstillinger.mindreUhygge} />}
       </div>
 
       {scene.id === 'studie' && (

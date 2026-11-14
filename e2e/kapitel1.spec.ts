@@ -121,7 +121,7 @@ test('kapitel 1 kan spilles fra start til slut, og gemmekoden virker', async ({ 
   await billede(page, '01-start');
 
   await page.getByRole('button', { name: 'Start et nyt eventyr' }).click();
-  // Introen: studiets navn, fem scener og titlen. Hver scene kan man gå videre fra.
+  // Introen: studiets navn, seks scener, traileren og titlen. Hver scene kan man gå videre fra.
   await expect(page.getByText('Theland Studios', { exact: true })).toBeVisible();
   await page.waitForTimeout(1600);
   await billede(page, '01a-intro-studie');
@@ -132,10 +132,15 @@ test('kapitel 1 kan spilles fra start til slut, og gemmekoden virker', async ({ 
     [4, 'Nu forsvinder slutningerne.'],
     [5, 'Den hvisker til dig.'],
     [6, 'hvorfor skuffen kalder på netop dig.'],
+    // Traileren (14. november 2026).
+    [7, 'Rejs gennem skove, bjerge og søer af blæk.'],
+    [8, 'Hop over tagene i en by af ord.'],
+    [9, 'Find venner, der vil hjælpe dig.'],
+    [10, 'Og kæmp mod væsner, der har mistet deres ord.'],
   ] as const) {
     await page.locator('.intro-scene').click();
     await expect(page.locator('.intro-tekst')).toContainText(tekst);
-    await page.waitForTimeout(3500);
+    await page.waitForTimeout(nr > 6 ? 2000 : 3500);
     await billede(page, `01b-intro-${nr}`);
   }
   await page.locator('.intro-scene').click();
