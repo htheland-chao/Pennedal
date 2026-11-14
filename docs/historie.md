@@ -73,7 +73,7 @@ Introen (`src/ui/Intro.tsx`, 31. oktober 2026) kommer, når man starter et nyt e
 4. Pennedal under tre måner. "Men et sted bag ordene ligger et land, hvor alt engang blev skrevet til live."
 5. Månerne slukker, og en skygge glider over landet. "Nu forsvinder slutningerne. Én efter én." Den Ufærdige hvisker: "Og så ..."
 6. Kartoteksskabet i kælderen. Den nederste skuffe lyser. "I en kælder under et skolebibliotek er der en skuffe, som er begyndt at hviske. Den hvisker til dig."
-7. Samme kælder (Henrik, 10. november 2026): "Det er din skole. Og på dit skolebibliotek er bøgerne ved at blive tomme." Og: "Nogen inde i historierne tager deres slutninger. Find ud af, hvem det er, og stop det. Og find ud af, hvorfor skuffen kalder på netop dig." Så ved eleven, hvem den er, hvad der er på spil, og hvad den skal, uden at twistet bliver afsløret.
+7. Samme kælder (Henrik, 10. november 2026): "Det er din skole. Og på dit skolebibliotek er bøgerne ved at blive tomme." Og: "Nogen inde i historierne tager deres slutninger. Find ud af, hvem det er, og stop det. Og find ud af, hvorfor skuffen kalder på netop dig." Så ved eleven, hvem den er, hvad der er på spil, og hvad den skal, uden at twistet bliver afsløret. De to dele står hver for sig, to linjer ad gangen (Henrik, 14. november 2026).
 8. Traileren (Henrik, 14. november 2026), fire hurtige smagsprøver på ca. 20 sekunder i alt. Hver har én kort sætning, som fortælleren læser op:
    - Glimt af Viskeskoven, Rimbjerget og Blæksøen: "Rejs gennem skove, bjerge og søer af blæk."
    - Hovedpersonen hopper hen over byens tage (et udsnit af banen fra kapitel 2): "Hop over tagene i en by af ord."
@@ -81,6 +81,8 @@ Introen (`src/ui/Intro.tsx`, 31. oktober 2026) kommer, når man starter et nyt e
    - En kamp mod Tomordet og en Stumming med holdet: "Og kæmp mod væsner, der har mistet deres ord."
    Traileren viser aldrig twistene, Klatten som ven eller Den Ufærdiges ansigt.
 9. Titlen, "Et spil af Theland Studios" og knappen "Begynd eventyret".
+
+Mellem scenerne er der overgange: historien toner gennem sort, en blækklat breder sig ind i traileren, trailerens klip skifter med et hurtigt blækstrøg, og et lysglimt fører ind i titlen. Scener med samme billede (regnen og skuffen, kælderen og de to næste) skifter kun tekst.
 
 Introen er som en film: man går videre ved at trykke på billedet eller med Enter, mellemrum eller højre pil, og et lille kryds i hjørnet springer den over.
 

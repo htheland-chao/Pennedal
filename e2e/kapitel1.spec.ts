@@ -131,16 +131,17 @@ test('kapitel 1 kan spilles fra start til slut, og gemmekoden virker', async ({ 
     [3, 'Men et sted bag ordene'],
     [4, 'Nu forsvinder slutningerne.'],
     [5, 'Den hvisker til dig.'],
-    [6, 'hvorfor skuffen kalder på netop dig.'],
+    [6, 'Ord forsvinder, og historier stopper midt i en sætning.'],
+    [7, 'hvorfor skuffen kalder på netop dig.'],
     // Traileren (14. november 2026).
-    [7, 'Rejs gennem skove, bjerge og søer af blæk.'],
-    [8, 'Hop over tagene i en by af ord.'],
-    [9, 'Find venner, der vil hjælpe dig.'],
-    [10, 'Og kæmp mod væsner, der har mistet deres ord.'],
+    [8, 'Rejs gennem skove, bjerge og søer af blæk.'],
+    [9, 'Hop over tagene i en by af ord.'],
+    [10, 'Find venner, der vil hjælpe dig.'],
+    [11, 'Og kæmp mod væsner, der har mistet deres ord.'],
   ] as const) {
     await page.locator('.intro-scene').click();
     await expect(page.locator('.intro-tekst')).toContainText(tekst);
-    await page.waitForTimeout(nr > 6 ? 2000 : 3500);
+    await page.waitForTimeout(nr > 7 ? 2000 : 3500);
     await billede(page, `01b-intro-${nr}`);
   }
   await page.locator('.intro-scene').click();
