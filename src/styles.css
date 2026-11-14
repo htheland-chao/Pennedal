@@ -4574,3 +4574,46 @@ dialog.modal.dialogboks.taler-ufaerdige .taler-navn {
   from { transform: translateY(-400%) rotate(calc(var(--j) * 23deg - 40deg)); opacity: 0; }
   to { transform: none; opacity: 1; }
 }
+
+/* Introen fylder hele skærmen (Henrik, 14. november 2026). Billedet dækker skærmen (kanterne beskæres lidt,
+   hvis skærmen ikke er 16:9). På en smal skærm (stående mobil) vises hele billedet i stedet, så intet forsvinder.
+   Underteksten ligger ovenpå billedet med en mørk kontur og skygge, så den kan læses på alle baggrunde. */
+.intro {
+  padding: 0;
+  gap: 0;
+}
+.intro-scene {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: max(100vw, calc(100dvh * 16 / 9));
+  transform: translate(-50%, -50%);
+  border-radius: 0;
+}
+@media (max-aspect-ratio: 4 / 3) {
+  .intro-scene {
+    width: min(100vw, calc(100dvh * 16 / 9));
+  }
+}
+.intro-tekst {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: max(1.25rem, 6dvh);
+  z-index: 5;
+  width: min(92vw, 1000px);
+  min-height: 0;
+  margin: 0 auto;
+  color: #ffffff;
+  font-size: clamp(1.15rem, 2.3vw, 1.6rem);
+  font-weight: 700;
+  line-height: 1.4;
+  text-shadow:
+    -2px -2px 0 #07080f, 0 -2px 0 #07080f, 2px -2px 0 #07080f,
+    -2px 0 0 #07080f, 2px 0 0 #07080f,
+    -2px 2px 0 #07080f, 0 2px 0 #07080f, 2px 2px 0 #07080f,
+    0 4px 8px rgb(0 0 0 / 0.85);
+}
+.intro-tekst .intro-hvisken {
+  color: #c9d8f2;
+}
