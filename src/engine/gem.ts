@@ -13,21 +13,37 @@ export type Avatar = {
   toej: number;
   toejfarve: number;
   tilbehoer: number;
+  // Nye dele (14. november 2026).
+  bukser: number;
+  sko: number;
+  ansigt: number;
+  oejenfarve: number;
+  taske: number;
 };
 
-/** Hvor mange valg hver avatardel har. Bruges også af gemmekoden. */
+/**
+ * Hvor mange valg hver avatardel har. Bruges også af gemmekoden.
+ * Flere valg (14. november 2026): frisure 8 til 12, hårfarve 8 til 12, på hovedet 4 til 7, tøj 4 til 8,
+ * og de nye dele bukser, sko, ansigt, øjenfarve og taske. Nye valg kommer altid til sidst i en del,
+ * så gamle gemte spil og gemmekoder viser det samme som før.
+ */
 export const AVATAR_GRAENSER: Record<keyof Avatar, number> = {
   hud: 8,
   krop: 3,
   oejne: 4,
   mund: 4,
-  haar: 8,
-  haarfarve: 8,
-  hoved: 4,
+  haar: 12,
+  haarfarve: 12,
+  hoved: 7,
   hovedfarve: 8,
-  toej: 4,
+  toej: 8,
   toejfarve: 8,
   tilbehoer: 4,
+  bukser: 8,
+  sko: 8,
+  ansigt: 4,
+  oejenfarve: 4,
+  taske: 3,
 };
 
 export const AVATAR_DELE = Object.keys(AVATAR_GRAENSER) as (keyof Avatar)[];
@@ -44,6 +60,11 @@ export const STANDARD_AVATAR: Avatar = {
   toej: 0,
   toejfarve: 4,
   tilbehoer: 0,
+  bukser: 0,
+  sko: 0,
+  ansigt: 0,
+  oejenfarve: 0,
+  taske: 0,
 };
 
 export type GemtSpil = {
@@ -154,6 +175,11 @@ export function validerGemtSpil(data: unknown): GemtSpil | null {
   if (!av) return null;
   const avatar = {} as Avatar;
   for (const del of AVATAR_DELE) {
+    // Dele, der er kommet til senere, mangler i ældre gemte spil. De får standardvalget.
+    if (av[del] === undefined) {
+      avatar[del] = STANDARD_AVATAR[del];
+      continue;
+    }
     if (!erTal(av[del], 0, AVATAR_GRAENSER[del] - 1)) return null;
     avatar[del] = av[del] as number;
   }

@@ -323,6 +323,7 @@
     },
     {
       "id": "k4-moerke",
+      "laaserOp": ["hoved.troldmandshat"],
       "type": "dialog",
       "del": 2,
       "sted": "toppen",

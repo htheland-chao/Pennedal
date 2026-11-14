@@ -177,7 +177,8 @@ test('kapitel 8: slutningens valg følger med i gemmekoden til en anden computer
   await page.getByRole('button', { name: 'Gem spillet' }).click();
   const kode = (await page.locator('.gemmekode').getAttribute('data-gemmekode'))!;
   // Version 4 er 36 tegn (9 grupper á 4).
-  expect(kode.replace(/-/g, '')).toHaveLength(36);
+  // 39 tegn fra version 5 (14. november 2026, flere avatarvalg).
+  expect(kode.replace(/-/g, '')).toHaveLength(39);
 
   // En anden computer: en tom browser uden noget gemt.
   const anden = await browser.newContext();

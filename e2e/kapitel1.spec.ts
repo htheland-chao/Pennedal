@@ -154,7 +154,7 @@ test('kapitel 1 kan spilles fra start til slut, og gemmekoden virker', async ({ 
   await expect(page.getByText('Tørklæde', { exact: true })).toBeVisible();
   await page.getByRole('button', { name: 'Næste Hudfarve' }).click();
   await page.getByRole('button', { name: 'Næste Frisure' }).click();
-  await expect(page.getByText(/Kappe er låst/)).toBeVisible();
+  await expect(page.getByText(/Kappe.*er låst/)).toBeVisible();
   await billede(page, '02-avatar');
   await page.getByRole('button', { name: 'Klar til eventyret' }).click();
 

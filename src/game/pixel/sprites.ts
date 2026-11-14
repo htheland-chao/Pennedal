@@ -19,6 +19,8 @@ export function moerkere(hex: string, faktor = 0.72): string {
 // ---------- Hovedpersonen (16 x 24) ----------
 const TOP = ['......KKKK......', '....KKHHHHKK....', '...KHHHHHHHHK...', '..KHHHHHHHHHHK..'];
 const TOP_HUE = ['......KKKK......', '....KKUUUUKK....', '...KUUUUUUUUK...', '..KUUUUUUUUUUK..'];
+/** Troldmandshat (14. november 2026): en spids hat med en stjerne og en bred skygge. */
+const TOP_HAT = ['.........KK.....', '.......KKUUK....', '......KUUYUK....', '....KKUUUUUUKK..'];
 const HOVED: Record<Retning, string[]> = {
   ned: ['..KHHhSSSShHHK..', '..KHhSSSSSShHK..', '..KHhSESSESShK..', '..KHhSSSSSShHK..', '..KHhSSssSShHK..', '..KHHhSSSShHHK..'],
   op: ['..KHHHHHHHHHHK..', '..KHHHHHHHHHHK..', '..KHHHhhhhHHHK..', '..KHHHHHHHHHHK..', '..KHHHHHHHHHHK..', '..KHHHHHHHHHHK..'],
@@ -56,10 +58,13 @@ export function avatarPixel(a: Avatar, retning: Retning, ramme: 0 | 1 | 2): Tegn
   const toej = farve('toejfarve', a.toejfarve);
   const toerklaede = a.hoved === 1;
   const hue = a.hoved === 2 || a.hoved === 3;
+  const hat = a.hoved === 5;
   const hovedRaekker = [...HOVED[r]];
   if (a.tilbehoer === 1) hovedRaekker[2] = BRILLER[r];
-  const ben = BEN[ramme].map((rk, i) => (a.toej === 2 && i < 2 ? rk.replace(/P/g, 'T') : rk));
-  const g = [...(hue ? TOP_HUE : TOP), ...hovedRaekker, ...KROP, ...ben].map((rk) => rk.split(''));
+  // Kjole, overall og regnfrakke dækker bukserne foroven.
+  const daekker = a.toej === 2 ? 2 : a.toej === 5 ? 4 : a.toej === 7 ? 2 : 0;
+  const ben = BEN[ramme].map((rk, i) => (i < daekker ? rk.replace(/P/g, 'T') : rk));
+  const g = [...(hat ? TOP_HAT : hue ? TOP_HUE : TOP), ...hovedRaekker, ...KROP, ...ben].map((rk) => rk.split(''));
   const saet = (x: number, y: number, c: string) => {
     if (y >= 0 && y < g.length && x >= 0 && x < 16) g[y][x] = c;
   };
@@ -88,7 +93,7 @@ export function avatarPixel(a: Avatar, retning: Retning, ramme: 0 | 1 | 2): Tegn
     }
 
   // Frisure. Under et tørklæde eller en hue vises kun det hår, der hænger ned.
-  const fri = !toerklaede && !hue;
+  const fri = !toerklaede && !hue && !hat;
   // Hår på skuldrene findes kun ved langt hår, fletninger og hestehale.
   const langtHaar = a.haar === 1 || a.haar === 3 || a.haar === 5;
   if (!langtHaar && !toerklaede)
@@ -159,6 +164,42 @@ export function avatarPixel(a: Avatar, retning: Retning, ramme: 0 | 1 | 2): Tegn
     for (let y = H0; y < H0 + 6; y++) for (const x of [3, 4, 11, 12]) if (g[y][x] === 'H' || g[y][x] === 'h') g[y][x] = 'S';
   }
 
+  if (a.haar === 8 && fri) {
+    // Pandehår: håret går ned over panden.
+    for (let x = 3; x < 13; x++) if (g[H0][x] === 'S' || g[H0][x] === 's') g[H0][x] = x % 3 ? 'H' : 'h';
+  }
+  if (a.haar === 9 && fri) {
+    // Hanekam: en stribe hår midt på hovedet, og siderne er barberet.
+    g[0] = '.......KK.......'.split('');
+    g[1] = '......KHHK......'.split('');
+    g[2] = '...KKKHhhHKKK...'.split('');
+    g[3] = '..KSSSHHHHSSSK..'.split('');
+    for (let y = H0; y < H0 + 6; y++) for (let x = 3; x < 13; x++) if ((g[y][x] === 'H' || g[y][x] === 'h') && (x < 6 || x > 9)) g[y][x] = 'S';
+  }
+  if (a.haar === 10 && fri) {
+    // Sideskilning: en skilning i den ene side, og håret falder ned over panden i den anden.
+    saet(5, 1, 'S');
+    saet(5, 2, 's');
+    if (r === 'ned') for (let x = 6; x < 11; x++) if (g[H0][x] === 'S' || g[H0][x] === 's') g[H0][x] = 'H';
+  }
+  if (a.haar === 11 && fri) {
+    // Skaldet: hele toppen er hud.
+    g[0] = '................'.split('');
+    g[1] = '.....KKKKKK.....'.split('');
+    g[2] = '...KKSSSSSSKK...'.split('');
+    g[3] = '..KSSSSSSSSSSK..'.split('');
+    for (let y = 2; y < H0 + 6; y++) for (let x = 0; x < 16; x++) if (g[y][x] === 'H' || g[y][x] === 'h') g[y][x] = 'S';
+  }
+  // Hårbånd: et bånd hen over håret.
+  if (a.hoved === 4) for (let x = 0; x < 16; x++) if (g[3][x] === 'H' || g[3][x] === 'h' || g[3][x] === 'S') g[3][x] = 'U';
+  // Troldmandshat: hattens skygge går ned over panden.
+  if (hat) g[H0] = '.KuuuuuuuuuuuuK.'.split('');
+  // Fjerpen: en hvid fjer med farvet spids stikker op fra håret.
+  if (a.hoved === 6) {
+    for (const [x, y, c] of [[13, 0, 'K'], [12, 0, 'U'], [14, 1, 'K'], [13, 1, 'U'], [12, 1, 'W'], [13, 2, 'K'], [12, 2, 'W'], [11, 2, 'W'], [11, 3, 'w']] as [number, number, string][])
+      saet(x, y, c);
+  }
+
   // Kasket: en skygge foran hovedet.
   if (a.hoved === 3) {
     if (r === 'ned') g[3] = '.KUUUUUUUUUUUUK.'.split('');
@@ -218,6 +259,18 @@ export function avatarPixel(a: Avatar, retning: Retning, ramme: 0 | 1 | 2): Tegn
     }
   }
 
+  // Ansigt (14. november 2026): fregner og røde kinder. Forfra og fra siden.
+  const kind = H0 + 3;
+  const fregner = a.ansigt === 1 || a.ansigt === 3;
+  const kinder = a.ansigt === 2 || a.ansigt === 3;
+  if (r === 'ned') {
+    if (kinder) for (const x of [5, 10]) saet(x, kind, 'R');
+    if (fregner) for (const x of kinder ? [6, 9] : [5, 10]) saet(x, kind, 'F');
+  } else if (r === 'hoejre') {
+    if (kinder) saet(11, kind, 'R');
+    if (fregner) saet(kinder ? 10 : 11, kind, 'F');
+  }
+
   // Tøj
   if (a.toej === 0) {
     // T-shirt: bare arme.
@@ -243,6 +296,36 @@ export function avatarPixel(a: Avatar, retning: Retning, ramme: 0 | 1 | 2): Tegn
     }
   }
 
+  const armeHvide = () => {
+    for (let y = K0 + 3; y < K0 + 5; y++)
+      for (const x of [g[y].indexOf('K') + 1, g[y].lastIndexOf('K') - 1]) if (g[y][x] === 't' || g[y][x] === 'T') g[y][x] = 'w';
+  };
+  if (a.toej === 4) {
+    // Vest over en hvid skjorte: hvide ærmer og en hvid V-hals.
+    armeHvide();
+    if (r === 'ned')
+      for (let y = K0; y < K0 + 6; y++) {
+        saet(7, y, 'w');
+        saet(8, y, 'w');
+        if (y > K0) {
+          saet(6, y, 't');
+          saet(9, y, 't');
+        }
+      }
+  } else if (a.toej === 5) {
+    // Overall: hvid trøje under og seler med knapper.
+    armeHvide();
+    for (let y = K0 + 1; y < K0 + 3; y++) for (let x = 3; x < 13; x++) if ((g[y][x] === 'T' || g[y][x] === 't') && x !== 5 && x !== 10) g[y][x] = 'w';
+    if (r === 'ned') for (const x of [5, 10]) saet(x, K0 + 3, 'Y');
+  } else if (a.toej === 6) {
+    // Stribet trøje: hvide striber hver anden række.
+    for (const y of [K0 + 2, K0 + 4, K0 + 6]) for (let x = 0; x < 16; x++) if (g[y][x] === 'T') g[y][x] = 'w';
+  } else if (a.toej === 7) {
+    // Regnfrakke: en høj krave og knapper, og den går ned over bukserne.
+    for (let x = 4; x < 12; x++) if (g[K0][x] !== 'K' && g[K0][x] !== '.') g[K0][x] = 't';
+    if (r === 'ned') for (const y of [K0 + 2, K0 + 4, K0 + 6]) saet(8, y, 'k');
+  }
+
   // Halstørklæde i hovedbeklædningens farve.
   if (a.tilbehoer === 2) {
     // Stribet, så det kan ses, selv om det har samme farve som trøjen.
@@ -250,6 +333,27 @@ export function avatarPixel(a: Avatar, retning: Retning, ramme: 0 | 1 | 2): Tegn
     saet(r === 'hoejre' ? 6 : 10, K0 + 1, 'U');
     saet(r === 'hoejre' ? 6 : 10, K0 + 2, 'w');
     saet(r === 'hoejre' ? 6 : 10, K0 + 3, 'U');
+  }
+
+  // Taske (14. november 2026): en rygsæk eller en skuldertaske.
+  if (a.taske === 1) {
+    if (r === 'op') {
+      for (let y = K0 + 1; y < K0 + 7; y++) for (let x = 4; x < 12; x++) saet(x, y, x === 4 || x === 11 || y === K0 + 6 ? 'K' : y === K0 + 1 ? 'a' : 'A');
+      for (let x = 6; x < 10; x++) saet(x, K0 + 4, 'a');
+    } else if (r === 'hoejre') {
+      for (let y = K0 + 1; y < K0 + 7; y++) {
+        saet(0, y, 'K');
+        saet(1, y, 'A');
+        saet(2, y, y === K0 + 1 ? 'a' : 'A');
+      }
+      for (let y = K0; y < K0 + 4; y++) saet(6, y, 'a');
+    } else for (let y = K0; y < K0 + 4; y++) for (const x of [5, 10]) saet(x, y, 'a');
+  } else if (a.taske === 2) {
+    // Remmen går skråt over brystet, og tasken hænger ved hoften.
+    for (let i = 0; i < 6; i++) saet(r === 'op' ? 5 + i : 10 - i, K0 + i, 'a');
+    const bx = r === 'hoejre' ? 6 : r === 'op' ? 10 : 2;
+    for (let y = K0 + 5; y < K0 + 8; y++)
+      for (let x = bx; x < bx + 4; x++) saet(x, y, y === K0 + 7 || x === bx || x === bx + 3 ? 'K' : y === K0 + 5 ? 'a' : 'A');
   }
 
   return {
@@ -262,7 +366,7 @@ export function avatarPixel(a: Avatar, retning: Retning, ramme: 0 | 1 | 2): Tegn
       u: moerkere(hovedFarve),
       S: hud,
       s: moerkere(hud, 0.8),
-      E: '#1b1b24',
+      E: farve('oejenfarve', a.oejenfarve ?? 0),
       W: '#ffffff',
       w: '#f4efe0',
       R: '#e88a8a',
@@ -270,8 +374,13 @@ export function avatarPixel(a: Avatar, retning: Retning, ramme: 0 | 1 | 2): Tegn
       G: '#2a2f48',
       T: toej,
       t: moerkere(toej),
-      P: '#2b3150',
-      B: '#3a2a20',
+      P: farve('bukser', a.bukser ?? 0),
+      B: farve('sko', a.sko ?? 0),
+      F: moerkere(hud, 0.62),
+      Y: '#f0c45a',
+      A: '#8a5a32',
+      a: '#5a3a20',
+      k: moerkere(toej, 0.5),
     },
   };
 }

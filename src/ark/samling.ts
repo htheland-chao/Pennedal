@@ -115,6 +115,28 @@ export function grupper(): Gruppe[] {
       ],
     },
     {
+      id: 'avatar-nye',
+      titel: 'Nye avatarvalg (14. november 2026) forfra, fra siden og bagfra, fine figurer',
+      skala: 3,
+      elementer: (
+        [
+          ['haar', [8, 9, 10, 11]],
+          ['haarfarve', [8, 9, 10, 11]],
+          ['hoved', [4, 5, 6]],
+          ['toej', [4, 5, 6, 7]],
+          ['bukser', [3, 5]],
+          ['sko', [2, 3]],
+          ['ansigt', [1, 2, 3]],
+          ['oejenfarve', [2, 3]],
+          ['taske', [1, 2]],
+        ] as [keyof typeof STANDARD_AVATAR, number[]][]
+      ).flatMap(([del, vaerdier]) =>
+        vaerdier.flatMap((v) =>
+          (['ned', 'hoejre', 'op'] as Retning[]).map((r) => ({ navn: `${del} ${v} ${r}`, kort: finFigur(avatarPixel({ ...STANDARD_AVATAR, [del]: v }, r, 0)) })),
+        ),
+      ),
+    },
+    {
       id: 'avatar-retninger',
       titel: 'Avataren i fire retninger og tre billeder',
       skala: 4,

@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { FAERDIGHEDER } from './faerdigheder';
 import { registrerSvar, START_STATUS, type FaerdighedsStatus } from './tilpasning';
-import { KODE_LAENGDE, KODE_LAENGDE_V1, KODE_LAENGDE_V2, KODE_LAENGDE_V3, laesGemmekode, lavGemmekode, normaliserKode } from './gemmekode';
+import { KODE_LAENGDE, KODE_LAENGDE_V1, KODE_LAENGDE_V2, KODE_LAENGDE_V3, KODE_LAENGDE_V4, laesGemmekode, lavGemmekode, normaliserKode } from './gemmekode';
 import { gemIndstillinger, gemSpil, hentGemtSpil, hentIndstillinger, nytSpil, STANDARD_AVATAR, STANDARD_INDSTILLINGER, validerGemtSpil } from './gem';
 import { lavCsv } from './csv';
 
@@ -102,6 +102,39 @@ describe('gemmekode', () => {
     expect(r.spil.venlighed).toBe(5);
     // Kun de vigtige valg følger med. Ting fra et escape room gør ikke.
     expect(r.spil.valg).toEqual({ 'klatten.hjulpet': 'ja' });
+  });
+
+  it('gemmer de nye avatarvalg (version 5), også valg ud over de gamle grænser', () => {
+    const ny = nytSpil(
+      { ...STANDARD_AVATAR, haar: 11, haarfarve: 10, hoved: 6, toej: 7, bukser: 5, sko: 7, ansigt: 3, oejenfarve: 2, taske: 2 },
+      { adjektiv: 3, dyr: 3 },
+    );
+    const r = laesGemmekode(lavGemmekode(ny), maks);
+    expect(r.ok).toBe(true);
+    if (!r.ok) return;
+    expect(r.spil.avatar).toEqual(ny.avatar);
+  });
+
+  it('et gemt spil fra før de nye avatardele kan stadig hentes', () => {
+    const gammel = JSON.parse(JSON.stringify(nytSpil(STANDARD_AVATAR, { adjektiv: 1, dyr: 1 })));
+    for (const d of ['bukser', 'sko', 'ansigt', 'oejenfarve', 'taske']) delete gammel.avatar[d];
+    const spil = validerGemtSpil(gammel);
+    expect(spil?.avatar).toEqual(STANDARD_AVATAR);
+  });
+
+  it('kan stadig læse en kode fra version 4, og de nye dele får standardvalget', () => {
+    // Lavet med gemmekoden fra før version 5 (14. november 2026).
+    const r = laesGemmekode('GRMH-6VFV-BQ00-0000-0000-0000-C000-0000-00NK', maks);
+    expect(KODE_LAENGDE_V4).toBe(36);
+    expect(r.ok).toBe(true);
+    if (!r.ok) return;
+    expect(r.spil.kapitel).toBe(3);
+    expect(r.spil.trin).toBe(5);
+    expect(r.spil.avatar).toEqual({
+      ...STANDARD_AVATAR,
+      hud: 5, krop: 2, oejne: 3, mund: 1, haar: 7, haarfarve: 6, hoved: 3, hovedfarve: 2, toej: 3, toejfarve: 5, tilbehoer: 3,
+    });
+    expect(r.spil.laasteOp).toEqual(['toej.kappe', 'tilbehoer.lanterne']);
   });
 
   it('kan stadig læse en gammel kode fra version 1', () => {
