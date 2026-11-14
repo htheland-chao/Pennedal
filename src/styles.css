@@ -4617,3 +4617,50 @@ dialog.modal.dialogboks.taler-ufaerdige .taler-navn {
 .intro-tekst .intro-hvisken {
   color: #c9d8f2;
 }
+
+/* Overgange i introen (14. november 2026): et gardin dækker skærmen halvvejs og trækkes væk igen.
+   Under kryds og pil (z-index 20), over billede og undertekst. */
+.intro-gardin {
+  position: fixed;
+  inset: 0;
+  z-index: 15;
+  pointer-events: none;
+  animation: gardin-sort 900ms ease-in-out both;
+}
+.intro-gardin.sort {
+  background: #07080f;
+}
+@keyframes gardin-sort {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+/* En blækklat breder sig fra hjørnet og trækker sig tilbage mod det modsatte hjørne. */
+.intro-gardin.blaek {
+  background: #0b0d18;
+  animation-name: gardin-blaek;
+  animation-timing-function: cubic-bezier(0.6, 0, 0.4, 1);
+}
+@keyframes gardin-blaek {
+  0% { clip-path: circle(0% at 15% 85%); }
+  50% { clip-path: circle(150% at 15% 85%); }
+  100% { clip-path: circle(0% at 85% 15%); }
+}
+/* Et hurtigt blækstrøg fra venstre mod højre med en takket pixelkant. */
+.intro-gardin.klip {
+  background:
+    linear-gradient(90deg, transparent 0 2%, #0b0d18 2% 98%, transparent 98%),
+    repeating-linear-gradient(0deg, #0b0d18 0 16px, transparent 16px 32px);
+  animation-name: gardin-klip;
+  animation-timing-function: ease-in-out;
+}
+@keyframes gardin-klip {
+  0% { transform: translateX(-105%); }
+  50% { transform: translateX(0); }
+  100% { transform: translateX(105%); }
+}
+/* Et varmt lysglimt ind i titlen. */
+.intro-gardin.lys {
+  background: radial-gradient(ellipse at 50% 50%, #fff3c4, #f0c45a 60%, #e5b84c);
+  animation-name: gardin-sort;
+}

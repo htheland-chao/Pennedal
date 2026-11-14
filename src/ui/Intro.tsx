@@ -16,13 +16,29 @@ import { LaesOpKnap, type Del } from './Tekst';
 import { TrailerKlip, type KlipId } from './IntroTrailer';
 
 const KLIP: SceneId[] = ['steder', 'bane', 'venner', 'kamp'];
+/** Scener, der viser det samme billede, beholder det, så zoom og regn fortsætter uden et klip. */
+const BILLEDE_NOEGLE: Partial<Record<SceneId, string>> = { skuffe: 'regn', opgave: 'kaelder', opgave2: 'kaelder' };
+
+/**
+ * Overgange mellem scenerne (Henrik, 14. november 2026). Et gardin dækker skærmen halvvejs, scenen skifter, og
+ * gardinet trækkes væk igen. sort: historien toner gennem sort. blaek: en blækklat breder sig ind i traileren.
+ * klip: et hurtigt blækstrøg mellem trailerens klip. lys: et lysglimt ind i titlen. Ingen ved samme billede.
+ */
+type Overgang = 'sort' | 'blaek' | 'klip' | 'lys';
+const HALV_MS: Record<Overgang, number> = { sort: 450, blaek: 450, klip: 220, lys: 300 };
+function overgang(fra: SceneId, til: SceneId): Overgang | null {
+  if (BILLEDE_NOEGLE[til] && (BILLEDE_NOEGLE[til] === BILLEDE_NOEGLE[fra] || BILLEDE_NOEGLE[til] === fra)) return null;
+  if (til === 'titel') return 'lys';
+  if (KLIP.includes(til)) return KLIP.includes(fra) ? 'klip' : 'blaek';
+  return 'sort';
+}
 
 /**
  * Introen (31. oktober 2026). Den skal vække nysgerrighed uden at afsløre forhistorien
  * (se docs/historie.md): man ser en skuffe blive lukket, men ikke hvad der ligger i den.
  * Al tekst er HTML, grafikken er pixelbilleder, og bevægelsen er CSS. Kan springes over.
  */
-type SceneId = 'studie' | 'regn' | 'skuffe' | 'land' | 'moerke' | 'kaelder' | 'opgave' | KlipId | 'titel';
+type SceneId = 'studie' | 'regn' | 'skuffe' | 'land' | 'moerke' | 'kaelder' | 'opgave' | 'opgave2' | KlipId | 'titel';
 /** varighed: klippet varer mindst så længe (ms), også når teksten er læst op før. */
 type Scene = { id: SceneId; tekst?: TekstId; hvisken?: TekstId; slut?: TekstId; varighed?: number };
 
@@ -34,7 +50,9 @@ export const SCENER: Scene[] = [
   { id: 'moerke', tekst: 'intro.4' },
   { id: 'kaelder', tekst: 'intro.5', slut: 'intro.5.slut' },
   // Hvem du er, hvad der er på spil, og hvad du skal (Henrik, 10. november 2026). Twistet afsløres ikke.
-  { id: 'opgave', tekst: 'intro.6', slut: 'intro.6.slut' },
+  { id: 'opgave', tekst: 'intro.6' },
+  // To linjer ad gangen, ikke fire (Henrik, 14. november 2026).
+  { id: 'opgave2', tekst: 'intro.6.slut' },
   // Traileren (Henrik, 14. november 2026): smagsprøver på spillet lige før titlen.
   { id: 'steder', tekst: 'intro.trailer.1', varighed: 5300 },
   { id: 'bane', tekst: 'intro.trailer.2', varighed: 6900 },
@@ -105,7 +123,7 @@ function Billede({ scene, b, mild }: { scene: SceneId; b: Billeder; mild: boolea
         </span>
       </>
     );
-  if (scene === 'kaelder' || scene === 'opgave')
+  if (scene === 'kaelder' || scene === 'opgave' || scene === 'opgave2')
     return (
       <span className="intro-lag intro-zoom">
         <img className="intro-lag" src={b.kaelder} alt="" />
@@ -136,10 +154,39 @@ export function Intro({ onFaerdig }: { onFaerdig: () => void }) {
     sceneStart.current = Date.now();
   }, [nr]);
 
+  const [gardin, setGardin] = useState<Overgang | null>(null);
+  // Kun den scene, der vises nu, kan melde, at den er læst op.
+  const nrNu = useRef(nr);
+  nrNu.current = nr;
+  const vedFaerdig = (mit: number) => () => {
+    if (nrNu.current === mit) setNaeste(true);
+  };
+  const skifter = useRef(false);
   const videre = useCallback(() => {
+    if (skifter.current) return;
     setNaeste(false);
-    if (nr < SCENER.length - 1) setNr(nr + 1);
-    else onFaerdig();
+    if (nr >= SCENER.length - 1) {
+      onFaerdig();
+      return;
+    }
+    const type = overgang(SCENER[nr].id, SCENER[nr + 1].id);
+    const roligt = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    if (!type || roligt) {
+      setNr(nr + 1);
+      return;
+    }
+    // Gardinet dækker skærmen, scenen skifter bag det, og gardinet trækkes væk.
+    skifter.current = true;
+    setGardin(type);
+    window.setTimeout(() => {
+      // Den gamle scenes oplæsning kan være blevet færdig bag gardinet. Den nye scene starter forfra.
+      setNaeste(false);
+      setNr(nr + 1);
+    }, HALV_MS[type]);
+    window.setTimeout(() => {
+      setGardin(null);
+      skifter.current = false;
+    }, HALV_MS[type] * 2);
   }, [nr, onFaerdig]);
 
   const dele: Del[] = [];
@@ -192,7 +239,7 @@ export function Intro({ onFaerdig }: { onFaerdig: () => void }) {
   return (
     <main className={`intro scene-${scene.id}${mild}`} aria-label={t('intro.titel')} onClick={trykVidere}>
       <div className="intro-scene" aria-hidden="true">
-        {b && <Billede key={scene.id === 'skuffe' ? 'regn' : scene.id} scene={scene.id} b={b} mild={indstillinger.mindreUhygge} />}
+        {b && <Billede key={BILLEDE_NOEGLE[scene.id] ?? scene.id} scene={scene.id} b={b} mild={indstillinger.mindreUhygge} />}
       </div>
 
       {scene.id === 'studie' && (
@@ -218,7 +265,7 @@ export function Intro({ onFaerdig }: { onFaerdig: () => void }) {
           {scene.tekst && <p>{t(scene.tekst)}</p>}
           {scene.hvisken && <p className="intro-hvisken">{t(scene.hvisken)}</p>}
           {scene.slut && <p className="intro-slut">{t(scene.slut)}</p>}
-          <LaesOpKnap key={nr} dele={dele} auto vedFaerdig={() => setNaeste(true)} />
+          <LaesOpKnap key={nr} dele={dele} auto vedFaerdig={vedFaerdig(nr)} />
         </div>
       )}
 
@@ -229,6 +276,7 @@ export function Intro({ onFaerdig }: { onFaerdig: () => void }) {
         </button>
       )}
       {!sidste && klar && <span className="intro-videre-pil" aria-hidden="true" />}
+      {gardin && <span className={`intro-gardin ${gardin}`} style={{ animationDuration: `${HALV_MS[gardin] * 2}ms` }} aria-hidden="true" />}
       <p className="sr-only">{t('intro.styring')}</p>
     </main>
   );
