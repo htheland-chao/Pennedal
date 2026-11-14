@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState, type CSSProperties } from 'react';
+import { useCallback, useEffect, useMemo, useState, type CSSProperties, type MouseEvent } from 'react';
 import { t, type TekstId } from '../content';
 import { tegnkortTilLerred } from '../game/pixel/lerred';
 import {
@@ -153,15 +153,29 @@ export function Intro({ onFaerdig }: { onFaerdig: () => void }) {
       if (e.key === 'Escape') {
         e.preventDefault();
         onFaerdig();
+        return;
       }
+      // Enter, mellemrum og højre pil går videre, men ikke når en knap har fokus (så virker knappen selv).
+      if (sidste || !['Enter', ' ', 'ArrowRight'].includes(e.key)) return;
+      if (e.target instanceof HTMLElement && e.target.closest('button, a, input')) return;
+      e.preventDefault();
+      videre();
     };
     window.addEventListener('keydown', tast);
     return () => window.removeEventListener('keydown', tast);
-  }, [onFaerdig]);
+  }, [onFaerdig, sidste, videre]);
+
+  /** Et tryk på billedet går videre. Tryk på knapper (kryds, højttaler) gør det ikke. */
+  const trykVidere = (e: MouseEvent) => {
+    if (sidste || (e.target instanceof HTMLElement && e.target.closest('button, a, input'))) return;
+    videre();
+  };
+  // Pilen viser, at eleven selv kan gå videre: når teksten er læst op, eller med det samme uden oplæsning.
+  const klar = scene.id !== 'studie' && (naeste || !indstillinger.oplaesning || dele.length === 0);
 
   const mild = indstillinger.mindreUhygge ? ' mild' : '';
   return (
-    <main className={`intro scene-${scene.id}${mild}`} aria-label={t('intro.titel')}>
+    <main className={`intro scene-${scene.id}${mild}`} aria-label={t('intro.titel')} onClick={trykVidere}>
       <div className="intro-scene" aria-hidden="true">
         {b && <Billede key={scene.id === 'skuffe' ? 'regn' : scene.id} scene={scene.id} b={b} />}
       </div>
@@ -193,18 +207,13 @@ export function Intro({ onFaerdig }: { onFaerdig: () => void }) {
         </div>
       )}
 
-      <div className="intro-knapper">
-        {!sidste && (
-          <button type="button" className="knap" key={`v${nr}`} onClick={videre} autoFocus>
-            {t('intro.videre')}
-          </button>
-        )}
-        {!sidste && (
-          <button type="button" className="knap knap-diskret" onClick={onFaerdig}>
-            {t('intro.spring')}
-          </button>
-        )}
-      </div>
+      {/* Introen er som en film: et lille kryds i hjørnet springer den over (Henrik, 14. november 2026). */}
+      {!sidste && (
+        <button type="button" className="intro-luk" onClick={onFaerdig} aria-label={t('intro.spring')} title={t('intro.spring')}>
+          <span aria-hidden="true" />
+        </button>
+      )}
+      {!sidste && klar && <span className="intro-videre-pil" aria-hidden="true" />}
       <p className="sr-only">{t('intro.styring')}</p>
     </main>
   );

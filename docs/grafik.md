@@ -75,6 +75,7 @@ Prototypen, der viser stilen: "Pennedal set oppefra" (Claude-artefakt). Den er t
 - **Farvetone pr. sted:** Viskeskoven kølig blågrøn, torvet gyldent, engen varm, smøgerne kølige. En vignet i fire trin med dither gør kanterne lidt mørkere, mest i kælderen og om natten, halvt så meget med "Mindre uhygge".
 - **Dybde:** mørke trækroner langs kortets nederste kant glider lidt hurtigere end verden (parallakse).
 - **Rammer:** dialogen, opgavekortet, menuen og kampens bokse har en pixelramme (et SVG på 12 x 12 pixel som `border-image`). Teksten er stadig HTML.
+- **Pergament og blæk (14. november 2026, Henrik valgte stil A):** knapper er pergament med trappede hjørner og en hård skygge. Hovedknapper er blå blæk `#2f4580` med lys tekst, aldrig røde, fordi rød betyder fejl i opgaverne. Valgte knapper er guld. Vinduer, dialog, hjørnepanel, menu og forsidens menu er pergament `#f6ecd2` i en læderramme `#6b4a2b` med guldhjørner `#e5b84c` og mørk tekst `#2a170f`. Kampens bokse, Blækdybet og Den Ufærdige har samme ramme med mørkt blæk `#161d33` indeni og lys tekst. Rammerne er SVG på 12 x 12 pixel (`--knap-lys`, `--knap-moerk`, `--knap-guld`, `--pixelramme-papir`, `--pixelramme-moerk` sidst i `src/styles.css`) og vises 3 gange forstørret.
 
 ## Skrift
 
