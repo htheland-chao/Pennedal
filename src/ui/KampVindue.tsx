@@ -8,7 +8,7 @@ import type { Avatar } from '../engine/gem';
 import type { Haendelse as Tilpasning } from '../engine/tilpasning';
 import { FJENDE_PLADS, HOLD_PLADS, KAMP_B, KAMP_H, MARKOER, tegnKampBaggrund } from '../game/pixel/kampscene';
 import { finFigur } from '../game/pixel/fin';
-import { kampRammer } from '../game/pixel/kampliv';
+import { figurRammer, type FigurId } from '../game/pixel/kampliv';
 import { hentKendte, huskKendte } from '../engine/bestiarium';
 import { tegnkortTilLerred } from '../game/pixel/lerred';
 import { avatarPixel, FUGL, KLATTEN, type Tegnkort } from '../game/pixel/sprites';
@@ -161,22 +161,38 @@ function uri(noegle: string, kort: Tegnkort | (() => HTMLCanvasElement)): string
 const bredde = (kort: Tegnkort) => Math.max(...kort.raekker.map((r) => r.length));
 
 /**
- * Liv i kampen (Henrik, 13. november 2026): hver figur skifter roligt mellem fire billeder (stå, træk vejret med
- * armene, læn frem med benene spredt, træk vejret). noegle skal være entydig for figuren. ramme er 0-3.
+ * Liv i kampen (Henrik, 13.-14. november 2026): hver figur har sin egen bevægelse, der passer til den (Tomordet smasker,
+ * Krusedullen bølger, Æseløre basker med vingen osv.). Billederne laves af figurens tegnkort i src/game/pixel/kampliv.ts.
+ * Hver figur har sit eget ur, så kun dens billede tegnes om. Står stille under reduceret bevægelse, og når stille er sand.
  */
-function levendeBillede(noegle: string, kort: Tegnkort, retning: 1 | -1, ramme: number): string {
-  const r = ((ramme % 4) + 4) % 4;
-  return uri(`${noegle}.liv${r}`, () => tegnkortTilLerred(finFigur(kampRammer(kort, retning)[r])));
-}
-/** Takten for figurernes billeder. Står stille under reduceret bevægelse. */
-function useTakt(ms: number): number {
-  const [takt, setTakt] = useState(0);
+function LevendeSprite({
+  noegle,
+  id,
+  base,
+  spejlet,
+  retning,
+  stille,
+  fase,
+  ...img
+}: {
+  noegle: string;
+  id: FigurId;
+  base: Tegnkort;
+  spejlet: boolean;
+  retning: 1 | -1;
+  stille: boolean;
+  fase: number;
+} & React.ImgHTMLAttributes<HTMLImageElement>) {
+  const { rammer, ms } = useMemo(() => figurRammer(id, base, (spejlet ? -retning : retning) as 1 | -1), [id, base, spejlet, retning]);
+  const [nr, setNr] = useState(fase % rammer.length);
   useEffect(() => {
-    if (typeof window === 'undefined' || window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return;
-    const id = setInterval(() => setTakt((x) => x + 1), ms);
-    return () => clearInterval(id);
-  }, [ms]);
-  return takt;
+    if (stille || roligBevaegelse()) return;
+    const ur = window.setInterval(() => setNr((x) => (x + 1) % rammer.length), ms);
+    return () => window.clearInterval(ur);
+  }, [stille, ms, rammer.length]);
+  const r = stille ? 0 : nr % rammer.length;
+  const src = uri(`${noegle}.liv${r}`, () => tegnkortTilLerred(finFigur(spejlet ? spejl(rammer[r]) : rammer[r])));
+  return <img {...img} src={src} data-ramme={r} />;
 }
 
 /** Placering af et billede i procent af scenen ud fra fodpunktet, så alt skalerer med skærmen. */
@@ -231,8 +247,6 @@ export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, ta
   const [visning, setVisning] = useState<Visning>({ type: 'menu' });
   /** En kort linje fra en hjælper eller et tip, der ikke koster en tur. */
   const [notat, setNotat] = useState<string | null>(null);
-  /** Figurernes rolige bevægelse: et nyt billede ca. tre gange i sekundet. */
-  const takt = useTakt(320);
   /** Væsner, hvis svage punkt holdet kender (efter Lyt eller et træffende slag). Huskes fra kamp til kamp i bestiariet. */
   const [kendt, setKendt] = useState<number[]>(() => {
     const kendte = hentKendte();
@@ -325,11 +339,19 @@ export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, ta
   const medlemNavn = (id: MedlemId) => (id === 'avatar' ? avatarNavn : t(`taler.${id}` as TekstId));
 
   // Baggrunden følger stedets tema (Viskeskoven eller Rimbjerget).
-  const tema = kapitler.find((k) => k.trin.some((x) => x.id === trin.id))?.steder[trin.sted]?.tema ?? 'viskeskov';
+  // Blækdybet har sin egen baggrund (14. november 2026). Dens kampe hører ikke til et kapitel.
+  const tema = trin.sted === 'dybet' ? 'dybet' : (kapitler.find((k) => k.trin.some((x) => x.id === trin.id))?.steder[trin.sted]?.tema ?? 'viskeskov');
   const baggrund = uri(`kamp.${trin.sted}.${daempet}`, () => tegnKampBaggrund(tema, !daempet));
   // Holdet står til venstre og kigger mod højre, mod væsnerne. Hjælperne er tegnet, så de kigger mod venstre, og spejles.
   const avatarKort = useMemo(() => avatarPixel(avatar, 'hoejre', 0), [avatar]);
   const holdKort: Record<MedlemId, Tegnkort> = { avatar: avatarKort, aeseloere: SPEJLET.fugl, vims: SPEJLET.vims, klatten: SPEJLET.klatten };
+  /** Figurerne, som de er tegnet (før spejling), til deres egne bevægelser. */
+  const holdBase: Record<MedlemId, { kort: Tegnkort; id: FigurId; spejlet: boolean }> = {
+    avatar: { kort: avatarKort, id: 'avatar', spejlet: false },
+    aeseloere: { kort: FUGL, id: 'fugl', spejlet: true },
+    vims: { kort: VIMS, id: 'vims', spejlet: true },
+    klatten: { kort: KLATTEN, id: 'klatten', spejlet: true },
+  };
 
   const fjendeSted = (nr: number): [number, number] => FJENDE_PLADS[Math.min(2, kamp.fjender.length - 1)][nr] ?? [70, 130];
   const holdSted = (id: MedlemId): [number, number] => HOLD_PLADS[Math.max(0, kamp.hold.findIndex((m) => m.id === id))] ?? HOLD_PLADS[0];
@@ -730,10 +752,16 @@ export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, ta
             return (
               <div key={f.nr}>
                 {!vaek && <span className="kamp-fodskygge" aria-hidden="true" style={fodskygge(sted, kort, FJENDE_SKALA)} />}
-                <img
+                <LevendeSprite
                   key={`${f.nr}-${ramt ? ryst.nr : 0}-${vaek}`}
                   className={`kamp-sprite kamp-fjende${vaek ? (smelter.includes(f.nr) && visning.type === 'afspil' ? ' rolig' : ' borte') : ramt ? ' ramt' : ''}${f.lammet && !vaek ? ' lammet' : ''}`}
-                  src={levendeBillede(`vaesen.spejlet.fin.${f.vaesen}`, kort, -1, vaek || f.lammet ? 0 : takt + f.nr * 2)}
+                  noegle={`vaesen.fin.${f.vaesen}`}
+                  id={f.vaesen}
+                  base={SPRITE[f.vaesen]}
+                  spejlet
+                  retning={-1}
+                  stille={vaek || !!f.lammet}
+                  fase={f.nr * 2}
                   alt=""
                   aria-hidden="true"
                   style={plads(sted, kort, FJENDE_SKALA)}
@@ -773,10 +801,16 @@ export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, ta
             return (
               <div key={m.id}>
                 {!nede && <span className="kamp-fodskygge hold" aria-hidden="true" style={fodskygge(HOLD_PLADS[i], kort, HOLD_SKALA)} />}
-                <img
+                <LevendeSprite
                   key={`${m.id}-${ramt ? ryst.nr : 0}`}
                   className={`kamp-sprite kamp-medlem${nede ? ' faldet' : ''}${ramt ? ' ramt' : ''}${slut === 'vundet' ? ' jubler' : ''}`}
-                  src={levendeBillede(m.id === 'avatar' ? `avatar.hoejre.fin.${JSON.stringify(avatar)}` : `medlem.spejlet.fin.${m.id}`, kort, 1, nede ? 0 : takt + i * 3 + 1)}
+                  noegle={m.id === 'avatar' ? `avatar.fin.${JSON.stringify(avatar)}` : `medlem.fin.${m.id}`}
+                  id={holdBase[m.id].id}
+                  base={holdBase[m.id].kort}
+                  spejlet={holdBase[m.id].spejlet}
+                  retning={1}
+                  stille={nede}
+                  fase={i * 3 + 1}
                   alt=""
                   aria-hidden="true"
                   style={{ ...plads(HOLD_PLADS[i], kort, HOLD_SKALA), animationDelay: `${i * 0.2}s` }}

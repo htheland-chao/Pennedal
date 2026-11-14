@@ -36,6 +36,7 @@ export function tegnKampBaggrund(tema: string, moerk: boolean): HTMLCanvasElemen
   };
   if (tema === 'arkiv') return tegnArkivKamp(c, moerk);
   if (tema === 'blaeksoe') return tegnBlaeksoeKamp(c, moerk);
+  if (tema === 'dybet') return tegnDybetKamp(c, moerk);
   const himmel = moerk ? HIMMEL_MOERK : HIMMEL;
   for (let y = 0; y < KAMP_H; y++)
     for (let x = 0; x < KAMP_B; x++) {
@@ -161,6 +162,66 @@ function tegnBlaeksoeKamp(c: HTMLCanvasElement, moerk: boolean): HTMLCanvasEleme
       p[i + 3] = 255;
     }
   g.putImageData(d, 0, 0);
+  return c;
+}
+
+/**
+ * Kampen i Blækdybet (14. november 2026): bunden af et hav af blæk. Mørk violet over en blank blækflade med en blød
+ * lysplet, hvor kampen står, dryp fra loftet og blege lysfnug, der svæver. Ingen bogstaver. moerk gør det dybere.
+ */
+function tegnDybetKamp(c: HTMLCanvasElement, moerk: boolean): HTMLCanvasElement {
+  const g = c.getContext('2d')!;
+  const d = g.createImageData(KAMP_B, KAMP_H);
+  const p = d.data;
+  const DYB = (moerk ? ['#07060f', '#0c0a18', '#14112a', '#1d1838'] : ['#0e0c1c', '#161330', '#211b44', '#2c2456']).map(hx);
+  const FLADE = ['#0b0a16', '#110f22'].map(hx);
+  const SPEJL = ['#2a2456', '#3a3270'].map(hx);
+  const LYS = ['#463c82', '#5a4f9a'].map(hx);
+  const KANT = hx('#5a4f8a');
+  const BUND = HORISONT + 4;
+  for (let y = 0; y < KAMP_H; y++)
+    for (let x = 0; x < KAMP_B; x++) {
+      const i = (y * KAMP_B + x) * 4;
+      let f: [number, number, number];
+      if (y < BUND) {
+        // Dybet: fire bånd med dither, mørkest øverst.
+        const t = (y / BUND) * (DYB.length - 1);
+        const a = Math.floor(t);
+        f = DYB[Math.min(DYB.length - 1, a + (t - a > bay(x, y) ? 1 : 0))];
+      } else {
+        // Blækfladen: mørk og blank, med vandrette striber af genskin og en lysplet i midten.
+        const dx = (x - 160) / 140;
+        const dy = (y - 130) / 36;
+        const r = dx * dx + dy * dy;
+        const stribe = hash(Math.floor(x / 9), y) > 0.9 && (y - BUND) % 3 === 0;
+        f = FLADE[hash(x >> 3, y >> 1) < 0.5 ? 0 : 1];
+        if (stribe) f = SPEJL[0];
+        if (r < 1) f = r < 0.45 ? LYS[bay(x, y) < 0.5 ? 1 : 0] : bay(x, y) < 1 - r ? LYS[0] : stribe ? SPEJL[1] : SPEJL[0];
+        if (y === BUND) f = KANT;
+        if (y > 168 && bay(x, y) < (y - 168) / 14) f = FLADE[0];
+      }
+      p[i] = f[0];
+      p[i + 1] = f[1];
+      p[i + 2] = f[2];
+      p[i + 3] = 255;
+    }
+  g.putImageData(d, 0, 0);
+  // Dryp fra loftet: tynde, mørke tråde med en dråbe for enden.
+  g.fillStyle = '#05040b';
+  for (let i = 0; i < 18; i++) {
+    const x = Math.round(hash(i, 11) * (KAMP_B - 4)) + 2;
+    const l = 4 + Math.floor(hash(i, 5) * 22);
+    g.fillRect(x, 0, 1, l);
+    g.fillRect(x - 1, l, 3, 2);
+    g.fillRect(x, l + 2, 1, 1);
+  }
+  // Blege lysfnug, der svæver i dybet (som plankton).
+  for (let i = 0; i < 40; i++) {
+    const x = Math.round(hash(i, 23) * KAMP_B);
+    const y = Math.round(10 + hash(i, 29) * (BUND - 14));
+    g.fillStyle = i % 3 === 0 ? '#b8b0f0' : '#6a5fb0';
+    g.fillRect(x, y, 1, 1);
+  }
   return c;
 }
 

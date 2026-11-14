@@ -8,7 +8,7 @@ import { belysning, blegt, halvtTegnet, linjeretPapir, hash, lavLys, lavSkygge, 
 import { aande, gangRamme, hvileTilstand, lukOejne } from './pixel/liv';
 import { indenfor, partikelTrin, partiklerFor, stedTone, vignetStyrke, type Partikel } from './stemning';
 import { finFigur } from './pixel/fin';
-import { avatarPixel, BLADE, FUGL, fyrtaarn, KLATTEN, LANTERNE, moerkere, papirtrae, PIL, PLANKE, SKILT, STOLPE, TALEBOBLE, voksen, type Retning, type Tegnkort } from './pixel/sprites';
+import { avatarPixel, BLADE, BROPLANKE, FUGL, fyrtaarn, KLATTEN, LANTERNE, moerkere, papirtrae, PIL, PLANKE, SKILT, STOLPE, TALEBOBLE, voksen, type Retning, type Tegnkort } from './pixel/sprites';
 import { GRENPORT, HALVFUGL, ORDBLAD, STUMMING, TOMORD, VIMS } from './pixel/viskeskov';
 import { DIGTSTEN, EKKO, granMedSne, RIMFOD } from './pixel/rimbjerg';
 import { FODNOTETAL, FRU_FODNOTE, HAEFTE_KORT, TVIVL, UFAERDIGE_KORT } from './pixel/arkiv';
@@ -79,6 +79,12 @@ export class KortScene extends Phaser.Scene {
   private faste = new Set<string>();
   private lyskilder: Lyskilde[] = [];
   private fyrLamper: { x: number; y: number }[] = [];
+  /**
+   * Fyrtårnets lys tænder (idélisten, 14. november 2026): når man kommer til fyrtårnet, blafrer lyset et par gange
+   * og bliver så stående, svagt, som Mor Lanterne siger. fyrStart er uret, hvor det begynder. null = lyset står.
+   */
+  private fyrStart: number | null = null;
+  private fyrGloed: Phaser.GameObjects.Image[] = [];
   /** Fin grafik: glød om lyskilderne, lagt oven på med ADD på grafikkortet. Den sidste følger hovedpersonens lygte. */
   private gloed: Phaser.GameObjects.Image[] = [];
   private lygteGloed: Phaser.GameObjects.Image | null = null;
@@ -141,6 +147,8 @@ export class KortScene extends Phaser.Scene {
     this.zoomMaal = 1;
     this.lyskilder = [];
     this.fyrLamper = [];
+    this.fyrGloed = [];
+    this.fyrStart = null;
     this.gloed = [];
     this.lygteGloed = null;
     this.faesteLys = [];
@@ -292,7 +300,16 @@ export class KortScene extends Phaser.Scene {
       else if (o.form === 'halvsaetning') noegle = this.tekstur('px-halvsaetning', HALVSAETNING);
       else if (o.form === 'skygge') noegle = this.tekstur('px-lille-skygge', LILLE_SKYGGE);
       else if (o.form === 'borger') noegle = this.tekstur(`px-person-${o.farve}`, voksen(o.farve, o.lys ? '#3a2a20' : '#6b4a2b'));
-      else if (o.form === 'bog') {
+      else if (o.form === 'broplanker') {
+        // Den færdige bro over floden (kapitel 1): planker fra bred til bred. Bygges planke for planke (saetSkjulte).
+        const noeglePlanke = this.tekstur('px-broplanke', BROPLANKE);
+        const x0 = (o.felt[0] - 1) * FELT + 4;
+        const y0 = (o.felt[1] - 2) * FELT - 2;
+        for (let i = 0; i < 13; i++) {
+          const y = y0 + i * 4;
+          billeder.push(this.add.image(x0, y, noeglePlanke).setOrigin(0).setDepth(-99985 + i).setData('y0', y).setData('planke', i));
+        }
+      } else if (o.form === 'bog') {
         // Bogen ligger fladt på disken og tegnes oven på den.
         billeder.push(this.add.image(o.felt[0] * FELT + 2, o.felt[1] * FELT + 2, this.tekstur('px-logbog', LOGBOG)).setOrigin(0).setDepth(o.felt[1] * FELT + 16));
       }
@@ -353,6 +370,8 @@ export class KortScene extends Phaser.Scene {
     }
     this.objektlys = lavLys(46, 0.9, this.tone, VARMT, SKALA);
     this.saetSkjulte(this.data_.skjulte ?? [], false);
+    // Ved selve fyrtårnet tænder lyset, når man kommer (ikke under reduceret bevægelse).
+    if (this.data_.sted.tema === 'fyrtaarn' && this.fyrLamper.length && !this.roligt) this.fyrStart = this.ur;
 
     // Hovedpersonen og Æseløre.
     const start = feltMidte(sted.startFelt ?? [1, 1]);
@@ -630,10 +649,23 @@ export class KortScene extends Phaser.Scene {
       for (const b of this.objektBilleder.get(o.id) ?? []) {
         if (!animer || this.roligt || b.visible === !skjult) {
           b.setVisible(!skjult);
+          // Står broen allerede, er de løse planker i vandet blevet til den.
+          if (o.form === 'broplanker' && !skjult) for (const p of this.planker) p.setVisible(false);
           continue;
         }
         this.tweens.killTweensOf(b);
-        if (!skjult) {
+        if (!skjult && o.form === 'broplanker') {
+          // Broen samler sig planke for planke (idélisten): hver planke flyder op fra vandet og lægger sig på plads.
+          // De løse planker i vandet forsvinder samtidig, for det er dem, der bliver til broen.
+          const i = (b.getData('planke') as number) ?? 0;
+          const y0 = b.getData('y0') as number;
+          b.setVisible(true).setAlpha(0).setY(y0 + 10);
+          this.tweens.add({ targets: b, alpha: 1, y: y0, delay: 300 + i * 160, duration: 380, ease: 'Back.Out' });
+          if (i === 0) {
+            for (const p of this.planker) this.tweens.add({ targets: p, alpha: 0, duration: 600, onComplete: () => p.setVisible(false).setAlpha(1) });
+            spilEffekt('skaar');
+          }
+        } else if (!skjult) {
           b.setVisible(true).setAlpha(0);
           this.tweens.add({ targets: b, alpha: 1, duration: o.form === 'ufaerdige' ? 1800 : 500, ease: 'Sine.InOut' });
         } else if (o.form === 'gnom') {
@@ -658,6 +690,17 @@ export class KortScene extends Phaser.Scene {
         return { x: m.x + 7, y: m.y - 12, billede: this.objektlys };
       });
     this.byggGloed();
+  }
+
+  /** Hvor kraftigt fyrtårnets lys lyser lige nu (0-1). Blafrer, når det tænder, og står så. */
+  private fyrStyrke(): number {
+    if (this.fyrStart === null) return 1;
+    const t = this.ur - this.fyrStart;
+    // Mørkt, så tre blaf, der bliver længere, og til sidst lyset.
+    const trin: [number, number][] = [[0.5, 0], [0.62, 0.55], [0.8, 0.05], [1.0, 0.75], [1.15, 0.2], [1.5, 0.9], [1.6, 0.45]];
+    for (const [til, styrke] of trin) if (t < til) return styrke;
+    this.fyrStart = null;
+    return 1;
   }
 
   /** Klatten flygter (idélisten): små blækklatter bliver liggende i en stribe efter ham og tørrer langsomt ud. */
@@ -696,7 +739,11 @@ export class KortScene extends Phaser.Scene {
     const styrke = this.data_.mindreUhygge ? 0.3 : 0.4;
     const lav = (x: number, y: number, r: number, a = styrke) =>
       this.add.image(x, y, 'px-gloed').setDisplaySize(r * 2, r * 2).setBlendMode(Phaser.BlendModes.ADD).setAlpha(a).setDepth(1_000_001);
-    for (const l of this.fyrLamper) this.gloed.push(lav(l.x, l.y, 26, styrke + 0.15));
+    for (const l of this.fyrLamper) {
+      const g = lav(l.x, l.y, 26, styrke + 0.15).setData('a0', styrke + 0.15);
+      this.gloed.push(g);
+      this.fyrGloed.push(g);
+    }
     for (const l of this.faesteLys) this.gloed.push(lav(l.x, l.y, lysBredde(l.billede) * 0.35));
     for (const l of this.lyskilder) this.gloed.push(lav(l.x, l.y, 22));
     if (!this.lygteGloed?.scene && this.lygte) this.lygteGloed = lav(0, 0, 16, styrke * 0.8);
@@ -1136,7 +1183,9 @@ export class KortScene extends Phaser.Scene {
     this.opdaterStemning(dt, vx, vy, z);
     this.gennemsigtigeTraeer();
     const fyrRamme = Math.floor(this.ur * 1.2) % 2;
-    const noegle = `${Math.round(vx * z)},${Math.round(vy * z)},${z.toFixed(3)},${Math.round(this.spiller.x)},${Math.round(this.spiller.y)},${fyrRamme},${this.lyskilder.length},${this.data_.mindreUhygge}`;
+    const fyr = this.fyrStyrke();
+    for (const g of this.fyrGloed) g.setAlpha((g.getData('a0') as number) * fyr);
+    const noegle = `${Math.round(vx * z)},${Math.round(vy * z)},${z.toFixed(3)},${Math.round(this.spiller.x)},${Math.round(this.spiller.y)},${fyrRamme},${fyr},${this.lyskilder.length},${this.data_.mindreUhygge}`;
     if (noegle === this.sidsteLys) return;
     this.sidsteLys = noegle;
     const ctx = this.lysTekstur.context;
@@ -1154,7 +1203,9 @@ export class KortScene extends Phaser.Scene {
       const h = (c.height / c.width) * b;
       ctx.drawImage(c, Math.round((x - vx - b / 2) * k), Math.round((y - vy - h / 2) * k), Math.round(b * k), Math.round(h * k));
     };
+    ctx.globalAlpha = fyr;
     for (const l of this.fyrLamper) tegnLys(l.x, l.y, this.fyrlys[fyrRamme]);
+    ctx.globalAlpha = 1;
     for (const l of this.faesteLys) tegnLys(l.x, l.y, l.billede);
     for (const l of this.lyskilder) tegnLys(l.x, l.y, l.billede);
     if (this.lygte) tegnLys(this.spiller.x, this.spiller.y - 12, this.lygte);

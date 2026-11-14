@@ -308,6 +308,11 @@ export const LANTERNE: Tegnkort = { raekker: ['..l..', '.lll.', 'lLLLl', 'lLLLl'
 export const BLADE: Tegnkort = { raekker: ['....eE..Ee....', '..eEEbEeEEbe..', '.eEbEEEEEbEEe.', 'eEEEbEEbEEEEEe'], palet: { e: '#8a7656', E: '#e0c995', b: '#a99068' } };
 export const STOLPE: Tegnkort = { raekker: ['KK', 'WW', 'WW', 'WW', 'WW', 'WW', 'KK'], palet: { K: '#3a2a20', W: '#6b4a2b' } };
 export const PLANKE: Tegnkort = { raekker: ['PPPPPPPP', 'pppppppp'], palet: { P: '#a07a4a', p: '#5a3a28' } };
+/** En planke i den færdige bro over floden (kapitel 1): bred, med træårer og en mørk kant forneden. */
+export const BROPLANKE: Tegnkort = {
+  raekker: ['.KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK.', 'KPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPK', 'KPPpPPPPPPPPPPPPPPPPPPPPPpPPPPPPPPPPPPPK', 'KppppppppppppppppppppppppppppppppppppppK', '.KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK.'],
+  palet: { K: '#3a2418', P: '#a07a4a', p: '#6e4a2e' },
+};
 /** Lille taleboble med tre prikker over den, der taler. Ingen bogstaver. */
 export const TALEBOBLE: Tegnkort = {
   raekker: ['.KKKKKKKKK.', 'KWWWWWWWWWK', 'KWKWWKWWKWK', 'KWWWWWWWWWK', '.KKKKWKKKK.', '.....KK....'],

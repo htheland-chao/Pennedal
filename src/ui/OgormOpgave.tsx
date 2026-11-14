@@ -56,9 +56,9 @@ export function OgormOpgave({ tekst, api }: { tekst: OgTekst; api: OpgaveApi }) 
       <p className="lille-tekst">{t('ogorm.pas.paa')}</p>
       <LaesOpKnap auto dele={(['ogorm.klip.instruks', 'ogorm.pas.paa'] as const).map((id) => ({ tekst: t(id), figur: 'fortaeller' as const }))} />
 
-      <div className="orm-bane">
+      <div className={`orm-bane${api.loest ? ' kryber' : ''}`}>
         {dele.map((stykke, si) => (
-          <div className={`orm-stykke${dele.length > 1 ? ' delt' : ''}`} key={stykke[0]} style={{ animationDelay: `${si * 0.15}s` }}>
+          <div className={`orm-stykke${dele.length > 1 ? ' delt' : ''}`} key={stykke[0]} style={{ animationDelay: `${(api.loest ? 0.9 : 0) + si * 0.15}s` }}>
             {hale && <img className="orm-hale" src={hale} alt="" aria-hidden="true" />}
             <div className="orm-krop">
               {stykke.map((i) => {
