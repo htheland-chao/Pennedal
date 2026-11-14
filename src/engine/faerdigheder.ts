@@ -42,6 +42,9 @@ export const OPLAASNINGER = [
   'toej.kappe',
   'tilbehoer.lanterne',
   'hoved.kasket',
+  // 14. november 2026. Nye oplåsninger kommer kun til sidst (rækkefølgen bruges i gemmekoden).
+  'hoved.troldmandshat',
+  'hoved.fjer',
 ] as const;
 
 export type OplaasningId = (typeof OPLAASNINGER)[number];

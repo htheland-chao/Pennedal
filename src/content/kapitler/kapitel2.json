@@ -904,7 +904,7 @@
       "uhygge": true,
       "moerke": true,
       "slutKapitel": true,
-      "laaserOp": [],
+      "laaserOp": ["hoved.kasket"],
       "replikker": [
         {
           "taler": "fortaeller",

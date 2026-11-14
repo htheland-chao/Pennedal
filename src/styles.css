@@ -4664,3 +4664,182 @@ dialog.modal.dialogboks.taler-ufaerdige .taler-navn {
   background: radial-gradient(ellipse at 50% 50%, #fff3c4, #f0c45a 60%, #e5b84c);
   animation-name: gardin-sort;
 }
+
+/* ============================================================
+   Udseende-editoren (14. november 2026): fin figur på en lille scene, valgene i fire grupper i to kolonner,
+   så det hele kan ses på en Chromebook (1366 x 768) uden at rulle. Smal skærm: én kolonne.
+   ============================================================ */
+.avatar-side {
+  max-width: 1180px;
+  margin: 0.5rem auto;
+  padding: 0.6rem 1.4rem 0.8rem;
+}
+.avatar-side h1 {
+  margin-bottom: 0.4rem;
+}
+.avatar-layout {
+  display: grid;
+  grid-template-columns: 250px minmax(0, 1fr);
+  gap: 0.8rem 1.4rem;
+  align-items: start;
+}
+.avatar-billede {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+.avatar-scene {
+  width: 250px;
+  height: 270px;
+  display: grid;
+  place-items: end center;
+  padding-bottom: 18px;
+  border: 12px solid transparent;
+  border-image: var(--pixelramme-papir) 4 / 12px stretch;
+  background:
+    radial-gradient(ellipse 30% 5% at 50% 90%, rgb(0 0 0 / 0.28), transparent 70%),
+    linear-gradient(#bcd3e6 0 62%, #5e9461 62% 65%, #6fa86d 65%);
+  background-origin: border-box;
+  background-clip: padding-box;
+}
+.avatar-scene .avatar-pixel {
+  width: 224px;
+  height: 208px;
+  image-rendering: pixelated;
+}
+.avatar-drej {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.avatar-drej .knap {
+  min-width: 48px;
+  min-height: 44px;
+  padding: 0;
+  font-size: 1.2rem;
+}
+.avatar-navn {
+  font-size: 1.15rem;
+}
+.avatar-valg {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.avatar-navnevalg {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.2rem 1rem;
+  margin: 0;
+  padding: 0.2rem 0.8rem 0.5rem;
+}
+.avatar-navnevalg label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+.avatar-navnevalg select {
+  min-height: 38px;
+  padding: 0.1rem 0.5rem;
+}
+.avatar-grupper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem 1rem;
+  align-items: start;
+}
+.avatar-gruppe {
+  margin: 0;
+  padding: 0.1rem 0.6rem 0.4rem;
+  border: 2px solid #c9a96e;
+  border-radius: 0;
+  display: grid;
+  gap: 0.15rem;
+}
+/* To grupper i hver kolonne. */
+.avatar-kolonne {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.avatar-gruppe legend {
+  font-size: 1rem;
+  padding: 0 0.3rem;
+}
+.avatar-side .avatar-raekke {
+  display: grid;
+  grid-template-columns: 6.6rem 44px minmax(0, 1fr) 44px;
+  align-items: center;
+  gap: 0.3rem;
+  min-height: 42px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.avatar-side .avatar-etiket {
+  font-weight: 700;
+  font-size: 0.85rem;
+  line-height: 1.15;
+}
+.avatar-side .avatar-pil {
+  min-width: 44px;
+  min-height: 40px;
+  padding: 0;
+  font-size: 0.85rem;
+  border-width: 9px;
+  border-image-width: 9px;
+  box-shadow: 0 3px 0 rgb(20 12 8 / 0.5);
+}
+.avatar-side .avatar-vaerdi {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  text-align: center;
+  font-size: 0.92rem;
+  line-height: 1.15;
+}
+.avatar-farve {
+  flex: none;
+  width: 1.1rem;
+  height: 1.1rem;
+  background: var(--farve);
+  border: 2px solid #2a170f;
+  box-shadow: inset 2px 2px 0 rgb(255 255 255 / 0.35);
+}
+.avatar-side .avatar-laast {
+  margin: 0;
+}
+.avatar-side .knaprad {
+  margin: 0.2rem 0 0;
+}
+@media (max-width: 980px) {
+  .avatar-layout {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+  .avatar-valg {
+    width: 100%;
+  }
+}
+@media (max-width: 640px) {
+  .avatar-grupper,
+  .avatar-navnevalg {
+    grid-template-columns: 1fr;
+  }
+  /* Etiketten står over knapperne: [◀] værdi [▶] */
+  .avatar-side .avatar-raekke {
+    grid-template-columns: 44px minmax(0, 1fr) 44px;
+    row-gap: 0.1rem;
+  }
+  .avatar-side .avatar-etiket {
+    grid-column: 1 / -1;
+  }
+}

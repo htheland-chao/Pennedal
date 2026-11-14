@@ -63,6 +63,10 @@ Bagefter vågner avataren i biblioteket. Holm fortæller kort, at det var ham, d
 
 **Blækdybet (efter spillet):** Under den sidste side ligger Blækdybet, hvor resterne af Den Ufærdiges halve historier bor. Det er en uendelig prøvetur for dem, der har klaret spillet. Mor Lanterne har stillet lygter (hvilesteder) undervejs, og Vims og Klatten kan følge med som gaver. Ingen ny historie, kun dybere og sværere rum.
 
+## Belønninger i udseende-editoren
+
+Nogle valg i udseende-editoren er låst og bliver låst op, når man klarer et kapitel (aldrig for at være hurtig): Klattens kappe og Mor Lanternes lanterne i kapitel 1, en kasket efter kapitel 2, en spids hat fra Rimbjerget efter kapitel 4 og en fjerpen fra Blæksøen efter kapitel 6 (14. november 2026).
+
 ## Introen
 
 Introen (`src/ui/Intro.tsx`, 31. oktober 2026) kommer, når man starter et nyt eventyr, og kan ses igen fra forsiden. Den skal vække nysgerrighed uden at afsløre forhistorien.

@@ -1,5 +1,5 @@
 import { FAERDIGHEDER, OPLAASNINGER } from './faerdigheder';
-import { AVATAR_DELE, AVATAR_GRAENSER, nytSpil, type Avatar, type GemtSpil } from './gem';
+import { AVATAR_DELE, AVATAR_GRAENSER, nytSpil, STANDARD_AVATAR, type Avatar, type GemtSpil } from './gem';
 import { MAKS_VENLIGHED, SKAAR, SLUT_VALG, VIGTIGE_VALG } from './taske';
 import type { Niveau } from './tilpasning';
 
@@ -12,10 +12,12 @@ import type { Niveau } from './tilpasning';
  * Version 2 (31. oktober 2026) har også hukommelsesskår, Klattens venlighed og vigtige valg.
  * Tasken står ikke i koden, den regnes ud fra kapitel og trin (se taske.ts).
  * Version 4 (10. november 2026) har også slutningens valg fra kapitel 8, så de følger med til en anden computer.
+ * Version 5 (14. november 2026) har flere avatarvalg og nye avatardele. De gamle avatarfelter har samme bredde
+ * som før. Et valg ud over den gamle bredde gemmes i et ekstra felt til sidst (de høje bit).
  * Koder fra ældre versioner kan stadig læses. Versionen står i de første 3 bit.
  */
 const ALFABET = '0123456789ABCDEFGHJKMNPQRSTVWXYZ';
-const VERSION = 4;
+const VERSION = 5;
 /** Færdighederne, der fandtes i version 1 og 2. Nye færdigheder kommer med i version 3 og frem, til sidst i koden. */
 const FAERDIGHEDER_V1 = FAERDIGHEDER.slice(0, 19);
 const KONTROL_TEGN = 2;
@@ -26,13 +28,29 @@ function bitsTil(antal: number): number {
 
 type Felt = { navn: string; bits: number };
 
+/** Avatardelene og antallet af valg, som de var i version 1 til 4. Må aldrig ændres, ellers kan gamle koder ikke læses. */
+const AVATAR_V1: [keyof Avatar, number][] = [
+  ['hud', 8],
+  ['krop', 3],
+  ['oejne', 4],
+  ['mund', 4],
+  ['haar', 8],
+  ['haarfarve', 8],
+  ['hoved', 4],
+  ['hovedfarve', 8],
+  ['toej', 4],
+  ['toejfarve', 8],
+  ['tilbehoer', 4],
+];
+const LAV_BITS = Object.fromEntries(AVATAR_V1.map(([d, n]) => [d, bitsTil(n)])) as Partial<Record<keyof Avatar, number>>;
+
 const FELTER_V1: Felt[] = [
   { navn: 'version', bits: 3 },
   { navn: 'kapitel', bits: 4 },
   { navn: 'trin', bits: 6 },
   { navn: 'adjektiv', bits: 5 },
   { navn: 'dyr', bits: 5 },
-  ...AVATAR_DELE.map((d) => ({ navn: `avatar.${d}`, bits: bitsTil(AVATAR_GRAENSER[d]) })),
+  ...AVATAR_V1.map(([d, n]) => ({ navn: `avatar.${d}`, bits: bitsTil(n) })),
   ...FAERDIGHEDER_V1.map((f) => ({ navn: `f.${f}`, bits: 3 })),
   { navn: 'oplaasninger', bits: 16 },
   { navn: 'historier', bits: 6 },
@@ -55,8 +73,21 @@ const FELTER_V3: Felt[] = [...FELTER_V2, ...FAERDIGHEDER.slice(FAERDIGHEDER_V1.l
 /** Version 4 (10. november 2026, kapitel 8): alt fra version 3 og derefter slutningens valg, ét felt pr. gruppe. */
 const FELTER_V4: Felt[] = [...FELTER_V3, ...SLUT_VALG.map((g) => ({ navn: g.gruppe, bits: g.bits }))];
 
+/**
+ * Version 5 (14. november 2026): alt fra version 4 og derefter de høje bit for avatardele med flere valg end før,
+ * og til sidst de nye avatardele.
+ */
+const FELTER_V5: Felt[] = [
+  ...FELTER_V4,
+  ...AVATAR_V1.filter(([d]) => AVATAR_GRAENSER[d] > 2 ** LAV_BITS[d]!).map(([d]) => ({
+    navn: `avatar.${d}.hoej`,
+    bits: bitsTil(Math.ceil(AVATAR_GRAENSER[d] / 2 ** LAV_BITS[d]!)),
+  })),
+  ...AVATAR_DELE.filter((d) => LAV_BITS[d] === undefined).map((d) => ({ navn: `avatar.${d}`, bits: bitsTil(AVATAR_GRAENSER[d]) })),
+];
+
 /** Felterne i hver version. Versionen står i de første 3 bit, så den kan læses, før resten er kendt. */
-const FELTER: Record<number, Felt[]> = { 1: FELTER_V1, 2: FELTER_V2, 3: FELTER_V3, 4: FELTER_V4 };
+const FELTER: Record<number, Felt[]> = { 1: FELTER_V1, 2: FELTER_V2, 3: FELTER_V3, 4: FELTER_V4, 5: FELTER_V5 };
 const NYESTE = FELTER[VERSION];
 const tegnFor = (felter: Felt[]) => Math.ceil(felter.reduce((s, f) => s + f.bits, 0) / 5);
 const DATA_TEGN = tegnFor(NYESTE);
@@ -65,6 +96,7 @@ export const KODE_LAENGDE = DATA_TEGN + KONTROL_TEGN;
 export const KODE_LAENGDE_V1 = tegnFor(FELTER_V1) + KONTROL_TEGN;
 export const KODE_LAENGDE_V2 = tegnFor(FELTER_V2) + KONTROL_TEGN;
 export const KODE_LAENGDE_V3 = tegnFor(FELTER_V3) + KONTROL_TEGN;
+export const KODE_LAENGDE_V4 = tegnFor(FELTER_V4) + KONTROL_TEGN;
 
 function kontrol(tegn: string): string {
   // FNV-1a, 32 bit. Vi bruger 10 bit = 2 tegn.
@@ -90,7 +122,14 @@ export function lavGemmekode(spil: GemtSpil): string {
     venlighed: Math.max(0, Math.min(MAKS_VENLIGHED, spil.venlighed)),
     valg: VIGTIGE_VALG.reduce((m, id, i) => (spil.valg[id] ? m | (1 << i) : m), 0),
   };
-  for (const d of AVATAR_DELE) vaerdier[`avatar.${d}`] = spil.avatar[d];
+  for (const d of AVATAR_DELE) {
+    const lav = LAV_BITS[d];
+    if (lav === undefined) vaerdier[`avatar.${d}`] = spil.avatar[d];
+    else {
+      vaerdier[`avatar.${d}`] = spil.avatar[d] & (2 ** lav - 1);
+      vaerdier[`avatar.${d}.hoej`] = spil.avatar[d] >> lav;
+    }
+  }
   for (const f of FAERDIGHEDER) vaerdier[`f.${f}`] = spil.faerdigheder[f].niveau - 1;
   // Slutningens valg: nummeret på den valgte mulighed i gruppen, 0 når der ikke er valgt.
   for (const g of SLUT_VALG) vaerdier[g.gruppe] = g.muligheder.findIndex((m) => spil.valg[`${g.gruppe}.${m}`] === 'ja') + 1;
@@ -156,7 +195,13 @@ export function laesGemmekode(input: string, maksTrin: (kapitel: number) => numb
 
   const avatar = {} as Avatar;
   for (const d of AVATAR_DELE) {
-    const x = v[`avatar.${d}`];
+    const lav = LAV_BITS[d];
+    // En del, der ikke fandtes i kodens version, får standardvalget.
+    if (v[`avatar.${d}`] === undefined) {
+      avatar[d] = STANDARD_AVATAR[d];
+      continue;
+    }
+    const x = lav === undefined ? v[`avatar.${d}`] : v[`avatar.${d}`] + ((v[`avatar.${d}.hoej`] ?? 0) << lav);
     if (x >= AVATAR_GRAENSER[d]) return { ok: false, fejl: 'indhold' };
     avatar[d] = x;
   }
