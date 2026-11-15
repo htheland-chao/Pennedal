@@ -114,6 +114,14 @@
       "kilde": "Stumme bogstaver / mand.saetning",
       "lavet": "2026-11-04"
     },
+    "0067ecafb1ee8a": {
+      "figur": "fortaeller",
+      "tekst": "sko ... sko ... sko",
+      "fil": "0067ecafb1ee8a.ogg",
+      "kilde": "Svar / ekko.sko",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "00810db74b5886": {
       "figur": "fortaeller",
       "tekst": "Hvor fører sporet hen?",
@@ -192,6 +200,14 @@
       "fil": "00b6cb2ee62fff.ogg",
       "kilde": "Titelkort / kapitel 2.maal",
       "lavet": "2026-11-13"
+    },
+    "00ccd6fa3c838a": {
+      "figur": "aeseloere",
+      "tekst": "Ordet glemme betyder ikke det samme som fortælle. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
+      "fil": "00ccd6fa3c838a.ogg",
+      "kilde": "Svar / synonym.fortaelle.glemme",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "00ce3531c8852a": {
       "figur": "aeseloere",
@@ -328,6 +344,14 @@
       "kilde": "Historiebroen / bro-graevlingen.problem",
       "lavet": "2026-11-05"
     },
+    "015642d32b12c1": {
+      "figur": "aeseloere",
+      "tekst": "Ordet bred betyder ikke det samme som hemmelig. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
+      "fil": "015642d32b12c1.ogg",
+      "kilde": "Svar / synonym.hemmelig.bred",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
+    },
     "015789820d6f00": {
       "figur": "fortaeller",
       "tekst": "Gå hen til Klatten.",
@@ -408,6 +432,14 @@
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-lite-tts"
     },
+    "018ad6560f5036": {
+      "figur": "aeseloere",
+      "tekst": "Ja. stol rimer på sol. De lyder ens til sidst.",
+      "fil": "018ad6560f5036.ogg",
+      "kilde": "Svar / rim.sol.stol",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "018bcc377bf335": {
       "figur": "fortaeller",
       "tekst": "Skriv plankerne tilbage ved ordstenene, og kom over til lysningen.",
@@ -442,6 +474,14 @@
       "fil": "01a606ec682232.ogg",
       "kilde": "Stumme bogstaver / hvem.saetning",
       "lavet": "2026-11-04"
+    },
+    "01aed71ba8df5d": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord betyder det samme som mørk?",
+      "fil": "01aed71ba8df5d.ogg",
+      "kilde": "Svar / synonym.moerk.spoergsmaal",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
     },
     "01b069eb80c603": {
       "figur": "aeseloere",
@@ -644,6 +684,14 @@
       "kilde": "Stumme bogstaver / sand.saetning",
       "lavet": "2026-11-04"
     },
+    "026fde1a5283be": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord rimer på hus?",
+      "fil": "026fde1a5283be.ogg",
+      "kilde": "Svar / rim.hus.spoergsmaal",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "027206d2bd858a": {
       "figur": "ufaerdige",
       "tekst": "Næsten. Alt er altid næsten.",
@@ -671,6 +719,14 @@
       "fil": "027c0f26b9459a.ogg",
       "kilde": "Kapitel 5 / k5-twist.1",
       "lavet": "2026-11-09"
+    },
+    "0282a01dde3654": {
+      "figur": "aeseloere",
+      "tekst": "Ja. hat rimer ikke på hus. Slutningen lyder anderledes.",
+      "fil": "0282a01dde3654.ogg",
+      "kilde": "Svar / ikkerim.hus.hat",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "02845cf6a489e9": {
       "figur": "fortaeller",
@@ -744,6 +800,14 @@
       "kilde": "Kapitel 7 / k7-krimi.opgavetekst",
       "lavet": "2026-11-12"
     },
+    "02c5313be75a0d": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord betyder det samme som skøn?",
+      "fil": "02c5313be75a0d.ogg",
+      "kilde": "Svar / synonym.skoen.spoergsmaal",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
+    },
     "02ccff6539bc77": {
       "figur": "fortaeller",
       "tekst": "Hvad hører til i en historie af genren krimi?",
@@ -759,12 +823,28 @@
       "kilde": "Kapitel 5 / k5-haeftet.3",
       "lavet": "2026-11-09"
     },
+    "02e42cd5f5cd00": {
+      "figur": "aeseloere",
+      "tekst": "ko rimer faktisk på sko. Sig dem højt. De lyder ens til sidst.",
+      "fil": "02e42cd5f5cd00.ogg",
+      "kilde": "Svar / ikkerim.sko.ko",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "02ee7d85cba9ae": {
       "figur": "raaber",
       "tekst": "Spørg vagten, hvad han så i nat!",
       "fil": "02ee7d85cba9ae.ogg",
       "kilde": "Råberens tegn / raab-24",
       "lavet": "2026-11-03"
+    },
+    "02f1caf73c29cf": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Ordet dunkel betyder det samme som mørk.",
+      "fil": "02f1caf73c29cf.ogg",
+      "kilde": "Svar / synonym.moerk.rigtig",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
     },
     "02f85d226b1561": {
       "figur": "fortaeller",
@@ -801,6 +881,14 @@
       "fil": "0309fcdcef489b.ogg",
       "kilde": "Kapitel 5 / k5-haeftet.4",
       "lavet": "2026-11-09"
+    },
+    "030c97896d28bc": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Ordet kendt betyder det samme som berømt.",
+      "fil": "030c97896d28bc.ogg",
+      "kilde": "Svar / synonym.beroemt.rigtig",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
     },
     "030e34be0922e8": {
       "figur": "fortaeller",
@@ -865,6 +953,14 @@
       "kilde": "Kapitel 2 / k2-trykkeri.2",
       "lavet": "2026-10-31"
     },
+    "034e37bf46f506": {
+      "figur": "aeseloere",
+      "tekst": "Ordet kendt betyder ikke det samme som hemmelig. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
+      "fil": "034e37bf46f506.ogg",
+      "kilde": "Svar / synonym.hemmelig.kendt",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
+    },
     "034e7232b5c7b1": {
       "figur": "fortaeller",
       "tekst": "Gennem lemmen kan du høre fodtrin på tagstenene. Hurtige, små fodtrin.",
@@ -914,6 +1010,14 @@
       "kilde": "Stumme bogstaver / hvid",
       "lavet": "2026-10-31"
     },
+    "037e680c8bc8c5": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Ordet enorm betyder det samme som kæmpestor.",
+      "fil": "037e680c8bc8c5.ogg",
+      "kilde": "Svar / synonym.kaempestor.rigtig",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
+    },
     "038199d5f06d1d": {
       "figur": "raaber",
       "tekst": "Ingen ved, hvor sækken er blevet af.",
@@ -942,6 +1046,22 @@
       "fil": "03882e9e254352.ogg",
       "kilde": "Kapitel 2 / k2-moerke.9",
       "lavet": "2026-10-31"
+    },
+    "038babc9b3a072": {
+      "figur": "aeseloere",
+      "tekst": "mat rimer faktisk på kat. Sig dem højt. De lyder ens til sidst.",
+      "fil": "038babc9b3a072.ogg",
+      "kilde": "Svar / ikkerim.kat.mat",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "038bee608fa256": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord betyder det samme som fortælle?",
+      "fil": "038bee608fa256.ogg",
+      "kilde": "Svar / synonym.fortaelle.spoergsmaal",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "03925d5d1293df": {
       "figur": "fortaeller",
@@ -979,12 +1099,36 @@
       "kilde": "Kapitel 5 / fodnotetal.klar.1",
       "lavet": "2026-11-12"
     },
+    "03bb0696947eb7": {
+      "figur": "aeseloere",
+      "tekst": "krus rimer faktisk på hus. Sig dem højt. De lyder ens til sidst.",
+      "fil": "03bb0696947eb7.ogg",
+      "kilde": "Svar / ikkerim.hus.krus",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "03bd726e4962d4": {
       "figur": "fortaeller",
       "tekst": "Find de tre messingskilte, og find koden til kartoteksskabet.",
       "fil": "03bd726e4962d4.ogg",
       "kilde": "Kapitel 5 / k5-rum.opgavetekst",
       "lavet": "2026-11-12"
+    },
+    "03d1c4d97b49a2": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord rimer ikke på sko?",
+      "fil": "03d1c4d97b49a2.ogg",
+      "kilde": "Svar / ikkerim.sko.spoergsmaal",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "03d22a80af66d4": {
+      "figur": "aeseloere",
+      "tekst": "Ja. hul rimer ikke på hus. Slutningen lyder anderledes.",
+      "fil": "03d22a80af66d4.ogg",
+      "kilde": "Svar / ikkerim.hus.hul",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "03dab47408a6d4": {
       "figur": "aeseloere",
@@ -1072,6 +1216,14 @@
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-tts"
     },
+    "04303162f7a6bb": {
+      "figur": "aeseloere",
+      "tekst": "Ordet høre betyder ikke det samme som kigge. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
+      "fil": "04303162f7a6bb.ogg",
+      "kilde": "Svar / synonym.kigge.høre",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
+    },
     "043a62d2cc9151": {
       "figur": "snegl",
       "tekst": "Nu kan brevene komme frem. Om et år eller to.",
@@ -1100,6 +1252,14 @@
       "fil": "0441477db146b9.ogg",
       "kilde": "Kapitel 6 / k6-twist.valg1.1",
       "lavet": "2026-11-10"
+    },
+    "0443366d36cc07": {
+      "figur": "aeseloere",
+      "tekst": "Ordet bred betyder ikke det samme som mørk. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
+      "fil": "0443366d36cc07.ogg",
+      "kilde": "Svar / synonym.moerk.bred",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
     },
     "0447deb56097d3": {
       "figur": "fortaeller",
@@ -1215,6 +1375,14 @@
       "kilde": "Kapitel 5 / k5-fodnote.2",
       "lavet": "2026-11-09"
     },
+    "04ac688e56e0dd": {
+      "figur": "aeseloere",
+      "tekst": "skov rimer ikke på sko. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "04ac688e56e0dd.ogg",
+      "kilde": "Svar / rim.sko.skov",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "04b909e448f021": {
       "figur": "aeseloere",
       "tekst": "Velkommen til Pennedal. Her blev alt skrevet til live engang. Også mig, desværre.",
@@ -1259,6 +1427,14 @@
       "kilde": "Tasken / kappe",
       "lavet": "2026-11-01"
     },
+    "04d9b0ddfe40f3": {
+      "figur": "aeseloere",
+      "tekst": "Ordet skjuler betyder ikke det samme som opdager. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
+      "fil": "04d9b0ddfe40f3.ogg",
+      "kilde": "Svar / synonym.opdager.skjuler",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "04db557faede5d": {
       "figur": "fortaeller",
       "tekst": "Midt mellem reolerne står en sætning og vrider sig. Den kan ikke bestemme sig.",
@@ -1302,12 +1478,28 @@
       "kilde": "Kapitel 4 / k4-toppen.5",
       "lavet": "2026-11-09"
     },
+    "04f0d86d822801": {
+      "figur": "aeseloere",
+      "tekst": "fil rimer faktisk på bil. Sig dem højt. De lyder ens til sidst.",
+      "fil": "04f0d86d822801.ogg",
+      "kilde": "Svar / ikkerim.bil.fil",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "04f336d4ab731b": {
       "figur": "fortaeller",
       "tekst": "I trykpressen sidder et udråbstegn i klemme. Du vrider det fri og lægger det i tasken.",
       "fil": "04f336d4ab731b.ogg",
       "kilde": "Kapitel 2 / k2-rum.presse",
       "lavet": "2026-11-03"
+    },
+    "05061f917ddee1": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Ordet starte betyder det samme som begynde.",
+      "fil": "05061f917ddee1.ogg",
+      "kilde": "Svar / synonym.begynde.rigtig",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
     },
     "050ff8fd03b147": {
       "figur": "fortaeller",
@@ -1443,6 +1635,14 @@
       "kilde": "Kapitel 3 / k3-klatten.valg2.3",
       "lavet": "2026-11-01"
     },
+    "058b2827cbeb35": {
+      "figur": "aeseloere",
+      "tekst": "Ordet slutte betyder ikke det samme som begynde. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
+      "fil": "058b2827cbeb35.ogg",
+      "kilde": "Svar / synonym.begynde.slutte",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
+    },
     "058bb3cad90ae9": {
       "figur": "fortaeller",
       "tekst": "Stien fører ind i en smal kløft mellem to klipper. Alt, hvad I siger, kommer tilbage.",
@@ -1500,6 +1700,14 @@
       "kilde": "Beskeder / opgave.ros.4",
       "lavet": "2026-11-04"
     },
+    "05c417cceb27ff": {
+      "figur": "aeseloere",
+      "tekst": "Ja. lus rimer på hus. De lyder ens til sidst.",
+      "fil": "05c417cceb27ff.ogg",
+      "kilde": "Svar / rim.hus.lus",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "05c41d1ed391c7": {
       "figur": "fortaeller",
       "tekst": "Fyldepennen drypper. En stor, sort klat lander midt på siden.",
@@ -1522,6 +1730,14 @@
       "kilde": "Kapitel 1 / k1-aeseloere.3",
       "lavet": "2026-10-31"
     },
+    "05d7b4bd78d22c": {
+      "figur": "aeseloere",
+      "tekst": "Ordet sove betyder ikke det samme som snakke. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
+      "fil": "05d7b4bd78d22c.ogg",
+      "kilde": "Svar / synonym.snakke.sove",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
+    },
     "05d7bd92a61c8f": {
       "figur": "snegl",
       "tekst": "Goddag. Jeg er Postsneglen. Jeg bringer post rundt ved Blæksøen. Langsomt.",
@@ -1536,12 +1752,28 @@
       "kilde": "Beskeder / bro.fejl.placering.6.loesning",
       "lavet": "2026-11-05"
     },
+    "05d9ca1d04a673": {
+      "figur": "aeseloere",
+      "tekst": "Ordet hat betyder ikke det samme som besked. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
+      "fil": "05d9ca1d04a673.ogg",
+      "kilde": "Svar / synonym.besked.hat",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
+    },
     "05e3fd3a1b27cc": {
       "figur": "fortaeller",
       "tekst": "Æseløre lyder, som han plejer. Men han kigger ikke på dig. Det har han ikke gjort, siden I forlod arkivet.",
       "fil": "05e3fd3a1b27cc.ogg",
       "kilde": "Kapitel 6 / k6-ankomst.5",
       "lavet": "2026-11-10"
+    },
+    "05eab899f475d2": {
+      "figur": "aeseloere",
+      "tekst": "hat rimer ikke på hus. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "05eab899f475d2.ogg",
+      "kilde": "Svar / rim.hus.hat",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "05f020ae3b2a40": {
       "figur": "fortaeller",
@@ -1588,6 +1820,14 @@
       "kilde": "Kapitel 8 / k8-holm.6",
       "lavet": "2026-11-11"
     },
+    "062973bcab22e1": {
+      "figur": "aeseloere",
+      "tekst": "Ordet sløset betyder ikke det samme som forsigtig. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
+      "fil": "062973bcab22e1.ogg",
+      "kilde": "Svar / synonym.forsigtig.sløset",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
+    },
     "062aebd7044fc9": {
       "figur": "raaber",
       "tekst": "Borgmesteren spørger, om nogen har set tyven.",
@@ -1623,6 +1863,14 @@
       "fil": "0645f944e0d36e.ogg",
       "kilde": "Beskeder / opgave.regel.rigtig",
       "lavet": "2026-11-04"
+    },
+    "0648e82c0dd0ec": {
+      "figur": "aeseloere",
+      "tekst": "smil rimer faktisk på bil. Sig dem højt. De lyder ens til sidst.",
+      "fil": "0648e82c0dd0ec.ogg",
+      "kilde": "Svar / ikkerim.bil.smil",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "065433f4b78e4f": {
       "figur": "raaber",
@@ -1874,6 +2122,14 @@
       "kilde": "Kapitel 8 / k8-hvem.valg1.1",
       "lavet": "2026-11-11"
     },
+    "0749b4fd650991": {
+      "figur": "aeseloere",
+      "tekst": "Ordet frisk betyder ikke det samme som træt. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
+      "fil": "0749b4fd650991.ogg",
+      "kilde": "Svar / synonym.traet.frisk",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
+    },
     "074e6825016bd1": {
       "figur": "fortaeller",
       "tekst": "Find Borgmesteren på torvet.",
@@ -1910,12 +2166,36 @@
       "kilde": "Kapitel 7 / k7-bip.1",
       "lavet": "2026-11-10"
     },
+    "0768aa868727cd": {
+      "figur": "aeseloere",
+      "tekst": "Ordet larmende betyder ikke det samme som stille. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
+      "fil": "0768aa868727cd.ogg",
+      "kilde": "Svar / synonym.stille.larmende",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "0785dc8c079f2e": {
+      "figur": "aeseloere",
+      "tekst": "bro rimer faktisk på sko. Sig dem højt. De lyder ens til sidst.",
+      "fil": "0785dc8c079f2e.ogg",
+      "kilde": "Svar / ikkerim.sko.bro",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "078f048ead1ca5": {
       "figur": "ord",
       "tekst": "byråd",
       "fil": "078f048ead1ca5.ogg",
       "kilde": "Ordkort / byraad",
       "lavet": "2026-11-01"
+    },
+    "07900253962321": {
+      "figur": "aeseloere",
+      "tekst": "kop rimer ikke på kat. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "07900253962321.ogg",
+      "kilde": "Svar / rim.kat.kop",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "0791e8a5f180ca": {
       "figur": "holm",
@@ -1960,6 +2240,14 @@
       "fil": "07a5507f639e67.ogg",
       "kilde": "Opgaver / korrektur.faerdig",
       "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "07b476683c9804": {
+      "figur": "aeseloere",
+      "tekst": "stol rimer faktisk på sol. Sig dem højt. De lyder ens til sidst.",
+      "fil": "07b476683c9804.ogg",
+      "kilde": "Svar / ikkerim.sol.stol",
+      "lavet": "2026-11-15",
       "model": "gemini-3.8-flash-lite-tts"
     },
     "07b5a3d5cbd6e9": {
@@ -2041,6 +2329,14 @@
       "kilde": "Historiebroen / bro-froeen.verden",
       "lavet": "2026-11-05"
     },
+    "081ab082bc95c0": {
+      "figur": "aeseloere",
+      "tekst": "Ja. pil rimer på bil. De lyder ens til sidst.",
+      "fil": "081ab082bc95c0.ogg",
+      "kilde": "Svar / rim.bil.pil",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "081bf783ad592b": {
       "figur": "fortaeller",
       "tekst": "Midt på stien ligger en kæmpe sten. Den sukker.",
@@ -2097,6 +2393,14 @@
       "fil": "08669a1198ea52.ogg",
       "kilde": "Kapitel 3 / k3-stumming-slut.2",
       "lavet": "2026-11-04"
+    },
+    "086fa8395dda3f": {
+      "figur": "aeseloere",
+      "tekst": "Ja. krus rimer på hus. De lyder ens til sidst.",
+      "fil": "086fa8395dda3f.ogg",
+      "kilde": "Svar / rim.hus.krus",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "086fdcaab9d36a": {
       "figur": "aeseloere",
@@ -2162,12 +2466,44 @@
       "kilde": "Stumme bogstaver / hvalp.saetning",
       "lavet": "2026-11-04"
     },
+    "08da0fe9f04f11": {
+      "figur": "aeseloere",
+      "tekst": "Ja. sten rimer ikke på sol. Slutningen lyder anderledes.",
+      "fil": "08da0fe9f04f11.ogg",
+      "kilde": "Svar / ikkerim.sol.sten",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "08f04894dec4d2": {
       "figur": "fortaeller",
       "tekst": "Hun har en meget lille støvekost.",
       "fil": "08f04894dec4d2.ogg",
       "kilde": "Kapitel 5 / k5-rum.seddel.4",
       "lavet": "2026-11-12"
+    },
+    "08f7c21b4baf7d": {
+      "figur": "aeseloere",
+      "tekst": "Ordet sulten betyder ikke det samme som stille. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
+      "fil": "08f7c21b4baf7d.ogg",
+      "kilde": "Svar / synonym.stille.sulten",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "08fb531f0d3b2f": {
+      "figur": "aeseloere",
+      "tekst": "Ja. hest rimer ikke på hus. Slutningen lyder anderledes.",
+      "fil": "08fb531f0d3b2f.ogg",
+      "kilde": "Svar / ikkerim.hus.hest",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "09048cb6233bdb": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord betyder det samme som besked?",
+      "fil": "09048cb6233bdb.ogg",
+      "kilde": "Svar / synonym.besked.spoergsmaal",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
     },
     "09102012d4ebf4": {
       "figur": "aeseloere",
@@ -2248,6 +2584,22 @@
       "kilde": "Minder / minde.skyggen.1",
       "lavet": "2026-11-13"
     },
+    "0946e395ecf5ce": {
+      "figur": "aeseloere",
+      "tekst": "Ordet kold betyder ikke det samme som smuk. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
+      "fil": "0946e395ecf5ce.ogg",
+      "kilde": "Svar / synonym.smuk.kold",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "095573984f1c59": {
+      "figur": "fortaeller",
+      "tekst": "sne ... sne ... sne",
+      "fil": "095573984f1c59.ogg",
+      "kilde": "Svar / ekko.sne",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "0958e3deda1567": {
       "figur": "fortaeller",
       "tekst": "Du har lige skrevet: Og så ... Men du ved ikke, hvad der skal ske.",
@@ -2283,6 +2635,14 @@
       "kilde": "Kapitel 3 / k3-moerke.3",
       "lavet": "2026-11-01"
     },
+    "0974887e19f997": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Ordet tale betyder det samme som snakke.",
+      "fil": "0974887e19f997.ogg",
+      "kilde": "Svar / synonym.snakke.rigtig",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
+    },
     "09764c7870bd13": {
       "figur": "aeseloere",
       "tekst": "Eksempel: Detektiven fandt et fingeraftryk på vinduet.",
@@ -2290,6 +2650,14 @@
       "kilde": "Beskeder / genre.eksempel.krimi",
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-lite-tts"
+    },
+    "0978e6be40bb83": {
+      "figur": "aeseloere",
+      "tekst": "Ordet vokse betyder ikke det samme som snakke. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
+      "fil": "0978e6be40bb83.ogg",
+      "kilde": "Svar / synonym.snakke.vokse",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
     },
     "097d6bf7f755ef": {
       "figur": "fortaeller",
@@ -2304,6 +2672,22 @@
       "fil": "097ec4f6113952.ogg",
       "kilde": "Kapitel 7 / halvebroen.faerdig.1",
       "lavet": "2026-11-12"
+    },
+    "097f119a2eecbf": {
+      "figur": "aeseloere",
+      "tekst": "Ordet sulten betyder ikke det samme som nervøs. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
+      "fil": "097f119a2eecbf.ogg",
+      "kilde": "Svar / synonym.nervoes.sulten",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "0982ddfd0a63b9": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Ordet berette betyder det samme som fortælle.",
+      "fil": "0982ddfd0a63b9.ogg",
+      "kilde": "Svar / synonym.fortaelle.rigtig",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "09882aab06ad6d": {
       "figur": "fortaeller",
@@ -2333,6 +2717,22 @@
       "fil": "099e773b16e1f6.ogg",
       "kilde": "Kapitel 6 / k6-kasser.4",
       "lavet": "2026-11-10"
+    },
+    "09a11820a4322d": {
+      "figur": "aeseloere",
+      "tekst": "Ja. smil rimer på bil. De lyder ens til sidst.",
+      "fil": "09a11820a4322d.ogg",
+      "kilde": "Svar / rim.bil.smil",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "09a80a020f2812": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Ordet modstander betyder det samme som fjende.",
+      "fil": "09a80a020f2812.ogg",
+      "kilde": "Svar / synonym.fjende.rigtig",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
     },
     "09be461c0db40d": {
       "figur": "fortaeller",
@@ -2489,6 +2889,14 @@
       "kilde": "Kapitel 7 / k7-fristelse.4",
       "lavet": "2026-11-10"
     },
+    "0a430c1d253086": {
+      "figur": "aeseloere",
+      "tekst": "hul rimer ikke på hus. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "0a430c1d253086.ogg",
+      "kilde": "Svar / rim.hus.hul",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "0a591e66867944": {
       "figur": "fortaeller",
       "tekst": "Hun synes, at arkivet er for mørkt.",
@@ -2502,6 +2910,14 @@
       "fil": "0a61cf5d12d435.ogg",
       "kilde": "Kapitel 8 / k8-skyggen.opgavetekst",
       "lavet": "2026-11-12"
+    },
+    "0a6aa63eb68667": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord betyder det samme som forsigtig?",
+      "fil": "0a6aa63eb68667.ogg",
+      "kilde": "Svar / synonym.forsigtig.spoergsmaal",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
     },
     "0a709037237cbe": {
       "figur": "klatten",
@@ -2532,6 +2948,14 @@
       "kilde": "Beskeder / halvsaetning.eksempel.slut",
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-lite-tts"
+    },
+    "0aa03e71547b1c": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Ordet tapper betyder det samme som modig.",
+      "fil": "0aa03e71547b1c.ogg",
+      "kilde": "Svar / synonym.modig.rigtig",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
     },
     "0aa212b5cdc3d4": {
       "figur": "aeseloere",
@@ -2582,6 +3006,14 @@
       "fil": "0abda7c81aefeb.ogg",
       "kilde": "Kapitel 1 / k1-klatten-flygter.1",
       "lavet": "2026-10-31"
+    },
+    "0abe070ce62d17": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord rimer på sko?",
+      "fil": "0abe070ce62d17.ogg",
+      "kilde": "Svar / rim.sko.spoergsmaal",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "0ad6ff39bbbd2c": {
       "figur": "halvfugl",
@@ -2668,6 +3100,14 @@
       "kilde": "Halvsætninger / t12",
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-lite-tts"
+    },
+    "0b178381d1fc84": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord betyder det samme som modig?",
+      "fil": "0b178381d1fc84.ogg",
+      "kilde": "Svar / synonym.modig.spoergsmaal",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
     },
     "0b1890d1ee335e": {
       "figur": "klatten",
@@ -2762,6 +3202,14 @@
       "kilde": "Kapitel 5 / k5-twist.4",
       "lavet": "2026-11-10"
     },
+    "0b6f3c52af994c": {
+      "figur": "aeseloere",
+      "tekst": "Ja. sok rimer ikke på sko. Slutningen lyder anderledes.",
+      "fil": "0b6f3c52af994c.ogg",
+      "kilde": "Svar / ikkerim.sko.sok",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "0b72b7c31d3e63": {
       "figur": "aeseloere",
       "tekst": "Du klarede den. Jeg sagde ingenting hele vejen. Det var svært for mig.",
@@ -2798,6 +3246,14 @@
       "kilde": "Kapitel 6 / k6-slut.3",
       "lavet": "2026-11-10"
     },
+    "0b9200640f3aba": {
+      "figur": "aeseloere",
+      "tekst": "Ordet nabo betyder ikke det samme som fjende. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
+      "fil": "0b9200640f3aba.ogg",
+      "kilde": "Svar / synonym.fjende.nabo",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
+    },
     "0ba8a7be8d777b": {
       "figur": "fortaeller",
       "tekst": "Jeg har ikke tid til at tælle dem.",
@@ -2820,6 +3276,14 @@
       "kilde": "Kapitel 8 / k8-halvsaetning.2",
       "lavet": "2026-11-11"
     },
+    "0bd026653aa4be": {
+      "figur": "aeseloere",
+      "tekst": "Ja. tro rimer på sko. De lyder ens til sidst.",
+      "fil": "0bd026653aa4be.ogg",
+      "kilde": "Svar / rim.sko.tro",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "0bd2cf06d89880": {
       "figur": "aeseloere",
       "tekst": "Den sætning handler om skikkelsen. Find sætningen, der siger, hvor pletterne fører hen.",
@@ -2833,6 +3297,14 @@
       "fil": "0bd4926796dfad.ogg",
       "kilde": "Råberens tegn / raab-19",
       "lavet": "2026-11-03"
+    },
+    "0bd6ce7e143595": {
+      "figur": "aeseloere",
+      "tekst": "Ordet blød betyder ikke det samme som kæmpestor. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
+      "fil": "0bd6ce7e143595.ogg",
+      "kilde": "Svar / synonym.kaempestor.blød",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
     },
     "0bdcf4dc152e41": {
       "figur": "fortaeller",
@@ -2861,6 +3333,14 @@
       "fil": "0bed59d6cacbf2.ogg",
       "kilde": "Beskeder / raaber.fejl.udraab",
       "lavet": "2026-11-03"
+    },
+    "0bf075a4adc455": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Ordet udmattet betyder det samme som træt.",
+      "fil": "0bf075a4adc455.ogg",
+      "kilde": "Svar / synonym.traet.rigtig",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
     },
     "0bfd6369348516": {
       "figur": "fortaeller",
@@ -3029,6 +3509,14 @@
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-tts"
     },
+    "0c7eff2a410e75": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Ordet skjult betyder det samme som hemmelig.",
+      "fil": "0c7eff2a410e75.ogg",
+      "kilde": "Svar / synonym.hemmelig.rigtig",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
+    },
     "0c85cb662b16a9": {
       "figur": "fortaeller",
       "tekst": "Ali kiggede op på hylden. ... kunne ikke nå den øverste bog.",
@@ -3050,6 +3538,14 @@
       "fil": "0c888927d7f8bb.ogg",
       "kilde": "Kapitel 7 / k7-prinsesse.3",
       "lavet": "2026-11-10"
+    },
+    "0c892a9a204ffc": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord rimer ikke på sol?",
+      "fil": "0c892a9a204ffc.ogg",
+      "kilde": "Svar / ikkerim.sol.spoergsmaal",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "0c8a1441a4776d": {
       "figur": "fortaeller",
@@ -3099,6 +3595,14 @@
       "fil": "0c9a60d64661f9.ogg",
       "kilde": "Stumme bogstaver / sølv.saetning",
       "lavet": "2026-11-04"
+    },
+    "0c9fbefe7eac12": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Ordet skræmt betyder det samme som bange.",
+      "fil": "0c9fbefe7eac12.ogg",
+      "kilde": "Svar / synonym.bange.rigtig",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
     },
     "0ca46c59add8d2": {
       "figur": "fortaeller",
@@ -3156,6 +3660,22 @@
       "kilde": "Kapitel 6 / k6-doer.valg1.3",
       "lavet": "2026-11-10"
     },
+    "0ce586e3401fe5": {
+      "figur": "aeseloere",
+      "tekst": "kage rimer ikke på kat. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "0ce586e3401fe5.ogg",
+      "kilde": "Svar / rim.kat.kage",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "0ce7ad93c1e267": {
+      "figur": "fortaeller",
+      "tekst": "sol ... sol ... sol",
+      "fil": "0ce7ad93c1e267.ogg",
+      "kilde": "Svar / ekko.sol",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "0ceb072d6dedc8": {
       "figur": "ufaerdige",
       "tekst": "Så er I færre. Vi ses på den sidste side.",
@@ -3169,6 +3689,14 @@
       "fil": "0cf0ff941288b3.ogg",
       "kilde": "Beskeder / bro.fejl.placering.4.portal",
       "lavet": "2026-11-05"
+    },
+    "0cf5b893bce19c": {
+      "figur": "aeseloere",
+      "tekst": "kam rimer ikke på kat. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "0cf5b893bce19c.ogg",
+      "kilde": "Svar / rim.kat.kam",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "0cfcb6303d74c8": {
       "figur": "aeseloere",
@@ -3192,12 +3720,36 @@
       "kilde": "Beskeder / hviske.eksempel.hvem",
       "lavet": "2026-11-05"
     },
+    "0d1d14a1a6e891": {
+      "figur": "aeseloere",
+      "tekst": "Ordet synge betyder ikke det samme som løbe. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
+      "fil": "0d1d14a1a6e891.ogg",
+      "kilde": "Svar / synonym.loebe.synge",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "0d1d165ac3f7eb": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord betyder det samme som træt?",
+      "fil": "0d1d165ac3f7eb.ogg",
+      "kilde": "Svar / synonym.traet.spoergsmaal",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
+    },
     "0d2b55019d1db7": {
       "figur": "skyggen",
       "tekst": "Måske finder jeg et navn en dag. Det må du gerne hjælpe mig med, hvis du kommer igen.",
       "fil": "0d2b55019d1db7.ogg",
       "kilde": "Kapitel 8 / k8-skyggen.3",
       "lavet": "2026-11-11"
+    },
+    "0d3151159d456f": {
+      "figur": "aeseloere",
+      "tekst": "Ordet doven betyder ikke det samme som modig. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
+      "fil": "0d3151159d456f.ogg",
+      "kilde": "Svar / synonym.modig.doven",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
     },
     "0d3ccfc115447b": {
       "figur": "fortaeller",
@@ -3219,6 +3771,14 @@
       "fil": "0d494a59a622e8.ogg",
       "kilde": "Kapitel 4 / k4-toppen.7",
       "lavet": "2026-11-09"
+    },
+    "0d4a6e6b92878d": {
+      "figur": "aeseloere",
+      "tekst": "Ja. rat rimer på kat. De lyder ens til sidst.",
+      "fil": "0d4a6e6b92878d.ogg",
+      "kilde": "Svar / rim.kat.rat",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "0d4c053c399237": {
       "figur": "fortaeller",
@@ -3291,6 +3851,14 @@
       "kilde": "Kapitel 5 / fodnotetal.efter.1",
       "lavet": "2026-11-12"
     },
+    "0d835c6f9ce87a": {
+      "figur": "aeseloere",
+      "tekst": "Ordet sove betyder ikke det samme som løbe. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
+      "fil": "0d835c6f9ce87a.ogg",
+      "kilde": "Svar / synonym.loebe.sove",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
+    },
     "0d83690ee5163b": {
       "figur": "aeseloere",
       "tekst": "Ordet vred betyder ikke det samme som glad. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
@@ -3306,6 +3874,14 @@
       "kilde": "Halvsætninger / t06",
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-lite-tts"
+    },
+    "0d977a865dfcce": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord betyder det samme som bange?",
+      "fil": "0d977a865dfcce.ogg",
+      "kilde": "Svar / synonym.bange.spoergsmaal",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
     },
     "0d9bb939c371cb": {
       "figur": "fortaeller",
@@ -3327,6 +3903,14 @@
       "fil": "0d9e4e7c83e72a.ogg",
       "kilde": "Råberens tegn / raab-21",
       "lavet": "2026-11-03"
+    },
+    "0d9f3c1fa8e5f8": {
+      "figur": "aeseloere",
+      "tekst": "Ordet taber betyder ikke det samme som opdager. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
+      "fil": "0d9f3c1fa8e5f8.ogg",
+      "kilde": "Svar / synonym.opdager.taber",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "0da7fb69334d29": {
       "figur": "aeseloere",
@@ -3355,6 +3939,14 @@
       "fil": "0dcc8147a2e465.ogg",
       "kilde": "Titelkort / kapitel 7.maal",
       "lavet": "2026-11-13"
+    },
+    "0ddbdc6e73babf": {
+      "figur": "aeseloere",
+      "tekst": "Ordet sulten betyder ikke det samme som bange. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
+      "fil": "0ddbdc6e73babf.ogg",
+      "kilde": "Svar / synonym.bange.sulten",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
     },
     "0ddc3b04aada83": {
       "figur": "vims",
@@ -3433,6 +4025,14 @@
       "kilde": "Klattens tekster / k14",
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-tts"
+    },
+    "0e43f28035ae94": {
+      "figur": "aeseloere",
+      "tekst": "Ja. kop rimer ikke på kat. Slutningen lyder anderledes.",
+      "fil": "0e43f28035ae94.ogg",
+      "kilde": "Svar / ikkerim.kat.kop",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "0e4416bdf7970d": {
       "figur": "fodnote",
@@ -3570,6 +4170,14 @@
       "kilde": "Kapitel 8 / k8-kamp.opgavetekst",
       "lavet": "2026-11-12"
     },
+    "0eb9969ca3a8c3": {
+      "figur": "aeseloere",
+      "tekst": "Ja. sol rimer ikke på sko. Slutningen lyder anderledes.",
+      "fil": "0eb9969ca3a8c3.ogg",
+      "kilde": "Svar / ikkerim.sko.sol",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "0ecb7f64b02ff4": {
       "figur": "snegl",
       "tekst": "Alle tre! Men blækket er løbet, og nogle ord ser forkerte ud. Kan du hjælpe mig med at rette dem?",
@@ -3625,6 +4233,14 @@
       "fil": "0efafa40ff2041.ogg",
       "kilde": "Genrer / e3",
       "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "0f0c1ad9b03405": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord rimer på sol?",
+      "fil": "0f0c1ad9b03405.ogg",
+      "kilde": "Svar / rim.sol.spoergsmaal",
+      "lavet": "2026-11-15",
       "model": "gemini-3.8-flash-lite-tts"
     },
     "0f10f914aaef66": {
@@ -3699,6 +4315,14 @@
       "fil": "0f462db3eb9509.ogg",
       "kilde": "Kapitel 2 / k2-moerke.12",
       "lavet": "2026-10-31"
+    },
+    "0f49f6a2c21c8f": {
+      "figur": "aeseloere",
+      "tekst": "pol rimer faktisk på sol. Sig dem højt. De lyder ens til sidst.",
+      "fil": "0f49f6a2c21c8f.ogg",
+      "kilde": "Svar / ikkerim.sol.pol",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "0f6564e53f9f9b": {
       "figur": "fortaeller",
@@ -3782,6 +4406,14 @@
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-tts"
     },
+    "0fb63579de2d57": {
+      "figur": "aeseloere",
+      "tekst": "Ja. sæl rimer ikke på sol. Slutningen lyder anderledes.",
+      "fil": "0fb63579de2d57.ogg",
+      "kilde": "Svar / ikkerim.sol.sæl",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "0fb7fb56637b44": {
       "figur": "fortaeller",
       "tekst": "Gå hen til den mørke skikkelse midt på vejen.",
@@ -3841,6 +4473,22 @@
       "kilde": "Klattens tekster / k09.0",
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-tts"
+    },
+    "0fdeef3f27d2db": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord rimer ikke på bil?",
+      "fil": "0fdeef3f27d2db.ogg",
+      "kilde": "Svar / ikkerim.bil.spoergsmaal",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "0fe08747b7df89": {
+      "figur": "aeseloere",
+      "tekst": "hest rimer ikke på hus. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "0fe08747b7df89.ogg",
+      "kilde": "Svar / rim.hus.hest",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "0fe08dcce80286": {
       "figur": "aeseloere",
@@ -3960,12 +4608,28 @@
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-tts"
     },
+    "1024bea3202dd0": {
+      "figur": "aeseloere",
+      "tekst": "rat rimer faktisk på kat. Sig dem højt. De lyder ens til sidst.",
+      "fil": "1024bea3202dd0.ogg",
+      "kilde": "Svar / ikkerim.kat.rat",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "102902530e2cd5": {
       "figur": "ekko",
       "tekst": "Stille ... stille ... endelig stille.",
       "fil": "102902530e2cd5.ogg",
       "kilde": "Kapitel 4 / k4-ekko-slut.1",
       "lavet": "2026-11-09"
+    },
+    "102bd44bc6bea1": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord rimer ikke på sne?",
+      "fil": "102bd44bc6bea1.ogg",
+      "kilde": "Svar / ikkerim.sne.spoergsmaal",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "102f0b6d5a9609": {
       "figur": "fortaeller",
@@ -3987,6 +4651,14 @@
       "fil": "10372248d9a4e0.ogg",
       "kilde": "Kapitel 3 / k3-skilt.opgavetekst",
       "lavet": "2026-11-03"
+    },
+    "1038e22da8d1de": {
+      "figur": "aeseloere",
+      "tekst": "sok rimer ikke på sko. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "1038e22da8d1de.ogg",
+      "kilde": "Svar / rim.sko.sok",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "103af3e3c75355": {
       "figur": "fortaeller",
@@ -4081,12 +4753,28 @@
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-lite-tts"
     },
+    "10a0822e5b7c5b": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord betyder det samme som stille?",
+      "fil": "10a0822e5b7c5b.ogg",
+      "kilde": "Svar / synonym.stille.spoergsmaal",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
+    },
     "10a27d1a586882": {
       "figur": "fortaeller",
       "tekst": "Jeg gemmer sækken på taget.",
       "fil": "10a27d1a586882.ogg",
       "kilde": "Kapitel 2 / k2-rum.seddel.6",
       "lavet": "2026-11-03"
+    },
+    "10a62534b6fecf": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord betyder det samme som hemmelig?",
+      "fil": "10a62534b6fecf.ogg",
+      "kilde": "Svar / synonym.hemmelig.spoergsmaal",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
     },
     "10a74e0b023217": {
       "figur": "fortaeller",
@@ -4383,6 +5071,14 @@
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-tts"
     },
+    "118303e6639a95": {
+      "figur": "fortaeller",
+      "tekst": "kat ... kat ... kat",
+      "fil": "118303e6639a95.ogg",
+      "kilde": "Svar / ekko.kat",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1188f2b8b0b679": {
       "figur": "fortaeller",
       "tekst": "Gå hen til Den Ufærdige.",
@@ -4482,6 +5178,22 @@
       "kilde": "Stumme bogstaver / guld",
       "lavet": "2026-10-31"
     },
+    "11e525f72893a9": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord betyder det samme som fjende?",
+      "fil": "11e525f72893a9.ogg",
+      "kilde": "Svar / synonym.fjende.spoergsmaal",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "11e793b724e7c2": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord rimer ikke på kat?",
+      "fil": "11e793b724e7c2.ogg",
+      "kilde": "Svar / ikkerim.kat.spoergsmaal",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "11ebde23e1ff86": {
       "figur": "klatten",
       "tekst": "I kan aldrig fange mig! Jeg er den hurtigste gnom i hele Pennedal!",
@@ -4489,12 +5201,28 @@
       "kilde": "Kapitel 2 / k2-jagt.2",
       "lavet": "2026-10-31"
     },
+    "11ec131dcf8297": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Ordet tavs betyder det samme som stille.",
+      "fil": "11ec131dcf8297.ogg",
+      "kilde": "Svar / synonym.stille.rigtig",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
+    },
     "11f0531026808b": {
       "figur": "fortaeller",
       "tekst": "Den fandt et sted lige ved siden af dig, hvor du går.",
       "fil": "11f0531026808b.ogg",
       "kilde": "Kapitel 8 / k8-oplaesning.4",
       "lavet": "2026-11-11"
+    },
+    "11f05d9fb1e4af": {
+      "figur": "aeseloere",
+      "tekst": "Ordet kedelig betyder ikke det samme som skøn. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
+      "fil": "11f05d9fb1e4af.ogg",
+      "kilde": "Svar / synonym.skoen.kedelig",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
     },
     "11f5681aa5d267": {
       "figur": "fortaeller",
@@ -4546,6 +5274,14 @@
       "fil": "1205984a9f56b8.ogg",
       "kilde": "Synonymer / bange",
       "lavet": "2026-11-04"
+    },
+    "120649f67cc92e": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord betyder det samme som snakke?",
+      "fil": "120649f67cc92e.ogg",
+      "kilde": "Svar / synonym.snakke.spoergsmaal",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
     },
     "120a94bffe6d08": {
       "figur": "fortaeller",
@@ -4804,6 +5540,14 @@
       "kilde": "Beskeder / ogorm.fejl.lille",
       "lavet": "2026-11-04"
     },
+    "1312d19794bbf8": {
+      "figur": "aeseloere",
+      "tekst": "Ordet lys betyder ikke det samme som mørk. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
+      "fil": "1312d19794bbf8.ogg",
+      "kilde": "Svar / synonym.moerk.lys",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1317d85c77bca9": {
       "figur": "fortaeller",
       "tekst": "Så skriver du et andet ord, der betyder det samme. Det er lettere at stave. Historien går videre.",
@@ -4860,6 +5604,22 @@
       "kilde": "Kapitel 4 / k4-kloeften.4",
       "lavet": "2026-11-09"
     },
+    "135f1dfc12d66d": {
+      "figur": "aeseloere",
+      "tekst": "Ordet rolig betyder ikke det samme som nervøs. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
+      "fil": "135f1dfc12d66d.ogg",
+      "kilde": "Svar / synonym.nervoes.rolig",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "136c6f9788de75": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord betyder det samme som kæmpestor?",
+      "fil": "136c6f9788de75.ogg",
+      "kilde": "Svar / synonym.kaempestor.spoergsmaal",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
+    },
     "136cf192e7ab67": {
       "figur": "aeseloere",
       "tekst": "Ja. Det burde jeg. Jeg vil prøve at gøre det godt igen.",
@@ -4903,6 +5663,14 @@
       "kilde": "Kapitel 8 / k8-holm.5",
       "lavet": "2026-11-11"
     },
+    "1377baa43da27a": {
+      "figur": "aeseloere",
+      "tekst": "Ja. bus rimer ikke på bil. Slutningen lyder anderledes.",
+      "fil": "1377baa43da27a.ogg",
+      "kilde": "Svar / ikkerim.bil.bus",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "137bc107b9f51d": {
       "figur": "aeseloere",
       "tekst": "Gem det. Et ekstra punktum kan altid bruges.",
@@ -4924,6 +5692,14 @@
       "kilde": "Kapitel 6 / k6-doer.valg1.2",
       "lavet": "2026-11-10"
     },
+    "138c269bb647f5": {
+      "figur": "aeseloere",
+      "tekst": "Ordet ven betyder ikke det samme som fjende. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
+      "fil": "138c269bb647f5.ogg",
+      "kilde": "Svar / synonym.fjende.ven",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
+    },
     "13918783c9dbfd": {
       "figur": "aeseloere",
       "tekst": "Den sætning fortæller, hvor tegnene blev stjålet fra. Find sætningen om skikkelsen.",
@@ -4944,6 +5720,14 @@
       "fil": "139a694e064615.ogg",
       "kilde": "Kampe / kamp.krusedulle.lyt",
       "lavet": "2026-11-13"
+    },
+    "139c88003980a1": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord betyder det samme som opdager?",
+      "fil": "139c88003980a1.ogg",
+      "kilde": "Svar / synonym.opdager.spoergsmaal",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
     },
     "13a5d374fc5755": {
       "figur": "fortaeller",
@@ -5016,12 +5800,36 @@
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-lite-tts"
     },
+    "13bb88f0b652f8": {
+      "figur": "aeseloere",
+      "tekst": "Ja. skov rimer ikke på sko. Slutningen lyder anderledes.",
+      "fil": "13bb88f0b652f8.ogg",
+      "kilde": "Svar / ikkerim.sko.skov",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "13bbfe9ee8599e": {
       "figur": "ord",
       "tekst": "hvor",
       "fil": "13bbfe9ee8599e.ogg",
       "kilde": "Stumme bogstaver / hvor",
       "lavet": "2026-10-31"
+    },
+    "13c0eaa15cc4f9": {
+      "figur": "aeseloere",
+      "tekst": "Ordet hurtig betyder ikke det samme som forsigtig. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
+      "fil": "13c0eaa15cc4f9.ogg",
+      "kilde": "Svar / synonym.forsigtig.hurtig",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "13c122bbed92a9": {
+      "figur": "aeseloere",
+      "tekst": "sten rimer ikke på sol. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "13c122bbed92a9.ogg",
+      "kilde": "Svar / rim.sol.sten",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "13c1d5c6f04377": {
       "figur": "vims",
@@ -5036,6 +5844,14 @@
       "fil": "13cdaa12bc1384.ogg",
       "kilde": "Råberens tegn / raab-4",
       "lavet": "2026-11-03"
+    },
+    "13ce518f9c3874": {
+      "figur": "aeseloere",
+      "tekst": "sok rimer ikke på sol. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "13ce518f9c3874.ogg",
+      "kilde": "Svar / rim.sol.sok",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "13d26601652a02": {
       "figur": "aeseloere",
@@ -5272,6 +6088,22 @@
       "kilde": "Kapitel 6 / k6-ud.opgavetekst",
       "lavet": "2026-11-12"
     },
+    "14d259d7d87e68": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord betyder det samme som rolig?",
+      "fil": "14d259d7d87e68.ogg",
+      "kilde": "Svar / synonym.rolig.spoergsmaal",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "14d39d228a245f": {
+      "figur": "aeseloere",
+      "tekst": "Ordet lillebitte betyder ikke det samme som kæmpestor. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
+      "fil": "14d39d228a245f.ogg",
+      "kilde": "Svar / synonym.kaempestor.lillebitte",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
+    },
     "14dcfcb5308805": {
       "figur": "aeseloere",
       "tekst": "Endelig. Du har været længe om det.",
@@ -5308,6 +6140,14 @@
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-tts"
     },
+    "14f3f00bc85d4b": {
+      "figur": "aeseloere",
+      "tekst": "bus rimer ikke på bil. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "14f3f00bc85d4b.ogg",
+      "kilde": "Svar / rim.bil.bus",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1521f3c4eea974": {
       "figur": "aeseloere",
       "tekst": "Ved hvert hul står en ekkosten. Find et ord, der rimer, så kommer stenene tilbage. Lyt til slutningen af ordet.",
@@ -5343,6 +6183,14 @@
       "kilde": "Fortæller / f13",
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-tts"
+    },
+    "15401d7eb723ec": {
+      "figur": "aeseloere",
+      "tekst": "Ja. ko rimer på sko. De lyder ens til sidst.",
+      "fil": "15401d7eb723ec.ogg",
+      "kilde": "Svar / rim.sko.ko",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "1547e32e35e7ee": {
       "figur": "aeseloere",
@@ -5436,6 +6284,14 @@
       "kilde": "Historiebroen / bro-musen.konflikt",
       "lavet": "2026-11-05"
     },
+    "15a4b755e35cdf": {
+      "figur": "aeseloere",
+      "tekst": "Ja. mat rimer på kat. De lyder ens til sidst.",
+      "fil": "15a4b755e35cdf.ogg",
+      "kilde": "Svar / rim.kat.mat",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "15a61fcc4b8838": {
       "figur": "klatten",
       "tekst": "Det vidste jeg godt. Næsten.",
@@ -5443,6 +6299,14 @@
       "kilde": "Kampe og opgaver / korrektur.klatten.2",
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-lite-tts"
+    },
+    "15a8dd32c23def": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Ordet urolig betyder det samme som nervøs.",
+      "fil": "15a8dd32c23def.ogg",
+      "kilde": "Svar / synonym.nervoes.rigtig",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
     },
     "15b3d42523db92": {
       "figur": "aeseloere",
@@ -5515,12 +6379,36 @@
       "kilde": "Minder / minde.streger.1",
       "lavet": "2026-11-03"
     },
+    "1609eeb67c44db": {
+      "figur": "aeseloere",
+      "tekst": "Ordet sulten betyder ikke det samme som træt. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
+      "fil": "1609eeb67c44db.ogg",
+      "kilde": "Svar / synonym.traet.sulten",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
+    },
     "160c8abf00bfab": {
       "figur": "aeseloere",
       "tekst": "Eksempel: Andre ord med samme slags stumme bogstav: hvid, hvem, hvad.",
       "fil": "160c8abf00bfab.ogg",
       "kilde": "Beskeder / kamp.stumming.eksempel.hvor",
       "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "1612f434daff88": {
+      "figur": "aeseloere",
+      "tekst": "tro rimer faktisk på sko. Sig dem højt. De lyder ens til sidst.",
+      "fil": "1612f434daff88.ogg",
+      "kilde": "Svar / ikkerim.sko.tro",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "16158f345e7cf9": {
+      "figur": "aeseloere",
+      "tekst": "Ordet urolig betyder ikke det samme som rolig. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
+      "fil": "16158f345e7cf9.ogg",
+      "kilde": "Svar / synonym.rolig.urolig",
+      "lavet": "2026-11-15",
       "model": "gemini-3.8-flash-tts"
     },
     "16251122efc162": {
@@ -5646,6 +6534,14 @@
       "kilde": "Beskeder / bane.hjaelp.tekst",
       "lavet": "2026-11-03"
     },
+    "16ac4b0e2c7237": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord rimer på kat?",
+      "fil": "16ac4b0e2c7237.ogg",
+      "kilde": "Svar / rim.kat.spoergsmaal",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "16afaf1136860d": {
       "figur": "fortaeller",
       "tekst": "Ingen havde set brevet, før det lå på bordet foran mig.",
@@ -5689,6 +6585,14 @@
       "kilde": "Kapitel 7 / k7-ankomst.4",
       "lavet": "2026-11-10"
     },
+    "16cfef557d6fbe": {
+      "figur": "aeseloere",
+      "tekst": "sæl rimer ikke på sol. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "16cfef557d6fbe.ogg",
+      "kilde": "Svar / rim.sol.sæl",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "16d2bbaa66d2d6": {
       "figur": "fortaeller",
       "tekst": "Computeren havde lært at drømme. Hver nat skrev den små digte, som ingen havde bedt om.",
@@ -5703,6 +6607,14 @@
       "fil": "16d444718c4d9c.ogg",
       "kilde": "Kapitel 6 / k6-hytten.3",
       "lavet": "2026-11-10"
+    },
+    "16d8a08e6a5832": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord betyder det samme som kigge?",
+      "fil": "16d8a08e6a5832.ogg",
+      "kilde": "Svar / synonym.kigge.spoergsmaal",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
     },
     "16d8d08a6574db": {
       "figur": "fortaeller",
@@ -5853,6 +6765,14 @@
       "kilde": "Kapitel 7 / k7-bip.opgavetekst",
       "lavet": "2026-11-12"
     },
+    "1764dfc302df0f": {
+      "figur": "aeseloere",
+      "tekst": "pil rimer faktisk på bil. Sig dem højt. De lyder ens til sidst.",
+      "fil": "1764dfc302df0f.ogg",
+      "kilde": "Svar / ikkerim.bil.pil",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1768d2caa8af20": {
       "figur": "aeseloere",
       "tekst": "Æseløre gør opgaverne lidt lettere, mens du øver dig.",
@@ -5931,6 +6851,14 @@
       "kilde": "Kapitel 2 / k2-fanget.2",
       "lavet": "2026-10-31"
     },
+    "17b29e61b47b77": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord rimer ikke på hus?",
+      "fil": "17b29e61b47b77.ogg",
+      "kilde": "Svar / ikkerim.hus.spoergsmaal",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "17b2bd5fcb9c5b": {
       "figur": "aeseloere",
       "tekst": "Hallo? Du stod og stirrede ud i luften igen.",
@@ -5960,6 +6888,14 @@
       "kilde": "Kapitel 7 / lupsspor.mangler.1",
       "lavet": "2026-11-12"
     },
+    "17d6385a786a54": {
+      "figur": "aeseloere",
+      "tekst": "Ja. pol rimer på sol. De lyder ens til sidst.",
+      "fil": "17d6385a786a54.ogg",
+      "kilde": "Svar / rim.sol.pol",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "17d81c4561f771": {
       "figur": "fortaeller",
       "tekst": "Papirfuglen er hvid.",
@@ -5973,6 +6909,14 @@
       "fil": "17da9fe78a76f3.ogg",
       "kilde": "Kapitel 1 / k1-bro.opgavetekst",
       "lavet": "2026-11-01"
+    },
+    "17db252e174caf": {
+      "figur": "aeseloere",
+      "tekst": "lus rimer faktisk på hus. Sig dem højt. De lyder ens til sidst.",
+      "fil": "17db252e174caf.ogg",
+      "kilde": "Svar / ikkerim.hus.lus",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "17db3dc83abb6c": {
       "figur": "portvagt",
@@ -5994,6 +6938,14 @@
       "fil": "17e064ba2e77a0.ogg",
       "kilde": "Ordkort / falmet",
       "lavet": "2026-11-01"
+    },
+    "17fd2d86ef9e43": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Ordet rende betyder det samme som løbe.",
+      "fil": "17fd2d86ef9e43.ogg",
+      "kilde": "Svar / synonym.loebe.rigtig",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
     },
     "17fde6d6e0715f": {
       "figur": "aeseloere",
@@ -6038,6 +6990,14 @@
       "kilde": "Kapitel 5 / k5-ankomst.1",
       "lavet": "2026-11-09"
     },
+    "182564d234e101": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Ordet dejlig betyder det samme som skøn.",
+      "fil": "182564d234e101.ogg",
+      "kilde": "Svar / synonym.skoen.rigtig",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1826629f8e05b0": {
       "figur": "vims",
       "tekst": "Vims kigger på mulighederne. Der er ikke mere, han tør viske ud. Nu må du selv vælge.",
@@ -6079,6 +7039,14 @@
       "fil": "184acccf1203db.ogg",
       "kilde": "Beskeder / bro.eksempel",
       "lavet": "2026-11-05"
+    },
+    "184d54ba2abeee": {
+      "figur": "aeseloere",
+      "tekst": "Ordet larmende betyder ikke det samme som rolig. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
+      "fil": "184d54ba2abeee.ogg",
+      "kilde": "Svar / synonym.rolig.larmende",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
     },
     "185288f365f247": {
       "figur": "rimfod",
@@ -6138,6 +7106,14 @@
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-lite-tts"
     },
+    "1868ee1474af8b": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Ordet meddelelse betyder det samme som besked.",
+      "fil": "1868ee1474af8b.ogg",
+      "kilde": "Svar / synonym.besked.rigtig",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
+    },
     "186cd82b0a6849": {
       "figur": "aeseloere",
       "tekst": "Saml dem op, og sæt dem tilbage i byens brev. Så kan Råberen læse det op i aften.",
@@ -6193,6 +7169,14 @@
       "fil": "189f99152f2281.ogg",
       "kilde": "Kapitel 2 / k2-port-aaben.1",
       "lavet": "2026-10-31"
+    },
+    "18a1c2e9798922": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord rimer på bil?",
+      "fil": "18a1c2e9798922.ogg",
+      "kilde": "Svar / rim.bil.spoergsmaal",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "18a5509653d933": {
       "figur": "aeseloere",
@@ -6358,6 +7342,14 @@
       "kilde": "Kapitel 7 / k7-slut.opgavetekst",
       "lavet": "2026-11-12"
     },
+    "1944fc036fdf79": {
+      "figur": "aeseloere",
+      "tekst": "Ordet sove betyder ikke det samme som begynde. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
+      "fil": "1944fc036fdf79.ogg",
+      "kilde": "Svar / synonym.begynde.sove",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
+    },
     "19464cc79dfed6": {
       "figur": "fortaeller",
       "tekst": "Da skolen var slut, løb jeg hele vejen hjem til min hund.",
@@ -6365,6 +7357,22 @@
       "kilde": "Fortæller / k12",
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-tts"
+    },
+    "1954357797eb06": {
+      "figur": "aeseloere",
+      "tekst": "Ordet sulten betyder ikke det samme som berømt. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
+      "fil": "1954357797eb06.ogg",
+      "kilde": "Svar / synonym.beroemt.sulten",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "1956c95d7bf508": {
+      "figur": "aeseloere",
+      "tekst": "Ja. sok rimer ikke på sol. Slutningen lyder anderledes.",
+      "fil": "1956c95d7bf508.ogg",
+      "kilde": "Svar / ikkerim.sol.sok",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "19580543042e8a": {
       "figur": "aeseloere",
@@ -6443,6 +7451,14 @@
       "fil": "1996d538bd2a39.ogg",
       "kilde": "Kapitel 6 / k6-hytten.4",
       "lavet": "2026-11-10"
+    },
+    "19a395beb878ff": {
+      "figur": "aeseloere",
+      "tekst": "hat rimer faktisk på kat. Sig dem højt. De lyder ens til sidst.",
+      "fil": "19a395beb878ff.ogg",
+      "kilde": "Svar / ikkerim.kat.hat",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "19b53302eeb14b": {
       "figur": "fortaeller",
@@ -6647,6 +7663,22 @@
       "kilde": "Kapitel 4 / k4-toppen.2",
       "lavet": "2026-11-09"
     },
+    "1a433d6fba4cc7": {
+      "figur": "aeseloere",
+      "tekst": "Ordet glemt betyder ikke det samme som berømt. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
+      "fil": "1a433d6fba4cc7.ogg",
+      "kilde": "Svar / synonym.beroemt.glemt",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "1a4a90c0ddb7b2": {
+      "figur": "aeseloere",
+      "tekst": "mus rimer faktisk på hus. Sig dem højt. De lyder ens til sidst.",
+      "fil": "1a4a90c0ddb7b2.ogg",
+      "kilde": "Svar / ikkerim.hus.mus",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1a4f8f81f20753": {
       "figur": "aeseloere",
       "tekst": "Den kam er glat som glas, og vinden blæser hårdt. Der er kun én lanterne, og jeg bærer dig ikke over.",
@@ -6825,6 +7857,14 @@
       "kilde": "Kapitel 7 / k7-ankomst.2",
       "lavet": "2026-11-10"
     },
+    "1ae2eaa987ae20": {
+      "figur": "aeseloere",
+      "tekst": "bad rimer ikke på bil. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "1ae2eaa987ae20.ogg",
+      "kilde": "Svar / rim.bil.bad",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1ae511e2503aa3": {
       "figur": "fortaeller",
       "tekst": "Du lander blødt i en bunke visne blade. Over dig hænger tre måner, og træerne har blade af papir.",
@@ -6859,6 +7899,14 @@
       "fil": "1b115bb510e8e1.ogg",
       "kilde": "Halvsætninger / t11",
       "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "1b145612608284": {
+      "figur": "aeseloere",
+      "tekst": "Ja. bro rimer på sko. De lyder ens til sidst.",
+      "fil": "1b145612608284.ogg",
+      "kilde": "Svar / rim.sko.bro",
+      "lavet": "2026-11-15",
       "model": "gemini-3.8-flash-lite-tts"
     },
     "1b17de49b4cfef": {
@@ -6940,6 +7988,14 @@
       "kilde": "Kapitel 8 / k8-oplaesning.13",
       "lavet": "2026-11-11"
     },
+    "1b6a221ef9abd6": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Ordet varsom betyder det samme som forsigtig.",
+      "fil": "1b6a221ef9abd6.ogg",
+      "kilde": "Svar / synonym.forsigtig.rigtig",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1b70e0be19b947": {
       "figur": "aeseloere",
       "tekst": "Hov. Stien er væk. Plankerne er visket ud.",
@@ -6996,6 +8052,14 @@
       "fil": "1ba1d6d2aaff76.ogg",
       "kilde": "Kapitel 6 / k6-twist.1",
       "lavet": "2026-11-10"
+    },
+    "1baee03ff08377": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord betyder det samme som begynde?",
+      "fil": "1baee03ff08377.ogg",
+      "kilde": "Svar / synonym.begynde.spoergsmaal",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
     },
     "1baeeeee6b4179": {
       "figur": "aeseloere",
@@ -7127,6 +8191,14 @@
       "kilde": "Kapitel 3 / k3-lysning.3",
       "lavet": "2026-11-01"
     },
+    "1c0f76d756dfac": {
+      "figur": "aeseloere",
+      "tekst": "Ordet skjule betyder ikke det samme som fortælle. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
+      "fil": "1c0f76d756dfac.ogg",
+      "kilde": "Svar / synonym.fortaelle.skjule",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1c109464e61a1f": {
       "figur": "fortaeller",
       "tekst": "Mira åbnede den tunge dør og gik ned ad trappen.",
@@ -7213,6 +8285,14 @@
       "kilde": "Kapitel 4 / k4-digt-slut.4",
       "lavet": "2026-11-09"
     },
+    "1c6741ab223bf3": {
+      "figur": "aeseloere",
+      "tekst": "bold rimer ikke på bil. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "1c6741ab223bf3.ogg",
+      "kilde": "Svar / rim.bil.bold",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1c6b4f26fd2524": {
       "figur": "fortaeller",
       "tekst": "Find venner, der vil hjælpe dig.",
@@ -7271,6 +8351,14 @@
       "kilde": "Kapitel 7 / k7-fristelse.2",
       "lavet": "2026-11-10"
     },
+    "1cabfd621bf84a": {
+      "figur": "fortaeller",
+      "tekst": "hus ... hus ... hus",
+      "fil": "1cabfd621bf84a.ogg",
+      "kilde": "Svar / ekko.hus",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1cac77cfcdd88e": {
       "figur": "fortaeller",
       "tekst": "Sætningen holder fast i én fortæller og falder til ro.",
@@ -7314,6 +8402,14 @@
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-tts"
     },
+    "1cdfa91b080b48": {
+      "figur": "aeseloere",
+      "tekst": "Ja. kage rimer ikke på kat. Slutningen lyder anderledes.",
+      "fil": "1cdfa91b080b48.ogg",
+      "kilde": "Svar / ikkerim.kat.kage",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1ce6acb9cb17c9": {
       "figur": "fortaeller",
       "tekst": "Skyggen sad stille ved vinduet.",
@@ -7321,6 +8417,14 @@
       "kilde": "Halvsætninger / t02",
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-lite-tts"
+    },
+    "1ce7baa4c4deb5": {
+      "figur": "aeseloere",
+      "tekst": "Ordet gå betyder ikke det samme som kigge. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
+      "fil": "1ce7baa4c4deb5.ogg",
+      "kilde": "Svar / synonym.kigge.gå",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
     },
     "1ceebe36e57ea1": {
       "figur": "fortaeller",
@@ -7336,6 +8440,14 @@
       "kilde": "Opgaver / korrektur.instruks.en",
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-tts"
+    },
+    "1cf360c93186b6": {
+      "figur": "aeseloere",
+      "tekst": "Ja. hat rimer på kat. De lyder ens til sidst.",
+      "fil": "1cf360c93186b6.ogg",
+      "kilde": "Svar / rim.kat.hat",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "1cf3df465cb5bf": {
       "figur": "klatten",
@@ -7364,6 +8476,22 @@
       "fil": "1d0bc1af3c4c3f.ogg",
       "kilde": "Svar / synonym.sur.venlig",
       "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "1d12d35d7c9920": {
+      "figur": "aeseloere",
+      "tekst": "Ja. bold rimer ikke på bil. Slutningen lyder anderledes.",
+      "fil": "1d12d35d7c9920.ogg",
+      "kilde": "Svar / ikkerim.bil.bold",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "1d159f52acc28c": {
+      "figur": "fortaeller",
+      "tekst": "bil ... bil ... bil",
+      "fil": "1d159f52acc28c.ogg",
+      "kilde": "Svar / ekko.bil",
+      "lavet": "2026-11-15",
       "model": "gemini-3.8-flash-lite-tts"
     },
     "1d1a6075152189": {
@@ -7424,6 +8552,14 @@
       "kilde": "Titelkort / kapitel 5",
       "lavet": "2026-11-13"
     },
+    "1d7c0631b28f17": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord betyder det samme som nervøs?",
+      "fil": "1d7c0631b28f17.ogg",
+      "kilde": "Svar / synonym.nervoes.spoergsmaal",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1d871bfe360d63": {
       "figur": "ekko",
       "tekst": "Slip ... slip ... jeg giver ikke slip ... slip ...",
@@ -7481,6 +8617,14 @@
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-tts"
     },
+    "1dd57b3331deff": {
+      "figur": "aeseloere",
+      "tekst": "Ja. fil rimer på bil. De lyder ens til sidst.",
+      "fil": "1dd57b3331deff.ogg",
+      "kilde": "Svar / rim.bil.fil",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1de0d6f0d35a30": {
       "figur": "fortaeller",
       "tekst": "Der står: Skyggen er ikke farlig. Den er bare alene.",
@@ -7509,6 +8653,14 @@
       "kilde": "Genrer / k6",
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-lite-tts"
+    },
+    "1df36cc0be7347": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Ordet finder betyder det samme som opdager.",
+      "fil": "1df36cc0be7347.ogg",
+      "kilde": "Svar / synonym.opdager.rigtig",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
     },
     "1e0bafe01b6d91": {
       "figur": "fortaeller",
@@ -7552,6 +8704,14 @@
       "kilde": "Stumme bogstaver / ild",
       "lavet": "2026-10-31"
     },
+    "1e1a01a4232acc": {
+      "figur": "aeseloere",
+      "tekst": "Ja. kam rimer ikke på kat. Slutningen lyder anderledes.",
+      "fil": "1e1a01a4232acc.ogg",
+      "kilde": "Svar / ikkerim.kat.kam",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1e208af0c47328": {
       "figur": "klatten",
       "tekst": "I går råbede chefen efter mig. Han ville have kagene tilbage. Men jeg havde allerede spist dem.",
@@ -7566,6 +8726,14 @@
       "fil": "1e239f1951890c.ogg",
       "kilde": "Klattens tekster / k03",
       "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "1e27b4d872cae5": {
+      "figur": "aeseloere",
+      "tekst": "Ordet våd betyder ikke det samme som skøn. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
+      "fil": "1e27b4d872cae5.ogg",
+      "kilde": "Svar / synonym.skoen.våd",
+      "lavet": "2026-11-15",
       "model": "gemini-3.8-flash-tts"
     },
     "1e28d5eb3047f2": {
@@ -7606,6 +8774,14 @@
       "kilde": "Kapitel 8 / k8-skyggen.valg3.1",
       "lavet": "2026-11-11"
     },
+    "1e5521813e1bfd": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord rimer på sne?",
+      "fil": "1e5521813e1bfd.ogg",
+      "kilde": "Svar / rim.sne.spoergsmaal",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1e57032c164a1d": {
       "figur": "vims",
       "tekst": "Du gik på en bro, der ikke var der. Undskyld, men det var ret sejt.",
@@ -7633,6 +8809,14 @@
       "fil": "1e5ffb21a5137e.ogg",
       "kilde": "Kapitel 6 / k6-korrektur-slut.4",
       "lavet": "2026-11-10"
+    },
+    "1e60c685902f20": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord betyder det samme som berømt?",
+      "fil": "1e60c685902f20.ogg",
+      "kilde": "Svar / synonym.beroemt.spoergsmaal",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
     },
     "1e68b3121d5d0b": {
       "figur": "fortaeller",
@@ -7678,6 +8862,14 @@
       "kilde": "Råberens tegn / raab-14",
       "lavet": "2026-11-03"
     },
+    "1e9b198e210cea": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord betyder det samme som løbe?",
+      "fil": "1e9b198e210cea.ogg",
+      "kilde": "Svar / synonym.loebe.spoergsmaal",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1e9f419befca4c": {
       "figur": "fortaeller",
       "tekst": "Gå gennem døren af hvidt lys.",
@@ -7721,6 +8913,14 @@
       "fil": "1ea87e1c11f523.ogg",
       "kilde": "Kapitel 2 / k2-moerke.5",
       "lavet": "2026-10-31"
+    },
+    "1eab8a0cfbe6ff": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Ordet fredelig betyder det samme som rolig.",
+      "fil": "1eab8a0cfbe6ff.ogg",
+      "kilde": "Svar / synonym.rolig.rigtig",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
     },
     "1eaf1cd86a87a7": {
       "figur": "skyggen",
@@ -7799,6 +8999,14 @@
       "kilde": "Kapitel 7 / k7-genrer-slut.3",
       "lavet": "2026-11-10"
     },
+    "1edf075d0e8cd5": {
+      "figur": "aeseloere",
+      "tekst": "Ordet modig betyder ikke det samme som bange. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
+      "fil": "1edf075d0e8cd5.ogg",
+      "kilde": "Svar / synonym.bange.modig",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1ee6631861776c": {
       "figur": "fortaeller",
       "tekst": "Hurra, vi fandt den sidste side!",
@@ -7806,6 +9014,14 @@
       "kilde": "Halvsætninger / t10",
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-lite-tts"
+    },
+    "1ef9b5ee1d5e2c": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Ordet se betyder det samme som kigge.",
+      "fil": "1ef9b5ee1d5e2c.ogg",
+      "kilde": "Svar / synonym.kigge.rigtig",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
     },
     "1efd0dafff5d54": {
       "figur": "aeseloere",
@@ -7848,6 +9064,14 @@
       "fil": "1f27ff7561167d.ogg",
       "kilde": "Kapitel 3 / k3-klatten.valg1.3",
       "lavet": "2026-11-01"
+    },
+    "1f2d04bda19b64": {
+      "figur": "aeseloere",
+      "tekst": "sol rimer ikke på sko. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "1f2d04bda19b64.ogg",
+      "kilde": "Svar / rim.sko.sol",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "1f2e6be02c3d21": {
       "figur": "aeseloere",
@@ -7892,6 +9116,14 @@
       "fil": "1f5021d518fdff.ogg",
       "kilde": "Kapitel 1 / k1-klatten-flygter.4",
       "lavet": "2026-10-31"
+    },
+    "1f59a50bdd872c": {
+      "figur": "aeseloere",
+      "tekst": "Ja. mus rimer på hus. De lyder ens til sidst.",
+      "fil": "1f59a50bdd872c.ogg",
+      "kilde": "Svar / rim.hus.mus",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "1f6afdd59b04f3": {
       "figur": "fortaeller",
@@ -7992,6 +9224,14 @@
       "kilde": "Kapitel 8 / k8-skyggen.2",
       "lavet": "2026-11-11"
     },
+    "1faff8cc2f17d7": {
+      "figur": "aeseloere",
+      "tekst": "Ordet bange betyder ikke det samme som modig. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
+      "fil": "1faff8cc2f17d7.ogg",
+      "kilde": "Svar / synonym.modig.bange",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1fb0f07fdc5d96": {
       "figur": "klatten",
       "tekst": "Jeg er Klatten den Frygtelige. Når jeg komer, gemmer alle sig under borderne.",
@@ -7999,6 +9239,14 @@
       "kilde": "Klattens tekster / k05",
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-tts"
+    },
+    "1fbbb70b16ed66": {
+      "figur": "aeseloere",
+      "tekst": "Ja. bad rimer ikke på bil. Slutningen lyder anderledes.",
+      "fil": "1fbbb70b16ed66.ogg",
+      "kilde": "Svar / ikkerim.bil.bad",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "1fc318d3a0630c": {
       "figur": "fortaeller",
@@ -8071,6 +9319,14 @@
       "kilde": "Historiebroen / bro-graevlingen.loesning",
       "lavet": "2026-11-05"
     },
+    "1fde12439343fa": {
+      "figur": "aeseloere",
+      "tekst": "Ordet opgave betyder ikke det samme som besked. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
+      "fil": "1fde12439343fa.ogg",
+      "kilde": "Svar / synonym.besked.opgave",
+      "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1fe029569db2fb": {
       "figur": "fortaeller",
       "tekst": "Vims er nervøs før turen.",
@@ -8137,5 +9393,5 @@
   },
   "model": "gemini-3.8-flash-tts",
   "i_alt": 2155,
-  "mangler": 1021
+  "mangler": 864
 }
