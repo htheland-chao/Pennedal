@@ -293,6 +293,8 @@
   "samling.ting.hoved.troldmandshat": "En spids hat fra Rimbjerget",
   "samling.ting.hoved.fjer": "En fjerpen fra Blæksøen",
   "samling.kapitel.slut": "Kapitel {nr} er slut.",
+  "kapitel.slut.kvittering": "Kapitel {nr} er slut. Spillet er gemt.",
+  "kapitel.slut.fundet": "Nyt til dit udseende: {ting}.",
   "samling.kapitel.paa.vej": "Kapitel {nr} er på vej.",
   "samling.naeste": "Fortsæt til kapitel {nr}",
   "samling.tilbage": "Tilbage",

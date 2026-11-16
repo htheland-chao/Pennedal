@@ -257,10 +257,17 @@ test('kapitel 1 kan spilles fra start til slut, og gemmekoden virker', async ({ 
   }
   await undersoeg(page, 'den brudte bro');
   await laesDialog(page);
-  await expect(page.getByText('Kapitel 1 er slut.')).toBeVisible();
-  await expect(page.getByRole('button', { name: 'Fortsæt til kapitel 2' })).toBeVisible();
+  // Kapitlet slutter, og man går direkte videre til kapitel 2 (16. november 2026). En besked siger, at
+  // kapitlet er slut, og nævner de nye ting til udseendet.
+  await expect(page.locator('.kvittering')).toContainText('Kapitel 1 er slut.');
+  await expect(page.locator('.kvittering')).toContainText('Mor Lanternes lanterne');
+  const kort2 = page.locator('dialog.kapitelkort');
+  await expect(kort2).toContainText('Kapitel 2');
+  await kort2.getByRole('button', { name: 'Begynd kapitlet' }).click();
+  // Samlingen kan stadig åbnes fra menuen: alle tre ting fra kapitel 1 er i tasken.
+  await page.getByRole('button', { name: 'Menu' }).click();
+  await page.getByRole('button', { name: 'Din samling' }).click();
   await expect(page.getByText('Mor Lanternes lanterne', { exact: true })).toBeVisible();
-  // Tasken på samlingssiden: alle tre ting fra kapitel 1.
   for (const navn of ['Lanternen', 'Klattens kappe', 'Holms logbog'])
     await expect(page.locator('.ting-liste')).toContainText(navn);
   await billede(page, '11-fyrtaarn');

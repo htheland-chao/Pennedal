@@ -216,6 +216,20 @@ export const HOLM: Tegnkort = {
   palet: { K: '#1b1b24', H: '#d6d6d6', h: '#a9a9a9', S: '#e0a982', s: '#c98d63', E: '#1b1b24', G: '#2a2f48', T: '#7a5c3e', t: '#5c442c', W: '#e8dcc0', P: '#3a3550', B: '#3a2a20' },
 };
 
+/**
+ * Borgmesteren i kapitel 2 (16. november 2026): tegnet efter hans portræt. Høj sort hat med lilla bånd,
+ * stort gråt skæg og overskæg, lilla frakke og borgmesterkæden i guld.
+ */
+export const BORGMESTER: Tegnkort = {
+  raekker: [
+    '....KKKKKKK.....', '....KCCCCCK.....', '....KCCCCCK.....', '....KcccccK.....', '..KKKCCCCCKKK...', '...KSSSSSSSK....',
+    '...KShSSShSK....', '...KSESSSESK....', '...KSHHHHHSK....', '...KHHmmmHHK....', '...KHHHHHHHK....', '..KTTHHHHHTTK...',
+    '.KTTTTHHHTTTTK..', '.KTTTYTTTYTTTK..', '.KSTTTYYYTTTSK..', '.KTTTTTYTTTTTK..', '..KPPPPPPPPPK...', '..KPPPPKPPPPK...',
+    '..KPPPK.KPPPK...', '..KPPPK.KPPPK...', '..KPPPK.KPPPK...', '..KBBBK.KBBBK...', '..KKKKK.KKKKK...', '................',
+  ],
+  palet: { K: '#1b1b24', C: '#2b2433', c: '#7b4bb3', S: '#e0a982', h: '#a9a9a9', H: '#d6d6d6', E: '#1b1b24', m: '#8e3428', T: '#4f3a6b', Y: '#f0c45a', P: '#2b2433', B: '#1b1b24' },
+};
+
 /** Kartoteksskabet med mange små skuffer. Ingen bogstaver, kun små messinggreb. */
 export const KARTOTEK: Tegnkort = {
   raekker: [

@@ -1,6 +1,6 @@
 import { ALLE_SKAAR } from '../engine/betingelse';
 import { useCallback, useEffect, useState } from 'react';
-import { hentKapitel, kapitler, navne, t } from '../content';
+import { hentKapitel, kapitler, navne, t, type TekstId } from '../content';
 import {
   gemIndstillinger,
   gemSpil,
@@ -129,6 +129,26 @@ export function App() {
   /** Titelkortet: når et kapitel begynder ('start'), eller når man fortsætter et spil ('fortsat'). Ikke i hop-test. */
   const [kapitelkort, setKapitelkort] = useState<'start' | 'fortsat' | null>(null);
   const visKort = (k: 'start' | 'fortsat') => !HOP_SPIL && setKapitelkort(k);
+
+  /**
+   * Når et kapitel slutter, går eleven direkte videre til næste kapitel (Henrik, 16. november 2026).
+   * En kort besked siger, at kapitlet er slut og spillet gemt, og nævner nye ting til udseendet.
+   * Efter det sidste kapitel vises samlingen med fyrtårnet som før.
+   */
+  function naesteKapitelNu(s: GemtSpil) {
+    const n = naesteKapitel(kapitler, s.kapitel);
+    if (!n) {
+      setSkaerm('samling');
+      return;
+    }
+    const nu = kapitler.find((k) => k.kapitel === s.kapitel);
+    const fundet = (nu?.trin ?? []).flatMap((x) => x.laaserOp ?? []).filter((id) => s.laasteOp.includes(id));
+    const besked = [t('kapitel.slut.kvittering', { nr: s.kapitel })];
+    if (fundet.length) besked.push(t('kapitel.slut.fundet', { ting: fundet.map((id) => t(`samling.ting.${id}` as TekstId)).join(', ') }));
+    setKvittering(besked.join(' '));
+    opdater({ ...s, kapitel: n.kapitel, trin: 0, trinFremskridt: 0 });
+    visKort('start');
+  }
   const vindueAabent = !!(ordkort || visIndstillinger || visMenu || gemmekode || kapitelkort);
 
   return (
@@ -248,7 +268,7 @@ export function App() {
           andetVindueAabent={vindueAabent}
           onMenu={() => setVisMenu(true)}
           onDelSlut={(del) => setKvittering(t('gem.del.kvittering', { nr: del }))}
-          onKapitelSlut={() => setSkaerm('samling')}
+          onKapitelSlut={naesteKapitelNu}
           onLangsomGrafik={() => skiftIndstillinger({ ...indstillinger, grafik: 'hurtig' })}
         />
       )}

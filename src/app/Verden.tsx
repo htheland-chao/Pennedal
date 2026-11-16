@@ -1,9 +1,9 @@
-import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from 'react';
+import { type CSSProperties, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { avatarnavn, harTekst, hentKapitel, kapitler, t, type DialogValg, type OrdOpgaveArt, type Replik, type RumFund, type RumTrin, type Trin, type ValgMulighed } from '../content';
 import { erFaerdighed, type FaerdighedId } from '../engine/faerdigheder';
 import { opfyldt, udvaelg } from '../engine/betingelse';
 import type { GemtSpil, Indstillinger } from '../engine/gem';
-import { afslutTrin, aktueltSted, aktueltTrin, kapitelSlut } from '../engine/kapitel';
+import { afslutTrin, aktueltSted, aktueltTrin, kapitelSlut, naesteKapitel } from '../engine/kapitel';
 import { MAKS_VENLIGHED, minderFor, nyeTing, taskeFor, type TingId } from '../engine/taske';
 import { antalBlade, bladFundet, medSkaar, missionFor, missionStartet, missionStatus, skjulteBlade } from '../engine/frivillig';
 import { KampVindue } from '../ui/KampVindue';
@@ -32,7 +32,8 @@ type Props = {
   andetVindueAabent: boolean;
   onMenu: () => void;
   onDelSlut: (del: number) => void;
-  onKapitelSlut: () => void;
+  /** Får det gemte spil, som det er lige efter sidste trin. */
+  onKapitelSlut: (spil: GemtSpil) => void;
   /** Fin grafik gik for langsomt: skift til hurtig grafik. */
   onLangsomGrafik?: () => void;
 };
@@ -74,7 +75,8 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
   // Overgang mellem steder (8. november 2026): portalen fra kælderen til Pennedal, ellers et kort blækstrøg.
   const [overgang, setOvergang] = useState<{ type: OvergangType; nr: number } | null>(null);
   const slutOvergang = useCallback(() => setOvergang(null), []);
-  useEffect(() => {
+  // useLayoutEffect: overgangen skal ligge over skærmen, før det nye sted bliver vist (Henrik, 16. november 2026).
+  useLayoutEffect(() => {
     const fra = forrigeSted.current;
     forrigeSted.current = stedId;
     if (fra === stedId) return;
@@ -265,7 +267,7 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
     const nyt = afslutTrin(spilRef.current, kapitel);
     opdater(nyt);
     if (t0.slutDel) onDelSlut(t0.slutDel);
-    if (t0.slutKapitel) onKapitelSlut();
+    if (t0.slutKapitel) onKapitelSlut(nyt);
   }
 
   function rumHandling(r: RumTrin, id: string) {
@@ -535,8 +537,8 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
         {udflugt ? null : slut ? (
           <>
             <p className="stor-ros">{t('samling.kapitel.slut', { nr: spil.kapitel })}</p>
-            <button type="button" className="knap knap-primaer" onClick={onKapitelSlut}>
-              {t('samling.fyrtaarn')}
+            <button type="button" className="knap knap-primaer" onClick={() => onKapitelSlut(spil)}>
+              {naesteKapitel(kapitler, spil.kapitel) ? t('samling.naeste', { nr: spil.kapitel + 1 }) : t('samling.fyrtaarn')}
             </button>
           </>
         ) : rum ? (
