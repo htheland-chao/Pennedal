@@ -105,6 +105,10 @@
     "halvsaetning": {
       "stemme": "Achird",
       "stil": "Say this calmly and a bit puzzled, like a sentence that stops in the middle and is waiting for its ending. Gentle, never scary. Native Danish."
+    },
+    "blaekling": {
+      "stemme": "Laomedeia",
+      "stil": "Say this in a small, nervous, squeaky voice, like a shy blob of ink that is more scared than dangerous. Funny, never scary. Native Danish."
     }
   },
   "rum": {

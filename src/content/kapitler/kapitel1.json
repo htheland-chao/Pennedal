@@ -163,7 +163,8 @@
         "Tirsdag: En ordbog havde mistet alle sine punktummer.",
         "Onsdag: Bogstaverne på skiltet ved døren var {{falmet}}.",
         "Torsdag: Jeg hørte en lyd fra kælderen. Det lød, som om nogen hviskede.",
-        "Fredag: Døren til kælderen stod {{på klem|paa-klem}}."
+        "Fredag: Døren til kælderen stod {{på klem|paa-klem}}.",
+        "Lørdag: Jeg kiggede efter det grønne kladdehæfte, som jeg gemte i det gamle kartoteksskab for mange år siden. Det lå der stadig."
       ],
       "spoergsmaal": [
         {
@@ -319,6 +320,43 @@
         { "taler": "klatten", "tekst": "Det her skal jeg fortælle til ... Nej. Det må jeg ikke sige." },
         { "taler": "fortaeller", "tekst": "Klatten løber sin vej og efterlader en lang stribe blæk på stien. Bag skiltet ligger en kappe, som han har tabt." },
         { "taler": "aeseloere", "tekst": "Tag den bare. Han har alligevel aldrig vasket den." }
+      ]
+    },
+    {
+      "id": "k1-blaekling-moede",
+      "type": "dialog",
+      "del": 3,
+      "sted": "pennedal",
+      "objekt": null,
+      "replikker": [
+        { "taler": "fortaeller", "tekst": "Striben af blæk på stien begynder at boble. En lille klat rejser sig og kigger på dig med to store øjne." },
+        { "taler": "aeseloere", "tekst": "En Blækling. Klatten taber dem, når han har travlt. Den er mere bange end farlig, men den kan godt finde på at sprøjte." },
+        { "taler": "aeseloere", "tekst": "Vi skiftes til at gøre noget. Når det er din tur, vælger du Slå og svarer på en opgave. Et rigtigt svar er et slag." },
+        { "taler": "aeseloere", "tekst": "Der er ingen tid. Blæklingen viser altid, hvad den gør næste gang. Et forkert svar rammer ved siden af, men det koster ikke liv." },
+        { "taler": "aeseloere", "tekst": "Den er lavet af ord med stumme bogstaver, ligesom dem i skuffen. Find det stumme bogstav, så falder den til ro." }
+      ]
+    },
+    {
+      "id": "k1-blaekling",
+      "type": "kamp",
+      "del": 3,
+      "sted": "pennedal",
+      "objekt": null,
+      "opgavetekst": "Kæmp mod Blæklingen.",
+      "vaesen": "blaekling",
+      "slag": ["stumt"],
+      "faerdighed": "stav.stumme",
+      "antal": 2
+    },
+    {
+      "id": "k1-blaekling-slut",
+      "type": "dialog",
+      "del": 3,
+      "sted": "pennedal",
+      "objekt": null,
+      "replikker": [
+        { "taler": "fortaeller", "tekst": "Blæklingen bliver til en lille, rolig dråbe og triller ned i græsset." },
+        { "taler": "aeseloere", "tekst": "Sådan. Hvert rigtigt svar er et slag, og tre i træk giver et stort slag. Husk det, når vi møder større væsner." }
       ]
     },
     {

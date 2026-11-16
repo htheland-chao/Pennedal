@@ -123,7 +123,7 @@ export function alleLydtekster(stemmer = hentStemmer()) {
     tilfoej('fortaeller', t(id), `Minder / ${id}`);
 
   // Kampe (src/ui/KampVindue.tsx): væsnernes egne ord, sætningerne til knappen Læs og beskederne.
-  for (const v of ['tomordet', 'stumming', 'tvivl', 'krusedulle', 'halvsaetning']) {
+  for (const v of ['tomordet', 'stumming', 'tvivl', 'krusedulle', 'halvsaetning', 'blaekling']) {
     tilfoej(v, t(`kamp.${v}.lyt`), `Kampe / kamp.${v}.lyt`);
     tilfoej('fortaeller', t(`kamp.${v}.rolig`), `Kampe / kamp.${v}.rolig`);
   }

@@ -20,7 +20,7 @@ export const SLAG_FAERDIGHED: Record<Slag, string> = { synonym: 'laes.ordforraad
 /** Hvilket væsen hvert slag svarer til i opgavemotoren (src/mechanics/kamp.ts). */
 export const SLAG_OPGAVE: Record<Slag, VaesenId> = { synonym: 'tomordet', stumt: 'stumming', rim: 'ekko', fortaeller: 'tvivl', ret: 'krusedulle', slut: 'halvsaetning' };
 /** Hvert væsen er svagt over for ét slag. */
-export const SVAGHED: Record<VaesenId, Slag> = { tomordet: 'synonym', stumming: 'stumt', ekko: 'rim', tvivl: 'fortaeller', krusedulle: 'ret', halvsaetning: 'slut' };
+export const SVAGHED: Record<VaesenId, Slag> = { tomordet: 'synonym', stumming: 'stumt', ekko: 'rim', tvivl: 'fortaeller', krusedulle: 'ret', halvsaetning: 'slut', blaekling: 'stumt' };
 
 export type MedlemId = 'avatar' | 'aeseloere' | 'vims' | 'klatten';
 export type HjaelperId = Exclude<MedlemId, 'avatar'>;
@@ -75,6 +75,11 @@ export const ANGREB: Record<VaesenId, AngrebInfo[]> = {
   halvsaetning: [
     { id: 'stop', skade: 2, alle: false },
     { id: 'tomt', skade: 1, alle: true },
+  ],
+  // Blæklingen (kapitel 1, spillets første kamp) er lille og bange: dens klatter gør kun lidt skade.
+  blaekling: [
+    { id: 'klat', skade: 1, alle: false },
+    { id: 'sproejt', skade: 1, alle: true },
   ],
 };
 
