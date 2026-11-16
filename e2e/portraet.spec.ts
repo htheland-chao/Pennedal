@@ -29,6 +29,10 @@ test('portrættet i dialogen blinker og taler', async ({ page }) => {
         }),
     ),
   );
-  expect([...set]).toEqual(expect.arrayContaining(['hvile', 'blink']));
+  // Et blink tæller, også hvis figuren taler imens (blinkTale). Med rigtige lydklip taler figuren ofte det meste af tiden,
+  // så et blink med lukket mund er ikke sikkert (rettet 16. november 2026). Munden har både været lukket og åben.
+  const billeder = [...set];
+  expect(billeder.some((b) => b === 'blink' || b === 'blinkTale'), billeder.join(', ')).toBe(true);
+  expect(billeder.some((b) => b === 'hvile' || b === 'blink'), billeder.join(', ')).toBe(true);
   expect(fejl).toEqual([]);
 });
