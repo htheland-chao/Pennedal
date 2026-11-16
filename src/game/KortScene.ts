@@ -3,7 +3,7 @@ import { objektVedTryk } from './tryk';
 import type { StedObjekt } from '../content';
 import type { Avatar } from '../engine/gem';
 import { erFastTegn, FELT, feltMidte, feltVed, felterVed, findVej, laesKort, type Felt, type Kort } from './kort';
-import { bordflade, erInde, HOLM, KARTOTEK, KASSE, LOGBOG, PLANTE, PORT, PRESSE, reol, SPRINGVAND, STIGE, tegnRum, trappe, vindueslys } from './pixel/inde';
+import { BORGMESTER, bordflade, erInde, HOLM, KARTOTEK, KASSE, LOGBOG, PLANTE, PORT, PRESSE, reol, SPRINGVAND, STIGE, tegnRum, trappe, vindueslys } from './pixel/inde';
 import { belysning, blegt, halvtTegnet, linjeretPapir, hash, lavLys, lavSkygge, lysOpsaetning, lavTaagebanker, lavVignet, lysBredde, partikelBilleder, sne, tegnGrund, tegnkortTilLerred, tegnTraeskygger, traePladser, tegnVand, VARMT, type Farve } from './pixel/lerred';
 import { aande, gangRamme, hvileTilstand, lukOejne } from './pixel/liv';
 import { indenfor, partikelTrin, partiklerFor, stedTone, vignetStyrke, type Partikel } from './stemning';
@@ -50,7 +50,7 @@ const FART = 70; // pixel pr. sekund i pixelverdenen
 const NAER = 24;
 const FASTE_FORMER = new Set(['gnom', 'skilt', 'person', 'skab', 'port', 'kasse', 'presse', 'borger', 'doer', 'stige', 'vims', 'tomord', 'stumming', 'halvfugl', 'grenport', 'rimfod', 'ekko', 'digtsten', 'fodnote', 'tvivl', 'ufaerdige', 'hytte', 'snegl', 'krusedulle', 'fugl', 'prinsesse', 'lup', 'grumsen', 'bip', 'halvsaetning', 'skygge']);
 /** Figurer med deres eget pixelbillede i stedet for en almindelig voksen. */
-const PERSONER: Record<string, Tegnkort> = { holm: HOLM };
+const PERSONER: Record<string, Tegnkort> = { holm: HOLM, borgmester: BORGMESTER };
 /** Hvor højt over feltets midte pilen svæver for hver form. */
 const PIL_HOEJDE: Record<string, number> = { gnom: 20, person: 27, skilt: 16, bog: 12, doer: 22, skab: 24, port: 22, kasse: 14, presse: 16, stige: 24, vims: 20, tomord: 18, stumming: 18, halvfugl: 16, ordblad: 10, grenport: 16, rimfod: 26, ekko: 20, digtsten: 20, fodnote: 16, tvivl: 17, fodnotetal: 9, haefte: 10, ufaerdige: 23, hytte: 38, snegl: 16, brev: 9, krusedulle: 18, fugl: 12, prinsesse: 18, lup: 17, grumsen: 17, bip: 17, spor: 10, halvsaetning: 15, skygge: 16 };
 

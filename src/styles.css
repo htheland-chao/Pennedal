@@ -3275,6 +3275,15 @@ dialog.modal.kampscene::backdrop {
   pointer-events: none;
   overflow: hidden;
 }
+.overgang-portal {
+  /* Portalen dækker skærmen helt fra første billede, så man ikke ser Pennedal, før man er faldet igennem.
+     Mørket forsvinder, når Pennedal åbner sig som en lysende cirkel (Henrik, 16. november 2026). */
+  background: #0b0d18;
+  animation: portal-bag 0.01s 1.9s forwards;
+}
+@keyframes portal-bag {
+  to { background: transparent; }
+}
 .overgang-skift {
   background: linear-gradient(100deg, transparent 0 30%, #0b0d18 40% 60%, transparent 70%);
   background-size: 300% 100%;
