@@ -50,6 +50,17 @@ Opdatér kun en version efter at have slået den op i npm og kørt alle tests.
 - Historien, twists, hjælpere, tilbageblik, tasken og kampe står i `docs/historie.md`. Nye kapitler følger den.
 - Koblingen til Fælles Mål ligger kun i `src/content/maal.json`, så den kan skiftes, når fagplanerne træder i kraft 1. august 2027.
 
+## Rules for this app
+
+Keep this app organized so a beginner can read it.
+
+- Screens go in `pages/`.
+- Shared pieces go in `components/`.
+- Saving and loading goes in `data/`.
+- One job per file.
+- No file over 500 lines.
+- Before writing anything new, check if it already exists.
+
 ## Lyd
 
 - Stemmer og stil pr. figur står i `src/content/stemmer.json` (Gemini TTS). Nøglen til et klip afhænger af tekst, stemme, stil og model, så et ændret ord giver et nyt klip.
