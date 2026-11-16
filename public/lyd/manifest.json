@@ -72,6 +72,14 @@
       "kilde": "Kampe / kamp.tvivl.lyt",
       "lavet": "2026-11-13"
     },
+    "0047bf266ff3df": {
+      "figur": "aeseloere",
+      "tekst": "Ja. nøgle rimer ikke på nat. Slutningen lyder anderledes.",
+      "fil": "0047bf266ff3df.ogg",
+      "kilde": "Svar / ikkerim.nat.nøgle",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
     "004dbc901d8800": {
       "figur": "fortaeller",
       "tekst": "Stien ender i en lysning. Alt er hvidt her, også himlen.",
@@ -85,6 +93,14 @@
       "fil": "00518f9e798dbb.ogg",
       "kilde": "Kapitel 6 / k6-doer.valg3.1",
       "lavet": "2026-11-10"
+    },
+    "00533aff34bc57": {
+      "figur": "aeseloere",
+      "tekst": "due rimer ikke på dag. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "00533aff34bc57.ogg",
+      "kilde": "Svar / rim.dag.due",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
     },
     "0053aa4e419a80": {
       "figur": "ord",
@@ -187,6 +203,14 @@
       "kilde": "Kapitel 5 / k5-sorter.opgavetekst",
       "lavet": "2026-11-12"
     },
+    "00b0e33ad93821": {
+      "figur": "aeseloere",
+      "tekst": "Ja. hat rimer ikke på hånd. Slutningen lyder anderledes.",
+      "fil": "00b0e33ad93821.ogg",
+      "kilde": "Svar / ikkerim.hånd.hat",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "00b254dfd52682": {
       "figur": "holm",
       "tekst": "Jeg tør ærlig talt ikke gå derned alene. Vil du se, hvad der er i kælderen?",
@@ -222,6 +246,14 @@
       "fil": "00ce3ce31d0507.ogg",
       "kilde": "Tasken / logbog",
       "lavet": "2026-11-01"
+    },
+    "00e3052b942020": {
+      "figur": "aeseloere",
+      "tekst": "pris rimer faktisk på is. Sig dem højt. De lyder ens til sidst.",
+      "fil": "00e3052b942020.ogg",
+      "kilde": "Svar / ikkerim.is.pris",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
     },
     "00e5f4f6f169ab": {
       "figur": "ufaerdige",
@@ -274,6 +306,14 @@
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-tts"
     },
+    "010a6ce3e57c5d": {
+      "figur": "aeseloere",
+      "tekst": "ræv rimer ikke på ring. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "010a6ce3e57c5d.ogg",
+      "kilde": "Svar / rim.ring.ræv",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
     "01157fe9e967df": {
       "figur": "vims",
       "tekst": "Undskyld. Der er blæk på stien. Små klatter. Hele vejen derhen.",
@@ -316,6 +356,14 @@
       "kilde": "Kapitel 4 / bjergstien.intro.1",
       "lavet": "2026-11-11"
     },
+    "013208dd53f654": {
+      "figur": "fortaeller",
+      "tekst": "vind ... vind ... vind",
+      "fil": "013208dd53f654.ogg",
+      "kilde": "Svar / ekko.vind",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "0142326e1ee6a4": {
       "figur": "aeseloere",
       "tekst": "Du gik hele vejen. Jeg kiggede væk de svære steder. Det hjalp ikke.",
@@ -329,6 +377,14 @@
       "fil": "0143c0103cb6c7.ogg",
       "kilde": "Kapitel 2 / k2-opslag.k2-opslag-2.standard",
       "lavet": "2026-11-03"
+    },
+    "014c6d9dfc2edf": {
+      "figur": "aeseloere",
+      "tekst": "Ja. fersken rimer ikke på fisk. Slutningen lyder anderledes.",
+      "fil": "014c6d9dfc2edf.ogg",
+      "kilde": "Svar / ikkerim.fisk.fersken",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
     },
     "014d2e68d9b7ba": {
       "figur": "fortaeller",
@@ -373,6 +429,14 @@
       "fil": "015f5251ccf65e.ogg",
       "kilde": "Kapitel 6 / k6-ankomst.3",
       "lavet": "2026-11-10"
+    },
+    "01688c53fa9f19": {
+      "figur": "aeseloere",
+      "tekst": "Ja. vinter rimer ikke på vind. Slutningen lyder anderledes.",
+      "fil": "01688c53fa9f19.ogg",
+      "kilde": "Svar / ikkerim.vind.vinter",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "0168df08689ade": {
       "figur": "aeseloere",
@@ -540,6 +604,30 @@
       "kilde": "Introen / intro.3",
       "lavet": "2026-11-01"
     },
+    "01d83d4d1a7cfd": {
+      "figur": "aeseloere",
+      "tekst": "kat rimer faktisk på nat. Sig dem højt. De lyder ens til sidst.",
+      "fil": "01d83d4d1a7cfd.ogg",
+      "kilde": "Svar / ikkerim.nat.kat",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "01d8fa41780a9c": {
+      "figur": "aeseloere",
+      "tekst": "rund rimer ikke på ring. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "01d8fa41780a9c.ogg",
+      "kilde": "Svar / rim.ring.rund",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "01dd07852e8d8c": {
+      "figur": "aeseloere",
+      "tekst": "sand rimer ikke på sang. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "01dd07852e8d8c.ogg",
+      "kilde": "Svar / rim.sang.sand",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "01e571eb97f210": {
       "figur": "rimfod",
       "tekst": "Hør her, I små, kom lidt tættere på. Jeg har en drøm, som I måske kan forstå.",
@@ -553,6 +641,14 @@
       "fil": "01e8844998edfb.ogg",
       "kilde": "Fortæller / f09",
       "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "01ee4ba061504b": {
+      "figur": "aeseloere",
+      "tekst": "Ja. næse rimer ikke på nat. Slutningen lyder anderledes.",
+      "fil": "01ee4ba061504b.ogg",
+      "kilde": "Svar / ikkerim.nat.næse",
+      "lavet": "2026-11-16",
       "model": "gemini-3.8-flash-tts"
     },
     "01f44160646e79": {
@@ -576,6 +672,14 @@
       "fil": "01f8d0af7ef713.ogg",
       "kilde": "Kapitel 3 / k3-klatten.1",
       "lavet": "2026-11-01"
+    },
+    "01f91f1bd100fc": {
+      "figur": "aeseloere",
+      "tekst": "nøgle rimer ikke på nat. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "01f91f1bd100fc.ogg",
+      "kilde": "Svar / rim.nat.nøgle",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
     },
     "0203ff10d64018": {
       "figur": "fortaeller",
@@ -612,12 +716,28 @@
       "kilde": "Synonymer / fjende",
       "lavet": "2026-11-04"
     },
+    "0224e84c376a8d": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord rimer ikke på sten?",
+      "fil": "0224e84c376a8d.ogg",
+      "kilde": "Svar / ikkerim.sten.spoergsmaal",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "022590a554918c": {
       "figur": "fortaeller",
       "tekst": "Du finder det sidste rim. Stregerne på stenen gløder et øjeblik.",
       "fil": "022590a554918c.ogg",
       "kilde": "Kapitel 4 / k4-digt-slut.1",
       "lavet": "2026-11-09"
+    },
+    "0227af79fb8421": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord rimer på trold?",
+      "fil": "0227af79fb8421.ogg",
+      "kilde": "Svar / rim.trold.spoergsmaal",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "0227f0383529ee": {
       "figur": "ufaerdige",
@@ -785,6 +905,14 @@
       "kilde": "Introen / intro.1",
       "lavet": "2026-11-01"
     },
+    "02b78c88109612": {
+      "figur": "aeseloere",
+      "tekst": "ost rimer ikke på is. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "02b78c88109612.ogg",
+      "kilde": "Svar / rim.is.ost",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
     "02b8a11d678655": {
       "figur": "fortaeller",
       "tekst": "Robotten kunne lave mad, gøre rent og tale fem sprog. Men den kunne ikke lide mandage.",
@@ -875,6 +1003,14 @@
       "kilde": "Kapitel 8 / k8-oplaesning.9",
       "lavet": "2026-11-11"
     },
+    "030104a0a65128": {
+      "figur": "aeseloere",
+      "tekst": "Ja. sving rimer på ring. De lyder ens til sidst.",
+      "fil": "030104a0a65128.ogg",
+      "kilde": "Svar / rim.ring.sving",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
     "0309fcdcef489b": {
       "figur": "fortaeller",
       "tekst": "På den sidste side står der: Skyggen ledte efter et sted at høre til. Og så ...",
@@ -904,12 +1040,28 @@
       "kilde": "Kapitel 1 / k1-aeseloere.2",
       "lavet": "2026-11-01"
     },
+    "03267083f6226f": {
+      "figur": "aeseloere",
+      "tekst": "Ja. flag rimer på dag. De lyder ens til sidst.",
+      "fil": "03267083f6226f.ogg",
+      "kilde": "Svar / rim.dag.flag",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
     "03271b55ea04a5": {
       "figur": "fortaeller",
       "tekst": "Skyggen folder sig om Klatten som en side, der bliver vendt. Så er de væk. Begge to.",
       "fil": "03271b55ea04a5.ogg",
       "kilde": "Kapitel 2 / k2-moerke.10",
       "lavet": "2026-10-31"
+    },
+    "0327c0455af9f1": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord rimer på is?",
+      "fil": "0327c0455af9f1.ogg",
+      "kilde": "Svar / rim.is.spoergsmaal",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
     },
     "032c70a362fc9f": {
       "figur": "fortaeller",
@@ -952,6 +1104,14 @@
       "fil": "0346d48463aa5f.ogg",
       "kilde": "Kapitel 2 / k2-trykkeri.2",
       "lavet": "2026-10-31"
+    },
+    "034764e51597c8": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord rimer på sang?",
+      "fil": "034764e51597c8.ogg",
+      "kilde": "Svar / rim.sang.spoergsmaal",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "034e37bf46f506": {
       "figur": "aeseloere",
@@ -1165,6 +1325,14 @@
       "kilde": "Kapitel 7 / halvebroen.ind.2",
       "lavet": "2026-11-12"
     },
+    "03f76c25f178dd": {
+      "figur": "aeseloere",
+      "tekst": "ting rimer faktisk på ring. Sig dem højt. De lyder ens til sidst.",
+      "fil": "03f76c25f178dd.ogg",
+      "kilde": "Svar / ikkerim.ring.ting",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
     "04017bbc66a643": {
       "figur": "fortaeller",
       "tekst": "Det er en gammel seddel med Fru Fodnotes lille, pæne skrift.",
@@ -1224,6 +1392,22 @@
       "lavet": "2026-11-15",
       "model": "gemini-3.8-flash-tts"
     },
+    "0437f7f5df8014": {
+      "figur": "aeseloere",
+      "tekst": "Ja. pris rimer på is. De lyder ens til sidst.",
+      "fil": "0437f7f5df8014.ogg",
+      "kilde": "Svar / rim.is.pris",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "043881d98fdb05": {
+      "figur": "aeseloere",
+      "tekst": "Ja. sav rimer ikke på sang. Slutningen lyder anderledes.",
+      "fil": "043881d98fdb05.ogg",
+      "kilde": "Svar / ikkerim.sang.sav",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "043a62d2cc9151": {
       "figur": "snegl",
       "tekst": "Nu kan brevene komme frem. Om et år eller to.",
@@ -1269,6 +1453,14 @@
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-lite-tts"
     },
+    "044dd90df0645e": {
+      "figur": "aeseloere",
+      "tekst": "gang rimer faktisk på sang. Sig dem højt. De lyder ens til sidst.",
+      "fil": "044dd90df0645e.ogg",
+      "kilde": "Svar / ikkerim.sang.gang",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "04532622552d04": {
       "figur": "ord",
       "tekst": "smøge",
@@ -1300,6 +1492,14 @@
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-tts"
     },
+    "046ca2abc6299a": {
+      "figur": "aeseloere",
+      "tekst": "Ja. stav rimer ikke på sten. Slutningen lyder anderledes.",
+      "fil": "046ca2abc6299a.ogg",
+      "kilde": "Svar / ikkerim.sten.stav",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "046e115373bef8": {
       "figur": "klatten",
       "tekst": "Jeg tænkede meget på chefen i nat. Jeg talte alle stenerne i søen, og jeg komm til tolv.",
@@ -1323,6 +1523,14 @@
       "kilde": "Klattens tekster / k13.1",
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-tts"
+    },
+    "04735e42c2fc81": {
+      "figur": "aeseloere",
+      "tekst": "stol rimer ikke på sten. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "04735e42c2fc81.ogg",
+      "kilde": "Svar / rim.sten.stol",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "0473b0712fee7d": {
       "figur": "fortaeller",
@@ -1375,6 +1583,14 @@
       "kilde": "Kapitel 5 / k5-fodnote.2",
       "lavet": "2026-11-09"
     },
+    "04a1d0f3d9a747": {
+      "figur": "aeseloere",
+      "tekst": "hane rimer ikke på hånd. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "04a1d0f3d9a747.ogg",
+      "kilde": "Svar / rim.hånd.hane",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "04ac688e56e0dd": {
       "figur": "aeseloere",
       "tekst": "skov rimer ikke på sko. Sig begge ord højt, og lyt til slutningen.",
@@ -1396,6 +1612,14 @@
       "fil": "04bebba12ad578.ogg",
       "kilde": "Klattens tekster / k03.1",
       "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "04c1ee6adb5bc3": {
+      "figur": "aeseloere",
+      "tekst": "Ja. disk rimer på fisk. De lyder ens til sidst.",
+      "fil": "04c1ee6adb5bc3.ogg",
+      "kilde": "Svar / rim.fisk.disk",
+      "lavet": "2026-11-16",
       "model": "gemini-3.8-flash-tts"
     },
     "04cd7a0683597a": {
@@ -1478,6 +1702,22 @@
       "kilde": "Kapitel 4 / k4-toppen.5",
       "lavet": "2026-11-09"
     },
+    "04e929cf099cae": {
+      "figur": "aeseloere",
+      "tekst": "bånd rimer faktisk på hånd. Sig dem højt. De lyder ens til sidst.",
+      "fil": "04e929cf099cae.ogg",
+      "kilde": "Svar / ikkerim.hånd.bånd",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "04eb2c621ff8b2": {
+      "figur": "aeseloere",
+      "tekst": "sky rimer ikke på sne. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "04eb2c621ff8b2.ogg",
+      "kilde": "Svar / rim.sne.sky",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
     "04f0d86d822801": {
       "figur": "aeseloere",
       "tekst": "fil rimer faktisk på bil. Sig dem højt. De lyder ens til sidst.",
@@ -1500,6 +1740,14 @@
       "kilde": "Svar / synonym.begynde.rigtig",
       "lavet": "2026-11-15",
       "model": "gemini-3.8-flash-tts"
+    },
+    "050716cac62344": {
+      "figur": "aeseloere",
+      "tekst": "Ja. stjerne rimer ikke på sten. Slutningen lyder anderledes.",
+      "fil": "050716cac62344.ogg",
+      "kilde": "Svar / ikkerim.sten.stjerne",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "050ff8fd03b147": {
       "figur": "fortaeller",
@@ -1536,6 +1784,14 @@
       "kilde": "Minder / minde.skaar3a.1",
       "lavet": "2026-11-09"
     },
+    "053a39f0328e82": {
+      "figur": "aeseloere",
+      "tekst": "fe rimer faktisk på sne. Sig dem højt. De lyder ens til sidst.",
+      "fil": "053a39f0328e82.ogg",
+      "kilde": "Svar / ikkerim.sne.fe",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
     "053e17b0a2ce07": {
       "figur": "aeseloere",
       "tekst": "Hvad er der i dem?",
@@ -1565,6 +1821,14 @@
       "kilde": "Kapitel 2 / k2-rum.laas.aabnet",
       "lavet": "2026-11-03"
     },
+    "0548dc3bf746de": {
+      "figur": "fortaeller",
+      "tekst": "fisk ... fisk ... fisk",
+      "fil": "0548dc3bf746de.ogg",
+      "kilde": "Svar / ekko.fisk",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
     "054b45865e06f3": {
       "figur": "fortaeller",
       "tekst": "Gå op mod toppen.",
@@ -1592,6 +1856,14 @@
       "fil": "056456a51d12f2.ogg",
       "kilde": "Stumme bogstaver / hjul",
       "lavet": "2026-10-31"
+    },
+    "056bb2e9ae5781": {
+      "figur": "aeseloere",
+      "tekst": "hat rimer faktisk på nat. Sig dem højt. De lyder ens til sidst.",
+      "fil": "056bb2e9ae5781.ogg",
+      "kilde": "Svar / ikkerim.nat.hat",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
     },
     "056beb514fabaf": {
       "figur": "fortaeller",
@@ -1635,6 +1907,14 @@
       "kilde": "Kapitel 3 / k3-klatten.valg2.3",
       "lavet": "2026-11-01"
     },
+    "05856c540598f3": {
+      "figur": "aeseloere",
+      "tekst": "Ja. tromme rimer ikke på trold. Slutningen lyder anderledes.",
+      "fil": "05856c540598f3.ogg",
+      "kilde": "Svar / ikkerim.trold.tromme",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "058b2827cbeb35": {
       "figur": "aeseloere",
       "tekst": "Ordet slutte betyder ikke det samme som begynde. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
@@ -1664,6 +1944,14 @@
       "kilde": "Kapitel 8 / k8-oplaesning.1",
       "lavet": "2026-11-11"
     },
+    "059a77d05a0d78": {
+      "figur": "aeseloere",
+      "tekst": "Ja. ost rimer ikke på is. Slutningen lyder anderledes.",
+      "fil": "059a77d05a0d78.ogg",
+      "kilde": "Svar / ikkerim.is.ost",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
     "05a64ed4bb0534": {
       "figur": "aeseloere",
       "tekst": "En hviskeformular er et ord med et stumt bogstav. Bogstavet siger ingenting, men det skal med. Ellers virker formularen ikke.",
@@ -1692,6 +1980,14 @@
       "fil": "05b472724b2304.ogg",
       "kilde": "Minder / minde.skuffen.1",
       "lavet": "2026-11-13"
+    },
+    "05ba1754d12ca9": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord rimer ikke på nat?",
+      "fil": "05ba1754d12ca9.ogg",
+      "kilde": "Svar / ikkerim.nat.spoergsmaal",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
     },
     "05bc7b768d4827": {
       "figur": "aeseloere",
@@ -1857,6 +2153,14 @@
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-lite-tts"
     },
+    "06407b7304effd": {
+      "figur": "aeseloere",
+      "tekst": "Ja. ting rimer på ring. De lyder ens til sidst.",
+      "fil": "06407b7304effd.ogg",
+      "kilde": "Svar / rim.ring.ting",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
     "0645f944e0d36e": {
       "figur": "aeseloere",
       "tekst": "Ja, det er den regel. Prøv nu igen.",
@@ -1972,6 +2276,14 @@
       "kilde": "Synonymer / stille",
       "lavet": "2026-11-04"
     },
+    "06c7ebbc5645e8": {
+      "figur": "aeseloere",
+      "tekst": "sav rimer ikke på sang. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "06c7ebbc5645e8.ogg",
+      "kilde": "Svar / rim.sang.sav",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "06cc5e2da79e59": {
       "figur": "fortaeller",
       "tekst": "Du ved det ikke. Det er allerede væk, ligesom en drøm, når man vågner.",
@@ -2007,6 +2319,22 @@
       "fil": "06d6008790563f.ogg",
       "kilde": "Minder / minde.skaar4b.3",
       "lavet": "2026-11-13"
+    },
+    "06d7470f46b962": {
+      "figur": "aeseloere",
+      "tekst": "Ja. bold rimer på trold. De lyder ens til sidst.",
+      "fil": "06d7470f46b962.ogg",
+      "kilde": "Svar / rim.trold.bold",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "06db07a613d778": {
+      "figur": "aeseloere",
+      "tekst": "sand rimer ikke på sne. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "06db07a613d778.ogg",
+      "kilde": "Svar / rim.sne.sand",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
     },
     "06e7644f3509aa": {
       "figur": "fortaeller",
@@ -2072,6 +2400,14 @@
       "kilde": "Opgaver / bro.instruks",
       "lavet": "2026-11-04"
     },
+    "072dcd0e0e7b2b": {
+      "figur": "aeseloere",
+      "tekst": "tag rimer faktisk på dag. Sig dem højt. De lyder ens til sidst.",
+      "fil": "072dcd0e0e7b2b.ogg",
+      "kilde": "Svar / ikkerim.dag.tag",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
     "0731daa49f461d": {
       "figur": "fortaeller",
       "tekst": "Du har ikke glemt den. Ikke helt.",
@@ -2130,6 +2466,14 @@
       "lavet": "2026-11-15",
       "model": "gemini-3.8-flash-tts"
     },
+    "074b4e5a4de3a5": {
+      "figur": "aeseloere",
+      "tekst": "Ja. due rimer ikke på dag. Slutningen lyder anderledes.",
+      "fil": "074b4e5a4de3a5.ogg",
+      "kilde": "Svar / ikkerim.dag.due",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
     "074e6825016bd1": {
       "figur": "fortaeller",
       "tekst": "Find Borgmesteren på torvet.",
@@ -2159,6 +2503,22 @@
       "kilde": "Minder / minde.blaek.2",
       "lavet": "2026-11-03"
     },
+    "07621ff2e0cced": {
+      "figur": "aeseloere",
+      "tekst": "Ja. ild rimer ikke på is. Slutningen lyder anderledes.",
+      "fil": "07621ff2e0cced.ogg",
+      "kilde": "Svar / ikkerim.is.ild",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "07645c7c12daea": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord rimer på sten?",
+      "fil": "07645c7c12daea.ogg",
+      "kilde": "Svar / rim.sten.spoergsmaal",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "07669200435839": {
       "figur": "grumsen",
       "tekst": "Mørke, knirkende døre og noget ukendt. Brr. Jeg tør godt, hvis jeg holder lampen.",
@@ -2173,6 +2533,14 @@
       "kilde": "Svar / synonym.stille.larmende",
       "lavet": "2026-11-15",
       "model": "gemini-3.8-flash-tts"
+    },
+    "07763f26a91cd9": {
+      "figur": "aeseloere",
+      "tekst": "Ja. kind rimer på vind. De lyder ens til sidst.",
+      "fil": "07763f26a91cd9.ogg",
+      "kilde": "Svar / rim.vind.kind",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "0785dc8c079f2e": {
       "figur": "aeseloere",
@@ -2286,12 +2654,28 @@
       "kilde": "Kapitel 5 / k5-kamp-slut.3",
       "lavet": "2026-11-09"
     },
+    "07db155c630bff": {
+      "figur": "fortaeller",
+      "tekst": "sten ... sten ... sten",
+      "fil": "07db155c630bff.ogg",
+      "kilde": "Svar / ekko.sten",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "07dcf42d21d5cd": {
       "figur": "fortaeller",
       "tekst": "Du skriver: Og så begyndte en helt ny historie.",
       "fil": "07dcf42d21d5cd.ogg",
       "kilde": "Kapitel 8 / k8-ogsaa.valg3.1",
       "lavet": "2026-11-11"
+    },
+    "07df6930726f9d": {
+      "figur": "aeseloere",
+      "tekst": "Ja. blind rimer på vind. De lyder ens til sidst.",
+      "fil": "07df6930726f9d.ogg",
+      "kilde": "Svar / rim.vind.blind",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "07e57ce0eb3f86": {
       "figur": "aeseloere",
@@ -2465,6 +2849,14 @@
       "fil": "08c453f7aa014d.ogg",
       "kilde": "Stumme bogstaver / hvalp.saetning",
       "lavet": "2026-11-04"
+    },
+    "08d0bda38c12c8": {
+      "figur": "aeseloere",
+      "tekst": "vinter rimer ikke på vind. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "08d0bda38c12c8.ogg",
+      "kilde": "Svar / rim.vind.vinter",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "08da0fe9f04f11": {
       "figur": "aeseloere",
@@ -2734,6 +3126,14 @@
       "lavet": "2026-11-15",
       "model": "gemini-3.8-flash-tts"
     },
+    "09b0ca08792b19": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord rimer ikke på dag?",
+      "fil": "09b0ca08792b19.ogg",
+      "kilde": "Svar / ikkerim.dag.spoergsmaal",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
     "09be461c0db40d": {
       "figur": "fortaeller",
       "tekst": "Held og lykke på rejsen!",
@@ -2875,6 +3275,14 @@
       "kilde": "Kapitel 4 / k4-ekko-slut.2",
       "lavet": "2026-11-09"
     },
+    "0a3d13b55e15ad": {
+      "figur": "aeseloere",
+      "tekst": "Ja. fe rimer på sne. De lyder ens til sidst.",
+      "fil": "0a3d13b55e15ad.ogg",
+      "kilde": "Svar / rim.sne.fe",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
     "0a406dd20313de": {
       "figur": "rimfod",
       "tekst": "Er I klar? Lad os prøve igen. Jeg siger begyndelsen, I finder enden, min ven.",
@@ -2895,6 +3303,14 @@
       "fil": "0a430c1d253086.ogg",
       "kilde": "Svar / rim.hus.hul",
       "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "0a544fd9f20639": {
+      "figur": "aeseloere",
+      "tekst": "Ja. tang rimer på sang. De lyder ens til sidst.",
+      "fil": "0a544fd9f20639.ogg",
+      "kilde": "Svar / rim.sang.tang",
+      "lavet": "2026-11-16",
       "model": "gemini-3.8-flash-lite-tts"
     },
     "0a591e66867944": {
@@ -2947,6 +3363,14 @@
       "fil": "0a9690a1b63514.ogg",
       "kilde": "Beskeder / halvsaetning.eksempel.slut",
       "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "0a99ee0655af1c": {
+      "figur": "aeseloere",
+      "tekst": "tromme rimer ikke på trold. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "0a99ee0655af1c.ogg",
+      "kilde": "Svar / rim.trold.tromme",
+      "lavet": "2026-11-16",
       "model": "gemini-3.8-flash-lite-tts"
     },
     "0aa03e71547b1c": {
@@ -3015,6 +3439,14 @@
       "lavet": "2026-11-15",
       "model": "gemini-3.8-flash-lite-tts"
     },
+    "0aca426647a5f4": {
+      "figur": "aeseloere",
+      "tekst": "ren rimer faktisk på sten. Sig dem højt. De lyder ens til sidst.",
+      "fil": "0aca426647a5f4.ogg",
+      "kilde": "Svar / ikkerim.sten.ren",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "0ad6ff39bbbd2c": {
       "figur": "halvfugl",
       "tekst": "Skoven har visket tre ord ud af min sang. De blæste væk som blade.",
@@ -3029,12 +3461,28 @@
       "kilde": "Kapitel 5 / k5-rum.laas.regel",
       "lavet": "2026-11-12"
     },
+    "0add01c9f202e7": {
+      "figur": "aeseloere",
+      "tekst": "Ja. hund rimer ikke på hånd. Slutningen lyder anderledes.",
+      "fil": "0add01c9f202e7.ogg",
+      "kilde": "Svar / ikkerim.hånd.hund",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "0adf46fb9b7508": {
       "figur": "aeseloere",
       "tekst": "Den sætning fortæller, at der er pletter, men ikke hvor de fører hen. Læs den næste sætning.",
       "fil": "0adf46fb9b7508.ogg",
       "kilde": "Kapitel 2 / k2-opslag.k2-opslag-2.forkert.3",
       "lavet": "2026-11-03"
+    },
+    "0aef1b6a14bcbf": {
+      "figur": "aeseloere",
+      "tekst": "træ rimer ikke på trold. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "0aef1b6a14bcbf.ogg",
+      "kilde": "Svar / rim.trold.træ",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "0af42be1affbfa": {
       "figur": "fortaeller",
@@ -3131,6 +3579,14 @@
       "kilde": "Kampe / kamp.tomordet.rolig",
       "lavet": "2026-11-04"
     },
+    "0b370220d438dc": {
+      "figur": "aeseloere",
+      "tekst": "tang rimer faktisk på sang. Sig dem højt. De lyder ens til sidst.",
+      "fil": "0b370220d438dc.ogg",
+      "kilde": "Svar / ikkerim.sang.tang",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "0b38082aa33a07": {
       "figur": "fortaeller",
       "tekst": "Signalet kom fra en stjerne langt borte. Det gentog den samme melodi igen og igen.",
@@ -3166,6 +3622,14 @@
       "fil": "0b4a123c8cb416.ogg",
       "kilde": "Kapitel 5 / k5-sorter-slut.1",
       "lavet": "2026-11-09"
+    },
+    "0b4a2dcd202366": {
+      "figur": "aeseloere",
+      "tekst": "sæk rimer ikke på sang. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "0b4a2dcd202366.ogg",
+      "kilde": "Svar / rim.sang.sæk",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "0b62dfb70861c4": {
       "figur": "raaber",
@@ -3254,6 +3718,14 @@
       "lavet": "2026-11-15",
       "model": "gemini-3.8-flash-tts"
     },
+    "0ba0006b108fb4": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord rimer på dag?",
+      "fil": "0ba0006b108fb4.ogg",
+      "kilde": "Svar / rim.dag.spoergsmaal",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
     "0ba8a7be8d777b": {
       "figur": "fortaeller",
       "tekst": "Jeg har ikke tid til at tælle dem.",
@@ -3320,6 +3792,22 @@
       "kilde": "Kapitel 5 / k5-ankomst.2",
       "lavet": "2026-11-09"
     },
+    "0bdf59d5623442": {
+      "figur": "aeseloere",
+      "tekst": "ild rimer ikke på is. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "0bdf59d5623442.ogg",
+      "kilde": "Svar / rim.is.ild",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "0be12099ba82e5": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord rimer på ring?",
+      "fil": "0be12099ba82e5.ogg",
+      "kilde": "Svar / rim.ring.spoergsmaal",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
     "0be29afdebac44": {
       "figur": "klatten",
       "tekst": "Hvorfor kigger du sådan? De er mine. Jeg har haft dem, så længe jeg kan huske.",
@@ -3340,6 +3828,14 @@
       "fil": "0bf075a4adc455.ogg",
       "kilde": "Svar / synonym.traet.rigtig",
       "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "0bf5dd48fbb7a0": {
+      "figur": "fortaeller",
+      "tekst": "dag ... dag ... dag",
+      "fil": "0bf5dd48fbb7a0.ogg",
+      "kilde": "Svar / ekko.dag",
+      "lavet": "2026-11-16",
       "model": "gemini-3.8-flash-tts"
     },
     "0bfd6369348516": {
@@ -3384,6 +3880,14 @@
       "fil": "0c1d08e3775bd8.ogg",
       "kilde": "Kapitel 3 / k3-tomordet-moede.3",
       "lavet": "2026-11-01"
+    },
+    "0c20a534f7b0ee": {
+      "figur": "fortaeller",
+      "tekst": "ring ... ring ... ring",
+      "fil": "0c20a534f7b0ee.ogg",
+      "kilde": "Svar / ekko.ring",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
     },
     "0c22f7eb3594eb": {
       "figur": "fortaeller",
@@ -3596,6 +4100,14 @@
       "kilde": "Stumme bogstaver / sølv.saetning",
       "lavet": "2026-11-04"
     },
+    "0c9a80e8362d06": {
+      "figur": "aeseloere",
+      "tekst": "Ja. frisk rimer på fisk. De lyder ens til sidst.",
+      "fil": "0c9a80e8362d06.ogg",
+      "kilde": "Svar / rim.fisk.frisk",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
     "0c9fbefe7eac12": {
       "figur": "aeseloere",
       "tekst": "Ja. Ordet skræmt betyder det samme som bange.",
@@ -3652,6 +4164,14 @@
       "fil": "0cc0f6852b165d.ogg",
       "kilde": "Kapitel 4 / k4-rimfod.5",
       "lavet": "2026-11-09"
+    },
+    "0cc3960fba685a": {
+      "figur": "aeseloere",
+      "tekst": "lang rimer faktisk på sang. Sig dem højt. De lyder ens til sidst.",
+      "fil": "0cc3960fba685a.ogg",
+      "kilde": "Svar / ikkerim.sang.lang",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "0cd9e50bb592eb": {
       "figur": "klatten",
@@ -3940,6 +4460,14 @@
       "kilde": "Titelkort / kapitel 7.maal",
       "lavet": "2026-11-13"
     },
+    "0dcfc8d32c6184": {
+      "figur": "aeseloere",
+      "tekst": "hund rimer ikke på hånd. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "0dcfc8d32c6184.ogg",
+      "kilde": "Svar / rim.hånd.hund",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "0ddbdc6e73babf": {
       "figur": "aeseloere",
       "tekst": "Ordet sulten betyder ikke det samme som bange. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
@@ -3969,6 +4497,14 @@
       "kilde": "Stumme bogstaver / hjul.saetning",
       "lavet": "2026-11-04"
     },
+    "0df00d756dd562": {
+      "figur": "aeseloere",
+      "tekst": "Ja. rund rimer ikke på ring. Slutningen lyder anderledes.",
+      "fil": "0df00d756dd562.ogg",
+      "kilde": "Svar / ikkerim.ring.rund",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
     "0df307982219e8": {
       "figur": "fortaeller",
       "tekst": "Og-ormen har spist punktummerne og sat \"og\" i stedet. Klip ormen over med saksen, der hvor én tanke slutter, og en ny begynder.",
@@ -3997,12 +4533,44 @@
       "kilde": "Kapitel 1 / k1-klatten-flygter.2",
       "lavet": "2026-10-31"
     },
+    "0e0f314b962cba": {
+      "figur": "aeseloere",
+      "tekst": "fod rimer ikke på fisk. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "0e0f314b962cba.ogg",
+      "kilde": "Svar / rim.fisk.fod",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
     "0e0fc1144aad40": {
       "figur": "ord",
       "tekst": "hjælpe",
       "fil": "0e0fc1144aad40.ogg",
       "kilde": "Stumme bogstaver / hjælpe",
       "lavet": "2026-10-31"
+    },
+    "0e13164ca96b7b": {
+      "figur": "aeseloere",
+      "tekst": "vand rimer ikke på vind. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "0e13164ca96b7b.ogg",
+      "kilde": "Svar / rim.vind.vand",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "0e13fb365a37e1": {
+      "figur": "aeseloere",
+      "tekst": "sving rimer faktisk på ring. Sig dem højt. De lyder ens til sidst.",
+      "fil": "0e13fb365a37e1.ogg",
+      "kilde": "Svar / ikkerim.ring.sving",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "0e154738c7620e": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord rimer ikke på trold?",
+      "fil": "0e154738c7620e.ogg",
+      "kilde": "Svar / ikkerim.trold.spoergsmaal",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "0e1a3e8bc99b2b": {
       "figur": "aeseloere",
@@ -4099,6 +4667,14 @@
       "kilde": "Beskeder / bro.fejl.placering.4.problem",
       "lavet": "2026-11-05"
     },
+    "0e709d94bc233c": {
+      "figur": "aeseloere",
+      "tekst": "Ja. tag rimer på dag. De lyder ens til sidst.",
+      "fil": "0e709d94bc233c.ogg",
+      "kilde": "Svar / rim.dag.tag",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
     "0e81e3c9e8c72b": {
       "figur": "fortaeller",
       "tekst": "Halvsætningerne bliver hele. En efter en sætter de et punktum og går stille væk over siden.",
@@ -4134,6 +4710,14 @@
       "fil": "0e9cc259140997.ogg",
       "kilde": "Kapitel 7 / k7-bip.3",
       "lavet": "2026-11-10"
+    },
+    "0e9fe1f811d980": {
+      "figur": "aeseloere",
+      "tekst": "Ja. skjold rimer på trold. De lyder ens til sidst.",
+      "fil": "0e9fe1f811d980.ogg",
+      "kilde": "Svar / rim.trold.skjold",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "0ea4aaaf990245": {
       "figur": "fortaeller",
@@ -4235,12 +4819,28 @@
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-lite-tts"
     },
+    "0f02525bb47598": {
+      "figur": "aeseloere",
+      "tekst": "rig rimer ikke på ring. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "0f02525bb47598.ogg",
+      "kilde": "Svar / rim.ring.rig",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
     "0f0c1ad9b03405": {
       "figur": "fortaeller",
       "tekst": "Hvilket ord rimer på sol?",
       "fil": "0f0c1ad9b03405.ogg",
       "kilde": "Svar / rim.sol.spoergsmaal",
       "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "0f0e2a716fc44c": {
+      "figur": "aeseloere",
+      "tekst": "Ja. vand rimer ikke på vind. Slutningen lyder anderledes.",
+      "fil": "0f0e2a716fc44c.ogg",
+      "kilde": "Svar / ikkerim.vind.vand",
+      "lavet": "2026-11-16",
       "model": "gemini-3.8-flash-lite-tts"
     },
     "0f10f914aaef66": {
@@ -4331,6 +4931,14 @@
       "kilde": "Kapitel 4 / k4-moerke.3",
       "lavet": "2026-11-09"
     },
+    "0f6972134cfb6c": {
+      "figur": "aeseloere",
+      "tekst": "fersken rimer ikke på fisk. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "0f6972134cfb6c.ogg",
+      "kilde": "Svar / rim.fisk.fersken",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
     "0f7985f6321a10": {
       "figur": "fortaeller",
       "tekst": "Rumskibet landede på en rød planet. Kaptajnen tog sin hjelm på og åbnede lugen.",
@@ -4398,6 +5006,22 @@
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-tts"
     },
+    "0fa8b749e2d0e9": {
+      "figur": "aeseloere",
+      "tekst": "snor rimer ikke på sne. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "0fa8b749e2d0e9.ogg",
+      "kilde": "Svar / rim.sne.snor",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "0fb00a62d1f2a1": {
+      "figur": "aeseloere",
+      "tekst": "Ja. bånd rimer på hånd. De lyder ens til sidst.",
+      "fil": "0fb00a62d1f2a1.ogg",
+      "kilde": "Svar / rim.hånd.bånd",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "0fb0dfa8cb1e36": {
       "figur": "fortaeller",
       "tekst": "Hvem fortæller i denne sætning?",
@@ -4428,6 +5052,14 @@
       "kilde": "Klattens tekster / k02.0",
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-tts"
+    },
+    "0fbd7c0168f225": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord rimer ikke på hånd?",
+      "fil": "0fbd7c0168f225.ogg",
+      "kilde": "Svar / ikkerim.hånd.spoergsmaal",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "0fbdb9b477a816": {
       "figur": "klatten",
@@ -4498,12 +5130,28 @@
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-lite-tts"
     },
+    "0fe3b2be6c8ccf": {
+      "figur": "aeseloere",
+      "tekst": "te rimer faktisk på sne. Sig dem højt. De lyder ens til sidst.",
+      "fil": "0fe3b2be6c8ccf.ogg",
+      "kilde": "Svar / ikkerim.sne.te",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
     "0fe9f2f30818f5": {
       "figur": "fortaeller",
       "tekst": "Chefen sendte mig væk, fordi jeg ikke kunne stave.",
       "fil": "0fe9f2f30818f5.ogg",
       "kilde": "Klattens tekster / k11.0",
       "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "0febcd0f0a72e6": {
+      "figur": "aeseloere",
+      "tekst": "Ja. kat rimer på nat. De lyder ens til sidst.",
+      "fil": "0febcd0f0a72e6.ogg",
+      "kilde": "Svar / rim.nat.kat",
+      "lavet": "2026-11-16",
       "model": "gemini-3.8-flash-tts"
     },
     "0fec1119cf5c79": {
@@ -4527,12 +5175,28 @@
       "kilde": "Historiebroen / bro-raeven.loesning",
       "lavet": "2026-11-05"
     },
+    "0ff3d7cd2212d1": {
+      "figur": "aeseloere",
+      "tekst": "Ja. mat rimer på nat. De lyder ens til sidst.",
+      "fil": "0ff3d7cd2212d1.ogg",
+      "kilde": "Svar / rim.nat.mat",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
     "0ff9f0515a4b23": {
       "figur": "vims",
       "tekst": "Du hoppede helt derud. Jeg kiggede ikke. Jo, jeg gjorde.",
       "fil": "0ff9f0515a4b23.ogg",
       "kilde": "Kapitel 6 / soestenene.faerdig.2",
       "lavet": "2026-11-12"
+    },
+    "0ffba7529f42e7": {
+      "figur": "aeseloere",
+      "tekst": "Ja. trappe rimer ikke på trold. Slutningen lyder anderledes.",
+      "fil": "0ffba7529f42e7.ogg",
+      "kilde": "Svar / ikkerim.trold.trappe",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "0ffefd85534476": {
       "figur": "fortaeller",
@@ -4709,6 +5373,14 @@
       "kilde": "Kapitel 3 / halvsang.faerdig.3",
       "lavet": "2026-11-09"
     },
+    "105ff116205682": {
+      "figur": "aeseloere",
+      "tekst": "gris rimer faktisk på is. Sig dem højt. De lyder ens til sidst.",
+      "fil": "105ff116205682.ogg",
+      "kilde": "Svar / ikkerim.is.gris",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1067990622e838": {
       "figur": "aeseloere",
       "tekst": "Eksempel: Hus rimer på mus. Hus rimer ikke på hul, selvom begge ord starter med hu.",
@@ -4744,6 +5416,14 @@
       "fil": "108b87041073eb.ogg",
       "kilde": "Opgaver / bro.instruks.fremmed",
       "lavet": "2026-11-04"
+    },
+    "1096ee37964b31": {
+      "figur": "aeseloere",
+      "tekst": "ven rimer ikke på vind. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "1096ee37964b31.ogg",
+      "kilde": "Svar / rim.vind.ven",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "10a0703640a4aa": {
       "figur": "aeseloere",
@@ -4882,6 +5562,14 @@
       "fil": "1102073364753a.ogg",
       "kilde": "Råberens tegn / raab-9",
       "lavet": "2026-11-03"
+    },
+    "1105e80081947b": {
+      "figur": "aeseloere",
+      "tekst": "Ja. gang rimer på sang. De lyder ens til sidst.",
+      "fil": "1105e80081947b.ogg",
+      "kilde": "Svar / rim.sang.gang",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "1107e6da8486e8": {
       "figur": "fortaeller",
@@ -5055,6 +5743,14 @@
       "kilde": "Kapitel 4 / k4-op.opgavetekst",
       "lavet": "2026-11-12"
     },
+    "11762575efe501": {
+      "figur": "aeseloere",
+      "tekst": "Ja. træ rimer ikke på trold. Slutningen lyder anderledes.",
+      "fil": "11762575efe501.ogg",
+      "kilde": "Svar / ikkerim.trold.træ",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1177407bc53e03": {
       "figur": "fortaeller",
       "tekst": "Jeg åbnede den tunge dør og gik ned ad trappen.",
@@ -5135,6 +5831,14 @@
       "fil": "11abd934542a34.ogg",
       "kilde": "Kapitel 3 / k3-tomordet-moede.4",
       "lavet": "2026-11-01"
+    },
+    "11ca49633b1167": {
+      "figur": "aeseloere",
+      "tekst": "Ja. ven rimer ikke på vind. Slutningen lyder anderledes.",
+      "fil": "11ca49633b1167.ogg",
+      "kilde": "Svar / ikkerim.vind.ven",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "11cb3074dfcb64": {
       "figur": "fortaeller",
@@ -5355,12 +6059,28 @@
       "kilde": "Beskeder / bro.fejl.placering.6.konflikt",
       "lavet": "2026-11-05"
     },
+    "125659152746e4": {
+      "figur": "aeseloere",
+      "tekst": "ris rimer faktisk på is. Sig dem højt. De lyder ens til sidst.",
+      "fil": "125659152746e4.ogg",
+      "kilde": "Svar / ikkerim.is.ris",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
     "125bd628c21a8a": {
       "figur": "fortaeller",
       "tekst": "Tal med Portvagten ved byporten.",
       "fil": "125bd628c21a8a.ogg",
       "kilde": "Kapitel 2 / k2-portvagt.opgavetekst",
       "lavet": "2026-11-03"
+    },
+    "1270ddf73a90f3": {
+      "figur": "aeseloere",
+      "tekst": "ånd rimer faktisk på hånd. Sig dem højt. De lyder ens til sidst.",
+      "fil": "1270ddf73a90f3.ogg",
+      "kilde": "Svar / ikkerim.hånd.ånd",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "1273771961053b": {
       "figur": "fortaeller",
@@ -5548,6 +6268,14 @@
       "lavet": "2026-11-15",
       "model": "gemini-3.8-flash-tts"
     },
+    "1317b07c4bcf66": {
+      "figur": "aeseloere",
+      "tekst": "Ja. ris rimer på is. De lyder ens til sidst.",
+      "fil": "1317b07c4bcf66.ogg",
+      "kilde": "Svar / rim.is.ris",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1317d85c77bca9": {
       "figur": "fortaeller",
       "tekst": "Så skriver du et andet ord, der betyder det samme. Det er lettere at stave. Historien går videre.",
@@ -5603,6 +6331,14 @@
       "fil": "134b03418f88ca.ogg",
       "kilde": "Kapitel 4 / k4-kloeften.4",
       "lavet": "2026-11-09"
+    },
+    "135c0c66aed21d": {
+      "figur": "aeseloere",
+      "tekst": "ben rimer faktisk på sten. Sig dem højt. De lyder ens til sidst.",
+      "fil": "135c0c66aed21d.ogg",
+      "kilde": "Svar / ikkerim.sten.ben",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "135f1dfc12d66d": {
       "figur": "aeseloere",
@@ -5685,6 +6421,14 @@
       "kilde": "Kapitel 6 / soestenene.igen.1",
       "lavet": "2026-11-12"
     },
+    "137cc78863dfdd": {
+      "figur": "aeseloere",
+      "tekst": "disk rimer faktisk på fisk. Sig dem højt. De lyder ens til sidst.",
+      "fil": "137cc78863dfdd.ogg",
+      "kilde": "Svar / ikkerim.fisk.disk",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
     "137d7fd44c15f4": {
       "figur": "klatten",
       "tekst": "Min kappe! Den har jeg ledt efter i ... Jeg har ikke ledt efter den. Den Frygtelige leder aldrig.",
@@ -5728,6 +6472,14 @@
       "kilde": "Svar / synonym.opdager.spoergsmaal",
       "lavet": "2026-11-15",
       "model": "gemini-3.8-flash-tts"
+    },
+    "13a1650e0a7136": {
+      "figur": "aeseloere",
+      "tekst": "Ja. by rimer på sky. De lyder ens til sidst.",
+      "fil": "13a1650e0a7136.ogg",
+      "kilde": "Svar / rim.sky.by",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "13a5d374fc5755": {
       "figur": "fortaeller",
@@ -5777,6 +6529,14 @@
       "fil": "13b4c8e1189c2d.ogg",
       "kilde": "Synonymer / besked",
       "lavet": "2026-11-04"
+    },
+    "13b86f079471cb": {
+      "figur": "fortaeller",
+      "tekst": "sky ... sky ... sky",
+      "fil": "13b86f079471cb.ogg",
+      "kilde": "Svar / ekko.sky",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "13b9687ead0e1e": {
       "figur": "fortaeller",
@@ -5904,6 +6664,14 @@
       "kilde": "Minder / minde.blaek.3",
       "lavet": "2026-11-03"
     },
+    "14018d2e74b0eb": {
+      "figur": "aeseloere",
+      "tekst": "stjerne rimer ikke på sten. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "14018d2e74b0eb.ogg",
+      "kilde": "Svar / rim.sten.stjerne",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "140267612e9ca5": {
       "figur": "fortaeller",
       "tekst": "Klokken slår tolv.",
@@ -5931,6 +6699,14 @@
       "fil": "140d3ee0105668.ogg",
       "kilde": "Kampe / kamp.stumming.lyt",
       "lavet": "2026-11-04"
+    },
+    "14119380c57f99": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord rimer ikke på ring?",
+      "fil": "14119380c57f99.ogg",
+      "kilde": "Svar / ikkerim.ring.spoergsmaal",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
     },
     "141543b0114b56": {
       "figur": "fortaeller",
@@ -5960,6 +6736,14 @@
       "fil": "14251a961f7971.ogg",
       "kilde": "Kapitel 1 / k1-lanterne.5",
       "lavet": "2026-10-31"
+    },
+    "1432b8a3ecf54a": {
+      "figur": "aeseloere",
+      "tekst": "Ja. rig rimer ikke på ring. Slutningen lyder anderledes.",
+      "fil": "1432b8a3ecf54a.ogg",
+      "kilde": "Svar / ikkerim.ring.rig",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
     },
     "143371d21b038c": {
       "figur": "fortaeller",
@@ -6024,6 +6808,22 @@
       "kilde": "Introen / intro.6",
       "lavet": "2026-11-10"
     },
+    "147cc0e319b5a8": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord rimer ikke på is?",
+      "fil": "147cc0e319b5a8.ogg",
+      "kilde": "Svar / ikkerim.is.spoergsmaal",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "148a37dda24544": {
+      "figur": "aeseloere",
+      "tekst": "kind rimer faktisk på vind. Sig dem højt. De lyder ens til sidst.",
+      "fil": "148a37dda24544.ogg",
+      "kilde": "Svar / ikkerim.vind.kind",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "148c42904fe047": {
       "figur": "fortaeller",
       "tekst": "Hver aften klokken ni bankede det tre gange på ruden. Men vinduet var på tredje sal.",
@@ -6045,6 +6845,14 @@
       "fil": "1499352442dc5c.ogg",
       "kilde": "Stumme bogstaver / hund",
       "lavet": "2026-10-31"
+    },
+    "14a627cfa234cc": {
+      "figur": "aeseloere",
+      "tekst": "Ja. ske rimer på sne. De lyder ens til sidst.",
+      "fil": "14a627cfa234cc.ogg",
+      "kilde": "Svar / rim.sne.ske",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
     },
     "14bb0a58bb94a9": {
       "figur": "holm",
@@ -6148,6 +6956,14 @@
       "lavet": "2026-11-15",
       "model": "gemini-3.8-flash-lite-tts"
     },
+    "15193b3295ba01": {
+      "figur": "aeseloere",
+      "tekst": "Ja. ben rimer på sten. De lyder ens til sidst.",
+      "fil": "15193b3295ba01.ogg",
+      "kilde": "Svar / rim.sten.ben",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1521f3c4eea974": {
       "figur": "aeseloere",
       "tekst": "Ved hvert hul står en ekkosten. Find et ord, der rimer, så kommer stenene tilbage. Lyt til slutningen af ordet.",
@@ -6249,6 +7065,14 @@
       "kilde": "Kapitel 5 / k5-rum.laas.aabnet",
       "lavet": "2026-11-12"
     },
+    "158fbfff0d305e": {
+      "figur": "aeseloere",
+      "tekst": "flag rimer faktisk på dag. Sig dem højt. De lyder ens til sidst.",
+      "fil": "158fbfff0d305e.ogg",
+      "kilde": "Svar / ikkerim.dag.flag",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
     "159f1e219204e7": {
       "figur": "aeseloere",
       "tekst": "Jeg har ikke været helt ærlig over for dig.",
@@ -6315,6 +7139,14 @@
       "kilde": "Kapitel 5 / reolerne.ind.2",
       "lavet": "2026-11-12"
     },
+    "15ba6dfce394c1": {
+      "figur": "aeseloere",
+      "tekst": "hat rimer ikke på hånd. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "15ba6dfce394c1.ogg",
+      "kilde": "Svar / rim.hånd.hat",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "15bebd49b45e9b": {
       "figur": "fortaeller",
       "tekst": "Besøg Klatten ved Blæksøen, og hjælp ham med at rette sine gamle fejl.",
@@ -6329,6 +7161,14 @@
       "kilde": "Fortæller / k08",
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-tts"
+    },
+    "15c385231fc3e7": {
+      "figur": "aeseloere",
+      "tekst": "Ja. hane rimer ikke på hånd. Slutningen lyder anderledes.",
+      "fil": "15c385231fc3e7.ogg",
+      "kilde": "Svar / ikkerim.hånd.hane",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "15c4a454d06577": {
       "figur": "fortaeller",
@@ -6364,6 +7204,14 @@
       "fil": "15f9a25ac5b62f.ogg",
       "kilde": "Kapitel 3 / halvsang.start.4",
       "lavet": "2026-11-09"
+    },
+    "16008c472fb919": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord rimer ikke på vind?",
+      "fil": "16008c472fb919.ogg",
+      "kilde": "Svar / ikkerim.vind.spoergsmaal",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "1601c3a93c91c0": {
       "figur": "aeseloere",
@@ -6497,6 +7345,14 @@
       "kilde": "Kapitel 2 / k2-spor.2",
       "lavet": "2026-10-31"
     },
+    "168be9fe66aeba": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord rimer på vind?",
+      "fil": "168be9fe66aeba.ogg",
+      "kilde": "Svar / rim.vind.spoergsmaal",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "168dc6f0566986": {
       "figur": "fortaeller",
       "tekst": "Æseløre flyver hen til Den Ufærdige. Han kigger ikke på dig.",
@@ -6533,6 +7389,22 @@
       "fil": "1693ce5d796421.ogg",
       "kilde": "Beskeder / bane.hjaelp.tekst",
       "lavet": "2026-11-03"
+    },
+    "16a0c89e5c020a": {
+      "figur": "aeseloere",
+      "tekst": "Ja. nul rimer ikke på nat. Slutningen lyder anderledes.",
+      "fil": "16a0c89e5c020a.ogg",
+      "kilde": "Svar / ikkerim.nat.nul",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "16a76f79388318": {
+      "figur": "fortaeller",
+      "tekst": "is ... is ... is",
+      "fil": "16a76f79388318.ogg",
+      "kilde": "Svar / ekko.is",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
     },
     "16ac4b0e2c7237": {
       "figur": "fortaeller",
@@ -6591,6 +7463,14 @@
       "fil": "16cfef557d6fbe.ogg",
       "kilde": "Svar / rim.sol.sæl",
       "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "16d204935ebe70": {
+      "figur": "aeseloere",
+      "tekst": "Ja. sand rimer ikke på sang. Slutningen lyder anderledes.",
+      "fil": "16d204935ebe70.ogg",
+      "kilde": "Svar / ikkerim.sang.sand",
+      "lavet": "2026-11-16",
       "model": "gemini-3.8-flash-lite-tts"
     },
     "16d2bbaa66d2d6": {
@@ -6702,6 +7582,14 @@
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-tts"
     },
+    "171a3c98faae68": {
+      "figur": "fortaeller",
+      "tekst": "hånd ... hånd ... hånd",
+      "fil": "171a3c98faae68.ogg",
+      "kilde": "Svar / ekko.hånd",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "171ab9120d37bf": {
       "figur": "aeseloere",
       "tekst": "Viskeskoven. Her plejer der at være farver. Og fugle. Og ord på skiltene.",
@@ -6715,6 +7603,22 @@
       "fil": "1722e425dd1a37.ogg",
       "kilde": "Kapitel 8 / k8-ankomst.8",
       "lavet": "2026-11-11"
+    },
+    "172a8dbe2b7e5c": {
+      "figur": "aeseloere",
+      "tekst": "nul rimer ikke på nat. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "172a8dbe2b7e5c.ogg",
+      "kilde": "Svar / rim.nat.nul",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "17309d8edc486e": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord rimer ikke på sang?",
+      "fil": "17309d8edc486e.ogg",
+      "kilde": "Svar / ikkerim.sang.spoergsmaal",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "1735d33394306e": {
       "figur": "fortaeller",
@@ -6765,6 +7669,14 @@
       "kilde": "Kapitel 7 / k7-bip.opgavetekst",
       "lavet": "2026-11-12"
     },
+    "175ede73086a41": {
+      "figur": "aeseloere",
+      "tekst": "Ja. snor rimer ikke på sne. Slutningen lyder anderledes.",
+      "fil": "175ede73086a41.ogg",
+      "kilde": "Svar / ikkerim.sne.snor",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1764dfc302df0f": {
       "figur": "aeseloere",
       "tekst": "pil rimer faktisk på bil. Sig dem højt. De lyder ens til sidst.",
@@ -6786,6 +7698,14 @@
       "fil": "176b17272b11fe.ogg",
       "kilde": "Kapitel 8 / k8-moede.4",
       "lavet": "2026-11-11"
+    },
+    "1776a33b18407b": {
+      "figur": "aeseloere",
+      "tekst": "mat rimer faktisk på nat. Sig dem højt. De lyder ens til sidst.",
+      "fil": "1776a33b18407b.ogg",
+      "kilde": "Svar / ikkerim.nat.mat",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
     },
     "1777486ab60d4d": {
       "figur": "fortaeller",
@@ -6954,12 +7874,28 @@
       "kilde": "Kapitel 3 / k3-tomordet-slut.3",
       "lavet": "2026-11-01"
     },
+    "18027e8a6f79f1": {
+      "figur": "aeseloere",
+      "tekst": "ske rimer faktisk på sne. Sig dem højt. De lyder ens til sidst.",
+      "fil": "18027e8a6f79f1.ogg",
+      "kilde": "Svar / ikkerim.sne.ske",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1803622d1606a7": {
       "figur": "portvagt",
       "tekst": "Goddag og velkommen og porten er lukket og jeg kan ikke åbne den og jeg kan ikke holde op med at snakke og det er ret trættende og nu har jeg glemt, hvad jeg ville sige.",
       "fil": "1803622d1606a7.ogg",
       "kilde": "Kapitel 2 / k2-portvagt.1",
       "lavet": "2026-10-31"
+    },
+    "180523b1533941": {
+      "figur": "aeseloere",
+      "tekst": "blind rimer faktisk på vind. Sig dem højt. De lyder ens til sidst.",
+      "fil": "180523b1533941.ogg",
+      "kilde": "Svar / ikkerim.vind.blind",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "1805b5340a0ab2": {
       "figur": "fortaeller",
@@ -6982,6 +7918,14 @@
       "fil": "18143bb11d8024.ogg",
       "kilde": "Titelkort / kapitel 3",
       "lavet": "2026-11-13"
+    },
+    "181a211dbca853": {
+      "figur": "aeseloere",
+      "tekst": "Ja. ræv rimer ikke på ring. Slutningen lyder anderledes.",
+      "fil": "181a211dbca853.ogg",
+      "kilde": "Svar / ikkerim.ring.ræv",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
     },
     "181bc56e278c59": {
       "figur": "fortaeller",
@@ -7012,6 +7956,14 @@
       "kilde": "Kapitel 2 / k2-moerke.3",
       "lavet": "2026-10-31"
     },
+    "1828a6d4476970": {
+      "figur": "aeseloere",
+      "tekst": "Ja. dyr rimer ikke på dag. Slutningen lyder anderledes.",
+      "fil": "1828a6d4476970.ogg",
+      "kilde": "Svar / ikkerim.dag.dyr",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
     "182c2ebb63149e": {
       "figur": "aeseloere",
       "tekst": "Æseløre gør opgaverne lidt sværere.",
@@ -7025,6 +7977,14 @@
       "fil": "18369895e1a050.ogg",
       "kilde": "Kapitel 3 / k3-vims.10",
       "lavet": "2026-11-01"
+    },
+    "183843bee61441": {
+      "figur": "aeseloere",
+      "tekst": "Ja. sky rimer ikke på sne. Slutningen lyder anderledes.",
+      "fil": "183843bee61441.ogg",
+      "kilde": "Svar / ikkerim.sne.sky",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
     },
     "1847599b4cfa3d": {
       "figur": "vims",
@@ -7090,6 +8050,14 @@
       "kilde": "Kampe / kamp.slaaet",
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-tts"
+    },
+    "1866fdafd155df": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord rimer på sky?",
+      "fil": "1866fdafd155df.ogg",
+      "kilde": "Svar / rim.sky.spoergsmaal",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "1867194b6d836f": {
       "figur": "fortaeller",
@@ -7264,6 +8232,22 @@
       "kilde": "Kapitel 2 / k2-spor.3",
       "lavet": "2026-10-31"
     },
+    "18f1267a7d474f": {
+      "figur": "aeseloere",
+      "tekst": "Ja. sand rimer ikke på sne. Slutningen lyder anderledes.",
+      "fil": "18f1267a7d474f.ogg",
+      "kilde": "Svar / ikkerim.sne.sand",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "18f2935a133500": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord rimer på fisk?",
+      "fil": "18f2935a133500.ogg",
+      "kilde": "Svar / rim.fisk.spoergsmaal",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
     "18f7e61f8506a0": {
       "figur": "aeseloere",
       "tekst": "Det hedder sidder, med to d'er. Og jo, du sidder fast.",
@@ -7285,12 +8269,36 @@
       "kilde": "Kapitel 6 / k6-krusedul.5",
       "lavet": "2026-11-10"
     },
+    "1911ad45ab3700": {
+      "figur": "fortaeller",
+      "tekst": "nat ... nat ... nat",
+      "fil": "1911ad45ab3700.ogg",
+      "kilde": "Svar / ekko.nat",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
     "191e4e2383adad": {
       "figur": "fortaeller",
       "tekst": "Skiltet er helt hvidt. Der har stået noget, men ordene er visket ud. Kun to ord er tilbage: Pas på.",
       "fil": "191e4e2383adad.ogg",
       "kilde": "Kapitel 3 / k3-skilt.1",
       "lavet": "2026-11-01"
+    },
+    "19273cd699ea82": {
+      "figur": "fortaeller",
+      "tekst": "sang ... sang ... sang",
+      "fil": "19273cd699ea82.ogg",
+      "kilde": "Svar / ekko.sang",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "19278219040c55": {
+      "figur": "aeseloere",
+      "tekst": "dyr rimer ikke på dag. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "19278219040c55.ogg",
+      "kilde": "Svar / rim.dag.dyr",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
     },
     "192b93ba3eb019": {
       "figur": "fortaeller",
@@ -7468,6 +8476,14 @@
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-lite-tts"
     },
+    "19b6b350fc0dc3": {
+      "figur": "aeseloere",
+      "tekst": "Ja. dør rimer ikke på dag. Slutningen lyder anderledes.",
+      "fil": "19b6b350fc0dc3.ogg",
+      "kilde": "Svar / ikkerim.dag.dør",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
     "19bc139077b714": {
       "figur": "aeseloere",
       "tekst": "Det var en dårlig joke. Jeg øver mig.",
@@ -7563,6 +8579,14 @@
       "fil": "19e54a1166aac0.ogg",
       "kilde": "Kapitel 5 / k5-sorter-slut.3",
       "lavet": "2026-11-09"
+    },
+    "19ed0c7c4fe459": {
+      "figur": "aeseloere",
+      "tekst": "igel rimer ikke på is. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "19ed0c7c4fe459.ogg",
+      "kilde": "Svar / rim.is.igel",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
     },
     "19f6fbcacac372": {
       "figur": "fortaeller",
@@ -7728,6 +8752,14 @@
       "kilde": "Kapitel 1 / k1-klatten.1",
       "lavet": "2026-10-31"
     },
+    "1a78b82a6773a0": {
+      "figur": "aeseloere",
+      "tekst": "næse rimer ikke på nat. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "1a78b82a6773a0.ogg",
+      "kilde": "Svar / rim.nat.næse",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1a797fee997ec6": {
       "figur": "vims",
       "tekst": "Her støver. Undskyld. Det er ikke mig, der støver. Tror jeg.",
@@ -7835,6 +8867,14 @@
       "fil": "1acafc2676927a.ogg",
       "kilde": "Beskeder / kamp.stumming.eksempel.mand",
       "lavet": "2026-11-13"
+    },
+    "1ad1480d087e33": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord rimer ikke på sky?",
+      "fil": "1ad1480d087e33.ogg",
+      "kilde": "Svar / ikkerim.sky.spoergsmaal",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "1ad6dd37fe604e": {
       "figur": "aeseloere",
@@ -7945,6 +8985,14 @@
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-lite-tts"
     },
+    "1b460d8ed93a1e": {
+      "figur": "aeseloere",
+      "tekst": "trappe rimer ikke på trold. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "1b460d8ed93a1e.ogg",
+      "kilde": "Svar / rim.trold.trappe",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1b461cd96c12ae": {
       "figur": "aeseloere",
       "tekst": "Eksempel: Rumskibet landede på en planet med to sole.",
@@ -8031,6 +9079,14 @@
       "fil": "1b8985aca1781b.ogg",
       "kilde": "Kapitel 6 / k6-kamp-slut.7",
       "lavet": "2026-11-10"
+    },
+    "1b8bd104d53dd6": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord rimer på nat?",
+      "fil": "1b8bd104d53dd6.ogg",
+      "kilde": "Svar / rim.nat.spoergsmaal",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
     },
     "1b9554e0cbe85b": {
       "figur": "fortaeller",
@@ -8184,6 +9240,14 @@
       "kilde": "Kapitel 1 / k1-logbog.k1-logbog-1.standard",
       "lavet": "2026-11-01"
     },
+    "1bed35c6fea7e3": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord rimer ikke på fisk?",
+      "fil": "1bed35c6fea7e3.ogg",
+      "kilde": "Svar / ikkerim.fisk.spoergsmaal",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1bf399971bac5a": {
       "figur": "klatten",
       "tekst": "Jeg sider ikke fast! Jeg hviler mig bare. Med vilje.",
@@ -8250,6 +9314,14 @@
       "kilde": "Kapitel 5 / k5-haeftet.opgavetekst",
       "lavet": "2026-11-12"
     },
+    "1c34d6b6cff6f0": {
+      "figur": "aeseloere",
+      "tekst": "skjold rimer faktisk på trold. Sig dem højt. De lyder ens til sidst.",
+      "fil": "1c34d6b6cff6f0.ogg",
+      "kilde": "Svar / ikkerim.trold.skjold",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1c35ac3b04d4e0": {
       "figur": "fortaeller",
       "tekst": "Hvad skete der med ordbogen?",
@@ -8308,6 +9380,14 @@
       "kilde": "Kapitel 8 / k8-ankomst.6",
       "lavet": "2026-11-11"
     },
+    "1c8063b8f7df46": {
+      "figur": "aeseloere",
+      "tekst": "dør rimer ikke på dag. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "1c8063b8f7df46.ogg",
+      "kilde": "Svar / rim.dag.dør",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1c86d6f06405ba": {
       "figur": "halvfugl",
       "tekst": "Har I fundet bladene? Jeg mangler stadig nogle. Kig efter noget hvidt, der glimter i græsset.",
@@ -8321,6 +9401,14 @@
       "fil": "1c892a45e8b7ea.ogg",
       "kilde": "Kapitel 2 / k2-torvet.3",
       "lavet": "2026-10-31"
+    },
+    "1c8ab254c4a17c": {
+      "figur": "aeseloere",
+      "tekst": "fugl rimer ikke på fisk. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "1c8ab254c4a17c.ogg",
+      "kilde": "Svar / rim.fisk.fugl",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
     },
     "1c8f41048883bb": {
       "figur": "raaber",
@@ -8408,6 +9496,14 @@
       "fil": "1cdfa91b080b48.ogg",
       "kilde": "Svar / ikkerim.kat.kage",
       "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "1ce17be237363b": {
+      "figur": "aeseloere",
+      "tekst": "Ja. ren rimer på sten. De lyder ens til sidst.",
+      "fil": "1ce17be237363b.ogg",
+      "kilde": "Svar / rim.sten.ren",
+      "lavet": "2026-11-16",
       "model": "gemini-3.8-flash-lite-tts"
     },
     "1ce6acb9cb17c9": {
@@ -8508,12 +9604,28 @@
       "kilde": "Beskeder / ogorm.fejl.stort",
       "lavet": "2026-11-04"
     },
+    "1d25fdb8d57083": {
+      "figur": "aeseloere",
+      "tekst": "Ja. sæk rimer ikke på sang. Slutningen lyder anderledes.",
+      "fil": "1d25fdb8d57083.ogg",
+      "kilde": "Svar / ikkerim.sang.sæk",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1d324d4c580ba3": {
       "figur": "fortaeller",
       "tekst": "Skuffen hvisker dit navn.",
       "fil": "1d324d4c580ba3.ogg",
       "kilde": "Stumme bogstaver / hvisker.saetning",
       "lavet": "2026-11-04"
+    },
+    "1d32ea3dc418da": {
+      "figur": "aeseloere",
+      "tekst": "Ja. fod rimer ikke på fisk. Slutningen lyder anderledes.",
+      "fil": "1d32ea3dc418da.ogg",
+      "kilde": "Svar / ikkerim.fisk.fod",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
     },
     "1d417cff4d2ad5": {
       "figur": "fortaeller",
@@ -8529,6 +9641,30 @@
       "kilde": "Klattens tekster / k15.1",
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-tts"
+    },
+    "1d4a666dbf1e07": {
+      "figur": "aeseloere",
+      "tekst": "stav rimer ikke på sten. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "1d4a666dbf1e07.ogg",
+      "kilde": "Svar / rim.sten.stav",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "1d4c37009d19a2": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord rimer på hånd?",
+      "fil": "1d4c37009d19a2.ogg",
+      "kilde": "Svar / rim.hånd.spoergsmaal",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "1d5e2f57b0d1b3": {
+      "figur": "aeseloere",
+      "tekst": "bold rimer faktisk på trold. Sig dem højt. De lyder ens til sidst.",
+      "fil": "1d5e2f57b0d1b3.ogg",
+      "kilde": "Svar / ikkerim.trold.bold",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "1d62a93b109021": {
       "figur": "fortaeller",
@@ -8558,6 +9694,14 @@
       "fil": "1d7c0631b28f17.ogg",
       "kilde": "Svar / synonym.nervoes.spoergsmaal",
       "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "1d85dad789fbc1": {
+      "figur": "aeseloere",
+      "tekst": "Ja. fugl rimer ikke på fisk. Slutningen lyder anderledes.",
+      "fil": "1d85dad789fbc1.ogg",
+      "kilde": "Svar / ikkerim.fisk.fugl",
+      "lavet": "2026-11-16",
       "model": "gemini-3.8-flash-tts"
     },
     "1d871bfe360d63": {
@@ -8760,12 +9904,28 @@
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-lite-tts"
     },
+    "1e46dbde19a4ee": {
+      "figur": "aeseloere",
+      "tekst": "frisk rimer faktisk på fisk. Sig dem højt. De lyder ens til sidst.",
+      "fil": "1e46dbde19a4ee.ogg",
+      "kilde": "Svar / ikkerim.fisk.frisk",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1e50b7dfc2959f": {
       "figur": "fodnote",
       "tekst": "Et, to, tre. Alt er på plads. ¹ Jeg er rørt. ² Det står ingen steder, men det er jeg.",
       "fil": "1e50b7dfc2959f.ogg",
       "kilde": "Kapitel 5 / fodnotetal.faerdig.1",
       "lavet": "2026-11-12"
+    },
+    "1e50c858067cb9": {
+      "figur": "aeseloere",
+      "tekst": "Ja. hat rimer på nat. De lyder ens til sidst.",
+      "fil": "1e50c858067cb9.ogg",
+      "kilde": "Svar / rim.nat.hat",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
     },
     "1e51a0b036eb6d": {
       "figur": "skyggen",
@@ -8825,6 +9985,14 @@
       "kilde": "Minder / minde.skaar5a.3",
       "lavet": "2026-11-13"
     },
+    "1e7115b9b11653": {
+      "figur": "aeseloere",
+      "tekst": "Ja. te rimer på sne. De lyder ens til sidst.",
+      "fil": "1e7115b9b11653.ogg",
+      "kilde": "Svar / rim.sne.te",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1e7da31df1ee3c": {
       "figur": "fortaeller",
       "tekst": "Døren knirkede langsomt op, selvom der ikke var nogen. En kold vind blæste ind i rummet.",
@@ -8847,6 +10015,14 @@
       "kilde": "Klattens tekster / k04",
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-tts"
+    },
+    "1e9045e12d58c4": {
+      "figur": "aeseloere",
+      "tekst": "Ja. stol rimer ikke på sten. Slutningen lyder anderledes.",
+      "fil": "1e9045e12d58c4.ogg",
+      "kilde": "Svar / ikkerim.sten.stol",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "1e92a7953bcbb7": {
       "figur": "aeseloere",
@@ -8984,6 +10160,14 @@
       "fil": "1ec3235e9de885.ogg",
       "kilde": "Kapitel 6 / k6-twist.6",
       "lavet": "2026-11-10"
+    },
+    "1ec4a96f0e30c4": {
+      "figur": "aeseloere",
+      "tekst": "Ja. lang rimer på sang. De lyder ens til sidst.",
+      "fil": "1ec4a96f0e30c4.ogg",
+      "kilde": "Svar / rim.sang.lang",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "1ecaaad7f3e14d": {
       "figur": "fortaeller",
@@ -9133,6 +10317,14 @@
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-lite-tts"
     },
+    "1f6bb786f3ccb0": {
+      "figur": "aeseloere",
+      "tekst": "Ja. igel rimer ikke på is. Slutningen lyder anderledes.",
+      "fil": "1f6bb786f3ccb0.ogg",
+      "kilde": "Svar / ikkerim.is.igel",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1f6d846bf38cb1": {
       "figur": "halvfugl",
       "tekst": "Tralala, hele sangen! Kommer I forbi igen, synger jeg den en gang til.",
@@ -9209,6 +10401,14 @@
       "fil": "1f9c0c37d8cc65.ogg",
       "kilde": "Opgaver / ogorm.pas.paa",
       "lavet": "2026-11-04"
+    },
+    "1f9df81817586e": {
+      "figur": "aeseloere",
+      "tekst": "Ja. gris rimer på is. De lyder ens til sidst.",
+      "fil": "1f9df81817586e.ogg",
+      "kilde": "Svar / rim.is.gris",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
     },
     "1fa10c51dfe568": {
       "figur": "aeseloere",
@@ -9341,6 +10541,14 @@
       "kilde": "Kapitel 1 / k1-over-floden.opgavetekst",
       "lavet": "2026-11-03"
     },
+    "1feaedd6496d02": {
+      "figur": "aeseloere",
+      "tekst": "Ja. ånd rimer på hånd. De lyder ens til sidst.",
+      "fil": "1feaedd6496d02.ogg",
+      "kilde": "Svar / rim.hånd.ånd",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1fee86ce11b478": {
       "figur": "klatten",
       "tekst": "Det er chefens kruseduller! Han sender dem, når nogen er ved at blive færdig med noget.",
@@ -9383,6 +10591,14 @@
       "kilde": "Kapitel 8 / k8-holm.7",
       "lavet": "2026-11-11"
     },
+    "1ffb8f948614ec": {
+      "figur": "fortaeller",
+      "tekst": "trold ... trold ... trold",
+      "fil": "1ffb8f948614ec.ogg",
+      "kilde": "Svar / ekko.trold",
+      "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1fff5fb1f46634": {
       "figur": "fortaeller",
       "tekst": "Hjælp prinsessen med at finde det, et eventyr skal have.",
@@ -9393,5 +10609,5 @@
   },
   "model": "gemini-3.8-flash-tts",
   "i_alt": 2155,
-  "mangler": 864
+  "mangler": 712
 }
