@@ -95,7 +95,7 @@ async function kaemp(page: Page) {
     await opgave.getByRole('button', { name: 'Slå!', exact: true }).click();
     if (animationer++ > 0) {
       const spring = kamp.getByRole('button', { name: 'Spring over' });
-      if (await spring.isVisible()) await spring.click().catch(() => undefined);
+      if (await spring.isVisible()) await spring.click({ timeout: 2_000 }).catch(() => undefined);
     }
   }
   throw new Error('Kampen i Ekkokløften blev ikke vundet');

@@ -150,7 +150,7 @@ async function kaemp(page: Page, navn: string, objekt: string, medVims = false) 
     // Første animation spilles helt. Bagefter springes de over, så testen ikke tager for lang tid.
     if (animationer++ > 0) {
       const spring = kamp.getByRole('button', { name: 'Spring over' });
-      if (await spring.isVisible()) await spring.click().catch(() => undefined);
+      if (await spring.isVisible()) await spring.click({ timeout: 2_000 }).catch(() => undefined);
     }
   }
   throw new Error(`Kampen ${navn} blev ikke vundet`);
