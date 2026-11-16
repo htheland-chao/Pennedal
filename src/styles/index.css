@@ -1,0 +1,17 @@
+/*
+ * Spillets udseende (delt op 16. november 2026, så ingen fil er over 500 linjer).
+ * Filerne er klippet i samme rækkefølge, som reglerne stod i før, og RÆKKEFØLGEN BETYDER NOGET:
+ * en senere regel vinder over en tidligere med samme vægt. Ny CSS skrives i den fil, der passer,
+ * og regler, der skal vinde over alt andet, kommer sidst.
+ */
+@import './01-grundlag.css';
+@import './02-opgaver-og-mobil.css';
+@import './03-pixelstil.css';
+@import './04-tasken-og-intro.css';
+@import './05-minder-og-kamp.css';
+@import './06-ogorm-dialog-og-kampbokse.css';
+@import './07-kampeffekter.css';
+@import './08-kampslut-portal-og-pixelrammer.css';
+@import './09-fyr-menu-og-titelkort.css';
+@import './10-blaekdybet-og-justeringer.css';
+@import './11-trailer-overgange-og-editor.css';

@@ -1,0 +1,462 @@
+/* Kroppen med ordene står stille, så teksten er let at læse. Hovedet nikker, og halen logrer. */
+.orm-stykke {
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+}
+.orm-stykke.delt {
+  animation: orm-delt 0.5s steps(4) both;
+}
+.orm-hoved,
+.orm-hale {
+  image-rendering: pixelated;
+  height: 3rem;
+  width: auto;
+  flex: none;
+}
+.orm-hale {
+  margin-right: -0.4rem;
+  transform-origin: right center;
+  animation: orm-logr 0.9s steps(2) infinite;
+}
+@keyframes orm-logr {
+  0%, 100% { transform: rotate(-8deg); }
+  50% { transform: rotate(8deg); }
+}
+.orm-hoved {
+  margin-left: -0.4rem;
+  animation: orm-nik 1.2s steps(2) infinite;
+}
+.orm-krop {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.15rem 0.35rem;
+  padding: 0.35rem 0.75rem;
+  background: repeating-linear-gradient(90deg, #a8d696 0 1.6rem, #98c985 1.6rem 1.8rem);
+  border: 3px solid #3d6b34;
+  border-radius: 1.6rem;
+  color: #1b1b24;
+  font-size: 1.15rem;
+  line-height: 1.6;
+}
+.orm-ord.nyt-stort {
+  background: #ffe9a8;
+  border-radius: 3px;
+  padding: 0 0.15rem;
+  animation: orm-glimt 0.6s steps(3) 3;
+}
+.orm-punktum {
+  font-weight: 700;
+  margin-left: -0.25rem;
+}
+.orm-led {
+  position: relative;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  border: 3px dashed #3d6b34;
+  border-radius: 999px;
+  background: #6fae5b;
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+.orm-led:hover:not(:disabled),
+.orm-led:focus-visible {
+  background: #f0c45a;
+  color: #1b1b24;
+  outline: 3px solid var(--fokus, #1b1b24);
+}
+.orm-saks {
+  position: absolute;
+  top: -1.1rem;
+  left: 50%;
+  width: 1.4rem;
+  height: 1rem;
+  transform: translateX(-50%);
+  opacity: 0;
+  background:
+    radial-gradient(circle at 25% 75%, transparent 0 0.18rem, #1b1b24 0.19rem 0.3rem, transparent 0.31rem),
+    radial-gradient(circle at 75% 75%, transparent 0 0.18rem, #1b1b24 0.19rem 0.3rem, transparent 0.31rem),
+    linear-gradient(60deg, transparent 45%, #8a8f9e 46% 54%, transparent 55%),
+    linear-gradient(-60deg, transparent 45%, #8a8f9e 46% 54%, transparent 55%);
+}
+.orm-led:hover:not(:disabled) .orm-saks,
+.orm-led:focus-visible .orm-saks {
+  opacity: 1;
+  animation: orm-snip 0.5s steps(2) infinite;
+}
+.orm-led.av {
+  background: var(--roed);
+  animation: orm-av 0.4s steps(2) 2;
+}
+.ogorm-ny {
+  font-weight: 700;
+}
+/* Og-ormen kryber væk efter sidste klip (14. november 2026). Den rigtige tekst står tilbage i facit. */
+.orm-bane.kryber .orm-stykke {
+  animation: orm-vaek 1.8s steps(9) forwards;
+  pointer-events: none;
+}
+.orm-bane.kryber .orm-hale {
+  animation-duration: 0.3s;
+}
+.orm-bane.kryber .orm-hoved {
+  animation: orm-nik 0.3s steps(2) infinite;
+}
+@keyframes orm-vaek {
+  0% { transform: none; opacity: 1; }
+  20% { transform: translate(-0.4rem, -2px) scaleX(0.94); opacity: 1; }
+  40% { transform: translate(1.2rem, 0) scaleX(1.04); opacity: 1; }
+  60% { transform: translate(2.4rem, -2px) scaleX(0.94); opacity: 0.85; }
+  80% { transform: translate(4rem, 0) scaleX(1.04); opacity: 0.5; }
+  100% { transform: translate(6rem, 0); opacity: 0; visibility: hidden; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .orm-bane.kryber .orm-stykke,
+  .orm-bane.kryber .orm-hale,
+  .orm-bane.kryber .orm-hoved { animation: none; }
+}
+@keyframes orm-kryb {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+@keyframes orm-delt {
+  from { transform: scale(0.6) rotate(-6deg); opacity: 0.4; }
+  to { transform: none; opacity: 1; }
+}
+@keyframes orm-nik {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
+}
+@keyframes orm-glimt {
+  50% { background: #f0c45a; }
+}
+@keyframes orm-snip {
+  50% { transform: translateX(-50%) scaleX(0.75); }
+}
+@keyframes orm-av {
+  0% { transform: translateX(-4px); }
+  100% { transform: translateX(4px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .orm-stykke, .orm-stykke.delt, .orm-hoved, .orm-hale, .orm-ord.nyt-stort, .orm-led.av, .orm-saks { animation: none !important; }
+}
+
+/* ============================================================
+   Fuld skærm og ingen rammer (Henrik, 8. november 2026).
+   Spillet fylder skærmen. Opgaven står i et lille kort, taske og menu i hjørnet,
+   dialogen glider ind nederst over spillet, og menuen glider ind fra højre.
+   ============================================================ */
+.verden {
+  position: fixed;
+  inset: 0;
+  display: block;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #0b0d18;
+}
+.verden .spilflade-ramme {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  aspect-ratio: auto;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: #0b0d18;
+}
+.verden > .panel.hud {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 5;
+  width: min(21rem, calc(100vw - 1.5rem));
+  max-height: calc(100dvh - 6rem);
+  overflow-y: auto;
+  gap: 0.35rem;
+  padding: 0.6rem 0.8rem;
+  border: 0;
+  border-image: none;
+  border-radius: 8px;
+  background: rgb(14 16 30 / 0.72);
+  color: #f4efe0;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+.verden > .panel.hud .sted-navn,
+.verden > .panel.hud .lille-tekst {
+  color: #d9d2bf;
+}
+.verden > .panel.hud .naeste-overskrift {
+  font-size: 0.85rem;
+  color: #f0c45a;
+}
+.verden > .panel.hud .naeste-tekst {
+  font-size: 1.05rem;
+  margin: 0;
+}
+.verden > .panel.hud .lille-tekst:empty {
+  display: none;
+}
+.hud-handling {
+  position: fixed;
+  left: 50%;
+  bottom: 1.25rem;
+  z-index: 6;
+  transform: translateX(-50%);
+  min-width: 12rem;
+  font-size: 1.1rem;
+  animation: hud-ind 0.35s steps(4) both, hud-pulser 1.6s ease-in-out 0.35s infinite;
+}
+.hud-knapper {
+  position: fixed;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 6;
+  display: flex;
+  gap: 0.5rem;
+}
+.hud-knapper .knap {
+  min-height: 2.75rem;
+  padding: 0.35rem 0.8rem;
+}
+@keyframes hud-ind {
+  from { transform: translate(-50%, 140%); opacity: 0; }
+  to { transform: translateX(-50%); opacity: 1; }
+}
+@keyframes hud-pulser {
+  0%, 100% { box-shadow: 0 0 0 0 rgb(240 196 90 / 0.7); }
+  50% { box-shadow: 0 0 0 8px rgb(240 196 90 / 0); }
+}
+.verden .pladsholder-maerke {
+  left: auto;
+  right: 0.75rem;
+  bottom: 0.75rem;
+}
+
+/* Vinduer: et rent kort uden træramme. */
+.modal {
+  border: 3px solid var(--blaek);
+  border-image: none;
+  border-radius: 10px;
+  background: var(--papir);
+  box-shadow: 6px 6px 0 rgb(0 0 0 / 0.35);
+}
+
+/* Dialogen: en tekstboks nederst over spillet. Man kan se verden bag den. */
+dialog.modal.dialogboks {
+  position: fixed;
+  inset: auto 0 1rem 0;
+  margin: 0 auto;
+  width: min(1050px, calc(100vw - 1.5rem));
+  max-height: 46dvh;
+  overflow-y: auto;
+  border: 3px solid #0b0d18;
+  border-radius: 10px;
+  background: rgb(14 16 30 / 0.9);
+  color: #f4efe0;
+  box-shadow: 0 0 0 2px rgb(240 196 90 / 0.6);
+  animation: dialog-ind 0.3s steps(4) both;
+}
+dialog.modal.dialogboks::backdrop {
+  background: transparent;
+}
+dialog.modal.dialogboks .taler-navn {
+  color: #f0c45a;
+}
+dialog.modal.dialogboks .fortaeller {
+  color: #e6dfcb;
+}
+@keyframes dialog-ind {
+  from { transform: translateY(120%); }
+  to { transform: none; }
+}
+
+/* Menuen glider ind fra højre. */
+dialog.modal.menu-skuffe {
+  position: fixed;
+  inset: 0 0 0 auto;
+  margin: 0;
+  height: 100dvh;
+  max-height: 100dvh;
+  width: min(22rem, 92vw);
+  border: 0;
+  border-left: 3px solid var(--blaek);
+  border-radius: 0;
+  animation: skuffe-ind 0.3s steps(5) both;
+}
+dialog.modal.menu-skuffe::backdrop {
+  background: rgb(10 14 30 / 0.35);
+}
+@keyframes skuffe-ind {
+  from { transform: translateX(100%); }
+  to { transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hud-handling, dialog.modal.dialogboks, dialog.modal.menu-skuffe { animation: none; }
+}
+.verden > .panel.hud .laes-op,
+.verden > .panel.hud .laes-op-ikon {
+  align-self: flex-start;
+  width: auto;
+}
+/* Fokus på spillet skal kunne ses med tastatur, men ikke ligne en ramme. */
+.verden .spilflade:focus-visible {
+  outline: 2px solid rgb(240 196 90 / 0.45);
+  outline-offset: -2px;
+}
+
+/* ============================================================
+   Kampen i fuld skærm (Henrik, 8. november 2026): som Pokémon, Final Fantasy og Expedition 33.
+   Lidt tekst, store figurer, og hvert slag og angreb er en animation.
+   Effekterne bruger cqw/cqh, så de følger scenens størrelse.
+   ============================================================ */
+dialog.modal.kampscene {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: #05060c;
+  color: #f4efe0;
+  overflow: hidden;
+}
+dialog.modal.kampscene::backdrop {
+  background: #05060c;
+}
+.kamp-skaerm {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.kampscene .kamp-felt {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: min(100vw, calc(100dvh * 16 / 9));
+  height: min(100dvh, calc(100vw * 9 / 16));
+  border: 0;
+  border-radius: 0;
+  container-type: size;
+  overflow: hidden;
+}
+.kampscene .kamp-felt.ryst {
+  animation: kamp-skaermryst 0.35s steps(3) 1;
+}
+@keyframes kamp-skaermryst {
+  0% { transform: translate(-1cqw, 0.6cqh); }
+  50% { transform: translate(1cqw, -0.6cqh); }
+  100% { transform: none; }
+}
+.kampscene .kamp-fjende {
+  animation: kamp-svaev 2.6s ease-in-out infinite;
+}
+.kampscene .kamp-fjende.ramt {
+  animation: kamp-ramt-fjende 0.3s steps(2) 3;
+}
+.kampscene .kamp-fjende.lammet {
+  filter: grayscale(1) brightness(1.2);
+  animation: none;
+}
+.kampscene .kamp-medlem {
+  animation: kamp-aande 2.2s ease-in-out infinite;
+}
+.kampscene .kamp-medlem.ramt {
+  animation: kamp-ramt-hold 0.3s steps(2) 3;
+}
+.kampscene .kamp-medlem.jubler {
+  animation: kamp-jubel 0.6s steps(3) infinite;
+}
+@keyframes kamp-svaev {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-1.2cqh); }
+}
+@keyframes kamp-aande {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(0.97); }
+}
+@keyframes kamp-jubel {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3cqh); }
+}
+
+/* Navn, liv, svagt punkt og næste angreb over hvert væsen. */
+.kamp-etiket {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  pointer-events: none;
+  text-shadow: 0 2px 0 #000, 0 0 4px #000;
+  font-size: clamp(0.7rem, 1.2cqw, 1rem);
+  white-space: nowrap;
+}
+.kamp-etiket .kamp-navn {
+  font-weight: 700;
+}
+.kamp-etiket .kamp-maaler {
+  width: clamp(4rem, 9cqw, 8rem);
+  height: 0.55rem;
+  border: 2px solid #0b0d18;
+  background: #3a2a20;
+}
+.kamp-svag {
+  color: #f0c45a;
+  font-size: 0.85em;
+}
+.kamp-varsel {
+  margin-top: 0.15rem;
+  padding: 0.1rem 0.45rem;
+  border-radius: 999px;
+  background: #b3342b;
+  color: #fff;
+  font-weight: 700;
+  text-shadow: none;
+  animation: kamp-varsel 1.2s ease-in-out infinite;
+}
+.kamp-varsel.alle {
+  background: #5b2a7a;
+}
+/* Et varslet stort angreb (13. november 2026): større og med guldkant, så eleven ser, at Forsvar er et godt valg. */
+.kamp-varsel.stort {
+  background: #8a1f2a;
+  box-shadow: 0 0 0 2px #f0c45a;
+}
+.kamp-menu .knap-fremhaev {
+  box-shadow: 0 0 0 3px #f0c45a;
+}
+@keyframes kamp-varsel {
+  50% { transform: scale(1.08); }
+}
+.kamp-sigte {
+  position: absolute;
+  width: 7cqw;
+  height: 7cqw;
+  transform: translate(-50%, -50%);
+  border: 3px dashed #ff5a4a;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: kamp-sigte 3s linear infinite;
+  box-shadow: 0 0 1cqw rgb(255 90 74 / 0.6);
+}
+@keyframes kamp-sigte {
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+.kampscene .kamp-markoer {
+  animation: kamp-peg 0.6s steps(2) infinite;
+  filter: drop-shadow(0 0 0.5cqw #f0c45a);
+}
