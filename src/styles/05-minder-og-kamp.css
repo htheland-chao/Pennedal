@@ -1,0 +1,467 @@
+/* Minder (tilbageblik): lyst, kornet og varmt. Se src/ui/Tilbageblik.tsx. */
+.tilbageblik {
+  width: min(96vw, 900px);
+  max-height: 96vh;
+  background: #f3e7cc;
+  color: #3b2f24;
+  border: 0;
+  border-radius: 8px;
+  padding: 16px;
+  overflow: auto;
+}
+.tilbageblik::backdrop {
+  background: #fff6e2;
+  animation: minde-lys 1.2s ease-out;
+}
+.tilbageblik.mild::backdrop {
+  animation-duration: 2.5s;
+}
+@keyframes minde-lys {
+  from { background: #ffffff; }
+}
+.tilbageblik-billede {
+  position: relative;
+  width: min(100%, calc((96vh - 260px) * 16 / 9));
+  min-width: min(100%, 320px);
+  aspect-ratio: 16 / 9;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 6px;
+}
+.tilbageblik-billede img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+  filter: sepia(0.35) saturate(0.8) brightness(1.05);
+  animation: minde-svaev 14s ease-in-out infinite alternate;
+}
+.tilbageblik-korn {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-size: 100% 100%;
+  image-rendering: pixelated;
+  animation: minde-korn 0.5s steps(1) infinite;
+  box-shadow: inset 0 0 60px 20px rgba(255, 246, 226, 0.9);
+}
+.tilbageblik-tekst h2 {
+  margin: 12px 0 6px;
+  font-size: 1.1rem;
+}
+.tilbageblik-tekst p {
+  margin: 6px 0;
+  font-style: italic;
+  animation: minde-tekst 1.2s ease-out both;
+}
+@keyframes minde-svaev {
+  from { transform: scale(1.05); }
+  to { transform: scale(1.08) translate(-1%, -1%); }
+}
+@keyframes minde-korn {
+  0% { transform: translate(0, 0); }
+  33% { transform: translate(-1%, 1%) scaleX(-1); }
+  66% { transform: translate(1%, 0) scaleY(-1); }
+}
+@keyframes minde-tekst {
+  from { opacity: 0; transform: translateY(4px); }
+}
+.tilbageblik .knap:focus-visible {
+  outline: 3px solid #6e5440;
+  outline-offset: 2px;
+}
+.minder-liste {
+  list-style: none;
+  padding: 0;
+}
+.minder-liste li {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .tilbageblik::backdrop,
+  .tilbageblik-billede img,
+  .tilbageblik-korn,
+  .tilbageblik-tekst p {
+    animation: none;
+  }
+}
+
+/* Rolige kampe (src/ui/KampVindue.tsx). */
+.kamp-ro {
+  display: flex;
+  gap: 6px;
+}
+.kamp-blaek {
+  width: 22px;
+  height: 12px;
+  border-radius: 6px;
+  background: #1a1e3c;
+  border: 2px solid var(--blaek);
+  transition: background 0.6s ease;
+}
+.kamp-blaek.rolig {
+  background: #dfe8f6;
+}
+.kamp-scene {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin: 8px 0;
+}
+.kamp-vaesen .pixel-portraet {
+  width: 96px;
+  height: 96px;
+  image-rendering: pixelated;
+}
+.kamp-vaesen {
+  animation: kamp-vugge 3s ease-in-out infinite;
+  transition: opacity 0.8s ease;
+}
+.kamp-vaesen[data-uro] {
+  animation: kamp-uro 0.5s ease-in-out 2, kamp-vugge 3s ease-in-out 1s infinite;
+}
+.kamp-vaesen.rolig {
+  animation: none;
+}
+@keyframes kamp-vugge {
+  50% { transform: translateY(-3px); }
+}
+@keyframes kamp-uro {
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+.kamp-angreb p {
+  margin: 4px 0;
+}
+.kamp-saetning {
+  font-size: 1.15em;
+}
+.kamp-saetning mark {
+  background: var(--guld-lys);
+  padding: 0 4px;
+  border-radius: 3px;
+  letter-spacing: 0.06em;
+}
+.kamp-valg,
+.dialog-valg {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  border: 0;
+  padding: 0;
+  margin: 8px 0;
+}
+.kamp-valg legend,
+.dialog-valg legend {
+  width: 100%;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+.kamp-muligheder {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 8px 0;
+}
+.kamp-mulighed {
+  min-width: 7em;
+  font-size: 1.1em;
+}
+.kamp-mulighed:disabled {
+  opacity: 0.45;
+  text-decoration: line-through;
+}
+.kamp-mulighed.rigtig:disabled {
+  opacity: 1;
+  text-decoration: none;
+  outline: 3px solid var(--groen);
+}
+@media (prefers-reduced-motion: reduce) {
+  .kamp-vaesen,
+  .kamp-vaesen[data-uro] {
+    animation: none;
+  }
+}
+
+/* Lille højttalerikon ved navnet i dialogen (Henrik, 1. november 2026: knapperne var for store). */
+.laes-op-ikon {
+  margin-left: 0.5rem;
+  min-width: 1.75rem;
+  min-height: 1.75rem;
+  padding: 0 0.25rem;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.85rem;
+  line-height: 1;
+  vertical-align: middle;
+  opacity: 0.55;
+  transition: opacity 0.15s;
+}
+.laes-op-ikon:hover,
+.laes-op-ikon:focus-visible,
+.laes-op-ikon[aria-pressed='true'] {
+  opacity: 1;
+}
+.laes-op-ikon[aria-pressed='true'] {
+  border-color: var(--blaek);
+  background: #fbf7ec;
+}
+.laes-op-ikon:focus-visible {
+  outline: 3px solid var(--fokus);
+  outline-offset: 2px;
+}
+
+/* Avatardesigneren viser den samme pixelfigur som i spillet, forstørret med skarpe pixel. */
+.avatar-pixel {
+  image-rendering: pixelated;
+  width: 176px;
+  height: 208px;
+}
+
+/* Turbaseret kamp (3. november 2026): scene øverst, tre vinduer nederst som i gamle rollespil, men i Pennedals egne farver. */
+.kampscene.modal-bred {
+  width: min(1100px, 98vw);
+}
+.kamp-felt {
+  position: relative;
+  width: min(100%, calc(34vh * 16 / 9));
+  aspect-ratio: 16 / 9;
+  margin: 0 auto 0.5rem;
+  overflow: hidden;
+  border: 3px solid var(--blaek);
+  border-radius: 6px;
+  background: #c9dcf2;
+  image-rendering: pixelated;
+}
+.kamp-lag {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+}
+.kamp-sprite {
+  position: absolute;
+  height: auto;
+  image-rendering: pixelated;
+  cursor: default;
+}
+.kamp-fjende {
+  animation: kamp-vugge 3s ease-in-out infinite;
+}
+.kamp-fjende.ramt {
+  animation: kamp-ramt-fjende 0.45s steps(2) 2;
+}
+.kamp-fjende.rolig {
+  animation: kamp-oploes 1.2s ease-in forwards;
+}
+.kamp-fjende.borte {
+  animation: none;
+  opacity: 0;
+}
+.kamp-medlem.ramt {
+  animation: kamp-ramt-hold 0.4s steps(2) 2;
+}
+.kampscene.mild .kamp-medlem.ramt {
+  animation: kamp-uro 0.4s ease-in-out 1;
+}
+.kamp-medlem.faldet {
+  filter: grayscale(1) brightness(0.7);
+  transform: rotate(-90deg) translateX(-30%);
+}
+.kamp-markoer {
+  animation: kamp-peg 0.8s steps(2) infinite;
+}
+@keyframes kamp-ramt-fjende {
+  0% { transform: translateX(-3px); filter: brightness(2.2); }
+  100% { transform: translateX(3px); filter: none; }
+}
+@keyframes kamp-ramt-hold {
+  0% { transform: translateX(3px); filter: sepia(1) saturate(6) hue-rotate(-40deg); }
+  100% { transform: translateX(-3px); filter: none; }
+}
+@keyframes kamp-oploes {
+  0% { opacity: 1; filter: none; }
+  60% { opacity: 0.6; filter: brightness(0.2) blur(1px); }
+  100% { opacity: 0; transform: translateY(12%) scaleY(0.4); filter: brightness(0) blur(2px); }
+}
+@keyframes kamp-peg {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-3px); }
+}
+.kamp-vinduer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: 0.5rem;
+}
+.kamp-vindue {
+  background: var(--blaek);
+  color: var(--papir);
+  border: 3px solid var(--papir-moerk);
+  outline: 2px solid var(--blaek);
+  border-radius: 6px;
+  padding: 0.4rem 0.6rem;
+}
+.kamp-vindue ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.kamp-vindue li {
+  margin-bottom: 0.4rem;
+}
+.kamp-vindue .lille-tekst {
+  color: var(--papir-moerk);
+  display: block;
+}
+.kamp-vindue li.rolig,
+.kamp-vindue li.faldet {
+  opacity: 0.55;
+}
+.kamp-navn {
+  display: block;
+  font-weight: 700;
+}
+.kamp-maaler {
+  display: block;
+  height: 0.5rem;
+  background: #3a2a20;
+  border: 1px solid var(--papir-moerk);
+  margin: 0.15rem 0;
+}
+.kamp-maaler > span {
+  display: block;
+  height: 100%;
+  background: var(--roed);
+  transition: width 0.4s steps(4);
+}
+.kamp-maaler.liv > span {
+  background: var(--groen);
+}
+.kamp-midte {
+  background: var(--papir);
+  color: var(--tekst);
+}
+.kamp-midte .lille-tekst {
+  color: var(--tekst-svag);
+}
+.kamp-menu {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.35rem;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+.kamp-menu legend {
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+.kamp-menu .knap {
+  text-align: left;
+  min-height: 2.75rem;
+  padding: 0.3rem 0.6rem;
+}
+.kamp-menu .lille-tekst {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+.kamp-vindue li {
+  margin-bottom: 0.25rem;
+}
+.kampscene > .lille-tekst {
+  margin: 0.3rem 0 0;
+}
+.kamp-runde ul {
+  padding-left: 1.1rem;
+  list-style: disc;
+}
+.kamp-varsler {
+  margin-top: 0.5rem;
+  padding: 0.4rem 0.75rem;
+  border-left: 4px solid var(--roed);
+  background: var(--papir-moerk);
+}
+.kamp-varsler ul {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+.kamp-opgave .kamp-saetning {
+  margin: 0.25rem 0;
+}
+@media (max-width: 760px) {
+  .kamp-vinduer {
+    grid-template-columns: 1fr;
+  }
+  .kamp-midte {
+    order: -1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .kamp-fjender,
+  .kamp-fjende,
+  .kamp-fjende.ramt,
+  .kamp-medlem.ramt,
+  .kamp-markoer {
+    animation: none;
+  }
+  .kamp-fjende.rolig {
+    animation: none;
+    opacity: 0;
+  }
+}
+
+/* Kort besked i hjørnet (8. november 2026). Blokerer ikke spillet. */
+.kvittering {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 60;
+  max-width: min(26rem, calc(100vw - 2rem));
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background: var(--papir);
+  color: var(--tekst);
+  border: 3px solid var(--blaek);
+  border-radius: 6px;
+  box-shadow: 4px 4px 0 var(--blaek);
+  animation: kvittering-ind 0.5s steps(5) both;
+}
+.kvittering p {
+  margin: 0;
+}
+.kvittering-glimt {
+  flex: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: radial-gradient(circle, #ffe9a8 0 30%, #f0c45a 31% 55%, transparent 56%);
+  animation: kvittering-glimt 1.2s steps(4) infinite;
+}
+@keyframes kvittering-ind {
+  from { transform: translateY(120%); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+@keyframes kvittering-glimt {
+  0%, 100% { transform: scale(0.8) rotate(0deg); }
+  50% { transform: scale(1.15) rotate(45deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .kvittering, .kvittering-glimt { animation: none; }
+}
+
+/* Og-ormen: klip ormen i stykker (8. november 2026). */
+.orm-bane {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  align-items: center;
+  margin: 1rem 0;
+}

@@ -2,7 +2,7 @@
  * Kampens animationer (Henrik, 8. november 2026): hvert slag og hvert angreb skal se fedt ud.
  * Denne fil oversætter det, der sker i kampen (kampmotorens hændelser), til trin, der spilles ét ad gangen:
  * hvilke effekter der vises hvor, hvilken kort linje der står på skærmen, og hvordan livet ændrer sig.
- * Ren logik uden React, så rækkefølgen kan testes. Selve udseendet står i styles.css (.fx-*).
+ * Ren logik uden React, så rækkefølgen kan testes. Selve udseendet står i src/styles/07-kampeffekter.css (.fx-*).
  */
 import { KRUMMER_LIV, type AngrebId, type Haendelse, type KampTingId, type MedlemId } from '../mechanics/kampmotor';
 

@@ -1,0 +1,472 @@
+/* Opgaver */
+.opgave-hoved {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.8rem;
+  border-bottom: 2px solid var(--papir-moerk);
+  padding-bottom: 0.6rem;
+  margin-bottom: 1rem;
+}
+.opgave-hoved h2 {
+  margin: 0;
+}
+.opgave-fremskridt {
+  margin: 0;
+  color: var(--tekst-svag);
+}
+.pause {
+  margin-left: auto;
+}
+.runer {
+  display: flex;
+  gap: 0.35rem;
+}
+.rune {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid var(--blaek);
+  background: #fff;
+}
+.rune-lys {
+  background: var(--guld);
+  box-shadow: 0 0 10px var(--guld);
+}
+.instruks {
+  font-weight: 700;
+}
+.opgave-feedback {
+  min-height: 1rem;
+}
+.besked {
+  border-radius: 12px;
+  padding: 0.8rem 1rem;
+  margin-top: 0.8rem;
+}
+.besked-god {
+  background: #e3f4e9;
+  border-left: 6px solid var(--groen);
+}
+.besked-fejl {
+  background: #fbeaea;
+  border-left: 6px solid var(--roed);
+}
+.besked-info {
+  background: #eaf0fb;
+  border-left: 6px solid var(--blaek-lys);
+}
+.regel p {
+  margin: 0.3rem 0 0;
+}
+.niveau-besked {
+  font-style: italic;
+  color: var(--tekst-svag);
+}
+.regelvalg {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.regel-knap {
+  text-align: left;
+}
+
+.hviske {
+  text-align: center;
+}
+.hviske-billede {
+  font-size: 3.5rem;
+}
+.hviske-saetning {
+  font-size: 1.15rem;
+}
+.hviske-ord-i-saetning {
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+.hviske-ord {
+  display: flex;
+  justify-content: center;
+  gap: 0.35rem;
+  margin: 1rem 0;
+}
+.bogstav,
+.bogstav-felt {
+  width: 3.2rem;
+  height: 3.8rem;
+  font-size: 2rem;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  border: 3px solid var(--blaek);
+  background: #fff;
+  text-align: center;
+  padding: 0;
+}
+.bogstav-hul {
+  border-style: dashed;
+  color: var(--tekst-svag);
+}
+.bogstav-stumt {
+  background: var(--guld-lys);
+  box-shadow: 0 0 14px var(--guld);
+}
+.hviske-loest .bogstav {
+  border-color: var(--groen);
+}
+.bogstav-valg {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+.bogstav-knap {
+  font-size: 1.8rem;
+  min-width: 3.5rem;
+  min-height: 3.5rem;
+}
+.helt-felt input {
+  font-size: 1.6rem;
+  text-align: center;
+  max-width: 14rem;
+  margin: 0 auto;
+}
+.helt-felt {
+  align-items: center;
+}
+
+.orm {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  min-height: 2rem;
+}
+.orm-hoved {
+  font-size: 1.8rem;
+}
+.orm-led {
+  width: 28px;
+  height: 22px;
+  border-radius: 50%;
+  background: #6bbf59;
+  border: 2px solid #2f6b26;
+}
+.skilt {
+  background: #efe3c4;
+  border: 4px solid #6b4a2b;
+  border-radius: 12px;
+  padding: 1rem;
+  line-height: 2.6;
+  font-size: 1.15rem;
+}
+.token-gruppe {
+  white-space: nowrap;
+}
+.token {
+  font: inherit;
+  border: 2px solid transparent;
+  background: transparent;
+  border-radius: 8px;
+  padding: 0.05rem 0.25rem;
+  margin: 0 0.1rem;
+  cursor: pointer;
+  color: var(--tekst);
+}
+.token:hover:not(:disabled) {
+  border-color: var(--blaek-lys);
+}
+/* "og" ser ud som de andre ord. Eleven skal selv finde de steder, hvor en tanke slutter. */
+.token-og,
+.token-ord {
+  text-decoration: underline dotted var(--tekst-svag);
+  text-underline-offset: 0.25em;
+}
+.ogorm-trin {
+  margin: 0.3rem 0 0.4rem;
+  padding-left: 1.4rem;
+}
+.ogorm-trin li {
+  margin: 0.15rem 0;
+}
+.ogorm-eksempel {
+  background: var(--papir-moerk);
+  padding: 0.4rem 0.6rem;
+}
+.ogorm-foer {
+  text-decoration: line-through;
+  color: var(--tekst-svag);
+}
+.token-punktum {
+  background: var(--guld-lys);
+  border-color: var(--guld);
+  font-weight: 700;
+  min-width: 1.4rem;
+  margin-left: -0.15rem;
+}
+.token-tegn {
+  margin-left: -0.5rem;
+  margin-right: 0.15rem;
+}
+.token-fejl {
+  outline: 3px dashed var(--roed);
+}
+.facit {
+  font-weight: 700;
+  margin-top: 1rem;
+}
+
+.planker {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.planke {
+  display: grid;
+  grid-template-columns: 2.4rem 1fr auto;
+  gap: 0.6rem;
+  align-items: center;
+  background: linear-gradient(#c79b62, #a97d47);
+  border: 3px solid #6b4a2b;
+  border-radius: 10px;
+  padding: 0.5rem 0.7rem;
+  color: #1b1208;
+}
+.planke-nr {
+  font-weight: 700;
+  font-size: 1.3rem;
+  text-align: center;
+}
+.planke-etiket {
+  font-weight: 700;
+}
+.planke-knapper {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+.planker-loest .planke {
+  border-color: var(--groen);
+}
+.sidebunke {
+  margin-top: 1rem;
+}
+.sidebunke ul {
+  list-style: none;
+  padding: 0;
+}
+.planke-side {
+  grid-template-columns: 1fr auto;
+  opacity: 0.85;
+}
+
+.saetninger {
+  padding-left: 0;
+  list-style: none;
+}
+.saetning {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.8rem;
+  background: #fff;
+  border: 2px solid var(--papir-moerk);
+  border-radius: 10px;
+  padding: 0.5rem 0.8rem;
+  margin-bottom: 0.45rem;
+  cursor: pointer;
+}
+.saetning:hover {
+  border-color: var(--blaek-lys);
+}
+.saetning-rigtig {
+  border-color: var(--groen);
+  background: #e3f4e9;
+}
+.saetning-forkert {
+  border-color: var(--roed);
+}
+.spoergsmaal {
+  font-size: 1.15rem;
+}
+
+.gemmekode {
+  font-family: 'Atkinson Hyperlegible', monospace;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  background: #fff;
+  border: 3px dashed var(--blaek);
+  border-radius: 12px;
+  padding: 0.6rem;
+  text-align: center;
+}
+.kode-gruppe {
+  display: inline-block;
+  white-space: nowrap;
+}
+.qr {
+  display: block;
+  margin: 0 auto;
+  image-rendering: pixelated;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.samling-layout {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 2rem;
+}
+.fyrtaarn {
+  margin: 0;
+  text-align: center;
+  background: var(--blaek);
+  color: #fff;
+  border-radius: 16px;
+  padding: 1rem;
+}
+
+.tabel {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+.tabel th,
+.tabel td {
+  border-bottom: 1px solid var(--papir-moerk);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.ikke-oevet {
+  color: var(--tekst-svag);
+}
+
+.skrift-ordblind {
+  font-family: 'OpenDyslexic', sans-serif;
+}
+.skrift-standard {
+  font-family: 'Atkinson Hyperlegible', sans-serif;
+}
+.skrift-system {
+  font-family: system-ui, sans-serif;
+}
+
+.lydkorrektur {
+  max-width: 60rem;
+  margin: 1rem auto;
+  padding: 1.5rem 1.25rem 3rem;
+  background: var(--papir);
+  color: var(--tekst);
+  border-radius: 8px;
+}
+.lydkorrektur a {
+  color: var(--blaek-lys);
+}
+.lydliste {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.lydliste li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--papir-moerk);
+}
+.lydliste-tekst {
+  flex: 1 1 20rem;
+  min-width: 0;
+}
+.lydliste-noegle {
+  font-size: 0.85em;
+  color: var(--tekst-svag);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Til test: ?hop */
+.hop-liste {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+  max-width: 22rem;
+}
+.hop-liste .knap {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+}
+.hop-banner {
+  position: fixed;
+  right: 0.5rem;
+  bottom: 0.5rem;
+  z-index: 50;
+  margin: 0;
+  padding: 0.3rem 0.7rem;
+  border-radius: 0.4rem;
+  background: #ffe9a8;
+  color: #1b1b24;
+  font-size: 0.9rem;
+}
+
+/* Mobil: smalle skærme (telefoner). Intet må gå ud over kanten. */
+@media (max-width: 600px) {
+  .side {
+    margin: 0.5rem;
+    padding: 1rem;
+    border-radius: 14px;
+  }
+  .start {
+    margin-top: 2vh;
+  }
+  .titel {
+    font-size: 2.2rem;
+  }
+  .avatar-layout {
+    gap: 1rem;
+  }
+  .avatar-layout > * {
+    min-width: 0;
+  }
+  .avatar-billede svg {
+    max-height: 32vh;
+    width: auto;
+  }
+  /* Etiketten står over knapperne: [Forrige] værdi [Næste] */
+  .avatar-raekke {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    row-gap: 0.25rem;
+  }
+  .avatar-etiket {
+    grid-column: 1 / -1;
+  }
+  .avatar-valg select {
+    max-width: 100%;
+  }
+  .modal {
+    padding: 1rem;
+    width: 96vw;
+  }
+}

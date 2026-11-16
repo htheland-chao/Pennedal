@@ -5,7 +5,7 @@ import '@fontsource/opendyslexic/700.css';
 import '@fontsource/pixelify-sans/latin-600.css';
 import { laasOpMusik } from './ui/musik/afspiller';
 import { spilEffekt } from './ui/effekter';
-import './styles.css';
+import './styles/index.css';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { App } from './app/App';
