@@ -4,9 +4,9 @@ import { LAERERKODE } from '../config';
 import { lavCsv } from '../engine/csv';
 import { FAERDIGHEDER } from '../engine/faerdigheder';
 import { gemSpil, hentGemtSpil, sletGemtSpil, type GemtSpil } from '../data/gem';
-import { filnavn, hentFil } from '../ui/Gemmekode';
+import { filnavn, hentFil } from '../components/Gemmekode';
 import { MINDER, MINDE_INFO, mindeTitel, type MindeId } from '../content/minder';
-import { Tilbageblik } from '../ui/Tilbageblik';
+import { Tilbageblik } from '../components/Tilbageblik';
 
 export function Laererkig({ onLuk }: { onLuk: () => void }) {
   const [kode, setKode] = useState('');

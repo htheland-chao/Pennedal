@@ -25,11 +25,11 @@ import type { GemtSpil } from '../data/gem';
 import { gemRekord, hentRekorder } from '../data/rekorder';
 import { taskeFor } from '../engine/taske';
 import { registrerSvar, type Haendelse } from '../engine/tilpasning';
-import { spilEffekt } from '../ui/effekter';
-import { KampVindue } from '../ui/KampVindue';
-import { OrdOpgaveVindue } from '../ui/OrdOpgaveVindue';
-import { LaesOpKnap } from '../ui/Tekst';
-import { useApp } from '../ui/Kontekst';
+import { spilEffekt } from '../lyd/effekter';
+import { KampVindue } from '../components/KampVindue';
+import { OrdOpgaveVindue } from '../components/OrdOpgaveVindue';
+import { LaesOpKnap } from '../components/Tekst';
+import { useApp } from '../components/Kontekst';
 import { PhaserVerden, type BaneStyring } from '../game/PhaserVerden';
 import { skalaFraAdresse } from '../game/KortScene';
 

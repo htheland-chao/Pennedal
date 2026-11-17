@@ -47,7 +47,9 @@ Opdatér kun en version efter at have slået den op i npm og kørt alle tests.
 - `src/engine/` - ren logik (færdigheder, tilpasning, kapitler, tasken). Ingen React eller Phaser her.
 - `src/data/` - gemning og indlæsning (gemt spil, gemmekode, bestiariet, Blækdybets rekorder). Kun i elevens browser (krav 4). Ingen React eller Phaser her.
 - `src/pages/` - skærmene (titelskærm, intro, udseende, verdenen, Blækdybet, samlingen, lærerkiggen). En skærms egne små dele står i en mappe med skærmens navn (fx `pages/verden/`).
-- `src/mechanics/` - logikken i læringsmekanikkerne. `src/app/App.tsx` styrer skærmene. `src/ui/` - React-dele og vinduer. `src/game/` - Phaser.
+- `src/components/` - de delte React-dele og vinduerne (dialog, kamp, opgaver, tasken, indstillinger). En dels egne små dele står i en mappe med dens navn (fx `components/kamp/`).
+- `src/lyd/` - oplæsning, lydeffekter, rumklang og musik. Ingen React her.
+- `src/mechanics/` - logikken i læringsmekanikkerne. `src/app/App.tsx` styrer skærmene. `src/game/` - Phaser.
 - Færdigheder har faste id'er i `src/engine/faerdigheder.ts`. Rækkefølgen bruges i gemmekoden: tilføj kun til sidst.
 - Historien, twists, hjælpere, tilbageblik, tasken og kampe står i `docs/historie.md`. Nye kapitler følger den.
 - Koblingen til Fælles Mål ligger kun i `src/content/maal.json`, så den kan skiftes, når fagplanerne træder i kraft 1. august 2027.
@@ -69,7 +71,7 @@ Keep this app organized so a beginner can read it.
 - Kun tekster fra `scripts/lydtekster.mjs` sendes til Google. Tilføj aldrig elevtekster eller noget, eleven skriver.
 - Nye steder med oplæsning: giv `LaesOpKnap` en `figur` og tilføj teksten i `scripts/lydtekster.mjs`.
 - Al tale vises også som tekst.
-- Baggrundsmusik: én original sang pr. tema i `src/ui/musik/sange.ts` (noder, ingen lydfiler). Nye steder skal have en sang (en test tjekker det). Musikken dæmpes under dialog og oplæsning med `daempMusik`.
+- Baggrundsmusik: én original sang pr. tema i `src/lyd/musik/sange.ts` (noder, ingen lydfiler). Nye steder skal have en sang (en test tjekker det). Musikken dæmpes under dialog og oplæsning med `daempMusik`.
 
 ## Grafik
 

@@ -9,7 +9,7 @@ import { lavOpgaveAfArt } from '../mechanics/rim';
 import { Modal } from './Modal';
 import { beskedDele } from './OpgaveRamme';
 import { LaesOpKnap } from './Tekst';
-import { spilEffekt } from './effekter';
+import { spilEffekt } from '../lyd/effekter';
 
 type Props = {
   titel: string;

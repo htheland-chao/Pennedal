@@ -3,7 +3,7 @@ import { t, type RumFund, type RumTrin } from '../content';
 import { Modal } from './Modal';
 import { beskedDele } from './OpgaveRamme';
 import { LaesOpKnap } from './Tekst';
-import { spilEffekt } from './effekter';
+import { spilEffekt } from '../lyd/effekter';
 
 /** Normaliserer et svar: store og små bogstaver, mellemrum og bindestreger tæller ikke. */
 export const renSvar = (s: string) => s.toLocaleLowerCase('da-DK').replace(/[\s-]/g, '');

@@ -3,13 +3,13 @@ import '@fontsource/atkinson-hyperlegible/700.css';
 import '@fontsource/opendyslexic/400.css';
 import '@fontsource/opendyslexic/700.css';
 import '@fontsource/pixelify-sans/latin-600.css';
-import { laasOpMusik } from './ui/musik/afspiller';
-import { spilEffekt } from './ui/effekter';
+import { laasOpMusik } from './lyd/musik/afspiller';
+import { spilEffekt } from './lyd/effekter';
 import './styles/index.css';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { App } from './app/App';
-import { Lydkorrektur } from './ui/Lydkorrektur';
+import { Lydkorrektur } from './components/Lydkorrektur';
 
 // ?lyd=1 viser siden, hvor alle indtalte lydklip kan aflyttes.
 const visLyd = new URLSearchParams(window.location.search).has('lyd');

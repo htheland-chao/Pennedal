@@ -4,7 +4,7 @@ import { VIS_B, VIS_H, SKALA } from './skala';
 import { FART, NAER, PIL_HOEJDE } from './figurer';
 import { type StedObjekt } from '../../content';
 import { type Felt, feltMidte, feltVed, felterVed, findVej } from '../kort';
-import { spilEffekt } from '../../ui/effekter';
+import { spilEffekt } from '../../lyd/effekter';
 
 /**
  * Hovedpersonen går: tastatur, klik, stifinding, hvad man står ved, E-hintet og Æseløre, der følger efter.

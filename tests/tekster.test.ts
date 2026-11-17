@@ -30,7 +30,7 @@ describe('dansk tekst', () => {
   it('har ingen tekst i koden, der burde ligge i da.json', () => {
     // Danske ord direkte i JSX-tekst er et tegn på, at teksten ikke kommer med i korrekturlisten.
     const fund: string[] = [];
-    for (const fil of filer('src/ui').concat(filer('src/app'))) {
+    for (const fil of ['src/components', 'src/pages', 'src/app', 'src/lyd'].flatMap(filer)) {
       const kilde = readFileSync(fil, 'utf8');
       for (const m of kilde.matchAll(/<\/?[A-Za-z][^<>]*>\s*([^<>{}=;()\n]*[A-Za-zÆØÅæøå]{3,}[^<>{}=;()\n]*)\s*</g))
         fund.push(`${fil}: ${m[1].trim()}`);

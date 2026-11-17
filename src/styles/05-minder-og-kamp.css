@@ -1,4 +1,4 @@
-/* Minder (tilbageblik): lyst, kornet og varmt. Se src/ui/Tilbageblik.tsx. */
+/* Minder (tilbageblik): lyst, kornet og varmt. Se src/components/Tilbageblik.tsx. */
 .tilbageblik {
   width: min(96vw, 900px);
   max-height: 96vh;
@@ -90,7 +90,7 @@
   }
 }
 
-/* Rolige kampe (src/ui/KampVindue.tsx). */
+/* Rolige kampe (src/components/KampVindue.tsx). */
 .kamp-ro {
   display: flex;
   gap: 6px;
