@@ -2,7 +2,7 @@ import { type CSSProperties, useCallback, useEffect, useMemo, useRef, useState }
 import { avatarnavn, hentKapitel, kapitler, t, type RumTrin, type Trin, type ValgMulighed } from '../content';
 import { erFaerdighed } from '../engine/faerdigheder';
 import { opfyldt } from '../engine/betingelse';
-import type { GemtSpil, Indstillinger } from '../engine/gem';
+import type { GemtSpil, Indstillinger } from '../data/gem';
 import { afslutTrin, aktueltSted, aktueltTrin, kapitelSlut } from '../engine/kapitel';
 import { MAKS_VENLIGHED, minderFor, nyeTing, taskeFor, type TingId } from '../engine/taske';
 import { medSkaar } from '../engine/frivillig';

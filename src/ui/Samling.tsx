@@ -1,6 +1,6 @@
 import { findOrdkort, kapitler, t, type TekstId } from '../content';
 import { FYRTAARN_MAKS } from '../config';
-import type { GemtSpil } from '../engine/gem';
+import type { GemtSpil } from '../data/gem';
 import { taskeFor } from '../engine/taske';
 import { useApp } from './Kontekst';
 import { TingListe } from './TaskeVindue';

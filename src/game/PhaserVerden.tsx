@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 import { useEffect, useRef, type MutableRefObject } from 'react';
 import type { Sted } from '../content';
-import type { Avatar } from '../engine/gem';
+import type { Avatar } from '../data/gem';
 import { BaneScene } from './BaneScene';
 import { brugSkala, KortScene, SKALA, skalaFraAdresse, VIS_B, VIS_H } from './KortScene';
 import type { VerdenKroge } from './typer';

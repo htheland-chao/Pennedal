@@ -3,7 +3,7 @@ import { avatarnavn, hentKapitel, navne, t, type TekstId } from '../content';
 import { LAERERKODE } from '../config';
 import { lavCsv } from '../engine/csv';
 import { FAERDIGHEDER } from '../engine/faerdigheder';
-import { gemSpil, hentGemtSpil, sletGemtSpil, type GemtSpil } from '../engine/gem';
+import { gemSpil, hentGemtSpil, sletGemtSpil, type GemtSpil } from '../data/gem';
 import { filnavn, hentFil } from './Gemmekode';
 import { MINDER, MINDE_INFO, mindeTitel, type MindeId } from '../content/minder';
 import { Tilbageblik } from './Tilbageblik';

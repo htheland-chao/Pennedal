@@ -1,5 +1,5 @@
 import type { Kapitel, Trin } from '../content';
-import type { GemtSpil } from './gem';
+import type { GemtSpil } from '../data/gem';
 
 export function aktueltTrin(spil: GemtSpil, kapitel: Kapitel): Trin | undefined {
   return kapitel.trin[spil.trin];

@@ -1,5 +1,5 @@
-import { FAERDIGHEDER, type FaerdighedId } from './faerdigheder';
-import { START_STATUS, type FaerdighedsStatus, type Niveau } from './tilpasning';
+import { FAERDIGHEDER, type FaerdighedId } from '../engine/faerdigheder';
+import { START_STATUS, type FaerdighedsStatus, type Niveau } from '../engine/tilpasning';
 
 export type Avatar = {
   hud: number;

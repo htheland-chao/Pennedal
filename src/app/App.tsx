@@ -10,7 +10,7 @@ import {
   STANDARD_AVATAR,
   type GemtSpil,
   type Indstillinger,
-} from '../engine/gem';
+} from '../data/gem';
 import { aktueltSted, kapitelSlut, naesteKapitel, spilVedIKapitler } from '../engine/kapitel';
 import { saetMusik } from '../ui/musik/afspiller';
 import { saetEffekter } from '../ui/effekter';

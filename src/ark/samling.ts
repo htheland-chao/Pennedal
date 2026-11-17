@@ -2,7 +2,7 @@
  * Alle pixelfigurer samlet i grupper, til grafikarket og til testen (src/ark/tjek.test.ts).
  * Ny pixelgrafik tilføjes her, så den kommer med på arket og bliver tjekket.
  */
-import { AVATAR_DELE, AVATAR_GRAENSER, STANDARD_AVATAR } from '../engine/gem';
+import { AVATAR_DELE, AVATAR_GRAENSER, STANDARD_AVATAR } from '../data/gem';
 import { PORTRAETTER } from '../game/pixel/portraetter';
 import { finFigur } from '../game/pixel/fin';
 import { figurRammer } from '../game/pixel/kampliv';

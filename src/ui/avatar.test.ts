@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { AVATAR_DELE, AVATAR_GRAENSER } from '../engine/gem';
+import { AVATAR_DELE, AVATAR_GRAENSER } from '../data/gem';
 import { avatarDele } from '../content';
 
 describe('avatar', () => {

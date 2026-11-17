@@ -1,10 +1,10 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { kapitler, t, type KampTrin, type TekstId } from '../content';
-import type { Avatar } from '../engine/gem';
+import type { Avatar } from '../data/gem';
 import type { Haendelse as Tilpasning } from '../engine/tilpasning';
 import { FJENDE_PLADS, HOLD_PLADS, MARKOER, tegnKampBaggrund } from '../game/pixel/kampscene';
 import type { FigurId } from '../game/pixel/kampliv';
-import { hentKendte, huskKendte } from '../engine/bestiarium';
+import { hentKendte, huskKendte } from '../data/bestiarium';
 import { avatarPixel, FUGL, KLATTEN, type Tegnkort } from '../game/pixel/sprites';
 import { VIMS } from '../game/pixel/viskeskov';
 import { antalTure, tjekKamp, viskUd, type VaesenId } from '../mechanics/kamp';

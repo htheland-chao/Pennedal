@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { finFigur, scale2x } from './fin';
 import { avatarPixel } from './sprites';
-import { STANDARD_AVATAR } from '../../engine/gem';
+import { STANDARD_AVATAR } from '../../data/gem';
 
 describe('fin hovedperson', () => {
   it('scale2x gør hver pixel til fire og bevarer en ensfarvet flade', () => {

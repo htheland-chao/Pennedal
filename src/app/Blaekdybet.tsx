@@ -1,7 +1,6 @@
 import { useMemo, useRef, useState } from 'react';
 import { avatarnavn, kapitler, t, type KampTrin, type Sted } from '../content';
 import {
-  erBedre,
   faarGave,
   fejlPris,
   gaverFor,
@@ -18,12 +17,12 @@ import {
   vaelgGave,
   type GaveId,
   type OrdstenArt,
-  type Rekord,
   type Rum,
   type Tur,
 } from '../engine/dybet';
 import { erFaerdighed } from '../engine/faerdigheder';
-import type { GemtSpil } from '../engine/gem';
+import type { GemtSpil } from '../data/gem';
+import { gemRekord, hentRekorder } from '../data/rekorder';
 import { taskeFor } from '../engine/taske';
 import { registrerSvar, type Haendelse } from '../engine/tilpasning';
 import { spilEffekt } from '../ui/effekter';
@@ -34,31 +33,6 @@ import { useApp } from '../ui/Kontekst';
 import { PhaserVerden, type BaneStyring } from '../game/PhaserVerden';
 import { skalaFraAdresse } from '../game/KortScene';
 
-/** Rekorderne gemmes kun i denne browser (krav 4). */
-const NOEGLE = 'pennedal.dybet.v1';
-type Gemt = { bedste: Rekord | null; perKode: Record<string, Rekord> };
-function hentRekorder(): Gemt {
-  try {
-    const d = JSON.parse(localStorage.getItem(NOEGLE) ?? 'null');
-    if (d && typeof d === 'object') return { bedste: d.bedste ?? null, perKode: d.perKode ?? {} };
-  } catch {
-    // Ingen eller ødelagte data: start forfra.
-  }
-  return { bedste: null, perKode: {} };
-}
-function gemRekord(r: Rekord): { ny: boolean; nyKode: boolean } {
-  const g = hentRekorder();
-  const ny = erBedre(r, g.bedste);
-  const nyKode = erBedre(r, g.perKode[r.froe] ?? null);
-  if (ny) g.bedste = r;
-  if (nyKode) g.perKode[r.froe] = r;
-  try {
-    localStorage.setItem(NOEGLE, JSON.stringify(g));
-  } catch {
-    // Kan ikke gemme (privat vindue): rekorden vises stadig.
-  }
-  return { ny, nyKode };
-}
 
 /** Blækdybet er åbent, når det sidste kapitel er gennemført. */
 export function dybetAabent(spil: GemtSpil | null): boolean {

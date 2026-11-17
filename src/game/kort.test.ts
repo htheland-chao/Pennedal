@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { kapitler } from '../content';
-import { AVATAR_DELE, AVATAR_GRAENSER, STANDARD_AVATAR } from '../engine/gem';
+import { AVATAR_DELE, AVATAR_GRAENSER, STANDARD_AVATAR } from '../data/gem';
 import { erFastTegn, felterVed, findVej, laesKort, type Felt } from './kort';
 import { HOLM, KARTOTEK, KASSE, LOGBOG, PLANTE } from './pixel/inde';
 import { avatarPixel, BLADE, FUGL, fyrtaarn, KLATTEN, LANTERNE, papirtrae, PIL, PLANKE, SKILT, STOLPE, voksen, type Tegnkort } from './pixel/sprites';

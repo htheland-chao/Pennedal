@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, type CSSProperties } from 'react';
-import { STANDARD_AVATAR } from '../engine/gem';
+import { STANDARD_AVATAR } from '../data/gem';
 import { BFELT, laesBane } from '../game/bane';
 import { tegnBane, tegnBjergBaggrund, tegnByBaggrund, tegnSkovBaggrund, tegnSoeBaggrund } from '../game/pixel/banetegn';
 import { finFigur } from '../game/pixel/fin';
