@@ -12,7 +12,16 @@ const BILLEDER = 'test-results/skaermbilleder';
 async function laesDialog(page: Page) {
   const dialog = page.locator('dialog.dialogboks');
   await dialog.waitFor({ state: 'visible', timeout: 10_000 }).catch(() => undefined);
-  for (let i = 0; i < 60 && (await dialog.isVisible()); i++) {
+  for (let i = 0; i < 60; i++) {
+    if (!(await dialog.isVisible())) {
+      // En dialog uden objekt starter af sig selv lige efter den forrige (fx krusedullerne efter tilgivelsen).
+      // Imellem dem er der et kort øjeblik uden dialog. På en langsom maskine kunne testen stoppe netop der.
+      const ny = await dialog
+        .waitFor({ state: 'visible', timeout: 600 })
+        .then(() => true)
+        .catch(() => false);
+      if (!ny) break;
+    }
     await dialog
       .getByRole('button', { name: 'Videre' })
       .click({ timeout: 3_000 })
