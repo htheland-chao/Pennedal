@@ -15,6 +15,14 @@
       "kilde": "Kapitel 3 / k3-tomordet-moede.2",
       "lavet": "2026-11-01"
     },
+    "0015ff9d5643bb": {
+      "figur": "aeseloere",
+      "tekst": "Ikke helt. Klap ordet langsomt: ek-ko-hu-le. Tæl klappene.",
+      "fil": "0015ff9d5643bb.ogg",
+      "kilde": "Svar / rytme.ekkohule.fejl",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "00167ba543a621": {
       "figur": "fortaeller",
       "tekst": "Jeg sorterer fodnoter hver morgen.",
@@ -58,6 +66,22 @@
       "kilde": "Beskeder / bro.fejl.placering.6.hjemkomst",
       "lavet": "2026-11-05"
     },
+    "0033d59eaf3e09": {
+      "figur": "fortaeller",
+      "tekst": "tante ... tante ... tante",
+      "fil": "0033d59eaf3e09.ogg",
+      "kilde": "Svar / ekko.tante",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "003a16883be68e": {
+      "figur": "aeseloere",
+      "tekst": "ny rimer faktisk på sky. Sig dem højt. De lyder ens til sidst.",
+      "fil": "003a16883be68e.ogg",
+      "kilde": "Svar / ikkerim.sky.ny",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
+    },
     "003f9a52a4c3d2": {
       "figur": "fortaeller",
       "tekst": "Det er en skøn dag.",
@@ -71,6 +95,14 @@
       "fil": "0040125b2d96b2.ogg",
       "kilde": "Kampe / kamp.tvivl.lyt",
       "lavet": "2026-11-13"
+    },
+    "0045e0974c1f2f": {
+      "figur": "blaekling",
+      "tekst": "Lad være med at kigge så meget på mig. Jeg er lavet af ord med bogstaver, man ikke kan høre. Find det stumme bogstav, så bliver jeg stille.",
+      "fil": "0045e0974c1f2f.ogg",
+      "kilde": "Kampe / kamp.blaekling.lyt",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
     },
     "0047bf266ff3df": {
       "figur": "aeseloere",
@@ -138,6 +170,14 @@
       "lavet": "2026-11-15",
       "model": "gemini-3.8-flash-lite-tts"
     },
+    "0072a01fc23c31": {
+      "figur": "aeseloere",
+      "tekst": "kampe rimer faktisk på lampe. Sig dem højt. De lyder ens til sidst.",
+      "fil": "0072a01fc23c31.ogg",
+      "kilde": "Svar / ikkerim.lampe.kampe",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
+    },
     "00810db74b5886": {
       "figur": "fortaeller",
       "tekst": "Hvor fører sporet hen?",
@@ -203,6 +243,14 @@
       "kilde": "Kapitel 5 / k5-sorter.opgavetekst",
       "lavet": "2026-11-12"
     },
+    "00aec53d034f9a": {
+      "figur": "aeseloere",
+      "tekst": "Ikke helt. Klap ordet langsomt: lam-pe. Tæl klappene.",
+      "fil": "00aec53d034f9a.ogg",
+      "kilde": "Svar / rytme.lampe.fejl",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "00b0e33ad93821": {
       "figur": "aeseloere",
       "tekst": "Ja. hat rimer ikke på hånd. Slutningen lyder anderledes.",
@@ -246,6 +294,14 @@
       "fil": "00ce3ce31d0507.ogg",
       "kilde": "Tasken / logbog",
       "lavet": "2026-11-01"
+    },
+    "00cebd8f5cea0e": {
+      "figur": "fortaeller",
+      "tekst": "Klap ordet vinter. Hvor mange stavelser har det?",
+      "fil": "00cebd8f5cea0e.ogg",
+      "kilde": "Svar / rytme.vinter.spoergsmaal",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "00e3052b942020": {
       "figur": "aeseloere",
@@ -342,6 +398,14 @@
       "kilde": "Historiebroen / bro-graevlingen.hjemkomst",
       "lavet": "2026-11-05"
     },
+    "01242d2f40ebed": {
+      "figur": "fortaeller",
+      "tekst": "Klap ordet lampe. Hvor mange stavelser har det?",
+      "fil": "01242d2f40ebed.ogg",
+      "kilde": "Svar / rytme.lampe.spoergsmaal",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "012c039f17e527": {
       "figur": "fortaeller",
       "tekst": "Vims nyser. Et træ ved siden af dig bliver hvidt og forsvinder. Bag det står et køkkenbord, du kender.",
@@ -406,6 +470,14 @@
       "fil": "015642d32b12c1.ogg",
       "kilde": "Svar / synonym.hemmelig.bred",
       "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "01573e6351f3d0": {
+      "figur": "aeseloere",
+      "tekst": "Ja. kommer rimer på sommer. De lyder ens til sidst.",
+      "fil": "01573e6351f3d0.ogg",
+      "kilde": "Svar / rim.sommer.kommer",
+      "lavet": "2026-11-17",
       "model": "gemini-3.8-flash-tts"
     },
     "015789820d6f00": {
@@ -481,6 +553,14 @@
       "kilde": "Kapitel 2 / k2-rum.kasse2",
       "lavet": "2026-11-03"
     },
+    "01858c55d02e70": {
+      "figur": "aeseloere",
+      "tekst": "lill er ikke den rigtige stavemåde. Læs reglen, og prøv igen.",
+      "fil": "01858c55d02e70.ogg",
+      "kilde": "Svar / korrektur.k01.lill",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "01859f3d4fdf5d": {
       "figur": "vims",
       "tekst": "Undskyld. Undskyld. Jeg tror, jeg skal viske mig selv ud nu.",
@@ -517,6 +597,14 @@
       "fil": "018f3604613317.ogg",
       "kilde": "Synonymer / traet",
       "lavet": "2026-11-04"
+    },
+    "0191ff246d368e": {
+      "figur": "aeseloere",
+      "tekst": "Ja. a-bri-kos har 3 stavelser.",
+      "fil": "0191ff246d368e.ogg",
+      "kilde": "Svar / rytme.abrikos.rigtig",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "019e90640bae67": {
       "figur": "rimfod",
@@ -561,6 +649,14 @@
       "kilde": "Minder / minde.skaar6b.1",
       "lavet": "2026-11-13"
     },
+    "01b4570b92408d": {
+      "figur": "aeseloere",
+      "tekst": "Ja. æ-sel-ø-re har 4 stavelser.",
+      "fil": "01b4570b92408d.ogg",
+      "kilde": "Svar / rytme.æseløre.rigtig",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "01b8e386f0c9ab": {
       "figur": "aeseloere",
       "tekst": "Han har drillet os hele vejen. Lad ham bare sidde lidt.",
@@ -589,6 +685,14 @@
       "kilde": "Beskeder / genre.regel",
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-lite-tts"
+    },
+    "01c5e4b56fb550": {
+      "figur": "fortaeller",
+      "tekst": "sommer ... sommer ... sommer",
+      "fil": "01c5e4b56fb550.ogg",
+      "kilde": "Svar / ekko.sommer",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
     },
     "01c7762ace57a9": {
       "figur": "aeseloere",
@@ -666,6 +770,14 @@
       "kilde": "Kapitel 4 / k4-ekko-moede.2",
       "lavet": "2026-11-09"
     },
+    "01f75a89dff040": {
+      "figur": "aeseloere",
+      "tekst": "Ikke helt. Klap ordet langsomt: a-bri-kos. Tæl klappene.",
+      "fil": "01f75a89dff040.ogg",
+      "kilde": "Svar / rytme.abrikos.fejl",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "01f8d0af7ef713": {
       "figur": "klatten",
       "tekst": "Hvad glor du på? Jeg er den Frygtelige. Jeg har bare travlt med at sidde stille.",
@@ -694,6 +806,22 @@
       "fil": "0208ab8d20ac5b.ogg",
       "kilde": "Kapitel 7 / k7-slut.1",
       "lavet": "2026-11-11"
+    },
+    "02096b9b8e50f0": {
+      "figur": "aeseloere",
+      "tekst": "Ja. ka-nin har 2 stavelser.",
+      "fil": "02096b9b8e50f0.ogg",
+      "kilde": "Svar / rytme.kanin.rigtig",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "020c1b9d6c6423": {
+      "figur": "aeseloere",
+      "tekst": "Jeg skifter fortæller midt i det hele. Se på den første sætning. Hvem handler den om?",
+      "fil": "020c1b9d6c6423.ogg",
+      "kilde": "Svar / fortsaet.f02.Jeg",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "020fc5c2da3338": {
       "figur": "vims",
@@ -774,6 +902,14 @@
       "fil": "0233c88e5700b6.ogg",
       "kilde": "Ordkort / typeskab",
       "lavet": "2026-11-01"
+    },
+    "0238874e0adaa6": {
+      "figur": "fortaeller",
+      "tekst": "Klap ordet sol. Hvor mange stavelser har det?",
+      "fil": "0238874e0adaa6.ogg",
+      "kilde": "Svar / rytme.sol.spoergsmaal",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "023da5db7bb4ba": {
       "figur": "fortaeller",
@@ -1070,6 +1206,22 @@
       "kilde": "Historiebroen / bro-musen.fremmed",
       "lavet": "2026-11-05"
     },
+    "032ec828e61573": {
+      "figur": "aeseloere",
+      "tekst": "Hun skifter fortæller midt i det hele. Se på den første sætning. Hvem handler den om?",
+      "fil": "032ec828e61573.ogg",
+      "kilde": "Svar / fortsaet.f01.Hun",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "033088e5f95f4a": {
+      "figur": "aeseloere",
+      "tekst": "Ja. kro-ko-dil-le har 4 stavelser.",
+      "fil": "033088e5f95f4a.ogg",
+      "kilde": "Svar / rytme.krokodille.rigtig",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "03351eaa9c103b": {
       "figur": "fortaeller",
       "tekst": "Mange år senere sidder du i en bus og kigger ud ad vinduet.",
@@ -1141,6 +1293,14 @@
       "fil": "035911e076d7a5.ogg",
       "kilde": "Kapitel 8 / k8-hvem.valg3.1",
       "lavet": "2026-11-11"
+    },
+    "036a5f66db7adb": {
+      "figur": "aeseloere",
+      "tekst": "Ja. tov rimer ikke på top. Slutningen lyder anderledes.",
+      "fil": "036a5f66db7adb.ogg",
+      "kilde": "Svar / ikkerim.top.tov",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
     },
     "036b075f796c41": {
       "figur": "fortaeller",
@@ -1238,6 +1398,14 @@
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-tts"
     },
+    "039974e8d1e14a": {
+      "figur": "aeseloere",
+      "tekst": "Ja. ba-nan har 2 stavelser.",
+      "fil": "039974e8d1e14a.ogg",
+      "kilde": "Svar / rytme.banan.rigtig",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "039cceb2189d36": {
       "figur": "fodnote",
       "tekst": "¹ Husk i øvrigt at gemme dit spil i menuen. Din gemmekode er noget af det smukkeste, jeg har set længe. Især bindestregerne.",
@@ -1251,6 +1419,14 @@
       "fil": "03a9f4ae4ec6ac.ogg",
       "kilde": "Historiebroen / bro-musen.portal",
       "lavet": "2026-11-05"
+    },
+    "03ac0446b95cde": {
+      "figur": "aeseloere",
+      "tekst": "Der er ingen tid. Blæklingen viser altid, hvad den gør næste gang. Et forkert svar rammer ved siden af, men det koster ikke liv.",
+      "fil": "03ac0446b95cde.ogg",
+      "kilde": "Kapitel 1 / k1-blaekling-moede.4",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
     },
     "03b144afb3f3df": {
       "figur": "fodnote",
@@ -1296,6 +1472,14 @@
       "fil": "03dab47408a6d4.ogg",
       "kilde": "Kapitel 3 / k3-moerke.5",
       "lavet": "2026-11-01"
+    },
+    "03e297ab9e4174": {
+      "figur": "aeseloere",
+      "tekst": "Vi skiftes til at gøre noget. Når det er din tur, vælger du Slå og svarer på en opgave. Et rigtigt svar er et slag.",
+      "fil": "03e297ab9e4174.ogg",
+      "kilde": "Kapitel 1 / k1-blaekling-moede.3",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
     },
     "03e5ab0c444acd": {
       "figur": "aeseloere",
@@ -1476,6 +1660,14 @@
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-tts"
     },
+    "045c5b6329ae48": {
+      "figur": "aeseloere",
+      "tekst": "Ja. ek-ko-hu-le har 4 stavelser.",
+      "fil": "045c5b6329ae48.ogg",
+      "kilde": "Svar / rytme.ekkohule.rigtig",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "0465255276b639": {
       "figur": "fortaeller",
       "tekst": "Politiet havde tre mistænkte. Men kun én af dem havde nøglen til kælderen.",
@@ -1555,6 +1747,14 @@
       "kilde": "Kapitel 6 / k6-kasser.2",
       "lavet": "2026-11-10"
     },
+    "047ab6ad1318c5": {
+      "figur": "aeseloere",
+      "tekst": "Ja. ek-ko har 2 stavelser.",
+      "fil": "047ab6ad1318c5.ogg",
+      "kilde": "Svar / rytme.ekko.rigtig",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "049478b2e97c19": {
       "figur": "fortaeller",
       "tekst": "Find vej gennem fodnoternes arkiv, og find ud af, hvem Den Ufærdige i virkeligheden er.",
@@ -1605,6 +1805,14 @@
       "fil": "04b909e448f021.ogg",
       "kilde": "Kapitel 1 / k1-ankomst.2",
       "lavet": "2026-10-31"
+    },
+    "04bde0bc3b7342": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord rimer ikke på top?",
+      "fil": "04bde0bc3b7342.ogg",
+      "kilde": "Svar / ikkerim.top.spoergsmaal",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
     },
     "04bebba12ad578": {
       "figur": "fortaeller",
@@ -1718,6 +1926,14 @@
       "lavet": "2026-11-16",
       "model": "gemini-3.8-flash-tts"
     },
+    "04edbaf37aeb0f": {
+      "figur": "aeseloere",
+      "tekst": "tov rimer ikke på top. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "04edbaf37aeb0f.ogg",
+      "kilde": "Svar / rim.top.tov",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
+    },
     "04f0d86d822801": {
       "figur": "aeseloere",
       "tekst": "fil rimer faktisk på bil. Sig dem højt. De lyder ens til sidst.",
@@ -1732,6 +1948,14 @@
       "fil": "04f336d4ab731b.ogg",
       "kilde": "Kapitel 2 / k2-rum.presse",
       "lavet": "2026-11-03"
+    },
+    "04fccb65f0587e": {
+      "figur": "aeseloere",
+      "tekst": "Ja. solen rimer ikke på sommer. Slutningen lyder anderledes.",
+      "fil": "04fccb65f0587e.ogg",
+      "kilde": "Svar / ikkerim.sommer.solen",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
     },
     "05061f917ddee1": {
       "figur": "aeseloere",
@@ -1769,6 +1993,22 @@
       "fil": "051e72024d714b.ogg",
       "kilde": "Kapitel 6 / k6-doer.5",
       "lavet": "2026-11-10"
+    },
+    "0525c2c39efcfc": {
+      "figur": "aeseloere",
+      "tekst": "lommer rimer faktisk på sommer. Sig dem højt. De lyder ens til sidst.",
+      "fil": "0525c2c39efcfc.ogg",
+      "kilde": "Svar / ikkerim.sommer.lommer",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "052d5e911bad7a": {
+      "figur": "aeseloere",
+      "tekst": "Ja. kar-tof-fel har 3 stavelser.",
+      "fil": "052d5e911bad7a.ogg",
+      "kilde": "Svar / rytme.kartoffel.rigtig",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "05314a62e5a4d5": {
       "figur": "ord",
@@ -1857,6 +2097,14 @@
       "kilde": "Stumme bogstaver / hjul",
       "lavet": "2026-10-31"
     },
+    "0568eac15f0006": {
+      "figur": "aeseloere",
+      "tekst": "sko rimer ikke på sky. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "0568eac15f0006.ogg",
+      "kilde": "Svar / rim.sky.sko",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
+    },
     "056bb2e9ae5781": {
       "figur": "aeseloere",
       "tekst": "hat rimer faktisk på nat. Sig dem højt. De lyder ens til sidst.",
@@ -1937,6 +2185,14 @@
       "kilde": "Kapitel 4 / k4-rimfod.4",
       "lavet": "2026-11-09"
     },
+    "05916cd975e2a3": {
+      "figur": "aeseloere",
+      "tekst": "Ja. ny rimer på sky. De lyder ens til sidst.",
+      "fil": "05916cd975e2a3.ogg",
+      "kilde": "Svar / rim.sky.ny",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
+    },
     "059986cd8c01ea": {
       "figur": "fortaeller",
       "tekst": "Du læser hele slutningen højt. Der var engang en lille skygge, der ledte efter et sted at høre til.",
@@ -1980,6 +2236,14 @@
       "fil": "05b472724b2304.ogg",
       "kilde": "Minder / minde.skuffen.1",
       "lavet": "2026-11-13"
+    },
+    "05b668f948fcfb": {
+      "figur": "aeseloere",
+      "tekst": "tavle rimer ikke på tante. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "05b668f948fcfb.ogg",
+      "kilde": "Svar / rim.tante.tavle",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
     },
     "05ba1754d12ca9": {
       "figur": "fortaeller",
@@ -2054,6 +2318,14 @@
       "fil": "05d9ca1d04a673.ogg",
       "kilde": "Svar / synonym.besked.hat",
       "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "05da598f85eb17": {
+      "figur": "aeseloere",
+      "tekst": "Ja. tand rimer ikke på tante. Slutningen lyder anderledes.",
+      "fil": "05da598f85eb17.ogg",
+      "kilde": "Svar / ikkerim.tante.tand",
+      "lavet": "2026-11-17",
       "model": "gemini-3.8-flash-tts"
     },
     "05e3fd3a1b27cc": {
@@ -2138,6 +2410,14 @@
       "kilde": "Minder / minde.skaar7b.3",
       "lavet": "2026-11-13"
     },
+    "062ce269ea4e13": {
+      "figur": "aeseloere",
+      "tekst": "tag rimer ikke på top. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "062ce269ea4e13.ogg",
+      "kilde": "Svar / rim.top.tag",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
+    },
     "062ddf107b2c65": {
       "figur": "fortaeller",
       "tekst": "Hun følger et ekko ind i en hule, der bliver smallere og smallere.",
@@ -2211,6 +2491,14 @@
       "kilde": "Kapitel 6 / k6-kamp-slut.4",
       "lavet": "2026-11-10"
     },
+    "06846c50659548": {
+      "figur": "fortaeller",
+      "tekst": "Hvordan staves lile rigtigt?",
+      "fil": "06846c50659548.ogg",
+      "kilde": "Svar / korrektur.k01.lile",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "0685ca9e8d97c4": {
       "figur": "klatten",
       "tekst": "Kan du lære mig det? Ikke fordi jeg har brug for det. Bare sådan for sjov.",
@@ -2255,6 +2543,14 @@
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-lite-tts"
     },
+    "06a546f062a20c": {
+      "figur": "aeseloere",
+      "tekst": "kante rimer faktisk på tante. Sig dem højt. De lyder ens til sidst.",
+      "fil": "06a546f062a20c.ogg",
+      "kilde": "Svar / ikkerim.tante.kante",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
+    },
     "06a8b3dac781ae": {
       "figur": "fortaeller",
       "tekst": "Hjælp Klatten med at rette sine tekster.",
@@ -2275,6 +2571,14 @@
       "fil": "06b98568e004c2.ogg",
       "kilde": "Synonymer / stille",
       "lavet": "2026-11-04"
+    },
+    "06bfcd7ab74ab6": {
+      "figur": "aeseloere",
+      "tekst": "sove rimer ikke på sommer. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "06bfcd7ab74ab6.ogg",
+      "kilde": "Svar / rim.sommer.sove",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
     },
     "06c7ebbc5645e8": {
       "figur": "aeseloere",
@@ -2336,6 +2640,14 @@
       "lavet": "2026-11-16",
       "model": "gemini-3.8-flash-tts"
     },
+    "06e3a62a8c0b43": {
+      "figur": "aeseloere",
+      "tekst": "Ja. time rimer på rime. De lyder ens til sidst.",
+      "fil": "06e3a62a8c0b43.ogg",
+      "kilde": "Svar / rim.rime.time",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "06e7644f3509aa": {
       "figur": "fortaeller",
       "tekst": "Træerne kan ikke snakke mere.",
@@ -2351,6 +2663,22 @@
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-tts"
     },
+    "06ebb4c1b530c5": {
+      "figur": "aeseloere",
+      "tekst": "lomme rimer ikke på lampe. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "06ebb4c1b530c5.ogg",
+      "kilde": "Svar / rim.lampe.lomme",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "06ec41af73db5a": {
+      "figur": "aeseloere",
+      "tekst": "jemme er ikke den rigtige stavemåde. Læs reglen, og prøv igen.",
+      "fil": "06ec41af73db5a.ogg",
+      "kilde": "Svar / korrektur.k01.jemme",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "06ed058283e837": {
       "figur": "vims",
       "tekst": "Må jeg komme med? Jeg kan godt være modig. Næsten. Og jeg har krummer med, hvis noget skal viskes ud.",
@@ -2358,12 +2686,13 @@
       "kilde": "Kapitel 3 / k3-vims.9",
       "lavet": "2026-11-01"
     },
-    "0702537b302218": {
-      "figur": "fortaeller",
-      "tekst": "Mandag: Tre bøger manglede deres sidste side. Tirsdag: En ordbog havde mistet alle sine punktummer. Onsdag: Bogstaverne på skiltet ved døren var falmet. Torsdag: Jeg hørte en lyd fra kælderen. Det lød, som om nogen hviskede. Fredag: Døren til kælderen stod på klem.",
-      "fil": "0702537b302218.ogg",
-      "kilde": "Kapitel 1 / k1-logbog.saetninger",
-      "lavet": "2026-10-31"
+    "06f2ccc235136c": {
+      "figur": "aeseloere",
+      "tekst": "Ikke helt. Klap ordet langsomt: e-le-fant. Tæl klappene.",
+      "fil": "06f2ccc235136c.ogg",
+      "kilde": "Svar / rytme.elefant.fejl",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "070b80dd0e7c6e": {
       "figur": "aeseloere",
@@ -2542,6 +2871,14 @@
       "lavet": "2026-11-16",
       "model": "gemini-3.8-flash-lite-tts"
     },
+    "077d6222ba87af": {
+      "figur": "aeseloere",
+      "tekst": "Ja. lange rimer ikke på lampe. Slutningen lyder anderledes.",
+      "fil": "077d6222ba87af.ogg",
+      "kilde": "Svar / ikkerim.lampe.lange",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
+    },
     "0785dc8c079f2e": {
       "figur": "aeseloere",
       "tekst": "bro rimer faktisk på sko. Sig dem højt. De lyder ens til sidst.",
@@ -2556,6 +2893,14 @@
       "fil": "078f048ead1ca5.ogg",
       "kilde": "Ordkort / byraad",
       "lavet": "2026-11-01"
+    },
+    "078f2a7d4ce5e7": {
+      "figur": "aeseloere",
+      "tekst": "Ikke helt. Klap ordet langsomt: æ-sel-ø-re. Tæl klappene.",
+      "fil": "078f2a7d4ce5e7.ogg",
+      "kilde": "Svar / rytme.æseløre.fejl",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "07900253962321": {
       "figur": "aeseloere",
@@ -2640,6 +2985,14 @@
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-tts"
     },
+    "07b92e17691b8a": {
+      "figur": "fortaeller",
+      "tekst": "Klap ordet kartoffel. Hvor mange stavelser har det?",
+      "fil": "07b92e17691b8a.ogg",
+      "kilde": "Svar / rytme.kartoffel.spoergsmaal",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "07c3778d5464df": {
       "figur": "fortaeller",
       "tekst": "En lille skygge glider hen over vejen, og et øjeblik ligner den en, du kender.",
@@ -2669,12 +3022,28 @@
       "kilde": "Kapitel 8 / k8-ogsaa.valg3.1",
       "lavet": "2026-11-11"
     },
+    "07dd092ee56eac": {
+      "figur": "fortaeller",
+      "tekst": "Klap ordet trold. Hvor mange stavelser har det?",
+      "fil": "07dd092ee56eac.ogg",
+      "kilde": "Svar / rytme.trold.spoergsmaal",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "07df6930726f9d": {
       "figur": "aeseloere",
       "tekst": "Ja. blind rimer på vind. De lyder ens til sidst.",
       "fil": "07df6930726f9d.ogg",
       "kilde": "Svar / rim.vind.blind",
       "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "07e5060e8407d3": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Det staves lille.",
+      "fil": "07e5060e8407d3.ogg",
+      "kilde": "Svar / korrektur.k01.lille",
+      "lavet": "2026-11-17",
       "model": "gemini-3.8-flash-lite-tts"
     },
     "07e57ce0eb3f86": {
@@ -2691,12 +3060,36 @@
       "kilde": "Kapitel 1 / k1-holm.1",
       "lavet": "2026-10-30"
     },
+    "07eca48106db0a": {
+      "figur": "aeseloere",
+      "tekst": "fly rimer faktisk på sky. Sig dem højt. De lyder ens til sidst.",
+      "fil": "07eca48106db0a.ogg",
+      "kilde": "Svar / ikkerim.sky.fly",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
+    },
     "07f526cf8ee496": {
       "figur": "vims",
       "tekst": "Hvis du vil have hjælp, kan jeg viske en forkert mulighed ud. Bare spørg. Undskyld.",
       "fil": "07f526cf8ee496.ogg",
       "kilde": "Kapitel 3 / k3-stumming-moede.3",
       "lavet": "2026-11-01"
+    },
+    "07f6cc28fac3c8": {
+      "figur": "fortaeller",
+      "tekst": "Klap ordet banan. Hvor mange stavelser har det?",
+      "fil": "07f6cc28fac3c8.ogg",
+      "kilde": "Svar / rytme.banan.spoergsmaal",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "07f7f0a4c0b4df": {
+      "figur": "aeseloere",
+      "tekst": "Ja. kop rimer på top. De lyder ens til sidst.",
+      "fil": "07f7f0a4c0b4df.ogg",
+      "kilde": "Svar / rim.top.kop",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
     },
     "080a72861187cb": {
       "figur": "klatten",
@@ -2712,6 +3105,14 @@
       "fil": "080e7368ab4a53.ogg",
       "kilde": "Historiebroen / bro-froeen.verden",
       "lavet": "2026-11-05"
+    },
+    "0815ce60ecf2cb": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Jeg passer til den, der allerede fortæller.",
+      "fil": "0815ce60ecf2cb.ogg",
+      "kilde": "Svar / fortsaet.f01.rigtig",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "081ab082bc95c0": {
       "figur": "aeseloere",
@@ -2763,12 +3164,28 @@
       "kilde": "Stumme bogstaver / strand.saetning",
       "lavet": "2026-11-04"
     },
+    "0859b035bf554b": {
+      "figur": "fortaeller",
+      "tekst": "Mandag: Tre bøger manglede deres sidste side. Tirsdag: En ordbog havde mistet alle sine punktummer. Onsdag: Bogstaverne på skiltet ved døren var falmet. Torsdag: Jeg hørte en lyd fra kælderen. Det lød, som om nogen hviskede. Fredag: Døren til kælderen stod på klem. Lørdag: Jeg kiggede efter det grønne kladdehæfte, som jeg gemte i det gamle kartoteksskab for mange år siden. Det lå der stadig.",
+      "fil": "0859b035bf554b.ogg",
+      "kilde": "Kapitel 1 / k1-logbog.saetninger",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
+    },
     "085ff4c5160ec7": {
       "figur": "klatten",
       "tekst": "Jeg har lært noget. Vis jeg skriver forkert, er det ikke farligt. Jeg retter det bare, og så bliver orderne lidt smukere.",
       "fil": "085ff4c5160ec7.ogg",
       "kilde": "Klattens tekster / k16",
       "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "086174a4677a5c": {
+      "figur": "aeseloere",
+      "tekst": "Ja. tage rimer på kage. De lyder ens til sidst.",
+      "fil": "086174a4677a5c.ogg",
+      "kilde": "Svar / rim.kage.tage",
+      "lavet": "2026-11-17",
       "model": "gemini-3.8-flash-tts"
     },
     "08669a1198ea52": {
@@ -2792,6 +3209,14 @@
       "fil": "086fdcaab9d36a.ogg",
       "kilde": "Beskeder / regel",
       "lavet": "2026-11-05"
+    },
+    "0874038fe8f61c": {
+      "figur": "aeseloere",
+      "tekst": "Ikke helt. Klap ordet langsomt: må-ne. Tæl klappene.",
+      "fil": "0874038fe8f61c.ogg",
+      "kilde": "Svar / rytme.måne.fejl",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "08784ab5045138": {
       "figur": "aeseloere",
@@ -2820,6 +3245,14 @@
       "fil": "089f8aa70943a8.ogg",
       "kilde": "Kapitel 4 / k4-rimfod.6",
       "lavet": "2026-11-09"
+    },
+    "08a3bcf94d0bc1": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord rimer på top?",
+      "fil": "08a3bcf94d0bc1.ogg",
+      "kilde": "Svar / rim.top.spoergsmaal",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
     },
     "08a92b86b7b550": {
       "figur": "fodnote",
@@ -2865,6 +3298,14 @@
       "kilde": "Svar / ikkerim.sol.sten",
       "lavet": "2026-11-15",
       "model": "gemini-3.8-flash-lite-tts"
+    },
+    "08dfa5c3ab0ebf": {
+      "figur": "aeseloere",
+      "tekst": "Ja. skib rimer ikke på sky. Slutningen lyder anderledes.",
+      "fil": "08dfa5c3ab0ebf.ogg",
+      "kilde": "Svar / ikkerim.sky.skib",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
     },
     "08f04894dec4d2": {
       "figur": "fortaeller",
@@ -2999,6 +3440,14 @@
       "kilde": "Minder / minde.foldet.2",
       "lavet": "2026-11-13"
     },
+    "095d447060897c": {
+      "figur": "aeseloere",
+      "tekst": "lange rimer ikke på lampe. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "095d447060897c.ogg",
+      "kilde": "Svar / rim.lampe.lange",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
+    },
     "095e5b44ab3a72": {
       "figur": "rimfod",
       "tekst": "Bare én sætning, der ikke rimer. Én eneste. Så græder jeg af glæde i flere timer.",
@@ -3095,12 +3544,28 @@
       "kilde": "Kapitel 7 / k7-grumsen.2",
       "lavet": "2026-11-10"
     },
+    "099250910431ba": {
+      "figur": "aeseloere",
+      "tekst": "Ja. sko rimer ikke på sky. Slutningen lyder anderledes.",
+      "fil": "099250910431ba.ogg",
+      "kilde": "Svar / ikkerim.sky.sko",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
+    },
     "0993816884e710": {
       "figur": "fortaeller",
       "tekst": "Bedstemor lagde bogen fra sig. ... smilede og slukkede lampen.",
       "fil": "0993816884e710.ogg",
       "kilde": "Fortæller / f08",
       "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "099736e688374e": {
+      "figur": "aeseloere",
+      "tekst": "Ja. kanin rimer ikke på kage. Slutningen lyder anderledes.",
+      "fil": "099736e688374e.ogg",
+      "kilde": "Svar / ikkerim.kage.kanin",
+      "lavet": "2026-11-17",
       "model": "gemini-3.8-flash-tts"
     },
     "099e773b16e1f6": {
@@ -3124,6 +3589,14 @@
       "fil": "09a80a020f2812.ogg",
       "kilde": "Svar / synonym.fjende.rigtig",
       "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "09a831718d7014": {
+      "figur": "aeseloere",
+      "tekst": "Ja. lomme rimer ikke på lampe. Slutningen lyder anderledes.",
+      "fil": "09a831718d7014.ogg",
+      "kilde": "Svar / ikkerim.lampe.lomme",
+      "lavet": "2026-11-17",
       "model": "gemini-3.8-flash-tts"
     },
     "09b0ca08792b19": {
@@ -3305,6 +3778,14 @@
       "lavet": "2026-11-15",
       "model": "gemini-3.8-flash-lite-tts"
     },
+    "0a53d7ceb0da59": {
+      "figur": "aeseloere",
+      "tekst": "Ikke helt. Klap ordet langsomt: kro-ko-dil-le. Tæl klappene.",
+      "fil": "0a53d7ceb0da59.ogg",
+      "kilde": "Svar / rytme.krokodille.fejl",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "0a544fd9f20639": {
       "figur": "aeseloere",
       "tekst": "Ja. tang rimer på sang. De lyder ens til sidst.",
@@ -3343,6 +3824,14 @@
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-tts"
     },
+    "0a7f5edad01b5a": {
+      "figur": "aeseloere",
+      "tekst": "Ikke helt. Klap ordet langsomt: ek-ko. Tæl klappene.",
+      "fil": "0a7f5edad01b5a.ogg",
+      "kilde": "Svar / rytme.ekko.fejl",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "0a8add0ccc7c17": {
       "figur": "fortaeller",
       "tekst": "Lanternen. Mor Lanternes lanterne. Den lyser af færdige historier og bliver aldrig helt mørk.",
@@ -3372,6 +3861,14 @@
       "kilde": "Svar / rim.trold.tromme",
       "lavet": "2026-11-16",
       "model": "gemini-3.8-flash-lite-tts"
+    },
+    "0a9a8575176798": {
+      "figur": "aeseloere",
+      "tekst": "Ja. sove rimer ikke på sommer. Slutningen lyder anderledes.",
+      "fil": "0a9a8575176798.ogg",
+      "kilde": "Svar / ikkerim.sommer.sove",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
     },
     "0aa03e71547b1c": {
       "figur": "aeseloere",
@@ -3409,6 +3906,14 @@
       "fil": "0aaa14bdcf8a5a.ogg",
       "kilde": "Kapitel 3 / k3-skilt.3",
       "lavet": "2026-11-01"
+    },
+    "0ab007064ab89c": {
+      "figur": "aeseloere",
+      "tekst": "kanin rimer ikke på kage. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "0ab007064ab89c.ogg",
+      "kilde": "Svar / rim.kage.kanin",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
     },
     "0ab1d525ba7adc": {
       "figur": "fortaeller",
@@ -3572,6 +4077,14 @@
       "kilde": "Kapitel 2 / k2-torvet.2",
       "lavet": "2026-10-31"
     },
+    "0b2f62cee8a398": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord rimer ikke på sommer?",
+      "fil": "0b2f62cee8a398.ogg",
+      "kilde": "Svar / ikkerim.sommer.spoergsmaal",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
+    },
     "0b33fa14840161": {
       "figur": "fortaeller",
       "tekst": "Tomordet er mæt og helt roligt.",
@@ -3630,6 +4143,22 @@
       "kilde": "Svar / rim.sang.sæk",
       "lavet": "2026-11-16",
       "model": "gemini-3.8-flash-lite-tts"
+    },
+    "0b5640900b304a": {
+      "figur": "fortaeller",
+      "tekst": "Striben af blæk på stien begynder at boble. En lille klat rejser sig og kigger på dig med to store øjne.",
+      "fil": "0b5640900b304a.ogg",
+      "kilde": "Kapitel 1 / k1-blaekling-moede.1",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "0b5c31521fe233": {
+      "figur": "aeseloere",
+      "tekst": "Ja. lagen rimer ikke på kage. Slutningen lyder anderledes.",
+      "fil": "0b5c31521fe233.ogg",
+      "kilde": "Svar / ikkerim.kage.lagen",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
     },
     "0b62dfb70861c4": {
       "figur": "raaber",
@@ -3718,6 +4247,14 @@
       "lavet": "2026-11-15",
       "model": "gemini-3.8-flash-tts"
     },
+    "0b9a415d52a132": {
+      "figur": "aeseloere",
+      "tekst": "Sådan. Hvert rigtigt svar er et slag, og tre i træk giver et stort slag. Husk det, når vi møder større væsner.",
+      "fil": "0b9a415d52a132.ogg",
+      "kilde": "Kapitel 1 / k1-blaekling-slut.2",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
+    },
     "0ba0006b108fb4": {
       "figur": "fortaeller",
       "tekst": "Hvilket ord rimer på dag?",
@@ -3725,6 +4262,14 @@
       "kilde": "Svar / rim.dag.spoergsmaal",
       "lavet": "2026-11-16",
       "model": "gemini-3.8-flash-tts"
+    },
+    "0ba1040210587f": {
+      "figur": "fortaeller",
+      "tekst": "Hvordan staves hoppte rigtigt?",
+      "fil": "0ba1040210587f.ogg",
+      "kilde": "Svar / korrektur.k02.hoppte",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "0ba8a7be8d777b": {
       "figur": "fortaeller",
@@ -3747,6 +4292,14 @@
       "fil": "0bb8b442db68e3.ogg",
       "kilde": "Kapitel 8 / k8-halvsaetning.2",
       "lavet": "2026-11-11"
+    },
+    "0bcefb975e02e0": {
+      "figur": "aeseloere",
+      "tekst": "solen rimer ikke på sommer. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "0bcefb975e02e0.ogg",
+      "kilde": "Svar / rim.sommer.solen",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
     },
     "0bd026653aa4be": {
       "figur": "aeseloere",
@@ -3846,6 +4399,14 @@
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-tts"
     },
+    "0c00e0f5817b62": {
+      "figur": "fortaeller",
+      "tekst": "Klap ordet ekko. Hvor mange stavelser har det?",
+      "fil": "0c00e0f5817b62.ogg",
+      "kilde": "Svar / rytme.ekko.spoergsmaal",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "0c0123d5103cee": {
       "figur": "fodnote",
       "tekst": "¹ Nej tak. Alt det vigtige står nederst.",
@@ -3889,6 +4450,14 @@
       "lavet": "2026-11-16",
       "model": "gemini-3.8-flash-tts"
     },
+    "0c21f53bd5674e": {
+      "figur": "fortaeller",
+      "tekst": "Klap ordet paraply. Hvor mange stavelser har det?",
+      "fil": "0c21f53bd5674e.ogg",
+      "kilde": "Svar / rytme.paraply.spoergsmaal",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "0c22f7eb3594eb": {
       "figur": "fortaeller",
       "tekst": "Hele dagen ventede jeg på et brev. ... kiggede i postkassen mindst ti gange.",
@@ -3903,6 +4472,14 @@
       "fil": "0c24d021b3f25a.ogg",
       "kilde": "Minder / minde.blaek.1",
       "lavet": "2026-11-03"
+    },
+    "0c2ba032de5dea": {
+      "figur": "aeseloere",
+      "tekst": "Ja. smage rimer på kage. De lyder ens til sidst.",
+      "fil": "0c2ba032de5dea.ogg",
+      "kilde": "Svar / rim.kage.smage",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
     },
     "0c398de9ad7cbf": {
       "figur": "aeseloere",
@@ -3961,6 +4538,14 @@
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-lite-tts"
     },
+    "0c5cdb5042b2ab": {
+      "figur": "fortaeller",
+      "tekst": "rime ... rime ... rime",
+      "fil": "0c5cdb5042b2ab.ogg",
+      "kilde": "Svar / ekko.rime",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
+    },
     "0c6135b72faf22": {
       "figur": "fortaeller",
       "tekst": "Læs byrådets opslag.",
@@ -3982,6 +4567,14 @@
       "fil": "0c6460d9fb799f.ogg",
       "kilde": "Kapitel 5 / k5-twist.8",
       "lavet": "2026-11-10"
+    },
+    "0c6a681f0ed14f": {
+      "figur": "aeseloere",
+      "tekst": "Den er lavet af ord med stumme bogstaver, ligesom dem i skuffen. Find det stumme bogstav, så falder den til ro.",
+      "fil": "0c6a681f0ed14f.ogg",
+      "kilde": "Kapitel 1 / k1-blaekling-moede.5",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
     },
     "0c6cb7ab6d7f0e": {
       "figur": "fortaeller",
@@ -4012,6 +4605,14 @@
       "kilde": "Klattens tekster / k02",
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-tts"
+    },
+    "0c7cce810cad58": {
+      "figur": "fortaeller",
+      "tekst": "Klap ordet bjerg. Hvor mange stavelser har det?",
+      "fil": "0c7cce810cad58.ogg",
+      "kilde": "Svar / rytme.bjerg.spoergsmaal",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "0c7eff2a410e75": {
       "figur": "aeseloere",
@@ -4049,6 +4650,14 @@
       "fil": "0c892a9a204ffc.ogg",
       "kilde": "Svar / ikkerim.sol.spoergsmaal",
       "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "0c893e1f9321f5": {
+      "figur": "aeseloere",
+      "tekst": "Ja. vin-ter har 2 stavelser.",
+      "fil": "0c893e1f9321f5.ogg",
+      "kilde": "Svar / rytme.vinter.rigtig",
+      "lavet": "2026-11-17",
       "model": "gemini-3.8-flash-lite-tts"
     },
     "0c8a1441a4776d": {
@@ -4107,6 +4716,14 @@
       "kilde": "Svar / rim.fisk.frisk",
       "lavet": "2026-11-16",
       "model": "gemini-3.8-flash-tts"
+    },
+    "0c9c5325817ac5": {
+      "figur": "aeseloere",
+      "tekst": "Ja. lam-pe har 2 stavelser.",
+      "fil": "0c9c5325817ac5.ogg",
+      "kilde": "Svar / rytme.lampe.rigtig",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "0c9fbefe7eac12": {
       "figur": "aeseloere",
@@ -4240,6 +4857,14 @@
       "kilde": "Beskeder / hviske.eksempel.hvem",
       "lavet": "2026-11-05"
     },
+    "0d15a580163dcf": {
+      "figur": "fortaeller",
+      "tekst": "top ... top ... top",
+      "fil": "0d15a580163dcf.ogg",
+      "kilde": "Svar / ekko.top",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
+    },
     "0d1d14a1a6e891": {
       "figur": "aeseloere",
       "tekst": "Ordet synge betyder ikke det samme som løbe. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
@@ -4306,6 +4931,14 @@
       "fil": "0d4c053c399237.ogg",
       "kilde": "Kapitel 3 / k3-klatten.valg1.4",
       "lavet": "2026-11-01"
+    },
+    "0d5461455b2035": {
+      "figur": "aeseloere",
+      "tekst": "Ikke helt. Klap ordet langsomt: pa-ra-ply. Tæl klappene.",
+      "fil": "0d5461455b2035.ogg",
+      "kilde": "Svar / rytme.paraply.fejl",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "0d567e8abb2c6d": {
       "figur": "raaber",
@@ -4438,6 +5071,14 @@
       "fil": "0da7fb69334d29.ogg",
       "kilde": "Kapitel 2 / k2-smoeger.2",
       "lavet": "2026-10-31"
+    },
+    "0dafa1bd544d68": {
+      "figur": "aeseloere",
+      "tekst": "Ja. trampe rimer på lampe. De lyder ens til sidst.",
+      "fil": "0dafa1bd544d68.ogg",
+      "kilde": "Svar / rim.lampe.trampe",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
     },
     "0dc086d0a56642": {
       "figur": "aeseloere",
@@ -4579,6 +5220,14 @@
       "kilde": "Kapitel 2 / k2-spor.1",
       "lavet": "2026-10-31"
     },
+    "0e3c30cb6791d9": {
+      "figur": "aeseloere",
+      "tekst": "smage rimer faktisk på kage. Sig dem højt. De lyder ens til sidst.",
+      "fil": "0e3c30cb6791d9.ogg",
+      "kilde": "Svar / ikkerim.kage.smage",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
+    },
     "0e3d9d25e76c68": {
       "figur": "aeseloere",
       "tekst": "Planke 1 står forkert. Hvordan ender historien?",
@@ -4659,6 +5308,14 @@
       "fil": "0e63fda4563078.ogg",
       "kilde": "Kapitel 6 / k6-twist.5",
       "lavet": "2026-11-10"
+    },
+    "0e679c61c70c7a": {
+      "figur": "aeseloere",
+      "tekst": "tand rimer ikke på tante. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "0e679c61c70c7a.ogg",
+      "kilde": "Svar / rim.tante.tand",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
     },
     "0e6e3805370bca": {
       "figur": "aeseloere",
@@ -4762,6 +5419,22 @@
       "lavet": "2026-11-15",
       "model": "gemini-3.8-flash-lite-tts"
     },
+    "0ebb7fee72aa2d": {
+      "figur": "aeseloere",
+      "tekst": "Ikke helt. Klap ordet langsomt: to-mat. Tæl klappene.",
+      "fil": "0ebb7fee72aa2d.ogg",
+      "kilde": "Svar / rytme.tomat.fejl",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "0ec9ac1c2435b9": {
+      "figur": "aeseloere",
+      "tekst": "Ikke helt. Klap ordet langsomt: klad-de-hæf-te. Tæl klappene.",
+      "fil": "0ec9ac1c2435b9.ogg",
+      "kilde": "Svar / rytme.kladdehæfte.fejl",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "0ecb7f64b02ff4": {
       "figur": "snegl",
       "tekst": "Alle tre! Men blækket er løbet, og nogle ord ser forkerte ud. Kan du hjælpe mig med at rette dem?",
@@ -4804,6 +5477,22 @@
       "kilde": "Kapitel 2 / k2-smoeger.1",
       "lavet": "2026-10-31"
     },
+    "0ee88b92c6985d": {
+      "figur": "aeseloere",
+      "tekst": "lile er ikke den rigtige stavemåde. Læs reglen, og prøv igen.",
+      "fil": "0ee88b92c6985d.ogg",
+      "kilde": "Svar / korrektur.k01.lile",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "0ee8cb7d774b2c": {
+      "figur": "aeseloere",
+      "tekst": "Ja. må-ne har 2 stavelser.",
+      "fil": "0ee8cb7d774b2c.ogg",
+      "kilde": "Svar / rytme.måne.rigtig",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "0ef22d14349948": {
       "figur": "prinsesse",
       "tekst": "Nu ved jeg det. Magi, prøver og en helt. Og helten er mig. Farvel, tårn!",
@@ -4825,6 +5514,14 @@
       "fil": "0f02525bb47598.ogg",
       "kilde": "Svar / rim.ring.rig",
       "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "0f0c195c7a205f": {
+      "figur": "aeseloere",
+      "tekst": "Ja. hop rimer på top. De lyder ens til sidst.",
+      "fil": "0f0c195c7a205f.ogg",
+      "kilde": "Svar / rim.top.hop",
+      "lavet": "2026-11-17",
       "model": "gemini-3.8-flash-tts"
     },
     "0f0c1ad9b03405": {
@@ -4923,6 +5620,14 @@
       "kilde": "Svar / ikkerim.sol.pol",
       "lavet": "2026-11-15",
       "model": "gemini-3.8-flash-lite-tts"
+    },
+    "0f563438f70063": {
+      "figur": "aeseloere",
+      "tekst": "Ja. fly rimer på sky. De lyder ens til sidst.",
+      "fil": "0f563438f70063.ogg",
+      "kilde": "Svar / rim.sky.fly",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
     },
     "0f6564e53f9f9b": {
       "figur": "fortaeller",
@@ -5028,6 +5733,14 @@
       "fil": "0fb0dfa8cb1e36.ogg",
       "kilde": "Opgaver / fortaeller.spoergsmaal",
       "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "0fb2b2ccb899b6": {
+      "figur": "aeseloere",
+      "tekst": "Ja. tavle rimer ikke på tante. Slutningen lyder anderledes.",
+      "fil": "0fb2b2ccb899b6.ogg",
+      "kilde": "Svar / ikkerim.tante.tavle",
+      "lavet": "2026-11-17",
       "model": "gemini-3.8-flash-tts"
     },
     "0fb63579de2d57": {
@@ -5263,6 +5976,14 @@
       "fil": "1022e7bb737557.ogg",
       "kilde": "Beskeder / hviske.eksempel.hvor",
       "lavet": "2026-11-05"
+    },
+    "10232e8d00e897": {
+      "figur": "fortaeller",
+      "tekst": "Klap ordet sommerfugl. Hvor mange stavelser har det?",
+      "fil": "10232e8d00e897.ogg",
+      "kilde": "Svar / rytme.sommerfugl.spoergsmaal",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "10240366fbf970": {
       "figur": "fortaeller",
@@ -5514,6 +6235,14 @@
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-lite-tts"
     },
+    "10d09e8898d944": {
+      "figur": "aeseloere",
+      "tekst": "Ikke helt. Klap ordet langsomt: lan-ter-ne. Tæl klappene.",
+      "fil": "10d09e8898d944.ogg",
+      "kilde": "Svar / rytme.lanterne.fejl",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "10d67158c29894": {
       "figur": "snegl",
       "tekst": "Har du fundet mine breve? De er små og hvide. Og våde.",
@@ -5548,6 +6277,14 @@
       "fil": "10f641efe1d31e.ogg",
       "kilde": "Kapitel 3 / k3-skilt.2",
       "lavet": "2026-11-01"
+    },
+    "11015cf9d03cad": {
+      "figur": "fortaeller",
+      "tekst": "Klap ordet abrikos. Hvor mange stavelser har det?",
+      "fil": "11015cf9d03cad.ogg",
+      "kilde": "Svar / rytme.abrikos.spoergsmaal",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "1101c30cb47b05": {
       "figur": "fortaeller",
@@ -5693,12 +6430,28 @@
       "kilde": "Minder / minde.streger.4",
       "lavet": "2026-11-03"
     },
+    "113867393f7fe7": {
+      "figur": "aeseloere",
+      "tekst": "skib rimer ikke på sky. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "113867393f7fe7.ogg",
+      "kilde": "Svar / rim.sky.skib",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
+    },
     "113cb50ea8f4cd": {
       "figur": "borgmester",
       "tekst": "Uden tegn ved ingen, om man spørger om noget, råber noget eller bare fortæller noget.",
       "fil": "113cb50ea8f4cd.ogg",
       "kilde": "Kapitel 2 / k2-borgmester.2",
       "lavet": "2026-10-31"
+    },
+    "1147129247903b": {
+      "figur": "aeseloere",
+      "tekst": "kommer rimer faktisk på sommer. Sig dem højt. De lyder ens til sidst.",
+      "fil": "1147129247903b.ogg",
+      "kilde": "Svar / ikkerim.sommer.kommer",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
     },
     "114a966e035f0b": {
       "figur": "fortaeller",
@@ -6038,6 +6791,14 @@
       "kilde": "Kapitel 2 / k2-trykkeri.1",
       "lavet": "2026-10-31"
     },
+    "123559961801f4": {
+      "figur": "aeseloere",
+      "tekst": "ruse rimer ikke på rime. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "123559961801f4.ogg",
+      "kilde": "Svar / rim.rime.ruse",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1238eff2b0cbe0": {
       "figur": "fortaeller",
       "tekst": "Langt borte, over træerne, rejser et bjerg sig. Det lyder, som om det synger.",
@@ -6189,6 +6950,14 @@
       "kilde": "Kapitel 4 / k4-rimfod.2",
       "lavet": "2026-11-09"
     },
+    "12bccd1994ba02": {
+      "figur": "aeseloere",
+      "tekst": "Ja. klad-de-hæf-te har 4 stavelser.",
+      "fil": "12bccd1994ba02.ogg",
+      "kilde": "Svar / rytme.kladdehæfte.rigtig",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "12bd0fea0f56ca": {
       "figur": "fortaeller",
       "tekst": "Men i dag tegnede jeg et helt kort uden en eneste klat.",
@@ -6231,6 +7000,14 @@
       "fil": "12d65957554dfe.ogg",
       "kilde": "Kapitel 7 / k7-ankomst.1",
       "lavet": "2026-11-10"
+    },
+    "12e673acd930ac": {
+      "figur": "aeseloere",
+      "tekst": "time rimer faktisk på rime. Sig dem højt. De lyder ens til sidst.",
+      "fil": "12e673acd930ac.ogg",
+      "kilde": "Svar / ikkerim.rime.time",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "12f39526891822": {
       "figur": "fortaeller",
@@ -6362,6 +7139,14 @@
       "fil": "136cf192e7ab67.ogg",
       "kilde": "Kapitel 6 / k6-twist.valg2.1",
       "lavet": "2026-11-10"
+    },
+    "136d26f3d831c7": {
+      "figur": "aeseloere",
+      "tekst": "Ikke helt. Klap ordet langsomt: kar-tof-fel. Tæl klappene.",
+      "fil": "136d26f3d831c7.ogg",
+      "kilde": "Svar / rytme.kartoffel.fejl",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "136de469832728": {
       "figur": "aeseloere",
@@ -6575,6 +7360,14 @@
       "kilde": "Stumme bogstaver / hvor",
       "lavet": "2026-10-31"
     },
+    "13bd08b22fff36": {
+      "figur": "aeseloere",
+      "tekst": "trampe rimer faktisk på lampe. Sig dem højt. De lyder ens til sidst.",
+      "fil": "13bd08b22fff36.ogg",
+      "kilde": "Svar / ikkerim.lampe.trampe",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
+    },
     "13c0eaa15cc4f9": {
       "figur": "aeseloere",
       "tekst": "Ordet hurtig betyder ikke det samme som forsigtig. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
@@ -6597,6 +7390,30 @@
       "fil": "13c1d5c6f04377.ogg",
       "kilde": "Kapitel 4 / k4-ankomst.4",
       "lavet": "2026-11-09"
+    },
+    "13cb00706a82b0": {
+      "figur": "aeseloere",
+      "tekst": "Ikke helt. Klap ordet langsomt: trold. Tæl klappene.",
+      "fil": "13cb00706a82b0.ogg",
+      "kilde": "Svar / rytme.trold.fejl",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "13cba56faed90b": {
+      "figur": "aeseloere",
+      "tekst": "Ja. tå rimer ikke på top. Slutningen lyder anderledes.",
+      "fil": "13cba56faed90b.ogg",
+      "kilde": "Svar / ikkerim.top.tå",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "13cc094e552bda": {
+      "figur": "aeseloere",
+      "tekst": "sok rimer ikke på sky. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "13cc094e552bda.ogg",
+      "kilde": "Svar / rim.sky.sok",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
     },
     "13cdaa12bc1384": {
       "figur": "raaber",
@@ -6657,12 +7474,28 @@
       "kilde": "Kapitel 5 / k5-twist.5",
       "lavet": "2026-11-10"
     },
+    "13e398521de46c": {
+      "figur": "fortaeller",
+      "tekst": "Klap ordet ekkohule. Hvor mange stavelser har det?",
+      "fil": "13e398521de46c.ogg",
+      "kilde": "Svar / rytme.ekkohule.spoergsmaal",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "13ea075d501636": {
       "figur": "fortaeller",
       "tekst": "Det lugter af blæk. Du kender den lugt. Du ved bare ikke hvorfra.",
       "fil": "13ea075d501636.ogg",
       "kilde": "Minder / minde.blaek.3",
       "lavet": "2026-11-03"
+    },
+    "13ed418d0cc82f": {
+      "figur": "fortaeller",
+      "tekst": "Klap ordet måne. Hvor mange stavelser har det?",
+      "fil": "13ed418d0cc82f.ogg",
+      "kilde": "Svar / rytme.måne.spoergsmaal",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "14018d2e74b0eb": {
       "figur": "aeseloere",
@@ -6714,6 +7547,14 @@
       "fil": "141543b0114b56.ogg",
       "kilde": "Genrer / k5",
       "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "14198490f6894c": {
+      "figur": "aeseloere",
+      "tekst": "Ja. pa-ra-ply har 3 stavelser.",
+      "fil": "14198490f6894c.ogg",
+      "kilde": "Svar / rytme.paraply.rigtig",
+      "lavet": "2026-11-17",
       "model": "gemini-3.8-flash-lite-tts"
     },
     "1419fd836bd326": {
@@ -6787,12 +7628,36 @@
       "kilde": "Kapitel 5 / k5-tvivl-moede.1",
       "lavet": "2026-11-09"
     },
+    "145791153d39c6": {
+      "figur": "aeseloere",
+      "tekst": "Ikke helt. Klap ordet langsomt: ba-nan. Tæl klappene.",
+      "fil": "145791153d39c6.ogg",
+      "kilde": "Svar / rytme.banan.fejl",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "14632aa58d8ce9": {
       "figur": "fortaeller",
       "tekst": "Kvak hopper hjem med lyset, og den nat sover hele dammen godt.",
       "fil": "14632aa58d8ce9.ogg",
       "kilde": "Historiebroen / bro-froeen.hjemkomst",
       "lavet": "2026-11-05"
+    },
+    "1464e9b719d8ec": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord rimer på rime?",
+      "fil": "1464e9b719d8ec.ogg",
+      "kilde": "Svar / rim.rime.spoergsmaal",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "14676ce630db81": {
+      "figur": "aeseloere",
+      "tekst": "kop rimer faktisk på top. Sig dem højt. De lyder ens til sidst.",
+      "fil": "14676ce630db81.ogg",
+      "kilde": "Svar / ikkerim.top.kop",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
     },
     "14685511f4667b": {
       "figur": "fortaeller",
@@ -6814,6 +7679,14 @@
       "fil": "147cc0e319b5a8.ogg",
       "kilde": "Svar / ikkerim.is.spoergsmaal",
       "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "147d997aadb59e": {
+      "figur": "fortaeller",
+      "tekst": "lampe ... lampe ... lampe",
+      "fil": "147d997aadb59e.ogg",
+      "kilde": "Svar / ekko.lampe",
+      "lavet": "2026-11-17",
       "model": "gemini-3.8-flash-tts"
     },
     "148a37dda24544": {
@@ -6926,6 +7799,14 @@
       "kilde": "Kapitel 8 / k8-ogsaa.valg2.1",
       "lavet": "2026-11-11"
     },
+    "14e59f6212c7de": {
+      "figur": "aeseloere",
+      "tekst": "Ja. taske rimer ikke på tante. Slutningen lyder anderledes.",
+      "fil": "14e59f6212c7de.ogg",
+      "kilde": "Svar / ikkerim.tante.taske",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
+    },
     "14e9c992493c20": {
       "figur": "aeseloere",
       "tekst": "Eksempel: Andre ord med samme regel: kold, mand, land",
@@ -6954,6 +7835,22 @@
       "fil": "14f3f00bc85d4b.ogg",
       "kilde": "Svar / rim.bil.bus",
       "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "1500b3dea5db1e": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Han passer til den, der allerede fortæller.",
+      "fil": "1500b3dea5db1e.ogg",
+      "kilde": "Svar / fortsaet.f03.rigtig",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "151896e0fc2c88": {
+      "figur": "fortaeller",
+      "tekst": "Klap ordet kanin. Hvor mange stavelser har det?",
+      "fil": "151896e0fc2c88.ogg",
+      "kilde": "Svar / rytme.kanin.spoergsmaal",
+      "lavet": "2026-11-17",
       "model": "gemini-3.8-flash-lite-tts"
     },
     "15193b3295ba01": {
@@ -6991,6 +7888,14 @@
       "fil": "153606a6443db9.ogg",
       "kilde": "Kapitel 6 / k6-twist.7",
       "lavet": "2026-11-10"
+    },
+    "153e48fe406c0f": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Det staves hjemme.",
+      "fil": "153e48fe406c0f.ogg",
+      "kilde": "Svar / korrektur.k01.hjemme",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "153ea8ecfd1d62": {
       "figur": "fortaeller",
@@ -7177,6 +8082,22 @@
       "kilde": "Minder / minde.skaar4a.1",
       "lavet": "2026-11-13"
     },
+    "15c5e075ce8846": {
+      "figur": "fortaeller",
+      "tekst": "kage ... kage ... kage",
+      "fil": "15c5e075ce8846.ogg",
+      "kilde": "Svar / ekko.kage",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "15c8e7ef270f6a": {
+      "figur": "aeseloere",
+      "tekst": "Ja. som-mer-fugl har 3 stavelser.",
+      "fil": "15c8e7ef270f6a.ogg",
+      "kilde": "Svar / rytme.sommerfugl.rigtig",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "15d187252b541a": {
       "figur": "aeseloere",
       "tekst": "Planke 3 står forkert. Hvem eller hvad står i vejen?",
@@ -7259,6 +8180,14 @@
       "lavet": "2026-11-15",
       "model": "gemini-3.8-flash-tts"
     },
+    "161c9d2f2bcf44": {
+      "figur": "aeseloere",
+      "tekst": "Ja. lommer rimer på sommer. De lyder ens til sidst.",
+      "fil": "161c9d2f2bcf44.ogg",
+      "kilde": "Svar / rim.sommer.lommer",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
+    },
     "16251122efc162": {
       "figur": "fortaeller",
       "tekst": "Hvilket ord betyder det samme som sur?",
@@ -7289,6 +8218,14 @@
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-tts"
     },
+    "16487393026471": {
+      "figur": "aeseloere",
+      "tekst": "Ikke helt. Klap ordet langsomt: sol. Tæl klappene.",
+      "fil": "16487393026471.ogg",
+      "kilde": "Svar / rytme.sol.fejl",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1650c42ec1b86d": {
       "figur": "fortaeller",
       "tekst": "Skriv de to bogstaver, der mangler. Det ene er stumt.",
@@ -7317,6 +8254,14 @@
       "kilde": "Kapitel 6 / k6-krusedul.4",
       "lavet": "2026-11-10"
     },
+    "166fa7474ec0e3": {
+      "figur": "aeseloere",
+      "tekst": "Ikke helt. Klap ordet langsomt: som-mer-fugl. Tæl klappene.",
+      "fil": "166fa7474ec0e3.ogg",
+      "kilde": "Svar / rytme.sommerfugl.fejl",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "166fe13ad17169": {
       "figur": "stumming",
       "tekst": "Nå. Du kan høre dem, selvom de ikke siger noget. Så må du få dem tilbage.",
@@ -7331,6 +8276,14 @@
       "kilde": "Kapitel 2 / k2-lem.3",
       "lavet": "2026-10-31"
     },
+    "16772df877a230": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord rimer ikke på rime?",
+      "fil": "16772df877a230.ogg",
+      "kilde": "Svar / ikkerim.rime.spoergsmaal",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "167e35de79d040": {
       "figur": "fortaeller",
       "tekst": "En skygge sletter skiltene, lige så snart nogen skriver dem.",
@@ -7344,6 +8297,14 @@
       "fil": "16855b43f1ecf3.ogg",
       "kilde": "Kapitel 2 / k2-spor.2",
       "lavet": "2026-10-31"
+    },
+    "1689e26cc63952": {
+      "figur": "aeseloere",
+      "tekst": "Ja. bjerg har kun én stavelse.",
+      "fil": "1689e26cc63952.ogg",
+      "kilde": "Svar / rytme.bjerg.rigtig",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "168be9fe66aeba": {
       "figur": "fortaeller",
@@ -7721,6 +8682,14 @@
       "kilde": "Kapitel 8 / k8-kamp-slut.3",
       "lavet": "2026-11-11"
     },
+    "178a84204e50dd": {
+      "figur": "aeseloere",
+      "tekst": "Ikke helt. Klap ordet langsomt: kat. Tæl klappene.",
+      "fil": "178a84204e50dd.ogg",
+      "kilde": "Svar / rytme.kat.fejl",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "178c5d522d4030": {
       "figur": "vims",
       "tekst": "Vi kan hjælpe! Tror jeg. Undskyld, hvis vi ikke kan.",
@@ -7770,6 +8739,14 @@
       "fil": "17aea59c3821ea.ogg",
       "kilde": "Kapitel 2 / k2-fanget.2",
       "lavet": "2026-10-31"
+    },
+    "17b29cbf96c695": {
+      "figur": "aeseloere",
+      "tekst": "Han skifter fortæller midt i det hele. Se på den første sætning. Hvem handler den om?",
+      "fil": "17b29cbf96c695.ogg",
+      "kilde": "Svar / fortsaet.f01.Han",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "17b29e61b47b77": {
       "figur": "fortaeller",
@@ -7858,6 +8835,46 @@
       "fil": "17e064ba2e77a0.ogg",
       "kilde": "Ordkort / falmet",
       "lavet": "2026-11-01"
+    },
+    "17e3ffb55f9efd": {
+      "figur": "aeseloere",
+      "tekst": "tage rimer faktisk på kage. Sig dem højt. De lyder ens til sidst.",
+      "fil": "17e3ffb55f9efd.ogg",
+      "kilde": "Svar / ikkerim.kage.tage",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "17ecd7614109d0": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord rimer på tante?",
+      "fil": "17ecd7614109d0.ogg",
+      "kilde": "Svar / rim.tante.spoergsmaal",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "17ed3836391c94": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord rimer på kage?",
+      "fil": "17ed3836391c94.ogg",
+      "kilde": "Svar / rim.kage.spoergsmaal",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "17efc438e03ee3": {
+      "figur": "aeseloere",
+      "tekst": "Ja. kat har kun én stavelse.",
+      "fil": "17efc438e03ee3.ogg",
+      "kilde": "Svar / rytme.kat.rigtig",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "17f66bf64cb682": {
+      "figur": "aeseloere",
+      "tekst": "Ja. to-mat har 2 stavelser.",
+      "fil": "17f66bf64cb682.ogg",
+      "kilde": "Svar / rytme.tomat.rigtig",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "17fd2d86ef9e43": {
       "figur": "aeseloere",
@@ -8015,12 +9032,28 @@
       "kilde": "Kapitel 4 / rimfodsaetning.faerdig.3",
       "lavet": "2026-11-12"
     },
+    "18563d26d77916": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Hun passer til den, der allerede fortæller.",
+      "fil": "18563d26d77916.ogg",
+      "kilde": "Svar / fortsaet.f02.rigtig",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1858627461ad65": {
       "figur": "aeseloere",
       "tekst": "Find sætningen, hvor hr. Holm fortæller, hvad han hørte.",
       "fil": "1858627461ad65.ogg",
       "kilde": "Kapitel 1 / k1-logbog.k1-logbog-2.standard",
       "lavet": "2026-11-01"
+    },
+    "1858b8ae514f84": {
+      "figur": "aeseloere",
+      "tekst": "ringe rimer ikke på rime. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "1858b8ae514f84.ogg",
+      "kilde": "Svar / rim.rime.ringe",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "185d05c6bd12d8": {
       "figur": "fortaeller",
@@ -8073,6 +9106,14 @@
       "kilde": "Opgaver / genre.kendetegn.sf",
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-lite-tts"
+    },
+    "186841eb69f6ea": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord rimer ikke på tante?",
+      "fil": "186841eb69f6ea.ogg",
+      "kilde": "Svar / ikkerim.tante.spoergsmaal",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
     },
     "1868ee1474af8b": {
       "figur": "aeseloere",
@@ -8284,6 +9325,14 @@
       "kilde": "Kapitel 3 / k3-skilt.1",
       "lavet": "2026-11-01"
     },
+    "19219a15542acc": {
+      "figur": "aeseloere",
+      "tekst": "by rimer faktisk på sky. Sig dem højt. De lyder ens til sidst.",
+      "fil": "19219a15542acc.ogg",
+      "kilde": "Svar / ikkerim.sky.by",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
+    },
     "19273cd699ea82": {
       "figur": "fortaeller",
       "tekst": "sang ... sang ... sang",
@@ -8336,6 +9385,14 @@
       "kilde": "Kapitel 3 / halvsang.faerdig.2",
       "lavet": "2026-11-09"
     },
+    "1933a87c1322e8": {
+      "figur": "aeseloere",
+      "tekst": "Ja. ruse rimer ikke på rime. Slutningen lyder anderledes.",
+      "fil": "1933a87c1322e8.ogg",
+      "kilde": "Svar / ikkerim.rime.ruse",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1941a19abf438e": {
       "figur": "fortaeller",
       "tekst": "Du trækker skuffen ud. Det lugter af blæk og regnvejr, og en lille papirfugl flyver op i dit ansigt.",
@@ -8364,6 +9421,14 @@
       "fil": "19464cc79dfed6.ogg",
       "kilde": "Fortæller / k12",
       "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "19501fc44dce18": {
+      "figur": "aeseloere",
+      "tekst": "tå rimer ikke på top. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "19501fc44dce18.ogg",
+      "kilde": "Svar / rim.top.tå",
+      "lavet": "2026-11-17",
       "model": "gemini-3.8-flash-tts"
     },
     "1954357797eb06": {
@@ -8410,6 +9475,14 @@
       "kilde": "Kapitel 5 / k5-fodnote.opgavetekst",
       "lavet": "2026-11-12"
     },
+    "196a15b46e0f17": {
+      "figur": "aeseloere",
+      "tekst": "Ikke helt. Klap ordet langsomt: bjerg. Tæl klappene.",
+      "fil": "196a15b46e0f17.ogg",
+      "kilde": "Svar / rytme.bjerg.fejl",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1970529f50fe78": {
       "figur": "fortaeller",
       "tekst": "Fang Klatten ved skorstenen på det sidste tag.",
@@ -8452,6 +9525,14 @@
       "fil": "19904363ca28a1.ogg",
       "kilde": "Stumme bogstaver / hvad",
       "lavet": "2026-10-31"
+    },
+    "19919dac9fce95": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord rimer på sommer?",
+      "fil": "19919dac9fce95.ogg",
+      "kilde": "Svar / rim.sommer.spoergsmaal",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
     },
     "1996d538bd2a39": {
       "figur": "klatten",
@@ -8580,6 +9661,14 @@
       "kilde": "Kapitel 5 / k5-sorter-slut.3",
       "lavet": "2026-11-09"
     },
+    "19e8e4019331be": {
+      "figur": "aeseloere",
+      "tekst": "Ja. lappe rimer ikke på lampe. Slutningen lyder anderledes.",
+      "fil": "19e8e4019331be.ogg",
+      "kilde": "Svar / ikkerim.lampe.lappe",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
+    },
     "19ed0c7c4fe459": {
       "figur": "aeseloere",
       "tekst": "igel rimer ikke på is. Sig begge ord højt, og lyt til slutningen.",
@@ -8588,12 +9677,36 @@
       "lavet": "2026-11-16",
       "model": "gemini-3.8-flash-tts"
     },
+    "19ee9d7829fb0e": {
+      "figur": "fortaeller",
+      "tekst": "Klap ordet kladdehæfte. Hvor mange stavelser har det?",
+      "fil": "19ee9d7829fb0e.ogg",
+      "kilde": "Svar / rytme.kladdehæfte.spoergsmaal",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "19f6fbcacac372": {
       "figur": "fortaeller",
       "tekst": "Du sætter de tre tegn i hullerne. Så lyser tre tal-hjul op. Under dem står der: \"Punktum, spørgsmålstegn, udråbstegn. Tæl dem i det sidste brev.\"",
       "fil": "19f6fbcacac372.ogg",
       "kilde": "Kapitel 2 / k2-rum.laas.gaade",
       "lavet": "2026-11-03"
+    },
+    "19fff6694c519b": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord rimer på lampe?",
+      "fil": "19fff6694c519b.ogg",
+      "kilde": "Svar / rim.lampe.spoergsmaal",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "1a006129551413": {
+      "figur": "aeseloere",
+      "tekst": "kaffe rimer ikke på kage. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "1a006129551413.ogg",
+      "kilde": "Svar / rim.kage.kaffe",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
     },
     "1a0ac9c61f0443": {
       "figur": "halvsaetning",
@@ -8672,6 +9785,14 @@
       "fil": "1a28aa1519820f.ogg",
       "kilde": "Kapitel 4 / k4-kloeften.2",
       "lavet": "2026-11-09"
+    },
+    "1a29231cf25b13": {
+      "figur": "aeseloere",
+      "tekst": "Ikke helt. Klap ordet langsomt: vin-ter. Tæl klappene.",
+      "fil": "1a29231cf25b13.ogg",
+      "kilde": "Svar / rytme.vinter.fejl",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "1a380646fdc42a": {
       "figur": "raaber",
@@ -8831,6 +9952,14 @@
       "kilde": "Kampe / kamp.vims.visk",
       "lavet": "2026-11-04"
     },
+    "1aa8cdffbb949c": {
+      "figur": "aeseloere",
+      "tekst": "Ja. sok rimer ikke på sky. Slutningen lyder anderledes.",
+      "fil": "1aa8cdffbb949c.ogg",
+      "kilde": "Svar / ikkerim.sky.sok",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1ab26839dfdbb8": {
       "figur": "aeseloere",
       "tekst": "Planke 5 står forkert. Hvad er problemet i begyndelsen?",
@@ -8867,6 +9996,14 @@
       "fil": "1acafc2676927a.ogg",
       "kilde": "Beskeder / kamp.stumming.eksempel.mand",
       "lavet": "2026-11-13"
+    },
+    "1accba247e57ac": {
+      "figur": "aeseloere",
+      "tekst": "plante rimer faktisk på tante. Sig dem højt. De lyder ens til sidst.",
+      "fil": "1accba247e57ac.ogg",
+      "kilde": "Svar / ikkerim.tante.plante",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
     },
     "1ad1480d087e33": {
       "figur": "fortaeller",
@@ -8926,12 +10063,28 @@
       "kilde": "Opgaver / hviske.instruks.vaelg",
       "lavet": "2026-11-04"
     },
+    "1af654d0b108bb": {
+      "figur": "fortaeller",
+      "tekst": "Klap ordet krokodille. Hvor mange stavelser har det?",
+      "fil": "1af654d0b108bb.ogg",
+      "kilde": "Svar / rytme.krokodille.spoergsmaal",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1b0fa501b4ab31": {
       "figur": "aeseloere",
       "tekst": "Planke 1 står forkert. Hvad ser hovedpersonen, når den magiske verden begynder?",
       "fil": "1b0fa501b4ab31.ogg",
       "kilde": "Beskeder / bro.fejl.placering.1.verden",
       "lavet": "2026-11-04"
+    },
+    "1b11116cd3835e": {
+      "figur": "fortaeller",
+      "tekst": "Blæklingen bliver til en lille, rolig dråbe og triller ned i græsset.",
+      "fil": "1b11116cd3835e.ogg",
+      "kilde": "Kapitel 1 / k1-blaekling-slut.1",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
     },
     "1b115bb510e8e1": {
       "figur": "fortaeller",
@@ -8969,6 +10122,22 @@
       "fil": "1b301927939651.ogg",
       "kilde": "Kampe / kamp.stumming.rolig",
       "lavet": "2026-11-04"
+    },
+    "1b359f00586d7b": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord rimer ikke på lampe?",
+      "fil": "1b359f00586d7b.ogg",
+      "kilde": "Svar / ikkerim.lampe.spoergsmaal",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "1b3971c7b575aa": {
+      "figur": "aeseloere",
+      "tekst": "Ja. kaffe rimer ikke på kage. Slutningen lyder anderledes.",
+      "fil": "1b3971c7b575aa.ogg",
+      "kilde": "Svar / ikkerim.kage.kaffe",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
     },
     "1b41c8a0e8391b": {
       "figur": "fortaeller",
@@ -9088,6 +10257,14 @@
       "lavet": "2026-11-16",
       "model": "gemini-3.8-flash-tts"
     },
+    "1b92d61c4ca92c": {
+      "figur": "fortaeller",
+      "tekst": "Klap ordet elefant. Hvor mange stavelser har det?",
+      "fil": "1b92d61c4ca92c.ogg",
+      "kilde": "Svar / rytme.elefant.spoergsmaal",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1b9554e0cbe85b": {
       "figur": "fortaeller",
       "tekst": "Hjælp sætningerne med at holde fast i én fortæller.",
@@ -9168,6 +10345,14 @@
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-tts"
     },
+    "1bc3f6feacbc0d": {
+      "figur": "aeseloere",
+      "tekst": "Ja. tag rimer ikke på top. Slutningen lyder anderledes.",
+      "fil": "1bc3f6feacbc0d.ogg",
+      "kilde": "Svar / ikkerim.top.tag",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1bc4036481cde7": {
       "figur": "fortaeller",
       "tekst": "Følg Klattens blækspor ind i skoven, og skriv det, der er visket ud, tilbage.",
@@ -9232,6 +10417,14 @@
       "fil": "1be4286d3e71a5.ogg",
       "kilde": "Stumme bogstaver / rund.saetning",
       "lavet": "2026-11-04"
+    },
+    "1be9b4effb9340": {
+      "figur": "fortaeller",
+      "tekst": "Klap ordet tomat. Hvor mange stavelser har det?",
+      "fil": "1be9b4effb9340.ogg",
+      "kilde": "Svar / rytme.tomat.spoergsmaal",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "1bec0151e447ac": {
       "figur": "aeseloere",
@@ -9329,12 +10522,36 @@
       "kilde": "Kapitel 1 / k1-logbog.k1-logbog-1",
       "lavet": "2026-11-01"
     },
+    "1c460fa7f72af2": {
+      "figur": "aeseloere",
+      "tekst": "lime rimer faktisk på rime. Sig dem højt. De lyder ens til sidst.",
+      "fil": "1c460fa7f72af2.ogg",
+      "kilde": "Svar / ikkerim.rime.lime",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1c499acc81402b": {
       "figur": "fortaeller",
       "tekst": "Der sad et helt bibliotek af læsere, som gerne ville høre historien.",
       "fil": "1c499acc81402b.ogg",
       "kilde": "Kapitel 8 / k8-oplaesning.7",
       "lavet": "2026-11-11"
+    },
+    "1c4dd18d5b43e6": {
+      "figur": "aeseloere",
+      "tekst": "Ja. rive rimer ikke på rime. Slutningen lyder anderledes.",
+      "fil": "1c4dd18d5b43e6.ogg",
+      "kilde": "Svar / ikkerim.rime.rive",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "1c4f2c967ba278": {
+      "figur": "aeseloere",
+      "tekst": "Ja. trold har kun én stavelse.",
+      "fil": "1c4f2c967ba278.ogg",
+      "kilde": "Svar / rytme.trold.rigtig",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "1c5439f392fa0a": {
       "figur": "fortaeller",
@@ -9424,6 +10641,14 @@
       "kilde": "Kapitel 3 / k3-klatten.5",
       "lavet": "2026-11-01"
     },
+    "1c8f620dcac7a2": {
+      "figur": "aeseloere",
+      "tekst": "Ja. kampe rimer på lampe. De lyder ens til sidst.",
+      "fil": "1c8f620dcac7a2.ogg",
+      "kilde": "Svar / rim.lampe.kampe",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1c8fcfa416e0cd": {
       "figur": "fortaeller",
       "tekst": "I går råbte chefen efter mig.",
@@ -9432,12 +10657,28 @@
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-tts"
     },
+    "1c987a04658781": {
+      "figur": "aeseloere",
+      "tekst": "Ikke helt. Klap ordet langsomt: ka-nin. Tæl klappene.",
+      "fil": "1c987a04658781.ogg",
+      "kilde": "Svar / rytme.kanin.fejl",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1c9ca19c0866d3": {
       "figur": "ufaerdige",
       "tekst": "Jeg kan give jer en slutning. Hver af jer. Alt, I skal gøre, er at gå med mig.",
       "fil": "1c9ca19c0866d3.ogg",
       "kilde": "Kapitel 7 / k7-fristelse.2",
       "lavet": "2026-11-10"
+    },
+    "1c9f11fbbf65ba": {
+      "figur": "aeseloere",
+      "tekst": "sukker rimer ikke på sommer. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "1c9f11fbbf65ba.ogg",
+      "kilde": "Svar / rim.sommer.sukker",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
     },
     "1cabfd621bf84a": {
       "figur": "fortaeller",
@@ -9612,6 +10853,14 @@
       "lavet": "2026-11-16",
       "model": "gemini-3.8-flash-lite-tts"
     },
+    "1d28ce62b3acb6": {
+      "figur": "fortaeller",
+      "tekst": "Klap ordet lanterne. Hvor mange stavelser har det?",
+      "fil": "1d28ce62b3acb6.ogg",
+      "kilde": "Svar / rytme.lanterne.spoergsmaal",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1d324d4c580ba3": {
       "figur": "fortaeller",
       "tekst": "Skuffen hvisker dit navn.",
@@ -9658,6 +10907,22 @@
       "lavet": "2026-11-16",
       "model": "gemini-3.8-flash-lite-tts"
     },
+    "1d50fe3bce7ad0": {
+      "figur": "aeseloere",
+      "tekst": "Ja. ringe rimer ikke på rime. Slutningen lyder anderledes.",
+      "fil": "1d50fe3bce7ad0.ogg",
+      "kilde": "Svar / ikkerim.rime.ringe",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "1d53dc27160c94": {
+      "figur": "aeseloere",
+      "tekst": "Du skifter fortæller midt i det hele. Se på den første sætning. Hvem handler den om?",
+      "fil": "1d53dc27160c94.ogg",
+      "kilde": "Svar / fortsaet.f02.Du",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1d5e2f57b0d1b3": {
       "figur": "aeseloere",
       "tekst": "bold rimer faktisk på trold. Sig dem højt. De lyder ens til sidst.",
@@ -9681,6 +10946,14 @@
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-tts"
     },
+    "1d711ef6bcc30c": {
+      "figur": "aeseloere",
+      "tekst": "Ja. kante rimer på tante. De lyder ens til sidst.",
+      "fil": "1d711ef6bcc30c.ogg",
+      "kilde": "Svar / rim.tante.kante",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1d74103700bcdc": {
       "figur": "fortaeller",
       "tekst": "Kapitel 5. Fodnoternes kælder.",
@@ -9694,6 +10967,14 @@
       "fil": "1d7c0631b28f17.ogg",
       "kilde": "Svar / synonym.nervoes.spoergsmaal",
       "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "1d7d6cab8deb0c": {
+      "figur": "aeseloere",
+      "tekst": "Ja. sukker rimer ikke på sommer. Slutningen lyder anderledes.",
+      "fil": "1d7d6cab8deb0c.ogg",
+      "kilde": "Svar / ikkerim.sommer.sukker",
+      "lavet": "2026-11-17",
       "model": "gemini-3.8-flash-tts"
     },
     "1d85dad789fbc1": {
@@ -9717,6 +10998,14 @@
       "fil": "1d9038138e88d3.ogg",
       "kilde": "Synonymer / kigge",
       "lavet": "2026-11-04"
+    },
+    "1d9270033c5aeb": {
+      "figur": "aeseloere",
+      "tekst": "En Blækling. Klatten taber dem, når han har travlt. Den er mere bange end farlig, men den kan godt finde på at sprøjte.",
+      "fil": "1d9270033c5aeb.ogg",
+      "kilde": "Kapitel 1 / k1-blaekling-moede.2",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
     },
     "1d965c7814c071": {
       "figur": "fortaeller",
@@ -9767,6 +11056,22 @@
       "fil": "1dd57b3331deff.ogg",
       "kilde": "Svar / rim.bil.fil",
       "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "1dd632968bc0b9": {
+      "figur": "aeseloere",
+      "tekst": "Ja. lan-ter-ne har 3 stavelser.",
+      "fil": "1dd632968bc0b9.ogg",
+      "kilde": "Svar / rytme.lanterne.rigtig",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "1dd86a26b1bf8b": {
+      "figur": "aeseloere",
+      "tekst": "hjæmme er ikke den rigtige stavemåde. Læs reglen, og prøv igen.",
+      "fil": "1dd86a26b1bf8b.ogg",
+      "kilde": "Svar / korrektur.k01.hjæmme",
+      "lavet": "2026-11-17",
       "model": "gemini-3.8-flash-lite-tts"
     },
     "1de0d6f0d35a30": {
@@ -9888,6 +11193,14 @@
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-tts"
     },
+    "1e30f69207730b": {
+      "figur": "fortaeller",
+      "tekst": "Klap ordet æseløre. Hvor mange stavelser har det?",
+      "fil": "1e30f69207730b.ogg",
+      "kilde": "Svar / rytme.æseløre.spoergsmaal",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1e339d9bab7cf3": {
       "figur": "fortaeller",
       "tekst": "Søen er sort og rund.",
@@ -9912,6 +11225,22 @@
       "lavet": "2026-11-16",
       "model": "gemini-3.8-flash-tts"
     },
+    "1e47f5e0d2bf49": {
+      "figur": "fortaeller",
+      "tekst": "Hvordan staves jemme rigtigt?",
+      "fil": "1e47f5e0d2bf49.ogg",
+      "kilde": "Svar / korrektur.k01.jemme",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "1e4ba643ac9c0b": {
+      "figur": "aeseloere",
+      "tekst": "taske rimer ikke på tante. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "1e4ba643ac9c0b.ogg",
+      "kilde": "Svar / rim.tante.taske",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1e50b7dfc2959f": {
       "figur": "fodnote",
       "tekst": "Et, to, tre. Alt er på plads. ¹ Jeg er rørt. ² Det står ingen steder, men det er jeg.",
@@ -9933,6 +11262,14 @@
       "fil": "1e51a0b036eb6d.ogg",
       "kilde": "Kapitel 8 / k8-skyggen.valg3.1",
       "lavet": "2026-11-11"
+    },
+    "1e527571792380": {
+      "figur": "fortaeller",
+      "tekst": "Kæmp mod Blæklingen.",
+      "fil": "1e527571792380.ogg",
+      "kilde": "Kapitel 1 / k1-blaekling.opgavetekst",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
     },
     "1e5521813e1bfd": {
       "figur": "fortaeller",
@@ -10119,6 +11456,14 @@
       "kilde": "Kapitel 7 / k7-ankomst.7",
       "lavet": "2026-11-10"
     },
+    "1eb4b30fd744a1": {
+      "figur": "aeseloere",
+      "tekst": "Ja. plante rimer på tante. De lyder ens til sidst.",
+      "fil": "1eb4b30fd744a1.ogg",
+      "kilde": "Svar / rim.tante.plante",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1eb601fa12873f": {
       "figur": "klatten",
       "tekst": "Gå væk! Her bor ingen. Især ikke Klatten den Frygtelige.",
@@ -10132,6 +11477,14 @@
       "fil": "1ebba1ce7f7c94.ogg",
       "kilde": "Kapitel 2 / k2-ankomst.2",
       "lavet": "2026-10-31"
+    },
+    "1ebc485d5cf618": {
+      "figur": "aeseloere",
+      "tekst": "hop rimer faktisk på top. Sig dem højt. De lyder ens til sidst.",
+      "fil": "1ebc485d5cf618.ogg",
+      "kilde": "Svar / ikkerim.top.hop",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
     },
     "1ebddd9f9284ac": {
       "figur": "fortaeller",
@@ -10182,6 +11535,14 @@
       "fil": "1ecdb3b6804854.ogg",
       "kilde": "Kapitel 7 / k7-genrer-slut.3",
       "lavet": "2026-11-10"
+    },
+    "1ed0344f3b7751": {
+      "figur": "aeseloere",
+      "tekst": "Ja. sol har kun én stavelse.",
+      "fil": "1ed0344f3b7751.ogg",
+      "kilde": "Svar / rytme.sol.rigtig",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "1edf075d0e8cd5": {
       "figur": "aeseloere",
@@ -10235,6 +11596,14 @@
       "kilde": "Beskeder / opgave.vaelg.regel",
       "lavet": "2026-11-04"
     },
+    "1f18395cf555de": {
+      "figur": "aeseloere",
+      "tekst": "Ja. e-le-fant har 3 stavelser.",
+      "fil": "1f18395cf555de.ogg",
+      "kilde": "Svar / rytme.elefant.rigtig",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1f27de0e278255": {
       "figur": "klatten",
       "tekst": "Jeg har skrevet en ny vejviser og den er perfekt og den er lang og den slutter aldrig og ...",
@@ -10248,6 +11617,14 @@
       "fil": "1f27ff7561167d.ogg",
       "kilde": "Kapitel 3 / k3-klatten.valg1.3",
       "lavet": "2026-11-01"
+    },
+    "1f2851b0a97aa6": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket ord rimer ikke på kage?",
+      "fil": "1f2851b0a97aa6.ogg",
+      "kilde": "Svar / ikkerim.kage.spoergsmaal",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
     },
     "1f2d04bda19b64": {
       "figur": "aeseloere",
@@ -10292,6 +11669,14 @@
       "fil": "1f41aa7c4a11c6.ogg",
       "kilde": "Kampe og opgaver / korrektur.klatten.4",
       "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "1f431e59c85a87": {
+      "figur": "fortaeller",
+      "tekst": "Klap ordet kat. Hvor mange stavelser har det?",
+      "fil": "1f431e59c85a87.ogg",
+      "kilde": "Svar / rytme.kat.spoergsmaal",
+      "lavet": "2026-11-17",
       "model": "gemini-3.8-flash-lite-tts"
     },
     "1f5021d518fdff": {
@@ -10424,6 +11809,14 @@
       "kilde": "Kapitel 8 / k8-skyggen.2",
       "lavet": "2026-11-11"
     },
+    "1fadee31486781": {
+      "figur": "aeseloere",
+      "tekst": "lappe rimer ikke på lampe. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "1fadee31486781.ogg",
+      "kilde": "Svar / rim.lampe.lappe",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1faff8cc2f17d7": {
       "figur": "aeseloere",
       "tekst": "Ordet bange betyder ikke det samme som modig. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
@@ -10446,6 +11839,22 @@
       "fil": "1fbbb70b16ed66.ogg",
       "kilde": "Svar / ikkerim.bil.bad",
       "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "1fbec98f04fb51": {
+      "figur": "aeseloere",
+      "tekst": "lagen rimer ikke på kage. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "1fbec98f04fb51.ogg",
+      "kilde": "Svar / rim.kage.lagen",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "1fc31393d1784f": {
+      "figur": "aeseloere",
+      "tekst": "rive rimer ikke på rime. Sig begge ord højt, og lyt til slutningen.",
+      "fil": "1fc31393d1784f.ogg",
+      "kilde": "Svar / rim.rime.rive",
+      "lavet": "2026-11-17",
       "model": "gemini-3.8-flash-lite-tts"
     },
     "1fc318d3a0630c": {
@@ -10549,6 +11958,14 @@
       "lavet": "2026-11-16",
       "model": "gemini-3.8-flash-lite-tts"
     },
+    "1feb2a6cddf436": {
+      "figur": "aeseloere",
+      "tekst": "Ja. lime rimer på rime. De lyder ens til sidst.",
+      "fil": "1feb2a6cddf436.ogg",
+      "kilde": "Svar / rim.rime.lime",
+      "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1fee86ce11b478": {
       "figur": "klatten",
       "tekst": "Det er chefens kruseduller! Han sender dem, når nogen er ved at blive færdig med noget.",
@@ -10608,6 +12025,6 @@
     }
   },
   "model": "gemini-3.8-flash-tts",
-  "i_alt": 2155,
-  "mangler": 712
+  "i_alt": 2164,
+  "mangler": 544
 }
