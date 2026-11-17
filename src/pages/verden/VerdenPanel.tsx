@@ -1,8 +1,8 @@
 import type { RefObject } from 'react';
 import { kapitler, t, type RumTrin, type Sted, type Trin } from '../../content';
 import { naesteKapitel } from '../../engine/kapitel';
-import { LaesOpKnap } from '../../ui/Tekst';
-import { spilEffekt } from '../../ui/effekter';
+import { LaesOpKnap } from '../../components/Tekst';
+import { spilEffekt } from '../../lyd/effekter';
 
 type Props = {
   sted: Sted;

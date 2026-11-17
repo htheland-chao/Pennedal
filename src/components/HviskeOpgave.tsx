@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { t } from '../content';
 import { tjekHviske, visHviske, type HviskeOpgave as Opgave } from '../mechanics/hviske';
 import { useApp } from './Kontekst';
-import { lydUrl, useLydManifest } from './lyd';
+import { lydUrl, useLydManifest } from '../lyd/lyd';
 import type { OpgaveApi } from './OpgaveRamme';
 import { LaesOpKnap, useStemmeFindes } from './Tekst';
 

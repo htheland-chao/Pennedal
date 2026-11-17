@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 import { delTekst, renTekst, t } from '../content';
 import { useApp } from './Kontekst';
-import { type Figur, lydUrl, spilLyd, stopLyd, useLydManifest } from './lyd';
-import { rumProfil, type RumId, type RumKrav } from './rumklang';
-import { daempMusik } from './musik/afspiller';
-import { danskeStemmer, naarStemmerErKlar, sig, stopTale } from './tale';
+import { type Figur, lydUrl, spilLyd, stopLyd, useLydManifest } from '../lyd/lyd';
+import { rumProfil, type RumId, type RumKrav } from '../lyd/rumklang';
+import { daempMusik } from '../lyd/musik/afspiller';
+import { danskeStemmer, naarStemmerErKlar, sig, stopTale } from '../lyd/tale';
 
 /** Viser tekst, hvor {{ord}} bliver til knapper, der åbner et ordkort. */
 export function Tekst({ tekst }: { tekst: string }) {

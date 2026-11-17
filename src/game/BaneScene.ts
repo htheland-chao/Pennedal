@@ -7,7 +7,7 @@ import { tegnkortTilLerred } from './pixel/lerred';
 import { finFigur } from './pixel/fin';
 import { avatarPixel, type Tegnkort } from './pixel/sprites';
 import type { VerdenData, VerdenKroge } from './typer';
-import { spilEffekt } from '../ui/effekter';
+import { spilEffekt } from '../lyd/effekter';
 import { glid } from './kamera';
 
 /** Efter så mange fald tilbyder Æseløre at bære hovedpersonen over. */

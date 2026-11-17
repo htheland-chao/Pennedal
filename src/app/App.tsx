@@ -12,22 +12,22 @@ import {
   type Indstillinger,
 } from '../data/gem';
 import { aktueltSted, kapitelSlut, naesteKapitel, spilVedIKapitler } from '../engine/kapitel';
-import { saetMusik } from '../ui/musik/afspiller';
-import { saetEffekter } from '../ui/effekter';
+import { saetMusik } from '../lyd/musik/afspiller';
+import { saetEffekter } from '../lyd/effekter';
 import { AvatarDesigner } from '../pages/AvatarDesigner';
-import { GemmekodeVindue, IndlaesSide } from '../ui/Gemmekode';
+import { GemmekodeVindue, IndlaesSide } from '../components/Gemmekode';
 import { Intro } from '../pages/Intro';
 import { Titelskaerm } from '../pages/Titelskaerm';
-import { IndstillingerVindue } from '../ui/IndstillingerVindue';
-import { Kontekst } from '../ui/Kontekst';
+import { IndstillingerVindue } from '../components/IndstillingerVindue';
+import { Kontekst } from '../components/Kontekst';
 import { Laererkig } from '../pages/Laererkig';
-import { Modal } from '../ui/Modal';
-import { OrdkortVindue } from '../ui/OrdkortVindue';
-import { Kvittering } from '../ui/Kvittering';
+import { Modal } from '../components/Modal';
+import { OrdkortVindue } from '../components/OrdkortVindue';
+import { Kvittering } from '../components/Kvittering';
 import { Samling } from '../pages/Samling';
 import { Verden } from '../pages/Verden';
 import { Blaekdybet, dybetAabent } from '../pages/Blaekdybet';
-import { Kapitelkort } from '../ui/Kapitelkort';
+import { Kapitelkort } from '../components/Kapitelkort';
 
 type Skaerm = 'start' | 'intro' | 'ny-avatar' | 'ret-avatar' | 'verden' | 'indlaes' | 'laerer' | 'samling' | 'hop' | 'dybet';
 

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { t, type TekstId } from '../content';
-import { type LydFil, lydUrlForFil, spilLyd, stopLyd, useLydManifest } from './lyd';
+import { type LydFil, lydUrlForFil, spilLyd, stopLyd, useLydManifest } from '../lyd/lyd';
 
 /** Side til Henrik: lyt alle lydklip igennem og find nøglen på et klip, der skal laves om. Åbnes med ?lyd=1. */
 export function Lydkorrektur() {

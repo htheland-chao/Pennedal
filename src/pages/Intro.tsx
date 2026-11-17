@@ -11,8 +11,8 @@ import {
   tegnRegn,
   tegnVaerelse,
 } from '../game/pixel/intro';
-import { useApp } from '../ui/Kontekst';
-import { LaesOpKnap, type Del } from '../ui/Tekst';
+import { useApp } from '../components/Kontekst';
+import { LaesOpKnap, type Del } from '../components/Tekst';
 import { TrailerKlip, type KlipId } from './intro/IntroTrailer';
 
 const KLIP: SceneId[] = ['steder', 'bane', 'venner', 'kamp'];

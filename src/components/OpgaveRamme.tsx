@@ -4,7 +4,7 @@ import { bland } from '../engine/tilfaeldig';
 import { REGEL_EFTER_FORSOEG, type Haendelse } from '../engine/tilpasning';
 import { Modal } from './Modal';
 import { LaesOpKnap, type Del } from './Tekst';
-import { spilEffekt } from './effekter';
+import { spilEffekt } from '../lyd/effekter';
 
 export type OpgaveApi = {
   /** Kaldes af mekanikken, når eleven har svaret. */

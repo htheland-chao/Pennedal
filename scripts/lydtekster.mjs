@@ -108,7 +108,7 @@ export function alleLydtekster(stemmer = hentStemmer()) {
   tilfoej('aeseloere', `${t('feedback.regel')}: ${t('raaber.regel')}`, 'Beskeder / raaber.regel');
   tilfoej('aeseloere', `${t('feedback.eksempel')}: ${t('raaber.eksempel')}`, 'Beskeder / raaber.eksempel');
 
-  // Titelkortet (src/ui/Kapitelkort.tsx): kapitlets nummer og navn og målet.
+  // Titelkortet (src/components/Kapitelkort.tsx): kapitlets nummer og navn og målet.
   for (const k of kapitler) {
     tilfoej('fortaeller', `${t('kapitelkort.kapitel', { nr: k.kapitel })}. ${k.titel}.`, `Titelkort / kapitel ${k.kapitel}`);
     tilfoej('fortaeller', k.maal, `Titelkort / kapitel ${k.kapitel}.maal`);
@@ -118,11 +118,11 @@ export function alleLydtekster(stemmer = hentStemmer()) {
   for (const id of ['intro.1', 'intro.2', 'intro.3', 'intro.4', 'intro.5', 'intro.5.slut', 'intro.6', 'intro.6.slut', 'intro.trailer.1', 'intro.trailer.2', 'intro.trailer.3', 'intro.trailer.4'])
     tilfoej('fortaeller', t(id), `Introen / ${id}`);
 
-  // Minderne (src/ui/Tilbageblik.tsx, teksterne i src/content/minder.ts): hver del er et klip, også de milde udgaver.
+  // Minderne (src/components/Tilbageblik.tsx, teksterne i src/content/minder.ts): hver del er et klip, også de milde udgaver.
   for (const id of Object.keys(da).filter((k) => /^minde\.\w+\.\d+(\.mild)?$/.test(k)))
     tilfoej('fortaeller', t(id), `Minder / ${id}`);
 
-  // Kampe (src/ui/KampVindue.tsx): væsnernes egne ord, sætningerne til knappen Læs og beskederne.
+  // Kampe (src/components/KampVindue.tsx): væsnernes egne ord, sætningerne til knappen Læs og beskederne.
   for (const v of ['tomordet', 'stumming', 'tvivl', 'krusedulle', 'halvsaetning', 'blaekling']) {
     tilfoej(v, t(`kamp.${v}.lyt`), `Kampe / kamp.${v}.lyt`);
     tilfoej('fortaeller', t(`kamp.${v}.rolig`), `Kampe / kamp.${v}.rolig`);
@@ -134,7 +134,7 @@ export function alleLydtekster(stemmer = hentStemmer()) {
   for (const o of laes('ord/synonymer.json').ord) tilfoej('fortaeller', o.saetning, `Synonymer / ${o.id}`);
   for (const o of laes('ord/stumme.json').ord) tilfoej('fortaeller', o.saetning, `Stumme bogstaver / ${o.ord}.saetning`);
 
-  // Tasken (src/ui/TaskeVindue.tsx): navn og tekst læses op sammen.
+  // Tasken (src/components/TaskeVindue.tsx): navn og tekst læses op sammen.
   for (const id of ['lanterne', 'kappe', 'logbog', 'punktum', 'krummer', 'rimsten', 'haefte'])
     tilfoej('fortaeller', `${t(`ting.${id}.navn`)}. ${t(`ting.${id}.tekst`)}`, `Tasken / ${id}`);
 
@@ -171,7 +171,7 @@ export function alleLydtekster(stemmer = hentStemmer()) {
       .map((x) => x.ord)
       .join(', ');
     tilfoej('aeseloere', `${t('feedback.eksempel')}: ${t('hviske.eksempel', { ord: eksempler })}`, `Beskeder / hviske.eksempel.${o.ord}`);
-    // Stummingen i kampen bruger samme ord, men sin egen sætning (regelFor i src/ui/KampVindue.tsx).
+    // Stummingen i kampen bruger samme ord, men sin egen sætning (regelFor i src/components/KampVindue.tsx).
     tilfoej('aeseloere', `${t('feedback.eksempel')}: ${t('kamp.stumming.eksempel', { ord: eksempler })}`, `Beskeder / kamp.stumming.eksempel.${o.ord}`);
   }
 
@@ -230,7 +230,7 @@ export function alleLydtekster(stemmer = hentStemmer()) {
   tilfoej('aeseloere', `${t('feedback.eksempel')}: ${t('genre.eksempel')}`, 'Beskeder / genre.eksempel');
 
   // Svarene i ordopgaver og kampe (13. november 2026): spørgsmålet, det rigtige svar og hvert forkert svar
-  // med Æseløres stemme, så al tekst er indtalt. Skabelonerne er de samme som i src/ui/OrdOpgaveVindue.tsx.
+  // med Æseløres stemme, så al tekst er indtalt. Skabelonerne er de samme som i src/components/OrdOpgaveVindue.tsx.
   for (const o of laes('ord/synonymer.json').ord) {
     tilfoej('fortaeller', t('kamp.tomordet.spoergsmaal', { ord: o.ord }), `Svar / synonym.${o.id}.spoergsmaal`);
     tilfoej('aeseloere', t('kamp.tomordet.rigtig', { svar: o.svar, ord: o.ord }), `Svar / synonym.${o.id}.rigtig`);
@@ -273,7 +273,7 @@ export function alleLydtekster(stemmer = hentStemmer()) {
       if (andenG !== g) for (const k of liste) tilfoej('aeseloere', t('genre.fejl.kendetegn', { valgt: k, genre: navn.toLowerCase() }), `Svar / genre.${g}.${k}`);
   }
 
-  // Svarene i kampene (src/ui/KampVindue.tsx: rigtig med svar og ord, fejl med valgt og ord).
+  // Svarene i kampene (src/components/KampVindue.tsx: rigtig med svar og ord, fejl med valgt og ord).
   for (const o of laes('ord/synonymer.json').ord) {
     // Kampen bruger ordet, som det står i sætningen (fx med stort i starten).
     const iSaetning = o.saetning.match(new RegExp(`(^|[^\\p{L}])(${o.ord})(?![\\p{L}])`, 'iu'))?.[2] ?? o.ord;

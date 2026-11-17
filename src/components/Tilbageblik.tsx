@@ -4,7 +4,7 @@ import { mindeTekster, mindeTitel, type MindeId } from '../content/minder';
 import { kornBillede, mindeBillede } from '../game/pixel/minder';
 import { useApp } from './Kontekst';
 import { Modal } from './Modal';
-import { hentMusikOverride, saetMusikOverride } from './musik/afspiller';
+import { hentMusikOverride, saetMusikOverride } from '../lyd/musik/afspiller';
 import { LaesOpKnap } from './Tekst';
 
 /**

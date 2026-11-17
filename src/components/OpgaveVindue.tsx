@@ -5,21 +5,21 @@ import { lavHviskeOpgave, type HviskeOpgave as HOpgave } from '../mechanics/hvis
 import { vaelgOgTekst } from '../mechanics/ogorm';
 import { lavBro } from '../mechanics/historiebro';
 import { lavRaaberOpgave, type RaaberSaetning } from '../mechanics/raaber';
-import { RaaberOpgave } from '../ui/RaaberOpgave';
+import { RaaberOpgave } from './RaaberOpgave';
 import { lavOpgaveAfArt, type RimOpgave as ROpgave } from '../mechanics/rim';
-import { RimOpgave } from '../ui/RimOpgave';
+import { RimOpgave } from './RimOpgave';
 import { lavKlassificer, type KlassificerSaetning } from '../mechanics/fortaeller';
-import { SynsvinkelOpgave } from '../ui/SynsvinkelOpgave';
+import { SynsvinkelOpgave } from './SynsvinkelOpgave';
 import { FEJL_FAERDIGHED, FEJL_TYPER, vaelgTekst, type FejlType, type KorrekturTekst } from '../mechanics/korrektur';
-import { KorrekturOpgave } from '../ui/KorrekturOpgave';
+import { KorrekturOpgave } from './KorrekturOpgave';
 import { GENRER, lavGenreOpgave, type GenreOpgave as GOpgave } from '../mechanics/genre';
-import { GenreOpgave } from '../ui/GenreOpgave';
-import { OpgaveRamme } from '../ui/OpgaveRamme';
-import { HviskeOpgave } from '../ui/HviskeOpgave';
-import { OgormOpgave } from '../ui/OgormOpgave';
-import { BroOpgave } from '../ui/BroOpgave';
-import { Bevisjagt, Forforstaaelse } from '../ui/Bevisjagt';
-import { Modal } from '../ui/Modal';
+import { GenreOpgave } from './GenreOpgave';
+import { OpgaveRamme } from './OpgaveRamme';
+import { HviskeOpgave } from './HviskeOpgave';
+import { OgormOpgave } from './OgormOpgave';
+import { BroOpgave } from './BroOpgave';
+import { Bevisjagt, Forforstaaelse } from './Bevisjagt';
+import { Modal } from './Modal';
 
 type Faelles = {
   niveau: Niveau;

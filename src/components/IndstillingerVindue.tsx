@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { t } from '../content';
 import type { Indstillinger } from '../data/gem';
-import { useLydManifest } from './lyd';
+import { useLydManifest } from '../lyd/lyd';
 import { Modal } from './Modal';
-import { danskeStemmer, naarStemmerErKlar } from './tale';
+import { danskeStemmer, naarStemmerErKlar } from '../lyd/tale';
 
 type Props = { indstillinger: Indstillinger; onSkift: (i: Indstillinger) => void; onLuk: () => void };
 

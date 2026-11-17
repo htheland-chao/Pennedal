@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useApp } from './Kontekst';
-import { daempMusik } from './musik/afspiller';
+import { daempMusik } from '../lyd/musik/afspiller';
 import { t, type DialogValg, type Replik, type TekstId, type ValgMulighed } from '../content';
 import { Modal } from './Modal';
 import { LevendePortraet } from './PixelPortraet';

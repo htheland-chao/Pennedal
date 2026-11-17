@@ -29,9 +29,9 @@ import {
   type Slag,
 } from '../mechanics/kampmotor';
 import { useApp } from './Kontekst';
-import { hentMusikOverride, saetMusikOverride } from './musik/afspiller';
+import { hentMusikOverride, saetMusikOverride } from '../lyd/musik/afspiller';
 import { Modal } from './Modal';
-import { spilEffekt } from './effekter';
+import { spilEffekt } from '../lyd/effekter';
 import { LaesOpKnap } from './Tekst';
 import { FJENDE_SKALA, fodskygge, HOLD_SKALA, plads, procent, SPEJLET, SPRITE, SPRITE_SPEJLET, uri } from './kamp/figurbilleder';
 import { HoldPanel } from './kamp/HoldPanel';

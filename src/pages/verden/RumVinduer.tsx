@@ -1,5 +1,5 @@
 import type { RumFund, RumTrin, Sted } from '../../content';
-import { FundVindue, KodeVindue, ManglerVindue } from '../../ui/RumVindue';
+import { FundVindue, KodeVindue, ManglerVindue } from '../../components/RumVindue';
 
 /** Hvilket vindue der er åbent i et escape room: et fund, en lås der mangler noget, eller koden. */
 export type RumVisning = { type: 'fund'; fund: RumFund } | { type: 'mangler' } | { type: 'kode' };

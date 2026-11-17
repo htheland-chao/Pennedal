@@ -230,7 +230,7 @@ Tasken følger med gennem hele spillet. Knappen "Taske" står altid i panelet, o
 
 ## Kampe: turbaserede (Henrik, 3. november 2026)
 
-Kampene er turbaserede i stil med gamle rollespil: væsnerne står til venstre, holdet (avataren og hjælperne) til højre, og menuerne står nederst som rigtig HTML. Henrik har besluttet, at skade og uhygge gerne må være med, og at kampene skal være mere end at svare på spørgsmål. Logikken står i `src/mechanics/kampmotor.ts`, skærmen i `src/ui/KampVindue.tsx`.
+Kampene er turbaserede i stil med gamle rollespil: væsnerne står til venstre, holdet (avataren og hjælperne) til højre, og menuerne står nederst som rigtig HTML. Henrik har besluttet, at skade og uhygge gerne må være med, og at kampene skal være mere end at svare på spørgsmål. Logikken står i `src/mechanics/kampmotor.ts`, skærmen i `src/components/KampVindue.tsx`.
 
 - **Slå:** avataren vælger slag og mål. Hvert slag er en lille danskfaglig opgave (synonym eller stumt bogstav). Rigtigt svar giver skade. Hvert væsen er svagt over for én slags slag og får dobbelt skade af det. Tre rigtige i træk giver et stort slag, der rammer alle.
 - **Lyt:** gratis. Væsnet giver et tip, og holdet lærer dets svage punkt.

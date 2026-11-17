@@ -2,8 +2,8 @@ import { useCallback } from 'react';
 import { t } from '../../content';
 import { mindeTitel, type MindeId } from '../../content/minder';
 import { ALLE_SKAAR } from '../../engine/betingelse';
-import { Kvittering } from '../../ui/Kvittering';
-import { Tilbageblik } from '../../ui/Tilbageblik';
+import { Kvittering } from '../../components/Kvittering';
+import { Tilbageblik } from '../../components/Tilbageblik';
 
 type Props = {
   /** Et nyt hukommelsesskår med sit minde. */

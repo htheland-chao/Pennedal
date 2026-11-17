@@ -1,6 +1,6 @@
 import { t, type Sted } from '../../content';
 import type { FaerdighedId } from '../../engine/faerdigheder';
-import { OrdOpgaveVindue } from '../../ui/OrdOpgaveVindue';
+import { OrdOpgaveVindue } from '../../components/OrdOpgaveVindue';
 import { ordFaerdighed } from './dialog';
 
 type Props = {

@@ -6,7 +6,7 @@ import { talerPunkt } from './kameraet';
 import { byggGloed } from './lys';
 import { FELT, feltMidte } from '../kort';
 import { hvileTilstand } from '../pixel/liv';
-import { spilEffekt } from '../../ui/effekter';
+import { spilEffekt } from '../../lyd/effekter';
 
 /**
  * Små animationer på stedet: figurer der toner frem og væk, Æseløres fremkomst, Klattens blækstribe, broen der samler sig, og figurer der blinker, trækker vejret og taler.

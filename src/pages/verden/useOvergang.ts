@@ -1,6 +1,6 @@
 import { useCallback, useLayoutEffect, useRef, useState } from 'react';
-import type { OvergangType } from '../../ui/Overgang';
-import { spilEffekt } from '../../ui/effekter';
+import type { OvergangType } from '../../components/Overgang';
+import { spilEffekt } from '../../lyd/effekter';
 
 /**
  * Overgang mellem steder (8. november 2026): portalen fra kælderen til Pennedal, ellers et kort blækstrøg.

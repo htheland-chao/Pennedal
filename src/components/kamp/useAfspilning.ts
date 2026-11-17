@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { t, type TekstId } from '../../content';
 import type { Haendelse, Kamp, MedlemId } from '../../mechanics/kampmotor';
-import { spilEffekt } from '../effekter';
+import { spilEffekt } from '../../lyd/effekter';
 import { lydForTrin, trinFor, type Effekt, type Trin } from '../kampEffekter';
 import { roligBevaegelse } from './tilgaengelighed';
 import type { Visning } from './visning';
