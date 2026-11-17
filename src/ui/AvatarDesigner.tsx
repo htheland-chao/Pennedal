@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState, type CSSProperties } from 'react';
 import { avatarDele, navne, t, type TekstId } from '../content';
-import { AVATAR_GRAENSER, type Avatar } from '../engine/gem';
+import { AVATAR_GRAENSER, type Avatar } from '../data/gem';
 import { finFigur } from '../game/pixel/fin';
 import { figurRammer } from '../game/pixel/kampliv';
 import { lerred, tegnkortTilLerred } from '../game/pixel/lerred';

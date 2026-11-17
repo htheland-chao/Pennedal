@@ -1,5 +1,5 @@
 import type { Kapitel, Mission } from '../content';
-import type { GemtSpil } from './gem';
+import type { GemtSpil } from '../data/gem';
 import { SKAAR } from './taske';
 
 /**

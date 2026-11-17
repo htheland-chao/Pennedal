@@ -3,7 +3,7 @@
  * Ren data og logik uden canvas, så det kan testes. Se docs/grafik.md for mål og palet.
  */
 import { avatarDele } from '../../content';
-import type { Avatar } from '../../engine/gem';
+import type { Avatar } from '../../data/gem';
 
 export type Tegnkort = { raekker: string[]; palet: Record<string, string> };
 export type Retning = 'ned' | 'op' | 'hoejre' | 'venstre';

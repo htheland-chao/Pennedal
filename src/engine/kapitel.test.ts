@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { delTekst, findOrdkort, harTekst, hentKapitel, renTekst, type Trin } from '../content';
 import { afslutTrin, aktueltSted, kapitelSlut, spilVed } from './kapitel';
-import { nytSpil, STANDARD_AVATAR } from './gem';
+import { nytSpil, STANDARD_AVATAR } from '../data/gem';
 import { erFaerdighed, OPLAASNINGER } from './faerdigheder';
 
 const k1 = hentKapitel(1)!;

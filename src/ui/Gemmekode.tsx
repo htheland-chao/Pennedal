@@ -1,8 +1,8 @@
 import QRCode from 'qrcode';
 import { useEffect, useRef, useState } from 'react';
 import { hentKapitel, t } from '../content';
-import { validerGemtSpil, type GemtSpil } from '../engine/gem';
-import { KODE_LAENGDE, laesGemmekode, lavGemmekode } from '../engine/gemmekode';
+import { validerGemtSpil, type GemtSpil } from '../data/gem';
+import { KODE_LAENGDE, laesGemmekode, lavGemmekode } from '../data/gemmekode';
 import { Modal } from './Modal';
 import { LaesOpKnap } from './Tekst';
 

@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { arme, kampRammer, laen, spred } from './kampliv';
 import { avatarPixel, KLATTEN } from './sprites';
-import { STANDARD_AVATAR } from '../../engine/gem';
+import { STANDARD_AVATAR } from '../../data/gem';
 import { TOMORD, VIMS } from './viskeskov';
 
 const fyldte = (t: { raekker: string[] }) => t.raekker.join('').replace(/\./g, '').length;

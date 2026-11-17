@@ -1,5 +1,5 @@
 import { createContext, useContext } from 'react';
-import type { Indstillinger } from '../engine/gem';
+import type { Indstillinger } from '../data/gem';
 
 export type AppKontekst = {
   indstillinger: Indstillinger;

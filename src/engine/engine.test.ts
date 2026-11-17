@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { FAERDIGHEDER } from './faerdigheder';
 import { registrerSvar, START_STATUS, type FaerdighedsStatus } from './tilpasning';
-import { KODE_LAENGDE, KODE_LAENGDE_V1, KODE_LAENGDE_V2, KODE_LAENGDE_V3, KODE_LAENGDE_V4, laesGemmekode, lavGemmekode, normaliserKode } from './gemmekode';
-import { gemIndstillinger, gemSpil, hentGemtSpil, hentIndstillinger, nytSpil, STANDARD_AVATAR, STANDARD_INDSTILLINGER, validerGemtSpil } from './gem';
+import { KODE_LAENGDE, KODE_LAENGDE_V1, KODE_LAENGDE_V2, KODE_LAENGDE_V3, KODE_LAENGDE_V4, laesGemmekode, lavGemmekode, normaliserKode } from '../data/gemmekode';
+import { gemIndstillinger, gemSpil, hentGemtSpil, hentIndstillinger, nytSpil, STANDARD_AVATAR, STANDARD_INDSTILLINGER, validerGemtSpil } from '../data/gem';
 import { lavCsv } from './csv';
 
 describe('tilpasning af sværhedsgrad', () => {

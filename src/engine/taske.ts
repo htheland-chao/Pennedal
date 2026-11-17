@@ -1,5 +1,5 @@
 import type { Kapitel } from '../content';
-import type { GemtSpil } from './gem';
+import type { GemtSpil } from '../data/gem';
 
 /**
  * Tingene i tasken, der følger med gennem hele spillet (se docs/historie.md).

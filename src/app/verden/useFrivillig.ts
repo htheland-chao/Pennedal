@@ -1,7 +1,7 @@
 import { useCallback, useState, type MutableRefObject } from 'react';
 import { harTekst, t, type Kapitel, type Sted } from '../../content';
 import { antalBlade, bladFundet, missionFor, missionStartet, missionStatus } from '../../engine/frivillig';
-import type { GemtSpil } from '../../engine/gem';
+import type { GemtSpil } from '../../data/gem';
 import type { Gentagelse } from './dialog';
 
 type Args = {

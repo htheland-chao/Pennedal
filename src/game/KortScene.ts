@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 import { objektVedTryk } from './tryk';
-import { type Avatar } from '../engine/gem';
+import { type Avatar } from '../data/gem';
 import { erFastTegn, FELT, feltMidte, feltVed, laesKort, type Felt, type Kort } from './kort';
 import { belysning, lavLys, lysOpsaetning, tegnkortTilLerred, VARMT, type Farve } from './pixel/lerred';
 import { erInde } from './pixel/inde';

@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import type { Avatar } from '../engine/gem';
+import type { Avatar } from '../data/gem';
 import { BFELT, erFare, erFast, erPlanke, erVisket, FYSIK, type Bane } from './bane';
 import { SKALA, VIS_H } from './KortScene';
 import { byggBane } from './bane/byg';

@@ -1,7 +1,7 @@
 import type { Kapitel, Sted } from '../../content';
 import { opfyldt } from '../../engine/betingelse';
 import { skjulteBlade } from '../../engine/frivillig';
-import type { GemtSpil } from '../../engine/gem';
+import type { GemtSpil } from '../../data/gem';
 
 /**
  * Hvilke objekter på stedet der er skjult lige nu, også Æseløre.

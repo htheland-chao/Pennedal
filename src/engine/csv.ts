@@ -1,5 +1,5 @@
 import { FAERDIGHEDER } from './faerdigheder';
-import type { GemtSpil } from './gem';
+import type { GemtSpil } from '../data/gem';
 
 /** CSV med semikolon og BOM, så dansk Excel og Google Sheets læser æ, ø og å rigtigt. */
 export function lavCsv(spil: GemtSpil, navn: string, etiket: (id: string) => string, overskrifter: string[]): string {

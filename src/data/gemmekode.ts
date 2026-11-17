@@ -1,7 +1,7 @@
-import { FAERDIGHEDER, OPLAASNINGER } from './faerdigheder';
+import { FAERDIGHEDER, OPLAASNINGER } from '../engine/faerdigheder';
 import { AVATAR_DELE, AVATAR_GRAENSER, nytSpil, STANDARD_AVATAR, type Avatar, type GemtSpil } from './gem';
-import { MAKS_VENLIGHED, SKAAR, SLUT_VALG, VIGTIGE_VALG } from './taske';
-import type { Niveau } from './tilpasning';
+import { MAKS_VENLIGHED, SKAAR, SLUT_VALG, VIGTIGE_VALG } from '../engine/taske';
+import type { Niveau } from '../engine/tilpasning';
 
 /**
  * Gemmekoden pakker det vigtigste fra et gemt spil ind i en kort kode.

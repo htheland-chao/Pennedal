@@ -3,7 +3,7 @@
  * og hvor venlig eleven har været mod Klatten. En replik eller en valgmulighed med hvis vises kun, når betingelsen er opfyldt.
  * Ren logik uden React og Phaser.
  */
-import type { GemtSpil } from './gem';
+import type { GemtSpil } from '../data/gem';
 
 export type Betingelse = {
   /** Et valg, der skal være taget (spil.valg[id] er sat). */

@@ -1,4 +1,4 @@
-import type { Avatar } from '../engine/gem';
+import type { Avatar } from '../data/gem';
 import { lerred, tegnkortTilLerred } from '../game/pixel/lerred';
 import { avatarPixel, LANTERNE } from '../game/pixel/sprites';
 

@@ -1,7 +1,7 @@
 import type { DialogValg, Kapitel, OrdOpgaveArt, Replik, ValgMulighed } from '../../content';
 import { opfyldt, udvaelg } from '../../engine/betingelse';
 import type { FaerdighedId } from '../../engine/faerdigheder';
-import type { GemtSpil } from '../../engine/gem';
+import type { GemtSpil } from '../../data/gem';
 
 /**
  * Små regler for dialogerne i verdenen: hvilke replikker der vises, og hvad man kan tale om igen.

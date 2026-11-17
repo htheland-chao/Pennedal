@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { harTekst, kapitler, type Kapitel } from '../content';
 import { TING_IKONER } from '../game/pixel/ting';
-import { nytSpil, STANDARD_AVATAR } from './gem';
+import { nytSpil, STANDARD_AVATAR } from '../data/gem';
 import { erTing, minderFor, nyeTing, SKAAR, taskeFor, TING } from './taske';
 import { erMinde, MINDE_INFO, MINDER, mindeTekster, SKAAR_MINDE } from '../content/minder';
 
