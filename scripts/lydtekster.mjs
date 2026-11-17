@@ -114,7 +114,7 @@ export function alleLydtekster(stemmer = hentStemmer()) {
     tilfoej('fortaeller', k.maal, `Titelkort / kapitel ${k.kapitel}.maal`);
   }
 
-  // Introen (src/ui/Intro.tsx).
+  // Introen (src/pages/Intro.tsx).
   for (const id of ['intro.1', 'intro.2', 'intro.3', 'intro.4', 'intro.5', 'intro.5.slut', 'intro.6', 'intro.6.slut', 'intro.trailer.1', 'intro.trailer.2', 'intro.trailer.3', 'intro.trailer.4'])
     tilfoej('fortaeller', t(id), `Introen / ${id}`);
 
