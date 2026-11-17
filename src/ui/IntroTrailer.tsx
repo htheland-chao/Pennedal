@@ -137,14 +137,46 @@ const roligt = () => typeof window !== 'undefined' && !!window.matchMedia?.('(pr
 /** Flytning som translate i procent af figurens egen størrelse (så den skalerer med skærmen). */
 const flyt = (dx: number, dy: number, b: number, h: number, ekstra = '') => `translate(${(dx / b) * 100}%, ${(dy / h) * 100}%) ${ekstra}`;
 
+/** Hvor figuren står i glimtene af landet: kolonnen i JORD og dens fodpunkt i scenen (jorden står nederst). */
+const GLIMT_FRA = 6;
+const GLIMT_TIL = 16;
+const GLIMT_MS = 1900;
+const JORD_TOP = H - JORD.hoejde * BFELT;
+
+/**
+ * Glimt af landet (rettet 17. november 2026): jorden glider forbi, og figuren hopper op på bakkerne og ned igen,
+ * så den ikke går ind i dem. Vejen regnes ud af baneSti som i tagklippet.
+ */
 function Steder({ g }: { g: Grafik }) {
+  const jord = useRef<(HTMLImageElement | null)[]>([]);
+  const figur = useRef<(HTMLElement | null)[]>([]);
+  const sti = useMemo(() => baneSti(JORD, GLIMT_FRA, GLIMT_TIL), []);
+  const start = sti[0];
+  useEffect(() => {
+    if (roligt()) return;
+    const slut = sti.at(-1)!.t;
+    const animationer: Animation[] = [];
+    g.steder.forEach((_s, i) => {
+      const j = jord.current[i];
+      const f = figur.current[i];
+      if (!j || !f) return;
+      const tid = { duration: GLIMT_MS, delay: i * 1750, fill: 'both' as const };
+      animationer.push(j.animate(sti.map((p) => ({ offset: p.t / slut, transform: `translateX(${(-(p.x - start.x) / (JORD.bredde * BFELT)) * 100}%)` })), tid));
+      animationer.push(f.animate(sti.map((p) => ({ offset: p.t / slut, transform: flyt(0, p.y - start.y, g.gaa.b, g.gaa.h) })), tid));
+    });
+    return () => animationer.forEach((a) => a.cancel());
+  }, [g, sti, start]);
   return (
     <>
       {g.steder.map((s, i) => (
         <span key={i} className="intro-lag trailer-glimt" style={{ '--i': i } as CSSProperties}>
           <img className="trailer-bag" src={s.bag} alt="" />
-          <img className="trailer-jord" src={s.forgrund} alt="" />
-          <Figur s={g.gaa} x={110} y={132} className="gaar" />
+          <img className="trailer-jord" src={s.forgrund} alt="" ref={(el) => {
+              jord.current[i] = el;
+            }} />
+          <Figur s={g.gaa} x={start.x} y={JORD_TOP + start.y} className="gaar" refFn={(el) => {
+              figur.current[i] = el;
+            }} />
         </span>
       ))}
     </>
