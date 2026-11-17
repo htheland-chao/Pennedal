@@ -40,13 +40,11 @@
 .trailer-jord {
   bottom: 0;
   height: 97.8%;
-  animation-name: trailer-pan-jord;
+  /* Jorden flyttes af src/ui/IntroTrailer.tsx, så figuren kan hoppe op på bakkerne i takt med den. */
+  animation: none;
 }
 @keyframes trailer-pan-bag {
   to { transform: translateX(-12%); }
-}
-@keyframes trailer-pan-jord {
-  to { transform: translateX(-33.3%); }
 }
 .trailer-by {
   position: absolute;
