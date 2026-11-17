@@ -3,6 +3,7 @@ import { fortaellersaetninger, halvData, kapitler, korrekturData, rimord, stumme
 import { lavKrusedulleOpgave, type FejlType } from '../mechanics/korrektur';
 import { KRUSEDULLE } from '../game/pixel/blaeksoe';
 import { HALVSAETNING } from '../game/pixel/sidstesiden';
+import { BLAEKLING } from '../game/pixel/blaekling';
 import { lavHalvsaetningOpgave } from '../mechanics/halvsaetning';
 import type { Avatar } from '../engine/gem';
 import type { Haendelse as Tilpasning } from '../engine/tilpasning';
@@ -87,7 +88,7 @@ type Visning =
   | { type: 'afspil' }
   | { type: 'slut' };
 
-const SPRITE: Record<VaesenId, Tegnkort> = { tomordet: TOMORD, stumming: STUMMING, ekko: EKKO, tvivl: TVIVL, krusedulle: KRUSEDULLE, halvsaetning: HALVSAETNING };
+const SPRITE: Record<VaesenId, Tegnkort> = { tomordet: TOMORD, stumming: STUMMING, ekko: EKKO, tvivl: TVIVL, krusedulle: KRUSEDULLE, halvsaetning: HALVSAETNING, blaekling: BLAEKLING };
 /** Et billede spejlet vandret. */
 const spejl = (k: Tegnkort): Tegnkort => ({ ...k, raekker: k.raekker.map((r) => [...r].reverse().join('')) });
 /** Hjælperne og væsnerne spejles, så alle kigger mod hinanden (holdet til venstre, væsnerne til højre). */
@@ -98,7 +99,7 @@ const FJENDE_SKALA = 2.4;
 const HOLD_SKALA = 1.8;
 
 /** Ord, der er brugt i denne session, så de ikke kommer igen med det samme. */
-const brugt: Record<VaesenId, string[]> = { tomordet: [], stumming: [], ekko: [], tvivl: [], krusedulle: [], halvsaetning: [] };
+const brugt: Record<VaesenId, string[]> = { tomordet: [], stumming: [], ekko: [], tvivl: [], krusedulle: [], halvsaetning: [], blaekling: [] };
 /** Halvsætningerne skifter mellem en slutning og et sætningstegn. */
 let halvNr = 0;
 function nyOpgave(vaesen: VaesenId, niveau: number): KampOpgave {

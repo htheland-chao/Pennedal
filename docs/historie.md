@@ -113,6 +113,11 @@ Spillet skal have fylde (Henrik, 31. oktober 2026). Otte kapitler, hver på cirk
 
 Hvert kapitel fra 3 og frem har mindst én sidemission (hjælp en beboer, find en tabt ting, løs en gåde) og én frivillig, svær udfordring.
 
+### Kapitel 1: øvekampen og sporet (16. november 2026)
+
+- Efter Og-ormen rejser Blæklingen sig af den blækstribe, Klatten efterlader. Den er mere bange end farlig. Æseløre forklarer kampene (turene, ingen tid, forkerte svar koster ikke liv), og man slår den med stumme bogstaver ligesom i skuffen. Så har eleven prøvet kernen i spillet, før kampene for alvor begynder i kapitel 3.
+- Holms logbog slutter med "Lørdag: Jeg kiggede efter det grønne kladdehæfte, som jeg gemte i det gamle kartoteksskab for mange år siden. Det lå der stadig." Det afslører ikke, at hæftet er avatarens, men det betaler sig i epilogen, når Holm fortæller, at han fandt det og gemte det.
+
 ### Kapitel 3: Viskeskoven
 
 Avataren og Æseløre følger blæksporet efter Klatten ind i en skov, hvor farverne og ordene er ved at forsvinde. Træer mangler grene, skilte mangler ord, en fugl synger kun halve toner. Vims, et lille nervøst viskelæder, sidder og ryster under en svamp. Når han bliver bange, kommer han til at viske ting ud, og det er derfor, skoven ser sådan ud. Han har ikke gjort det med vilje.

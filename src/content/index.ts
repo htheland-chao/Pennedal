@@ -166,13 +166,13 @@ export type DialogValg = { spoergsmaal: string; muligheder: ValgMulighed[]; hvis
 /** En rolig kamp mod et væsen (src/mechanics/kamp.ts). antal er det mindste antal ture. */
 export type KampTrin = FaellesTrin & {
   type: 'kamp';
-  vaesen: 'tomordet' | 'stumming' | 'ekko' | 'tvivl' | 'krusedulle' | 'halvsaetning';
+  vaesen: 'tomordet' | 'stumming' | 'ekko' | 'tvivl' | 'krusedulle' | 'halvsaetning' | 'blaekling';
   faerdighed: string;
   antal: number;
   /** En hjælper, der kan bruge en tur på at hjælpe. */
   hjaelper?: 'vims';
   /** Flere væsner i samme kamp. Uden feltet er det kun vaesen. */
-  vaesner?: ('tomordet' | 'stumming' | 'ekko' | 'tvivl' | 'krusedulle' | 'halvsaetning')[];
+  vaesner?: ('tomordet' | 'stumming' | 'ekko' | 'tvivl' | 'krusedulle' | 'halvsaetning' | 'blaekling')[];
   /** Hjælperne på holdet. Uden feltet: Æseløre, og Vims hvis hjaelper er vims. */
   hold?: ('aeseloere' | 'vims')[];
   /** Klatten kommer med på holdet, når betingelsen er opfyldt (kapitel 6: venlig mod ham). */

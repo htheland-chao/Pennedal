@@ -171,7 +171,7 @@ function boelge(t: Tegnkort, fase: number): Tegnkort {
   return kort(ud, t.palet);
 }
 
-export type FigurId = 'avatar' | 'vims' | 'klatten' | 'fugl' | 'tomordet' | 'stumming' | 'ekko' | 'tvivl' | 'krusedulle' | 'halvsaetning';
+export type FigurId = 'avatar' | 'vims' | 'klatten' | 'fugl' | 'tomordet' | 'stumming' | 'ekko' | 'tvivl' | 'krusedulle' | 'halvsaetning' | 'blaekling';
 
 /**
  * Billederne og tempoet for en figur. kort er figuren, som den er tegnet (ikke spejlet). retning er den vej,
@@ -211,6 +211,12 @@ export function figurRammer(id: FigurId, k: Tegnkort, retning: 1 | -1 = 1): { ra
       const ben = (dx: number, t: Tegnkort) => flyt(t, { x0: 0, x1: b - 1, y0: 10, y1: h - 1 }, dx, 0);
       const ende = (dy: number, t: Tegnkort) => flyt(t, { x0: 12, x1: b - 1, y0: 0, y1: 9 }, 0, dy);
       return { rammer: [k, ben(1, ende(-1, k)), k, ben(-1, ende(1, k))], ms: 210 };
+    }
+    case 'blaekling': {
+      // Blæklingen er en nervøs klat blæk: den dukker sig (toppen synker), strækker sig og blinker.
+      const duk = flyt(k, { x0: 0, x1: b - 1, y0: 0, y1: 6 }, 0, 1);
+      const strak = flyt(k, { x0: 0, x1: b - 1, y0: 0, y1: 6 }, 0, -1);
+      return { rammer: [k, duk, k, strak, skift(k, 'W', 'b'), k], ms: 190 };
     }
     case 'vims': {
       // Vims letter på hatten, blinker og snakker.
