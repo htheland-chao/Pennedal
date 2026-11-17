@@ -1,13 +1,11 @@
 import Phaser from 'phaser';
 import type { Avatar } from '../engine/gem';
-import { BFELT, erFare, erFast, erPlanke, erVisket, find, FYSIK, laesBane, viskedeGrupper, type Bane } from './bane';
-import { SKALA, VIS_B, VIS_H } from './KortScene';
-import { checkpoint, MAAL, NY_PLANKE, tegnBane, tegnBjergBaggrund, tegnByBaggrund, tegnSkovBaggrund, tegnTaage, VARDE, tegnArkivBaggrund, tegnHalvBaggrund, tegnSoeBaggrund } from './pixel/banetegn';
-import { ekkosten } from './pixel/rimbjerg';
-import { GRENPORT, ordsten } from './pixel/viskeskov';
+import { BFELT, erFare, erFast, erPlanke, erVisket, FYSIK, type Bane } from './bane';
+import { SKALA, VIS_H } from './KortScene';
+import { byggBane } from './bane/byg';
 import { tegnkortTilLerred } from './pixel/lerred';
 import { finFigur } from './pixel/fin';
-import { avatarPixel, FUGL, KLATTEN, SKYGGE, type Tegnkort } from './pixel/sprites';
+import { avatarPixel, type Tegnkort } from './pixel/sprites';
 import type { VerdenData, VerdenKroge } from './typer';
 import { spilEffekt } from '../ui/effekter';
 import { glid } from './kamera';
@@ -21,44 +19,44 @@ export const HJAELP_EFTER = 3;
  * Målet kalder onInteraktion('maal'), så trinnet i kapitlet går videre.
  */
 export class BaneScene extends Phaser.Scene {
-  private data_!: VerdenData;
-  private bane!: Bane;
-  private spiller!: Phaser.GameObjects.Image;
-  private fugl!: Phaser.GameObjects.Image;
-  private klatten?: Phaser.GameObjects.Image;
+  data_!: VerdenData;
+  bane!: Bane;
+  spiller!: Phaser.GameObjects.Image;
+  fugl!: Phaser.GameObjects.Image;
+  klatten?: Phaser.GameObjects.Image;
   /** Figurer på banen fra kapitlet, fx Den Ufærdige (form "skygge"). */
-  private figurer = new Map<string, Phaser.GameObjects.Image>();
-  private lanterner: { x: number; y: number; billede: Phaser.GameObjects.Image; taendt: boolean }[] = [];
-  private maal = { x: 0, y: 0 };
+  figurer = new Map<string, Phaser.GameObjects.Image>();
+  lanterner: { x: number; y: number; billede: Phaser.GameObjects.Image; taendt: boolean }[] = [];
+  maal = { x: 0, y: 0 };
   private vx = 0;
   private vy = 0;
   private paaJorden = false;
   private sidenJord = 0;
   private hopBuffer = 0;
   /** Hvor langt kameraet kigger frem. */
-  private fremad = 0;
+  fremad = 0;
   /** Kameraets midte vandret. Glider efter hovedpersonen. */
-  private kamX = 0;
+  kamX = 0;
   private retning: 1 | -1 = 1;
   private gaaTid = 0;
   private ur = 0;
   private checkpointNr = -1;
-  private start = { x: 0, y: 0 };
+  start = { x: 0, y: 0 };
   private fald = 0;
   private laast = false;
-  private faerdig = false;
-  private taster?: Record<'venstre' | 'hoejre' | 'op' | 'a' | 'd' | 'w' | 'mellemrum', Phaser.Input.Keyboard.Key>;
+  faerdig = false;
+  taster?: Record<'venstre' | 'hoejre' | 'op' | 'a' | 'd' | 'w' | 'mellemrum', Phaser.Input.Keyboard.Key>;
   /** Knapper på skærmen (touch). */
   private touch = { venstre: false, hoejre: false, hop: false };
   /** Viskeskoven: grupper af viskede planker, hvilke der er skrevet tilbage, og ordstenene. */
-  private grupper: [number, number][][] = [];
-  private gruppeVed = new Map<string, number>();
+  grupper: [number, number][][] = [];
+  gruppeVed = new Map<string, number>();
   private genskabt = new Set<number>();
-  private ordsten: { x: number; y: number; billede: Phaser.GameObjects.Image }[] = [];
+  ordsten: { x: number; y: number; billede: Phaser.GameObjects.Image }[] = [];
   /** Den ordsten, eleven lige er blevet spurgt ved. Først når man går væk, kan den spørge igen. */
   private spurgt: number | null = null;
-  private taage?: Phaser.GameObjects.Image;
-  private stenNoegle = 'px-ordsten';
+  taage?: Phaser.GameObjects.Image;
+  stenNoegle = 'px-ordsten';
   private roligt = typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
 
   constructor() {
@@ -97,7 +95,7 @@ export class BaneScene extends Phaser.Scene {
     return this.registry.get('kroge') as VerdenKroge;
   }
 
-  private tekstur(noegle: string, kilde: Tegnkort | HTMLCanvasElement, ny = false) {
+  tekstur(noegle: string, kilde: Tegnkort | HTMLCanvasElement, ny = false) {
     if (this.textures.exists(noegle)) {
       if (!ny) return noegle;
       this.textures.remove(noegle);
@@ -108,7 +106,7 @@ export class BaneScene extends Phaser.Scene {
   }
 
   /** Hovedpersonens størrelse: den fine figur har dobbelt så mange pixel og vises i halv størrelse. */
-  private get grundSkala() {
+  get grundSkala() {
     return SKALA >= 2 ? 0.5 : 1;
   }
 
@@ -123,108 +121,7 @@ export class BaneScene extends Phaser.Scene {
   }
 
   create() {
-    this.bane = laesBane(this.data_.sted.bane ?? ['S', '#']);
-    const W = this.bane.bredde * BFELT;
-    const H = this.bane.hoejde * BFELT;
-    const tema = this.data_.sted.tema;
-    this.byggAvatar();
-    this.tekstur('px-klatten', KLATTEN);
-    this.tekstur('px-fugl', FUGL);
-    this.tekstur('px-cp-0', checkpoint(false));
-    this.tekstur('px-cp-1', checkpoint(true));
-    this.tekstur('px-maal', MAAL);
-    this.tekstur('px-grenport', GRENPORT);
-    const bjerg = tema === 'rimbjerg';
-    // Ordstenene hedder ekkosten på Rimbjerget og ser anderledes ud. Teksturen får sit eget navn pr. tema.
-    this.stenNoegle = bjerg ? 'px-ekkosten' : 'px-ordsten';
-    this.tekstur(`${this.stenNoegle}-0`, bjerg ? ekkosten(false) : ordsten(false));
-    this.tekstur(`${this.stenNoegle}-1`, bjerg ? ekkosten(true) : ordsten(true));
-    this.tekstur('px-varde', VARDE);
-    this.tekstur('px-ny-planke', NY_PLANKE);
-    const skov = tema === 'viskesti';
-
-    // Baggrunden er halvt så bred plus skærmen, fordi den flytter sig med halv fart.
-    // Kameraet zoomer om sin midte, så baggrunden (som ikke følger med lodret) flyttes, så den står det samme sted
-    // med fin grafik (SKALA 2) som med hurtig (SKALA 1).
-    this.add
-      .image((VIS_B * (SKALA - 1)) / 4, (VIS_H * (SKALA - 1)) / 2, this.tekstur(`px-bane-bag-${tema}`, (skov ? tegnSkovBaggrund : bjerg ? tegnBjergBaggrund : tema === 'arkiv' ? tegnArkivBaggrund : tema === 'blaeksoe' ? tegnSoeBaggrund : tema === 'halve' ? tegnHalvBaggrund : tegnByBaggrund)(Math.ceil(W / 2) + VIS_B, Math.max(H, VIS_H)), true))
-      .setOrigin(0)
-      .setScrollFactor(0.5, 0)
-      .setDepth(-2);
-    this.add.image(0, 0, this.tekstur(`px-bane-${this.data_.sted.navn}`, tegnBane(this.bane, tema), true)).setOrigin(0).setDepth(0);
-
-    // Viskede planker og ordsten (Viskeskoven). Er banen klaret, er alle planker skrevet tilbage.
-    this.grupper = viskedeGrupper(this.bane);
-    this.grupper.forEach((g, i) => g.forEach(([x, y]) => this.gruppeVed.set(`${x},${y}`, i)));
-    for (const [x, y] of find(this.bane, 'O').sort((a, b) => a[0] - b[0])) {
-      const ox = x * BFELT + 8;
-      const oy = (y + 1) * BFELT;
-      this.ordsten.push({ x: ox, y: oy, billede: this.add.image(ox, oy, `${this.stenNoegle}-0`).setOrigin(0.5, 1).setDepth(1) });
-    }
-    if (this.data_.baneKlaret) this.grupper.forEach((_g, i) => this.genskab(i, false));
-
-    for (const [x, y] of find(this.bane, 'C')) {
-      const bx = x * BFELT + 8;
-      const by = (y + 1) * BFELT;
-      this.lanterner.push({ x: bx, y: by, billede: this.add.image(bx, by, 'px-cp-0').setOrigin(0.5, 1).setDepth(1), taendt: false });
-    }
-    this.lanterner.sort((a, b) => a.x - b.x);
-    const [m] = find(this.bane, 'M');
-    if (m) {
-      this.maal = { x: m[0] * BFELT + 8, y: (m[1] + 1) * BFELT };
-      this.add.image(this.maal.x, this.maal.y, skov ? 'px-grenport' : bjerg ? 'px-varde' : 'px-maal').setOrigin(0.5, 1).setDepth(1);
-    }
-    const [s] = find(this.bane, 'S');
-    this.start = { x: (s?.[0] ?? 1) * BFELT + 8, y: ((s?.[1] ?? 1) + 1) * BFELT };
-    // Er målet allerede nået, står hovedpersonen ved målet (fx hvis spillet blev genåbnet midt i slutscenen).
-    const fra = this.data_.baneKlaret ? { x: this.maal.x - 24, y: this.maal.y } : this.start;
-    if (this.data_.baneKlaret) this.faerdig = true;
-    this.spiller = this.add.image(fra.x, fra.y, 'px-side-0').setOrigin(0.5, 1).setDepth(5).setScale(this.grundSkala);
-    this.fugl = this.add.image(this.start.x - 16, this.start.y - 20, 'px-fugl').setOrigin(0.5, 1).setDepth(6);
-    this.fugl.setVisible(!(this.data_.skjulte ?? []).includes('aeseloere'));
-    const [k] = find(this.bane, 'K');
-    if (k && !(this.data_.skjulte ?? []).includes('klatten'))
-      this.klatten = this.add
-        .image(this.data_.baneKlaret ? this.maal.x + 24 : k[0] * BFELT + 8, this.data_.baneKlaret ? this.maal.y : (k[1] + 1) * BFELT, 'px-klatten')
-        .setOrigin(0.5, 1)
-        .setDepth(4);
-
-    this.tekstur('px-skygge-figur', SKYGGE);
-    for (const o of this.data_.sted.objekter) {
-      if (!o.felt || o.form !== 'skygge') continue;
-      const b = this.add.image(o.felt[0] * BFELT + 8, (o.felt[1] + 1) * BFELT, 'px-skygge-figur').setOrigin(0.5, 1).setDepth(7);
-      b.setVisible(!(this.data_.skjulte ?? []).includes(o.id));
-      this.figurer.set(o.id, b);
-    }
-
-    // Tågen i Viskeskoven: hvid i kanten, åben omkring hovedpersonen, hvor lanternen lyser (docs/historie.md).
-    if (skov) {
-      const noegle = this.tekstur('px-taage', tegnTaage(VIS_B * 2, VIS_H * 2, 70));
-      this.taage = this.add.image(fra.x, fra.y - 10, noegle).setDepth(9).setAlpha(this.data_.mindreUhygge ? 0.6 : 1);
-    }
-
-    const cam = this.cameras.main;
-    // Tegnes i høj opløsning som kortet (SKALA). Kameraet styres med centerOn som på kortet (Henrik, 13. november 2026):
-    // med origo i hjørnet og zoom 2 (fin grafik) så man himlen i stedet for banen, fordi scroll og zoom ikke passede sammen.
-    cam.setBounds(0, 0, W, Math.max(H, VIS_H)).setRoundPixels(true);
-    cam.setZoom(SKALA);
-    this.kamX = fra.x;
-    cam.centerOn(fra.x, this.kamY());
-    this.fremad = 0;
-
-    const kb = this.input.keyboard;
-    if (kb) {
-      const K = Phaser.Input.Keyboard.KeyCodes;
-      this.taster = {
-        venstre: kb.addKey(K.LEFT),
-        hoejre: kb.addKey(K.RIGHT),
-        op: kb.addKey(K.UP),
-        a: kb.addKey(K.A),
-        d: kb.addKey(K.D),
-        w: kb.addKey(K.W),
-        mellemrum: kb.addKey(K.SPACE),
-      };
-    }
+    byggBane(this);
   }
 
   // Samme metoder som de andre scener, så React kan kalde dem uden at vide, hvilken scene der kører.
@@ -502,7 +399,7 @@ export class BaneScene extends Phaser.Scene {
   }
 
   /** Midten af det, kameraet viser lodret: banens bund står nederst i billedet. */
-  private kamY() {
+  kamY() {
     return Math.max(VIS_H / 2, this.bane.hoejde * BFELT - VIS_H / 2);
   }
 
