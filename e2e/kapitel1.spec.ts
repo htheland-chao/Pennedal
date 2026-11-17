@@ -2,7 +2,7 @@ import { expect, test, type Page } from '@playwright/test';
 import { readFileSync } from 'node:fs';
 import { facit, parseOgTekst } from '../src/mechanics/ogorm';
 
-type StumtOrd = { ord: string };
+type StumtOrd = { ord: string; stumt: number };
 type OgTekst = { id: string; tekst: string };
 type Historie = { id: string };
 
@@ -22,6 +22,40 @@ async function billede(page: Page, navn: string) {
 }
 
 /** Klikker "Videre", indtil dialogen er slut. */
+/** Øvekampen mod Blæklingen (16. november 2026): slå med et stumt bogstav, til kampen er vundet. */
+async function kaempBlaekling(page: Page) {
+  const kamp = page.locator('dialog.kamp');
+  await expect(kamp).toBeVisible({ timeout: 30_000 });
+  const skaerm = kamp.locator('.kamp-skaerm');
+  for (let runde = 0; runde < 30; runde++) {
+    await expect(skaerm).toHaveAttribute('data-fase', /^(menu|slut)$/, { timeout: 30_000 });
+    if ((await skaerm.getAttribute('data-fase')) === 'slut') {
+      const slut = kamp.locator('.kamp-slut');
+      await expect(slut).toContainText('Vejen er fri');
+      await billede(page, '10a-blaekling-vundet');
+      await slut.getByRole('button', { name: 'Videre', exact: true }).click();
+      await expect(kamp).toHaveCount(0);
+      return;
+    }
+    const menu = kamp.locator('.kamp-styring');
+    if (runde === 0) await billede(page, '10a-blaekling');
+    await menu.getByRole('button', { name: 'Slå', exact: true }).click();
+    const art = 'Slå med et stumt bogstav';
+    const stort = menu.getByRole('button', { name: `Stort slag, der rammer alle: ${art}` });
+    if (await stort.isVisible()) await stort.click();
+    else await menu.getByRole('button', { name: art, exact: true }).click();
+    const opgave = kamp.locator('.kamp-opgave-kort');
+    const id = await kamp.locator('[data-opgave-id]').getAttribute('data-opgave-id');
+    const o = stumme.find((x) => x.ord === id)!;
+    await opgave.getByRole('button', { name: o.ord[o.stumt], exact: true }).click();
+    await expect(opgave.locator('.besked-god .regel')).toContainText('Regel');
+    await opgave.getByRole('button', { name: 'Slå!', exact: true }).click();
+    const spring = kamp.getByRole('button', { name: 'Spring over' });
+    if (await spring.isVisible()) await spring.click({ timeout: 2_000 }).catch(() => undefined);
+  }
+  throw new Error('Kampen mod Blæklingen blev ikke vundet');
+}
+
 async function laesDialog(page: Page) {
   const dialog = page.locator('dialog.dialogboks');
   // Dialogen lukker selv efter sidste replik, når den er læst op (8. november 2026). Den kan derfor allerede være væk.
@@ -245,6 +279,11 @@ test('kapitel 1 kan spilles fra start til slut, og gemmekoden virker', async ({ 
   }
   await laesDialog(page);
   await expect(page.locator('.kvittering').filter({ hasText: 'Du har klaret del 2' })).toBeVisible();
+
+  // Øvekampen (16. november 2026): Blæklingen rejser sig af Klattens blækstribe, og Æseløre forklarer turene.
+  await laesDialog(page);
+  await kaempBlaekling(page);
+  await laesDialog(page);
 
   // Del 3: floden og fyrtårnet.
   await undersoeg(page, 'stien mod floden');
