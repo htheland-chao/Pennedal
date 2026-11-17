@@ -1,4 +1,4 @@
-/* Introens trailer (14. november 2026): fire hurtige klip før titlen. Se src/ui/IntroTrailer.tsx. */
+/* Introens trailer (14. november 2026): fire hurtige klip før titlen. Se src/pages/intro/IntroTrailer.tsx. */
 .trailer-figur {
   position: absolute;
   display: block;
@@ -40,7 +40,7 @@
 .trailer-jord {
   bottom: 0;
   height: 97.8%;
-  /* Jorden flyttes af src/ui/IntroTrailer.tsx, så figuren kan hoppe op på bakkerne i takt med den. */
+  /* Jorden flyttes af src/pages/intro/IntroTrailer.tsx, så figuren kan hoppe op på bakkerne i takt med den. */
   animation: none;
 }
 @keyframes trailer-pan-bag {

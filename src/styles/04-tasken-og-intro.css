@@ -65,7 +65,7 @@
   }
 }
 
-/* Introen (src/ui/Intro.tsx). Billederne er pixelgrafik, al tekst er HTML ovenpå. */
+/* Introen (src/pages/Intro.tsx). Billederne er pixelgrafik, al tekst er HTML ovenpå. */
 .intro {
   position: fixed;
   inset: 0;

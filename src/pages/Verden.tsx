@@ -16,7 +16,7 @@ import { Overgang } from '../ui/Overgang';
 import { saetMusikOverride } from '../ui/musik/afspiller';
 import { NyTingBesked, TaskeVindue } from '../ui/TaskeVindue';
 import { Ydelse } from '../ui/Ydelse';
-import { BevisjagtVindue, OpgaveVindue } from './OpgaveVindue';
+import { BevisjagtVindue, OpgaveVindue } from '../app/OpgaveVindue';
 import { spilEffekt } from '../ui/effekter';
 import { skalaFraAdresse } from '../game/KortScene';
 import { samtalerPaaStedet, tilpasDialog, type Gentagelse } from './verden/dialog';

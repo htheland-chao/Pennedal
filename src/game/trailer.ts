@@ -1,6 +1,6 @@
 /**
  * Introens trailer (Henrik, 14. november 2026): hurtige smagsprøver på spillet til sidst i introen.
- * Ren logik uden canvas, så den kan testes. Billederne tegnes i src/ui/IntroTrailer.tsx.
+ * Ren logik uden canvas, så den kan testes. Billederne tegnes i src/pages/intro/IntroTrailer.tsx.
  */
 import { BFELT, kanStaa, laesBane, type Bane } from './bane';
 

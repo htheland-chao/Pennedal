@@ -14,19 +14,19 @@ import {
 import { aktueltSted, kapitelSlut, naesteKapitel, spilVedIKapitler } from '../engine/kapitel';
 import { saetMusik } from '../ui/musik/afspiller';
 import { saetEffekter } from '../ui/effekter';
-import { AvatarDesigner } from '../ui/AvatarDesigner';
+import { AvatarDesigner } from '../pages/AvatarDesigner';
 import { GemmekodeVindue, IndlaesSide } from '../ui/Gemmekode';
-import { Intro } from '../ui/Intro';
-import { Titelskaerm } from '../ui/Titelskaerm';
+import { Intro } from '../pages/Intro';
+import { Titelskaerm } from '../pages/Titelskaerm';
 import { IndstillingerVindue } from '../ui/IndstillingerVindue';
 import { Kontekst } from '../ui/Kontekst';
-import { Laererkig } from '../ui/Laererkig';
+import { Laererkig } from '../pages/Laererkig';
 import { Modal } from '../ui/Modal';
 import { OrdkortVindue } from '../ui/OrdkortVindue';
 import { Kvittering } from '../ui/Kvittering';
-import { Samling } from '../ui/Samling';
-import { Verden } from './Verden';
-import { Blaekdybet, dybetAabent } from './Blaekdybet';
+import { Samling } from '../pages/Samling';
+import { Verden } from '../pages/Verden';
+import { Blaekdybet, dybetAabent } from '../pages/Blaekdybet';
 import { Kapitelkort } from '../ui/Kapitelkort';
 
 type Skaerm = 'start' | 'intro' | 'ny-avatar' | 'ret-avatar' | 'verden' | 'indlaes' | 'laerer' | 'samling' | 'hop' | 'dybet';

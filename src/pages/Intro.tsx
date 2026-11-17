@@ -11,9 +11,9 @@ import {
   tegnRegn,
   tegnVaerelse,
 } from '../game/pixel/intro';
-import { useApp } from './Kontekst';
-import { LaesOpKnap, type Del } from './Tekst';
-import { TrailerKlip, type KlipId } from './IntroTrailer';
+import { useApp } from '../ui/Kontekst';
+import { LaesOpKnap, type Del } from '../ui/Tekst';
+import { TrailerKlip, type KlipId } from './intro/IntroTrailer';
 
 const KLIP: SceneId[] = ['steder', 'bane', 'venner', 'kamp'];
 /** Scener, der viser det samme billede, beholder det, så zoom og regn fortsætter uden et klip. */

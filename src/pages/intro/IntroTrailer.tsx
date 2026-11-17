@@ -1,14 +1,14 @@
 import { useEffect, useMemo, useRef, type CSSProperties } from 'react';
-import { STANDARD_AVATAR } from '../data/gem';
-import { BFELT, laesBane } from '../game/bane';
-import { tegnBane, tegnBjergBaggrund, tegnByBaggrund, tegnSkovBaggrund, tegnSoeBaggrund } from '../game/pixel/banetegn';
-import { finFigur } from '../game/pixel/fin';
-import { figurRammer, type FigurId } from '../game/pixel/kampliv';
-import { FJENDE_PLADS, HOLD_PLADS, tegnKampBaggrund } from '../game/pixel/kampscene';
-import { lerred, tegnkortTilLerred } from '../game/pixel/lerred';
-import { avatarPixel, FUGL, type Tegnkort } from '../game/pixel/sprites';
-import { STUMMING, TOMORD, VIMS } from '../game/pixel/viskeskov';
-import { baneSti, TRAILER_BANE } from '../game/trailer';
+import { STANDARD_AVATAR } from '../../data/gem';
+import { BFELT, laesBane } from '../../game/bane';
+import { tegnBane, tegnBjergBaggrund, tegnByBaggrund, tegnSkovBaggrund, tegnSoeBaggrund } from '../../game/pixel/banetegn';
+import { finFigur } from '../../game/pixel/fin';
+import { figurRammer, type FigurId } from '../../game/pixel/kampliv';
+import { FJENDE_PLADS, HOLD_PLADS, tegnKampBaggrund } from '../../game/pixel/kampscene';
+import { lerred, tegnkortTilLerred } from '../../game/pixel/lerred';
+import { avatarPixel, FUGL, type Tegnkort } from '../../game/pixel/sprites';
+import { STUMMING, TOMORD, VIMS } from '../../game/pixel/viskeskov';
+import { baneSti, TRAILER_BANE } from '../../game/trailer';
 
 /**
  * Introens trailer (Henrik, 14. november 2026): fire hurtige klip til sidst i introen, før titlen.

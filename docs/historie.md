@@ -69,7 +69,7 @@ Nogle valg i udseende-editoren er låst og bliver låst op, når man klarer et k
 
 ## Introen
 
-Introen (`src/ui/Intro.tsx`, 31. oktober 2026) kommer, når man starter et nyt eventyr, og kan ses igen fra forsiden. Den skal vække nysgerrighed uden at afsløre forhistorien.
+Introen (`src/pages/Intro.tsx`, 31. oktober 2026) kommer, når man starter et nyt eventyr, og kan ses igen fra forsiden. Den skal vække nysgerrighed uden at afsløre forhistorien.
 
 1. Theland Studios præsenterer (studiets mærke: en fjerpen i et blækhus).
 2. Et mørkt værelse i regnvejr. En skuffe står åben, og man skimter noget grønt. "Nogle historier bliver aldrig skrevet færdige."
