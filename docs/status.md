@@ -121,7 +121,7 @@ Regler og stak står i `CLAUDE.md`. Historien står i `docs/historie.md`, grafik
 - **Gennemspil kapitel 1 lokalt** fejler kun på en favicon-404 til sidst. Kør med `CHROMIUM_STI=/opt/pw-browsers/chromium-1243/chrome-linux64/chrome`.
 - **Tip-knappen og sidepanelets knap hedder det samme** ("Undersøg ..."). Brug `.panel` i gennemspilningerne.
 - **Et merge lavet af lydjobbet starter ikke Test-jobbet.** Jobbet starter det selv med `gh workflow run test.yml`.
-- **Gennemspil kapitel 6 fejler en gang imellem i en lang kørsel** (16. og 17. november 2026): efter "Jeg tilgiver dig" ved søen lukker dialogen ikke inden for testens tid. Testen er grøn alene og på GitHub. Årsagen er ikke fundet endnu.
+- **Rettet 17. november 2026: gennemspil kapitel 6 fejlede en gang imellem i en lang kørsel.** Efter "Jeg tilgiver dig" starter krusedullernes dialog af sig selv. Imellem de to dialoger er der et kort øjeblik uden dialog, og testens `laesDialog` stoppede netop der på en langsom maskine. Nu venter den 0,6 sekund på en ny dialog. Årsagen er fundet ved at læse koden, ikke ved at få fejlen frem igen. De andre kapitlers `laesDialog` har samme mønster og er ikke ændret.
 - **GitHub GraphQL er blokeret** i Claudes miljø. Brug `gh api` med REST.
 - **Google er blokeret** i Claudes miljø. Lydklip laves kun af GitHub-jobbet Lyd.
 
