@@ -9,7 +9,7 @@ import { BLADE, BROPLANKE, FUGL, KLATTEN, LANTERNE, PIL, PLANKE, SKILT, STOLPE, 
 import { GRENPORT, HALVFUGL, ORDBLAD, STUMMING, TOMORD, VIMS } from '../pixel/viskeskov';
 import { DIGTSTEN, EKKO, RIMFOD, granMedSne } from '../pixel/rimbjerg';
 import { LAANTE_TRAEER } from '../pixel/laant/traeer';
-import { laantGrafik, rundtTrae } from './laant';
+import { rundeTraeer } from './laant';
 import { FODNOTETAL, FRU_FODNOTE, HAEFTE_KORT, TVIVL, UFAERDIGE_KORT } from '../pixel/arkiv';
 import { BREV, KRUSEDULLE, POSTSNEGL, hytte } from '../pixel/blaeksoe';
 import { BIP, GRUMSEN, LUP, PRINSESSE, SPOR } from '../pixel/halvelande';
@@ -47,11 +47,11 @@ export function moebel(s: KortScene, c: string, tx: number, ty: number, kaelder:
 export function byggGrund(s: KortScene, tema: string, inde: boolean) {
   // Rimbjerget har graner med sne i stedet for papirtræer.
   const bjerg = tema === 'rimbjerg';
-  // Lånte træer (?laant=1): runde træer fra Ninja Adventure i små grupper mellem vores egne papirgraner.
-  const laant = laantGrafik() && !bjerg;
-  const rund = laant ? rundtTrae : () => false;
+  // Runde træer (lånt fra Ninja Adventure) i kapitel 3 og 6, ellers papirgraner. Aldrig blandet på samme sted.
+  const runde = !bjerg && rundeTraeer(tema);
+  const rund = () => runde;
   const traeer = [22, 26, 30, 34].map((h, i) => s.tekstur(`px-trae-${bjerg ? 'gran-' : ''}${i}`, bjerg ? granMedSne(h) : papirtrae(h)));
-  const rundeTraeer = laant ? LAANTE_TRAEER.map((t, i) => s.tekstur(`px-trae-laant-${i}`, t)) : [];
+  const rundeBilleder = runde ? LAANTE_TRAEER.map((t, i) => s.tekstur(`px-trae-laant-${i}`, t)) : [];
   s.tekstur('px-klatten', KLATTEN);
   s.tekstur('px-skilt', SKILT);
   s.tekstur('px-blade', BLADE);
@@ -138,7 +138,7 @@ export function byggGrund(s: KortScene, tema: string, inde: boolean) {
   for (const t of traePladser(s.kort, rund))
     s.traeBilleder.push(
       s.add
-        .image(t.x, t.y, t.rund ? rundeTraeer[t.nr] : traeer[t.nr])
+        .image(t.x, t.y, t.rund ? rundeBilleder[t.nr] : traeer[t.nr])
         .setOrigin(0.5, 1)
         .setDepth(t.y),
     );

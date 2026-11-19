@@ -2,8 +2,7 @@ import type { Tegnkort } from '../sprites';
 
 /**
  * Lånte træer fra "Ninja Adventure" af Pixel-boy (CC0), farvet om til Pennedals papirpalet.
- * Afdæmpet (Henrik, 19. november 2026): kronen bruger papirets skyggefarver og ikke den lyseste papirfarve, så de runde
- * træer ikke stjæler blikket fra papirgranerne. Kun i brug med ?laant=1 i adressen.
+ * Kronen bruger papirets skyggefarver. Bruges i kapitel 3 og 6 (se src/game/kort/laant.ts).
  * Kilde: https://pixel-boy.itch.io/ninja-adventure-asset-pack - fliseark tileset_village_abandoned.png.
  */
 const PALET = { K: '#2a2f48', S: '#c6cad6', l: '#a7aab8', m: '#8a8ea3' };

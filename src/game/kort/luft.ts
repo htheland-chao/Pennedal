@@ -4,6 +4,8 @@ import { FELT } from '../kort';
 import { hash, lavTaagebanker, lavVignet, partikelBilleder } from '../pixel/lerred';
 import { type Partikel, indenfor, partikelTrin, partiklerFor, vignetStyrke } from '../stemning';
 import { moerkere, papirtrae } from '../pixel/sprites';
+import { LAANTE_TRAEER } from '../pixel/laant/traeer';
+import { rundeTraeer } from './laant';
 
 /**
  * Stemning i luften: partikler, tågebanker og grene i forgrunden, der glider med kameraet.
@@ -50,9 +52,12 @@ export function lavStemning(s: KortScene, tema: string, inde: boolean) {
   // Grene i forgrunden: mørke trækroner langs kortets nederste kant, der glider lidt hurtigere end resten,
   // så verden får dybde, når kameraet flytter sig.
   const k = s.kort;
-  const gren = s.tekstur('px-forgrund', {
-    ...papirtrae(40),
-    palet: Object.fromEntries(Object.entries(papirtrae(40).palet).map(([n, f]) => [n, moerkere(f, 0.42)])),
+  // Samme slags træ som resten af stedet (runde træer i kapitel 3 og 6), aldrig blandet.
+  const runde = rundeTraeer(tema);
+  const form = runde ? LAANTE_TRAEER[0] : papirtrae(40);
+  const gren = s.tekstur(runde ? 'px-forgrund-rund' : 'px-forgrund', {
+    ...form,
+    palet: Object.fromEntries(Object.entries(form.palet).map(([n, f]) => [n, moerkere(f, 0.42)])),
   });
   for (let tx = 1; tx < k.bredde; tx += 4) {
     if (k.tegn(tx, k.hoejde - 1) !== '#') continue;
