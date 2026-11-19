@@ -38,6 +38,7 @@ jobs:
         run: npx playwright test e2e/billeder.spec.ts --update-snapshots=all
         env:
           CI: 'true'
+          BILLEDER_OPDATER: '1'
       - name: Gem billederne som artefakt
         if: always()
         uses: actions/upload-artifact@v4

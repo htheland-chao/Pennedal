@@ -1,3 +1,4 @@
+import { existsSync } from 'node:fs';
 import { expect, test, type Page } from '@playwright/test';
 
 // Billedtest (19. november 2026): faste billeder af spillets grafik på udvalgte steder. Fanger grafikfejl, som
@@ -14,6 +15,12 @@ const STEDER = ['pennedal', 'torvet', 'lysningen', 'tagene', 'kaelder', 'soebred
 const SKALAER = [1, 2] as const;
 
 async function gørEns(page: Page) {
+  // Oplæsning følger lydens rigtige tid (munden og taleboblen), så den slås fra her.
+  await page.addInitScript(() => {
+    const nøgle = 'pennedal.indstillinger.v1';
+    const ind = JSON.parse(localStorage.getItem(nøgle) ?? '{}');
+    localStorage.setItem(nøgle, JSON.stringify({ ...ind, oplaesning: false }));
+  });
   await page.addInitScript(() => {
     let s = 20261119;
     Math.random = () => {
@@ -38,12 +45,9 @@ for (const skala of SKALAER) {
   for (const sted of STEDER) {
     test(`billede: ${sted}, ${skala === 2 ? 'fin' : 'hurtig'} grafik`, async ({ page }, info) => {
       const navn = `${sted}-skala${skala}.png`;
-      test.skip(
-        info.config.updateSnapshots === 'none' || info.config.updateSnapshots === 'missing'
-          ? !(await import('node:fs')).existsSync(info.snapshotPath(navn))
-          : false,
-        'Billederne laves af GitHub-jobbet Billeder',
-      );
+      // Uden faste billeder springes testen over. Jobbet Billeder sætter BILLEDER_OPDATER og laver dem.
+      const findes = existsSync(info.snapshotPath(navn, { kind: 'screenshot' }));
+      test.skip(!findes && !process.env.BILLEDER_OPDATER, 'Billederne laves af GitHub-jobbet Billeder');
       await gørEns(page);
       await page.goto(`/?hop=${sted}&skala=${skala}`);
       const verden = page.locator('main.verden');
