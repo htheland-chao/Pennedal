@@ -200,7 +200,7 @@ export function PhaserVerden(props: Props) {
   return (
     <div
       ref={beholder}
-      className="spilflade spilflade-pixel"
+      className={(skalaFraAdresse() ?? props.skala) >= 2 ? 'spilflade spilflade-bloed' : 'spilflade spilflade-pixel'}
       tabIndex={0}
       role="application"
       aria-label={props.label}

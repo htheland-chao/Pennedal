@@ -4,7 +4,7 @@ import { BFELT, erFare, erFast, erPlanke, erVisket, FYSIK, type Bane } from './b
 import { SKALA, VIS_H } from './KortScene';
 import { byggBane } from './bane/byg';
 import { tegnkortTilLerred } from './pixel/lerred';
-import { finFigur } from './pixel/fin';
+import { FIN_FIGUR_I_VERDEN, finFigur } from './pixel/fin';
 import { avatarPixel, type Tegnkort } from './pixel/sprites';
 import type { VerdenData, VerdenKroge } from './typer';
 import { spilEffekt } from '../lyd/effekter';
@@ -107,16 +107,16 @@ export class BaneScene extends Phaser.Scene {
 
   /** Hovedpersonens størrelse: den fine figur har dobbelt så mange pixel og vises i halv størrelse. */
   get grundSkala() {
-    return SKALA >= 2 ? 0.5 : 1;
+    return SKALA >= 2 && FIN_FIGUR_I_VERDEN ? 0.5 : 1;
   }
 
   byggAvatar() {
     const a = this.registry.get('avatar') as Avatar | undefined;
     if (!a) return;
-    // Fin grafik: hovedpersonen med dobbelt så mange pixel, vist i samme størrelse (13. november 2026).
+    // Fin hovedperson er slået fra: én pixelstørrelse i hele verden (se pixel/fin.ts).
     for (const f of [0, 1, 2] as const) {
       const t = avatarPixel(a, 'hoejre', f);
-      this.tekstur(`px-side-${f}`, SKALA >= 2 ? finFigur(t) : t, true);
+      this.tekstur(`px-side-${f}`, SKALA >= 2 && FIN_FIGUR_I_VERDEN ? finFigur(t) : t, true);
     }
   }
 
