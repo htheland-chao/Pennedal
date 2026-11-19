@@ -15,4 +15,4 @@
 
 Regel (krav 9, 19. november 2026): kun CC0, så længe repoet er offentligt. Hver pakke skrives her med navn, link og licens, før den bruges, og farves om til spillets palet.
 
-- **Ninja Adventure** af Pixel-boy ([itch.io](https://pixel-boy.itch.io/ninja-adventure-asset-pack), eksempelprojektet på [GitHub](https://github.com/Pixel-boy/NinjaAdventure)): CC0. To træer fra `tileset_village_abandoned.png`, farvet om til papirpaletten, i `src/game/pixel/laant/traeer.ts`. **Kun en prøve:** vises kun med `?laant=1` i adressen, indtil Henrik har godkendt stilen.
+Ingen lånt grafik er i brug. (En prøve med træer fra Ninja Adventure, CC0, blev fravalgt 19. november 2026.)
