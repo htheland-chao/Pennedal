@@ -15,6 +15,14 @@
       "kilde": "Kapitel 3 / k3-tomordet-moede.2",
       "lavet": "2026-11-01"
     },
+    "0013ac4711a553": {
+      "figur": "aeseloere",
+      "tekst": "Ja. spiste er den rigtige stavemåde.",
+      "fil": "0013ac4711a553.ogg",
+      "kilde": "Kampsvar / krusedulle.k02.spiste",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "0015ff9d5643bb": {
       "figur": "aeseloere",
       "tekst": "Ikke helt. Klap ordet langsomt: ek-ko-hu-le. Tæl klappene.",
@@ -44,6 +52,14 @@
       "kilde": "Beskeder / fortaeller.fejl.jeg",
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-tts"
+    },
+    "0022e9edb60bbe": {
+      "figur": "aeseloere",
+      "tekst": "Klatten peger på komer. Den fejl har jeg selv lavet engang. Det er ikke den.",
+      "fil": "0022e9edb60bbe.ogg",
+      "kilde": "Kampsvar / klatten.k05.komer",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "002afb9c4f9454": {
       "figur": "aeseloere",
@@ -149,6 +165,14 @@
       "kilde": "Stumme bogstaver / held",
       "lavet": "2026-11-01"
     },
+    "0055a744dc93c0": {
+      "figur": "aeseloere",
+      "tekst": "Ja. rund er den rigtige stavemåde.",
+      "fil": "0055a744dc93c0.ogg",
+      "kilde": "Kampsvar / krusedulle.k07.rund",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "00571c88454902": {
       "figur": "fortaeller",
       "tekst": "Typeskabet har tre tomme huller: et rundt, et som en krog og et langt og smalt. Der mangler noget, før du kan prøve låsen.",
@@ -162,6 +186,14 @@
       "fil": "0057a1d8dbc57a.ogg",
       "kilde": "Kapitel 5 / reolerne.faerdig.2",
       "lavet": "2026-11-12"
+    },
+    "0057a73de2f4e7": {
+      "figur": "aeseloere",
+      "tekst": "Sidene er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "0057a73de2f4e7.ogg",
+      "kilde": "Kampsvar / krusedulle.k09.Sidene",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "005e8df62db0d5": {
       "figur": "fortaeller",
@@ -244,6 +276,14 @@
       "fil": "009acf31165542.ogg",
       "kilde": "Synonymer / begynde",
       "lavet": "2026-11-04"
+    },
+    "00a4c22d9bff2e": {
+      "figur": "aeseloere",
+      "tekst": "Der mangler ikke et d her. Kig på bogstavet lige før eller lige efter hullet.",
+      "fil": "00a4c22d9bff2e.ogg",
+      "kilde": "Kampsvar / stumming.fejl.d",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "00a6193b69d784": {
       "figur": "aeseloere",
@@ -363,6 +403,14 @@
       "kilde": "Introen / intro.5.slut",
       "lavet": "2026-11-01"
     },
+    "00fdbc5535c99e": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket stumt bogstav mangler i _jerte?",
+      "fil": "00fdbc5535c99e.ogg",
+      "kilde": "Kampsvar / stumming.hjerte.spoergsmaal",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
     "00ffaf007d4cd3": {
       "figur": "fortaeller",
       "tekst": "Hvad står der på skiltet?",
@@ -393,6 +441,14 @@
       "kilde": "Svar / rim.ring.ræv",
       "lavet": "2026-11-16",
       "model": "gemini-3.8-flash-tts"
+    },
+    "0111413f4e636c": {
+      "figur": "aeseloere",
+      "tekst": "råbede er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "0111413f4e636c.ogg",
+      "kilde": "Kampsvar / krusedulle.k06.råbede",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "01157fe9e967df": {
       "figur": "vims",
@@ -436,6 +492,14 @@
       "fil": "012c039f17e527.ogg",
       "kilde": "Kapitel 3 / k3-vims.5",
       "lavet": "2026-11-01"
+    },
+    "012f916fc1857a": {
+      "figur": "aeseloere",
+      "tekst": "en fattig dreng, der bliver konge hører til en anden genre end gyser. Hvad er kendetegnene for gyser?",
+      "fil": "012f916fc1857a.ogg",
+      "kilde": "Svar / genre.gyser.en fattig dreng, der bliver konge",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
     },
     "01308189b06b2c": {
       "figur": "aeseloere",
@@ -819,6 +883,14 @@
       "lavet": "2026-11-16",
       "model": "gemini-3.8-flash-tts"
     },
+    "01f15e9cd580dd": {
+      "figur": "aeseloere",
+      "tekst": "Der mangler ikke et v her. Kig på bogstavet lige før eller lige efter hullet.",
+      "fil": "01f15e9cd580dd.ogg",
+      "kilde": "Kampsvar / stumming.fejl.v",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "01f44160646e79": {
       "figur": "fortaeller",
       "tekst": "Nu er jeg hjemme ved Blæksøen i min lille hytte.",
@@ -864,6 +936,14 @@
       "kilde": "Minder / minde.skyggen.3",
       "lavet": "2026-11-13"
     },
+    "0204fcaeef15af": {
+      "figur": "aeseloere",
+      "tekst": "en stjålen diamant hører til en anden genre end science fiction. Hvad er kendetegnene for science fiction?",
+      "fil": "0204fcaeef15af.ogg",
+      "kilde": "Svar / genre.sf.en stjålen diamant",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
     "0208ab8d20ac5b": {
       "figur": "rimfod",
       "tekst": "Bag De halve lande ligger den sidste side. Den er tom, og den er din.",
@@ -893,6 +973,22 @@
       "fil": "020fc5c2da3338.ogg",
       "kilde": "Kapitel 6 / k6-doer.valg3.2",
       "lavet": "2026-11-10"
+    },
+    "0211528f502831": {
+      "figur": "aeseloere",
+      "tekst": "tejnede er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "0211528f502831.ogg",
+      "kilde": "Kampsvar / krusedulle.k08.tejnede",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "021acf8a614bec": {
+      "figur": "aeseloere",
+      "tekst": "et alibi hører til en anden genre end science fiction. Hvad er kendetegnene for science fiction?",
+      "fil": "021acf8a614bec.ogg",
+      "kilde": "Svar / genre.sf.et alibi",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
     },
     "021cb6d9f8c9fc": {
       "figur": "fortaeller",
@@ -960,6 +1056,14 @@
       "kilde": "Kapitel 4 / rimfodsaetning.faerdig.2",
       "lavet": "2026-11-12"
     },
+    "02337c2b8eed9c": {
+      "figur": "aeseloere",
+      "tekst": "Der var engang hører til en anden genre end gyser. Hvad er kendetegnene for gyser?",
+      "fil": "02337c2b8eed9c.ogg",
+      "kilde": "Svar / genre.gyser.Der var engang",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
     "0233c88e5700b6": {
       "figur": "ord",
       "tekst": "typeskab",
@@ -981,6 +1085,14 @@
       "fil": "023da5db7bb4ba.ogg",
       "kilde": "Kampe / kamp.forklaring",
       "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "02464da26b4ba0": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Der skal stå gulv. Du kan ikke høre v, men det skal med.",
+      "fil": "02464da26b4ba0.ogg",
+      "kilde": "Kampsvar / stumming.gulv",
+      "lavet": "2026-11-19",
       "model": "gemini-3.8-flash-tts"
     },
     "0247c8926638b2": {
@@ -1092,6 +1204,14 @@
       "kilde": "Introen / intro.5",
       "lavet": "2026-11-01"
     },
+    "02a11d1bda0e2a": {
+      "figur": "aeseloere",
+      "tekst": "noget, der banker på ruden hører til en anden genre end science fiction. Hvad er kendetegnene for science fiction?",
+      "fil": "02a11d1bda0e2a.ogg",
+      "kilde": "Svar / genre.sf.noget, der banker på ruden",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
     "02a22a91f8349a": {
       "figur": "aeseloere",
       "tekst": "stillle er ikke den rigtige stavemåde. Læs reglen, og prøv igen.",
@@ -1107,6 +1227,14 @@
       "kilde": "Stumme bogstaver / mand",
       "lavet": "2026-10-31"
     },
+    "02acd62d92ffe3": {
+      "figur": "aeseloere",
+      "tekst": "spisede er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "02acd62d92ffe3.ogg",
+      "kilde": "Kampsvar / krusedulle.k02.spisede",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "02ae7bccae00c8": {
       "figur": "fortaeller",
       "tekst": "Kagerne er til dig.",
@@ -1121,6 +1249,14 @@
       "fil": "02afbcb20e8ef4.ogg",
       "kilde": "Kapitel 1 / k1-klatten.2",
       "lavet": "2026-10-31"
+    },
+    "02b358a56c8d60": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket stumt bogstav mangler i _vad?",
+      "fil": "02b358a56c8d60.ogg",
+      "kilde": "Kampsvar / stumming.hvad.spoergsmaal",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
     },
     "02b3a2140cf70c": {
       "figur": "fortaeller",
@@ -1153,6 +1289,14 @@
       "lavet": "2026-11-18",
       "model": "gemini-3.8-flash-tts"
     },
+    "02bde9ccc248c1": {
+      "figur": "aeseloere",
+      "tekst": "et fingeraftryk på vinduet hører til en anden genre end gyser. Hvad er kendetegnene for gyser?",
+      "fil": "02bde9ccc248c1.ogg",
+      "kilde": "Svar / genre.gyser.et fingeraftryk på vinduet",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
     "02bf3871c846ac": {
       "figur": "fortaeller",
       "tekst": "Hjælp Kommissær Lup med at finde det, en krimi skal have.",
@@ -1168,12 +1312,28 @@
       "lavet": "2026-11-15",
       "model": "gemini-3.8-flash-tts"
     },
+    "02c5cd357a1551": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Der skal stå vild. Du kan ikke høre d, men det skal med.",
+      "fil": "02c5cd357a1551.ogg",
+      "kilde": "Kampsvar / stumming.vild",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
     "02ccff6539bc77": {
       "figur": "fortaeller",
       "tekst": "Hvad hører til i en historie af genren krimi?",
       "fil": "02ccff6539bc77.ogg",
       "kilde": "Opgaver / genre.kendetegn.krimi",
       "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "02d1b205335202": {
+      "figur": "aeseloere",
+      "tekst": "Vorfor er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "02d1b205335202.ogg",
+      "kilde": "Kampsvar / krusedulle.k10.Vorfor",
+      "lavet": "2026-11-19",
       "model": "gemini-3.8-flash-lite-tts"
     },
     "02d6195540deb6": {
@@ -1221,6 +1381,14 @@
       "kilde": "Svar / synonym.moerk.rigtig",
       "lavet": "2026-11-15",
       "model": "gemini-3.8-flash-tts"
+    },
+    "02f4faf11447bd": {
+      "figur": "aeseloere",
+      "tekst": "jemme er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "02f4faf11447bd.ogg",
+      "kilde": "Kampsvar / krusedulle.k01.jemme",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "02f85d226b1561": {
       "figur": "fortaeller",
@@ -1385,6 +1553,14 @@
       "lavet": "2026-11-16",
       "model": "gemini-3.8-flash-lite-tts"
     },
+    "03484ec8fcfd9d": {
+      "figur": "aeseloere",
+      "tekst": "Ja. selv er den rigtige stavemåde.",
+      "fil": "03484ec8fcfd9d.ogg",
+      "kilde": "Kampsvar / krusedulle.k03.selv",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "034e37bf46f506": {
       "figur": "aeseloere",
       "tekst": "Ordet kendt betyder ikke det samme som hemmelig. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
@@ -1519,6 +1695,14 @@
       "lavet": "2026-11-18",
       "model": "gemini-3.8-flash-tts"
     },
+    "0391f7f97c0687": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Der skal stå hvisker. Du kan ikke høre h, men det skal med.",
+      "fil": "0391f7f97c0687.ogg",
+      "kilde": "Kampsvar / stumming.hvisker",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
     "03925d5d1293df": {
       "figur": "fortaeller",
       "tekst": "For første gang i lang tid bliver der stille på torvet. Folk lytter.",
@@ -1646,6 +1830,14 @@
       "kilde": "Kapitel 1 / k1-aeseloere.4",
       "lavet": "2026-11-10"
     },
+    "03f1ad7828f39d": {
+      "figur": "aeseloere",
+      "tekst": "Ja. kommer er den rigtige stavemåde.",
+      "fil": "03f1ad7828f39d.ogg",
+      "kilde": "Kampsvar / krusedulle.k05.kommer",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "03f26ec5673be3": {
       "figur": "rimfod",
       "tekst": "En bro, der er halv, er svær at gå. Men for enden lyser noget, som du kan få.",
@@ -1661,12 +1853,28 @@
       "lavet": "2026-11-16",
       "model": "gemini-3.8-flash-tts"
     },
+    "03fdceac232da1": {
+      "figur": "aeseloere",
+      "tekst": "tre mistænkte hører til en anden genre end gyser. Hvad er kendetegnene for gyser?",
+      "fil": "03fdceac232da1.ogg",
+      "kilde": "Svar / genre.gyser.tre mistænkte",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
     "04017bbc66a643": {
       "figur": "fortaeller",
       "tekst": "Det er en gammel seddel med Fru Fodnotes lille, pæne skrift.",
       "fil": "04017bbc66a643.ogg",
       "kilde": "Kapitel 5 / k5-rum.seddel",
       "lavet": "2026-11-12"
+    },
+    "04059905e9adb2": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Der skal stå strand. Du kan ikke høre d, men det skal med.",
+      "fil": "04059905e9adb2.ogg",
+      "kilde": "Kampsvar / stumming.strand",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
     },
     "040840ac6d3624": {
       "figur": "fortaeller",
@@ -1939,6 +2147,22 @@
       "lavet": "2026-11-17",
       "model": "gemini-3.8-flash-lite-tts"
     },
+    "04802c26d00400": {
+      "figur": "aeseloere",
+      "tekst": "spisde er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "04802c26d00400.ogg",
+      "kilde": "Kampsvar / krusedulle.k02.spisde",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "04803888c09da2": {
+      "figur": "aeseloere",
+      "tekst": "jælpe er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "04803888c09da2.ogg",
+      "kilde": "Kampsvar / krusedulle.k10.jælpe",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "048733e994e56a": {
       "figur": "aeseloere",
       "tekst": "råbede er ikke den rigtige stavemåde. Læs reglen, og prøv igen.",
@@ -1990,6 +2214,14 @@
       "kilde": "Svar / rim.sko.skov",
       "lavet": "2026-11-15",
       "model": "gemini-3.8-flash-lite-tts"
+    },
+    "04b88137542b28": {
+      "figur": "aeseloere",
+      "tekst": "et gammelt, tomt hus hører til en anden genre end science fiction. Hvad er kendetegnene for science fiction?",
+      "fil": "04b88137542b28.ogg",
+      "kilde": "Svar / genre.sf.et gammelt, tomt hus",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
     },
     "04b909e448f021": {
       "figur": "aeseloere",
@@ -2149,6 +2381,14 @@
       "kilde": "Kapitel 2 / k2-rum.presse",
       "lavet": "2026-11-03"
     },
+    "04f67a2e66deba": {
+      "figur": "aeseloere",
+      "tekst": "run er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "04f67a2e66deba.ogg",
+      "kilde": "Kampsvar / krusedulle.k07.run",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "04fc01ad05086b": {
       "figur": "aeseloere",
       "tekst": "Ja. Det staves bordene.",
@@ -2195,6 +2435,14 @@
       "fil": "050ff8fd03b147.ogg",
       "kilde": "Kapitel 5 / k5-ned.opgavetekst",
       "lavet": "2026-11-12"
+    },
+    "0514b3bde82c2a": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Der skal stå hjerte. Du kan ikke høre h, men det skal med.",
+      "fil": "0514b3bde82c2a.ogg",
+      "kilde": "Kampsvar / stumming.hjerte",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
     },
     "051bfd4fce6dd5": {
       "figur": "fortaeller",
@@ -2299,6 +2547,22 @@
       "kilde": "Kapitel 4 / k4-rimfod.opgavetekst",
       "lavet": "2026-11-12"
     },
+    "0552d37c81cc63": {
+      "figur": "aeseloere",
+      "tekst": "Ja. stille er den rigtige stavemåde.",
+      "fil": "0552d37c81cc63.ogg",
+      "kilde": "Kampsvar / krusedulle.k11.stille",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "05531844f5141f": {
+      "figur": "aeseloere",
+      "tekst": "kagerene er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "05531844f5141f.ogg",
+      "kilde": "Kampsvar / krusedulle.k06.kagerene",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "0553c8d4b1dcf3": {
       "figur": "aeseloere",
       "tekst": "Ja. Det staves sendte.",
@@ -2343,6 +2607,14 @@
       "fil": "056beb514fabaf.ogg",
       "kilde": "Kapitel 6 / k6-doer.valg1.1",
       "lavet": "2026-11-10"
+    },
+    "056bf94075f527": {
+      "figur": "aeseloere",
+      "tekst": "Klatten peger på kassene. Den fejl har jeg selv lavet engang. Det er ikke den.",
+      "fil": "056bf94075f527.ogg",
+      "kilde": "Kampsvar / klatten.k04.kassene",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "056e7bbaea8441": {
       "figur": "fortaeller",
@@ -2417,6 +2689,14 @@
       "kilde": "Kapitel 4 / k4-rimfod.4",
       "lavet": "2026-11-09"
     },
+    "058dbe7042a320": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Der skal stå ild. Du kan ikke høre d, men det skal med.",
+      "fil": "058dbe7042a320.ogg",
+      "kilde": "Kampsvar / stumming.ild",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
     "05916cd975e2a3": {
       "figur": "aeseloere",
       "tekst": "Ja. ny rimer på sky. De lyder ens til sidst.",
@@ -2439,6 +2719,14 @@
       "kilde": "Svar / ikkerim.is.ost",
       "lavet": "2026-11-16",
       "model": "gemini-3.8-flash-tts"
+    },
+    "05a3e3417ab6e3": {
+      "figur": "aeseloere",
+      "tekst": "Klatten peger på Vem. Den fejl har jeg selv lavet engang. Det er ikke den.",
+      "fil": "05a3e3417ab6e3.ogg",
+      "kilde": "Kampsvar / klatten.k08.Vem",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "05a64ed4bb0534": {
       "figur": "aeseloere",
@@ -2515,6 +2803,14 @@
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-lite-tts"
     },
+    "05d25c0250bf7d": {
+      "figur": "aeseloere",
+      "tekst": "Klatten peger på stile. Den fejl har jeg selv lavet engang. Det er ikke den.",
+      "fil": "05d25c0250bf7d.ogg",
+      "kilde": "Kampsvar / klatten.k11.stile",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "05d573d8176505": {
       "figur": "aeseloere",
       "tekst": "Jeg hedder Æseløre. Jeg er foldet af en side fra en meget gammel ordbog, så jeg ved alt om ord. Næsten alt.",
@@ -2589,6 +2885,14 @@
       "fil": "05f020ae3b2a40.ogg",
       "kilde": "Minder / minde.skaar5b.1",
       "lavet": "2026-11-13"
+    },
+    "0603b51449e7cf": {
+      "figur": "aeseloere",
+      "tekst": "kagene er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "0603b51449e7cf.ogg",
+      "kilde": "Kampsvar / krusedulle.k06.kagene",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "0604a098c0e94c": {
       "figur": "fortaeller",
@@ -2704,12 +3008,28 @@
       "lavet": "2026-11-15",
       "model": "gemini-3.8-flash-lite-tts"
     },
+    "064b8426676bee": {
+      "figur": "aeseloere",
+      "tekst": "sendede er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "064b8426676bee.ogg",
+      "kilde": "Kampsvar / krusedulle.k11.sendede",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "065433f4b78e4f": {
       "figur": "raaber",
       "tekst": "Jeg ved godt, hvem der tog dem.",
       "fil": "065433f4b78e4f.ogg",
       "kilde": "Råberens tegn / raab-22",
       "lavet": "2026-11-03"
+    },
+    "0654aac23396f1": {
+      "figur": "aeseloere",
+      "tekst": "Klatten peger på lile. Den fejl har jeg selv lavet engang. Det er ikke den.",
+      "fil": "0654aac23396f1.ogg",
+      "kilde": "Kampsvar / klatten.k01.lile",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "065b114ccff9e8": {
       "figur": "fortaeller",
@@ -2724,6 +3044,22 @@
       "fil": "065e45b76fb25b.ogg",
       "kilde": "Kapitel 3 / halvsang.start.3",
       "lavet": "2026-11-09"
+    },
+    "0665c6a8b4abb7": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket stumt bogstav mangler i bor_?",
+      "fil": "0665c6a8b4abb7.ogg",
+      "kilde": "Kampsvar / stumming.bord.spoergsmaal",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "066ae505e3d8a6": {
+      "figur": "aeseloere",
+      "tekst": "en detektiv med en lup hører til en anden genre end gyser. Hvad er kendetegnene for gyser?",
+      "fil": "066ae505e3d8a6.ogg",
+      "kilde": "Svar / genre.gyser.en detektiv med en lup",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
     },
     "066cdf128ada22": {
       "figur": "aeseloere",
@@ -2806,6 +3142,30 @@
       "fil": "06918b9415eb03.ogg",
       "kilde": "Synonymer / modig",
       "lavet": "2026-11-04"
+    },
+    "0695ae347206da": {
+      "figur": "aeseloere",
+      "tekst": "en fe, der giver tre ønsker hører til en anden genre end science fiction. Hvad er kendetegnene for science fiction?",
+      "fil": "0695ae347206da.ogg",
+      "kilde": "Svar / genre.sf.en fe, der giver tre ønsker",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "069beb81002e3c": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Der skal stå mand. Du kan ikke høre d, men det skal med.",
+      "fil": "069beb81002e3c.ogg",
+      "kilde": "Kampsvar / stumming.mand",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "069d81a53c3439": {
+      "figur": "aeseloere",
+      "tekst": "Hvoor er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "069d81a53c3439.ogg",
+      "kilde": "Kampsvar / krusedulle.k03.Hvoor",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "06a1b3d6b8b364": {
       "figur": "aeseloere",
@@ -2982,6 +3342,22 @@
       "lavet": "2026-11-17",
       "model": "gemini-3.8-flash-lite-tts"
     },
+    "06f99131a2ac5f": {
+      "figur": "aeseloere",
+      "tekst": "Ja. hjælpe er den rigtige stavemåde.",
+      "fil": "06f99131a2ac5f.ogg",
+      "kilde": "Kampsvar / krusedulle.k10.hjælpe",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "0707e496116b0d": {
+      "figur": "aeseloere",
+      "tekst": "Hun skifter fortæller. Se på den første sætning. Hvem handler den om?",
+      "fil": "0707e496116b0d.ogg",
+      "kilde": "Kampsvar / tvivl.f01.Hun",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "070b80dd0e7c6e": {
       "figur": "aeseloere",
       "tekst": "Planke 2 står forkert. Hvad ser hovedpersonen, når den magiske verden begynder?",
@@ -2995,6 +3371,14 @@
       "fil": "071082fc432423.ogg",
       "kilde": "Kapitel 4 / k4-toppen.3",
       "lavet": "2026-11-09"
+    },
+    "071243dc2252b7": {
+      "figur": "aeseloere",
+      "tekst": "Vem er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "071243dc2252b7.ogg",
+      "kilde": "Kampsvar / krusedulle.k08.Vem",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "0716c61b6ef88b": {
       "figur": "fortaeller",
@@ -3047,6 +3431,14 @@
       "kilde": "Svar / korrektur.k12.stennene",
       "lavet": "2026-11-18",
       "model": "gemini-3.8-flash-lite-tts"
+    },
+    "0734976a8d2aab": {
+      "figur": "aeseloere",
+      "tekst": "Der var engang hører til en anden genre end science fiction. Hvad er kendetegnene for science fiction?",
+      "fil": "0734976a8d2aab.ogg",
+      "kilde": "Svar / genre.sf.Der var engang",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
     },
     "0734f843139158": {
       "figur": "fortaeller",
@@ -3135,6 +3527,14 @@
       "fil": "075ab6ccf8232f.ogg",
       "kilde": "Minder / minde.blaek.2",
       "lavet": "2026-11-03"
+    },
+    "0760a16fe364a4": {
+      "figur": "aeseloere",
+      "tekst": "Klatten peger på sendede. Den fejl har jeg selv lavet engang. Det er ikke den.",
+      "fil": "0760a16fe364a4.ogg",
+      "kilde": "Kampsvar / klatten.k11.sendede",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "07621ff2e0cced": {
       "figur": "aeseloere",
@@ -3237,6 +3637,14 @@
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-tts"
     },
+    "079e0103ebc2b6": {
+      "figur": "aeseloere",
+      "tekst": "viper er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "079e0103ebc2b6.ogg",
+      "kilde": "Kampsvar / krusedulle.k09.viper",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "07a22c6acc72ba": {
       "figur": "fortaeller",
       "tekst": "Hvor er bogens slutning?",
@@ -3265,6 +3673,14 @@
       "fil": "07a5507f639e67.ogg",
       "kilde": "Opgaver / korrektur.faerdig",
       "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "07a9846e041324": {
+      "figur": "aeseloere",
+      "tekst": "Klatten peger på jemme. Den fejl har jeg selv lavet engang. Det er ikke den.",
+      "fil": "07a9846e041324.ogg",
+      "kilde": "Kampsvar / klatten.k01.jemme",
+      "lavet": "2026-11-19",
       "model": "gemini-3.8-flash-lite-tts"
     },
     "07b1d1423bf653": {
@@ -3313,12 +3729,28 @@
       "lavet": "2026-11-17",
       "model": "gemini-3.8-flash-lite-tts"
     },
+    "07c024fb26259a": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket stumt bogstav mangler i _valp?",
+      "fil": "07c024fb26259a.ogg",
+      "kilde": "Kampsvar / stumming.hvalp.spoergsmaal",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
     "07c3778d5464df": {
       "figur": "fortaeller",
       "tekst": "En lille skygge glider hen over vejen, og et øjeblik ligner den en, du kender.",
       "fil": "07c3778d5464df.ogg",
       "kilde": "Minder / minde.skaar7b.2",
       "lavet": "2026-11-13"
+    },
+    "07cdce4a37eb6f": {
+      "figur": "aeseloere",
+      "tekst": "Han skifter fortæller. Se på den første sætning. Hvem handler den om?",
+      "fil": "07cdce4a37eb6f.ogg",
+      "kilde": "Kampsvar / tvivl.f01.Han",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "07d653425738d8": {
       "figur": "fortaeller",
@@ -3434,6 +3866,14 @@
       "kilde": "Historiebroen / bro-froeen.verden",
       "lavet": "2026-11-05"
     },
+    "0812cea0b12c25": {
+      "figur": "aeseloere",
+      "tekst": "Klatten peger på sel. Den fejl har jeg selv lavet engang. Det er ikke den.",
+      "fil": "0812cea0b12c25.ogg",
+      "kilde": "Kampsvar / klatten.k03.sel",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "0815ce60ecf2cb": {
       "figur": "aeseloere",
       "tekst": "Ja. Jeg passer til den, der allerede fortæller.",
@@ -3463,6 +3903,14 @@
       "fil": "08206002e9cfb8.ogg",
       "kilde": "Kapitel 3 / halvsang.start.1",
       "lavet": "2026-11-09"
+    },
+    "0823369163eb37": {
+      "figur": "aeseloere",
+      "tekst": "stile er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "0823369163eb37.ogg",
+      "kilde": "Kampsvar / krusedulle.k11.stile",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "082dd426b1f55e": {
       "figur": "fortaeller",
@@ -3530,6 +3978,14 @@
       "fil": "08669a1198ea52.ogg",
       "kilde": "Kapitel 3 / k3-stumming-slut.2",
       "lavet": "2026-11-04"
+    },
+    "0869513de41bc4": {
+      "figur": "aeseloere",
+      "tekst": "en tidsmaskine hører til en anden genre end krimi. Hvad er kendetegnene for krimi?",
+      "fil": "0869513de41bc4.ogg",
+      "kilde": "Svar / genre.krimi.en tidsmaskine",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
     },
     "086fa8395dda3f": {
       "figur": "aeseloere",
@@ -3635,6 +4091,14 @@
       "lavet": "2026-11-18",
       "model": "gemini-3.8-flash-tts"
     },
+    "08c7c2d7640977": {
+      "figur": "aeseloere",
+      "tekst": "en detektiv med en lup hører til en anden genre end science fiction. Hvad er kendetegnene for science fiction?",
+      "fil": "08c7c2d7640977.ogg",
+      "kilde": "Svar / genre.sf.en detektiv med en lup",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
     "08d0bda38c12c8": {
       "figur": "aeseloere",
       "tekst": "vinter rimer ikke på vind. Sig begge ord højt, og lyt til slutningen.",
@@ -3697,6 +4161,14 @@
       "kilde": "Beskeder / fortaeller.rigtig.jeg",
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-tts"
+    },
+    "0913e7f1cdf793": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Der skal stå tolv. Du kan ikke høre v, men det skal med.",
+      "fil": "0913e7f1cdf793.ogg",
+      "kilde": "Kampsvar / stumming.tolv",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "091497577aa202": {
       "figur": "aeseloere",
@@ -3890,12 +4362,28 @@
       "lavet": "2026-11-15",
       "model": "gemini-3.8-flash-tts"
     },
+    "0980a5f9c7c2a9": {
+      "figur": "aeseloere",
+      "tekst": "fodtrin på loftet hører til en anden genre end science fiction. Hvad er kendetegnene for science fiction?",
+      "fil": "0980a5f9c7c2a9.ogg",
+      "kilde": "Svar / genre.sf.fodtrin på loftet",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
     "0982ddfd0a63b9": {
       "figur": "aeseloere",
       "tekst": "Ja. Ordet berette betyder det samme som fortælle.",
       "fil": "0982ddfd0a63b9.ogg",
       "kilde": "Svar / synonym.fortaelle.rigtig",
       "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "0983edd979410b": {
+      "figur": "aeseloere",
+      "tekst": "Klatten peger på Sidene. Den fejl har jeg selv lavet engang. Det er ikke den.",
+      "fil": "0983edd979410b.ogg",
+      "kilde": "Kampsvar / klatten.k09.Sidene",
+      "lavet": "2026-11-19",
       "model": "gemini-3.8-flash-lite-tts"
     },
     "09882aab06ad6d": {
@@ -4047,6 +4535,14 @@
       "kilde": "Beskeder / hviske.eksempel.hvad",
       "lavet": "2026-11-05"
     },
+    "09df99e67b5e64": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket stumt bogstav mangler i _jælpe?",
+      "fil": "09df99e67b5e64.ogg",
+      "kilde": "Kampsvar / stumming.hjælpe.spoergsmaal",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
     "09e285e5b0f9c5": {
       "figur": "aeseloere",
       "tekst": "Planke 1 står forkert. Hvordan løser hovedpersonen selv problemet?",
@@ -4089,6 +4585,14 @@
       "fil": "09fb6e597afde8.ogg",
       "kilde": "Minder / minde.foldet.4",
       "lavet": "2026-11-13"
+    },
+    "09fc3d1877a069": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Han holder fast i den samme fortæller.",
+      "fil": "09fc3d1877a069.ogg",
+      "kilde": "Kampsvar / tvivl.f03",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "09fd60513ae2c7": {
       "figur": "fortaeller",
@@ -4178,6 +4682,14 @@
       "fil": "0a406dd20313de.ogg",
       "kilde": "Kapitel 4 / rimfodsaetning.mangler.1",
       "lavet": "2026-11-12"
+    },
+    "0a407773c4afa4": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Der skal stå selv. Du kan ikke høre v, men det skal med.",
+      "fil": "0a407773c4afa4.ogg",
+      "kilde": "Kampsvar / stumming.selv",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
     },
     "0a409fec0747e2": {
       "figur": "vims",
@@ -4331,6 +4843,14 @@
       "kilde": "Kapitel 3 / k3-skilt.3",
       "lavet": "2026-11-01"
     },
+    "0aaa9b7b200cb3": {
+      "figur": "aeseloere",
+      "tekst": "runnd er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "0aaa9b7b200cb3.ogg",
+      "kilde": "Kampsvar / krusedulle.k07.runnd",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "0ab007064ab89c": {
       "figur": "aeseloere",
       "tekst": "kanin rimer ikke på kage. Sig begge ord højt, og lyt til slutningen.",
@@ -4456,6 +4976,14 @@
       "fil": "0af8be947e88c0.ogg",
       "kilde": "Kapitel 3 / hvidesti.faerdig.1",
       "lavet": "2026-11-09"
+    },
+    "0b02fc9d140a88": {
+      "figur": "aeseloere",
+      "tekst": "opklaringen til sidst hører til en anden genre end science fiction. Hvad er kendetegnene for science fiction?",
+      "fil": "0b02fc9d140a88.ogg",
+      "kilde": "Svar / genre.sf.opklaringen til sidst",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
     },
     "0b04ba31765201": {
       "figur": "fortaeller",
@@ -4608,6 +5136,14 @@
       "lavet": "2026-11-16",
       "model": "gemini-3.8-flash-lite-tts"
     },
+    "0b5240bbcc6ca2": {
+      "figur": "aeseloere",
+      "tekst": "Ja. bordene er den rigtige stavemåde.",
+      "fil": "0b5240bbcc6ca2.ogg",
+      "kilde": "Kampsvar / krusedulle.k05.bordene",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "0b5640900b304a": {
       "figur": "fortaeller",
       "tekst": "Striben af blæk på stien begynder at boble. En lille klat rejser sig og kigger på dig med to store øjne.",
@@ -4758,6 +5294,14 @@
       "kilde": "Minder / minde.skaar7a.3",
       "lavet": "2026-11-13"
     },
+    "0bb676ec9fdd57": {
+      "figur": "aeseloere",
+      "tekst": "Vor er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "0bb676ec9fdd57.ogg",
+      "kilde": "Kampsvar / krusedulle.k03.Vor",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "0bb8b442db68e3": {
       "figur": "fortaeller",
       "tekst": "Sætningen stopper. Den kigger forvirret på dig. Bag den står flere sætninger, der også stopper midt i.",
@@ -4771,6 +5315,22 @@
       "fil": "0bba57429fddb7.ogg",
       "kilde": "Svar / korrektur.k10.jælpe",
       "lavet": "2026-11-18",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "0bbc5feb302d21": {
+      "figur": "aeseloere",
+      "tekst": "tre prøver, helten skal klare hører til en anden genre end gyser. Hvad er kendetegnene for gyser?",
+      "fil": "0bbc5feb302d21.ogg",
+      "kilde": "Svar / genre.gyser.tre prøver, helten skal klare",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "0bcb1dd3aa1237": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket stumt bogstav mangler i kol_?",
+      "fil": "0bcb1dd3aa1237.ogg",
+      "kilde": "Kampsvar / stumming.kold.spoergsmaal",
+      "lavet": "2026-11-19",
       "model": "gemini-3.8-flash-tts"
     },
     "0bcefb975e02e0": {
@@ -4810,6 +5370,14 @@
       "kilde": "Svar / synonym.kaempestor.blød",
       "lavet": "2026-11-15",
       "model": "gemini-3.8-flash-tts"
+    },
+    "0bd758514e4748": {
+      "figur": "aeseloere",
+      "tekst": "tællle er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "0bd758514e4748.ogg",
+      "kilde": "Kampsvar / krusedulle.k04.tællle",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "0bdb68ec59daa5": {
       "figur": "aeseloere",
@@ -5035,6 +5603,14 @@
       "kilde": "Minder / minde.skuffen.2",
       "lavet": "2026-11-13"
     },
+    "0c59d91d2c22e0": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket stumt bogstav mangler i il_?",
+      "fil": "0c59d91d2c22e0.ogg",
+      "kilde": "Kampsvar / stumming.ild.spoergsmaal",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
     "0c5a90707f32ef": {
       "figur": "fortaeller",
       "tekst": "Ret Krusedullernes fejl, så de falder til ro.",
@@ -5048,6 +5624,14 @@
       "fil": "0c5c77d3da2f28.ogg",
       "kilde": "Beskeder / korrektur.eksempel.endelse",
       "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "0c5c976ed57dd6": {
+      "figur": "aeseloere",
+      "tekst": "svømte er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "0c5c976ed57dd6.ogg",
+      "kilde": "Kampsvar / krusedulle.k07.svømte",
+      "lavet": "2026-11-19",
       "model": "gemini-3.8-flash-lite-tts"
     },
     "0c5cdb5042b2ab": {
@@ -5214,6 +5798,14 @@
       "kilde": "Kapitel 3 / k3-stumming-moede.opgavetekst",
       "lavet": "2026-11-03"
     },
+    "0c9850a45a39e8": {
+      "figur": "aeseloere",
+      "tekst": "lill er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "0c9850a45a39e8.ogg",
+      "kilde": "Kampsvar / krusedulle.k01.lill",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "0c9a60d64661f9": {
       "figur": "fortaeller",
       "tekst": "Månen skinner som sølv.",
@@ -5300,6 +5892,14 @@
       "fil": "0cc3960fba685a.ogg",
       "kilde": "Svar / ikkerim.sang.lang",
       "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "0cd2f75ee80902": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Jeg holder fast i den samme fortæller.",
+      "fil": "0cd2f75ee80902.ogg",
+      "kilde": "Kampsvar / tvivl.f01",
+      "lavet": "2026-11-19",
       "model": "gemini-3.8-flash-lite-tts"
     },
     "0cd9e50bb592eb": {
@@ -5394,12 +5994,28 @@
       "kilde": "Titelkort / kapitel 4.maal",
       "lavet": "2026-11-13"
     },
+    "0d0c88308d4f0d": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket stumt bogstav mangler i _jem?",
+      "fil": "0d0c88308d4f0d.ogg",
+      "kilde": "Kampsvar / stumming.hjem.spoergsmaal",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
     "0d0f77a62e5c3c": {
       "figur": "aeseloere",
       "tekst": "Sidene er ikke den rigtige stavemåde. Læs reglen, og prøv igen.",
       "fil": "0d0f77a62e5c3c.ogg",
       "kilde": "Svar / korrektur.k09.Sidene",
       "lavet": "2026-11-18",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "0d11253364a9ed": {
+      "figur": "aeseloere",
+      "tekst": "et rumskib på vej til Mars hører til en anden genre end krimi. Hvad er kendetegnene for krimi?",
+      "fil": "0d11253364a9ed.ogg",
+      "kilde": "Svar / genre.krimi.et rumskib på vej til Mars",
+      "lavet": "2026-11-19",
       "model": "gemini-3.8-flash-tts"
     },
     "0d13a99bd6ba4c": {
@@ -5649,6 +6265,14 @@
       "lavet": "2026-11-15",
       "model": "gemini-3.8-flash-lite-tts"
     },
+    "0da65235588353": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Hvor er den rigtige stavemåde.",
+      "fil": "0da65235588353.ogg",
+      "kilde": "Kampsvar / krusedulle.k03.Hvor",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "0da7fb69334d29": {
       "figur": "aeseloere",
       "tekst": "Følg pletterne. Og gå ikke for hurtigt. Jeg bliver blød, hvis jeg falder i en vandpyt.",
@@ -5752,12 +6376,28 @@
       "kilde": "Kapitel 4 / k4-toppen.1",
       "lavet": "2026-11-09"
     },
+    "0df7d5b0b40d79": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket stumt bogstav mangler i stran_?",
+      "fil": "0df7d5b0b40d79.ogg",
+      "kilde": "Kampsvar / stumming.strand.spoergsmaal",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
     "0df8f5c58f1939": {
       "figur": "aeseloere",
       "tekst": "Men nogen er begyndt at tage historiernes slutninger. Uden slutninger falmer Pennedal, og bøgerne i din verden bliver tomme. Det er derfor, dit bibliotek mister ord.",
       "fil": "0df8f5c58f1939.ogg",
       "kilde": "Kapitel 1 / k1-ankomst.3",
       "lavet": "2026-11-11"
+    },
+    "0dfdce23898ead": {
+      "figur": "aeseloere",
+      "tekst": "Ja. svømmede er den rigtige stavemåde.",
+      "fil": "0dfdce23898ead.ogg",
+      "kilde": "Kampsvar / krusedulle.k07.svømmede",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "0e085335c1e617": {
       "figur": "klatten",
@@ -5812,6 +6452,14 @@
       "kilde": "Kapitel 2 / k2-spor.1",
       "lavet": "2026-10-31"
     },
+    "0e1c479d76e461": {
+      "figur": "aeseloere",
+      "tekst": "Jeg skifter fortæller. Se på den første sætning. Hvem handler den om?",
+      "fil": "0e1c479d76e461.ogg",
+      "kilde": "Kampsvar / tvivl.f02.Jeg",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "0e1cf612b9fd67": {
       "figur": "aeseloere",
       "tekst": "et rumskib på vej til Mars hører til en anden genre end eventyr. Hvad er kendetegnene for eventyr?",
@@ -5819,6 +6467,14 @@
       "kilde": "Svar / genre.eventyr.et rumskib på vej til Mars",
       "lavet": "2026-11-18",
       "model": "gemini-3.8-flash-lite-tts"
+    },
+    "0e1eb5f9bf24bd": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket stumt bogstav mangler i Hel_?",
+      "fil": "0e1eb5f9bf24bd.ogg",
+      "kilde": "Kampsvar / stumming.held.spoergsmaal",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
     },
     "0e3c30cb6791d9": {
       "figur": "aeseloere",
@@ -5842,6 +6498,14 @@
       "fil": "0e3d9d25e76c68.ogg",
       "kilde": "Beskeder / bro.fejl.placering.1.hjemkomst",
       "lavet": "2026-11-04"
+    },
+    "0e3dab6d8589cd": {
+      "figur": "aeseloere",
+      "tekst": "Det er ikke en historie af genren Gyser. Kig efter kendetegnene. Hvad sker der, og hvor foregår det?",
+      "fil": "0e3dab6d8589cd.ogg",
+      "kilde": "Svar / genre.gyser.fejl",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
     },
     "0e4113ec25f41c": {
       "figur": "klatten",
@@ -5894,6 +6558,14 @@
       "kilde": "Klattens tekster / k04.0",
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-tts"
+    },
+    "0e5abb6dbc2c65": {
+      "figur": "aeseloere",
+      "tekst": "sente er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "0e5abb6dbc2c65.ogg",
+      "kilde": "Kampsvar / krusedulle.k11.sente",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "0e5cb3edad41b9": {
       "figur": "aeseloere",
@@ -5970,6 +6642,14 @@
       "lavet": "2026-11-18",
       "model": "gemini-3.8-flash-tts"
     },
+    "0e942d46f77e8b": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Hvem er den rigtige stavemåde.",
+      "fil": "0e942d46f77e8b.ogg",
+      "kilde": "Kampsvar / krusedulle.k08.Hvem",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "0e99ceb99df0c7": {
       "figur": "fortaeller",
       "tekst": "Klatten spiste tre klatter brød til morgenmad.",
@@ -5991,6 +6671,14 @@
       "fil": "0e9cc259140997.ogg",
       "kilde": "Kapitel 7 / k7-bip.3",
       "lavet": "2026-11-10"
+    },
+    "0e9f69a9580aec": {
+      "figur": "aeseloere",
+      "tekst": "en planet med to sole hører til en anden genre end gyser. Hvad er kendetegnene for gyser?",
+      "fil": "0e9f69a9580aec.ogg",
+      "kilde": "Svar / genre.gyser.en planet med to sole",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
     },
     "0e9fe1f811d980": {
       "figur": "aeseloere",
@@ -6156,6 +6844,14 @@
       "lavet": "2026-11-16",
       "model": "gemini-3.8-flash-tts"
     },
+    "0f038c6800ea7b": {
+      "figur": "aeseloere",
+      "tekst": "Ja. kagerne er den rigtige stavemåde.",
+      "fil": "0f038c6800ea7b.ogg",
+      "kilde": "Kampsvar / krusedulle.k06.kagerne",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "0f0c195c7a205f": {
       "figur": "aeseloere",
       "tekst": "Ja. hop rimer på top. De lyder ens til sidst.",
@@ -6202,6 +6898,14 @@
       "kilde": "Kapitel 8 / k8-skyggen.valg1.2",
       "lavet": "2026-11-11"
     },
+    "0f1b8f863a37cb": {
+      "figur": "aeseloere",
+      "tekst": "self er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "0f1b8f863a37cb.ogg",
+      "kilde": "Kampsvar / krusedulle.k03.self",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "0f200de31697a8": {
       "figur": "fortaeller",
       "tekst": "Hvordan staves jælpe rigtigt?",
@@ -6225,6 +6929,14 @@
       "kilde": "Kampe og opgaver / korrektur.klatten.1",
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-lite-tts"
+    },
+    "0f24962e2b4454": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Der skal stå kold. Du kan ikke høre d, men det skal med.",
+      "fil": "0f24962e2b4454.ogg",
+      "kilde": "Kampsvar / stumming.kold",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
     },
     "0f2fb58c2eb519": {
       "figur": "aeseloere",
@@ -6292,6 +7004,22 @@
       "lavet": "2026-11-16",
       "model": "gemini-3.8-flash-tts"
     },
+    "0f6d58da92be07": {
+      "figur": "aeseloere",
+      "tekst": "Ja. tælle er den rigtige stavemåde.",
+      "fil": "0f6d58da92be07.ogg",
+      "kilde": "Kampsvar / krusedulle.k04.tælle",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "0f6f96aee37e7d": {
+      "figur": "aeseloere",
+      "tekst": "Ja. brevene er den rigtige stavemåde.",
+      "fil": "0f6f96aee37e7d.ogg",
+      "kilde": "Kampsvar / krusedulle.k11.brevene",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "0f7985f6321a10": {
       "figur": "fortaeller",
       "tekst": "Rumskibet landede på en rød planet. Kaptajnen tog sin hjelm på og åbnede lugen.",
@@ -6331,6 +7059,14 @@
       "kilde": "Kapitel 5 / k5-lem.2",
       "lavet": "2026-11-09"
     },
+    "0f845d7da6b2b5": {
+      "figur": "aeseloere",
+      "tekst": "hjæmme er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "0f845d7da6b2b5.ogg",
+      "kilde": "Kampsvar / krusedulle.k01.hjæmme",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "0f89ccefcf2104": {
       "figur": "aeseloere",
       "tekst": "Rigtigt i første forsøg. Æseløre er imponeret, men han siger det ikke højt.",
@@ -6352,12 +7088,28 @@
       "kilde": "Historiebroen / bro-graevlingen.verden",
       "lavet": "2026-11-05"
     },
+    "0f90d9575b7cab": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Det passer til genren Science fiction.",
+      "fil": "0f90d9575b7cab.ogg",
+      "kilde": "Svar / genre.sf.rigtig",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
     "0f93418eb0b7a6": {
       "figur": "fortaeller",
       "tekst": "Kære chef.",
       "fil": "0f93418eb0b7a6.ogg",
       "kilde": "Kapitel 2 / k2-rum.seddel.1",
       "lavet": "2026-11-03"
+    },
+    "0f9a7164d87655": {
+      "figur": "aeseloere",
+      "tekst": "Klatten peger på Vor. Den fejl har jeg selv lavet engang. Det er ikke den.",
+      "fil": "0f9a7164d87655.ogg",
+      "kilde": "Kampsvar / klatten.k03.Vor",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "0f9b0fbc4ee68a": {
       "figur": "fortaeller",
@@ -6389,6 +7141,14 @@
       "fil": "0fb00a62d1f2a1.ogg",
       "kilde": "Svar / rim.hånd.bånd",
       "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "0fb07d954b278f": {
+      "figur": "aeseloere",
+      "tekst": "kassene er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "0fb07d954b278f.ogg",
+      "kilde": "Kampsvar / krusedulle.k04.kassene",
+      "lavet": "2026-11-19",
       "model": "gemini-3.8-flash-lite-tts"
     },
     "0fb0dfa8cb1e36": {
@@ -6438,6 +7198,14 @@
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-tts"
     },
+    "0fbc82a57c8669": {
+      "figur": "aeseloere",
+      "tekst": "en by under havet i år 3000 hører til en anden genre end krimi. Hvad er kendetegnene for krimi?",
+      "fil": "0fbc82a57c8669.ogg",
+      "kilde": "Svar / genre.krimi.en by under havet i år 3000",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
     "0fbd7c0168f225": {
       "figur": "fortaeller",
       "tekst": "Hvilket ord rimer ikke på hånd?",
@@ -6461,6 +7229,14 @@
       "kilde": "Kapitel 2 / k2-trykkeri.3",
       "lavet": "2026-11-01"
     },
+    "0fc4ec7c5897b8": {
+      "figur": "aeseloere",
+      "tekst": "en stjålen diamant hører til en anden genre end gyser. Hvad er kendetegnene for gyser?",
+      "fil": "0fc4ec7c5897b8.ogg",
+      "kilde": "Svar / genre.gyser.en stjålen diamant",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
     "0fc97e0fc44b61": {
       "figur": "aeseloere",
       "tekst": "Kom. Sporet fører ned. Mod noget, der lugter af gammelt papir og blyant.",
@@ -6474,6 +7250,14 @@
       "fil": "0fd358fb3fa1fe.ogg",
       "kilde": "Svar / korrektur.k06.råbte",
       "lavet": "2026-11-18",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "0fd582adb529ab": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Der skal stå hvalp. Du kan ikke høre h, men det skal med.",
+      "fil": "0fd582adb529ab.ogg",
+      "kilde": "Kampsvar / stumming.hvalp",
+      "lavet": "2026-11-19",
       "model": "gemini-3.8-flash-tts"
     },
     "0fd7353a9bf703": {
@@ -6627,6 +7411,14 @@
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-lite-tts"
     },
+    "10199639efc92a": {
+      "figur": "aeseloere",
+      "tekst": "Klatten peger på run. Den fejl har jeg selv lavet engang. Det er ikke den.",
+      "fil": "10199639efc92a.ogg",
+      "kilde": "Kampsvar / klatten.k07.run",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "101eda2d530c1e": {
       "figur": "fortaeller",
       "tekst": "Maskinen begyndte at summe, og lyset blev blåt. Da hun åbnede øjnene, var der gået hundrede år.",
@@ -6657,6 +7449,14 @@
       "kilde": "Beskeder / hviske.eksempel.hvor",
       "lavet": "2026-11-05"
     },
+    "10230027365c5e": {
+      "figur": "aeseloere",
+      "tekst": "en drage i et tårn hører til en anden genre end science fiction. Hvad er kendetegnene for science fiction?",
+      "fil": "10230027365c5e.ogg",
+      "kilde": "Svar / genre.sf.en drage i et tårn",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
     "10232e8d00e897": {
       "figur": "fortaeller",
       "tekst": "Klap ordet sommerfugl. Hvor mange stavelser har det?",
@@ -6680,6 +7480,14 @@
       "kilde": "Svar / ikkerim.kat.rat",
       "lavet": "2026-11-15",
       "model": "gemini-3.8-flash-lite-tts"
+    },
+    "1026e5cf21a19b": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket stumt bogstav mangler i run_?",
+      "fil": "1026e5cf21a19b.ogg",
+      "kilde": "Kampsvar / stumming.rund.spoergsmaal",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
     },
     "102902530e2cd5": {
       "figur": "ekko",
@@ -6828,6 +7636,14 @@
       "kilde": "Stumme bogstaver / sølv",
       "lavet": "2026-11-01"
     },
+    "106eb095859250": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Der skal stå Held. Du kan ikke høre d, men det skal med.",
+      "fil": "106eb095859250.ogg",
+      "kilde": "Kampsvar / stumming.held",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
     "107c9498de26fc": {
       "figur": "ufaerdige",
       "tekst": "Og så ...",
@@ -6933,6 +7749,14 @@
       "kilde": "Kapitel 1 / k1-logbog.k1-logbog-2.forkert.4",
       "lavet": "2026-11-01"
     },
+    "10b7fc1bb76e08": {
+      "figur": "aeseloere",
+      "tekst": "opklaringen til sidst hører til en anden genre end gyser. Hvad er kendetegnene for gyser?",
+      "fil": "10b7fc1bb76e08.ogg",
+      "kilde": "Svar / genre.gyser.opklaringen til sidst",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
     "10b86d8131a6f6": {
       "figur": "aeseloere",
       "tekst": "Blæksøen. Klattens hjem. Det lugter af blæk og dårlig stavning.",
@@ -6963,6 +7787,14 @@
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-lite-tts"
     },
+    "10c9e482b8b1ae": {
+      "figur": "aeseloere",
+      "tekst": "Ja. hoppede er den rigtige stavemåde.",
+      "fil": "10c9e482b8b1ae.ogg",
+      "kilde": "Kampsvar / krusedulle.k02.hoppede",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "10d09e8898d944": {
       "figur": "aeseloere",
       "tekst": "Ikke helt. Klap ordet langsomt: lan-ter-ne. Tæl klappene.",
@@ -6984,6 +7816,14 @@
       "fil": "10d77e5301c83e.ogg",
       "kilde": "Kapitel 1 / k1-holm-2.opgavetekst",
       "lavet": "2026-11-01"
+    },
+    "10dacaca086fa2": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket stumt bogstav mangler i san_?",
+      "fil": "10dacaca086fa2.ogg",
+      "kilde": "Kampsvar / stumming.sand.spoergsmaal",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
     },
     "10dcc13bff2c92": {
       "figur": "fortaeller",
@@ -7052,12 +7892,28 @@
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-lite-tts"
     },
+    "110b3348e78084": {
+      "figur": "aeseloere",
+      "tekst": "en tidsmaskine hører til en anden genre end gyser. Hvad er kendetegnene for gyser?",
+      "fil": "110b3348e78084.ogg",
+      "kilde": "Svar / genre.gyser.en tidsmaskine",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
     "110c9d705db9ae": {
       "figur": "fortaeller",
       "tekst": "Bag De halve lande ligger den sidste side. Den er hvid og stille, og alt her er kun tegnet med blyant.",
       "fil": "110c9d705db9ae.ogg",
       "kilde": "Kapitel 8 / k8-ankomst.1",
       "lavet": "2026-11-11"
+    },
+    "110df67c3bbb99": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket stumt bogstav mangler i _visker?",
+      "fil": "110df67c3bbb99.ogg",
+      "kilde": "Kampsvar / stumming.hvisker.spoergsmaal",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
     },
     "110f3bf45fcfcb": {
       "figur": "fortaeller",
@@ -7094,6 +7950,14 @@
       "fil": "111c6aab39ee2d.ogg",
       "kilde": "Minder / minde.soeskendet.4",
       "lavet": "2026-11-13"
+    },
+    "111dd0ac00e3e7": {
+      "figur": "aeseloere",
+      "tekst": "Klatten peger på jælpe. Den fejl har jeg selv lavet engang. Det er ikke den.",
+      "fil": "111dd0ac00e3e7.ogg",
+      "kilde": "Kampsvar / klatten.k10.jælpe",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "1121c114d68b00": {
       "figur": "fortaeller",
@@ -7174,6 +8038,14 @@
       "lavet": "2026-11-17",
       "model": "gemini-3.8-flash-tts"
     },
+    "113b7d8131dbff": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket stumt bogstav mangler i lan_?",
+      "fil": "113b7d8131dbff.ogg",
+      "kilde": "Kampsvar / stumming.land.spoergsmaal",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
     "113cb50ea8f4cd": {
       "figur": "borgmester",
       "tekst": "Uden tegn ved ingen, om man spørger om noget, råber noget eller bare fortæller noget.",
@@ -7232,6 +8104,14 @@
       "kilde": "Kapitel 4 / k4-op.opgavetekst",
       "lavet": "2026-11-12"
     },
+    "1175fe591fc6ef": {
+      "figur": "aeseloere",
+      "tekst": "Klatten peger på viper. Den fejl har jeg selv lavet engang. Det er ikke den.",
+      "fil": "1175fe591fc6ef.ogg",
+      "kilde": "Kampsvar / klatten.k09.viper",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "11762575efe501": {
       "figur": "aeseloere",
       "tekst": "Ja. træ rimer ikke på trold. Slutningen lyder anderledes.",
@@ -7246,6 +8126,14 @@
       "fil": "1177407bc53e03.ogg",
       "kilde": "Fortæller / k01",
       "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "117adcacde2635": {
+      "figur": "aeseloere",
+      "tekst": "en drage i et tårn hører til en anden genre end gyser. Hvad er kendetegnene for gyser?",
+      "fil": "117adcacde2635.ogg",
+      "kilde": "Svar / genre.gyser.en drage i et tårn",
+      "lavet": "2026-11-19",
       "model": "gemini-3.8-flash-tts"
     },
     "11819a48ddd65c": {
@@ -7270,6 +8158,14 @@
       "fil": "118303e6639a95.ogg",
       "kilde": "Svar / ekko.kat",
       "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "1185456d627f3c": {
+      "figur": "aeseloere",
+      "tekst": "Klatten peger på råbede. Den fejl har jeg selv lavet engang. Det er ikke den.",
+      "fil": "1185456d627f3c.ogg",
+      "kilde": "Kampsvar / klatten.k06.råbede",
+      "lavet": "2026-11-19",
       "model": "gemini-3.8-flash-lite-tts"
     },
     "1188f2b8b0b679": {
@@ -7329,6 +8225,14 @@
       "kilde": "Kapitel 3 / k3-tomordet-moede.4",
       "lavet": "2026-11-01"
     },
+    "11b6656bc9a850": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket stumt bogstav mangler i jor_?",
+      "fil": "11b6656bc9a850.ogg",
+      "kilde": "Kampsvar / stumming.jord.spoergsmaal",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
     "11bcd9a1ac7765": {
       "figur": "aeseloere",
       "tekst": "en trylleformular hører til en anden genre end krimi. Hvad er kendetegnene for krimi?",
@@ -7336,6 +8240,14 @@
       "kilde": "Svar / genre.krimi.en trylleformular",
       "lavet": "2026-11-18",
       "model": "gemini-3.8-flash-lite-tts"
+    },
+    "11c8cdbb1ec549": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Der skal stå sand. Du kan ikke høre d, men det skal med.",
+      "fil": "11c8cdbb1ec549.ogg",
+      "kilde": "Kampsvar / stumming.sand",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
     },
     "11ca49633b1167": {
       "figur": "aeseloere",
@@ -7417,6 +8329,14 @@
       "kilde": "Svar / synonym.stille.rigtig",
       "lavet": "2026-11-15",
       "model": "gemini-3.8-flash-tts"
+    },
+    "11ec15839ddccc": {
+      "figur": "aeseloere",
+      "tekst": "stillle er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "11ec15839ddccc.ogg",
+      "kilde": "Kampsvar / krusedulle.k11.stillle",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "11f0531026808b": {
       "figur": "fortaeller",
@@ -7530,6 +8450,14 @@
       "kilde": "Kapitel 3 / k3-klatten.valg2.2",
       "lavet": "2026-11-01"
     },
+    "1228cf9f88dca3": {
+      "figur": "aeseloere",
+      "tekst": "tre mistænkte hører til en anden genre end science fiction. Hvad er kendetegnene for science fiction?",
+      "fil": "1228cf9f88dca3.ogg",
+      "kilde": "Svar / genre.sf.tre mistænkte",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1229c547b8b4db": {
       "figur": "klatten",
       "tekst": "Den Frygtelige har allerede en slutning. Den hedder venner. Den er frygtelig god.",
@@ -7619,12 +8547,28 @@
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-tts"
     },
+    "12763ccc739186": {
+      "figur": "aeseloere",
+      "tekst": "borderne er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "12763ccc739186.ogg",
+      "kilde": "Kampsvar / krusedulle.k05.borderne",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1276f9c2b47629": {
       "figur": "aeseloere",
       "tekst": "Regel: Når en tanke er færdig, sætter du punktum. Den næste sætning starter med stort begyndelsesbogstav.",
       "fil": "1276f9c2b47629.ogg",
       "kilde": "Beskeder / regel",
       "lavet": "2026-11-05"
+    },
+    "127915caf4870c": {
+      "figur": "aeseloere",
+      "tekst": "komer er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "127915caf4870c.ogg",
+      "kilde": "Kampsvar / krusedulle.k05.komer",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "1279804ad930dd": {
       "figur": "fortaeller",
@@ -7648,6 +8592,14 @@
       "fil": "127da30ef3b67e.ogg",
       "kilde": "Kapitel 8 / k8-oplaesning.10",
       "lavet": "2026-11-11"
+    },
+    "12815aa0d302ed": {
+      "figur": "aeseloere",
+      "tekst": "en hjelm, der kan læse tanker hører til en anden genre end krimi. Hvad er kendetegnene for krimi?",
+      "fil": "12815aa0d302ed.ogg",
+      "kilde": "Svar / genre.krimi.en hjelm, der kan læse tanker",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
     },
     "128b0a30977096": {
       "figur": "ufaerdige",
@@ -7683,6 +8635,30 @@
       "fil": "1292ff76a996a9.ogg",
       "kilde": "Kapitel 7 / k7-prinsesse.opgavetekst",
       "lavet": "2026-11-12"
+    },
+    "1295afbff6c64f": {
+      "figur": "aeseloere",
+      "tekst": "en skygge bag gardinet hører til en anden genre end science fiction. Hvad er kendetegnene for science fiction?",
+      "fil": "1295afbff6c64f.ogg",
+      "kilde": "Svar / genre.sf.en skygge bag gardinet",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "1296aec1a0f87b": {
+      "figur": "aeseloere",
+      "tekst": "lile er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "1296aec1a0f87b.ogg",
+      "kilde": "Kampsvar / krusedulle.k01.lile",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "129827332f8629": {
+      "figur": "aeseloere",
+      "tekst": "Ja. hjemme er den rigtige stavemåde.",
+      "fil": "129827332f8629.ogg",
+      "kilde": "Kampsvar / krusedulle.k01.hjemme",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "129f5175016127": {
       "figur": "aeseloere",
@@ -7726,6 +8702,14 @@
       "fil": "12add168212d73.ogg",
       "kilde": "Kapitel 8 / k8-moede.1",
       "lavet": "2026-11-11"
+    },
+    "12b68d5d43557d": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket stumt bogstav mangler i sel_?",
+      "fil": "12b68d5d43557d.ogg",
+      "kilde": "Kampsvar / stumming.selv.spoergsmaal",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
     },
     "12b8d2d281cfd9": {
       "figur": "rimfod",
@@ -7902,6 +8886,14 @@
       "kilde": "Kapitel 2 / k2-raaber.opgavetekst",
       "lavet": "2026-11-03"
     },
+    "1341a1e7cbd753": {
+      "figur": "aeseloere",
+      "tekst": "Klatten peger på tæle. Den fejl har jeg selv lavet engang. Det er ikke den.",
+      "fil": "1341a1e7cbd753.ogg",
+      "kilde": "Kampsvar / klatten.k04.tæle",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "134b03418f88ca": {
       "figur": "vims",
       "tekst": "Det svarer forkert. Eller også svarer det bare med rim. Undskyld, jeg ved ikke, hvad der er værst.",
@@ -7916,6 +8908,14 @@
       "kilde": "Svar / korrektur.k13.prøvde",
       "lavet": "2026-11-18",
       "model": "gemini-3.8-flash-lite-tts"
+    },
+    "134badf042fc69": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Der skal stå land. Du kan ikke høre d, men det skal med.",
+      "fil": "134badf042fc69.ogg",
+      "kilde": "Kampsvar / stumming.land",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
     },
     "135c0c66aed21d": {
       "figur": "aeseloere",
@@ -8082,12 +9082,28 @@
       "lavet": "2026-11-15",
       "model": "gemini-3.8-flash-tts"
     },
+    "139de18222510d": {
+      "figur": "aeseloere",
+      "tekst": "en fe, der giver tre ønsker hører til en anden genre end gyser. Hvad er kendetegnene for gyser?",
+      "fil": "139de18222510d.ogg",
+      "kilde": "Svar / genre.gyser.en fe, der giver tre ønsker",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
     "13a1650e0a7136": {
       "figur": "aeseloere",
       "tekst": "Ja. by rimer på sky. De lyder ens til sidst.",
       "fil": "13a1650e0a7136.ogg",
       "kilde": "Svar / rim.sky.by",
       "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "13a255d176e4ec": {
+      "figur": "aeseloere",
+      "tekst": "tæle er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "13a255d176e4ec.ogg",
+      "kilde": "Kampsvar / krusedulle.k04.tæle",
+      "lavet": "2026-11-19",
       "model": "gemini-3.8-flash-lite-tts"
     },
     "13a5d374fc5755": {
@@ -8176,6 +9192,14 @@
       "kilde": "Svar / ikkerim.sko.skov",
       "lavet": "2026-11-15",
       "model": "gemini-3.8-flash-lite-tts"
+    },
+    "13bba232e51321": {
+      "figur": "aeseloere",
+      "tekst": "en trylleformular hører til en anden genre end gyser. Hvad er kendetegnene for gyser?",
+      "fil": "13bba232e51321.ogg",
+      "kilde": "Svar / genre.gyser.en trylleformular",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
     },
     "13bbfe9ee8599e": {
       "figur": "ord",
@@ -8410,6 +9434,14 @@
       "kilde": "Kapitel 1 / k1-lanterne.5",
       "lavet": "2026-10-31"
     },
+    "142675893feadd": {
+      "figur": "aeseloere",
+      "tekst": "Hvorfår er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "142675893feadd.ogg",
+      "kilde": "Kampsvar / krusedulle.k10.Hvorfår",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1432b8a3ecf54a": {
       "figur": "aeseloere",
       "tekst": "Ja. rig rimer ikke på ring. Slutningen lyder anderledes.",
@@ -8468,6 +9500,14 @@
       "kilde": "Kapitel 5 / k5-tvivl-moede.1",
       "lavet": "2026-11-09"
     },
+    "14554f3772805f": {
+      "figur": "aeseloere",
+      "tekst": "Ja. tegnede er den rigtige stavemåde.",
+      "fil": "14554f3772805f.ogg",
+      "kilde": "Kampsvar / krusedulle.k08.tegnede",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "145791153d39c6": {
       "figur": "aeseloere",
       "tekst": "Ikke helt. Klap ordet langsomt: ba-nan. Tæl klappene.",
@@ -8514,6 +9554,14 @@
       "kilde": "Minder / minde.skuffen.3",
       "lavet": "2026-11-13"
     },
+    "147448927f3bf5": {
+      "figur": "aeseloere",
+      "tekst": "et alibi hører til en anden genre end gyser. Hvad er kendetegnene for gyser?",
+      "fil": "147448927f3bf5.ogg",
+      "kilde": "Svar / genre.gyser.et alibi",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
     "147c84931604b0": {
       "figur": "fortaeller",
       "tekst": "Det er din skole. Og på dit skolebibliotek er bøgerne ved at blive tomme. Ord forsvinder, og historier stopper midt i en sætning.",
@@ -8537,12 +9585,28 @@
       "lavet": "2026-11-17",
       "model": "gemini-3.8-flash-tts"
     },
+    "147eebf7c0775f": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Der skal stå hjælpe. Du kan ikke høre h, men det skal med.",
+      "fil": "147eebf7c0775f.ogg",
+      "kilde": "Kampsvar / stumming.hjælpe",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
     "148a37dda24544": {
       "figur": "aeseloere",
       "tekst": "kind rimer faktisk på vind. Sig dem højt. De lyder ens til sidst.",
       "fil": "148a37dda24544.ogg",
       "kilde": "Svar / ikkerim.vind.kind",
       "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "148adcd1ed4fd9": {
+      "figur": "aeseloere",
+      "tekst": "kasserene er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "148adcd1ed4fd9.ogg",
+      "kilde": "Kampsvar / krusedulle.k04.kasserene",
+      "lavet": "2026-11-19",
       "model": "gemini-3.8-flash-lite-tts"
     },
     "148c42904fe047": {
@@ -8617,6 +9681,14 @@
       "kilde": "Kapitel 6 / k6-ud.opgavetekst",
       "lavet": "2026-11-12"
     },
+    "14c95e225e96a6": {
+      "figur": "aeseloere",
+      "tekst": "en planet med to sole hører til en anden genre end krimi. Hvad er kendetegnene for krimi?",
+      "fil": "14c95e225e96a6.ogg",
+      "kilde": "Svar / genre.krimi.en planet med to sole",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
     "14cc6e28413652": {
       "figur": "aeseloere",
       "tekst": "et fingeraftryk på vinduet hører til en anden genre end eventyr. Hvad er kendetegnene for eventyr?",
@@ -8649,6 +9721,22 @@
       "lavet": "2026-11-15",
       "model": "gemini-3.8-flash-tts"
     },
+    "14db34fe367a05": {
+      "figur": "aeseloere",
+      "tekst": "Ja. lille er den rigtige stavemåde.",
+      "fil": "14db34fe367a05.ogg",
+      "kilde": "Kampsvar / krusedulle.k01.lille",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "14dc67f35c4abc": {
+      "figur": "aeseloere",
+      "tekst": "Klatten peger på kagene. Den fejl har jeg selv lavet engang. Det er ikke den.",
+      "fil": "14dc67f35c4abc.ogg",
+      "kilde": "Kampsvar / klatten.k06.kagene",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "14dcfcb5308805": {
       "figur": "aeseloere",
       "tekst": "Endelig. Du har været længe om det.",
@@ -8669,6 +9757,14 @@
       "fil": "14e59f6212c7de.ogg",
       "kilde": "Svar / ikkerim.tante.taske",
       "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "14e96d1020c5f5": {
+      "figur": "aeseloere",
+      "tekst": "en fattig dreng, der bliver konge hører til en anden genre end science fiction. Hvad er kendetegnene for science fiction?",
+      "fil": "14e96d1020c5f5.ogg",
+      "kilde": "Svar / genre.sf.en fattig dreng, der bliver konge",
+      "lavet": "2026-11-19",
       "model": "gemini-3.8-flash-tts"
     },
     "14e9c992493c20": {
@@ -8800,6 +9896,22 @@
       "lavet": "2026-11-18",
       "model": "gemini-3.8-flash-lite-tts"
     },
+    "155ac50db1f698": {
+      "figur": "aeseloere",
+      "tekst": "vippper er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "155ac50db1f698.ogg",
+      "kilde": "Kampsvar / krusedulle.k09.vippper",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "155f2484f7863e": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Der skal stå Hvor. Du kan ikke høre h, men det skal med.",
+      "fil": "155f2484f7863e.ogg",
+      "kilde": "Kampsvar / stumming.hvor",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
     "156225554024bf": {
       "figur": "fortaeller",
       "tekst": "Jeg støver bøgerne af.",
@@ -8874,6 +9986,14 @@
       "lavet": "2026-11-16",
       "model": "gemini-3.8-flash-tts"
     },
+    "159c72b45ddc80": {
+      "figur": "aeseloere",
+      "tekst": "sel er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "159c72b45ddc80.ogg",
+      "kilde": "Kampsvar / krusedulle.k03.sel",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "159f1e219204e7": {
       "figur": "aeseloere",
       "tekst": "Jeg har ikke været helt ærlig over for dig.",
@@ -8940,6 +10060,14 @@
       "kilde": "Kapitel 5 / reolerne.ind.2",
       "lavet": "2026-11-12"
     },
+    "15b6c5cf88b696": {
+      "figur": "aeseloere",
+      "tekst": "en robot, der kan tale hører til en anden genre end krimi. Hvad er kendetegnene for krimi?",
+      "fil": "15b6c5cf88b696.ogg",
+      "kilde": "Svar / genre.krimi.en robot, der kan tale",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
     "15ba6dfce394c1": {
       "figur": "aeseloere",
       "tekst": "hat rimer ikke på hånd. Sig begge ord højt, og lyt til slutningen.",
@@ -8961,6 +10089,14 @@
       "fil": "15c280d17e71fa.ogg",
       "kilde": "Fortæller / k08",
       "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "15c31ea3cc9392": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket stumt bogstav mangler i vil_?",
+      "fil": "15c31ea3cc9392.ogg",
+      "kilde": "Kampsvar / stumming.vild.spoergsmaal",
+      "lavet": "2026-11-19",
       "model": "gemini-3.8-flash-tts"
     },
     "15c385231fc3e7": {
@@ -9001,12 +10137,52 @@
       "kilde": "Beskeder / bro.fejl.placering.3.konflikt",
       "lavet": "2026-11-05"
     },
+    "15d5efbf2d8c0e": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket stumt bogstav mangler i gul_?",
+      "fil": "15d5efbf2d8c0e.ogg",
+      "kilde": "Kampsvar / stumming.guld.spoergsmaal",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "15d6984b047216": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Der skal stå hund. Du kan ikke høre d, men det skal med.",
+      "fil": "15d6984b047216.ogg",
+      "kilde": "Kampsvar / stumming.hund",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "15eaf0b9ea3ebe": {
+      "figur": "aeseloere",
+      "tekst": "et rumskib på vej til Mars hører til en anden genre end gyser. Hvad er kendetegnene for gyser?",
+      "fil": "15eaf0b9ea3ebe.ogg",
+      "kilde": "Svar / genre.gyser.et rumskib på vej til Mars",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "15ebab9952851a": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Der skal stå guld. Du kan ikke høre d, men det skal med.",
+      "fil": "15ebab9952851a.ogg",
+      "kilde": "Kampsvar / stumming.guld",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
     "15ee7154d4977a": {
       "figur": "fodnote",
       "tekst": "¹ Her ligger alle de historier, der aldrig fik en slutning. Det er det tristeste sted i hele kælderen. Og det mest støvede.",
       "fil": "15ee7154d4977a.ogg",
       "kilde": "Kapitel 5 / k5-dybarkiv.2",
       "lavet": "2026-11-09"
+    },
+    "15ee8d3f1b31ac": {
+      "figur": "aeseloere",
+      "tekst": "Klatten peger på Vorfor. Den fejl har jeg selv lavet engang. Det er ikke den.",
+      "fil": "15ee8d3f1b31ac.ogg",
+      "kilde": "Kampsvar / klatten.k10.Vorfor",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "15f59678cf20ca": {
       "figur": "ord",
@@ -9021,6 +10197,14 @@
       "fil": "15f9a25ac5b62f.ogg",
       "kilde": "Kapitel 3 / halvsang.start.4",
       "lavet": "2026-11-09"
+    },
+    "15ffb8b64faa7d": {
+      "figur": "aeseloere",
+      "tekst": "Ja. kasserne er den rigtige stavemåde.",
+      "fil": "15ffb8b64faa7d.ogg",
+      "kilde": "Kampsvar / krusedulle.k04.kasserne",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "16008c472fb919": {
       "figur": "fortaeller",
@@ -9114,6 +10298,14 @@
       "kilde": "Kapitel 5 / k5-twist.6",
       "lavet": "2026-11-10"
     },
+    "16384c0680532b": {
+      "figur": "aeseloere",
+      "tekst": "en robot, der kan tale hører til en anden genre end gyser. Hvad er kendetegnene for gyser?",
+      "fil": "16384c0680532b.ogg",
+      "kilde": "Svar / genre.gyser.en robot, der kan tale",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
     "163ea46f1bb20a": {
       "figur": "fortaeller",
       "tekst": "Jeg gik ned ad trappen. ... holdt godt fast i gelænderet.",
@@ -9137,6 +10329,22 @@
       "kilde": "Opgaver / hviske.instruks.to",
       "lavet": "2026-11-04"
     },
+    "16528120a031ca": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Hun holder fast i den samme fortæller.",
+      "fil": "16528120a031ca.ogg",
+      "kilde": "Kampsvar / tvivl.f02",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "165fe07d5180ad": {
+      "figur": "aeseloere",
+      "tekst": "Sideerne er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "165fe07d5180ad.ogg",
+      "kilde": "Kampsvar / krusedulle.k09.Sideerne",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1662f4f1869d76": {
       "figur": "aeseloere",
       "tekst": "viper er ikke den rigtige stavemåde. Læs reglen, og prøv igen.",
@@ -9158,6 +10366,14 @@
       "fil": "1665fb26dbe771.ogg",
       "kilde": "Beskeder / bro.fejl.placering.3.loesning",
       "lavet": "2026-11-05"
+    },
+    "16660d5fb6cfb5": {
+      "figur": "aeseloere",
+      "tekst": "tre prøver, helten skal klare hører til en anden genre end science fiction. Hvad er kendetegnene for science fiction?",
+      "fil": "16660d5fb6cfb5.ogg",
+      "kilde": "Svar / genre.sf.tre prøver, helten skal klare",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
     },
     "1668f2ad333e95": {
       "figur": "klatten",
@@ -9203,12 +10419,28 @@
       "kilde": "Historiebroen / bro-graevlingen.konflikt",
       "lavet": "2026-11-05"
     },
+    "1683a8c2d5df19": {
+      "figur": "aeseloere",
+      "tekst": "breverne er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "1683a8c2d5df19.ogg",
+      "kilde": "Kampsvar / krusedulle.k11.breverne",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "16855b43f1ecf3": {
       "figur": "fortaeller",
       "tekst": "Ved kanten af torvet ser du det: små, sorte pletter, der forsvinder ind i en smal smøge.",
       "fil": "16855b43f1ecf3.ogg",
       "kilde": "Kapitel 2 / k2-spor.2",
       "lavet": "2026-10-31"
+    },
+    "1688ab04e3e6fd": {
+      "figur": "aeseloere",
+      "tekst": "Klatten peger på borderne. Den fejl har jeg selv lavet engang. Det er ikke den.",
+      "fil": "1688ab04e3e6fd.ogg",
+      "kilde": "Kampsvar / klatten.k05.borderne",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "1689e26cc63952": {
       "figur": "aeseloere",
@@ -9399,6 +10631,14 @@
       "kilde": "Stumme bogstaver / rund",
       "lavet": "2026-10-31"
     },
+    "16dfdb0cbf7fde": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Der skal stå jord. Du kan ikke høre d, men det skal med.",
+      "fil": "16dfdb0cbf7fde.ogg",
+      "kilde": "Kampsvar / stumming.jord",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
     "16e1f9528f6665": {
       "figur": "aeseloere",
       "tekst": "Reolerne går helt op i mørket. Man kan klatre på dem, men det er langt, og der er næsten intet lys.",
@@ -9530,6 +10770,14 @@
       "kilde": "Kampe / kamp.krusedulle.rolig",
       "lavet": "2026-11-13"
     },
+    "173d7c8485b183": {
+      "figur": "aeseloere",
+      "tekst": "Klatten peger på spisede. Den fejl har jeg selv lavet engang. Det er ikke den.",
+      "fil": "173d7c8485b183.ogg",
+      "kilde": "Kampsvar / klatten.k02.spisede",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "174295c013cfb4": {
       "figur": "lup",
       "tekst": "Find de tre spor for mig. Så kan vi se, hvor de fører hen.",
@@ -9543,6 +10791,14 @@
       "fil": "1746c81487479d.ogg",
       "kilde": "Kapitel 1 / k1-lanterne.3",
       "lavet": "2026-10-31"
+    },
+    "174844b8899268": {
+      "figur": "aeseloere",
+      "tekst": "Der mangler ikke et h her. Kig på bogstavet lige før eller lige efter hullet.",
+      "fil": "174844b8899268.ogg",
+      "kilde": "Kampsvar / stumming.fejl.h",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "1748bfc6b9b931": {
       "figur": "fortaeller",
@@ -9633,6 +10889,14 @@
       "kilde": "Kapitel 4 / k4-rimfod.7",
       "lavet": "2026-11-09"
     },
+    "178fc413d1bcd0": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Der skal stå bord. Du kan ikke høre d, men det skal med.",
+      "fil": "178fc413d1bcd0.ogg",
+      "kilde": "Kampsvar / stumming.bord",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1795c6e238aa2f": {
       "figur": "fortaeller",
       "tekst": "Så hører du en lyd af papir, og et lille, foldet hjørne lander på din skulder.",
@@ -9661,6 +10925,14 @@
       "fil": "179f024fff1d82.ogg",
       "kilde": "Kapitel 8 / k8-ogsaa.1",
       "lavet": "2026-11-11"
+    },
+    "17a7202ef6c267": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket stumt bogstav mangler i _vem?",
+      "fil": "17a7202ef6c267.ogg",
+      "kilde": "Kampsvar / stumming.hvem.spoergsmaal",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
     },
     "17a8ae4a5c43e8": {
       "figur": "aeseloere",
@@ -9903,6 +11175,14 @@
       "kilde": "Kapitel 5 / k5-ankomst.1",
       "lavet": "2026-11-09"
     },
+    "181cef2c8f7f22": {
+      "figur": "aeseloere",
+      "tekst": "Hvemm er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "181cef2c8f7f22.ogg",
+      "kilde": "Kampsvar / krusedulle.k08.Hvemm",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "182564d234e101": {
       "figur": "aeseloere",
       "tekst": "Ja. Ordet dejlig betyder det samme som skøn.",
@@ -9998,6 +11278,14 @@
       "fil": "1858627461ad65.ogg",
       "kilde": "Kapitel 1 / k1-logbog.k1-logbog-2.standard",
       "lavet": "2026-11-01"
+    },
+    "18586514375850": {
+      "figur": "aeseloere",
+      "tekst": "råpte er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "18586514375850.ogg",
+      "kilde": "Kampsvar / krusedulle.k06.råpte",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "1858b8ae514f84": {
       "figur": "aeseloere",
@@ -10177,6 +11465,14 @@
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-lite-tts"
     },
+    "18c7a634473725": {
+      "figur": "aeseloere",
+      "tekst": "kommmer er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "18c7a634473725.ogg",
+      "kilde": "Kampsvar / krusedulle.k05.kommmer",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "18ccdc8ab18111": {
       "figur": "holm",
       "tekst": "Hver morgen mangler der flere ord. Nogle bøger stopper midt i en sætning.",
@@ -10227,6 +11523,14 @@
       "kilde": "Stumme bogstaver / hjerte",
       "lavet": "2026-10-31"
     },
+    "18ebb65cbd7706": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket stumt bogstav mangler i søl_?",
+      "fil": "18ebb65cbd7706.ogg",
+      "kilde": "Kampsvar / stumming.sølv.spoergsmaal",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
     "18ede15a95c1ab": {
       "figur": "aeseloere",
       "tekst": "Eksempel: Andre ord med samme regel:",
@@ -10240,6 +11544,14 @@
       "fil": "18ee972c39dd96.ogg",
       "kilde": "Kapitel 2 / k2-spor.3",
       "lavet": "2026-10-31"
+    },
+    "18f11c39f728e1": {
+      "figur": "aeseloere",
+      "tekst": "Ja. vipper er den rigtige stavemåde.",
+      "fil": "18f11c39f728e1.ogg",
+      "kilde": "Kampsvar / krusedulle.k09.vipper",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "18f1267a7d474f": {
       "figur": "aeseloere",
@@ -10423,6 +11735,14 @@
       "lavet": "2026-11-15",
       "model": "gemini-3.8-flash-tts"
     },
+    "1956663692d4ff": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket stumt bogstav mangler i _vid?",
+      "fil": "1956663692d4ff.ogg",
+      "kilde": "Kampsvar / stumming.hvid.spoergsmaal",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1956c95d7bf508": {
       "figur": "aeseloere",
       "tekst": "Ja. sok rimer ikke på sol. Slutningen lyder anderledes.",
@@ -10532,6 +11852,14 @@
       "fil": "1996d538bd2a39.ogg",
       "kilde": "Kapitel 6 / k6-hytten.4",
       "lavet": "2026-11-10"
+    },
+    "1998fed13b74c7": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket stumt bogstav mangler i tol_?",
+      "fil": "1998fed13b74c7.ogg",
+      "kilde": "Kampsvar / stumming.tolv.spoergsmaal",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "19a2f5b5a15d8b": {
       "figur": "aeseloere",
@@ -10655,6 +11983,14 @@
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-lite-tts"
     },
+    "19df26b40b41f9": {
+      "figur": "aeseloere",
+      "tekst": "svømede er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "19df26b40b41f9.ogg",
+      "kilde": "Kampsvar / krusedulle.k07.svømede",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "19e232923a17c2": {
       "figur": "aeseloere",
       "tekst": "Den planke hører til historien. Læg den tilbage på broen.",
@@ -10739,6 +12075,14 @@
       "kilde": "Svar / rim.kage.kaffe",
       "lavet": "2026-11-17",
       "model": "gemini-3.8-flash-tts"
+    },
+    "1a05c870149868": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Hvorfor er den rigtige stavemåde.",
+      "fil": "1a05c870149868.ogg",
+      "kilde": "Kampsvar / krusedulle.k10.Hvorfor",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "1a0ac9c61f0443": {
       "figur": "halvsaetning",
@@ -11092,6 +12436,14 @@
       "kilde": "Kapitel 3 / viskestien.intro.3",
       "lavet": "2026-11-09"
     },
+    "1ad6fb2f9d0580": {
+      "figur": "aeseloere",
+      "tekst": "Det er ikke en historie af genren Science fiction. Kig efter kendetegnene. Hvad sker der, og hvor foregår det?",
+      "fil": "1ad6fb2f9d0580.ogg",
+      "kilde": "Svar / genre.sf.fejl",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1ad708f4cf48be": {
       "figur": "fodnote",
       "tekst": "¹ Han har ret. Det irriterer mig. ² Det her er en fodnote til min fodnote. Den siger bare, at det stadig irriterer mig.",
@@ -11129,6 +12481,22 @@
       "kilde": "Kapitel 1 / k1-ankomst.1",
       "lavet": "2026-10-31"
     },
+    "1aeaa47b34686a": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Der skal stå halv. Du kan ikke høre v, men det skal med.",
+      "fil": "1aeaa47b34686a.ogg",
+      "kilde": "Kampsvar / stumming.halv",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "1aec15f6b1689e": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Der skal stå sølv. Du kan ikke høre v, men det skal med.",
+      "fil": "1aec15f6b1689e.ogg",
+      "kilde": "Kampsvar / stumming.sølv",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1aed6a5868deaf": {
       "figur": "fortaeller",
       "tekst": "Du kender det. Du ved ikke hvorfor, men du kender det.",
@@ -11157,6 +12525,14 @@
       "fil": "1b0fa501b4ab31.ogg",
       "kilde": "Beskeder / bro.fejl.placering.1.verden",
       "lavet": "2026-11-04"
+    },
+    "1b0fdb4357f510": {
+      "figur": "aeseloere",
+      "tekst": "Ja. råbte er den rigtige stavemåde.",
+      "fil": "1b0fdb4357f510.ogg",
+      "kilde": "Kampsvar / krusedulle.k06.råbte",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "1b11116cd3835e": {
       "figur": "fortaeller",
@@ -11273,6 +12649,14 @@
       "kilde": "Beskeder / genre.eksempel.sf",
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-lite-tts"
+    },
+    "1b4dae82a2412b": {
+      "figur": "aeseloere",
+      "tekst": "en by under havet i år 3000 hører til en anden genre end gyser. Hvad er kendetegnene for gyser?",
+      "fil": "1b4dae82a2412b.ogg",
+      "kilde": "Svar / genre.gyser.en by under havet i år 3000",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
     },
     "1b51c5fc65cc3d": {
       "figur": "skyggen",
@@ -11398,6 +12782,14 @@
       "kilde": "Kapitel 6 / k6-twist.1",
       "lavet": "2026-11-10"
     },
+    "1ba3806103006c": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket stumt bogstav mangler i hun_?",
+      "fil": "1ba3806103006c.ogg",
+      "kilde": "Kampsvar / stumming.hund.spoergsmaal",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1bae4ac433cc4c": {
       "figur": "aeseloere",
       "tekst": "Ja. Det staves tælle.",
@@ -11509,6 +12901,14 @@
       "kilde": "Kapitel 7 / k7-grumsen.1",
       "lavet": "2026-11-10"
     },
+    "1bd306d4306180": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Der skal stå rund. Du kan ikke høre d, men det skal med.",
+      "fil": "1bd306d4306180.ogg",
+      "kilde": "Kampsvar / stumming.rund",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1bd5d130fe1373": {
       "figur": "fortaeller",
       "tekst": "En stor fisk kommer svømmende og henter lyset for Kvak.",
@@ -11530,6 +12930,14 @@
       "kilde": "Opgaver / korrektur.instruks.3",
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-lite-tts"
+    },
+    "1bdf7a06bc95df": {
+      "figur": "aeseloere",
+      "tekst": "et fingeraftryk på vinduet hører til en anden genre end science fiction. Hvad er kendetegnene for science fiction?",
+      "fil": "1bdf7a06bc95df.ogg",
+      "kilde": "Svar / genre.sf.et fingeraftryk på vinduet",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
     },
     "1be25f84922fc0": {
       "figur": "fortaeller",
@@ -11697,6 +13105,14 @@
       "lavet": "2026-11-17",
       "model": "gemini-3.8-flash-lite-tts"
     },
+    "1c4ee82cfec65e": {
+      "figur": "aeseloere",
+      "tekst": "en dør, der knirker i mørket hører til en anden genre end science fiction. Hvad er kendetegnene for science fiction?",
+      "fil": "1c4ee82cfec65e.ogg",
+      "kilde": "Svar / genre.sf.en dør, der knirker i mørket",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1c4f2c967ba278": {
       "figur": "aeseloere",
       "tekst": "Ja. trold har kun én stavelse.",
@@ -11725,6 +13141,14 @@
       "fil": "1c622e39390d7f.ogg",
       "kilde": "Kapitel 4 / k4-digt-slut.4",
       "lavet": "2026-11-09"
+    },
+    "1c64a1e696c292": {
+      "figur": "aeseloere",
+      "tekst": "en lyd, ingen kan forklare hører til en anden genre end science fiction. Hvad er kendetegnene for science fiction?",
+      "fil": "1c64a1e696c292.ogg",
+      "kilde": "Svar / genre.sf.en lyd, ingen kan forklare",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
     },
     "1c6741ab223bf3": {
       "figur": "aeseloere",
@@ -11847,6 +13271,14 @@
       "kilde": "Kampe / kamp.tvivl.rolig",
       "lavet": "2026-11-13"
     },
+    "1cac7bfac55c87": {
+      "figur": "aeseloere",
+      "tekst": "noget, der banker på ruden hører til en anden genre end krimi. Hvad er kendetegnene for krimi?",
+      "fil": "1cac7bfac55c87.ogg",
+      "kilde": "Svar / genre.krimi.noget, der banker på ruden",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1cb6f6ee427180": {
       "figur": "fortaeller",
       "tekst": "Nu forsvinder slutningerne. Én efter én.",
@@ -11931,6 +13363,14 @@
       "lavet": "2026-11-15",
       "model": "gemini-3.8-flash-tts"
     },
+    "1ce83d25b57e52": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Det passer til genren Gyser.",
+      "fil": "1ce83d25b57e52.ogg",
+      "kilde": "Svar / genre.gyser.rigtig",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1ceebe36e57ea1": {
       "figur": "fortaeller",
       "tekst": "Du sætter et punktum. Så bliver der helt stille på siden.",
@@ -11960,6 +13400,14 @@
       "fil": "1cf3df465cb5bf.ogg",
       "kilde": "Kapitel 2 / k2-lem.2",
       "lavet": "2026-10-31"
+    },
+    "1cfa0e3353c7bd": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Der skal stå Hvad. Du kan ikke høre h, men det skal med.",
+      "fil": "1cfa0e3353c7bd.ogg",
+      "kilde": "Kampsvar / stumming.hvad",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
     },
     "1d0046aa204e8c": {
       "figur": "holm",
@@ -12013,6 +13461,14 @@
       "fil": "1d1a6075152189.ogg",
       "kilde": "Kapitel 2 / k2-ankomst.3",
       "lavet": "2026-10-31"
+    },
+    "1d1aafb6878518": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Der skal stå hvid. Du kan ikke høre h, men det skal med.",
+      "fil": "1d1aafb6878518.ogg",
+      "kilde": "Kampsvar / stumming.hvid",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
     },
     "1d241eabe0c6dd": {
       "figur": "aeseloere",
@@ -12091,6 +13547,14 @@
       "lavet": "2026-11-17",
       "model": "gemini-3.8-flash-lite-tts"
     },
+    "1d5126a7aa4ccd": {
+      "figur": "aeseloere",
+      "tekst": "Klatten peger på tegnte. Den fejl har jeg selv lavet engang. Det er ikke den.",
+      "fil": "1d5126a7aa4ccd.ogg",
+      "kilde": "Kampsvar / klatten.k08.tegnte",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1d53dc27160c94": {
       "figur": "aeseloere",
       "tekst": "Du skifter fortæller midt i det hele. Se på den første sætning. Hvem handler den om?",
@@ -12105,6 +13569,14 @@
       "fil": "1d56e7cf9761c4.ogg",
       "kilde": "Svar / korrektur.k07.run",
       "lavet": "2026-11-18",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "1d57127f2e56c4": {
+      "figur": "aeseloere",
+      "tekst": "en trylleformular hører til en anden genre end science fiction. Hvad er kendetegnene for science fiction?",
+      "fil": "1d57127f2e56c4.ogg",
+      "kilde": "Svar / genre.sf.en trylleformular",
+      "lavet": "2026-11-19",
       "model": "gemini-3.8-flash-tts"
     },
     "1d5e2f57b0d1b3": {
@@ -12228,6 +13700,22 @@
       "kilde": "Beskeder / bro.fejl.placering.4.konflikt",
       "lavet": "2026-11-05"
     },
+    "1da888931da5f1": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Der skal stå hjul. Du kan ikke høre h, men det skal med.",
+      "fil": "1da888931da5f1.ogg",
+      "kilde": "Kampsvar / stumming.hjul",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "1da94a1383fcda": {
+      "figur": "aeseloere",
+      "tekst": "Klatten peger på hoppte. Den fejl har jeg selv lavet engang. Det er ikke den.",
+      "fil": "1da94a1383fcda.ogg",
+      "kilde": "Kampsvar / klatten.k02.hoppte",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1dac2c6419b414": {
       "figur": "ord",
       "tekst": "strand",
@@ -12257,6 +13745,14 @@
       "kilde": "Svar / korrektur.k14.san",
       "lavet": "2026-11-18",
       "model": "gemini-3.8-flash-lite-tts"
+    },
+    "1dd38b734fb732": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket stumt bogstav mangler i hal_?",
+      "fil": "1dd38b734fb732.ogg",
+      "kilde": "Kampsvar / stumming.halv.spoergsmaal",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
     },
     "1dd57b3331deff": {
       "figur": "aeseloere",
@@ -12354,6 +13850,14 @@
       "kilde": "Kapitel 1 / k1-holm.3",
       "lavet": "2026-10-30"
     },
+    "1e1377b5423873": {
+      "figur": "aeseloere",
+      "tekst": "hjælbe er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "1e1377b5423873.ogg",
+      "kilde": "Kampsvar / krusedulle.k10.hjælbe",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1e13a0938c8102": {
       "figur": "aeseloere",
       "tekst": "en stjålen diamant hører til en anden genre end eventyr. Hvad er kendetegnene for eventyr?",
@@ -12391,6 +13895,14 @@
       "fil": "1e208af0c47328.ogg",
       "kilde": "Klattens tekster / k06",
       "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "1e2358318fd457": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket stumt bogstav mangler i _jul?",
+      "fil": "1e2358318fd457.ogg",
+      "kilde": "Kampsvar / stumming.hjul.spoergsmaal",
+      "lavet": "2026-11-19",
       "model": "gemini-3.8-flash-tts"
     },
     "1e239f1951890c": {
@@ -12433,6 +13945,22 @@
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-tts"
     },
+    "1e37255f327062": {
+      "figur": "aeseloere",
+      "tekst": "tegnte er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "1e37255f327062.ogg",
+      "kilde": "Kampsvar / krusedulle.k08.tegnte",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "1e3b4109ce28d9": {
+      "figur": "aeseloere",
+      "tekst": "en hjelm, der kan læse tanker hører til en anden genre end gyser. Hvad er kendetegnene for gyser?",
+      "fil": "1e3b4109ce28d9.ogg",
+      "kilde": "Svar / genre.gyser.en hjelm, der kan læse tanker",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1e4657ead27965": {
       "figur": "aeseloere",
       "tekst": "Regel: Nogle ord har et bogstav, man ikke kan høre. Foran v og j kan h være stumt (hvor, hjem). Efter l, n og r kan d være stumt (rund, sand). Efter l kan v være stumt (selv).",
@@ -12473,6 +14001,14 @@
       "lavet": "2026-11-18",
       "model": "gemini-3.8-flash-lite-tts"
     },
+    "1e4ed9fb7897c5": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket stumt bogstav mangler i _vor?",
+      "fil": "1e4ed9fb7897c5.ogg",
+      "kilde": "Kampsvar / stumming.hvor.spoergsmaal",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1e50b7dfc2959f": {
       "figur": "fodnote",
       "tekst": "Et, to, tre. Alt er på plads. ¹ Jeg er rørt. ² Det står ingen steder, men det er jeg.",
@@ -12510,6 +14046,14 @@
       "kilde": "Svar / rim.sne.spoergsmaal",
       "lavet": "2026-11-15",
       "model": "gemini-3.8-flash-lite-tts"
+    },
+    "1e5609589e0f86": {
+      "figur": "fortaeller",
+      "tekst": "Hvilket stumt bogstav mangler i man_?",
+      "fil": "1e5609589e0f86.ogg",
+      "kilde": "Kampsvar / stumming.mand.spoergsmaal",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
     },
     "1e57032c164a1d": {
       "figur": "vims",
@@ -12561,6 +14105,22 @@
       "fil": "1e68b3121d5d0b.ogg",
       "kilde": "Minder / minde.skaar5a.3",
       "lavet": "2026-11-13"
+    },
+    "1e6c83efc8c3c4": {
+      "figur": "aeseloere",
+      "tekst": "hopede er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "1e6c83efc8c3c4.ogg",
+      "kilde": "Kampsvar / krusedulle.k02.hopede",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "1e6fb67a3d10b7": {
+      "figur": "aeseloere",
+      "tekst": "hoppte er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "1e6fb67a3d10b7.ogg",
+      "kilde": "Kampsvar / krusedulle.k02.hoppte",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "1e7115b9b11653": {
       "figur": "aeseloere",
@@ -12616,12 +14176,28 @@
       "kilde": "Kapitel 3 / hvidesti.ind.2",
       "lavet": "2026-11-09"
     },
+    "1e92c55e8c0e6f": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Der skal stå Hvem. Du kan ikke høre h, men det skal med.",
+      "fil": "1e92c55e8c0e6f.ogg",
+      "kilde": "Kampsvar / stumming.hvem",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1e94f5ab02017c": {
       "figur": "raaber",
       "tekst": "Vagten fandt små, sorte fodspor ved springvandet.",
       "fil": "1e94f5ab02017c.ogg",
       "kilde": "Råberens tegn / raab-14",
       "lavet": "2026-11-03"
+    },
+    "1e959c9b250190": {
+      "figur": "aeseloere",
+      "tekst": "Du skifter fortæller. Se på den første sætning. Hvem handler den om?",
+      "fil": "1e959c9b250190.ogg",
+      "kilde": "Kampsvar / tvivl.f02.Du",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "1e9b198e210cea": {
       "figur": "fortaeller",
@@ -12652,6 +14228,14 @@
       "fil": "1ea1bdfdd43c06.ogg",
       "kilde": "Kapitel 7 / k7-fristelse.3",
       "lavet": "2026-11-10"
+    },
+    "1ea3eb046d923d": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Siderne er den rigtige stavemåde.",
+      "fil": "1ea3eb046d923d.ogg",
+      "kilde": "Kampsvar / krusedulle.k09.Siderne",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "1ea3f745b7844d": {
       "figur": "klatten",
@@ -12839,6 +14423,14 @@
       "kilde": "Kapitel 4 / k4-ekko-slut.3",
       "lavet": "2026-11-09"
     },
+    "1efdaa6265d814": {
+      "figur": "aeseloere",
+      "tekst": "Klatten peger på svømte. Den fejl har jeg selv lavet engang. Det er ikke den.",
+      "fil": "1efdaa6265d814.ogg",
+      "kilde": "Kampsvar / klatten.k07.svømte",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1f0c15c957fa83": {
       "figur": "fortaeller",
       "tekst": "Hvordan staves trapen rigtigt?",
@@ -12934,6 +14526,14 @@
       "fil": "1f32832fa540f5.ogg",
       "kilde": "Minder / minde.soeskendet.3",
       "lavet": "2026-11-13"
+    },
+    "1f33719c99bc74": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Der skal stå hjem. Du kan ikke høre h, men det skal med.",
+      "fil": "1f33719c99bc74.ogg",
+      "kilde": "Kampsvar / stumming.hjem",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
     },
     "1f410d6a60ee7a": {
       "figur": "fortaeller",
@@ -13168,6 +14768,14 @@
       "kilde": "Stumme bogstaver / guld.saetning",
       "lavet": "2026-11-04"
     },
+    "1fc55b2015687d": {
+      "figur": "aeseloere",
+      "tekst": "bordne er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "1fc55b2015687d.ogg",
+      "kilde": "Kampsvar / krusedulle.k05.bordne",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1fc6fa848e4bf0": {
       "figur": "fortaeller",
       "tekst": "Klatten bliver lille og grå. Du ved, hvordan det føles. Fejl er ikke farlige. Det er grinet, der gør ondt.",
@@ -13320,6 +14928,14 @@
       "lavet": "2026-11-16",
       "model": "gemini-3.8-flash-lite-tts"
     },
+    "1ffbb36f08e11e": {
+      "figur": "aeseloere",
+      "tekst": "Ja. sendte er den rigtige stavemåde.",
+      "fil": "1ffbb36f08e11e.ogg",
+      "kilde": "Kampsvar / krusedulle.k11.sendte",
+      "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1fff5fb1f46634": {
       "figur": "fortaeller",
       "tekst": "Hjælp prinsessen med at finde det, et eventyr skal have.",
@@ -13330,5 +14946,5 @@
   },
   "model": "gemini-3.8-flash-tts",
   "i_alt": 2164,
-  "mangler": 381
+  "mangler": 179
 }
