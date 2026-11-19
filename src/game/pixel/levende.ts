@@ -103,8 +103,8 @@ export function aabenMund(kort: Tegnkort, felt: Felt): Tegnkort {
   if (mund.length === 0) return kort;
   const { gitter, palet } = kopi(kort);
   const farve = palet[kort.raekker[mund[0][1]][mund[0][0]]];
-  const indeni = nytBogstav(palet, '#2a1418');
-  palet[indeni] = '#2a1418';
+  const indeni = nytBogstav(palet, '#1b1b24');
+  palet[indeni] = '#1b1b24';
   const erMund = (x: number, y: number) => mund.some(([a, b]) => a === x && b === y);
   const laebe = nytBogstav(palet, farve);
   palet[laebe] = farve;

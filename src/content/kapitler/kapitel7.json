@@ -40,12 +40,12 @@
         "################################"
       ],
       "objekter": [
-        { "id": "prinsesse", "navn": "Prinsesse Hilde ved tårnet", "x": 0, "y": 0, "w": 0, "h": 0, "form": "prinsesse", "farve": "#c9a46a", "felt": [5, 7] },
-        { "id": "lup", "navn": "Kommissær Lup", "x": 0, "y": 0, "w": 0, "h": 0, "form": "lup", "farve": "#c9a46a", "felt": [27, 6], "frivillig": "mission" },
-        { "id": "grumsen", "navn": "Grumsen i det mørke hus", "x": 0, "y": 0, "w": 0, "h": 0, "form": "grumsen", "farve": "#c9a46a", "felt": [6, 15] },
-        { "id": "bip", "navn": "Robotten Bip", "x": 0, "y": 0, "w": 0, "h": 0, "form": "bip", "farve": "#c9a46a", "felt": [26, 15] },
-        { "id": "fodnote", "navn": "Fru Fodnote", "x": 0, "y": 0, "w": 0, "h": 0, "form": "fodnote", "farve": "#c9a46a", "felt": [18, 11] },
-        { "id": "rimfod", "navn": "Rimfod", "x": 0, "y": 0, "w": 0, "h": 0, "form": "rimfod", "farve": "#c9a46a", "felt": [13, 11] },
+        { "id": "prinsesse", "navn": "Prinsesse Hilde ved tårnet", "x": 0, "y": 0, "w": 0, "h": 0, "form": "prinsesse", "farve": "#d9b56f", "felt": [5, 7] },
+        { "id": "lup", "navn": "Kommissær Lup", "x": 0, "y": 0, "w": 0, "h": 0, "form": "lup", "farve": "#d9b56f", "felt": [27, 6], "frivillig": "mission" },
+        { "id": "grumsen", "navn": "Grumsen i det mørke hus", "x": 0, "y": 0, "w": 0, "h": 0, "form": "grumsen", "farve": "#d9b56f", "felt": [6, 15] },
+        { "id": "bip", "navn": "Robotten Bip", "x": 0, "y": 0, "w": 0, "h": 0, "form": "bip", "farve": "#d9b56f", "felt": [26, 15] },
+        { "id": "fodnote", "navn": "Fru Fodnote", "x": 0, "y": 0, "w": 0, "h": 0, "form": "fodnote", "farve": "#d9b56f", "felt": [18, 11] },
+        { "id": "rimfod", "navn": "Rimfod", "x": 0, "y": 0, "w": 0, "h": 0, "form": "rimfod", "farve": "#d9b56f", "felt": [13, 11] },
         {
           "id": "klatten",
           "navn": "Klatten",
@@ -54,17 +54,17 @@
           "w": 0,
           "h": 0,
           "form": "gnom",
-          "farve": "#c9a46a",
+          "farve": "#d9b56f",
           "hvis": {
             "venlighed": 1
           },
           "felt": [18, 8]
         },
-        { "id": "ufaerdige", "navn": "Den Ufærdige", "x": 0, "y": 0, "w": 0, "h": 0, "form": "ufaerdige", "farve": "#c9a46a", "visFra": "k7-fristelse", "skjulFra": "k7-kamp-slut", "felt": [16, 4] },
-        { "id": "spor1", "navn": "et spor af blæk", "x": 0, "y": 0, "w": 0, "h": 0, "form": "spor", "farve": "#c9a46a", "frivillig": "blad", "felt": [22, 3] },
-        { "id": "spor2", "navn": "et spor af blæk", "x": 0, "y": 0, "w": 0, "h": 0, "form": "spor", "farve": "#c9a46a", "frivillig": "blad", "felt": [29, 9] },
-        { "id": "spor3", "navn": "et spor af blæk", "x": 0, "y": 0, "w": 0, "h": 0, "form": "spor", "farve": "#c9a46a", "frivillig": "blad", "felt": [9, 17] },
-        { "id": "halvbro", "navn": "skiltet ved den halve bro", "x": 0, "y": 0, "w": 0, "h": 0, "form": "skilt", "farve": "#c9a46a", "frivillig": "udflugt", "udflugt": "halvebroen", "felt": [1, 10] }
+        { "id": "ufaerdige", "navn": "Den Ufærdige", "x": 0, "y": 0, "w": 0, "h": 0, "form": "ufaerdige", "farve": "#d9b56f", "visFra": "k7-fristelse", "skjulFra": "k7-kamp-slut", "felt": [16, 4] },
+        { "id": "spor1", "navn": "et spor af blæk", "x": 0, "y": 0, "w": 0, "h": 0, "form": "spor", "farve": "#d9b56f", "frivillig": "blad", "felt": [22, 3] },
+        { "id": "spor2", "navn": "et spor af blæk", "x": 0, "y": 0, "w": 0, "h": 0, "form": "spor", "farve": "#d9b56f", "frivillig": "blad", "felt": [29, 9] },
+        { "id": "spor3", "navn": "et spor af blæk", "x": 0, "y": 0, "w": 0, "h": 0, "form": "spor", "farve": "#d9b56f", "frivillig": "blad", "felt": [9, 17] },
+        { "id": "halvbro", "navn": "skiltet ved den halve bro", "x": 0, "y": 0, "w": 0, "h": 0, "form": "skilt", "farve": "#d9b56f", "frivillig": "udflugt", "udflugt": "halvebroen", "felt": [1, 10] }
       ]
     },
     "halvebroen": {
@@ -76,7 +76,7 @@
       },
       "ordsten": "genre",
       "objekter": [
-        { "id": "maal", "navn": "enden af den halve bro", "x": 0, "y": 0, "w": 0, "h": 0, "form": "maal", "farve": "#c9a46a" }
+        { "id": "maal", "navn": "enden af den halve bro", "x": 0, "y": 0, "w": 0, "h": 0, "form": "maal", "farve": "#d9b56f" }
       ],
       "bane": [
         "....................................................................................................",

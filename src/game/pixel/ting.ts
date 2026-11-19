@@ -2,7 +2,7 @@
 import type { TingId } from '../../engine/taske';
 import type { Tegnkort } from './sprites';
 
-const K = '#2b2433'; // kontur
+const K = '#222222'; // kontur
 
 export const TING_IKONER: Record<TingId, Tegnkort> = {
   lanterne: {
@@ -10,48 +10,48 @@ export const TING_IKONER: Record<TingId, Tegnkort> = {
       '....kkkk....', '...k....k...', '..kkkkkkkk..', '..kLLLLLLk..', '..kLYYYYLk..', '..kLYyyYLk..',
       '..kLYyyYLk..', '..kLYYYYLk..', '..kLLLLLLk..', '..kkkkkkkk..', '...kbbbbk...', '....kkkk....',
     ],
-    palet: { k: K, L: '#c9a46a', Y: '#ffd76a', y: '#fff6d0', b: '#6b4a2b' },
+    palet: { k: K, L: '#d9b56f', Y: '#f0c45a', y: '#f4efe0', b: '#6b4a2b' },
   },
   kappe: {
     raekker: [
       '....kkkk....', '...kssssk...', '..ksssssskk.', '..kssssssk..', '.kssssssssk.', '.ksssbssssk.',
       '.kssssssbsk.', 'kssssssssssk', 'ksbssssssssk', 'kssssssbsssk', 'kssssssssssk', '.kkkkkkkkkk.',
     ],
-    palet: { k: K, s: '#3a3550', b: '#141629' },
+    palet: { k: K, s: '#3a3560', b: '#1b1b24' },
   },
   logbog: {
     raekker: [
       '............', '.kkkkkkkkkk.', '.kbbbbbbbbk.', '.kbppppppbk.', '.kbpllllpbk.', '.kbppppppbk.',
       '.kbpllllpbk.', '.kbppppppbk.', '.kbbbbbbbbk.', '.kbbbbbbbrk.', '.kkkkkkkkrk.', '.........r..',
     ],
-    palet: { k: K, b: '#7a3b2e', p: '#f4f1ea', l: '#b9b0a0', r: '#c94a4a' },
+    palet: { k: K, b: '#7a2e1f', p: '#f4efe0', l: '#c4ab7c', r: '#c0503e' },
   },
   punktum: {
     raekker: [
       '............', '............', '....kkkk....', '...kppppk...', '..kpgpppppk.', '..kpppppppk.',
       '..kpppppppk.', '..kpppppppk.', '...kppppk...', '....kkkk....', '............', '............',
     ],
-    palet: { k: K, p: '#1d2140', g: '#8fb3e8' },
+    palet: { k: K, p: '#1a1e36', g: '#698fc1' },
   },
   krummer: {
     raekker: [
       '............', '..kk........', '.kggk...kk..', '.kgk...kggk.', '..k....kgk..', '.....kk.k...',
       '....kggk....', '....kgk..kk.', '.kk..k..kggk', 'kggk.....kk.', '.kk.........', '............',
     ],
-    palet: { k: K, g: '#c9c2d6' },
+    palet: { k: K, g: '#b9bfcf' },
   },
   rimsten: {
     raekker: [
       '............', '....kkkk....', '..kkssssk...', '.kssssssskk.', '.ksslssssk..', 'kssssssslsk.',
       'ksssslssssk.', 'kssssssssssk', '.ksssssssssk', '..kkssssskk.', '....kkkkk...', '............',
     ],
-    palet: { k: K, s: '#8a8f9e', l: '#c9dcf2' },
+    palet: { k: K, s: '#8a8a8a', l: '#c9dcf2' },
   },
   haefte: {
     raekker: [
       '.kkkkkkkkk..', '.kgggggggkk.', '.kgggggggkfk', '.kggppppgkkk', '.kggggggggk.', '.kggppppggk.',
       '.kggggggggk.', '.kggppppggk.', '.kggggggggk.', '.kggggggggk.', '.kggggggggk.', '.kkkkkkkkkk.',
     ],
-    palet: { k: K, g: '#4f8a4a', p: '#a8d49a', f: '#f4f1ea' },
+    palet: { k: K, g: '#2e8b57', p: '#5aa572', f: '#f4efe0' },
   },
 };

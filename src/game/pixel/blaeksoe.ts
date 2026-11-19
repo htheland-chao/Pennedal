@@ -25,7 +25,7 @@ export const KRUSEDULLE: Tegnkort = {
     '...K....KK......',
     '..K.............',
   ],
-  palet: { K: '#14121f', W: '#f4efe0', E: '#14121f' },
+  palet: { K: '#1b1b24', W: '#f4efe0', E: '#1b1b24' },
 };
 
 /** Postsneglen: en langsom snegl med et hus af sammenrullet papir og en lille postsæk. */
@@ -46,13 +46,13 @@ export const POSTSNEGL: Tegnkort = {
     '..KSSSSSSSSSSSSSSK',
     '...KKKKKKKKKKKKKK.',
   ],
-  palet: { K: '#2a2433', P: '#efe3c4', p: '#b9a78a', E: '#1b1b24', S: '#9ab08a', B: '#a0703f', b: '#c9a46a' },
+  palet: { K: '#222222', P: '#f3ead2', p: '#c4ab7c', E: '#1b1b24', S: '#a7aab8', B: '#a96e48', b: '#d9b56f' },
 };
 
 /** Et brev, der er faldet i søen: en lille, våd konvolut uden bogstaver. */
 export const BREV: Tegnkort = {
   raekker: ['KKKKKKKKKK', 'KWwWWWWwWK', 'KWWwWWwWWK', 'KWWWwwWWWK', 'KWWWWWWWWK', 'KWWWWWWbbK', 'KKKKKKKKKK'],
-  palet: { K: '#3a3550', W: '#f4efe0', w: '#c9c2d6', b: '#2a2e58' },
+  palet: { K: '#3a3560', W: '#f4efe0', w: '#b9bfcf', b: '#2a2f48' },
 };
 
 /**
@@ -103,6 +103,6 @@ export function hytte(): Tegnkort {
   }
   return {
     raekker: rk,
-    palet: { K: '#1d1a2a', P: '#efe6d0', Q: '#ddd2b8', p: '#b9ad94', s: '#7d7590', D: '#1a1e3c', y: '#c9a46a', L: '#ffd98a', b: '#14162e' },
+    palet: { K: '#1b1b24', P: '#f3ead2', Q: '#d9d2bd', p: '#c4ab7c', s: '#6a6487', D: '#1a1e36', y: '#d9b56f', L: '#ffe9a8', b: '#222222' },
   };
 }

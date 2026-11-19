@@ -33,7 +33,7 @@ export const RIMFOD: Tegnkort = {
     '....KGGGGK..KGGGGK....',
     '....KKKKKK..KKKKKK....',
   ],
-  palet: { K: '#2a2c38', G: '#8d8a86', g: '#6c6a68', m: '#5f8a54', W: '#f4f1ea', E: '#1b1b24', n: '#75716c' },
+  palet: { K: '#2a2f48', G: '#8a8a8a', g: '#716b60', m: '#468a60', W: '#f4efe0', E: '#1b1b24', n: '#7a7468' },
 };
 
 /** Ekkoet: en hul ring af lyd med to øjne og en rund mund. Det, der er indeni, er tomt. */
@@ -58,7 +58,7 @@ export const EKKO: Tegnkort = {
     '.....K.K..K.K.....',
     '......K....K......',
   ],
-  palet: { K: '#2c3350', b: '#6f86b0', B: '#9db4d8', c: '#cfe0f4', E: '#f4f8ff', o: '#1b1f33' },
+  palet: { K: '#2a2f48', b: '#698fc1', B: '#a7aab8', c: '#c9dcf2', E: '#f4efe0', o: '#1a1e36' },
 };
 
 /** Bjergets ældste digt: en stentavle med linjer og en revne, hvor det sidste vers er brækket af. */
@@ -83,13 +83,13 @@ export const DIGTSTEN: Tegnkort = {
     'KhhhhhhhhhhhhhhK',
     'KKKKKKKKKKKKKKKK',
   ],
-  palet: { K: '#2a2c38', G: '#a9a6a1', g: '#c9c6c0', d: '#4a4a58', h: '#e8eef6' },
+  palet: { K: '#2a2f48', G: '#a7aab8', g: '#b9bfcf', d: '#4f4a57', h: '#f4efe0' },
 };
 
 /** Gran med sne: papirtræets form med mørkegrønne nåle og sne på den side, lyset kommer fra. */
 export function granMedSne(h: number): Tegnkort {
   const t = papirtrae(h);
-  return { raekker: t.raekker, palet: { ...t.palet, K: '#1f2f33', L: '#eef3f8', S: '#2f5d50', l: '#cdd7e3' } };
+  return { raekker: t.raekker, palet: { ...t.palet, K: '#2a2f48', L: '#f4efe0', S: '#2a5a40', l: '#c9dcf2' } };
 }
 
 /** Ekkostenen på banen: en sten med en spiral af lyd. Lyser, indtil eleven har fundet rimet. */
@@ -107,6 +107,6 @@ export function ekkosten(loest: boolean): Tegnkort {
       'KGggGGGGGGggGK',
       'KKKKKKKKKKKKKK',
     ],
-    palet: { K: '#2a2c38', G: '#8d8a86', g: '#6c6a68', P: loest ? '#cfe0f4' : '#ffe9a8', d: loest ? '#2c3350' : '#e5b84c' },
+    palet: { K: '#2a2f48', G: '#8a8a8a', g: '#716b60', P: loest ? '#c9dcf2' : '#ffe9a8', d: loest ? '#3a3560' : '#e5c03a' },
   };
 }

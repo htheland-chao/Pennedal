@@ -14,7 +14,7 @@ Kort overblik. Hvornår og hvordan hver ting blev lavet, står i `docs/logbog.md
 - **Kampe:** turbaserede med hold, svagheder, Lyt, Forsvar, varslede storangreb, ting fra tasken, bestiarium og blødt nederlag. Levende figurer og egen kampmusik.
 - **Frivilligt indhold:** sidemissioner, udflugter og fyrtårnet efter kapitlets slutning.
 - **Gemning:** kun i elevens browser. Gemmekode version 4, QR-kode og gemmefil. Fru Fodnote kommenterer koden fra kapitel 5.
-- **Grafik:** 16-bit pixelgrafik skråt oppefra. Fin grafik (640 x 360, standard) og hurtig grafik (320 x 180), der skifter af sig selv, hvis det går for langsomt. Én pixelstørrelse i verden, fem slags papirgraner, lys, skygger, partikler, vejr og parallakse. Pergament-og-blæk-udseende i menuer og vinduer.
+- **Grafik:** 16-bit pixelgrafik skråt oppefra. Fin grafik (640 x 360, standard) og hurtig grafik (320 x 180), der skifter af sig selv, hvis det går for langsomt. Én pixelstørrelse i verden, én masterpalet på 64 farver for figurerne (`src/game/pixel/palet.ts`, testet), fem slags papirgraner, lys, skygger, partikler, vejr og parallakse. Pergament-og-blæk-udseende i menuer og vinduer.
 - **Lyd:** Gemini-stemmer pr. figur (to modeller), rumklang, 19 lydeffekter lavet i kode og én original sang pr. tema.
 - **Tilgængelighed:** oplæsning, skriftvalg og -størrelser, "Mindre uhygge", "reducer bevægelse", tastatur og touch.
 - **Lærerkig** på elevens egen computer med lærerkode (`VITE_LAERERKODE`, se README).
@@ -22,6 +22,8 @@ Kort overblik. Hvornår og hvordan hver ting blev lavet, står i `docs/logbog.md
 - **Kodeopbygning** efter Henriks regler: `pages/`, `components/`, `data/`, `lyd/`, én opgave pr. fil, ingen fil over 500 linjer.
 
 ## Beslutninger (Henrik)
+
+- 19. november 2026: Masterpaletten er forslag B (grafik.md-farverne udvidet), 64 farver efter at hud, blond, mørk lilla og varm lys grå kom med. Ny grafik bruger kun den.
 
 - **Chromebook-test (16. november 2026):** Claude skal ikke tænke på eller nævne, om noget er testet på Chromebook. Henrik melder selv tilbage, hvis han oplever fejl.
 
@@ -53,6 +55,7 @@ Kort overblik. Hvornår og hvordan hver ting blev lavet, står i `docs/logbog.md
 - **Hovedfarve i designeren** har kun virkning, når hovedet har hætte eller kasket.
 
 ## Ikke testet
+- **Masterpaletten** gælder kun figurerne på grafikarket. Verdenens jord, huse, lys og CSS bruger stadig egne farver og er ikke tjekket mod paletten.
 - **Udseende-editoren:** set i Chrome i 1366 x 768 og 390 x 844, ikke på en Chromebook. De nye valg er kun set på arket `avatar-nye` og i editoren, ikke i alle kapitlernes scener.
 - **Introens trailer:** kun set i Chrome på en server, ikke på en Chromebook. Med "reducer bevægelse" står klippene stille.
 - **Pergament og blæk:** kun set på forsiden, i dialogen, menuen, tasken og Blækdybet i Chrome. Ikke prøvet på en Chromebook eller med høj kontrast (Windows). Knapperne er 6 pixel højere end før.

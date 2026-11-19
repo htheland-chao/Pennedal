@@ -32,6 +32,8 @@ Prototypen, der viser stilen: "Pennedal set oppefra" (Claude-artefakt). Den er t
 
 ## Palet
 
+**Masterpaletten** (19. november 2026) står i `src/game/pixel/palet.ts`: 64 farver. Al pixelgrafik på grafikarket må kun bruge dem, og testen `src/ark/tjek.test.ts` fejler ellers. Skygger og lyse kanter laves med `moerkere` og `trin`, som tager et trin ned eller op i paletten. Tabellen herunder viser, hvad farverne bruges til. Alle farverne i tabellen står i masterpaletten. Ny farve kun, hvis ingen af de 64 kan bruges: tilføj den i `palet.ts` og her.
+
 | Brug | Farver |
 | --- | --- |
 | Græs | `#3d7a57` `#468a60` `#356c4d` `#4f9467`, strå `#5aa572` |

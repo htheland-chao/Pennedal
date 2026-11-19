@@ -24,9 +24,9 @@
       ],
       "startFelt": [9, 10],
       "objekter": [
-        { "id": "holm", "navn": "hr. Holm", "x": 300, "y": 300, "w": 60, "h": 100, "form": "person", "farve": "#7a5c3e", "felt": [10, 5] },
-        { "id": "logbog", "navn": "logbogen på disken", "x": 520, "y": 250, "w": 90, "h": 50, "form": "bog", "farve": "#c9a46a", "felt": [12, 4] },
-        { "id": "kaeldertrappe", "navn": "trappen til kælderen", "x": 820, "y": 360, "w": 90, "h": 120, "form": "doer", "farve": "#3b2f2a", "felt": [18, 9] }
+        { "id": "holm", "navn": "hr. Holm", "x": 300, "y": 300, "w": 60, "h": 100, "form": "person", "farve": "#8a5a3a", "felt": [10, 5] },
+        { "id": "logbog", "navn": "logbogen på disken", "x": 520, "y": 250, "w": 90, "h": 50, "form": "bog", "farve": "#d9b56f", "felt": [12, 4] },
+        { "id": "kaeldertrappe", "navn": "trappen til kælderen", "x": 820, "y": 360, "w": 90, "h": 120, "form": "doer", "farve": "#3a2a20", "felt": [18, 9] }
       ]
     },
     "kaelder": {
@@ -76,9 +76,9 @@
         "##,,,,,###################"
       ],
       "objekter": [
-        { "id": "klatten", "navn": "Klatten", "x": 560, "y": 380, "w": 50, "h": 70, "form": "gnom", "farve": "#1b1b3a", "felt": [14, 8], "skjulFra": "k1-til-floden" },
-        { "id": "skilt", "navn": "Klattens skilt", "x": 680, "y": 330, "w": 80, "h": 90, "form": "skilt", "farve": "#e8dcc0", "felt": [15, 7] },
-        { "id": "sti", "navn": "stien mod floden", "x": 880, "y": 420, "w": 80, "h": 120, "form": "sti", "farve": "#c2a878", "felt": [24, 8] }
+        { "id": "klatten", "navn": "Klatten", "x": 560, "y": 380, "w": 50, "h": 70, "form": "gnom", "farve": "#1a1e36", "felt": [14, 8], "skjulFra": "k1-til-floden" },
+        { "id": "skilt", "navn": "Klattens skilt", "x": 680, "y": 330, "w": 80, "h": 90, "form": "skilt", "farve": "#f3ead2", "felt": [15, 7] },
+        { "id": "sti", "navn": "stien mod floden", "x": 880, "y": 420, "w": 80, "h": 120, "form": "sti", "farve": "#c4ab7c", "felt": [24, 8] }
       ]
     },
     "floden": {
@@ -104,8 +104,8 @@
         "#,,,,,##################"
       ],
       "objekter": [
-        { "id": "bro", "navn": "den brudte bro", "x": 520, "y": 330, "w": 200, "h": 80, "form": "bro", "farve": "#8a6a45", "felt": [14, 5] },
-        { "id": "broen", "navn": "broen", "x": 520, "y": 330, "w": 200, "h": 80, "form": "broplanker", "farve": "#8a6a45", "felt": [14, 5], "visFra": "k1-over-floden" }
+        { "id": "bro", "navn": "den brudte bro", "x": 520, "y": 330, "w": 200, "h": 80, "form": "bro", "farve": "#8a7656", "felt": [14, 5] },
+        { "id": "broen", "navn": "broen", "x": 520, "y": 330, "w": 200, "h": 80, "form": "broplanker", "farve": "#8a7656", "felt": [14, 5], "visFra": "k1-over-floden" }
       ]
     },
     "fyrtaarn": {
@@ -130,7 +130,7 @@
         "##########,.,#########"
       ],
       "objekter": [
-        { "id": "lanterne", "navn": "Mor Lanterne", "x": 600, "y": 380, "w": 60, "h": 100, "form": "person", "farve": "#b0413e", "felt": [13, 8], "lys": true }
+        { "id": "lanterne", "navn": "Mor Lanterne", "x": 600, "y": 380, "w": 60, "h": 100, "form": "person", "farve": "#a83b33", "felt": [13, 8], "lys": true }
       ]
     }
   },

@@ -1,7 +1,8 @@
 /**
- * Tjek af pixelgrafik (docs/grafik.md): størrelse, farver og at paletten er hel.
+ * Tjek af pixelgrafik (docs/grafik.md): størrelse, farver, at paletten er hel og at alle farver står i masterpaletten.
  * Ren logik uden DOM, så både testen og grafikarket (npm run grafik:ark) kan bruge den.
  */
+import { iPaletten } from '../game/pixel/palet';
 import type { Tegnkort } from '../game/pixel/sprites';
 
 /** Over så mange farver pr. figur skriver arket "mange farver". Det er en vejledning, ikke et krav. */
@@ -14,6 +15,8 @@ export type TegnkortInfo = {
   farver: number;
   /** Tegn i rækkerne, som ikke findes i paletten (ville gå i stykker, når figuren tegnes). */
   mangler: string[];
+  /** Farver i brug, som ikke står i masterpaletten (src/game/pixel/palet.ts). */
+  udenforPalet: string[];
   /** Rækkerne har ikke alle samme bredde. */
   uens: boolean;
 };
@@ -27,6 +30,7 @@ export function tegnkortInfo(t: Tegnkort): TegnkortInfo {
     h: t.raekker.length,
     farver: brugt.size,
     mangler: [...brugt].filter((k) => !(k in t.palet)),
+    udenforPalet: [...new Set([...brugt].filter((k) => k in t.palet && !iPaletten(t.palet[k])).map((k) => t.palet[k].toLowerCase()))],
     uens: t.raekker.some((r) => r.length !== b),
   };
 }

@@ -12,6 +12,7 @@
  */
 import type { Tegnkort } from './sprites';
 import { moerkere } from './sprites';
+import { trin } from './palet';
 
 const TOM = '.';
 
@@ -21,7 +22,7 @@ export const FIN_FIGUR_I_VERDEN = false;
 function lysere(hex: string, faktor = 0.22): string {
   const n = parseInt(hex.slice(1), 16);
   const k = (v: number) => Math.min(255, Math.round(v + (255 - v) * faktor));
-  return `#${((k((n >> 16) & 255) << 16) | (k((n >> 8) & 255) << 8) | k(n & 255)).toString(16).padStart(6, '0')}`;
+  return trin(hex, `#${((k((n >> 16) & 255) << 16) | (k((n >> 8) & 255) << 8) | k(n & 255)).toString(16).padStart(6, '0')}`, 1);
 }
 
 /** Scale2x (EPX): hver pixel bliver fire, og hjørnerne følger skrå kanter. */

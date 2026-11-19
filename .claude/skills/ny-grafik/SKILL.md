@@ -11,7 +11,7 @@ Læs først `docs/grafik.md` (mål, palet, lys). Reglerne her er de vigtigste.
 
 - **Én pixelstørrelse.** Figurer og verden har samme pixelstørrelse. Ingen opskalerede eller nedskalerede figurer på kortet og i banerne. Lys, glød og vignet må være bløde.
 - **Mål:** felter 16 x 16, mennesker 16 x 24, portrætter 24 x 24.
-- **Palet:** brug farverne fra `docs/grafik.md` eller den palet, tingen hører til (fx papirpaletten for træerne i `src/game/pixel/papirgraner.ts`).
+- **Palet:** kun de 64 farver i `src/game/pixel/palet.ts` (masterpaletten). Testen på grafikarket fejler ved andre farver. Skygger med `moerkere` (et trin ned i paletten), lys kant med `trin(farve, maal, 1)`. Lånt grafik farves om med `naermesteFarve` og rettes i hånden, hvor tonen bliver forkert.
 - **Lys fra venstre.** Mørkt omrids `#2a2f48` eller `#1b1b24` på figurer. Intet omrids på jord og fliser.
 - **Ingen tilfældig enkeltpixel-støj** som tekstur. Brug klynger.
 - **Ingen bogstaver** i grafikken (krav 1).

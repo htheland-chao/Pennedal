@@ -228,7 +228,7 @@ function tegnDybetKamp(c: HTMLCanvasElement, moerk: boolean): HTMLCanvasElement 
 /** Markøren: en gylden pennespids, der peger på det valgte væsen (9 x 7). */
 export const MARKOER: Tegnkort = {
   raekker: ['KKKK.....', 'KyYYKK...', 'KYYYYYKK.', 'KYYkkkkYK', 'KYYYYYKK.', 'KyYYKK...', 'KKKK.....'],
-  palet: { K: '#2a170f', Y: '#f0c45a', y: '#ffe9a8', k: '#7a2e1f' },
+  palet: { K: '#222222', Y: '#f0c45a', y: '#ffe9a8', k: '#7a2e1f' },
 };
 
 /** Pladsen til hvert væsen (venstre side) og hvert medlem af holdet (højre side), som fodpunkt i 320 x 180. */

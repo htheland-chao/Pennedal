@@ -10,6 +10,16 @@ describe('pixelgrafik', () => {
       for (const e of g.elementer) expect(tegnkortInfo(e.kort).mangler, `${g.id}: ${e.navn}`).toEqual([]);
   });
 
+  it('bruger kun farver fra masterpaletten', () => {
+    const fejl: string[] = [];
+    for (const g of alle)
+      for (const e of g.elementer) {
+        const ude = tegnkortInfo(e.kort).udenforPalet;
+        if (ude.length) fejl.push(`${g.id}: ${e.navn}: ${ude.join(' ')}`);
+      }
+    expect(fejl, 'Brug en farve fra src/game/pixel/palet.ts (naermesteFarve finder den nærmeste)').toEqual([]);
+  });
+
   it('har den forventede størrelse', () => {
     for (const g of alle) {
       if (!g.forventet && !g.ensStoerrelse) continue;
