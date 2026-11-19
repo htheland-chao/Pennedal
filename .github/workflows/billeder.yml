@@ -1,0 +1,73 @@
+name: Billeder
+
+# Laver de faste billeder til billedtesten (e2e/billeder.spec.ts).
+# Billederne skal laves på samme slags maskine som Test-jobbet, ellers giver grafikkort og skrift falske fejl.
+# Derfor laves de kun her og aldrig i Claudes eget miljø.
+#
+# Brug: Actions > Billeder > Run workflow, og vælg grenen.
+# - Kørt på en gren (fx en pull request, der ændrer grafik med vilje): de nye billeder lægges som en commit på grenen.
+# - Kørt på main: de nye billeder lægges i en pull request, som Henrik ser igennem og merger.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: billeder-${{ github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  billeder:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      GREN: ${{ github.ref_name }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Installér Chromium til browsertest
+        run: npx playwright install --with-deps chromium
+      - name: Lav billederne
+        run: npx playwright test e2e/billeder.spec.ts --update-snapshots=all
+        env:
+          CI: 'true'
+          BILLEDER_OPDATER: '1'
+      - name: Gem billederne som artefakt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: billeder
+          path: e2e/billeder.spec.ts-snapshots/
+          retention-days: 14
+      - name: Læg billederne på grenen eller i en pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add e2e/billeder.spec.ts-snapshots
+          if git diff --cached --quiet; then
+            echo "Billederne er uændrede."
+            exit 0
+          fi
+          if [ "$GREN" = "main" ]; then
+            ny="billeder/opdater"
+            git checkout -B "$ny"
+            git commit -m "Billedtest: nye faste billeder"
+            git push --force origin "$ny"
+            if [ -z "$(gh pr list --head "$ny" --state open --json number --jq '.[].number')" ]; then
+              gh pr create --base main --head "$ny" --title "Billedtest: nye faste billeder" \
+                --body "Lavet af jobbet Billeder. Se billederne under Files changed, før du merger. Merges ikke automatisk." \
+                || echo "::warning::Kunne ikke lave pull request. Lav den selv fra grenen $ny."
+            fi
+          else
+            git commit -m "Billedtest: opdaterede faste billeder"
+            git push origin "HEAD:$GREN"
+          fi

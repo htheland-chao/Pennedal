@@ -1,11 +1,13 @@
 # Status for Pennedal
 
-Overdragelsesfil til hver ny session (Claude eller Henrik). Læs den først, og opdatér den i hver pull request, der ændrer noget af det, der står her. Sidst opdateret 9. november 2026.
+Overdragelsesfil til hver ny session (Claude eller Henrik). Læs den først, og opdatér den i hver pull request, der ændrer noget af det, der står her. Sidst opdateret 19. november 2026.
 
 Regler og stak står i `CLAUDE.md`. Historien står i `docs/historie.md`, grafikken i `docs/grafik.md`.
 
 ## Hvad der findes
 
+- **Billedtest** (19. november 2026): `e2e/billeder.spec.ts` tager billeder af canvas på 6 steder (Pennedal, torvet, lysningen, tagene, kælderen, søbredden) med hurtig og fin grafik og sammenligner med faste billeder. Uret står stille, tilfældige tal har fast startværdi og oplæsningen er slået fra, så billederne er ens hver gang (kørt tre gange i træk her med samme resultat). Billederne laves kun af GitHub-jobbet Billeder. Indtil jobbet er kørt første gang, springes testen over.
+- **Lånt grafik tilladt** (Henrik, 19. november 2026): krav 9 er ændret. Kun CC0, så længe repoet er offentligt, og alt farves om til spillets palet. Ingen lånt grafik er taget i brug endnu.
 - **Hele spillet, kapitel 1-8, kan spilles.** Kapitel 1 (Pennedal og kælderen), kapitel 2 (byen og trykkeriet med bane og escape room), kapitel 3 (Viskeskoven med turbaserede kampe, platformbanen med viskede planker, sidemissionen Halvsangen, den lange hvide sti og to skår), kapitel 4 (Rimbjerget med Rimfod, ekkostenene, kampen i Ekkokløften, digtet med rim og rytme, Rimfods sætning, den iskolde kam og to skår), kapitel 5 (Fodnoternes kælder med Fru Fodnote, bøgerne der sorteres efter fortæller, kartoteksskabet som escape room, kampen mod Den Tvivlende Sætning, tilbageblikket Skyggen bliver tegnet, twist 1, sidemissionen med fodnotetallene, De høje reoler og to skår) og kapitel 6 (Blæksøen med Klattens hytte, korrektur af Klattens tekster, twist 2 med Æseløre, kampen mod Krusedullerne med Klatten på holdet, Postsneglens breve, stenene over søen og to skår) og kapitel 7 (De halve lande med fire genrer, fristelsen, tilbageblikket Nogen ved skuffen, kampen, hvor holdet afhænger af elevens valg, Kommissær Lups spor, Den halve bro og to skår) og kapitel 8 (Den sidste side med Halvsætningerne, Skyggen, elevens slutning, tilbageblikket Skuffen, den sande slutning og epilogen hos Holm).
 - **Intro, tilbageblik, taske, turbaserede kampe, Og-orm, avatardesigner med pixelgrafik** og baggrundsmusik pr. tema.
 - **Layout** (9. november 2026): spillet fylder skærmen uden rammer. Opgaven står i et lille kort øverst til venstre, taske og menu i hjørnet, Undersøg-knappen nederst i midten. Dialogen er en tekstboks nederst over spillet, menuen glider ind fra højre.

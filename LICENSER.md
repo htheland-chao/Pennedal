@@ -11,4 +11,8 @@
 - **Phaser, React, Vite, qrcode:** MIT-licens.
 - **Dansk ordbog til stavetjekket** (dictionary-da, Stavekontrolden): GPL-2.0, LGPL-2.1 eller MPL-1.1. Bruges kun under udvikling og kommer ikke med i spillet.
 
-Når der kommer rigtig grafik (fx fra Blender eller Kenney.nl), skrives kilde og licens her.
+## Lånt grafik og lyd
+
+Regel (krav 9, 19. november 2026): kun CC0, så længe repoet er offentligt. Hver pakke skrives her med navn, link og licens, før den bruges, og farves om til spillets palet.
+
+Ingen lånt grafik er taget i brug endnu.
