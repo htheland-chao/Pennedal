@@ -9,7 +9,7 @@ import { BLADE, BROPLANKE, FUGL, KLATTEN, LANTERNE, PIL, PLANKE, SKILT, STOLPE, 
 import { GRENPORT, HALVFUGL, ORDBLAD, STUMMING, TOMORD, VIMS } from '../pixel/viskeskov';
 import { DIGTSTEN, EKKO, RIMFOD, granMedSne } from '../pixel/rimbjerg';
 import { LAANTE_TRAEER } from '../pixel/laant/traeer';
-import { laantGrafik } from './laant';
+import { laantGrafik, rundtTrae } from './laant';
 import { FODNOTETAL, FRU_FODNOTE, HAEFTE_KORT, TVIVL, UFAERDIGE_KORT } from '../pixel/arkiv';
 import { BREV, KRUSEDULLE, POSTSNEGL, hytte } from '../pixel/blaeksoe';
 import { BIP, GRUMSEN, LUP, PRINSESSE, SPOR } from '../pixel/halvelande';
@@ -47,14 +47,11 @@ export function moebel(s: KortScene, c: string, tx: number, ty: number, kaelder:
 export function byggGrund(s: KortScene, tema: string, inde: boolean) {
   // Rimbjerget har graner med sne i stedet for papirtræer.
   const bjerg = tema === 'rimbjerg';
-  // Prøve med lånte træer (?laant=1): to runde træer fra Ninja Adventure (i papirets farver) blandet med to af vores
-  // egne papirgraner, så skoven får flere former.
+  // Lånte træer (?laant=1): runde træer fra Ninja Adventure i små grupper mellem vores egne papirgraner.
   const laant = laantGrafik() && !bjerg;
-  const traeer = [22, 26, 30, 34].map((h, i) =>
-    laant && i % 2 === 0
-      ? s.tekstur(`px-trae-laant-${i}`, LAANTE_TRAEER[i])
-      : s.tekstur(`px-trae-${bjerg ? 'gran-' : ''}${i}`, bjerg ? granMedSne(h) : papirtrae(h)),
-  );
+  const rund = laant ? rundtTrae : () => false;
+  const traeer = [22, 26, 30, 34].map((h, i) => s.tekstur(`px-trae-${bjerg ? 'gran-' : ''}${i}`, bjerg ? granMedSne(h) : papirtrae(h)));
+  const rundeTraeer = laant ? LAANTE_TRAEER.map((t, i) => s.tekstur(`px-trae-laant-${i}`, t)) : [];
   s.tekstur('px-klatten', KLATTEN);
   s.tekstur('px-skilt', SKILT);
   s.tekstur('px-blade', BLADE);
@@ -74,8 +71,8 @@ export function byggGrund(s: KortScene, tema: string, inde: boolean) {
     tegnTraeskygger(
       grund0,
       s.kort,
-      [22, 26, 30, 34].map((h, i) => (laant && i % 2 === 0 ? LAANTE_TRAEER[i].raekker[0].length - 4 : Math.round(h * 0.36) * 2 + 1)),
-      laant,
+      [22, 26, 30, 34].map((h) => Math.round(h * 0.36) * 2 + 1),
+      rund,
     );
   const grund =
     tema === 'viskeskov'
@@ -138,7 +135,13 @@ export function byggGrund(s: KortScene, tema: string, inde: boolean) {
       } else if (inde) moebel(s, c, tx, ty, tema === 'kaelder' || tema === 'arkiv');
     }
 
-  for (const t of traePladser(s.kort, laant)) s.traeBilleder.push(s.add.image(t.x, t.y, traeer[t.nr]).setOrigin(0.5, 1).setDepth(t.y));
+  for (const t of traePladser(s.kort, rund))
+    s.traeBilleder.push(
+      s.add
+        .image(t.x, t.y, t.rund ? rundeTraeer[t.nr] : traeer[t.nr])
+        .setOrigin(0.5, 1)
+        .setDepth(t.y),
+    );
 }
 
 /** Stedets figurer og ting: Klatten, skilte, personer, væsner, broen og alt det andet fra kapitlets objekter. */

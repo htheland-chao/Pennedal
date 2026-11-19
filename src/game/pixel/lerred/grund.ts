@@ -236,27 +236,40 @@ export function tegnGrund(kort: Kort): HTMLCanvasElement {
 }
 
 /** Hvor træerne står på kortet. Bruges både til at tegne træerne og til deres skygger. */
-/** enkelt: kun ét træ pr. felt (de lånte træer er 32 pixel brede og ville ellers dække alt). */
-export function traePladser(kort: Kort, enkelt = false): { x: number; y: number; nr: number }[] {
-  const ud: { x: number; y: number; nr: number }[] = [];
+export type TraePlads = { x: number; y: number; nr: number; rund: boolean };
+
+/**
+ * rund: felter med et rundt (lånt) træ. Der står kun ét træ pr. rundt felt, fordi de runde træer er 32 pixel brede
+ * og ellers ville dække alt.
+ */
+export function traePladser(kort: Kort, rund: (tx: number, ty: number) => boolean = () => false): TraePlads[] {
+  const ud: TraePlads[] = [];
   for (let ty = 0; ty < kort.hoejde; ty++)
     for (let tx = 0; tx < kort.bredde; tx++) {
       if (kort.tegn(tx, ty) !== '#') continue;
       const a = hash(tx * 7 + 3, ty * 13 + 1);
       const b = hash(tx * 5 + 1, ty * 3 + 7);
-      ud.push({ x: tx * FELT + 8 + (a - 0.5) * 8, y: ty * FELT + 13 + (b - 0.5) * 6, nr: Math.floor(a * 4) });
-      if (!enkelt && b > 0.55) ud.push({ x: tx * FELT + 8 + (b - 0.5) * 14, y: ty * FELT + 4 + a * 4, nr: Math.floor(b * 3) });
+      const r = rund(tx, ty);
+      ud.push({ x: tx * FELT + 8 + (a - 0.5) * 8, y: ty * FELT + 13 + (b - 0.5) * 6, nr: Math.floor(a * 4), rund: r });
+      if (!r && b > 0.55) ud.push({ x: tx * FELT + 8 + (b - 0.5) * 14, y: ty * FELT + 4 + a * 4, nr: Math.floor(b * 3), rund: false });
     }
   return ud;
 }
 
 /** Bløde skygger under træerne, skråt mod højre. Midten er mørkest, kanten er ditheret. */
-export function tegnTraeskygger(c: HTMLCanvasElement, kort: Kort, bredder: number[], enkelt = false) {
+/** rundBredde: skyggens bredde under de runde træer. */
+export function tegnTraeskygger(
+  c: HTMLCanvasElement,
+  kort: Kort,
+  bredder: number[],
+  rund: (tx: number, ty: number) => boolean = () => false,
+  rundBredde = 28,
+) {
   const g = c.getContext('2d')!;
   const img = g.getImageData(0, 0, c.width, c.height);
   const p = img.data;
-  for (const t of traePladser(kort, enkelt)) {
-    const rx = Math.round(bredder[t.nr] * 0.55);
+  for (const t of traePladser(kort, rund)) {
+    const rx = Math.round((t.rund ? rundBredde : bredder[t.nr]) * 0.55);
     const ry = Math.max(2, Math.round(rx * 0.45));
     const cx = Math.round(t.x + 3);
     const cy = Math.round(t.y - 1);
