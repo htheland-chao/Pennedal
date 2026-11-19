@@ -5,11 +5,18 @@
  * 2. Omridset bliver tyndt (én fin pixel), og den inderste halvdel bliver en mørk kant af stoffet.
  * 3. Lys fra oven til venstre: en lys kant øverst og til venstre, skygge nederst og til højre.
  * Kun brugt med fin grafik. Hurtig grafik bruger den almindelige figur.
+ *
+ * Slået fra på kortet og i banerne (19. november 2026): en figur med dobbelt så mange pixel ved siden af en verden
+ * i almindelige pixel giver to pixelstørrelser på skærmen ("mixels"), som gør grafikken uens. Kampvinduet og
+ * introen bruger den stadig, fordi figuren der står alene. Sæt FIN_FIGUR_I_VERDEN til true for at få den tilbage.
  */
 import type { Tegnkort } from './sprites';
 import { moerkere } from './sprites';
 
 const TOM = '.';
+
+/** Fin hovedperson på kortet og i banerne. Slået fra 19. november 2026 (se øverst). */
+export const FIN_FIGUR_I_VERDEN = false;
 
 function lysere(hex: string, faktor = 0.22): string {
   const n = parseInt(hex.slice(1), 16);

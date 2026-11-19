@@ -284,6 +284,14 @@ legend {
 .spilflade-pixel canvas {
   image-rendering: pixelated;
 }
+/*
+ * Fin grafik (19. november 2026): lærredet er 640 x 360, og hver spilpixel er allerede 2 x 2. Med "pixelated" bliver
+ * nogle pixel 4 og andre 5 skærmpixel brede ved 1366 x 768 (4,27 gange), så kanterne flimrer, når kameraet går.
+ * Med almindelig udjævning bliver kun kanten blød i én skærmpixel, og alle pixel bliver lige store ("sharp bilinear").
+ */
+.spilflade-bloed canvas {
+  image-rendering: auto;
+}
 .spilflade:focus-visible {
   outline-offset: -4px;
 }
