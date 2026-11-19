@@ -25,6 +25,7 @@ Opdatér kun en version efter at have slået den op i npm og kørt alle tests.
 - `npm test` - enhedstests og stavetjek af al dansk tekst. Skal være grøn før hver pull request.
 - `npm run test:e2e` - spiller kapitel 1 igennem i Chrome.
 - `npm run typecheck`, `npm run build`, `npm run korrektur`.
+- Billedtest: `e2e/billeder.spec.ts` sammenligner spillets grafik på 6 steder med faste billeder. Billederne laves kun af GitHub-jobbet Billeder (`.github/workflows/billeder.yml`), aldrig lokalt. Ændrer en pull request grafikken med vilje: kør Billeder på grenen, se de nye billeder, og skriv i pull requesten, hvilke der er ændret.
 - `npm run grafik:ark` - tegner alle pixelfigurer på ét ark og gemmer billeder i `test-results/ark/`. Se dem selv, før grafik afleveres.
 - Gemini er betalt (31. oktober 2026). Lydjobbet laver op til 300 klip pr. kørsel.
 - `npm run lyd:status` - opdaterer `public/lyd/manifest.json`. Selve lydklippene laves kun af GitHub-jobbet Lyd (`.github/workflows/lyd.yml`), fordi Googles API er blokeret i Claudes miljø.
@@ -39,7 +40,7 @@ Opdatér kun en version efter at have slået den op i npm og kørt alle tests.
 6. **Feedback forklarer altid** med en regel og et eksempel. Skriv aldrig bare "forkert".
 7. **Alt kan styres med tastatur og touch.** Synligt fokus. Indstillingen "Mindre uhygge" respekteres.
 8. **Chromebook-budget:** højst 1366 x 768, mål 60 og aldrig under 30 billeder pr. sekund på Gen 2 med 4 GB RAM, første indlæsning under 10 MB.
-9. **Originalt univers.** Ingen lånte figurer, navne eller grafik. Al grafik og lyd har en licens, der står i `LICENSER.md`.
+9. **Eget univers, lånt grafik tilladt** (Henrik, 19. november 2026). Navne, figurernes navne og historien er vores egne. Grafik og lyd må lånes, men kun under CC0, så længe repoet er offentligt (pakker, der forbyder videredeling, kan ikke ligge her). Hver pakke står i `LICENSER.md` med navn, link og licens, og farves om til spillets palet, før den bruges. Ingen genkendelige figurer fra andre spil, film eller bøger.
 10. **Ingen fritekst mellem elever**, heller ikke senere i en lobby.
 
 ## Indhold og opbygning
