@@ -6,7 +6,6 @@ import { belysning, lavLys, lysOpsaetning, tegnkortTilLerred, VARMT, type Farve 
 import { erInde } from './pixel/inde';
 import { aande, gangRamme, hvileTilstand, lukOejne } from './pixel/liv';
 import { stedTone, type Partikel } from './stemning';
-import { FIN_FIGUR_I_VERDEN, finFigur } from './pixel/fin';
 import { avatarPixel, type Retning, type Tegnkort } from './pixel/sprites';
 import { type VerdenData, type VerdenKroge } from './typer';
 import { VIS_B, VIS_H, SKALA, skarpZoom } from './kort/skala';
@@ -139,17 +138,14 @@ export class KortScene extends Phaser.Scene {
   byggAvatar() {
     const a = this.registry.get('avatar') as Avatar | undefined;
     if (!a) return;
-    const fin = SKALA >= 2 && FIN_FIGUR_I_VERDEN;
     for (const r of ['ned', 'op', 'hoejre'] as const)
       for (const f of [0, 1, 2] as const) {
         const t = avatarPixel(a, r, f);
-        // Fin hovedperson (32 x 48) er slået fra: én pixelstørrelse i hele verden (se pixel/fin.ts).
-        const lav = (k: Tegnkort) => (fin ? finFigur(k) : k);
-        this.tekstur(`px-spiller-${r}-${f}`, lav(t), true);
+        this.tekstur(`px-spiller-${r}-${f}`, t, true);
         if (f !== 0) continue;
         // Stå stille: blinke (ikke bagfra) og trække vejret. Hoften er række 16 i hovedpersonens 24 rækker.
-        this.tekstur(`px-spiller-${r}-0-blink`, lav((r !== 'op' && lukOejne(t, ['E', 'W'])) || t), true);
-        this.tekstur(`px-spiller-${r}-0-aande`, lav(aande(t, 16)), true);
+        this.tekstur(`px-spiller-${r}-0-blink`, (r !== 'op' && lukOejne(t, ['E', 'W'])) || t, true);
+        this.tekstur(`px-spiller-${r}-0-aande`, aande(t, 16), true);
       }
     this.lanterne?.setVisible(a.tilbehoer === 3);
   }
@@ -197,8 +193,7 @@ export class KortScene extends Phaser.Scene {
     this.spillerSkygge = this.add.image(start.x, start.y, 'px-skygge').setOrigin(0.5, 0.5);
     this.spiller = this.add
       .image(start.x, start.y, 'px-spiller-op-0')
-      .setOrigin(0.5, 1)
-      .setScale(SKALA >= 2 && FIN_FIGUR_I_VERDEN ? 0.5 : 1);
+      .setOrigin(0.5, 1);
     this.lanterne = this.add.image(start.x, start.y, 'px-lanterne').setOrigin(0.5, 1);
     this.lanterne.setVisible((this.registry.get('avatar') as Avatar | undefined)?.tilbehoer === 3);
     this.fugl = this.add
