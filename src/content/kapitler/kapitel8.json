@@ -32,11 +32,11 @@
         "############################"
       ],
       "objekter": [
-        { "id": "halvsaetning", "navn": "sætningen, der stopper midt i", "x": 0, "y": 0, "w": 0, "h": 0, "form": "halvsaetning", "farve": "#c9a46a", "felt": [9, 9], "skjulFra": "k8-kamp-slut" },
-        { "id": "ufaerdige", "navn": "Den Ufærdige", "x": 0, "y": 0, "w": 0, "h": 0, "form": "ufaerdige", "farve": "#c9a46a", "felt": [14, 4], "skjulFra": "k8-oplaesning" },
-        { "id": "skyggen", "navn": "Skyggen", "x": 0, "y": 0, "w": 0, "h": 0, "form": "skygge", "farve": "#c9a46a", "felt": [14, 4], "visFra": "k8-oplaesning" },
-        { "id": "vims", "navn": "Vims", "x": 0, "y": 0, "w": 0, "h": 0, "form": "vims", "farve": "#c9a46a", "felt": [11, 12] },
-        { "id": "fodnote", "navn": "Fru Fodnote", "x": 0, "y": 0, "w": 0, "h": 0, "form": "fodnote", "farve": "#c9a46a", "felt": [17, 12] },
+        { "id": "halvsaetning", "navn": "sætningen, der stopper midt i", "x": 0, "y": 0, "w": 0, "h": 0, "form": "halvsaetning", "farve": "#d9b56f", "felt": [9, 9], "skjulFra": "k8-kamp-slut" },
+        { "id": "ufaerdige", "navn": "Den Ufærdige", "x": 0, "y": 0, "w": 0, "h": 0, "form": "ufaerdige", "farve": "#d9b56f", "felt": [14, 4], "skjulFra": "k8-oplaesning" },
+        { "id": "skyggen", "navn": "Skyggen", "x": 0, "y": 0, "w": 0, "h": 0, "form": "skygge", "farve": "#d9b56f", "felt": [14, 4], "visFra": "k8-oplaesning" },
+        { "id": "vims", "navn": "Vims", "x": 0, "y": 0, "w": 0, "h": 0, "form": "vims", "farve": "#d9b56f", "felt": [11, 12] },
+        { "id": "fodnote", "navn": "Fru Fodnote", "x": 0, "y": 0, "w": 0, "h": 0, "form": "fodnote", "farve": "#d9b56f", "felt": [17, 12] },
         {
           "id": "klatten",
           "navn": "Klatten",
@@ -45,13 +45,13 @@
           "w": 0,
           "h": 0,
           "form": "gnom",
-          "farve": "#c9a46a",
+          "farve": "#d9b56f",
           "felt": [18, 9],
           "hvis": {
             "venlighed": 1
           }
         },
-        { "id": "lys", "navn": "en dør af hvidt lys", "x": 0, "y": 0, "w": 0, "h": 0, "form": "doer", "farve": "#c9a46a", "felt": [14, 2], "visFra": "k8-hjem" }
+        { "id": "lys", "navn": "en dør af hvidt lys", "x": 0, "y": 0, "w": 0, "h": 0, "form": "doer", "farve": "#d9b56f", "felt": [14, 2], "visFra": "k8-hjem" }
       ]
     },
     "biblioteket": {
@@ -77,7 +77,7 @@
         "KKKKKKKKKddKKKKKKKKK"
       ],
       "objekter": [
-        { "id": "holm", "navn": "hr. Holm", "x": 0, "y": 0, "w": 0, "h": 0, "form": "person", "farve": "#7a5c3e", "felt": [10, 5] }
+        { "id": "holm", "navn": "hr. Holm", "x": 0, "y": 0, "w": 0, "h": 0, "form": "person", "farve": "#8a5a3a", "felt": [10, 5] }
       ]
     }
   },

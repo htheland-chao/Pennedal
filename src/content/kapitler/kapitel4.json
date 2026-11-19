@@ -30,7 +30,7 @@
         "##########################"
       ],
       "objekter": [
-        { "id": "rimfod", "navn": "den store sten på stien", "x": 0, "y": 0, "w": 0, "h": 0, "form": "rimfod", "farve": "#e8eef6", "felt": [13, 9], "skjulFra": "k4-op" }
+        { "id": "rimfod", "navn": "den store sten på stien", "x": 0, "y": 0, "w": 0, "h": 0, "form": "rimfod", "farve": "#f4efe0", "felt": [13, 9], "skjulFra": "k4-op" }
       ]
     },
     "bjergstien": {
@@ -60,7 +60,7 @@
         { "taler": "aeseloere", "tekst": "Ved hvert hul står en ekkosten. Find et ord, der rimer, så kommer stenene tilbage. Lyt til slutningen af ordet." }
       ],
       "objekter": [
-        { "id": "maal", "navn": "vejen ind i kløften", "x": 0, "y": 0, "w": 0, "h": 0, "form": "maal", "farve": "#e8eef6" }
+        { "id": "maal", "navn": "vejen ind i kløften", "x": 0, "y": 0, "w": 0, "h": 0, "form": "maal", "farve": "#f4efe0" }
       ]
     },
     "ekkokloeften": {
@@ -90,8 +90,8 @@
         "##########################"
       ],
       "objekter": [
-        { "id": "ekko", "navn": "ekkoet", "x": 0, "y": 0, "w": 0, "h": 0, "form": "ekko", "farve": "#e8eef6", "felt": [14, 7], "skjulFra": "k4-til-toppen" },
-        { "id": "opgang", "navn": "stien mod toppen", "x": 0, "y": 0, "w": 0, "h": 0, "form": "sti", "farve": "#e8eef6", "felt": [25, 8] }
+        { "id": "ekko", "navn": "ekkoet", "x": 0, "y": 0, "w": 0, "h": 0, "form": "ekko", "farve": "#f4efe0", "felt": [14, 7], "skjulFra": "k4-til-toppen" },
+        { "id": "opgang", "navn": "stien mod toppen", "x": 0, "y": 0, "w": 0, "h": 0, "form": "sti", "farve": "#f4efe0", "felt": [25, 8] }
       ]
     },
     "toppen": {
@@ -121,9 +121,9 @@
         "##########################"
       ],
       "objekter": [
-        { "id": "digtsten", "navn": "tavlen af sten", "x": 0, "y": 0, "w": 0, "h": 0, "form": "digtsten", "farve": "#e8eef6", "felt": [13, 3] },
-        { "id": "rimfod-top", "navn": "Rimfod", "x": 0, "y": 0, "w": 0, "h": 0, "form": "rimfod", "farve": "#e8eef6", "felt": [17, 4], "visFra": "k4-toppen", "frivillig": "mission" },
-        { "id": "kam", "navn": "den iskolde kam", "x": 0, "y": 0, "w": 0, "h": 0, "form": "grenport", "farve": "#e8eef6", "felt": [23, 8], "frivillig": "udflugt", "udflugt": "kammen" }
+        { "id": "digtsten", "navn": "tavlen af sten", "x": 0, "y": 0, "w": 0, "h": 0, "form": "digtsten", "farve": "#f4efe0", "felt": [13, 3] },
+        { "id": "rimfod-top", "navn": "Rimfod", "x": 0, "y": 0, "w": 0, "h": 0, "form": "rimfod", "farve": "#f4efe0", "felt": [17, 4], "visFra": "k4-toppen", "frivillig": "mission" },
+        { "id": "kam", "navn": "den iskolde kam", "x": 0, "y": 0, "w": 0, "h": 0, "form": "grenport", "farve": "#f4efe0", "felt": [23, 8], "frivillig": "udflugt", "udflugt": "kammen" }
       ]
     },
     "kammen": {
@@ -167,7 +167,7 @@
         ]
       },
       "objekter": [
-        { "id": "maal", "navn": "enden af kammen", "x": 0, "y": 0, "w": 0, "h": 0, "form": "maal", "farve": "#e8eef6" }
+        { "id": "maal", "navn": "enden af kammen", "x": 0, "y": 0, "w": 0, "h": 0, "form": "maal", "farve": "#f4efe0" }
       ]
     }
   },

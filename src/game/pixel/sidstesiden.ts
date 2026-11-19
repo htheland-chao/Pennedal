@@ -20,7 +20,7 @@ export const HALVSAETNING: Tegnkort = {
     '..K..K...K..K...',
     '.KK.KK..KK.KK...',
   ],
-  palet: { K: '#2a2433', P: '#f4efe0', s: '#8a8298', W: '#ffffff', E: '#2a2433' },
+  palet: { K: '#222222', P: '#f4efe0', s: '#8a8a8a', W: '#f3ead2', E: '#222222' },
 };
 
 /** Skyggen, når den har fået sin slutning: lille og rund med store, runde øjne og et lille smil. Den er ikke uhyggelig mere. */
@@ -40,5 +40,5 @@ export const LILLE_SKYGGE: Tegnkort = {
     '..KKSSSSSSKK..',
     '...KKK..KKK...',
   ],
-  palet: { K: '#1d1a2a', S: '#3a3560', s: '#55507a', W: '#ffffff', E: '#1d1a2a', m: '#c9c2d6' },
+  palet: { K: '#1b1b24', S: '#3a3560', s: '#5b5663', W: '#f4efe0', E: '#1b1b24', m: '#b9bfcf' },
 };

@@ -23,7 +23,7 @@ export const PRINSESSE: Tegnkort = {
     'KRRRRRRRRRRRK.',
     'KKKKKKKKKKKKK.',
   ],
-  palet: { K: '#2a1f2e', Y: '#e5c03a', H: '#c9773a', S: '#efc49a', E: '#2a1f2e', m: '#b0505a', R: '#7a4bb3', r: '#5a3a8a', s: '#c9d3e4', y: '#8a6a2e' },
+  palet: { K: '#222222', Y: '#e5c03a', H: '#c98d63', S: '#eec1a0', E: '#222222', m: '#c0503e', R: '#7b4bb3', r: '#603979', s: '#c9dcf2', y: '#8a7656' },
 };
 
 /** Kommissær Lup fra krimien uden opklaring: lang frakke, hat og en stor lup. */
@@ -44,7 +44,7 @@ export const LUP: Tegnkort = {
     '.KTTTTTTTTK....',
     '..KKK..KKK.....',
   ],
-  palet: { K: '#1d1a24', B: '#4a4038', S: '#e0b090', E: '#1d1a24', m: '#7a5040', T: '#8a7a5a', t: '#6a5c44', G: '#bfe0f0' },
+  palet: { K: '#1b1b24', B: '#4a3426', S: '#e0a982', E: '#1b1b24', m: '#7a4e33', T: '#8a7656', t: '#5d5243', G: '#c9dcf2' },
 };
 
 /** Grumsen fra gyseren uden monster: et lille, lodent monster i hjemmesko, der er blevet bange for mørket. */
@@ -65,7 +65,7 @@ export const GRUMSEN: Tegnkort = {
     '.KPPK...KPPK..',
     'KPPPPK.KPPPPK.',
   ],
-  palet: { K: '#1d2a24', F: '#5a8a6a', f: '#4a7a5a', W: '#f4efe0', E: '#1d2a24', T: '#f4efe0', t: '#1d2a24', P: '#c0503e' },
+  palet: { K: '#222222', F: '#468a60', f: '#3d7a57', W: '#f4efe0', E: '#222222', T: '#f4efe0', t: '#222222', P: '#c0503e' },
 };
 
 /** Bip fra science fiction-historien: en rund robot med en antenne og et lille skærmansigt. */
@@ -86,11 +86,11 @@ export const BIP: Tegnkort = {
     '.KMMMMMMMMMK..',
     '..KK.....KK...',
   ],
-  palet: { K: '#22283a', M: '#b8c4d6', m: '#8a96aa', k: '#1a2a3a', B: '#7af0c8', b: '#7af0c8', Y: '#ff6a5a' },
+  palet: { K: '#2a2f48', M: '#b9bfcf', m: '#8a8a8a', k: '#1a1e36', B: '#c9dcf2', b: '#c9dcf2', Y: '#c0503e' },
 };
 
 /** Et spor fra Kommissær Lups sag: et lille fodaftryk af blæk. */
 export const SPOR: Tegnkort = {
   raekker: ['.KK..KK.', 'KbbKKbbK', '.KK..KK.', '..KKKK..', '.KbbbbK.', '.KbbbbK.', '..KbbK..', '...KK...'],
-  palet: { K: '#3a3550', b: '#5a4f8a' },
+  palet: { K: '#3a3560', b: '#603979' },
 };

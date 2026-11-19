@@ -4,16 +4,18 @@
  */
 import { avatarDele } from '../../content';
 import type { Avatar } from '../../data/gem';
+import { trin } from './palet';
 
 export type Tegnkort = { raekker: string[]; palet: Record<string, string> };
 export type Retning = 'ned' | 'op' | 'hoejre' | 'venstre';
 
+/** Skygge af en farve: den farve i paletten, der ligner den udregnede skygge mest og er mørkere end hex. */
 export function moerkere(hex: string, faktor = 0.72): string {
   const n = parseInt(hex.slice(1), 16);
   const r = Math.round(((n >> 16) & 255) * faktor);
   const g = Math.round(((n >> 8) & 255) * faktor);
   const b = Math.round((n & 255) * faktor);
-  return `#${((r << 16) | (g << 8) | b).toString(16).padStart(6, '0')}`;
+  return trin(hex, `#${((r << 16) | (g << 8) | b).toString(16).padStart(6, '0')}`, -1);
 }
 
 // ---------- Hovedpersonen (16 x 24) ----------
@@ -367,9 +369,9 @@ export function avatarPixel(a: Avatar, retning: Retning, ramme: 0 | 1 | 2): Tegn
       S: hud,
       s: moerkere(hud, 0.8),
       E: farve('oejenfarve', a.oejenfarve ?? 0),
-      W: '#ffffff',
+      W: '#f4efe0',
       w: '#f4efe0',
-      R: '#e88a8a',
+      R: '#e595a9',
       M: '#8e3428',
       G: '#2a2f48',
       T: toej,
@@ -378,8 +380,8 @@ export function avatarPixel(a: Avatar, retning: Retning, ramme: 0 | 1 | 2): Tegn
       B: farve('sko', a.sko ?? 0),
       F: moerkere(hud, 0.62),
       Y: '#f0c45a',
-      A: '#8a5a32',
-      a: '#5a3a20',
+      A: '#8a5a3a',
+      a: '#6b3f27',
       k: moerkere(toej, 0.5),
     },
   };
@@ -388,16 +390,16 @@ export function avatarPixel(a: Avatar, retning: Retning, ramme: 0 | 1 | 2): Tegn
 // ---------- Andre figurer og ting ----------
 export const FUGL: Tegnkort = {
   raekker: ['......K.........', '.....KWK........', '....KWWK........', '...KWWwK.....KK.', '..KWWWwK....KWEK', '.KWWWWWKKKKKWWK.', 'KWwWWWWWWWWWWK..', '.KKwwWWWWWWwK...', '...KKwwwwwwK....', '.....KKKKKK.....'],
-  palet: { K: '#2a2f48', W: '#fbf6e8', w: '#d9d2bd', E: '#1b1b24' },
+  palet: { K: '#2a2f48', W: '#f4efe0', w: '#d9d2bd', E: '#1b1b24' },
 };
 
 export const KLATTEN: Tegnkort = {
   raekker: ['......K.......', '......IK......', '.....IIIK.....', '.....IiII.....', '....IIiIIK....', '...KIIIIIIK...', '..KIIIIIIIIK..', '.KIIIOOIOOIIK.', '.KIIIOoIOoIIK.', '.KIIIIIIIIIIK.', '.KIiIIIIIIIIK.', '.KIiIIKKKIIIK.', '.KIIIIIIIIIIK.', 'KIIIIIIIIIIIIK', 'KIIIIIIIIIIIIK', '.KIIKIIIIKIIK.', '..KK.KKKK.KK..'],
-  palet: { K: '#05060f', I: '#1a1e3c', i: '#3a4278', O: '#ffffff', o: '#0b0d1c' },
+  palet: { K: '#070912', I: '#1a1e36', i: '#28467c', O: '#f4efe0', o: '#1b1b24' },
 };
 
 /** En voksen set forfra, fx Mor Lanterne. Farven er tøjets farve. */
-export function voksen(toejFarve: string, haarFarve = '#9a9a9a', hudFarve = '#e0a982'): Tegnkort {
+export function voksen(toejFarve: string, haarFarve = '#8a8a8a', hudFarve = '#e0a982'): Tegnkort {
   return {
     raekker: [
       '.....KKKKK......', '....KHHHHHK.....', '....KHHHHHK.....', '...KHHHHHHHK....', '..KHHhSSSShHK...', '..KHhSSSSSShK...',
@@ -411,23 +413,23 @@ export function voksen(toejFarve: string, haarFarve = '#9a9a9a', hudFarve = '#e0
 
 export const SKILT: Tegnkort = {
   raekker: ['KKKKKKKKKKKKKKKK', 'KCCCCCCCCCCCCCCK', 'KCddddddddddCCCK', 'KCCCCCCCCCCCCCCK', 'KCdddddddCCCCCCK', 'KCCCCCCCCCCCCCCK', 'KCddddddddddddCK', 'KCCCCCCCCCCCCCCK', 'KKKKKKKWWKKKKKKK', '.......WW.......', '.......WW.......', '.......WW.......', '......KWWK......'],
-  palet: { K: '#3a2a20', C: '#efe3c4', d: '#8f8a9e', W: '#6b4a2b' },
+  palet: { K: '#3a2a20', C: '#f3ead2', d: '#8a8a8a', W: '#6b4a2b' },
 };
 export const LANTERNE: Tegnkort = { raekker: ['..l..', '.lll.', 'lLLLl', 'lLLLl', 'lLLLl', '.lll.'], palet: { l: '#6b4a2b', L: '#ffe9a8' } };
 export const BLADE: Tegnkort = { raekker: ['....eE..Ee....', '..eEEbEeEEbe..', '.eEbEEEEEbEEe.', 'eEEEbEEbEEEEEe'], palet: { e: '#8a7656', E: '#e0c995', b: '#a99068' } };
 export const STOLPE: Tegnkort = { raekker: ['KK', 'WW', 'WW', 'WW', 'WW', 'WW', 'KK'], palet: { K: '#3a2a20', W: '#6b4a2b' } };
-export const PLANKE: Tegnkort = { raekker: ['PPPPPPPP', 'pppppppp'], palet: { P: '#a07a4a', p: '#5a3a28' } };
+export const PLANKE: Tegnkort = { raekker: ['PPPPPPPP', 'pppppppp'], palet: { P: '#a96e48', p: '#4a3426' } };
 /** En planke i den færdige bro over floden (kapitel 1): bred, med træårer og en mørk kant forneden. */
 export const BROPLANKE: Tegnkort = {
   raekker: ['.KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK.', 'KPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPK', 'KPPpPPPPPPPPPPPPPPPPPPPPPpPPPPPPPPPPPPPK', 'KppppppppppppppppppppppppppppppppppppppK', '.KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK.'],
-  palet: { K: '#3a2418', P: '#a07a4a', p: '#6e4a2e' },
+  palet: { K: '#3a2a20', P: '#a96e48', p: '#6b4a2b' },
 };
 /** Lille taleboble med tre prikker over den, der taler. Ingen bogstaver. */
 export const TALEBOBLE: Tegnkort = {
   raekker: ['.KKKKKKKKK.', 'KWWWWWWWWWK', 'KWKWWKWWKWK', 'KWWWWWWWWWK', '.KKKKWKKKK.', '.....KK....'],
-  palet: { K: '#2a2f48', W: '#fbf6e8' },
+  palet: { K: '#2a2f48', W: '#f4efe0' },
 };
-export const PIL: Tegnkort = { raekker: ['KKKKKKK', 'KYYYYYK', '.KYYYK.', '..KYK..', '...K...'], palet: { K: '#2a170f', Y: '#ffe9a8' } };
+export const PIL: Tegnkort = { raekker: ['KKKKKKK', 'KYYYYYK', '.KYYYK.', '..KYK..', '...K...'], palet: { K: '#222222', Y: '#ffe9a8' } };
 
 /** Papirtræ set skråt oppefra: tre lag, lys side til venstre og skygge til højre. */
 export function papirtrae(h: number): Tegnkort {
@@ -483,7 +485,7 @@ export function fyrtaarn(): Tegnkort {
   for (let y = h - 7; y < h; y++) for (let x = 7; x <= 10; x++) rk[y][x] = 'b';
   return {
     raekker: rk.map((r) => r.join('')),
-    palet: { R: '#7a2e1f', K: '#2a170f', Y: '#ffe9a8', W: '#6b4a2b', D: '#c0503e', r: '#8e3428', L: '#f4efe0', S: '#b9bfcf', b: '#3a2a20' },
+    palet: { R: '#7a2e1f', K: '#222222', Y: '#ffe9a8', W: '#6b4a2b', D: '#c0503e', r: '#8e3428', L: '#f4efe0', S: '#b9bfcf', b: '#3a2a20' },
   };
 }
 
@@ -496,5 +498,5 @@ export const SKYGGE: Tegnkort = {
     'kUUUUUUUUUUUUUUk', '.UUUUUUUUUUUUUU.', '.UUUkUUUUUUUUUU.', '.kUUUUUUUUkUUUk.', '..UUUUUUUUUUUU..', '..kUU.UUUU.UUk..',
     '...UU.UUUU.UU...', '...k...UU...k...', '.......kk.......', '................',
   ],
-  palet: { U: '#07080f', k: '#3a3d55', O: '#e8f0ff' },
+  palet: { U: '#070912', k: '#3a3560', O: '#f4efe0' },
 };

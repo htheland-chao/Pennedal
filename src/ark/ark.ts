@@ -25,6 +25,7 @@ for (const g of grupper()) {
     const advarsler: string[] = [];
     if (i.mangler.length) advarsler.push(`mangler farve: ${i.mangler.join('')}`);
     if (i.uens) advarsler.push('rækker af forskellig bredde');
+    if (i.udenforPalet.length) advarsler.push(`uden for paletten: ${i.udenforPalet.join(' ')}`);
     if (i.farver > MANGE_FARVER) advarsler.push(`mange farver (${i.farver})`);
     const maal = g.forventet ?? (g.ensStoerrelse ? foerste : null);
     if (maal && (i.b !== maal.b || i.h !== maal.h)) advarsler.push(`forkert størrelse, skulle være ${maal.b} x ${maal.h}`);

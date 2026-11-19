@@ -27,18 +27,18 @@
         "KKKKKKKKKKKKKKKKKKKKKK"
       ],
       "objekter": [
-        { "id": "fodnote", "navn": "den lille dame nede ved gulvet", "x": 0, "y": 0, "w": 0, "h": 0, "form": "fodnote", "farve": "#c9a46a", "felt": [10, 11], "frivillig": "mission" },
-        { "id": "bogvognen", "navn": "bogvognen med de blandede bøger", "x": 0, "y": 0, "w": 0, "h": 0, "form": "bog", "farve": "#c9a46a", "felt": [13, 9] },
-        { "id": "kasse1", "navn": "en kasse med kartotekskort", "x": 0, "y": 0, "w": 0, "h": 0, "form": "kasse", "farve": "#c9a46a", "felt": [6, 7] },
-        { "id": "kasse2", "navn": "en kasse under hylden", "x": 0, "y": 0, "w": 0, "h": 0, "form": "kasse", "farve": "#c9a46a", "felt": [16, 10] },
-        { "id": "bunke", "navn": "en bunke gamle bøger", "x": 0, "y": 0, "w": 0, "h": 0, "form": "bog", "farve": "#c9a46a", "felt": [19, 3] },
-        { "id": "seddel", "navn": "en gammel seddel", "x": 0, "y": 0, "w": 0, "h": 0, "form": "bog", "farve": "#c9a46a", "felt": [11, 7] },
-        { "id": "kartotek", "navn": "kartoteksskabet", "x": 0, "y": 0, "w": 0, "h": 0, "form": "skab", "farve": "#c9a46a", "felt": [6, 2] },
-        { "id": "lem", "navn": "lemmen i gulvet", "x": 0, "y": 0, "w": 0, "h": 0, "form": "stige", "farve": "#c9a46a", "felt": [16, 2], "visFra": "k5-lem" },
-        { "id": "tal1", "navn": "en lille, hvid lap", "x": 0, "y": 0, "w": 0, "h": 0, "form": "fodnotetal", "farve": "#c9a46a", "felt": [3, 3], "frivillig": "blad" },
-        { "id": "tal2", "navn": "en lille, hvid lap", "x": 0, "y": 0, "w": 0, "h": 0, "form": "fodnotetal", "farve": "#c9a46a", "felt": [20, 6], "frivillig": "blad" },
-        { "id": "tal3", "navn": "en lille, hvid lap", "x": 0, "y": 0, "w": 0, "h": 0, "form": "fodnotetal", "farve": "#c9a46a", "felt": [8, 11], "frivillig": "blad" },
-        { "id": "reolstige", "navn": "stigen op ad de høje reoler", "x": 0, "y": 0, "w": 0, "h": 0, "form": "stige", "farve": "#c9a46a", "felt": [20, 8], "frivillig": "udflugt", "udflugt": "reolerne" }
+        { "id": "fodnote", "navn": "den lille dame nede ved gulvet", "x": 0, "y": 0, "w": 0, "h": 0, "form": "fodnote", "farve": "#d9b56f", "felt": [10, 11], "frivillig": "mission" },
+        { "id": "bogvognen", "navn": "bogvognen med de blandede bøger", "x": 0, "y": 0, "w": 0, "h": 0, "form": "bog", "farve": "#d9b56f", "felt": [13, 9] },
+        { "id": "kasse1", "navn": "en kasse med kartotekskort", "x": 0, "y": 0, "w": 0, "h": 0, "form": "kasse", "farve": "#d9b56f", "felt": [6, 7] },
+        { "id": "kasse2", "navn": "en kasse under hylden", "x": 0, "y": 0, "w": 0, "h": 0, "form": "kasse", "farve": "#d9b56f", "felt": [16, 10] },
+        { "id": "bunke", "navn": "en bunke gamle bøger", "x": 0, "y": 0, "w": 0, "h": 0, "form": "bog", "farve": "#d9b56f", "felt": [19, 3] },
+        { "id": "seddel", "navn": "en gammel seddel", "x": 0, "y": 0, "w": 0, "h": 0, "form": "bog", "farve": "#d9b56f", "felt": [11, 7] },
+        { "id": "kartotek", "navn": "kartoteksskabet", "x": 0, "y": 0, "w": 0, "h": 0, "form": "skab", "farve": "#d9b56f", "felt": [6, 2] },
+        { "id": "lem", "navn": "lemmen i gulvet", "x": 0, "y": 0, "w": 0, "h": 0, "form": "stige", "farve": "#d9b56f", "felt": [16, 2], "visFra": "k5-lem" },
+        { "id": "tal1", "navn": "en lille, hvid lap", "x": 0, "y": 0, "w": 0, "h": 0, "form": "fodnotetal", "farve": "#d9b56f", "felt": [3, 3], "frivillig": "blad" },
+        { "id": "tal2", "navn": "en lille, hvid lap", "x": 0, "y": 0, "w": 0, "h": 0, "form": "fodnotetal", "farve": "#d9b56f", "felt": [20, 6], "frivillig": "blad" },
+        { "id": "tal3", "navn": "en lille, hvid lap", "x": 0, "y": 0, "w": 0, "h": 0, "form": "fodnotetal", "farve": "#d9b56f", "felt": [8, 11], "frivillig": "blad" },
+        { "id": "reolstige", "navn": "stigen op ad de høje reoler", "x": 0, "y": 0, "w": 0, "h": 0, "form": "stige", "farve": "#d9b56f", "felt": [20, 8], "frivillig": "udflugt", "udflugt": "reolerne" }
       ]
     },
     "dybarkivet": {
@@ -64,9 +64,9 @@
         "KKKKKKKKKKKKKKKKKKKK"
       ],
       "objekter": [
-        { "id": "tvivl", "navn": "sætningen, der vrider sig", "x": 0, "y": 0, "w": 0, "h": 0, "form": "tvivl", "farve": "#c9a46a", "felt": [9, 5], "skjulFra": "k5-haeftet" },
-        { "id": "haefte", "navn": "noget grønt på gulvet", "x": 0, "y": 0, "w": 0, "h": 0, "form": "haefte", "farve": "#c9a46a", "felt": [12, 8], "visFra": "k5-haeftet" },
-        { "id": "ufaerdige", "navn": "Den Ufærdige", "x": 0, "y": 0, "w": 0, "h": 0, "form": "ufaerdige", "farve": "#c9a46a", "felt": [10, 5], "visFra": "k5-twist" }
+        { "id": "tvivl", "navn": "sætningen, der vrider sig", "x": 0, "y": 0, "w": 0, "h": 0, "form": "tvivl", "farve": "#d9b56f", "felt": [9, 5], "skjulFra": "k5-haeftet" },
+        { "id": "haefte", "navn": "noget grønt på gulvet", "x": 0, "y": 0, "w": 0, "h": 0, "form": "haefte", "farve": "#d9b56f", "felt": [12, 8], "visFra": "k5-haeftet" },
+        { "id": "ufaerdige", "navn": "Den Ufærdige", "x": 0, "y": 0, "w": 0, "h": 0, "form": "ufaerdige", "farve": "#d9b56f", "felt": [10, 5], "visFra": "k5-twist" }
       ]
     },
     "reolerne": {
@@ -110,7 +110,7 @@
         ]
       },
       "objekter": [
-        { "id": "maal", "navn": "toppen af reolerne", "x": 0, "y": 0, "w": 0, "h": 0, "form": "maal", "farve": "#c9a46a" }
+        { "id": "maal", "navn": "toppen af reolerne", "x": 0, "y": 0, "w": 0, "h": 0, "form": "maal", "farve": "#d9b56f" }
       ]
     }
   },

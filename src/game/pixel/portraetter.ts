@@ -53,7 +53,7 @@ export const PORTRAETTER: Record<'holm' | 'lanterne' | 'klatten' | 'aeseloere' |
       '..KTTTTTTWWRRWWTTTTTTK..',
       '..KTTTTTTWWRRWWTTTTTTK..',
     ],
-    palet: {K: '#1b1b24', H: '#d6d6d6', h: '#a9a9a9', S: '#e0a982', s: '#c98d63', G: '#2a2f48', L: '#cfe3f5', E: '#1b1b24', m: '#8e3428', T: '#7a5c3e', t: '#5c442c', W: '#e8dcc0', R: '#8e3428'},
+    palet: {K: '#1b1b24', H: '#b9bfcf', h: '#a7aab8', S: '#e0a982', s: '#c98d63', G: '#2a2f48', L: '#c9dcf2', E: '#1b1b24', m: '#8e3428', T: '#8a5a3a', t: '#6b3f27', W: '#f3ead2', R: '#8e3428'},
   },
   lanterne: {
     raekker: [
@@ -82,7 +82,7 @@ export const PORTRAETTER: Record<'holm' | 'lanterne' | 'klatten' | 'aeseloere' |
       '.KTTTTTTTTTTTTTTTTlYYlK.',
       '.KTTTTTTTTTTTTTTTTllllK.',
     ],
-    palet: {K: '#1b1b24', H: '#f2efe8', h: '#c9c4b8', S: '#e8b48e', s: '#b98a68', E: '#1b1b24', r: '#e0846a', m: '#8e3428', T: '#b0413e', t: '#7a2e1f', l: '#6b4a2b', Y: '#ffe9a8'},
+    palet: {K: '#1b1b24', H: '#f4efe0', h: '#b9bfcf', S: '#e0a982', s: '#a99068', E: '#1b1b24', r: '#c98d63', m: '#8e3428', T: '#a83b33', t: '#7a2e1f', l: '#6b4a2b', Y: '#ffe9a8'},
   },
   klatten: {
     raekker: [
@@ -111,7 +111,7 @@ export const PORTRAETTER: Record<'holm' | 'lanterne' | 'klatten' | 'aeseloere' |
       '...KIK..KKKKKKKK..KIK...',
       '....K..............K....',
     ],
-    palet: {K: '#05060f', I: '#1a1e3c', i: '#3a4278', O: '#ffffff', o: '#0b0d1c', w: '#cfe3f5'},
+    palet: {K: '#070912', I: '#1a1e36', i: '#28467c', O: '#f4efe0', o: '#1b1b24', w: '#c9dcf2'},
   },
   aeseloere: {
     raekker: [
@@ -140,7 +140,7 @@ export const PORTRAETTER: Record<'holm' | 'lanterne' | 'klatten' | 'aeseloere' |
       '.........K.....K........',
       '........................',
     ],
-    palet: {K: '#2a2f48', W: '#fbf6e8', w: '#d9d2bd', l: '#a7aab8', B: '#e5b84c', E: '#1b1b24', k: '#2a2f48'},
+    palet: {K: '#2a2f48', W: '#f4efe0', w: '#d9d2bd', l: '#a7aab8', B: '#e5c03a', E: '#1b1b24', k: '#2a2f48'},
   },
   fortaeller: {
     raekker: [
@@ -169,7 +169,7 @@ export const PORTRAETTER: Record<'holm' | 'lanterne' | 'klatten' | 'aeseloere' |
       '........................',
       '........................',
     ],
-    palet: {K: '#2a170f', P: '#f4efe0', s: '#b9bfcf', l: '#a7aab8', R: '#6b4a2b', M: '#b0413e'},
+    palet: {K: '#222222', P: '#f4efe0', s: '#b9bfcf', l: '#a7aab8', R: '#6b4a2b', M: '#a83b33'},
   },
   portvagt: {
     raekker: [
@@ -198,7 +198,7 @@ export const PORTRAETTER: Record<'holm' | 'lanterne' | 'klatten' | 'aeseloere' |
       '..KTTTTTTTTYyTTTTTTTTK..',
       '..KTTTTTTTTYYTTTTTTTTK..',
     ],
-    palet: {K: '#1b1b24', T: '#2c6fbb', t: '#1f4f86', Y: '#e5b84c', y: '#c99a2e', S: '#e0a982', s: '#c98d63', C: '#1f2a44', c: '#33416a', E: '#1b1b24', H: '#6b4a2b', m: '#8e3428'},
+    palet: {K: '#1b1b24', T: '#2c6fbb', t: '#28467c', Y: '#e5c03a', y: '#d9b56f', S: '#e0a982', s: '#c98d63', C: '#2a2f48', c: '#203a6b', E: '#1b1b24', H: '#6b4a2b', m: '#8e3428'},
   },
   raaber: {
     raekker: [
@@ -227,7 +227,7 @@ export const PORTRAETTER: Record<'holm' | 'lanterne' | 'klatten' | 'aeseloere' |
       '..KTTTTTTTTTTTTTTTTTTK..',
       '..KTTTTTTTTTYTTTTTTTTK..',
     ],
-    palet: {K: '#1b1b24', T: '#b0413e', Y: '#e5b84c', S: '#e8b48e', s: '#b98a68', C: '#3a2a20', F: '#4f9467', E: '#1b1b24', m: '#7a2e1f', M: '#f4efe0'},
+    palet: {K: '#1b1b24', T: '#a83b33', Y: '#e5c03a', S: '#e0a982', s: '#a99068', C: '#3a2a20', F: '#4f9467', E: '#1b1b24', m: '#7a2e1f', M: '#f4efe0'},
   },
   borgmester: {
     raekker: [
@@ -256,7 +256,7 @@ export const PORTRAETTER: Record<'holm' | 'lanterne' | 'klatten' | 'aeseloere' |
       '..KTTTTTTTTTTTTTTTTTTK..',
       '..KTTTTTTTTTTTTTTTTTTK..',
     ],
-    palet: {K: '#1b1b24', T: '#4f3a6b', Y: '#f0c45a', S: '#e0a982', C: '#1b1b24', c: '#7b4bb3', E: '#1b1b24', h: '#a9a9a9', H: '#d6d6d6', m: '#8e3428'},
+    palet: {K: '#1b1b24', T: '#603979', Y: '#f0c45a', S: '#e0a982', C: '#1b1b24', c: '#7b4bb3', E: '#1b1b24', h: '#a7aab8', H: '#b9bfcf', m: '#8e3428'},
   },
   ufaerdige: {
     raekker: [
@@ -285,6 +285,6 @@ export const PORTRAETTER: Record<'holm' | 'lanterne' | 'klatten' | 'aeseloere' |
       '.....kuk.kukkkk.kuk.....',
       '......k...k......k......',
     ],
-    palet: {U: '#0b0c16', u: '#3a3d55', O: '#e8f0ff', k: '#5b6080'},
+    palet: {U: '#070912', u: '#3a3560', O: '#f4efe0', k: '#6a6487'},
   },
 };

@@ -30,15 +30,15 @@
         "##########################"
       ],
       "objekter": [
-        { "id": "hytte", "navn": "døren til Klattens hytte", "x": 0, "y": 0, "w": 0, "h": 0, "form": "hytte", "farve": "#c9a46a", "felt": [22, 9] },
-        { "id": "snegl", "navn": "Postsneglen", "x": 0, "y": 0, "w": 0, "h": 0, "form": "snegl", "farve": "#c9a46a", "felt": [6, 11], "frivillig": "mission" },
-        { "id": "brev1", "navn": "et vådt brev", "x": 0, "y": 0, "w": 0, "h": 0, "form": "brev", "farve": "#c9a46a", "felt": [2, 6], "frivillig": "blad" },
-        { "id": "brev2", "navn": "et vådt brev", "x": 0, "y": 0, "w": 0, "h": 0, "form": "brev", "farve": "#c9a46a", "felt": [19, 7], "frivillig": "blad" },
-        { "id": "brev3", "navn": "et vådt brev", "x": 0, "y": 0, "w": 0, "h": 0, "form": "brev", "farve": "#c9a46a", "felt": [11, 13], "frivillig": "blad" },
-        { "id": "bro", "navn": "skiltet ved den gamle bro", "x": 0, "y": 0, "w": 0, "h": 0, "form": "skilt", "farve": "#c9a46a", "felt": [2, 5], "frivillig": "udflugt", "udflugt": "soestenene" },
-        { "id": "aeseloere-bred", "navn": "Æseløre ved søen", "x": 0, "y": 0, "w": 0, "h": 0, "form": "fugl", "farve": "#c9a46a", "felt": [13, 7], "visFra": "k6-twist", "skjulFra": "k6-krusedul" },
-        { "id": "krusedulle", "navn": "krusedullerne fra søen", "x": 0, "y": 0, "w": 0, "h": 0, "form": "krusedulle", "farve": "#c9a46a", "felt": [12, 8], "visFra": "k6-krusedul", "skjulFra": "k6-kamp-slut" },
-        { "id": "klatten-bred", "navn": "Klatten", "x": 0, "y": 0, "w": 0, "h": 0, "form": "gnom", "farve": "#c9a46a", "felt": [19, 10], "visFra": "k6-kamp-slut" }
+        { "id": "hytte", "navn": "døren til Klattens hytte", "x": 0, "y": 0, "w": 0, "h": 0, "form": "hytte", "farve": "#d9b56f", "felt": [22, 9] },
+        { "id": "snegl", "navn": "Postsneglen", "x": 0, "y": 0, "w": 0, "h": 0, "form": "snegl", "farve": "#d9b56f", "felt": [6, 11], "frivillig": "mission" },
+        { "id": "brev1", "navn": "et vådt brev", "x": 0, "y": 0, "w": 0, "h": 0, "form": "brev", "farve": "#d9b56f", "felt": [2, 6], "frivillig": "blad" },
+        { "id": "brev2", "navn": "et vådt brev", "x": 0, "y": 0, "w": 0, "h": 0, "form": "brev", "farve": "#d9b56f", "felt": [19, 7], "frivillig": "blad" },
+        { "id": "brev3", "navn": "et vådt brev", "x": 0, "y": 0, "w": 0, "h": 0, "form": "brev", "farve": "#d9b56f", "felt": [11, 13], "frivillig": "blad" },
+        { "id": "bro", "navn": "skiltet ved den gamle bro", "x": 0, "y": 0, "w": 0, "h": 0, "form": "skilt", "farve": "#d9b56f", "felt": [2, 5], "frivillig": "udflugt", "udflugt": "soestenene" },
+        { "id": "aeseloere-bred", "navn": "Æseløre ved søen", "x": 0, "y": 0, "w": 0, "h": 0, "form": "fugl", "farve": "#d9b56f", "felt": [13, 7], "visFra": "k6-twist", "skjulFra": "k6-krusedul" },
+        { "id": "krusedulle", "navn": "krusedullerne fra søen", "x": 0, "y": 0, "w": 0, "h": 0, "form": "krusedulle", "farve": "#d9b56f", "felt": [12, 8], "visFra": "k6-krusedul", "skjulFra": "k6-kamp-slut" },
+        { "id": "klatten-bred", "navn": "Klatten", "x": 0, "y": 0, "w": 0, "h": 0, "form": "gnom", "farve": "#d9b56f", "felt": [19, 10], "visFra": "k6-kamp-slut" }
       ]
     },
     "hytten": {
@@ -63,10 +63,10 @@
         "KKKKKKKKKKKKKKKKKK"
       ],
       "objekter": [
-        { "id": "klatten", "navn": "Klatten", "x": 0, "y": 0, "w": 0, "h": 0, "form": "gnom", "farve": "#c9a46a", "felt": [7, 6] },
-        { "id": "kasser", "navn": "kasserne med Klattens fejl", "x": 0, "y": 0, "w": 0, "h": 0, "form": "kasse", "farve": "#c9a46a", "felt": [6, 3] },
-        { "id": "skrivebord", "navn": "Klattens skrivebord", "x": 0, "y": 0, "w": 0, "h": 0, "form": "bog", "farve": "#c9a46a", "felt": [11, 7] },
-        { "id": "ud", "navn": "døren ud til søen", "x": 0, "y": 0, "w": 0, "h": 0, "form": "doer", "farve": "#c9a46a", "felt": [8, 9], "visFra": "k6-ud" }
+        { "id": "klatten", "navn": "Klatten", "x": 0, "y": 0, "w": 0, "h": 0, "form": "gnom", "farve": "#d9b56f", "felt": [7, 6] },
+        { "id": "kasser", "navn": "kasserne med Klattens fejl", "x": 0, "y": 0, "w": 0, "h": 0, "form": "kasse", "farve": "#d9b56f", "felt": [6, 3] },
+        { "id": "skrivebord", "navn": "Klattens skrivebord", "x": 0, "y": 0, "w": 0, "h": 0, "form": "bog", "farve": "#d9b56f", "felt": [11, 7] },
+        { "id": "ud", "navn": "døren ud til søen", "x": 0, "y": 0, "w": 0, "h": 0, "form": "doer", "farve": "#d9b56f", "felt": [8, 9], "visFra": "k6-ud" }
       ]
     },
     "soestenene": {
@@ -78,7 +78,7 @@
       },
       "ordsten": "stavning",
       "objekter": [
-        { "id": "maal", "navn": "den sidste sten midt i søen", "x": 0, "y": 0, "w": 0, "h": 0, "form": "maal", "farve": "#c9a46a" }
+        { "id": "maal", "navn": "den sidste sten midt i søen", "x": 0, "y": 0, "w": 0, "h": 0, "form": "maal", "farve": "#d9b56f" }
       ],
       "bane": [
         "........................................................................................................",

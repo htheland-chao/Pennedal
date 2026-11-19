@@ -31,6 +31,7 @@ import { FODNOTETAL, FRU_FODNOTE, HAEFTE_KORT, TVIVL, UFAERDIGE_KORT } from '../
 import { BREV, hytte, KRUSEDULLE, POSTSNEGL } from '../game/pixel/blaeksoe';
 import { BIP, GRUMSEN, LUP, PRINSESSE, SPOR } from '../game/pixel/halvelande';
 import { HALVSAETNING, LILLE_SKYGGE } from '../game/pixel/sidstesiden';
+import { PAPIRGRAN_FORMER, papirgran } from '../game/pixel/papirgraner';
 
 export type Element = { navn: string; kort: Tegnkort };
 export type Gruppe = {
@@ -170,7 +171,7 @@ export function grupper(): Gruppe[] {
         { navn: 'Skyggen (med en slutning)', kort: LILLE_SKYGGE },
         { navn: 'stumming', kort: STUMMING },
         { navn: 'skygge', kort: SKYGGE },
-        { navn: 'voksen', kort: voksen('#6a4a8a') },
+        { navn: 'voksen', kort: voksen('#603979') },
       ],
     },
     {
@@ -179,6 +180,12 @@ export function grupper(): Gruppe[] {
       skala: 6,
       forventet: { b: 12, h: 12 },
       elementer: Object.entries(TING_IKONER).map(([navn, kort]) => ({ navn, kort })),
+    },
+    {
+      id: 'papirgraner',
+      titel: 'Papirgraner: fem former i to højder',
+      skala: 4,
+      elementer: [22, 34].flatMap((h) => PAPIRGRAN_FORMER.map((form) => ({ navn: `${form} ${h}`, kort: papirgran(h, form) }))),
     },
     {
       id: 'smaating',

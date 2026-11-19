@@ -27,7 +27,7 @@ export const VIMS: Tegnkort = {
     '...KKKKKKKKKK...',
     '....KK....KK....',
   ],
-  palet: { K: '#3a3550', M: '#d8c8e0', m: '#f6f2fa', S: '#efe6d8', P: '#e8a8a8', E: '#1b1b24', o: '#9a5a6a', B: '#7d9cc8', b: '#5f7ead' },
+  palet: { K: '#3a3560', M: '#c9dcf2', m: '#f4efe0', S: '#f3ead2', P: '#e595a9', E: '#1b1b24', o: '#8a5a3a', B: '#698fc1', b: '#4f6fa8' },
 };
 
 /** Tomordet: et ord uden noget indeni. Kun omrids, øjne og en stor, sulten mund. */
@@ -50,7 +50,7 @@ export const TOMORD: Tegnkort = {
     '...KK.KWWK.KK...',
     '.......KK.......',
   ],
-  palet: { K: '#6a6488', W: '#f3f0fa', E: '#3a3550', o: '#2b2433', T: '#ffffff' },
+  palet: { K: '#6a6487', W: '#f4efe0', E: '#3a3560', o: '#222222', T: '#f3ead2' },
 };
 
 /** Stummingen: en lille grå skabning med en finger for munden. */
@@ -73,7 +73,7 @@ export const STUMMING: Tegnkort = {
     '..KKGK..KGKK..',
     '...KK....KK...',
   ],
-  palet: { K: '#4a4a5c', G: '#a8a8b8', g: '#8a8a9c', F: '#d6d6e2', H: '#c4c4d2', E: '#1b1b24' },
+  palet: { K: '#4f4a57', G: '#a7aab8', g: '#8a8a8a', F: '#c9dcf2', H: '#b9bfcf', E: '#1b1b24' },
 };
 
 /** Lægger et tegnkort midt i et kvadrat, så det kan bruges som portræt (24 x 24). */
@@ -109,13 +109,13 @@ export const HALVFUGL: Tegnkort = {
     'tTTtTTTTtTTTt...',
     '..........t.....',
   ],
-  palet: { K: '#3a3550', W: '#f4f1ea', w: '#cfc8da', E: '#1b1b24', O: '#e5b84c', T: '#8a7656', t: '#6b5a40' },
+  palet: { K: '#3a3560', W: '#f4efe0', w: '#b9bfcf', E: '#1b1b24', O: '#e5c03a', T: '#8a7656', t: '#5d5243' },
 };
 
 /** Et hvidt blad med et ord, der er ved at blive visket ud. Streger, ingen bogstaver. */
 export const ORDBLAD: Tegnkort = {
   raekker: ['....KK..', '..KKWWK.', '.KWWWWWK', 'KWdWdWWK', 'KWWdWdWK', '.KWWWWK.', '..KKKK..', '...K....'],
-  palet: { K: '#8a8aa0', W: '#ffffff', d: '#b9bfcf' },
+  palet: { K: '#8a8a8a', W: '#f4efe0', d: '#b9bfcf' },
 };
 
 /** En port af hvide grene: indgangen til den lange hvide sti, og målet på banerne i Viskeskoven. */
@@ -136,7 +136,7 @@ export const GRENPORT: Tegnkort = {
     'KWK..........KWK',
     'KKK..........KKK',
   ],
-  palet: { K: '#6a6488', W: '#f3f0fa', w: '#cfc8da' },
+  palet: { K: '#6a6487', W: '#f4efe0', w: '#b9bfcf' },
 };
 
 /** Ordstenen på banen: en bleg sten med en tom side. Lyser, indtil ordet er skrevet tilbage. */
@@ -154,6 +154,6 @@ export function ordsten(loest: boolean): Tegnkort {
       'KGggGGGGGGggGK',
       'KKKKKKKKKKKKKK',
     ],
-    palet: { K: '#5a5a6e', G: '#c4c4d2', g: '#a8a8b8', P: loest ? '#f4efe0' : '#ffe9a8', d: loest ? '#2a2f48' : '#e5b84c' },
+    palet: { K: '#5b5663', G: '#b9bfcf', g: '#a7aab8', P: loest ? '#f4efe0' : '#ffe9a8', d: loest ? '#2a2f48' : '#e5c03a' },
   };
 }

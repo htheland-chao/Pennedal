@@ -30,10 +30,10 @@
       ],
       "startFelt": [1, 9],
       "objekter": [
-        { "id": "skilt", "navn": "det hvide skilt", "x": 0, "y": 0, "w": 0, "h": 0, "form": "skilt", "farve": "#f4f1ea", "felt": [6, 8] },
-        { "id": "tomordet", "navn": "væsnet på stien", "x": 0, "y": 0, "w": 0, "h": 0, "form": "tomord", "farve": "#e8e4f0", "felt": [11, 9], "skjulFra": "k3-vims" },
-        { "id": "vims", "navn": "den store svamp", "x": 0, "y": 0, "w": 0, "h": 0, "form": "vims", "farve": "#c9c2d6", "felt": [16, 6], "skjulFra": "k3-til-lysning" },
-        { "id": "sti", "navn": "stien mod lysningen", "x": 0, "y": 0, "w": 0, "h": 0, "form": "sti", "farve": "#d8d4cc", "felt": [25, 9] }
+        { "id": "skilt", "navn": "det hvide skilt", "x": 0, "y": 0, "w": 0, "h": 0, "form": "skilt", "farve": "#f4efe0", "felt": [6, 8] },
+        { "id": "tomordet", "navn": "væsnet på stien", "x": 0, "y": 0, "w": 0, "h": 0, "form": "tomord", "farve": "#f4efe0", "felt": [11, 9], "skjulFra": "k3-vims" },
+        { "id": "vims", "navn": "den store svamp", "x": 0, "y": 0, "w": 0, "h": 0, "form": "vims", "farve": "#b9bfcf", "felt": [16, 6], "skjulFra": "k3-til-lysning" },
+        { "id": "sti", "navn": "stien mod lysningen", "x": 0, "y": 0, "w": 0, "h": 0, "form": "sti", "farve": "#d9d2bd", "felt": [25, 9] }
       ]
     },
     "lysningen": {
@@ -63,8 +63,8 @@
       ],
       "startFelt": [1, 8],
       "objekter": [
-        { "id": "stumming", "navn": "væsnet, der hvisker", "x": 0, "y": 0, "w": 0, "h": 0, "form": "stumming", "farve": "#9a9aa8", "felt": [10, 8], "skjulFra": "k3-klatten" },
-        { "id": "klatten", "navn": "Klatten", "x": 0, "y": 0, "w": 0, "h": 0, "form": "gnom", "farve": "#1b1b3a", "felt": [17, 7], "skjulFra": "k3-moerke" },
+        { "id": "stumming", "navn": "væsnet, der hvisker", "x": 0, "y": 0, "w": 0, "h": 0, "form": "stumming", "farve": "#a7aab8", "felt": [10, 8], "skjulFra": "k3-klatten" },
+        { "id": "klatten", "navn": "Klatten", "x": 0, "y": 0, "w": 0, "h": 0, "form": "gnom", "farve": "#1a1e36", "felt": [17, 7], "skjulFra": "k3-moerke" },
         { "id": "halvfugl", "navn": "fuglen på grenen", "x": 0, "y": 0, "w": 0, "h": 0, "form": "halvfugl", "farve": "#f4efe0", "felt": [21, 4], "frivillig": "mission" },
         { "id": "blad1", "navn": "et hvidt blad", "x": 0, "y": 0, "w": 0, "h": 0, "form": "ordblad", "farve": "#f4efe0", "felt": [12, 4], "frivillig": "blad" },
         { "id": "blad2", "navn": "et hvidt blad", "x": 0, "y": 0, "w": 0, "h": 0, "form": "ordblad", "farve": "#f4efe0", "felt": [3, 10], "frivillig": "blad" },

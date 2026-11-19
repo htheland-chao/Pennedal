@@ -21,7 +21,7 @@ export const FRU_FODNOTE: Tegnkort = {
     '..KDDDDK..',
     '..KK..KK..',
   ],
-  palet: { K: '#2a2433', h: '#c9c2d6', S: '#e8c4a8', g: '#bfe0f0', E: '#2a2433', m: '#a85a5a', D: '#3e5a7a', L: '#f4efe0' },
+  palet: { K: '#222222', h: '#b9bfcf', S: '#eec1a0', g: '#c9dcf2', E: '#222222', m: '#c0503e', D: '#28467c', L: '#f4efe0' },
 };
 
 /** Den Tvivlende Sætning: et ark papir, der er to halvdele med hver sit ansigt. */
@@ -42,7 +42,7 @@ export const TVIVL: Tegnkort = {
     '..KKPPPKppKK..',
     '....KKKKKK....',
   ],
-  palet: { K: '#2a2433', P: '#f4efe0', p: '#d6d0e4', E: '#2a2433', d: '#9a92a8' },
+  palet: { K: '#222222', P: '#f4efe0', p: '#c9dcf2', E: '#222222', d: '#8a8a8a' },
 };
 
 /** Et fodnotetal, der er faldet af: en lille, hvid papirlap, der lyser svagt. */
@@ -55,7 +55,7 @@ export const FODNOTETAL: Tegnkort = {
     '.KWdWWK.',
     '..KKKK..',
   ],
-  palet: { K: '#8a8070', W: '#fffbe8', d: '#c9a46a' },
+  palet: { K: '#8a7656', W: '#f4efe0', d: '#d9b56f' },
 };
 
 /** Det grønne hæfte på gulvet med skyggen og de store øjne på forsiden. */
@@ -71,7 +71,7 @@ export const HAEFTE_KORT: Tegnkort = {
     'KGGGGGGGGGgK',
     'KKKKKKKKKKKK',
   ],
-  palet: { K: '#1f2a20', G: '#6f8f62', g: '#4f6f44', s: '#3a3560', E: '#f6ecd6' },
+  palet: { K: '#222222', G: '#4f9467', g: '#356c4d', s: '#3a3560', E: '#f3ead2' },
 };
 
 /** Den Ufærdige: en høj skikkelse af blyantstreger, der aldrig blev tegnet færdige. To blege øjne. */
@@ -98,5 +98,5 @@ export const UFAERDIGE_KORT: Tegnkort = {
     'K....K.......K',
     '..K.K.K.K.K...',
   ],
-  palet: { K: '#3a3a48', E: '#e8e4f0' },
+  palet: { K: '#2a2f48', E: '#f4efe0' },
 };
