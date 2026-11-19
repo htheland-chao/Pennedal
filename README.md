@@ -2,30 +2,40 @@
 
 Et danskfagligt fantasy-læringsspil til 5. klasse. Spillet kører i Chrome, også på skolens Chromebooks.
 
-**Version 0.1 - kapitel 1, "Den glemte skuffe" (ca. 20 minutter).** Testudgave: Grafikken er pladsholdere, og der er ingen lyd endnu.
+**Alle 8 kapitler kan spilles**, og Blækdybet (uendelig prøvetur) åbner efter sidste kapitel. Spillet er stadig en testudgave og er ikke delt med eleverne endnu. Hvad der findes, og hvad der mangler, står i `docs/status.md`.
 
-## Hvad er med i version 0.1
+## Hvad er med
 
-- Avatar-designer med navn fra ordlister (eleven kan ikke skrive et frit navn), mange hudfarver, frisurer og tørklæde.
-- Kapitel 1 i tre dele: skolebiblioteket, kælderen og Pennedal.
-- Tre læringsmekanikker: **Hviskeformularer** (stumme bogstaver), **Og-ormen** (punktum og stort bogstav) og **Historiebroen** (fortællingens opbygning). Desuden en **bevisjagt** i læsning.
+- Avatardesigner med navn fra ordlister (eleven kan ikke skrive et frit navn), mange hudfarver, frisurer og tørklæde.
+- Otte kapitler med intro, kapitelkort, tilbageblik, frivillige sidemissioner og en slutning, der husker elevens valg.
+- Læringsmekanikker: **Hviskeformularer** (stumme bogstaver), **Og-ormen** (punktum og stort bogstav), **Historiebroen** (fortællingens opbygning), **bevisjagt** i læsning, ordsten på banerne og rim.
+- Turbaserede kampe, hvor man vinder ved at svare rigtigt. Blødt nederlag.
 - Sværhedsgraden tilpasser sig eleven (niveau 1-5). Fart giver aldrig point.
 - Feedback med regel og eksempel. Efter to forkerte gæt skal eleven vælge den rigtige regel, før der kan gættes igen.
-- Gemmer automatisk i browseren efter hver opgave. Gemmekode, QR-kode og gemmefil til at fortsætte på en anden computer.
-- **Lærerkig** på elevens egen computer (lærerkode: `2026`) med niveau pr. færdighed og CSV-eksport.
-- Oplæsning med Chromes danske stemme, tre skriftstørrelser, OpenDyslexic, "Mindre uhygge", fuld tastaturstyring og touch.
+- Gemmer automatisk i browseren. Gemmekode, QR-kode og gemmefil til at fortsætte på en anden computer.
+- **Lærerkig** på elevens egen computer med niveau pr. færdighed og CSV-eksport (se Lærerkode herunder).
+- 16-bit pixelgrafik, indtalte stemmer pr. figur, lydeffekter og musik.
+- Oplæsning, flere skrifter og størrelser, OpenDyslexic, "Mindre uhygge", fuld tastaturstyring og touch.
 
 ## Hvad er ikke med endnu
 
 - Login, lobby og et samlet lærerpanel. De kræver, at elevdata gemmes på en server, og det venter, til kommunens databeskyttelsesrådgiver har godkendt det.
-- Rigtig grafik, musik og lydeffekter. De indtalte stemmer bliver lavet løbende (se Lyd og stemmer).
-- Kapitel 2 og frem.
+- Nogle stemmeklip mangler stadig (Googles dagskvote). Så læser spillet op med computerens egen stemme.
 
-## Databeskyttelse i version 0.1
+## Lærerkode
+
+Lærerkoden til lærerkiggen sættes, når spillet bygges, og står ikke i koden på GitHub:
+
+1. På GitHub: Settings > Secrets and variables > Actions > New repository secret. Navn: `LAERERKODE`, værdi: din kode.
+2. Næste gang `main` bliver udgivet, bruger testsiden den nye kode.
+
+Uden hemmeligheden bruges standardkoden fra `src/config.ts`. Repoet er offentligt, så sæt din egen kode, før eleverne får linket.
+
+## Databeskyttelse
 
 Spillet sender ingen data om eleverne nogen steder hen. Alt gemmes kun i elevens egen browser:
 avatarnavn fra ordlisterne, udseende, fremskridt og antal rigtige og forkerte svar pr. færdighed.
-Der gemmes ingen navne, ingen e-mail og ingen elevtekster. Hostingudbyderen (Firebase Hosting) kan som alle websider se IP-adresser, når spillet hentes.
+Der gemmes ingen navne, ingen e-mail og ingen elevtekster. Kun faste tekster fra spillet (aldrig noget, eleven skriver) sendes til Google for at lave stemmeklip. Hostingudbyderen kan som alle websider se IP-adresser, når spillet hentes.
 
 ## For Henrik: sådan prøver du spillet
 
@@ -49,6 +59,7 @@ Tilføj `?debug=1` til adressen for at se ydelsesmåleren (billeder pr. sekund o
 
 - Alle ændringer kommer som en **pull request** på GitHub. Du ser ændringerne igennem og trykker **Merge**.
 - Ved hver pull request kører alle tests automatisk (fanen **Actions**). Skærmbilleder og korrekturliste kan hentes under testkørslen.
+- Billedtesten sammenligner grafikken med faste billeder. Ændres grafikken med vilje, laver jobbet **Billeder** nye billeder (Actions > Billeder > Run workflow).
 - Slå **branch protection** til på `main`, så en pull request kun kan merges, når testene er grønne: Settings → Branches → Add rule → `main` → "Require status checks to pass".
 
 ## Kommandoer
@@ -56,8 +67,10 @@ Tilføj `?debug=1` til adressen for at se ydelsesmåleren (billeder pr. sekund o
 | Kommando | Hvad den gør |
 | --- | --- |
 | `npm run dev` | Starter spillet på din computer |
+| `npm run tjek` | Typetjek, enhedstests, stavetjek og build på én gang |
 | `npm test` | Kører enhedstests og stavetjek |
-| `npm run test:e2e` | Spiller kapitel 1 igennem automatisk i Chrome |
+| `npm run test:e2e` | Spiller kapitlerne igennem automatisk i Chrome og kører billedtesten |
+| `npm run grafik:ark` | Tegner alle pixelfigurer på ét ark i `test-results/ark/` |
 | `npm run stavetjek` | Stavetjekker al dansk tekst |
 | `npm run korrektur` | Laver `korrektur/korrekturliste.md` med al tekst til gennemlæsning |
 | `npm run build` | Bygger spillet til `dist/` |
@@ -100,7 +113,7 @@ Al dansk tekst ligger i `src/content/`:
 | Fil | Indhold |
 | --- | --- |
 | `tekster/da.json` | Knapper, beskeder og feedback |
-| `kapitler/kapitel1.json` | Steder, replikker og opgaver i kapitel 1 |
+| `kapitler/kapitel1.json` ... `kapitel8.json` | Steder, replikker og opgaver i hvert kapitel |
 | `ord/stumme.json` | Ord med stumme bogstaver |
 | `ord/ogorm.json` | Tekster til Og-ormen |
 | `ord/historiebro.json` | Historier til Historiebroen |

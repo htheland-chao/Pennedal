@@ -12,7 +12,11 @@ Danskfagligt fantasy-læringsspil til en 5. klasse. Ejer: Henrik (klasselærer o
 
 ## Start her
 
-Læs `docs/status.md` først: hvad findes, hvad er besluttet, hvad mangler og hvad der ikke er testet. Opdatér den i hver pull request, der ændrer noget af det.
+Læs `docs/status.md` først: hvad findes, hvad er besluttet, hvad mangler og hvad der ikke er testet. Den er kort med vilje.
+- `docs/logbog.md` har detaljerne om, hvad der er lavet hvornår og hvorfor. Læs kun det afsnit, opgaven handler om.
+- I hver pull request, der ændrer noget: skriv en kort linje i `docs/status.md`, hvis den ændrer, hvad der findes, er besluttet, mangler eller ikke er testet. Skriv detaljerne øverst i `docs/logbog.md`.
+- Faste fremgangsmåder ligger som skills i `.claude/skills/`: `verify` (tjek før commit) og `ny-grafik` (ny pixelgrafik).
+- `AGENTS.md` peger andre AI-værktøjer (fx Codex) hertil, så reglerne kun står ét sted.
 
 ## Stak (versioner er låst i package.json)
 
