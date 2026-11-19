@@ -20,9 +20,9 @@ export const spejl = (k: Tegnkort): Tegnkort => ({ ...k, raekker: k.raekker.map(
 /** Hjælperne og væsnerne spejles, så alle kigger mod hinanden (holdet til venstre, væsnerne til højre). */
 export const SPEJLET = { fugl: spejl(FUGL), vims: spejl(VIMS), klatten: spejl(KLATTEN) };
 export const SPRITE_SPEJLET = Object.fromEntries(Object.entries(SPRITE).map(([k, v]) => [k, spejl(v)])) as Record<VaesenId, Tegnkort>;
-/** Figurernes størrelse på scenen (gange pixel). */
-export const FJENDE_SKALA = 2.4;
-export const HOLD_SKALA = 1.8;
+/** Figurernes størrelse på scenen (gange baggrundens pixel). Kun hele trin, så alle pixel er lige store (Henrik, 19. november 2026). */
+export const FJENDE_SKALA = 2;
+export const HOLD_SKALA = 2;
 
 export const billeder = new Map<string, string>();
 export function uri(noegle: string, kort: Tegnkort | (() => HTMLCanvasElement)): string {

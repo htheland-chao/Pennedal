@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useState, type CSSProperties } from 'react';
 import { avatarDele, navne, t, type TekstId } from '../content';
 import { AVATAR_GRAENSER, type Avatar } from '../data/gem';
-import { finFigur } from '../game/pixel/fin';
 import { figurRammer } from '../game/pixel/kampliv';
 import { lerred, tegnkortTilLerred } from '../game/pixel/lerred';
 import { avatarPixel, LANTERNE, type Retning } from '../game/pixel/sprites';
@@ -45,19 +44,19 @@ const oplist = (l: string[]) => (l.length < 2 ? l.join('') : `${l.slice(0, -1).j
 
 const spejl = <T,>(r: T[][]): T[][] => r.map((x) => [...x].reverse());
 
-/** Figurens billeder (fin grafik), ét for hvert åndedrag. Uden canvas (enhedstests) bliver det tomt. */
+/** Figurens billeder, ét for hvert åndedrag (samme pixelstørrelse som i spillet). Uden canvas (enhedstests) bliver det tomt. */
 function billeder(a: Avatar, retning: Retning): { uri: string[]; ms: number } {
   try {
     const kort = avatarPixel(a, retning, 0);
     const { rammer, ms } = figurRammer('avatar', kort, 1);
     const uri = rammer.map((r) => {
-      const fin = finFigur(retning === 'venstre' ? { ...r, raekker: spejl(r.raekker.map((x) => [...x])).map((x) => x.join('')) } : r);
-      const figur = tegnkortTilLerred(fin);
-      const c = lerred(figur.width + 24, figur.height + 4);
+      const vendt = retning === 'venstre' ? { ...r, raekker: spejl(r.raekker.map((x) => [...x])).map((x) => x.join('')) } : r;
+      const figur = tegnkortTilLerred(vendt);
+      const c = lerred(figur.width + 12, figur.height + 2);
       const g = c.getContext('2d')!;
-      g.drawImage(figur, 4, 2);
-      // Med lanternen holder figuren den i hånden (fin grafik har dobbelt så mange pixel).
-      if (a.tilbehoer === 3 && retning !== 'op') g.drawImage(tegnkortTilLerred(finFigur(LANTERNE)), retning === 'venstre' ? 0 : 30, 30);
+      g.drawImage(figur, 2, 1);
+      // Med lanternen holder figuren den i hånden.
+      if (a.tilbehoer === 3 && retning !== 'op') g.drawImage(tegnkortTilLerred(LANTERNE), retning === 'venstre' ? 0 : 15, 15);
       return c.toDataURL('image/png');
     });
     return { uri, ms };

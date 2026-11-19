@@ -68,7 +68,7 @@ export function byggBane(s: BaneScene) {
   // Er målet allerede nået, står hovedpersonen ved målet (fx hvis spillet blev genåbnet midt i slutscenen).
   const fra = s.data_.baneKlaret ? { x: s.maal.x - 24, y: s.maal.y } : s.start;
   if (s.data_.baneKlaret) s.faerdig = true;
-  s.spiller = s.add.image(fra.x, fra.y, 'px-side-0').setOrigin(0.5, 1).setDepth(5).setScale(s.grundSkala);
+  s.spiller = s.add.image(fra.x, fra.y, 'px-side-0').setOrigin(0.5, 1).setDepth(5);
   s.fugl = s.add.image(s.start.x - 16, s.start.y - 20, 'px-fugl').setOrigin(0.5, 1).setDepth(6);
   s.fugl.setVisible(!(s.data_.skjulte ?? []).includes('aeseloere'));
   const [k] = find(s.bane, 'K');

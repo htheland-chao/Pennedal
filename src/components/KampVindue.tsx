@@ -322,7 +322,7 @@ export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, ta
                 <LevendeSprite
                   key={`${f.nr}-${ramt ? ryst.nr : 0}-${vaek}`}
                   className={`kamp-sprite kamp-fjende${vaek ? (smelter.includes(f.nr) && visning.type === 'afspil' ? ' rolig' : ' borte') : ramt ? ' ramt' : ''}${f.lammet && !vaek ? ' lammet' : ''}`}
-                  noegle={`vaesen.fin.${f.vaesen}`}
+                  noegle={`vaesen.${f.vaesen}`}
                   id={f.vaesen}
                   base={SPRITE[f.vaesen]}
                   spejlet
@@ -371,7 +371,7 @@ export function KampVindue({ trin, niveauFor, fremskridt, avatar, avatarNavn, ta
                 <LevendeSprite
                   key={`${m.id}-${ramt ? ryst.nr : 0}`}
                   className={`kamp-sprite kamp-medlem${nede ? ' faldet' : ''}${ramt ? ' ramt' : ''}${slut === 'vundet' ? ' jubler' : ''}`}
-                  noegle={m.id === 'avatar' ? `avatar.fin.${JSON.stringify(avatar)}` : `medlem.fin.${m.id}`}
+                  noegle={m.id === 'avatar' ? `avatar.${JSON.stringify(avatar)}` : `medlem.${m.id}`}
                   id={holdBase[m.id].id}
                   base={holdBase[m.id].kort}
                   spejlet={holdBase[m.id].spejlet}

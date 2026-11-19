@@ -1,10 +1,9 @@
 import Phaser from 'phaser';
 import type { Avatar } from '../data/gem';
 import { BFELT, erFare, erFast, erPlanke, erVisket, FYSIK, type Bane } from './bane';
-import { SKALA, VIS_H } from './KortScene';
+import { VIS_H } from './KortScene';
 import { byggBane } from './bane/byg';
 import { tegnkortTilLerred } from './pixel/lerred';
-import { FIN_FIGUR_I_VERDEN, finFigur } from './pixel/fin';
 import { avatarPixel, type Tegnkort } from './pixel/sprites';
 import type { VerdenData, VerdenKroge } from './typer';
 import { spilEffekt } from '../lyd/effekter';
@@ -105,19 +104,10 @@ export class BaneScene extends Phaser.Scene {
     return noegle;
   }
 
-  /** Hovedpersonens størrelse: den fine figur har dobbelt så mange pixel og vises i halv størrelse. */
-  get grundSkala() {
-    return SKALA >= 2 && FIN_FIGUR_I_VERDEN ? 0.5 : 1;
-  }
-
   byggAvatar() {
     const a = this.registry.get('avatar') as Avatar | undefined;
     if (!a) return;
-    // Fin hovedperson er slået fra: én pixelstørrelse i hele verden (se pixel/fin.ts).
-    for (const f of [0, 1, 2] as const) {
-      const t = avatarPixel(a, 'hoejre', f);
-      this.tekstur(`px-side-${f}`, SKALA >= 2 && FIN_FIGUR_I_VERDEN ? finFigur(t) : t, true);
-    }
+    for (const f of [0, 1, 2] as const) this.tekstur(`px-side-${f}`, avatarPixel(a, 'hoejre', f), true);
   }
 
   create() {
@@ -203,9 +193,8 @@ export class BaneScene extends Phaser.Scene {
   private fjedr(sx: number, sy: number, ms: number) {
     if (this.roligt) return;
     this.tweens.killTweensOf(this.spiller);
-    const g = this.grundSkala;
-    this.spiller.setScale(sx * g, sy * g);
-    this.tweens.add({ targets: this.spiller, scaleX: g, scaleY: g, duration: ms, ease: 'Back.Out' });
+    this.spiller.setScale(sx, sy);
+    this.tweens.add({ targets: this.spiller, scaleX: 1, scaleY: 1, duration: ms, ease: 'Back.Out' });
   }
 
   /** Små støvpuf ved fødderne. */

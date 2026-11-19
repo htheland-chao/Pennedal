@@ -4,7 +4,6 @@
  */
 import { AVATAR_DELE, AVATAR_GRAENSER, STANDARD_AVATAR } from '../data/gem';
 import { PORTRAETTER } from '../game/pixel/portraetter';
-import { finFigur } from '../game/pixel/fin';
 import { figurRammer } from '../game/pixel/kampliv';
 import { EKKO } from '../game/pixel/rimbjerg';
 import { portraetBilleder, type PortraetFigur } from '../game/pixel/levende';
@@ -86,7 +85,7 @@ export function grupper(): Gruppe[] {
     },
     {
       id: 'kamp-liv',
-      titel: 'Liv i kampen: hver figur sin egen bevægelse (alle billeder i rækkefølge, fine figurer)',
+      titel: 'Liv i kampen: hver figur sin egen bevægelse (alle billeder i rækkefølge)',
       skala: 4,
       elementer: (
         [
@@ -101,23 +100,11 @@ export function grupper(): Gruppe[] {
           ['krusedulle', KRUSEDULLE],
           ['halvsaetning', HALVSAETNING],
         ] as const
-      ).flatMap(([navn, kort]) => figurRammer(navn, kort).rammer.map((k, i) => ({ navn: `${navn} ${i}`, kort: finFigur(k) }))),
-    },
-    {
-      id: 'avatar-fin',
-      titel: 'Fin hovedperson (32 x 48, vist i halv størrelse i verden): almindelig og fin',
-      skala: 4,
-      elementer: [
-        ...retninger.filter((e) => e.navn.endsWith(' 0')).flatMap((e) => [
-          { navn: `${e.navn} 16x24`, kort: { raekker: e.kort.raekker.flatMap((r) => { const d = [...r].map((c) => c + c).join(''); return [d, d]; }), palet: e.kort.palet } },
-          { navn: `${e.navn} fin`, kort: finFigur(e.kort) },
-        ]),
-        ...avatarValg.filter((_, i) => i % 3 === 0).map((e) => ({ navn: `${e.navn} fin`, kort: finFigur(e.kort) })),
-      ],
+      ).flatMap(([navn, kort]) => figurRammer(navn, kort).rammer.map((k, i) => ({ navn: `${navn} ${i}`, kort: k }))),
     },
     {
       id: 'avatar-nye',
-      titel: 'Nye avatarvalg (14. november 2026) forfra, fra siden og bagfra, fine figurer',
+      titel: 'Nye avatarvalg (14. november 2026) forfra, fra siden og bagfra',
       skala: 3,
       elementer: (
         [
@@ -133,7 +120,7 @@ export function grupper(): Gruppe[] {
         ] as [keyof typeof STANDARD_AVATAR, number[]][]
       ).flatMap(([del, vaerdier]) =>
         vaerdier.flatMap((v) =>
-          (['ned', 'hoejre', 'op'] as Retning[]).map((r) => ({ navn: `${del} ${v} ${r}`, kort: finFigur(avatarPixel({ ...STANDARD_AVATAR, [del]: v }, r, 0)) })),
+          (['ned', 'hoejre', 'op'] as Retning[]).map((r) => ({ navn: `${del} ${v} ${r}`, kort: avatarPixel({ ...STANDARD_AVATAR, [del]: v }, r, 0) })),
         ),
       ),
     },

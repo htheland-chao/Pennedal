@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useState, type ImgHTMLAttributes } from 'react';
-import { finFigur } from '../../game/pixel/fin';
 import { figurRammer, type FigurId } from '../../game/pixel/kampliv';
 import { tegnkortTilLerred } from '../../game/pixel/lerred';
 import type { Tegnkort } from '../../game/pixel/sprites';
@@ -38,6 +37,6 @@ export function LevendeSprite({
     return () => window.clearInterval(ur);
   }, [stille, ms, rammer.length]);
   const r = stille ? 0 : nr % rammer.length;
-  const src = uri(`${noegle}.liv${r}`, () => tegnkortTilLerred(finFigur(spejlet ? spejl(rammer[r]) : rammer[r])));
+  const src = uri(`${noegle}.liv${r}`, () => tegnkortTilLerred(spejlet ? spejl(rammer[r]) : rammer[r]));
   return <img {...img} src={src} data-ramme={r} />;
 }

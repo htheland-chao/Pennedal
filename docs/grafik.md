@@ -22,7 +22,7 @@ Prototypen, der viser stilen: "Pennedal set oppefra" (Claude-artefakt). Den er t
 - Tilt-shift (sløring i top og bund) er prøvet og fravalgt: det slører hele billedet og gør pixelgrafik grim.
 - Felter: **16 x 16 px**.
 - Hovedperson: 16 x 24 px, 4 retninger (venstre er spejlet højre), 3 gangbilleder.
-- Én pixelstørrelse (19. november 2026): figurer og verden skal have samme pixelstørrelse. Den fine hovedperson (32 x 48 i halv størrelse, `src/game/pixel/fin.ts`) bruges derfor ikke på kortet og i banerne, kun i kampvinduet og introen, hvor figuren står alene. Tegn nye figurer i den almindelige størrelse.
+- Én pixelstørrelse (19. november 2026): figurer og verden har samme pixelstørrelse overalt, også i kampen, introen og avatardesigneren. Den fine hovedperson (32 x 48, Scale2x) er fjernet. Tegn nye figurer i den almindelige størrelse, og forstør dem kun i hele trin.
 - Fin grafik vises med almindelig udjævning (`.spilflade-bloed`), så alle pixel bliver lige store ved skæve forstørrelser som 4,27.
 - Portrætter (24 x 24) blinker og taler med kode (`src/game/pixel/levende.ts`). Et nyt portræt skal have sine øjne og sin mund i `LIV`.
 - Klatten: 14 x 17 px. Æseløre: 16 x 10 px og flyver efter hovedpersonen.

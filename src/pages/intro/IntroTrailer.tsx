@@ -2,7 +2,6 @@ import { useEffect, useMemo, useRef, type CSSProperties } from 'react';
 import { STANDARD_AVATAR } from '../../data/gem';
 import { BFELT, laesBane } from '../../game/bane';
 import { tegnBane, tegnBjergBaggrund, tegnByBaggrund, tegnSkovBaggrund, tegnSoeBaggrund } from '../../game/pixel/banetegn';
-import { finFigur } from '../../game/pixel/fin';
 import { figurRammer, type FigurId } from '../../game/pixel/kampliv';
 import { FJENDE_PLADS, HOLD_PLADS, tegnKampBaggrund } from '../../game/pixel/kampscene';
 import { lerred, tegnkortTilLerred } from '../../game/pixel/lerred';
@@ -31,7 +30,7 @@ type Grafik = {
   eng: string;
   kamp: string;
   gaa: Strimmel;
-  avatarFin: Strimmel;
+  avatarLiv: Strimmel;
   vims: Strimmel;
   fugl: Strimmel;
   tomordet: Strimmel;
@@ -42,8 +41,8 @@ type Grafik = {
 const spejl = (k: Tegnkort): Tegnkort => ({ ...k, raekker: k.raekker.map((r) => [...r].reverse().join('')) });
 
 /** Alle billeder i et klip sat side om side, så CSS kan skifte mellem dem. */
-function strimmel(rammer: Tegnkort[], ms: number, fin: boolean): Strimmel {
-  const lag = rammer.map((r) => tegnkortTilLerred(fin ? finFigur(r) : r));
+function strimmel(rammer: Tegnkort[], ms: number): Strimmel {
+  const lag = rammer.map((r) => tegnkortTilLerred(r));
   const b = lag[0].width;
   const h = lag[0].height;
   const c = lerred(b * lag.length, h);
@@ -54,7 +53,7 @@ function strimmel(rammer: Tegnkort[], ms: number, fin: boolean): Strimmel {
 
 function levende(id: FigurId, kort: Tegnkort, retning: 1 | -1): Strimmel {
   const { rammer, ms } = figurRammer(id, kort, retning);
-  return strimmel(rammer, ms, true);
+  return strimmel(rammer, ms);
 }
 
 /** En flad bane til glimtene af landet: jord med et par bakker. */
@@ -90,8 +89,8 @@ function hentGrafik(): Grafik | null {
       bane: url(tegnBane(TRAILER_BANE, 'tage')),
       eng: url(tegnKampBaggrund('skov', false)),
       kamp: url(tegnKampBaggrund('viskeskov', false)),
-      gaa: strimmel([avatarPixel(a, 'hoejre', 1), avatarPixel(a, 'hoejre', 0), avatarPixel(a, 'hoejre', 2), avatarPixel(a, 'hoejre', 0)], 120, false),
-      avatarFin: levende('avatar', avatarPixel(a, 'hoejre', 0), 1),
+      gaa: strimmel([avatarPixel(a, 'hoejre', 1), avatarPixel(a, 'hoejre', 0), avatarPixel(a, 'hoejre', 2), avatarPixel(a, 'hoejre', 0)], 120),
+      avatarLiv: levende('avatar', avatarPixel(a, 'hoejre', 0), 1),
       vims: levende('vims', spejl(VIMS), 1),
       fugl: levende('fugl', spejl(FUGL), 1),
       tomordet: levende('tomordet', spejl(TOMORD), -1),
@@ -270,12 +269,12 @@ function Venner({ g }: { g: Grafik }) {
     <>
       <img className="intro-lag" src={g.eng} alt="" />
       <span className="intro-lag trailer-zoom">
-        <Figur s={g.avatarFin} x={160} y={140} skala={1.8} />
+        <Figur s={g.avatarLiv} x={160} y={140} skala={2} />
         <Figur
           s={g.fugl}
           x={118}
           y={104}
-          skala={1.8}
+          skala={2}
           refFn={(el) => {
             fugl.current = el;
           }}
@@ -284,7 +283,7 @@ function Venner({ g }: { g: Grafik }) {
           s={g.vims}
           x={204}
           y={142}
-          skala={1.8}
+          skala={2}
           refFn={(el) => {
             vims.current = el;
           }}
@@ -379,11 +378,11 @@ function Kamp({ g, mild }: { g: Grafik; mild: boolean }) {
   return (
     <span ref={scene} className="intro-lag">
       <img className="intro-lag" src={g.kamp} alt="" />
-      <Figur s={g.avatarFin} x={HOLD_PLADS[0][0]} y={HOLD_PLADS[0][1]} skala={1.8} refFn={saet('avatar')} />
-      <Figur s={g.fugl} x={HOLD_PLADS[1][0] - 22} y={HOLD_PLADS[1][1] - 46} skala={1.8} refFn={saet('fugl')} />
-      <Figur s={g.vims} x={HOLD_PLADS[2][0]} y={HOLD_PLADS[2][1]} skala={1.8} refFn={saet('vims')} />
-      <Figur s={g.tomordet} x={p1[0]} y={p1[1]} skala={2.4} refFn={saet('tom')} />
-      <Figur s={g.stumming} x={p2[0]} y={p2[1]} skala={2.4} refFn={saet('stum')} />
+      <Figur s={g.avatarLiv} x={HOLD_PLADS[0][0]} y={HOLD_PLADS[0][1]} skala={2} refFn={saet('avatar')} />
+      <Figur s={g.fugl} x={HOLD_PLADS[1][0] - 22} y={HOLD_PLADS[1][1] - 46} skala={2} refFn={saet('fugl')} />
+      <Figur s={g.vims} x={HOLD_PLADS[2][0]} y={HOLD_PLADS[2][1]} skala={2} refFn={saet('vims')} />
+      <Figur s={g.tomordet} x={p1[0]} y={p1[1]} skala={2} refFn={saet('tom')} />
+      <Figur s={g.stumming} x={p2[0]} y={p2[1]} skala={2} refFn={saet('stum')} />
       <img
         className="trailer-slag"
         ref={saet('slag1')}
