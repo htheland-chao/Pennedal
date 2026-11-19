@@ -65,6 +65,10 @@ jobs:
       - run: npm ci
       - name: Byg spillet
         run: npx vite build --sourcemap false
+        env:
+          # Lærerkoden til lærerkiggen. Sæt hemmeligheden LAERERKODE under Settings > Secrets and variables > Actions.
+          # Uden den bruges standardkoden fra src/config.ts.
+          VITE_LAERERKODE: ${{ secrets.LAERERKODE }}
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
