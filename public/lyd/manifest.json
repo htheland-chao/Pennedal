@@ -128,6 +128,14 @@
       "lavet": "2026-11-17",
       "model": "gemini-3.8-flash-tts"
     },
+    "00476b6f7bef46": {
+      "figur": "fortaeller",
+      "tekst": "Under den sidste side ligger Blækdybet. Her bor resterne af Den Ufærdiges halve historier. Gå så dybt ned, som du kan.",
+      "fil": "00476b6f7bef46.ogg",
+      "kilde": "Blækdybet / dybet.intro",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "0047bf266ff3df": {
       "figur": "aeseloere",
       "tekst": "Ja. nøgle rimer ikke på nat. Slutningen lyder anderledes.",
@@ -224,6 +232,14 @@
       "fil": "0072a01fc23c31.ogg",
       "kilde": "Svar / ikkerim.lampe.kampe",
       "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "00798f33e231d6": {
+      "figur": "fortaeller",
+      "tekst": "lyden kom nærmere.",
+      "fil": "00798f33e231d6.ogg",
+      "kilde": "Og-ormen / og-1c.1-1",
+      "lavet": "2026-11-20",
       "model": "gemini-3.8-flash-tts"
     },
     "00810db74b5886": {
@@ -530,6 +546,14 @@
       "kilde": "Kapitel 2 / k2-opslag.k2-opslag-2.standard",
       "lavet": "2026-11-03"
     },
+    "0145e4ce645688": {
+      "figur": "aeseloere",
+      "tekst": "khom er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "0145e4ce645688.ogg",
+      "kilde": "Kampsvar / krusedulle.k12.khom",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
+    },
     "014c6d9dfc2edf": {
       "figur": "aeseloere",
       "tekst": "Ja. fersken rimer ikke på fisk. Slutningen lyder anderledes.",
@@ -597,6 +621,14 @@
       "fil": "015f5251ccf65e.ogg",
       "kilde": "Kapitel 6 / k6-ankomst.3",
       "lavet": "2026-11-10"
+    },
+    "016546dcdcf22d": {
+      "figur": "fortaeller",
+      "tekst": "Pennedal har tre måner og de hedder Blæk, Papir og Pen",
+      "fil": "016546dcdcf22d.ogg",
+      "kilde": "Og-ormen / og-5b.0-1",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "01688c53fa9f19": {
       "figur": "aeseloere",
@@ -783,6 +815,14 @@
       "kilde": "Kapitel 5 / fodnotetal.start.3",
       "lavet": "2026-11-12"
     },
+    "01bf7560cd4f02": {
+      "figur": "aeseloere",
+      "tekst": "Klatten peger på Vis. Den fejl har jeg selv lavet engang. Det er ikke den.",
+      "fil": "01bf7560cd4f02.ogg",
+      "kilde": "Kampsvar / klatten.k16.Vis",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
+    },
     "01bffaca3f4a54": {
       "figur": "aeseloere",
       "tekst": "Eksempel: Andre ord med samme slags stumme bogstav: kold, mand, land.",
@@ -852,6 +892,14 @@
       "lavet": "2026-11-18",
       "model": "gemini-3.8-flash-tts"
     },
+    "01dbf052c3429e": {
+      "figur": "fortaeller",
+      "tekst": "På markedet købte de brød og ost og så satte de sig ved floden og spiste.",
+      "fil": "01dbf052c3429e.ogg",
+      "kilde": "Og-ormen / og-4a.0-1",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "01dd07852e8d8c": {
       "figur": "aeseloere",
       "tekst": "sand rimer ikke på sang. Sig begge ord højt, og lyt til slutningen.",
@@ -866,6 +914,22 @@
       "fil": "01e571eb97f210.ogg",
       "kilde": "Kapitel 4 / rimfodsaetning.start.1",
       "lavet": "2026-11-12"
+    },
+    "01e66ed9ab2643": {
+      "figur": "fortaeller",
+      "tekst": "Klatten drypper blæk overalt og hans sko er helt sorte.",
+      "fil": "01e66ed9ab2643.ogg",
+      "kilde": "Og-ormen / og-1b.0-1",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "01e7a1591595c9": {
+      "figur": "fortaeller",
+      "tekst": "en lille frø grinede ad ham",
+      "fil": "01e7a1591595c9.ogg",
+      "kilde": "Og-ormen / og-5a.2-2",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "01e8844998edfb": {
       "figur": "fortaeller",
@@ -997,6 +1061,14 @@
       "kilde": "Synonymer / hemmelig",
       "lavet": "2026-11-04"
     },
+    "021e5790f10e48": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Nu er sætningen færdig: gik han med ind i mørket.",
+      "fil": "021e5790f10e48.ogg",
+      "kilde": "Kampsvar / halvsaetning.s06",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
+    },
     "02224d96add638": {
       "figur": "fortaeller",
       "tekst": "Klatten er ikke din fjende.",
@@ -1117,6 +1189,22 @@
       "kilde": "Synonymer / moerk",
       "lavet": "2026-11-04"
     },
+    "025cd86be21425": {
+      "figur": "fortaeller",
+      "tekst": "de hedder Blæk, Papir og Pen og de lyser hver sin farve.",
+      "fil": "025cd86be21425.ogg",
+      "kilde": "Og-ormen / og-5b.1-2",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "025f8fa2238696": {
+      "figur": "aeseloere",
+      "tekst": "prøvde er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "025f8fa2238696.ogg",
+      "kilde": "Kampsvar / krusedulle.k13.prøvde",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
+    },
     "0264b6cd085021": {
       "figur": "fortaeller",
       "tekst": "Der er varmt sand på stranden.",
@@ -1146,6 +1234,14 @@
       "fil": "027206d2bd858a.ogg",
       "kilde": "Kapitel 2 / k2-moerke.4",
       "lavet": "2026-10-31"
+    },
+    "02793ec9a4a213": {
+      "figur": "fortaeller",
+      "tekst": "hatten fløj af hans hoved",
+      "fil": "02793ec9a4a213.ogg",
+      "kilde": "Og-ormen / og-2b.1-1",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "02799131987594": {
       "figur": "vims",
@@ -1243,12 +1339,28 @@
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-tts"
     },
+    "02af1f92fb350a": {
+      "figur": "aeseloere",
+      "tekst": "smukkkere er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "02af1f92fb350a.ogg",
+      "kilde": "Kampsvar / krusedulle.k16.smukkkere",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
+    },
     "02afbcb20e8ef4": {
       "figur": "aeseloere",
       "tekst": "Han er ikke frygtelig. Han er bare klattet.",
       "fil": "02afbcb20e8ef4.ogg",
       "kilde": "Kapitel 1 / k1-klatten.2",
       "lavet": "2026-10-31"
+    },
+    "02b044d09645dc": {
+      "figur": "aeseloere",
+      "tekst": "han kunne flyve længere. passer ikke helt. Læs sætningen igen, og se på reglen.",
+      "fil": "02b044d09645dc.ogg",
+      "kilde": "Kampsvar / halvsaetning.s11.han kunne flyve længere.",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
     },
     "02b358a56c8d60": {
       "figur": "fortaeller",
@@ -1382,6 +1494,14 @@
       "lavet": "2026-11-15",
       "model": "gemini-3.8-flash-tts"
     },
+    "02f39a900b20f5": {
+      "figur": "fortaeller",
+      "tekst": "Floden løb hurtigt og vandet var koldt og klart og midt i floden stod en sten og på stenen sad en frø.",
+      "fil": "02f39a900b20f5.ogg",
+      "kilde": "Og-ormen / og-5c.0-3",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "02f4faf11447bd": {
       "figur": "aeseloere",
       "tekst": "jemme er ikke den rigtige stavemåde. Se på reglen.",
@@ -1427,12 +1547,28 @@
       "lavet": "2026-11-16",
       "model": "gemini-3.8-flash-tts"
     },
+    "03014fd7a3bd54": {
+      "figur": "fortaeller",
+      "tekst": "den landede i floden.",
+      "fil": "03014fd7a3bd54.ogg",
+      "kilde": "Og-ormen / og-2b.2-2",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "0309fcdcef489b": {
       "figur": "fortaeller",
       "tekst": "På den sidste side står der: Skyggen ledte efter et sted at høre til. Og så ...",
       "fil": "0309fcdcef489b.ogg",
       "kilde": "Kapitel 5 / k5-haeftet.4",
       "lavet": "2026-11-09"
+    },
+    "030c1cbb8fc815": {
+      "figur": "fortaeller",
+      "tekst": "Månerne lyste gult og hvidt over dalen",
+      "fil": "030c1cbb8fc815.ogg",
+      "kilde": "Og-ormen / og-3b.0-0",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "030c97896d28bc": {
       "figur": "aeseloere",
@@ -1516,6 +1652,14 @@
       "fil": "03351eaa9c103b.ogg",
       "kilde": "Minder / minde.skaar7b.1",
       "lavet": "2026-11-13"
+    },
+    "0338320ca2fd55": {
+      "figur": "fortaeller",
+      "tekst": "han rystede som et blad.",
+      "fil": "0338320ca2fd55.ogg",
+      "kilde": "Og-ormen / og-4b.3-3",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "033ebb5f5825f4": {
       "figur": "raaber",
@@ -1618,6 +1762,14 @@
       "fil": "0378ec6fcdf88e.ogg",
       "kilde": "Kapitel 7 / k7-kamp.opgavetekst",
       "lavet": "2026-11-12"
+    },
+    "037c2e81ac58d0": {
+      "figur": "aeseloere",
+      "tekst": "er historien helt færdig. passer ikke helt. Læs sætningen igen, og se på reglen.",
+      "fil": "037c2e81ac58d0.ogg",
+      "kilde": "Kampsvar / halvsaetning.s10.er historien helt færdig.",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
     },
     "037d5ef70daa8f": {
       "figur": "ord",
@@ -1755,6 +1907,14 @@
       "kilde": "Kapitel 5 / fodnotetal.klar.1",
       "lavet": "2026-11-12"
     },
+    "03b8b0ce85ec61": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Nu er sætningen færdig: Udråbstegn (!)",
+      "fil": "03b8b0ce85ec61.ogg",
+      "kilde": "Kampsvar / halvsaetning.tegn.Udråbstegn (!)",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
+    },
     "03bb0696947eb7": {
       "figur": "aeseloere",
       "tekst": "krus rimer faktisk på hus. Sig dem højt. De lyder ens til sidst.",
@@ -1793,6 +1953,22 @@
       "kilde": "Svar / ikkerim.hus.hul",
       "lavet": "2026-11-15",
       "model": "gemini-3.8-flash-lite-tts"
+    },
+    "03d2b84c2d8aa4": {
+      "figur": "fortaeller",
+      "tekst": "Pennedal har tre måner og de hedder Blæk, Papir og Pen og de lyser hver sin farve.",
+      "fil": "03d2b84c2d8aa4.ogg",
+      "kilde": "Og-ormen / og-5b.0-2",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "03d67e6f5de0aa": {
+      "figur": "aeseloere",
+      "tekst": "skriver den sig selv færdig. passer ikke helt. Læs sætningen igen, og se på reglen.",
+      "fil": "03d67e6f5de0aa.ogg",
+      "kilde": "Kampsvar / halvsaetning.s10.skriver den sig selv færdig.",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
     },
     "03dab47408a6d4": {
       "figur": "aeseloere",
@@ -2035,6 +2211,14 @@
       "kilde": "Svar / rytme.ekkohule.rigtig",
       "lavet": "2026-11-17",
       "model": "gemini-3.8-flash-lite-tts"
+    },
+    "045d4149c19d98": {
+      "figur": "aeseloere",
+      "tekst": "Vis er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "045d4149c19d98.ogg",
+      "kilde": "Kampsvar / krusedulle.k16.Vis",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
     },
     "045dfd6446f388": {
       "figur": "aeseloere",
@@ -2421,6 +2605,14 @@
       "lavet": "2026-11-16",
       "model": "gemini-3.8-flash-lite-tts"
     },
+    "050b6f81ffc4ee": {
+      "figur": "fortaeller",
+      "tekst": "Floden løb hurtigt",
+      "fil": "050b6f81ffc4ee.ogg",
+      "kilde": "Og-ormen / og-5c.0-0",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "050e9e94b3a590": {
       "figur": "aeseloere",
       "tekst": "Ja. Det staves rund.",
@@ -2464,6 +2656,14 @@
       "fil": "0525c2c39efcfc.ogg",
       "kilde": "Svar / ikkerim.sommer.lommer",
       "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "0527646a3d9e8b": {
+      "figur": "aeseloere",
+      "tekst": "Ja. kom er den rigtige stavemåde.",
+      "fil": "0527646a3d9e8b.ogg",
+      "kilde": "Kampsvar / krusedulle.k12.kom",
+      "lavet": "2026-11-20",
       "model": "gemini-3.8-flash-tts"
     },
     "052d5e911bad7a": {
@@ -2720,6 +2920,14 @@
       "lavet": "2026-11-16",
       "model": "gemini-3.8-flash-tts"
     },
+    "059aaeda6a8682": {
+      "figur": "fortaeller",
+      "tekst": "Du tog lanternen og kappen med og så gik du ud i natten.",
+      "fil": "059aaeda6a8682.ogg",
+      "kilde": "Og-ormen / og-2c.0-1",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "05a3e3417ab6e3": {
       "figur": "aeseloere",
       "tekst": "Klatten peger på Vem. Den fejl har jeg selv lavet engang. Det er ikke den.",
@@ -2855,6 +3063,14 @@
       "kilde": "Svar / ikkerim.tante.tand",
       "lavet": "2026-11-17",
       "model": "gemini-3.8-flash-tts"
+    },
+    "05e06758d768cd": {
+      "figur": "fortaeller",
+      "tekst": "ingen af dem ville give sig og til sidst gik de hver sin vej.",
+      "fil": "05e06758d768cd.ogg",
+      "kilde": "Og-ormen / og-3a.1-2",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "05e3fd3a1b27cc": {
       "figur": "fortaeller",
@@ -3358,6 +3574,14 @@
       "lavet": "2026-11-19",
       "model": "gemini-3.8-flash-lite-tts"
     },
+    "070981e5ddf452": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Nu er sætningen færdig: det regnede.",
+      "fil": "070981e5ddf452.ogg",
+      "kilde": "Kampsvar / halvsaetning.s01",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
+    },
     "070b80dd0e7c6e": {
       "figur": "aeseloere",
       "tekst": "Planke 2 står forkert. Hvad ser hovedpersonen, når den magiske verden begynder?",
@@ -3462,6 +3686,14 @@
       "kilde": "Kapitel 4 / k4-kloeften.3",
       "lavet": "2026-11-09"
     },
+    "073ca6b0a09899": {
+      "figur": "fortaeller",
+      "tekst": "En smal sti fører hen over sort blæk. Hop fra sten til sten, og nå frem til den anden side.",
+      "fil": "073ca6b0a09899.ogg",
+      "kilde": "Blækdybet / rum.bane",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "073d198a594df7": {
       "figur": "aeseloere",
       "tekst": "Eksempel: Andre ord med samme regel: kold, hund, land",
@@ -3475,6 +3707,14 @@
       "fil": "0743c543b1a964.ogg",
       "kilde": "Kapitel 2 / k2-rum.laas.regel",
       "lavet": "2026-11-03"
+    },
+    "0747fd9e246a59": {
+      "figur": "aeseloere",
+      "tekst": "solen skinnede. passer ikke helt. Læs sætningen igen, og se på reglen.",
+      "fil": "0747fd9e246a59.ogg",
+      "kilde": "Kampsvar / halvsaetning.s01.solen skinnede.",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
     },
     "07495c1a47f59e": {
       "figur": "fortaeller",
@@ -3552,6 +3792,14 @@
       "lavet": "2026-11-16",
       "model": "gemini-3.8-flash-lite-tts"
     },
+    "07663e7bc7140d": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Nu er sætningen færdig: han ikke blæste væk.",
+      "fil": "07663e7bc7140d.ogg",
+      "kilde": "Kampsvar / halvsaetning.s11",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
+    },
     "07669200435839": {
       "figur": "grumsen",
       "tekst": "Mørke, knirkende døre og noget ukendt. Brr. Jeg tør godt, hvis jeg holder lampen.",
@@ -3583,6 +3831,14 @@
       "lavet": "2026-11-16",
       "model": "gemini-3.8-flash-lite-tts"
     },
+    "077868771ba41f": {
+      "figur": "fortaeller",
+      "tekst": "han øvede sig i at brøle foran en vandpyt og en lille frø grinede ad ham",
+      "fil": "077868771ba41f.ogg",
+      "kilde": "Og-ormen / og-5a.1-2",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "077d6222ba87af": {
       "figur": "aeseloere",
       "tekst": "Ja. lange rimer ikke på lampe. Slutningen lyder anderledes.",
@@ -3598,6 +3854,14 @@
       "kilde": "Svar / ikkerim.sko.bro",
       "lavet": "2026-11-15",
       "model": "gemini-3.8-flash-lite-tts"
+    },
+    "078eae52417188": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Nu er sætningen færdig: den så sin ejer.",
+      "fil": "078eae52417188.ogg",
+      "kilde": "Kampsvar / halvsaetning.s02",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
     },
     "078f048ead1ca5": {
       "figur": "ord",
@@ -3805,12 +4069,28 @@
       "kilde": "Kampe / kamp.tomordet.regel",
       "lavet": "2026-11-04"
     },
+    "07e884ec0f7d15": {
+      "figur": "aeseloere",
+      "tekst": "Klatten peger på drømmede. Den fejl har jeg selv lavet engang. Det er ikke den.",
+      "fil": "07e884ec0f7d15.ogg",
+      "kilde": "Kampsvar / klatten.k15.drømmede",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
+    },
     "07e8c290c513c7": {
       "figur": "holm",
       "tekst": "Godt, at du kom. Der sker noget mærkeligt med bøgerne.",
       "fil": "07e8c290c513c7.ogg",
       "kilde": "Kapitel 1 / k1-holm.1",
       "lavet": "2026-10-30"
+    },
+    "07ec10a9132497": {
+      "figur": "aeseloere",
+      "tekst": "sagde han ingenting. passer ikke helt. Læs sætningen igen, og se på reglen.",
+      "fil": "07ec10a9132497.ogg",
+      "kilde": "Kampsvar / halvsaetning.s08.sagde han ingenting.",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
     },
     "07eca48106db0a": {
       "figur": "aeseloere",
@@ -3910,6 +4190,14 @@
       "fil": "0823369163eb37.ogg",
       "kilde": "Kampsvar / krusedulle.k11.stile",
       "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "08278638de8245": {
+      "figur": "fortaeller",
+      "tekst": "så satte de sig ved floden og spiste.",
+      "fil": "08278638de8245.ogg",
+      "kilde": "Og-ormen / og-4a.1-1",
+      "lavet": "2026-11-20",
       "model": "gemini-3.8-flash-lite-tts"
     },
     "082dd426b1f55e": {
@@ -4061,12 +4349,28 @@
       "kilde": "Kapitel 5 / fodnotetal.start.2",
       "lavet": "2026-11-12"
     },
+    "08ac333903803e": {
+      "figur": "aeseloere",
+      "tekst": "begyndte solen at skinne. passer ikke helt. Læs sætningen igen, og se på reglen.",
+      "fil": "08ac333903803e.ogg",
+      "kilde": "Kampsvar / halvsaetning.s05.begyndte solen at skinne.",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
+    },
     "08b06c185d2fef": {
       "figur": "aeseloere",
       "tekst": "Planke 2 står forkert. Hvem eller hvad står i vejen?",
       "fil": "08b06c185d2fef.ogg",
       "kilde": "Beskeder / bro.fejl.placering.2.konflikt",
       "lavet": "2026-11-04"
+    },
+    "08c0b8c2dc21f9": {
+      "figur": "aeseloere",
+      "tekst": "Klatten peger på san. Den fejl har jeg selv lavet engang. Det er ikke den.",
+      "fil": "08c0b8c2dc21f9.ogg",
+      "kilde": "Kampsvar / klatten.k14.san",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
     },
     "08c219912ae93b": {
       "figur": "aeseloere",
@@ -4130,6 +4434,14 @@
       "kilde": "Kapitel 5 / k5-rum.seddel.4",
       "lavet": "2026-11-12"
     },
+    "08f52a1e8dbb5f": {
+      "figur": "fortaeller",
+      "tekst": "vandet var koldt og klart og midt i floden stod en sten og på stenen sad en frø.",
+      "fil": "08f52a1e8dbb5f.ogg",
+      "kilde": "Og-ormen / og-5c.1-3",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "08f7c21b4baf7d": {
       "figur": "aeseloere",
       "tekst": "Ordet sulten betyder ikke det samme som stille. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
@@ -4152,6 +4464,14 @@
       "fil": "09048cb6233bdb.ogg",
       "kilde": "Svar / synonym.besked.spoergsmaal",
       "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "090d0b0533380b": {
+      "figur": "fortaeller",
+      "tekst": "han kiggede ud over Pennedal.",
+      "fil": "090d0b0533380b.ogg",
+      "kilde": "Og-ormen / og-1a.1-1",
+      "lavet": "2026-11-20",
       "model": "gemini-3.8-flash-tts"
     },
     "09102012d4ebf4": {
@@ -4241,12 +4561,28 @@
       "kilde": "Minder / minde.skyggen.1",
       "lavet": "2026-11-13"
     },
+    "0942b22273e263": {
+      "figur": "fortaeller",
+      "tekst": "Æseløre og Klatten skændtes om vejen",
+      "fil": "0942b22273e263.ogg",
+      "kilde": "Og-ormen / og-3a.0-0",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "0946e395ecf5ce": {
       "figur": "aeseloere",
       "tekst": "Ordet kold betyder ikke det samme som smuk. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
       "fil": "0946e395ecf5ce.ogg",
       "kilde": "Svar / synonym.smuk.kold",
       "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "095259bde4c0c7": {
+      "figur": "aeseloere",
+      "tekst": "tænkede er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "095259bde4c0c7.ogg",
+      "kilde": "Kampsvar / krusedulle.k12.tænkede",
+      "lavet": "2026-11-20",
       "model": "gemini-3.8-flash-tts"
     },
     "095573984f1c59": {
@@ -4407,6 +4743,14 @@
       "fil": "098e89429541c2.ogg",
       "kilde": "Kapitel 7 / k7-grumsen.2",
       "lavet": "2026-11-10"
+    },
+    "09916351e70cf4": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Nu er sætningen færdig: man skal have hue på.",
+      "fil": "09916351e70cf4.ogg",
+      "kilde": "Kampsvar / halvsaetning.s03",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
     },
     "099250910431ba": {
       "figur": "aeseloere",
@@ -4729,6 +5073,14 @@
       "kilde": "Kapitel 5 / k5-rum.seddel.6",
       "lavet": "2026-11-12"
     },
+    "0a5e5a78f9f921": {
+      "figur": "aeseloere",
+      "tekst": "selvv er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "0a5e5a78f9f921.ogg",
+      "kilde": "Kampsvar / krusedulle.k13.selvv",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
+    },
     "0a61cf5d12d435": {
       "figur": "fortaeller",
       "tekst": "Sig farvel til Skyggen.",
@@ -4750,6 +5102,14 @@
       "fil": "0a709037237cbe.ogg",
       "kilde": "Klattens tekster / k07",
       "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "0a70fb1ff43c92": {
+      "figur": "aeseloere",
+      "tekst": "Ja. drømte er den rigtige stavemåde.",
+      "fil": "0a70fb1ff43c92.ogg",
+      "kilde": "Kampsvar / krusedulle.k15.drømte",
+      "lavet": "2026-11-20",
       "model": "gemini-3.8-flash-tts"
     },
     "0a7f5edad01b5a": {
@@ -4774,6 +5134,14 @@
       "kilde": "Historiebroen / bro-graevlingen.portal",
       "lavet": "2026-11-05"
     },
+    "0a92795aae0a63": {
+      "figur": "aeseloere",
+      "tekst": "Ja. ordene er den rigtige stavemåde.",
+      "fil": "0a92795aae0a63.ogg",
+      "kilde": "Kampsvar / krusedulle.k16.ordene",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
+    },
     "0a9690a1b63514": {
       "figur": "aeseloere",
       "tekst": "Eksempel: Mira tog regnjakken på, fordi det regnede.",
@@ -4797,6 +5165,14 @@
       "kilde": "Svar / ikkerim.sommer.sove",
       "lavet": "2026-11-17",
       "model": "gemini-3.8-flash-tts"
+    },
+    "0a9c4ba7c63490": {
+      "figur": "fortaeller",
+      "tekst": "Klatten ville være frygtelig og han øvede sig i at brøle foran en vandpyt og en lille frø grinede ad ham og så blev han rød i hovedet og gik hjem.",
+      "fil": "0a9c4ba7c63490.ogg",
+      "kilde": "Og-ormen / og-5a.0-3",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "0aa03e71547b1c": {
       "figur": "aeseloere",
@@ -4859,6 +5235,14 @@
       "lavet": "2026-11-17",
       "model": "gemini-3.8-flash-tts"
     },
+    "0ab12d4d455f9f": {
+      "figur": "fortaeller",
+      "tekst": "Æseløre og Klatten skændtes om vejen og ingen af dem ville give sig og til sidst gik de hver sin vej.",
+      "fil": "0ab12d4d455f9f.ogg",
+      "kilde": "Og-ormen / og-3a.0-2",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "0ab1d525ba7adc": {
       "figur": "fortaeller",
       "tekst": "Du glatter sedlen ud. Den er skrevet med store, klodsede bogstaver og fuld af blækklatter.",
@@ -4895,6 +5279,22 @@
       "kilde": "Svar / ikkerim.sten.ren",
       "lavet": "2026-11-16",
       "model": "gemini-3.8-flash-lite-tts"
+    },
+    "0acbd3630c2a94": {
+      "figur": "fortaeller",
+      "tekst": "Det blev mørkt i skoven og træerne begyndte at hviske",
+      "fil": "0acbd3630c2a94.ogg",
+      "kilde": "Og-ormen / og-4b.0-1",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "0acc8103024d86": {
+      "figur": "aeseloere",
+      "tekst": "Punktum (.) passer ikke helt. Læs sætningen igen, og se på reglen.",
+      "fil": "0acc8103024d86.ogg",
+      "kilde": "Kampsvar / halvsaetning.tegn.Punktum (.).fejl",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
     },
     "0ad6ff39bbbd2c": {
       "figur": "halvfugl",
@@ -5084,6 +5484,14 @@
       "kilde": "Kampe / kamp.tomordet.rolig",
       "lavet": "2026-11-04"
     },
+    "0b34b6ee545ef5": {
+      "figur": "aeseloere",
+      "tekst": "Ja. stenene er den rigtige stavemåde.",
+      "fil": "0b34b6ee545ef5.ogg",
+      "kilde": "Kampsvar / krusedulle.k12.stenene",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
+    },
     "0b370220d438dc": {
       "figur": "aeseloere",
       "tekst": "tang rimer faktisk på sang. Sig dem højt. De lyder ens til sidst.",
@@ -5136,6 +5544,14 @@
       "lavet": "2026-11-16",
       "model": "gemini-3.8-flash-lite-tts"
     },
+    "0b4e14dc6706b2": {
+      "figur": "fortaeller",
+      "tekst": "Æseløre og Klatten skændtes om vejen og ingen af dem ville give sig",
+      "fil": "0b4e14dc6706b2.ogg",
+      "kilde": "Og-ormen / og-3a.0-1",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "0b5240bbcc6ca2": {
       "figur": "aeseloere",
       "tekst": "Ja. bordene er den rigtige stavemåde.",
@@ -5150,6 +5566,14 @@
       "fil": "0b5640900b304a.ogg",
       "kilde": "Kapitel 1 / k1-blaekling-moede.1",
       "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "0b56717d8a4600": {
+      "figur": "fortaeller",
+      "tekst": "Skuffen hviskede igen",
+      "fil": "0b56717d8a4600.ogg",
+      "kilde": "Og-ormen / og-1c.0-0",
+      "lavet": "2026-11-20",
       "model": "gemini-3.8-flash-tts"
     },
     "0b5c31521fe233": {
@@ -5173,6 +5597,14 @@
       "fil": "0b644ae7c141a3.ogg",
       "kilde": "Beskeder / regel",
       "lavet": "2026-11-05"
+    },
+    "0b6544746d7f41": {
+      "figur": "fortaeller",
+      "tekst": "Æseløre krøb ind under din jakke og han rystede som et blad.",
+      "fil": "0b6544746d7f41.ogg",
+      "kilde": "Og-ormen / og-4b.2-3",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "0b6923d3e6c991": {
       "figur": "fortaeller",
@@ -5255,6 +5687,14 @@
       "lavet": "2026-11-18",
       "model": "gemini-3.8-flash-tts"
     },
+    "0b984e797f0f88": {
+      "figur": "fortaeller",
+      "tekst": "de hedder Blæk, Papir og Pen",
+      "fil": "0b984e797f0f88.ogg",
+      "kilde": "Og-ormen / og-5b.1-1",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "0b9a415d52a132": {
       "figur": "aeseloere",
       "tekst": "Sådan. Hvert rigtigt svar er et slag, og tre i træk giver et stort slag. Husk det, når vi møder større væsner.",
@@ -5262,6 +5702,14 @@
       "kilde": "Kapitel 1 / k1-blaekling-slut.2",
       "lavet": "2026-11-17",
       "model": "gemini-3.8-flash-tts"
+    },
+    "0b9ccaa841b8ad": {
+      "figur": "fortaeller",
+      "tekst": "så gik du ud i natten.",
+      "fil": "0b9ccaa841b8ad.ogg",
+      "kilde": "Og-ormen / og-2c.1-1",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "0ba0006b108fb4": {
       "figur": "fortaeller",
@@ -5294,6 +5742,22 @@
       "kilde": "Minder / minde.skaar7a.3",
       "lavet": "2026-11-13"
     },
+    "0bb15d4fde00f8": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Kagerne er den rigtige stavemåde.",
+      "fil": "0bb15d4fde00f8.ogg",
+      "kilde": "Kampsvar / krusedulle.k14.Kagerne",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "0bb5cb14ba0b87": {
+      "figur": "aeseloere",
+      "tekst": "trappeen er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "0bb5cb14ba0b87.ogg",
+      "kilde": "Kampsvar / krusedulle.k15.trappeen",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
+    },
     "0bb676ec9fdd57": {
       "figur": "aeseloere",
       "tekst": "Vor er ikke den rigtige stavemåde. Se på reglen.",
@@ -5301,6 +5765,14 @@
       "kilde": "Kampsvar / krusedulle.k03.Vor",
       "lavet": "2026-11-19",
       "model": "gemini-3.8-flash-lite-tts"
+    },
+    "0bb7be23dfb7e0": {
+      "figur": "aeseloere",
+      "tekst": "Klatten peger på orderne. Den fejl har jeg selv lavet engang. Det er ikke den.",
+      "fil": "0bb7be23dfb7e0.ogg",
+      "kilde": "Kampsvar / klatten.k16.orderne",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
     },
     "0bb8b442db68e3": {
       "figur": "fortaeller",
@@ -5837,6 +6309,14 @@
       "lavet": "2026-11-15",
       "model": "gemini-3.8-flash-tts"
     },
+    "0ca16045f9cc1d": {
+      "figur": "fortaeller",
+      "tekst": "Det blev mørkt i skoven og træerne begyndte at hviske og Æseløre krøb ind under din jakke og han rystede som et blad.",
+      "fil": "0ca16045f9cc1d.ogg",
+      "kilde": "Og-ormen / og-4b.0-3",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "0ca46c59add8d2": {
       "figur": "fortaeller",
       "tekst": "Svampen er kæmpestor.",
@@ -5864,6 +6344,14 @@
       "fil": "0cad6845cb1abe.ogg",
       "kilde": "Kapitel 3 / k3-tomordet-slut.1",
       "lavet": "2026-11-01"
+    },
+    "0cadd4d7928415": {
+      "figur": "aeseloere",
+      "tekst": "sannd er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "0cadd4d7928415.ogg",
+      "kilde": "Kampsvar / krusedulle.k14.sannd",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
     },
     "0cb032ab672ce5": {
       "figur": "raaber",
@@ -5956,6 +6444,14 @@
       "kilde": "Kapitel 7 / k7-fristelse.13",
       "lavet": "2026-11-11"
     },
+    "0cec3b192f2821": {
+      "figur": "aeseloere",
+      "tekst": "den ledte slet ikke. passer ikke helt. Læs sætningen igen, og se på reglen.",
+      "fil": "0cec3b192f2821.ogg",
+      "kilde": "Kampsvar / halvsaetning.s09.den ledte slet ikke.",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
+    },
     "0cf0ff941288b3": {
       "figur": "aeseloere",
       "tekst": "Planke 4 står forkert. Hvordan kommer hovedpersonen ind i den magiske verden?",
@@ -5977,6 +6473,14 @@
       "fil": "0cfcb6303d74c8.ogg",
       "kilde": "Beskeder / genre.eksempel.gyser",
       "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "0cfe04da2fc5df": {
+      "figur": "fortaeller",
+      "tekst": "papirtræerne raslede i vinden",
+      "fil": "0cfe04da2fc5df.ogg",
+      "kilde": "Og-ormen / og-3b.1-1",
+      "lavet": "2026-11-20",
       "model": "gemini-3.8-flash-lite-tts"
     },
     "0cff5c89e7cac9": {
@@ -6102,6 +6606,14 @@
       "lavet": "2026-11-18",
       "model": "gemini-3.8-flash-tts"
     },
+    "0d48c54afe216f": {
+      "figur": "aeseloere",
+      "tekst": "Klatten peger på smukere. Den fejl har jeg selv lavet engang. Det er ikke den.",
+      "fil": "0d48c54afe216f.ogg",
+      "kilde": "Kampsvar / klatten.k16.smukere",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
+    },
     "0d494a59a622e8": {
       "figur": "lanterne",
       "tekst": "Kom ind, kom ind. Ved du hvad? De bedste historier har tit mange fejl i første udkast. Fejl kan rettes. Historien er din.",
@@ -6145,6 +6657,14 @@
       "fil": "0d5d40644eb6a2.ogg",
       "kilde": "Kapitel 5 / k5-fodnote.5",
       "lavet": "2026-11-09"
+    },
+    "0d5d963a349e60": {
+      "figur": "fortaeller",
+      "tekst": "bladene knasede under vores fødder og en ugle tudede i mørket.",
+      "fil": "0d5d963a349e60.ogg",
+      "kilde": "Og-ormen / og-2a.1-2",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "0d68af2ab35899": {
       "figur": "fortaeller",
@@ -6204,6 +6724,14 @@
       "kilde": "Kapitel 5 / fodnotetal.efter.1",
       "lavet": "2026-11-12"
     },
+    "0d807e06714620": {
+      "figur": "aeseloere",
+      "tekst": "Ja. prøvede er den rigtige stavemåde.",
+      "fil": "0d807e06714620.ogg",
+      "kilde": "Kampsvar / krusedulle.k13.prøvede",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
+    },
     "0d835c6f9ce87a": {
       "figur": "aeseloere",
       "tekst": "Ordet sove betyder ikke det samme som løbe. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
@@ -6218,6 +6746,14 @@
       "fil": "0d83690ee5163b.ogg",
       "kilde": "Svar / synonym.glad.vred",
       "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "0d88bde6165033": {
+      "figur": "fortaeller",
+      "tekst": "Du kravler op til den sidste side igen. Dybet venter, når du er klar.",
+      "fil": "0d88bde6165033.ogg",
+      "kilde": "Blækdybet / dybet.slut.tekst",
+      "lavet": "2026-11-20",
       "model": "gemini-3.8-flash-lite-tts"
     },
     "0d8bda4f35c19d": {
@@ -6634,6 +7170,14 @@
       "kilde": "Kapitel 5 / k5-haeftet.1",
       "lavet": "2026-11-09"
     },
+    "0e886cf86195b4": {
+      "figur": "fortaeller",
+      "tekst": "Æseløre krøb ind under din jakke",
+      "fil": "0e886cf86195b4.ogg",
+      "kilde": "Og-ormen / og-4b.2-2",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "0e9398faf919cb": {
       "figur": "fortaeller",
       "tekst": "Hvordan staves svømte rigtigt?",
@@ -6649,6 +7193,14 @@
       "kilde": "Kampsvar / krusedulle.k08.Hvem",
       "lavet": "2026-11-19",
       "model": "gemini-3.8-flash-lite-tts"
+    },
+    "0e99bc18fd40db": {
+      "figur": "aeseloere",
+      "tekst": "Klatten peger på trapen. Den fejl har jeg selv lavet engang. Det er ikke den.",
+      "fil": "0e99bc18fd40db.ogg",
+      "kilde": "Kampsvar / klatten.k15.trapen",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
     },
     "0e99ceb99df0c7": {
       "figur": "fortaeller",
@@ -6738,6 +7290,14 @@
       "kilde": "Svar / ikkerim.sko.sol",
       "lavet": "2026-11-15",
       "model": "gemini-3.8-flash-lite-tts"
+    },
+    "0eb9eb30ca75c0": {
+      "figur": "aeseloere",
+      "tekst": "drømde er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "0eb9eb30ca75c0.ogg",
+      "kilde": "Kampsvar / krusedulle.k15.drømde",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
     },
     "0ebb7fee72aa2d": {
       "figur": "aeseloere",
@@ -6938,6 +7498,14 @@
       "lavet": "2026-11-19",
       "model": "gemini-3.8-flash-tts"
     },
+    "0f2fa77906b29d": {
+      "figur": "fortaeller",
+      "tekst": "hatten fløj af hans hoved og den landede i floden.",
+      "fil": "0f2fa77906b29d.ogg",
+      "kilde": "Og-ormen / og-2b.1-2",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "0f2fb58c2eb519": {
       "figur": "aeseloere",
       "tekst": "Planke 5 står forkert. Hvordan løser hovedpersonen selv problemet?",
@@ -6958,6 +7526,14 @@
       "fil": "0f394ed36a48c2.ogg",
       "kilde": "Kapitel 5 / k5-rum.bunke",
       "lavet": "2026-11-12"
+    },
+    "0f39dc5bbacb24": {
+      "figur": "aeseloere",
+      "tekst": "Klatten peger på stenerne. Den fejl har jeg selv lavet engang. Det er ikke den.",
+      "fil": "0f39dc5bbacb24.ogg",
+      "kilde": "Kampsvar / klatten.k12.stenerne",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
     },
     "0f41467c6e3009": {
       "figur": "lup",
@@ -7019,6 +7595,14 @@
       "kilde": "Kampsvar / krusedulle.k11.brevene",
       "lavet": "2026-11-19",
       "model": "gemini-3.8-flash-lite-tts"
+    },
+    "0f72aac8daea89": {
+      "figur": "aeseloere",
+      "tekst": "ordeene er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "0f72aac8daea89.ogg",
+      "kilde": "Kampsvar / krusedulle.k16.ordeene",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
     },
     "0f7985f6321a10": {
       "figur": "fortaeller",
@@ -7119,6 +7703,14 @@
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-tts"
     },
+    "0f9c2ca0f19201": {
+      "figur": "fortaeller",
+      "tekst": "træerne begyndte at hviske",
+      "fil": "0f9c2ca0f19201.ogg",
+      "kilde": "Og-ormen / og-4b.1-1",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "0fa845de365d52": {
       "figur": "klatten",
       "tekst": "Vem skriver altid forkert? Det gør jeg! Men i dag tegnte jeg et helt kort uden en eneste klat.",
@@ -7189,6 +7781,14 @@
       "fil": "0fb7fb56637b44.ogg",
       "kilde": "Kapitel 7 / k7-fristelse.opgavetekst",
       "lavet": "2026-11-12"
+    },
+    "0fba005cdf4f19": {
+      "figur": "aeseloere",
+      "tekst": "lilde er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "0fba005cdf4f19.ogg",
+      "kilde": "Kampsvar / krusedulle.k13.lilde",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
     },
     "0fbbac86732be8": {
       "figur": "fortaeller",
@@ -7274,6 +7874,14 @@
       "fil": "0fdbcb401e9088.ogg",
       "kilde": "Kapitel 7 / k7-ankomst.6",
       "lavet": "2026-11-10"
+    },
+    "0fdd8f62a031d7": {
+      "figur": "fortaeller",
+      "tekst": "Halve væsner kryber frem af blækket. Slå dem med de rigtige ord.",
+      "fil": "0fdd8f62a031d7.ogg",
+      "kilde": "Blækdybet / rum.kamp",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "0fdecf2b5f0c45": {
       "figur": "fortaeller",
@@ -7585,6 +8193,14 @@
       "kilde": "Kapitel 4 / k4-rimfod.8",
       "lavet": "2026-11-09"
     },
+    "104b452a66d275": {
+      "figur": "fortaeller",
+      "tekst": "vandet var koldt og klart",
+      "fil": "104b452a66d275.ogg",
+      "kilde": "Og-ormen / og-5c.1-1",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "10513d02c5c649": {
       "figur": "klatten",
       "tekst": "Fejlene er ikke væk. Men nu er de noget, jeg kan lære af. De bor i en pæn kasse nu.",
@@ -7629,6 +8245,14 @@
       "kilde": "Beskeder / rim.eksempel",
       "lavet": "2026-11-13"
     },
+    "1068fa2fdfc19f": {
+      "figur": "aeseloere",
+      "tekst": "Klatten peger på Kagene. Den fejl har jeg selv lavet engang. Det er ikke den.",
+      "fil": "1068fa2fdfc19f.ogg",
+      "kilde": "Kampsvar / klatten.k14.Kagene",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
+    },
     "106df412cd2b49": {
       "figur": "ord",
       "tekst": "sølv",
@@ -7658,6 +8282,14 @@
       "kilde": "Gemmekode / fodnote.3",
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-tts"
+    },
+    "1088c2044abff9": {
+      "figur": "fortaeller",
+      "tekst": "Det blev mørkt i skoven og træerne begyndte at hviske og Æseløre krøb ind under din jakke",
+      "fil": "1088c2044abff9.ogg",
+      "kilde": "Og-ormen / og-4b.0-2",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "108b87041073eb": {
       "figur": "fortaeller",
@@ -7749,6 +8381,14 @@
       "kilde": "Kapitel 1 / k1-logbog.k1-logbog-2.forkert.4",
       "lavet": "2026-11-01"
     },
+    "10b7aec2af4800": {
+      "figur": "fortaeller",
+      "tekst": "en ugle tudede i mørket.",
+      "fil": "10b7aec2af4800.ogg",
+      "kilde": "Og-ormen / og-2a.2-2",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "10b7fc1bb76e08": {
       "figur": "aeseloere",
       "tekst": "opklaringen til sidst hører til en anden genre end gyser. Hvad er kendetegnene for gyser?",
@@ -7778,6 +8418,14 @@
       "fil": "10bb4ed67eeb4b.ogg",
       "kilde": "Kapitel 3 / k3-klatten.2",
       "lavet": "2026-11-01"
+    },
+    "10c2012659620b": {
+      "figur": "aeseloere",
+      "tekst": "Ja. sand er den rigtige stavemåde.",
+      "fil": "10c2012659620b.ogg",
+      "kilde": "Kampsvar / krusedulle.k14.sand",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
     },
     "10c3815946ff38": {
       "figur": "fortaeller",
@@ -7810,6 +8458,14 @@
       "kilde": "Kapitel 6 / postbreve.mangler.1",
       "lavet": "2026-11-12"
     },
+    "10d6eac004db73": {
+      "figur": "fortaeller",
+      "tekst": "Klatten snublede over en rod og hatten fløj af hans hoved",
+      "fil": "10d6eac004db73.ogg",
+      "kilde": "Og-ormen / og-2b.0-1",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "10d77e5301c83e": {
       "figur": "fortaeller",
       "tekst": "Fortæl hr. Holm, hvad du fandt i logbogen.",
@@ -7831,6 +8487,14 @@
       "fil": "10dcc13bff2c92.ogg",
       "kilde": "Kapitel 1 / k1-klatten.opgavetekst",
       "lavet": "2026-11-01"
+    },
+    "10dd4620730215": {
+      "figur": "fortaeller",
+      "tekst": "Du klarede rummet. Vælg én gave, før du går dybere ned.",
+      "fil": "10dd4620730215.ogg",
+      "kilde": "Blækdybet / dybet.gave.tekst",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "10ddc144c18337": {
       "figur": "fortaeller",
@@ -7959,6 +8623,14 @@
       "lavet": "2026-11-19",
       "model": "gemini-3.8-flash-lite-tts"
     },
+    "111f7f7910fa44": {
+      "figur": "fortaeller",
+      "tekst": "På markedet købte de brød og ost",
+      "fil": "111f7f7910fa44.ogg",
+      "kilde": "Og-ormen / og-4a.0-0",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1121c114d68b00": {
       "figur": "fortaeller",
       "tekst": "Lanternen lyser lidt op i den hvide tåge. Gå hen til en ordsten for at skrive en planke tilbage.",
@@ -8053,6 +8725,14 @@
       "kilde": "Kapitel 2 / k2-borgmester.2",
       "lavet": "2026-10-31"
     },
+    "1140aa3893d396": {
+      "figur": "fortaeller",
+      "tekst": "Du tog lanternen og kappen med",
+      "fil": "1140aa3893d396.ogg",
+      "kilde": "Og-ormen / og-2c.0-0",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1147129247903b": {
       "figur": "aeseloere",
       "tekst": "kommer rimer faktisk på sommer. Sig dem højt. De lyder ens til sidst.",
@@ -8068,12 +8748,36 @@
       "kilde": "Minder / minde.godnat.1",
       "lavet": "2026-11-13"
     },
+    "114e77f9688815": {
+      "figur": "aeseloere",
+      "tekst": "Kagerene er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "114e77f9688815.ogg",
+      "kilde": "Kampsvar / krusedulle.k14.Kagerene",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "1150185de6a698": {
+      "figur": "fortaeller",
+      "tekst": "Klatten ville være frygtelig",
+      "fil": "1150185de6a698.ogg",
+      "kilde": "Og-ormen / og-5a.0-0",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1150419eba3dc1": {
       "figur": "fortaeller",
       "tekst": "Klatten løber sin vej og efterlader en lang stribe blæk på stien. Bag skiltet ligger en kappe, som han har tabt.",
       "fil": "1150419eba3dc1.ogg",
       "kilde": "Kapitel 1 / k1-klatten-flygter.3",
       "lavet": "2026-10-31"
+    },
+    "11504fc7bb519c": {
+      "figur": "aeseloere",
+      "tekst": "Ja. smukkere er den rigtige stavemåde.",
+      "fil": "11504fc7bb519c.ogg",
+      "kilde": "Kampsvar / krusedulle.k16.smukkere",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
     },
     "11547ec4b5f889": {
       "figur": "ord",
@@ -8160,6 +8864,14 @@
       "lavet": "2026-11-15",
       "model": "gemini-3.8-flash-lite-tts"
     },
+    "1184949d84e323": {
+      "figur": "aeseloere",
+      "tekst": "rimede det på alle ordene. passer ikke helt. Læs sætningen igen, og se på reglen.",
+      "fil": "1184949d84e323.ogg",
+      "kilde": "Kampsvar / halvsaetning.s08.rimede det på alle ordene.",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1185456d627f3c": {
       "figur": "aeseloere",
       "tekst": "Klatten peger på råbede. Den fejl har jeg selv lavet engang. Det er ikke den.",
@@ -8181,6 +8893,14 @@
       "fil": "118e4ad026ec36.ogg",
       "kilde": "Synonymer / beroemt",
       "lavet": "2026-11-04"
+    },
+    "118e6b6e70891b": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Nu er sætningen færdig: kunne han stave næsten alle ordene.",
+      "fil": "118e6b6e70891b.ogg",
+      "kilde": "Kampsvar / halvsaetning.s07",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
     },
     "118f4c1598fc99": {
       "figur": "fortaeller",
@@ -8353,6 +9073,14 @@
       "lavet": "2026-11-15",
       "model": "gemini-3.8-flash-tts"
     },
+    "11f3d02126dfd3": {
+      "figur": "fortaeller",
+      "tekst": "på stenen sad en frø.",
+      "fil": "11f3d02126dfd3.ogg",
+      "kilde": "Og-ormen / og-5c.3-3",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "11f5681aa5d267": {
       "figur": "fortaeller",
       "tekst": "I år 3000 boede alle mennesker i byer under havet. Fiskene svømmede forbi vinduerne i skolen.",
@@ -8388,6 +9116,14 @@
       "fil": "11ffa6a9b86580.ogg",
       "kilde": "Stumme bogstaver / sand",
       "lavet": "2026-10-31"
+    },
+    "120322266e9eeb": {
+      "figur": "aeseloere",
+      "tekst": "Udråbstegn (!) passer ikke helt. Læs sætningen igen, og se på reglen.",
+      "fil": "120322266e9eeb.ogg",
+      "kilde": "Kampsvar / halvsaetning.tegn.Udråbstegn (!).fejl",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
     },
     "12032f8a1c93ae": {
       "figur": "aeseloere",
@@ -8502,12 +9238,28 @@
       "kilde": "Kapitel 3 / k3-moerke.6",
       "lavet": "2026-11-01"
     },
+    "1246815727fea6": {
+      "figur": "aeseloere",
+      "tekst": "isen smelter. passer ikke helt. Læs sætningen igen, og se på reglen.",
+      "fil": "1246815727fea6.ogg",
+      "kilde": "Kampsvar / halvsaetning.s03.isen smelter.",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
+    },
     "124a8cf8fb7da2": {
       "figur": "aeseloere",
       "tekst": "Eksempel: Andre ord med samme regel: hvem, hvad, hvor",
       "fil": "124a8cf8fb7da2.ogg",
       "kilde": "Beskeder / hviske.eksempel.hvid",
       "lavet": "2026-11-05"
+    },
+    "124a9bba098d70": {
+      "figur": "aeseloere",
+      "tekst": "prøvte er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "124a9bba098d70.ogg",
+      "kilde": "Kampsvar / krusedulle.k13.prøvte",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
     },
     "12502a8cc576d2": {
       "figur": "aeseloere",
@@ -8568,6 +9320,14 @@
       "fil": "127915caf4870c.ogg",
       "kilde": "Kampsvar / krusedulle.k05.komer",
       "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "12795a2c32beb1": {
+      "figur": "fortaeller",
+      "tekst": "Klatten ville være frygtelig og han øvede sig i at brøle foran en vandpyt og en lille frø grinede ad ham",
+      "fil": "12795a2c32beb1.ogg",
+      "kilde": "Og-ormen / og-5a.0-2",
+      "lavet": "2026-11-20",
       "model": "gemini-3.8-flash-lite-tts"
     },
     "1279804ad930dd": {
@@ -8689,6 +9449,14 @@
       "kilde": "Kapitel 5 / k5-twist.2",
       "lavet": "2026-11-09"
     },
+    "12acf20aadab36": {
+      "figur": "aeseloere",
+      "tekst": "var der ingen fejl i det. passer ikke helt. Læs sætningen igen, og se på reglen.",
+      "fil": "12acf20aadab36.ogg",
+      "kilde": "Kampsvar / halvsaetning.s12.var der ingen fejl i det.",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
+    },
     "12ad9267808121": {
       "figur": "fortaeller",
       "tekst": "Gå ind gennem porten.",
@@ -8702,6 +9470,14 @@
       "fil": "12add168212d73.ogg",
       "kilde": "Kapitel 8 / k8-moede.1",
       "lavet": "2026-11-11"
+    },
+    "12b0f45a7a3010": {
+      "figur": "fortaeller",
+      "tekst": "de lyser hver sin farve.",
+      "fil": "12b0f45a7a3010.ogg",
+      "kilde": "Og-ormen / og-5b.2-2",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "12b68d5d43557d": {
       "figur": "fortaeller",
@@ -8858,6 +9634,14 @@
       "kilde": "Historiebroen / bro-musen.problem",
       "lavet": "2026-11-05"
     },
+    "132dbd2cf8fd5a": {
+      "figur": "aeseloere",
+      "tekst": "Klatten peger på tænkede. Den fejl har jeg selv lavet engang. Det er ikke den.",
+      "fil": "132dbd2cf8fd5a.ogg",
+      "kilde": "Kampsvar / klatten.k12.tænkede",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
+    },
     "132eb524fb4715": {
       "figur": "lup",
       "tekst": "Tre spor! De fører til min gamle kasse med sager. Hjælp mig med at sortere dem efter genre.",
@@ -8878,6 +9662,14 @@
       "fil": "13354d7c08ba27.ogg",
       "kilde": "Kapitel 1 / k1-til-floden.opgavetekst",
       "lavet": "2026-11-01"
+    },
+    "133ab520ea501c": {
+      "figur": "fortaeller",
+      "tekst": "Klatten snublede over en rod",
+      "fil": "133ab520ea501c.ogg",
+      "kilde": "Og-ormen / og-2b.0-0",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "133df7f3a257db": {
       "figur": "fortaeller",
@@ -8985,6 +9777,14 @@
       "fil": "13721880c2c452.ogg",
       "kilde": "Kapitel 7 / lupsspor.faerdig.1",
       "lavet": "2026-11-12"
+    },
+    "137358293b87f7": {
+      "figur": "aeseloere",
+      "tekst": "Klatten peger på breverne. Den fejl har jeg selv lavet engang. Det er ikke den.",
+      "fil": "137358293b87f7.ogg",
+      "kilde": "Kampsvar / klatten.k11.breverne",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
     },
     "13763176153610": {
       "figur": "aeseloere",
@@ -9098,6 +9898,14 @@
       "lavet": "2026-11-16",
       "model": "gemini-3.8-flash-lite-tts"
     },
+    "13a1c66452e9f9": {
+      "figur": "fortaeller",
+      "tekst": "Månerne lyste gult og hvidt over dalen og papirtræerne raslede i vinden",
+      "fil": "13a1c66452e9f9.ogg",
+      "kilde": "Og-ormen / og-3b.0-1",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "13a255d176e4ec": {
       "figur": "aeseloere",
       "tekst": "tæle er ikke den rigtige stavemåde. Se på reglen.",
@@ -9119,6 +9927,14 @@
       "fil": "13a5e89f29ba31.ogg",
       "kilde": "Kapitel 3 / halvsang.klar.1",
       "lavet": "2026-11-09"
+    },
+    "13a8b5ac9a04e0": {
+      "figur": "aeseloere",
+      "tekst": "holdt han op med at øve sig. passer ikke helt. Læs sætningen igen, og se på reglen.",
+      "fil": "13a8b5ac9a04e0.ogg",
+      "kilde": "Kampsvar / halvsaetning.s07.holdt han op med at øve sig.",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
     },
     "13aab68cf7aece": {
       "figur": "ord",
@@ -9215,6 +10031,14 @@
       "kilde": "Svar / ikkerim.lampe.trampe",
       "lavet": "2026-11-17",
       "model": "gemini-3.8-flash-tts"
+    },
+    "13c0137da03902": {
+      "figur": "fortaeller",
+      "tekst": "Din rekord er, hvor dybt du kommer, og hvor mange rigtige svar du får. Tiden tæller ikke.",
+      "fil": "13c0137da03902.ogg",
+      "kilde": "Blækdybet / dybet.regel.rekord",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "13c0eaa15cc4f9": {
       "figur": "aeseloere",
@@ -9353,6 +10177,14 @@
       "lavet": "2026-11-17",
       "model": "gemini-3.8-flash-lite-tts"
     },
+    "13f3bd15892578": {
+      "figur": "aeseloere",
+      "tekst": "trapen er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "13f3bd15892578.ogg",
+      "kilde": "Kampsvar / krusedulle.k15.trapen",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
+    },
     "14018d2e74b0eb": {
       "figur": "aeseloere",
       "tekst": "stjerne rimer ikke på sten. Sig begge ord højt, og lyt til slutningen.",
@@ -9381,6 +10213,14 @@
       "fil": "1405e2a8f9e8ee.ogg",
       "kilde": "Minder / minde.koekkenbord.4",
       "lavet": "2026-11-03"
+    },
+    "140af1118222cd": {
+      "figur": "aeseloere",
+      "tekst": "san er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "140af1118222cd.ogg",
+      "kilde": "Kampsvar / krusedulle.k14.san",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
     },
     "140d3ee0105668": {
       "figur": "stumming",
@@ -9442,6 +10282,14 @@
       "lavet": "2026-11-19",
       "model": "gemini-3.8-flash-lite-tts"
     },
+    "142dee3ba79135": {
+      "figur": "fortaeller",
+      "tekst": "han øvede sig i at brøle foran en vandpyt og en lille frø grinede ad ham og så blev han rød i hovedet og gik hjem.",
+      "fil": "142dee3ba79135.ogg",
+      "kilde": "Og-ormen / og-5a.1-3",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1432b8a3ecf54a": {
       "figur": "aeseloere",
       "tekst": "Ja. rig rimer ikke på ring. Slutningen lyder anderledes.",
@@ -9464,6 +10312,14 @@
       "fil": "143371d21b038c.ogg",
       "kilde": "Kapitel 3 / k3-tomordet-slut.2",
       "lavet": "2026-11-01"
+    },
+    "1433f352746255": {
+      "figur": "aeseloere",
+      "tekst": "glemte han, hvordan man staver. passer ikke helt. Læs sætningen igen, og se på reglen.",
+      "fil": "1433f352746255.ogg",
+      "kilde": "Kampsvar / halvsaetning.s07.glemte han, hvordan man staver.",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
     },
     "1434f1d98b2ed4": {
       "figur": "aeseloere",
@@ -9515,6 +10371,14 @@
       "kilde": "Svar / rytme.banan.fejl",
       "lavet": "2026-11-17",
       "model": "gemini-3.8-flash-lite-tts"
+    },
+    "145c9ee573edbc": {
+      "figur": "aeseloere",
+      "tekst": "gå i seng. passer ikke helt. Læs sætningen igen, og se på reglen.",
+      "fil": "145c9ee573edbc.ogg",
+      "kilde": "Kampsvar / halvsaetning.s04.gå i seng.",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
     },
     "145e21324fce25": {
       "figur": "aeseloere",
@@ -9639,6 +10503,14 @@
       "lavet": "2026-11-16",
       "model": "gemini-3.8-flash-tts"
     },
+    "14b06957bd187b": {
+      "figur": "fortaeller",
+      "tekst": "Vi gik ned ad stien og bladene knasede under vores fødder",
+      "fil": "14b06957bd187b.ogg",
+      "kilde": "Og-ormen / og-2a.0-1",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
+    },
     "14bb0a58bb94a9": {
       "figur": "holm",
       "tekst": "Hviskede? Fra kælderen? Det har jeg ikke lagt mærke til.",
@@ -9680,6 +10552,14 @@
       "fil": "14c434e8265938.ogg",
       "kilde": "Kapitel 6 / k6-ud.opgavetekst",
       "lavet": "2026-11-12"
+    },
+    "14c82da6eeebd3": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Nu er sætningen færdig: Spørgsmålstegn (?)",
+      "fil": "14c82da6eeebd3.ogg",
+      "kilde": "Kampsvar / halvsaetning.tegn.Spørgsmålstegn (?)",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
     },
     "14c95e225e96a6": {
       "figur": "aeseloere",
@@ -9805,6 +10685,14 @@
       "lavet": "2026-11-18",
       "model": "gemini-3.8-flash-tts"
     },
+    "14fad8f5f40875": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Nu er sætningen færdig: blev der helt mørkt.",
+      "fil": "14fad8f5f40875.ogg",
+      "kilde": "Kampsvar / halvsaetning.s05",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1500b3dea5db1e": {
       "figur": "aeseloere",
       "tekst": "Ja. Han passer til den, der allerede fortæller.",
@@ -9812,6 +10700,14 @@
       "kilde": "Svar / fortsaet.f03.rigtig",
       "lavet": "2026-11-17",
       "model": "gemini-3.8-flash-lite-tts"
+    },
+    "150bc5b1e12b34": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Nu er sætningen færdig: Punktum (.)",
+      "fil": "150bc5b1e12b34.ogg",
+      "kilde": "Kampsvar / halvsaetning.tegn.Punktum (.)",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
     },
     "151896e0fc2c88": {
       "figur": "fortaeller",
@@ -9887,6 +10783,14 @@
       "fil": "1547e32e35e7ee.ogg",
       "kilde": "Beskeder / kamp.stumming.eksempel.land",
       "lavet": "2026-11-13"
+    },
+    "154a51dbfb5776": {
+      "figur": "fortaeller",
+      "tekst": "Mor Lanterne har stillet en lygte her. I lyset kan du hvile dig og få en dråbe blæk tilbage.",
+      "fil": "154a51dbfb5776.ogg",
+      "kilde": "Blækdybet / rum.hvile",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "154fb3ffcd88cd": {
       "figur": "aeseloere",
@@ -9970,6 +10874,14 @@
       "kilde": "Kapitel 5 / k5-rum.laas.aabnet",
       "lavet": "2026-11-12"
     },
+    "15845556a9f8ba": {
+      "figur": "fortaeller",
+      "tekst": "Månerne lyste gult og hvidt over dalen og papirtræerne raslede i vinden og et sted langt væk hviskede nogen.",
+      "fil": "15845556a9f8ba.ogg",
+      "kilde": "Og-ormen / og-3b.0-2",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1587e11bb7a0b2": {
       "figur": "aeseloere",
       "tekst": "fodtrin på loftet hører til en anden genre end eventyr. Hvad er kendetegnene for eventyr?",
@@ -9984,6 +10896,14 @@
       "fil": "158fbfff0d305e.ogg",
       "kilde": "Svar / ikkerim.dag.flag",
       "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "159b498787774e": {
+      "figur": "aeseloere",
+      "tekst": "drømmede er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "159b498787774e.ogg",
+      "kilde": "Kampsvar / krusedulle.k15.drømmede",
+      "lavet": "2026-11-20",
       "model": "gemini-3.8-flash-tts"
     },
     "159c72b45ddc80": {
@@ -10153,6 +11073,14 @@
       "lavet": "2026-11-19",
       "model": "gemini-3.8-flash-tts"
     },
+    "15e16010fa3069": {
+      "figur": "aeseloere",
+      "tekst": "den sov. passer ikke helt. Læs sætningen igen, og se på reglen.",
+      "fil": "15e16010fa3069.ogg",
+      "kilde": "Kampsvar / halvsaetning.s02.den sov.",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
+    },
     "15eaf0b9ea3ebe": {
       "figur": "aeseloere",
       "tekst": "et rumskib på vej til Mars hører til en anden genre end gyser. Hvad er kendetegnene for gyser?",
@@ -10221,6 +11149,14 @@
       "kilde": "Kapitel 1 / k1-logbog.k1-logbog-1.forkert.2",
       "lavet": "2026-11-01"
     },
+    "1602392109a09e": {
+      "figur": "fortaeller",
+      "tekst": "Det blev mørkt i skoven",
+      "fil": "1602392109a09e.ogg",
+      "kilde": "Og-ormen / og-4b.0-0",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1603b76c105741": {
       "figur": "fortaeller",
       "tekst": "En side i et hæfte. Den er fuld af ord skrevet med blyant, men du kan ikke læse dem. Hen over ordene er der røde streger.",
@@ -10236,6 +11172,14 @@
       "lavet": "2026-11-15",
       "model": "gemini-3.8-flash-tts"
     },
+    "160a5a3725b5f1": {
+      "figur": "fortaeller",
+      "tekst": "Efter det første rum og siden hvert tredje rum vælger du én af tre gaver.",
+      "fil": "160a5a3725b5f1.ogg",
+      "kilde": "Blækdybet / dybet.regel.gaver",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "160c8abf00bfab": {
       "figur": "aeseloere",
       "tekst": "Eksempel: Andre ord med samme slags stumme bogstav: hvid, hvem, hvad.",
@@ -10243,6 +11187,14 @@
       "kilde": "Beskeder / kamp.stumming.eksempel.hvor",
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-tts"
+    },
+    "161002c215f41b": {
+      "figur": "fortaeller",
+      "tekst": "træerne begyndte at hviske og Æseløre krøb ind under din jakke",
+      "fil": "161002c215f41b.ogg",
+      "kilde": "Og-ormen / og-4b.1-2",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "1612f434daff88": {
       "figur": "aeseloere",
@@ -10304,6 +11256,14 @@
       "fil": "16384c0680532b.ogg",
       "kilde": "Svar / genre.gyser.en robot, der kan tale",
       "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "163e34c6e9d45c": {
+      "figur": "aeseloere",
+      "tekst": "Ja. trappen er den rigtige stavemåde.",
+      "fil": "163e34c6e9d45c.ogg",
+      "kilde": "Kampsvar / krusedulle.k15.trappen",
+      "lavet": "2026-11-20",
       "model": "gemini-3.8-flash-tts"
     },
     "163ea46f1bb20a": {
@@ -10542,6 +11502,14 @@
       "kilde": "Kapitel 1 / k1-aeseloere.opgavetekst",
       "lavet": "2026-11-01"
     },
+    "16ba81b5048f61": {
+      "figur": "aeseloere",
+      "tekst": "hun var mæt. passer ikke helt. Læs sætningen igen, og se på reglen.",
+      "fil": "16ba81b5048f61.ogg",
+      "kilde": "Kampsvar / halvsaetning.s01.hun var mæt.",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
+    },
     "16bfba0733d8ed": {
       "figur": "aeseloere",
       "tekst": "Planke 3 står forkert. Hvad ser hovedpersonen, når den magiske verden begynder?",
@@ -10569,6 +11537,22 @@
       "fil": "16c1e3e415fa59.ogg",
       "kilde": "Kapitel 7 / k7-ankomst.4",
       "lavet": "2026-11-10"
+    },
+    "16c9954a03fbc9": {
+      "figur": "fortaeller",
+      "tekst": "ingen af dem ville give sig",
+      "fil": "16c9954a03fbc9.ogg",
+      "kilde": "Og-ormen / og-3a.1-1",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "16ccc29cf5d1be": {
+      "figur": "aeseloere",
+      "tekst": "var det ikke skrevet. passer ikke helt. Læs sætningen igen, og se på reglen.",
+      "fil": "16ccc29cf5d1be.ogg",
+      "kilde": "Kampsvar / halvsaetning.s12.var det ikke skrevet.",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
     },
     "16cfef557d6fbe": {
       "figur": "aeseloere",
@@ -10667,6 +11651,14 @@
       "kilde": "Kapitel 8 / k8-holm.4",
       "lavet": "2026-11-11"
     },
+    "16f1958025817e": {
+      "figur": "aeseloere",
+      "tekst": "blev han hjemme for at være modig. passer ikke helt. Læs sætningen igen, og se på reglen.",
+      "fil": "16f1958025817e.ogg",
+      "kilde": "Kampsvar / halvsaetning.s06.blev han hjemme for at være modig.",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
+    },
     "16f28dd2a93f27": {
       "figur": "fortaeller",
       "tekst": "Der ventede alle hjælperne, og de havde gemt en plads til den.",
@@ -10687,6 +11679,14 @@
       "fil": "1706baa260ba82.ogg",
       "kilde": "Kapitel 2 / k2-raaber-tak.3",
       "lavet": "2026-10-31"
+    },
+    "17074daab82228": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Hvis er den rigtige stavemåde.",
+      "fil": "17074daab82228.ogg",
+      "kilde": "Kampsvar / krusedulle.k16.Hvis",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
     },
     "170993159d7d6b": {
       "figur": "fortaeller",
@@ -10709,6 +11709,14 @@
       "fil": "1714c4142ca838.ogg",
       "kilde": "Svar / korrektur.k12.tænkte",
       "lavet": "2026-11-18",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "171694da9f9d8d": {
+      "figur": "fortaeller",
+      "tekst": "vandet var koldt og klart og midt i floden stod en sten",
+      "fil": "171694da9f9d8d.ogg",
+      "kilde": "Og-ormen / og-5c.1-2",
+      "lavet": "2026-11-20",
       "model": "gemini-3.8-flash-lite-tts"
     },
     "171a3c98faae68": {
@@ -10822,6 +11830,14 @@
       "lavet": "2026-11-18",
       "model": "gemini-3.8-flash-tts"
     },
+    "175430f16488d1": {
+      "figur": "aeseloere",
+      "tekst": "Spørgsmålstegn (?) passer ikke helt. Læs sætningen igen, og se på reglen.",
+      "fil": "175430f16488d1.ogg",
+      "kilde": "Kampsvar / halvsaetning.tegn.Spørgsmålstegn (?).fejl",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
+    },
     "175ede73086a41": {
       "figur": "aeseloere",
       "tekst": "Ja. snor rimer ikke på sne. Slutningen lyder anderledes.",
@@ -10866,6 +11882,14 @@
       "fil": "1777486ab60d4d.ogg",
       "kilde": "Kapitel 2 / k2-trykkeri.4",
       "lavet": "2026-10-31"
+    },
+    "17878c35494094": {
+      "figur": "aeseloere",
+      "tekst": "smukere er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "17878c35494094.ogg",
+      "kilde": "Kampsvar / krusedulle.k16.smukere",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
     },
     "1787b70e7fe3a0": {
       "figur": "aeseloere",
@@ -10940,6 +11964,14 @@
       "fil": "17a8ae4a5c43e8.ogg",
       "kilde": "Beskeder / kamp.stumming.eksempel.hvid",
       "lavet": "2026-11-13"
+    },
+    "17ad8a12ce6cad": {
+      "figur": "fortaeller",
+      "tekst": "han stak dem i lommen.",
+      "fil": "17ad8a12ce6cad.ogg",
+      "kilde": "Og-ormen / og-2d.1-1",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "17aea59c3821ea": {
       "figur": "fortaeller",
@@ -11030,6 +12062,14 @@
       "kilde": "Kapitel 2 / k2-portvagt.3",
       "lavet": "2026-10-31"
     },
+    "17dc5a96e579e1": {
+      "figur": "aeseloere",
+      "tekst": "var han slet ikke bange. passer ikke helt. Læs sætningen igen, og se på reglen.",
+      "fil": "17dc5a96e579e1.ogg",
+      "kilde": "Kampsvar / halvsaetning.s06.var han slet ikke bange.",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
+    },
     "17de62483fe854": {
       "figur": "ufaerdige",
       "tekst": "Vil du skrive min slutning?",
@@ -11058,6 +12098,14 @@
       "fil": "17e4fe2619d70a.ogg",
       "kilde": "Svar / genre.eventyr.en tidsmaskine",
       "lavet": "2026-11-18",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "17e6b113fb910d": {
+      "figur": "fortaeller",
+      "tekst": "Vims fandt en blyant og et viskelæder og han stak dem i lommen.",
+      "fil": "17e6b113fb910d.ogg",
+      "kilde": "Og-ormen / og-2d.0-1",
+      "lavet": "2026-11-20",
       "model": "gemini-3.8-flash-lite-tts"
     },
     "17ecd7614109d0": {
@@ -11182,6 +12230,14 @@
       "kilde": "Kampsvar / krusedulle.k08.Hvemm",
       "lavet": "2026-11-19",
       "model": "gemini-3.8-flash-lite-tts"
+    },
+    "1821f99ab58f0c": {
+      "figur": "aeseloere",
+      "tekst": "tængte er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "1821f99ab58f0c.ogg",
+      "kilde": "Kampsvar / krusedulle.k12.tængte",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
     },
     "182564d234e101": {
       "figur": "aeseloere",
@@ -11413,6 +12469,22 @@
       "kilde": "Kapitel 4 / kammen.faerdig.1",
       "lavet": "2026-11-11"
     },
+    "1883e37e39c064": {
+      "figur": "fortaeller",
+      "tekst": "et sted langt væk hviskede nogen.",
+      "fil": "1883e37e39c064.ogg",
+      "kilde": "Og-ormen / og-3b.2-2",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "1892a9124f5de6": {
+      "figur": "aeseloere",
+      "tekst": "brevne er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "1892a9124f5de6.ogg",
+      "kilde": "Kampsvar / krusedulle.k11.brevne",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1898f64a8b4723": {
       "figur": "fortaeller",
       "tekst": "Kig ind i det mørke hus.",
@@ -11598,6 +12670,14 @@
       "kilde": "Kapitel 6 / k6-krusedul.5",
       "lavet": "2026-11-10"
     },
+    "190a7f110dc393": {
+      "figur": "aeseloere",
+      "tekst": "Klatten peger på prøvte. Den fejl har jeg selv lavet engang. Det er ikke den.",
+      "fil": "190a7f110dc393.ogg",
+      "kilde": "Kampsvar / klatten.k13.prøvte",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1911ad45ab3700": {
       "figur": "fortaeller",
       "tekst": "nat ... nat ... nat",
@@ -11635,6 +12715,14 @@
       "fil": "19278219040c55.ogg",
       "kilde": "Svar / rim.dag.dyr",
       "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "1927ccbea21b8c": {
+      "figur": "aeseloere",
+      "tekst": "Kagene er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "1927ccbea21b8c.ogg",
+      "kilde": "Kampsvar / krusedulle.k14.Kagene",
+      "lavet": "2026-11-20",
       "model": "gemini-3.8-flash-tts"
     },
     "192b93ba3eb019": {
@@ -11703,6 +12791,14 @@
       "kilde": "Kapitel 7 / k7-slut.opgavetekst",
       "lavet": "2026-11-12"
     },
+    "19431d85b63f13": {
+      "figur": "fortaeller",
+      "tekst": "Skuffen hviskede igen og lyden kom nærmere.",
+      "fil": "19431d85b63f13.ogg",
+      "kilde": "Og-ormen / og-1c.0-1",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1944fc036fdf79": {
       "figur": "aeseloere",
       "tekst": "Ordet sove betyder ikke det samme som begynde. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
@@ -11719,6 +12815,22 @@
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-tts"
     },
+    "1948b0c9161561": {
+      "figur": "aeseloere",
+      "tekst": "Hviss er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "1948b0c9161561.ogg",
+      "kilde": "Kampsvar / krusedulle.k16.Hviss",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "1949a7ebcbbc05": {
+      "figur": "fortaeller",
+      "tekst": "bladene knasede under vores fødder",
+      "fil": "1949a7ebcbbc05.ogg",
+      "kilde": "Og-ormen / og-2a.1-1",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "19501fc44dce18": {
       "figur": "aeseloere",
       "tekst": "tå rimer ikke på top. Sig begge ord højt, og lyt til slutningen.",
@@ -11733,6 +12845,14 @@
       "fil": "1954357797eb06.ogg",
       "kilde": "Svar / synonym.beroemt.sulten",
       "lavet": "2026-11-15",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "19557c75a1ba07": {
+      "figur": "fortaeller",
+      "tekst": "Æseløre fløj op i træet og han kiggede ud over Pennedal.",
+      "fil": "19557c75a1ba07.ogg",
+      "kilde": "Og-ormen / og-1a.0-1",
+      "lavet": "2026-11-20",
       "model": "gemini-3.8-flash-tts"
     },
     "1956663692d4ff": {
@@ -11816,6 +12936,14 @@
       "kilde": "Klattens tekster / k06.1",
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-tts"
+    },
+    "198533c0f7dae4": {
+      "figur": "fortaeller",
+      "tekst": "så blev han rød i hovedet og gik hjem.",
+      "fil": "198533c0f7dae4.ogg",
+      "kilde": "Og-ormen / og-5a.3-3",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "198ce11f1b7c95": {
       "figur": "klatten",
@@ -11945,6 +13073,14 @@
       "kilde": "Kapitel 3 / halvsang.faerdig.1",
       "lavet": "2026-11-09"
     },
+    "19d28dd439caaf": {
+      "figur": "aeseloere",
+      "tekst": "stennene er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "19d28dd439caaf.ogg",
+      "kilde": "Kampsvar / krusedulle.k12.stennene",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
+    },
     "19d8a8ab274489": {
       "figur": "prinsesse",
       "tekst": "Endelig! Jeg har ventet i dette tårn i tre hundrede sider. Der kommer ingen prins.",
@@ -11973,6 +13109,14 @@
       "fil": "19dc10dac2eae6.ogg",
       "kilde": "Svar / korrektur.k12.kom",
       "lavet": "2026-11-18",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
+    "19ddefbe846e27": {
+      "figur": "fortaeller",
+      "tekst": "papirtræerne raslede i vinden og et sted langt væk hviskede nogen.",
+      "fil": "19ddefbe846e27.ogg",
+      "kilde": "Og-ormen / og-3b.1-2",
+      "lavet": "2026-11-20",
       "model": "gemini-3.8-flash-lite-tts"
     },
     "19de026f141135": {
@@ -12053,6 +13197,14 @@
       "lavet": "2026-11-17",
       "model": "gemini-3.8-flash-lite-tts"
     },
+    "19f24ca321fbf8": {
+      "figur": "fortaeller",
+      "tekst": "midt i floden stod en sten og på stenen sad en frø.",
+      "fil": "19f24ca321fbf8.ogg",
+      "kilde": "Og-ormen / og-5c.2-3",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "19f6fbcacac372": {
       "figur": "fortaeller",
       "tekst": "Du sætter de tre tegn i hullerne. Så lyser tre tal-hjul op. Under dem står der: \"Punktum, spørgsmålstegn, udråbstegn. Tæl dem i det sidste brev.\"",
@@ -12090,6 +13242,14 @@
       "fil": "1a0ac9c61f0443.ogg",
       "kilde": "Kapitel 8 / k8-halvsaetning.1",
       "lavet": "2026-11-11"
+    },
+    "1a0b329251ff61": {
+      "figur": "aeseloere",
+      "tekst": "blev der meget lyst. passer ikke helt. Læs sætningen igen, og se på reglen.",
+      "fil": "1a0b329251ff61.ogg",
+      "kilde": "Kampsvar / halvsaetning.s05.blev der meget lyst.",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
     },
     "1a0bc2d3d6822c": {
       "figur": "fortaeller",
@@ -12178,6 +13338,14 @@
       "lavet": "2026-11-18",
       "model": "gemini-3.8-flash-tts"
     },
+    "1a36e47aa412b9": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Nu er sætningen færdig: alle steder var allerede fulde.",
+      "fil": "1a36e47aa412b9.ogg",
+      "kilde": "Kampsvar / halvsaetning.s09",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1a37d4ac414d8f": {
       "figur": "aeseloere",
       "tekst": "en detektiv med en lup hører til en anden genre end eventyr. Hvad er kendetegnene for eventyr?",
@@ -12223,12 +13391,28 @@
       "kilde": "Kapitel 4 / kammen.ind.1",
       "lavet": "2026-11-11"
     },
+    "1a532c2463c71a": {
+      "figur": "aeseloere",
+      "tekst": "komm er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "1a532c2463c71a.ogg",
+      "kilde": "Kampsvar / krusedulle.k12.komm",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1a5d51dc41d420": {
       "figur": "fortaeller",
       "tekst": "Væsnerne falder til ro, og Den Ufærdige glider væk mellem de halve træer.",
       "fil": "1a5d51dc41d420.ogg",
       "kilde": "Kapitel 7 / k7-kamp-slut.1",
       "lavet": "2026-11-11"
+    },
+    "1a62644f696bc3": {
+      "figur": "fortaeller",
+      "tekst": "Floden løb hurtigt og vandet var koldt og klart",
+      "fil": "1a62644f696bc3.ogg",
+      "kilde": "Og-ormen / og-5c.0-1",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "1a6541c8eb37b6": {
       "figur": "klatten",
@@ -12344,6 +13528,14 @@
       "fil": "1a9efb82c05875.ogg",
       "kilde": "Kapitel 4 / k4-ekko-moede.opgavetekst",
       "lavet": "2026-11-12"
+    },
+    "1aa74ef73072f7": {
+      "figur": "fortaeller",
+      "tekst": "træerne begyndte at hviske og Æseløre krøb ind under din jakke og han rystede som et blad.",
+      "fil": "1aa74ef73072f7.ogg",
+      "kilde": "Og-ormen / og-4b.1-3",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "1aa86a8ea8017a": {
       "figur": "vims",
@@ -12550,6 +13742,14 @@
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-lite-tts"
     },
+    "1b11de21d2dc05": {
+      "figur": "fortaeller",
+      "tekst": "Klatten snublede over en rod og hatten fløj af hans hoved og den landede i floden.",
+      "fil": "1b11de21d2dc05.ogg",
+      "kilde": "Og-ormen / og-2b.0-2",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1b138a28541765": {
       "figur": "aeseloere",
       "tekst": "orderne er ikke den rigtige stavemåde. Læs reglen, og prøv igen.",
@@ -12701,6 +13901,14 @@
       "lavet": "2026-11-15",
       "model": "gemini-3.8-flash-tts"
     },
+    "1b6bede49d6ce8": {
+      "figur": "fortaeller",
+      "tekst": "Vims fandt en blyant og et viskelæder",
+      "fil": "1b6bede49d6ce8.ogg",
+      "kilde": "Og-ormen / og-2d.0-0",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1b70e0be19b947": {
       "figur": "aeseloere",
       "tekst": "Hov. Stien er væk. Plankerne er visket ud.",
@@ -12743,6 +13951,14 @@
       "fil": "1b8bd104d53dd6.ogg",
       "kilde": "Svar / rim.nat.spoergsmaal",
       "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "1b91721f83e16b": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Nu er sætningen færdig: bage brød til byen.",
+      "fil": "1b91721f83e16b.ogg",
+      "kilde": "Kampsvar / halvsaetning.s04",
+      "lavet": "2026-11-20",
       "model": "gemini-3.8-flash-tts"
     },
     "1b92d61c4ca92c": {
@@ -12901,6 +14117,14 @@
       "kilde": "Kapitel 7 / k7-grumsen.1",
       "lavet": "2026-11-10"
     },
+    "1bd26da94f56b3": {
+      "figur": "fortaeller",
+      "tekst": "til sidst gik de hver sin vej.",
+      "fil": "1bd26da94f56b3.ogg",
+      "kilde": "Og-ormen / og-3a.2-2",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1bd306d4306180": {
       "figur": "aeseloere",
       "tekst": "Ja. Der skal stå rund. Du kan ikke høre d, men det skal med.",
@@ -12992,6 +14216,14 @@
       "kilde": "Kapitel 3 / k3-lysning.3",
       "lavet": "2026-11-01"
     },
+    "1c03ad3b61d6fd": {
+      "figur": "aeseloere",
+      "tekst": "vinden kunne tage ham. passer ikke helt. Læs sætningen igen, og se på reglen.",
+      "fil": "1c03ad3b61d6fd.ogg",
+      "kilde": "Kampsvar / halvsaetning.s11.vinden kunne tage ham.",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1c0f76d756dfac": {
       "figur": "aeseloere",
       "tekst": "Ordet skjule betyder ikke det samme som fortælle. Sæt ordet ind i sætningen, og hør, om den stadig betyder det samme.",
@@ -13006,6 +14238,14 @@
       "fil": "1c109464e61a1f.ogg",
       "kilde": "Fortæller / k02",
       "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "1c135d8baa1e57": {
+      "figur": "aeseloere",
+      "tekst": "Klatten peger på komm. Den fejl har jeg selv lavet engang. Det er ikke den.",
+      "fil": "1c135d8baa1e57.ogg",
+      "kilde": "Kampsvar / klatten.k12.komm",
+      "lavet": "2026-11-20",
       "model": "gemini-3.8-flash-tts"
     },
     "1c138c1b0ae3bd": {
@@ -13052,6 +14292,14 @@
       "kilde": "Kapitel 8 / k8-holm.1",
       "lavet": "2026-11-11"
     },
+    "1c279360ddbb5c": {
+      "figur": "fortaeller",
+      "tekst": "Vi gik ned ad stien",
+      "fil": "1c279360ddbb5c.ogg",
+      "kilde": "Og-ormen / og-2a.0-0",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1c3195a85679d8": {
       "figur": "fortaeller",
       "tekst": "Undersøg det grønne, der ligger på gulvet.",
@@ -13089,6 +14337,14 @@
       "kilde": "Svar / ikkerim.rime.lime",
       "lavet": "2026-11-17",
       "model": "gemini-3.8-flash-lite-tts"
+    },
+    "1c4912244230a4": {
+      "figur": "aeseloere",
+      "tekst": "man går i badetøj. passer ikke helt. Læs sætningen igen, og se på reglen.",
+      "fil": "1c4912244230a4.ogg",
+      "kilde": "Kampsvar / halvsaetning.s03.man går i badetøj.",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
     },
     "1c499acc81402b": {
       "figur": "fortaeller",
@@ -13231,6 +14487,14 @@
       "fil": "1c8fcfa416e0cd.ogg",
       "kilde": "Klattens tekster / k06.0",
       "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "1c923ff663d038": {
+      "figur": "aeseloere",
+      "tekst": "stenerne er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "1c923ff663d038.ogg",
+      "kilde": "Kampsvar / krusedulle.k12.stenerne",
+      "lavet": "2026-11-20",
       "model": "gemini-3.8-flash-tts"
     },
     "1c987a04658781": {
@@ -13477,6 +14741,14 @@
       "kilde": "Beskeder / ogorm.fejl.stort",
       "lavet": "2026-11-04"
     },
+    "1d24de01141517": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Nu er sætningen færdig: blev han så glad, at han grinede.",
+      "fil": "1d24de01141517.ogg",
+      "kilde": "Kampsvar / halvsaetning.s08",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1d25fdb8d57083": {
       "figur": "aeseloere",
       "tekst": "Ja. sæk rimer ikke på sang. Slutningen lyder anderledes.",
@@ -13594,6 +14866,14 @@
       "kilde": "Stumme bogstaver / selv.saetning",
       "lavet": "2026-11-04"
     },
+    "1d62efe8eefb6a": {
+      "figur": "aeseloere",
+      "tekst": "den var vred på alle. passer ikke helt. Læs sætningen igen, og se på reglen.",
+      "fil": "1d62efe8eefb6a.ogg",
+      "kilde": "Kampsvar / halvsaetning.s02.den var vred på alle.",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1d640d25cbc1a9": {
       "figur": "fortaeller",
       "tekst": "Jeg hørte en lyd bag reolen. ... turde ikke kigge efter.",
@@ -13631,6 +14911,14 @@
       "fil": "1d7d6cab8deb0c.ogg",
       "kilde": "Svar / ikkerim.sommer.sukker",
       "lavet": "2026-11-17",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "1d7daaa5e0738f": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Nu er sætningen færdig: bliver historien aldrig færdig.",
+      "fil": "1d7daaa5e0738f.ogg",
+      "kilde": "Kampsvar / halvsaetning.s10",
+      "lavet": "2026-11-20",
       "model": "gemini-3.8-flash-tts"
     },
     "1d859966bf8d35": {
@@ -13686,6 +14974,14 @@
       "kilde": "Stumme bogstaver / ild.saetning",
       "lavet": "2026-11-04"
     },
+    "1d9baf62556777": {
+      "figur": "fortaeller",
+      "tekst": "Klatten drypper blæk overalt",
+      "fil": "1d9baf62556777.ogg",
+      "kilde": "Og-ormen / og-1b.0-0",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1da52348afa930": {
       "figur": "aeseloere",
       "tekst": "Undskyld. Igen. Jeg er her nu, og jeg går ikke mere.",
@@ -13723,6 +15019,14 @@
       "kilde": "Stumme bogstaver / strand",
       "lavet": "2026-10-31"
     },
+    "1db29c854b6e0a": {
+      "figur": "fortaeller",
+      "tekst": "han øvede sig i at brøle foran en vandpyt",
+      "fil": "1db29c854b6e0a.ogg",
+      "kilde": "Og-ormen / og-5a.1-1",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1db9299e097523": {
       "figur": "fortaeller",
       "tekst": "En lille, lysende papirstump falder ud af mosset på Rimfods hoved. Det er et hukommelsesskår.",
@@ -13736,6 +15040,14 @@
       "fil": "1dbdfec2e82683.ogg",
       "kilde": "Klattens tekster / k05.0",
       "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "1dbf6ff51097ef": {
+      "figur": "aeseloere",
+      "tekst": "Ja. Nu er sætningen færdig: var det en god historie.",
+      "fil": "1dbf6ff51097ef.ogg",
+      "kilde": "Kampsvar / halvsaetning.s12",
+      "lavet": "2026-11-20",
       "model": "gemini-3.8-flash-tts"
     },
     "1dbfb1a530b8e8": {
@@ -13897,6 +15209,14 @@
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-tts"
     },
+    "1e22c1d6e806de": {
+      "figur": "fortaeller",
+      "tekst": "en lille frø grinede ad ham og så blev han rød i hovedet og gik hjem.",
+      "fil": "1e22c1d6e806de.ogg",
+      "kilde": "Og-ormen / og-5a.2-3",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1e2358318fd457": {
       "figur": "fortaeller",
       "tekst": "Hvilket stumt bogstav mangler i _jul?",
@@ -14024,6 +15344,14 @@
       "lavet": "2026-11-16",
       "model": "gemini-3.8-flash-tts"
     },
+    "1e510591b98322": {
+      "figur": "aeseloere",
+      "tekst": "orderne er ikke den rigtige stavemåde. Se på reglen.",
+      "fil": "1e510591b98322.ogg",
+      "kilde": "Kampsvar / krusedulle.k16.orderne",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1e51a0b036eb6d": {
       "figur": "skyggen",
       "tekst": "Lille Mørk. Det er et godt navn. Det er mit navn.",
@@ -14076,6 +15404,14 @@
       "kilde": "Kapitel 3 / k3-klatten.valg1.2",
       "lavet": "2026-11-01"
     },
+    "1e5fecbd11e93f": {
+      "figur": "fortaeller",
+      "tekst": "Æseløre fløj op i træet",
+      "fil": "1e5fecbd11e93f.ogg",
+      "kilde": "Og-ormen / og-1a.0-0",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1e5ffb21a5137e": {
       "figur": "fortaeller",
       "tekst": "Du kigger dig om efter Æseløre. Han er ikke i hytten.",
@@ -14105,6 +15441,14 @@
       "fil": "1e68b3121d5d0b.ogg",
       "kilde": "Minder / minde.skaar5a.3",
       "lavet": "2026-11-13"
+    },
+    "1e69b3993f7506": {
+      "figur": "fortaeller",
+      "tekst": "hans sko er helt sorte.",
+      "fil": "1e69b3993f7506.ogg",
+      "kilde": "Og-ormen / og-1b.1-1",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
     },
     "1e6c83efc8c3c4": {
       "figur": "aeseloere",
@@ -14153,6 +15497,14 @@
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-tts"
     },
+    "1e81873d437349": {
+      "figur": "fortaeller",
+      "tekst": "midt i floden stod en sten",
+      "fil": "1e81873d437349.ogg",
+      "kilde": "Og-ormen / og-5c.2-2",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1e837b99dc4340": {
       "figur": "aeseloere",
       "tekst": "en drage i et tårn hører til en anden genre end krimi. Hvad er kendetegnene for krimi?",
@@ -14168,6 +15520,14 @@
       "kilde": "Svar / ikkerim.sten.stol",
       "lavet": "2026-11-16",
       "model": "gemini-3.8-flash-lite-tts"
+    },
+    "1e911e301f53a7": {
+      "figur": "aeseloere",
+      "tekst": "sove længe. passer ikke helt. Læs sætningen igen, og se på reglen.",
+      "fil": "1e911e301f53a7.ogg",
+      "kilde": "Kampsvar / halvsaetning.s04.sove længe.",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
     },
     "1e92a7953bcbb7": {
       "figur": "aeseloere",
@@ -14213,6 +15573,14 @@
       "fil": "1e9f419befca4c.ogg",
       "kilde": "Kapitel 8 / k8-hjem.opgavetekst",
       "lavet": "2026-11-12"
+    },
+    "1ea0330d84a4f2": {
+      "figur": "aeseloere",
+      "tekst": "den fandt det med det samme. passer ikke helt. Læs sætningen igen, og se på reglen.",
+      "fil": "1ea0330d84a4f2.ogg",
+      "kilde": "Kampsvar / halvsaetning.s09.den fandt det med det samme.",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
     },
     "1ea0acdb75366a": {
       "figur": "aeseloere",
@@ -14302,6 +15670,14 @@
       "fil": "1eb601fa12873f.ogg",
       "kilde": "Kapitel 6 / k6-doer.4",
       "lavet": "2026-11-10"
+    },
+    "1eb764d9b98569": {
+      "figur": "fortaeller",
+      "tekst": "Pennedal har tre måner",
+      "fil": "1eb764d9b98569.ogg",
+      "kilde": "Og-ormen / og-5b.0-0",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "1eba42a21784c5": {
       "figur": "aeseloere",
@@ -14400,6 +15776,14 @@
       "lavet": "2026-11-15",
       "model": "gemini-3.8-flash-tts"
     },
+    "1edf7a1ea8c0d6": {
+      "figur": "fortaeller",
+      "tekst": "Floden løb hurtigt og vandet var koldt og klart og midt i floden stod en sten",
+      "fil": "1edf7a1ea8c0d6.ogg",
+      "kilde": "Og-ormen / og-5c.0-2",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1ee6631861776c": {
       "figur": "fortaeller",
       "tekst": "Hurra, vi fandt den sidste side!",
@@ -14452,6 +15836,14 @@
       "fil": "1f123899ec71ba.ogg",
       "kilde": "Kapitel 2 / k2-moerke.11",
       "lavet": "2026-10-31"
+    },
+    "1f130016d146ae": {
+      "figur": "fortaeller",
+      "tekst": "Du har blæk. Et forkert svar koster en dråbe. Når blækket er brugt, er turen slut.",
+      "fil": "1f130016d146ae.ogg",
+      "kilde": "Blækdybet / dybet.regel.blaek",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "1f16dad3611606": {
       "figur": "aeseloere",
@@ -14535,6 +15927,14 @@
       "lavet": "2026-11-19",
       "model": "gemini-3.8-flash-tts"
     },
+    "1f3fca40c09f6a": {
+      "figur": "fortaeller",
+      "tekst": "Klatten ville være frygtelig og han øvede sig i at brøle foran en vandpyt",
+      "fil": "1f3fca40c09f6a.ogg",
+      "kilde": "Og-ormen / og-5a.0-1",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1f410d6a60ee7a": {
       "figur": "fortaeller",
       "tekst": "Kan du hjælpe mig med at finde vejen?",
@@ -14558,6 +15958,14 @@
       "kilde": "Svar / rytme.kat.spoergsmaal",
       "lavet": "2026-11-17",
       "model": "gemini-3.8-flash-lite-tts"
+    },
+    "1f4441e66d027d": {
+      "figur": "aeseloere",
+      "tekst": "Ja. tænkte er den rigtige stavemåde.",
+      "fil": "1f4441e66d027d.ogg",
+      "kilde": "Kampsvar / krusedulle.k12.tænkte",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
     },
     "1f5021d518fdff": {
       "figur": "aeseloere",
@@ -14596,6 +16004,14 @@
       "fil": "1f6bb786f3ccb0.ogg",
       "kilde": "Svar / ikkerim.is.igel",
       "lavet": "2026-11-16",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "1f6d6498c37363": {
+      "figur": "fortaeller",
+      "tekst": "Hvordan bliver sætningen færdig?",
+      "fil": "1f6d6498c37363.ogg",
+      "kilde": "Kampsvar / kamp.halvsaetning.spoergsmaal",
+      "lavet": "2026-11-20",
       "model": "gemini-3.8-flash-tts"
     },
     "1f6d846bf38cb1": {
@@ -14698,6 +16114,14 @@
       "kilde": "Kapitel 3 / k3-klatten.3",
       "lavet": "2026-11-01"
     },
+    "1fa5ba6c224b77": {
+      "figur": "fortaeller",
+      "tekst": "En gammel ordsten står i vejen. Den lader dig kun komme forbi, hvis du finder de rigtige ord.",
+      "fil": "1fa5ba6c224b77.ogg",
+      "kilde": "Blækdybet / rum.ordsten",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
+    },
     "1fac5a06424e82": {
       "figur": "aeseloere",
       "tekst": "tællle er ikke den rigtige stavemåde. Læs reglen, og prøv igen.",
@@ -14752,6 +16176,14 @@
       "kilde": "Svar / rim.kage.lagen",
       "lavet": "2026-11-17",
       "model": "gemini-3.8-flash-tts"
+    },
+    "1fc18e561ced9c": {
+      "figur": "fortaeller",
+      "tekst": "Vi gik ned ad stien og bladene knasede under vores fødder og en ugle tudede i mørket.",
+      "fil": "1fc18e561ced9c.ogg",
+      "kilde": "Og-ormen / og-2a.0-2",
+      "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-lite-tts"
     },
     "1fc31393d1784f": {
       "figur": "aeseloere",
@@ -14946,5 +16378,5 @@
   },
   "model": "gemini-3.8-flash-tts",
   "i_alt": 2164,
-  "mangler": 179
+  "mangler": 0
 }
