@@ -67,7 +67,7 @@ export function byggGrund(s: KortScene, tema: string, inde: boolean) {
   s.byggAvatar();
 
   // Jorden og vandet for dette sted. Indendørs: gulv og vægge.
-  const grund0 = inde ? tegnRum(s.kort, tema === 'kaelder' || tema === 'arkiv' ? 'sten' : 'trae') : tegnGrund(s.kort);
+  const grund0 = inde ? tegnRum(s.kort, tema === 'kaelder' || tema === 'arkiv' ? 'sten' : 'trae') : tegnGrund(s.kort, tema);
   if (!inde)
     tegnTraeskygger(
       grund0,
