@@ -18,7 +18,7 @@ export const LIV: Record<PortraetFigur, Liv> = {
   snegl: { oejne: { bogstaver: 'E' } },
   prinsesse: { oejne: { bogstaver: 'EW', y: [9, 10] }, mund: { bogstaver: 'm' } },
   lup: { oejne: { bogstaver: 'E' }, mund: { bogstaver: 'm' } },
-  grumsen: { oejne: { bogstaver: 'WE', y: [14, 15] } },
+  grumsen: { oejne: { bogstaver: 'WE', y: [6, 9] } },
   bip: { oejne: { bogstaver: 'B' } },
   skyggen: { oejne: { bogstaver: 'E' }, mund: { bogstaver: 'm' } },
   halvsaetning: { oejne: { bogstaver: 'WE' } },
