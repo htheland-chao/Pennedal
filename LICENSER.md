@@ -15,4 +15,4 @@
 
 Regel (krav 9, 19. november 2026): kun CC0, så længe repoet er offentligt. Hver pakke skrives her med navn, link og licens, før den bruges, og farves om til spillets palet.
 
-- **Ninja Adventure** af Pixel-boy og AAA: https://pixel-boy.itch.io/ninja-adventure-asset-pack. Licens: CC0 1.0 (står i pakkens LICENSE.txt og README.md). Brugt fra 20. november 2026: strå, tuer, blomster, sten og en stub på jorden i Pennedal-skoven (`src/game/pixel/laant/ninja-skovbund.ts`), skåret ud af TilesetNature.png og TilesetFloor.png og farvet om til masterpaletten. (En prøve med pakkens runde træer blev fravalgt 19. november 2026.)
+- **Ninja Adventure** af Pixel-boy og AAA: https://pixel-boy.itch.io/ninja-adventure-asset-pack. Licens: CC0 1.0 (står i pakkens LICENSE.txt og README.md). Brugt fra 20. november 2026: strå, tuer, blomster, sten og en stub på jorden udendørs (`src/game/pixel/laant/ninja-skovbund.ts`), skåret ud af TilesetNature.png og TilesetFloor.png og farvet om til masterpaletten. (En prøve med pakkens runde træer blev fravalgt 19. november 2026.)

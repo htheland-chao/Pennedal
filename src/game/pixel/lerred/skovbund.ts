@@ -1,5 +1,5 @@
 /**
- * Skovbunden i Pennedal-skoven (prøve, 20. november 2026): roligt græs med store, bløde pletter og
+ * Skovbunden udendørs (prøve i Pennedal-skoven, derefter alle udendørs steder undtagen Rimbjerget, Halvelande og Sidste side, 20. november 2026): roligt græs med store, bløde pletter og
  * håndtegnede strå, sten, tuer, stubbe og blomster fra Ninja Adventure (CC0, se LICENSER.md)
  * i stedet for tilfældige enkelte pixel. Tegnes én gang ind i jorden, så det koster intet, mens man spiller.
  */
@@ -60,8 +60,10 @@ export function pyntSkovbund(p: Uint8ClampedArray, W: number, H: number, kort: K
       const a = hash(tx * 31 + 5, ty * 17 + 3);
       const b = hash(tx * 13 + 9, ty * 29 + 1);
       let k: Tegnkort | null = null;
-      if (a < 0.4) k = STRAA_MAERKER[Math.floor(b * STRAA_MAERKER.length)];
-      else if (a < 0.58) k = vaelgTing(b);
+      // På engen (;) er der flere blomster: kløver, rød og hvid blomst.
+      if (c0 === ';' && a < 0.3) k = SKOVBUND_TING[4 + Math.floor(b * 3)];
+      else if (a < 0.4) k = STRAA_MAERKER[Math.floor(b * STRAA_MAERKER.length)];
+      else if (a < 0.5) k = vaelgTing(b);
       if (!k) continue;
       const kb = k.raekker[0].length;
       const kh = k.raekker.length;

@@ -144,10 +144,11 @@ function moerkn(p: Uint8ClampedArray, o: number, f: number) {
  * Jorden under hele kortet: græs, skovbund, sti, brosten, huse og mure. Tegnes én gang pr. sted.
  * Kanterne mellem græs og skov flyder (feltet aflæses lidt forskudt med glat støj), stien har runde hjørner
  * og en kant, der bølger lidt, og huse og mure kaster en skygge mod højre (lyset kommer fra venstre).
- * I Pennedal-skoven (tema 'pennedal') er græsset roligt med lånte strå og småting (se skovbund.ts).
+ * Græsset er roligt med lånte strå og småting (se skovbund.ts), undtagen på Rimbjerget (sne), i Halvelande og på
+ * Sidste side, hvor bunden selv er tegnet på papir.
  */
 export function tegnGrund(kort: Kort, tema = ''): HTMLCanvasElement {
-  const nyBund = tema === 'pennedal';
+  const nyBund = tema !== 'rimbjerg' && tema !== 'halve' && tema !== 'siden';
   const W = kort.bredde * FELT;
   const H = kort.hoejde * FELT;
   const c = lerred(W, H);
@@ -183,7 +184,7 @@ export function tegnGrund(kort: Kort, tema = ''): HTMLCanvasElement {
             if (pl > 0.72 && r < 0.5) col = GRAES[3];
             else if (pl < 0.25 && r < 0.5) col = GRAES[2];
           }
-          if (!nyBund && cn === ';' && hash(X >> 1, Y >> 1) > 0.93) col = BLOMST[Math.floor(hash(X >> 1, (Y >> 1) + 7) * BLOMST.length)];
+          if (cn === ';' && hash(X >> 1, Y >> 1) > 0.93) col = BLOMST[Math.floor(hash(X >> 1, (Y >> 1) + 7) * BLOMST.length)];
           if (erBrosten(c0)) col = brosten(X, Y, r, c0 === ':' && hash(tx * 3, ty * 5 + (X >> 2)) > 0.55 && (px - 8) ** 2 + (py - 8) ** 2 < 20);
           if (c0 === 'H') col = hus(kort, tx, ty, px, py, r);
           if (c0 === 'w') col = mur(kort, tx, ty, X, Y, py);
