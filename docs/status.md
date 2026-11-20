@@ -23,6 +23,8 @@ Kort overblik. Hvornår og hvordan hver ting blev lavet, står i `docs/logbog.md
 
 ## Beslutninger (Henrik)
 
+- 20. november 2026: Natten beholder sin nuværende farve. Lånt grafik kommer fra Ninja Adventure (CC0). Pennedal-skoven er prøven med ny skovbund, før andre steder følger.
+
 - 19. november 2026: Ingen fine figurer. Kampens og introens figurer forstørres kun i hele trin (2 gange).
 
 - 19. november 2026: Masterpaletten er forslag B (grafik.md-farverne udvidet), 64 farver efter at hud, blond, mørk lilla og varm lys grå kom med. Ny grafik bruger kun den.

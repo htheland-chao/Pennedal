@@ -31,6 +31,7 @@ import { BREV, hytte, KRUSEDULLE, POSTSNEGL } from '../game/pixel/blaeksoe';
 import { BIP, GRUMSEN, LUP, PRINSESSE, SPOR } from '../game/pixel/halvelande';
 import { HALVSAETNING, LILLE_SKYGGE } from '../game/pixel/sidstesiden';
 import { PAPIRGRAN_FORMER, papirgran } from '../game/pixel/papirgraner';
+import { SKOVBUND_TING, STRAA_MAERKER } from '../game/pixel/laant/ninja-skovbund';
 
 export type Element = { navn: string; kort: Tegnkort };
 export type Gruppe = {
@@ -167,6 +168,12 @@ export function grupper(): Gruppe[] {
       skala: 6,
       forventet: { b: 12, h: 12 },
       elementer: Object.entries(TING_IKONER).map(([navn, kort]) => ({ navn, kort })),
+    },
+    {
+      id: 'laant-skovbund',
+      titel: 'Lånt (Ninja Adventure, CC0): småting og strå i Pennedal-skoven',
+      skala: 4,
+      elementer: [...SKOVBUND_TING, ...STRAA_MAERKER].map((kort, i) => ({ navn: `ting ${i}`, kort })),
     },
     {
       id: 'papirgraner',

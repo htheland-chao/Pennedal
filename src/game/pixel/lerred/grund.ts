@@ -4,6 +4,7 @@
  */
 import { hash, hx, lerred } from './grundlag';
 import { erBrosten, erSti, erVand, FELT, type Kort } from '../../kort';
+import { pyntSkovbund, skovbundFarve } from './skovbund';
 
 const GRAES = ['#3d7a57', '#468a60', '#356c4d', '#4f9467'].map(hx);
 const SKOV = ['#2f6448', '#24503a', '#2a5a40'].map(hx);
@@ -143,8 +144,10 @@ function moerkn(p: Uint8ClampedArray, o: number, f: number) {
  * Jorden under hele kortet: græs, skovbund, sti, brosten, huse og mure. Tegnes én gang pr. sted.
  * Kanterne mellem græs og skov flyder (feltet aflæses lidt forskudt med glat støj), stien har runde hjørner
  * og en kant, der bølger lidt, og huse og mure kaster en skygge mod højre (lyset kommer fra venstre).
+ * I Pennedal-skoven (tema 'pennedal') er græsset roligt med lånte strå og småting (se skovbund.ts).
  */
-export function tegnGrund(kort: Kort): HTMLCanvasElement {
+export function tegnGrund(kort: Kort, tema = ''): HTMLCanvasElement {
+  const nyBund = tema === 'pennedal';
   const W = kort.bredde * FELT;
   const H = kort.hoejde * FELT;
   const c = lerred(W, H);
@@ -172,14 +175,15 @@ export function tegnGrund(kort: Kort): HTMLCanvasElement {
           }
           const skov = cn === '#';
           let col = skov ? SKOV[r < 0.7 ? 0 : r < 0.85 ? 1 : 2] : GRAES[r < 0.72 ? 0 : Math.min(3, Math.floor(((r - 0.72) / 0.28) * 3) + 1)];
-          if (!skov && (hash(X, Y + 1) > 0.985 || hash(X, Y + 2) > 0.985)) col = STRAA;
+          if (nyBund && erNatur(c0)) col = skovbundFarve(X, Y, skov, glatStoej(X, Y, 12, 3));
+          else if (!skov && (hash(X, Y + 1) > 0.985 || hash(X, Y + 2) > 0.985)) col = STRAA;
           // Lys og mørke pletter i græsset, så det ikke er en ensartet flade.
-          if (!skov && erNatur(c0)) {
+          if (!nyBund && !skov && erNatur(c0)) {
             const pl = glatStoej(X, Y, 12, 3);
             if (pl > 0.72 && r < 0.5) col = GRAES[3];
             else if (pl < 0.25 && r < 0.5) col = GRAES[2];
           }
-          if (cn === ';' && hash(X >> 1, Y >> 1) > 0.93) col = BLOMST[Math.floor(hash(X >> 1, (Y >> 1) + 7) * BLOMST.length)];
+          if (!nyBund && cn === ';' && hash(X >> 1, Y >> 1) > 0.93) col = BLOMST[Math.floor(hash(X >> 1, (Y >> 1) + 7) * BLOMST.length)];
           if (erBrosten(c0)) col = brosten(X, Y, r, c0 === ':' && hash(tx * 3, ty * 5 + (X >> 2)) > 0.55 && (px - 8) ** 2 + (py - 8) ** 2 < 20);
           if (c0 === 'H') col = hus(kort, tx, ty, px, py, r);
           if (c0 === 'w') col = mur(kort, tx, ty, X, Y, py);
@@ -211,7 +215,7 @@ export function tegnGrund(kort: Kort): HTMLCanvasElement {
       const c0 = kort.tegn(tx, ty);
       const a = hash(tx * 31 + 5, ty * 17 + 3);
       const b = hash(tx * 13 + 9, ty * 29 + 1);
-      if (c0 === ',' || c0 === ';') {
+      if ((c0 === ',' || c0 === ';') && !nyBund) {
         // Højst én ting pr. felt, og ikke i alle felter.
         if (a < 0.6) {
           const i = b < 0.3 ? 2 : b < 0.5 ? 3 : b < 0.72 ? 0 : b < 0.86 ? 1 : b < 0.94 ? 5 : 4;
@@ -231,6 +235,7 @@ export function tegnGrund(kort: Kort): HTMLCanvasElement {
         }
       }
     }
+  if (nyBund) pyntSkovbund(p, W, H, kort);
   g.putImageData(img, 0, 0);
   return c;
 }
