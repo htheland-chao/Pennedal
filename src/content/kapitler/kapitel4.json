@@ -196,15 +196,15 @@
       "slutDel": 1,
       "giver": ["rimsten"],
       "replikker": [
-        { "taler": "rimfod", "tekst": "Godmorgen, I små. Hvor skal I mon gå?" },
-        { "taler": "rimfod", "tekst": "Øv. Nu gjorde jeg det igen. Jeg rimer og rimer, min ven." },
+        { "taler": "rimfod", "tekst": "Godmorgen, I små. Hvor skal I mon gå?", "udtryk": "glad" },
+        { "taler": "rimfod", "tekst": "Øv. Nu gjorde jeg det igen. Jeg rimer og rimer, min ven.", "udtryk": "vred" },
         { "taler": "aeseloere", "tekst": "En trold, der taler på rim. Det er værre end en ordbog med hikke.", "udtryk": "vred" },
         { "taler": "rimfod", "tekst": "Jeg hedder Rimfod, bjergets gamle trold. Jeg prøver ikke at rime, men det går ... øh ... bold. Øv." },
-        { "taler": "rimfod", "tekst": "Ekkoet i kløften har stjålet min ro. Det råber forkerte rim, både én gang og to." },
-        { "taler": "rimfod", "tekst": "Øverst på toppen står bjergets ældste vers. Nu mangler et stykke, og alting går på tværs." },
+        { "taler": "rimfod", "tekst": "Ekkoet i kløften har stjålet min ro. Det råber forkerte rim, både én gang og to.", "udtryk": "vred" },
+        { "taler": "rimfod", "tekst": "Øverst på toppen står bjergets ældste vers. Nu mangler et stykke, og alting går på tværs.", "udtryk": "bange" },
         { "taler": "vims", "tekst": "Vi kan hjælpe! Tror jeg. Undskyld, hvis vi ikke kan.", "udtryk": "glad" },
         { "taler": "rimfod", "tekst": "Tag denne sten. Den er glat og god. Den bærer en bro, når du mangler mod." },
-        { "taler": "rimfod", "tekst": "Jeg tager den lange vej og venter på jer der. Øv. Der og her. Det er bare ikke fair." }
+        { "taler": "rimfod", "tekst": "Jeg tager den lange vej og venter på jer der. Øv. Der og her. Det er bare ikke fair.", "udtryk": "vred" }
       ]
     },
     {
@@ -316,7 +316,7 @@
       "objekt": null,
       "replikker": [
         { "taler": "fortaeller", "tekst": "Du finder det sidste rim. Stregerne på stenen gløder et øjeblik." },
-        { "taler": "rimfod", "tekst": "Tak, I små. Nu står de vers, som de skal stå." },
+        { "taler": "rimfod", "tekst": "Tak, I små. Nu står de vers, som de skal stå.", "udtryk": "glad" },
         { "taler": "fortaeller", "tekst": "Men det sidste vers er stadig væk. Under tavlen ligger kun to ord og blafrer i vinden: Og så." },
         { "taler": "aeseloere", "tekst": "Den Ufærdige. Han har taget det sidste vers. Endnu en slutning, der er forsvundet.", "udtryk": "bange" }
       ]
@@ -335,7 +335,7 @@
         { "taler": "fortaeller", "tekst": "Vinden holder op med at rime. Det bliver helt stille på toppen." },
         { "taler": "ufaerdige", "tekst": "Og så ..." },
         { "taler": "fortaeller", "tekst": "Nede i dalen, under bjerget, ligger noget mørkt og fladt. Det ligner en kælder fuld af gammelt papir." },
-        { "taler": "rimfod", "tekst": "Pas godt på jer, I små. Jeg står her på toppen og kigger på." },
+        { "taler": "rimfod", "tekst": "Pas godt på jer, I små. Jeg står her på toppen og kigger på.", "udtryk": "glad" },
         { "taler": "aeseloere", "tekst": "Kom. Sporet fører ned. Mod noget, der lugter af gammelt papir og blyant." }
       ]
     }
@@ -350,7 +350,7 @@
       "titel": "Rimfods sætning",
       "intro": "Rimfod vil sige én sætning uden rim. Find det ord, der ikke rimer, så kan han slutte sin sætning med det.",
       "start": [
-        { "taler": "rimfod", "tekst": "Hør her, I små, kom lidt tættere på. Jeg har en drøm, som I måske kan forstå." },
+        { "taler": "rimfod", "tekst": "Hør her, I små, kom lidt tættere på. Jeg har en drøm, som I måske kan forstå.", "udtryk": "glad" },
         { "taler": "rimfod", "tekst": "Bare én sætning, der ikke rimer. Én eneste. Så græder jeg af glæde i flere timer." },
         { "taler": "aeseloere", "tekst": "Han skal bruge et ord at slutte med. Et ord, der ikke rimer på resten. Hjælp ham med at vælge." }
       ],
@@ -363,11 +363,11 @@
       "faerdig": [
         { "taler": "rimfod", "tekst": "Jeg sidder på en sten, og jeg har det dejligt." },
         { "taler": "fortaeller", "tekst": "Rimfod bliver helt stille. Så triller en stor tåre ned ad hans stenkind." },
-        { "taler": "rimfod", "tekst": "Det rimede ikke! Det rimede ikke! Jeg græder af glæde, og det er meget vådt." },
+        { "taler": "rimfod", "tekst": "Det rimede ikke! Det rimede ikke! Jeg græder af glæde, og det er meget vådt.", "udtryk": "glad" },
         { "taler": "fortaeller", "tekst": "En lille, lysende papirstump falder ud af mosset på Rimfods hoved. Det er et hukommelsesskår." }
       ],
       "efter": [
-        { "taler": "rimfod", "tekst": "Hej, I små! Nu kan jeg sige ting, der ikke rimer, når jeg virkelig prøver. Nogle gange." }
+        { "taler": "rimfod", "tekst": "Hej, I små! Nu kan jeg sige ting, der ikke rimer, når jeg virkelig prøver. Nogle gange.", "udtryk": "glad" }
       ]
     }
   }

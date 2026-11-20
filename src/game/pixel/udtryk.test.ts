@@ -37,8 +37,8 @@ describe('udtryk i portrætterne', () => {
       }
   });
 
-  it('giver tre forskellige ansigter til Æseløre, Klatten, Vims og Fru Fodnote', () => {
-    for (const figur of ['aeseloere', 'klatten', 'vims', 'fodnote'] as const) {
+  it('giver tre forskellige ansigter til Æseløre, Klatten, Vims, Fru Fodnote, Rimfod og Den Ufærdige', () => {
+    for (const figur of ['aeseloere', 'klatten', 'vims', 'fodnote', 'rimfod', 'ufaerdige'] as const) {
       const ansigter = new Set(UDTRYK.map((u) => medUdtryk(figur, u).raekker.join('')));
       expect(ansigter.size).toBe(3);
     }

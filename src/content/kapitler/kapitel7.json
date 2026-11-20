@@ -265,7 +265,7 @@
       "tilbageblik": { "id": "soeskendet", "foer": 2 },
       "replikker": [
         { "taler": "fortaeller", "tekst": "Så bliver alt stille. Midt på vejen står Den Ufærdige." },
-        { "taler": "ufaerdige", "tekst": "Jeg kan give jer en slutning. Hver af jer. Alt, I skal gøre, er at gå med mig." },
+        { "taler": "ufaerdige", "tekst": "Jeg kan give jer en slutning. Hver af jer. Alt, I skal gøre, er at gå med mig.", "udtryk": "glad" },
         { "taler": "ufaerdige", "tekst": "Vims. Du kan få en slutning, hvor du aldrig er bange." },
         { "taler": "vims", "tekst": "Undskyld. Men nej. Jeg er bange sammen med mine venner. Det er bedre.", "udtryk": "bange" },
         { "taler": "ufaerdige", "tekst": "Fodnote. Du kan få en slutning øverst på siden." },
@@ -306,7 +306,7 @@
             "ikkeValg": "aeseloere.tilgivet"
           }
         },
-        { "taler": "ufaerdige", "tekst": "Så er I færre. Vi ses på den sidste side." }
+        { "taler": "ufaerdige", "tekst": "Så er I færre. Vi ses på den sidste side.", "udtryk": "vred" }
       ]
     },
     {

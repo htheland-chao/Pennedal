@@ -91,6 +91,29 @@ const OPSKRIFTER: Partial<Record<keyof typeof PORTRAETTER, Partial<Record<Udtryk
       pixel: [[6, 7, 'K'], [7, 8, 'K'], [8, 8, 'K'], [17, 7, 'K'], [16, 8, 'K'], [15, 8, 'K'], [11, 15, 'm'], [12, 15, 'm'], [10, 16, 'm'], [13, 16, 'm']],
     },
   },
+  // Rimfod: stentrold med øjne (x 7-8 og 15-16, rækkerne 6-7) og en mund af mørke sten (K, række 11, x 8-15).
+  rimfod: {
+    glad: { pixel: [[7, 7, 'G'], [8, 7, 'G'], [15, 7, 'G'], [16, 7, 'G'], [7, 6, 'E'], [8, 6, 'E'], [15, 6, 'E'], [16, 6, 'E'], [8, 11, 'G'], [15, 11, 'G'], [8, 10, 'K'], [15, 10, 'K']] },
+    bange: {
+      pixel: [
+        [7, 5, 'W'], [8, 5, 'W'], [15, 5, 'W'], [16, 5, 'W'],
+        ...[8, 9, 14, 15].map((x) => [x, 11, 'G'] as Pixel),
+        [10, 12, 'K'], [11, 12, 'K'], [12, 12, 'K'], [13, 12, 'K'],
+      ],
+    },
+    vred: { pixel: [[6, 4, 'K'], [7, 5, 'K'], [8, 5, 'K'], [17, 4, 'K'], [16, 5, 'K'], [15, 5, 'K'], [8, 11, 'G'], [15, 11, 'G'], [8, 12, 'K'], [15, 12, 'K']] },
+  },
+  // Den Ufærdige: mørk skikkelse med lyse øjne (O, rækkerne 6-7) og ingen mund. Udtrykket bærer øjnene og en lys mund (k).
+  ufaerdige: {
+    glad: { pixel: [[8, 6, 'U'], [10, 6, 'U'], [9, 7, 'U'], [10, 7, 'O'], [14, 6, 'U'], [16, 6, 'U'], [15, 7, 'U'], [14, 7, 'O'], [10, 10, 'k'], [14, 10, 'k'], [11, 11, 'k'], [12, 11, 'k'], [13, 11, 'k']] },
+    bange: {
+      pixel: [
+        ...[8, 9, 10, 14, 15, 16].flatMap((x) => [[x, 5, 'O'], [x, 7, 'O']] as Pixel[]),
+        [9, 6, 'U'], [15, 6, 'U'], [11, 11, 'k'], [12, 11, 'k'], [11, 12, 'k'], [12, 12, 'k'],
+      ],
+    },
+    vred: { pixel: [[10, 6, 'U'], [10, 7, 'O'], [14, 6, 'U'], [14, 7, 'O'], [8, 4, 'k'], [9, 4, 'k'], [10, 5, 'k'], [16, 4, 'k'], [15, 4, 'k'], [14, 5, 'k'], [10, 11, 'k'], [11, 11, 'k'], [12, 11, 'k'], [13, 11, 'k'], [14, 11, 'k']] },
+  },
 };
 
 /** Har figuren et særligt portræt til dette udtryk? */

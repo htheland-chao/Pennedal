@@ -322,7 +322,7 @@
         { "taler": "fortaeller", "tekst": "Lanternen blafrer. Bag dig er der nogen." },
         { "taler": "fortaeller", "tekst": "Den Ufærdige står mellem reolerne. Den er lavet af streger af blyant, der aldrig blev tegnet færdige." },
         { "taler": "fortaeller", "tekst": "For første gang vender den sig helt om og kigger på dig." },
-        { "taler": "ufaerdige", "tekst": "Der er du jo." },
+        { "taler": "ufaerdige", "tekst": "Der er du jo.", "udtryk": "glad" },
         { "taler": "aeseloere", "tekst": "Kom væk herfra. Nu.", "udtryk": "bange" },
         { "taler": "fortaeller", "tekst": "Men du bliver stående. For nu forstår du det. Den Ufærdige er ikke en fremmed. Den er din historie. Den, du aldrig skrev færdig." },
         { "taler": "ufaerdige", "tekst": "Og så ..." },
