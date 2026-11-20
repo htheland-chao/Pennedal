@@ -119,8 +119,7 @@ export function aabenMund(kort: Tegnkort, felt: Felt): Tegnkort {
 export type Billeder = { hvile: Tegnkort; blink: Tegnkort; tale: Tegnkort; blinkTale: Tegnkort };
 
 /** De fire billeder af et portræt: hvile, blink, åben mund og begge dele. */
-export function portraetBilleder(figur: PortraetFigur): Billeder {
-  const kort = PORTRAETTER[figur];
+export function portraetBilleder(figur: PortraetFigur, kort: Tegnkort = PORTRAETTER[figur]): Billeder {
   const liv = LIV[figur];
   const lukket = liv.oejne ? blink(kort, liv.oejne) : kort;
   const aaben = liv.mund ? aabenMund(kort, liv.mund) : kort;

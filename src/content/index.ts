@@ -44,7 +44,8 @@ export function harTekst(id: string): id is TekstId {
 export type Taler = 'holm' | 'aeseloere' | 'klatten' | 'lanterne' | 'fortaeller' | 'portvagt' | 'raaber' | 'borgmester' | 'ufaerdige' | 'vims' | 'tomordet' | 'stumming' | 'halvfugl' | 'rimfod' | 'ekko' | 'fodnote' | 'tvivl' | 'snegl' | 'prinsesse' | 'lup' | 'grumsen' | 'bip' | 'skyggen' | 'halvsaetning';
 
 /** En replik. Med hvis vises den kun, når betingelsen er opfyldt (src/engine/betingelse.ts). */
-export type Replik = { taler: Taler; tekst: string; bevidstFejl?: boolean; hvis?: Betingelse };
+/** udtryk: portrættets ansigt i replikken (glad, bange eller vred). Uden udtryk vises det faste portræt. */
+export type Replik = { taler: Taler; tekst: string; bevidstFejl?: boolean; hvis?: Betingelse; udtryk?: 'glad' | 'bange' | 'vred' };
 
 export type StedObjekt = {
   id: string;
