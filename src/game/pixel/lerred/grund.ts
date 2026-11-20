@@ -10,9 +10,9 @@ const GRAES = ['#3d7a57', '#468a60', '#356c4d', '#4f9467'].map(hx);
 const SKOV = ['#2f6448', '#24503a', '#2a5a40'].map(hx);
 const STRAA = hx('#5aa572');
 const STI = { f: hx('#c4ab7c'), m: hx('#a99068'), k: hx('#8a7656'), l: hx('#e0c995') };
-const VAND = { a: hx('#203a6b'), b: hx('#28467c'), krus: hx('#4f6fa8'), bred: hx('#3a2a20') };
+const VAND = { a: hx('#203a6b'), b: hx('#28467c'), krus: hx('#4f6fa8'), bred: hx('#3a2a20'), skum: hx('#698fc1'), lav: hx('#245c99') };
 /** Blæksøen (kapitel 6): sort, blankt blæk med violette glimt. */
-const BLAEKVAND = { a: hx('#0f0e1c'), b: hx('#15132a'), krus: hx('#5a4f8a'), bred: hx('#2a2030') };
+const BLAEKVAND = { a: hx('#0f0e1c'), b: hx('#15132a'), krus: hx('#5a4f8a'), bred: hx('#2a2030'), skum: hx('#5a4f8a'), lav: hx('#1a1e36') };
 const MAANER = ['#f3ead2', '#f0c45a', '#c9dcf2'].map(hx);
 const MAANE_R = [5, 3, 4];
 
@@ -289,6 +289,18 @@ export function tegnVand(kort: Kort, ramme: number, tema = ''): HTMLCanvasElemen
   const img = g.createImageData(W, H);
   const q = img.data;
   const vand = (x: number, y: number) => erVand(kort.tegn(x, y));
+  /** Afstanden i pixel fra et punkt i et vandfelt til det nærmeste land i de otte nabofelter (højst 99). */
+  const tilLand = (tx: number, ty: number, px: number, py: number) => {
+    let d = 99;
+    for (let dy = -1; dy <= 1; dy++)
+      for (let dx = -1; dx <= 1; dx++) {
+        if ((dx === 0 && dy === 0) || vand(tx + dx, ty + dy)) continue;
+        const ax = Math.max(dx * FELT - (px + 0.5), 0, px + 0.5 - (dx * FELT + FELT));
+        const ay = Math.max(dy * FELT - (py + 0.5), 0, py + 0.5 - (dy * FELT + FELT));
+        d = Math.min(d, Math.hypot(ax, ay));
+      }
+    return d;
+  };
   const maaner: { x: number; y: number; r: number; c: [number, number, number] }[] = [];
   for (let ty = 0; ty < kort.hoejde; ty++)
     for (let tx = 0; tx < kort.bredde; tx++)
@@ -309,12 +321,12 @@ export function tegnVand(kort: Kort, ramme: number, tema = ''): HTMLCanvasElemen
             const d = Math.hypot(X + 0.5 - m.x, (Y + 0.5 - m.y) * 1.6);
             if (d <= m.r && !(hash(Math.floor((X + ramme * 2) / 3), Y) > 0.8 && (Y + ramme) % 3 === 0)) col = m.c;
           }
-          const kant =
-            (py === 0 && !vand(tx, ty - 1)) ||
-            (py === FELT - 1 && !vand(tx, ty + 1)) ||
-            (px === 0 && !vand(tx - 1, ty)) ||
-            (px === FELT - 1 && !vand(tx + 1, ty));
-          if (kant) col = V.bred;
+          // Kanten (20. november 2026, efter vandet i Ninja Adventure): brun bred, en stribe skum og lavt vand ind mod
+          // det dybe. Afstanden til land giver runde hjørner, og en lille uro gør kanten levende. Skummet bevæger sig lidt.
+          const d = tilLand(tx, ty, px, py) + (hash(X >> 1, Y >> 1) - 0.5) * 0.9;
+          if (d < 2.5) col = V.bred;
+          else if (d < 4.2 + (ramme === 1 ? 0.7 : 0)) col = V.skum;
+          else if (d < 7.5 && col !== V.krus) col = V.lav;
           const o = (Y * W + X) * 4;
           q[o] = col[0];
           q[o + 1] = col[1];
