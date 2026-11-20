@@ -719,7 +719,7 @@
         },
         {
           "taler": "aeseloere",
-          "tekst": "Du blev helt bleg. Er det typeskabet? Det giver også mig kuldegysninger."
+          "tekst": "Du blev helt bleg. Er det typeskabet? Det giver også mig kuldegysninger.", "udtryk": "bange"
         },
         {
           "taler": "aeseloere",
@@ -804,12 +804,12 @@
         },
         {
           "taler": "klatten",
-          "tekst": "Hi hi! Jeg landet lige på taget! Ingen kan fange mig!",
+          "tekst": "Hi hi! Jeg landet lige på taget! Ingen kan fange mig!", "udtryk": "glad",
           "bevidstFejl": true
         },
         {
           "taler": "aeseloere",
-          "tekst": "Han skriver lige så dårligt, som han løber. Det hedder landede. Efter ham!"
+          "tekst": "Han skriver lige så dårligt, som han løber. Det hedder landede. Efter ham!", "udtryk": "vred"
         }
       ]
     },
@@ -835,7 +835,7 @@
         },
         {
           "taler": "klatten",
-          "tekst": "I kan aldrig fange mig! Jeg er den hurtigste gnom i hele Pennedal!"
+          "tekst": "I kan aldrig fange mig! Jeg er den hurtigste gnom i hele Pennedal!", "udtryk": "glad"
         },
         {
           "taler": "aeseloere",
@@ -861,7 +861,7 @@
       "replikker": [
         {
           "taler": "klatten",
-          "tekst": "Øv. Øv, øv, øv. Der er ikke flere tage."
+          "tekst": "Øv. Øv, øv, øv. Der er ikke flere tage.", "udtryk": "vred"
         },
         {
           "taler": "fortaeller",
@@ -877,7 +877,7 @@
         },
         {
           "taler": "aeseloere",
-          "tekst": "Gem det. Et ekstra punktum kan altid bruges."
+          "tekst": "Gem det. Et ekstra punktum kan altid bruges.", "udtryk": "glad"
         }
       ],
       "giver": [
@@ -916,7 +916,7 @@
         },
         {
           "taler": "klatten",
-          "tekst": "Nej. Nej, nej. Det var ikke meningen. Jeg tog dem jo. Næsten alle sammen."
+          "tekst": "Nej. Nej, nej. Det var ikke meningen. Jeg tog dem jo. Næsten alle sammen.", "udtryk": "bange"
         },
         {
           "taler": "ufaerdige",
@@ -952,7 +952,7 @@
         },
         {
           "taler": "aeseloere",
-          "tekst": "Jeg har læst mange historier. Ingen af dem havde en stemme, der var så kold."
+          "tekst": "Jeg har læst mange historier. Ingen af dem havde en stemme, der var så kold.", "udtryk": "bange"
         },
         {
           "taler": "fortaeller",

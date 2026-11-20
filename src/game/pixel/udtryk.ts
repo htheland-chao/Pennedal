@@ -53,6 +53,44 @@ const OPSKRIFTER: Partial<Record<keyof typeof PORTRAETTER, Partial<Record<Udtryk
       ],
     },
   },
+  // Vims: viskelæder med øjne (x 7-8 og 15-16, rækkerne 9-11) og mund (o, række 13). Mørke bryn (K) ved vred.
+  vims: {
+    glad: {
+      ryd: { bogstav: 'o', erstat: 'P', y: [13, 13] },
+      pixel: [
+        [7, 10, 'P'], [8, 10, 'P'], [7, 11, 'P'], [8, 11, 'P'], [6, 10, 'E'], [9, 10, 'E'],
+        [15, 10, 'P'], [16, 10, 'P'], [15, 11, 'P'], [16, 11, 'P'], [14, 10, 'E'], [17, 10, 'E'],
+        [10, 13, 'o'], [13, 13, 'o'], [11, 14, 'o'], [12, 14, 'o'],
+      ],
+    },
+    bange: {
+      ryd: { bogstav: 'o', erstat: 'P', y: [13, 13] },
+      pixel: [
+        [7, 9, 'W'], [8, 9, 'W'], [7, 10, 'W'], [7, 11, 'W'], [8, 11, 'W'], [8, 10, 'E'],
+        [15, 9, 'W'], [16, 9, 'W'], [16, 10, 'W'], [15, 11, 'W'], [16, 11, 'W'], [15, 10, 'E'],
+        [11, 13, 'o'], [12, 13, 'o'], [11, 14, 'o'], [12, 14, 'o'],
+      ],
+    },
+    vred: {
+      ryd: { bogstav: 'o', erstat: 'P', y: [13, 13] },
+      pixel: [[6, 8, 'K'], [7, 8, 'K'], [8, 9, 'K'], [17, 8, 'K'], [16, 8, 'K'], [15, 9, 'K'], [10, 13, 'o'], [11, 13, 'o'], [12, 13, 'o'], [13, 13, 'o']],
+    },
+  },
+  // Fru Fodnote: øjne bag brillerne (x 8-9 og 15-16, rækkerne 10-11), mund (m, række 15), mørke bryn (K).
+  fodnote: {
+    glad: {
+      ryd: { bogstav: 'm', erstat: 'S', y: [15, 15] },
+      pixel: [[8, 11, 'g'], [9, 11, 'g'], [15, 11, 'g'], [16, 11, 'g'], [10, 14, 'm'], [13, 14, 'm'], [11, 15, 'm'], [12, 15, 'm']],
+    },
+    bange: {
+      ryd: { bogstav: 'm', erstat: 'S', y: [15, 15] },
+      pixel: [[6, 8, 'K'], [7, 7, 'K'], [8, 7, 'K'], [17, 8, 'K'], [16, 7, 'K'], [15, 7, 'K'], [11, 15, 'm'], [12, 15, 'm'], [11, 16, 'm'], [12, 16, 'm']],
+    },
+    vred: {
+      ryd: { bogstav: 'm', erstat: 'S', y: [15, 15] },
+      pixel: [[6, 7, 'K'], [7, 8, 'K'], [8, 8, 'K'], [17, 7, 'K'], [16, 8, 'K'], [15, 8, 'K'], [11, 15, 'm'], [12, 15, 'm'], [10, 16, 'm'], [13, 16, 'm']],
+    },
+  },
 };
 
 /** Har figuren et særligt portræt til dette udtryk? */

@@ -103,7 +103,7 @@
         "nej": "Ikke nu",
         "faerdig": [
           { "taler": "fortaeller", "tekst": "Øverst oppe, bag den sidste bog, ligger en lille, lysende papirstump. Det er et hukommelsesskår." },
-          { "taler": "fodnote", "tekst": "¹ Ingen har været deroppe i hundrede år. ² Jeg har heller ikke. Jeg bor nederst." }
+          { "taler": "fodnote", "tekst": "¹ Ingen har været deroppe i hundrede år. ² Jeg har heller ikke. Jeg bor nederst.", "udtryk": "bange" }
         ],
         "igen": [
           { "taler": "aeseloere", "tekst": "Igen? Reolerne er ved at kende dig." }
@@ -139,10 +139,10 @@
       "replikker": [
         { "taler": "fodnote", "tekst": "God dag. Jeg er Fru Fodnote. Jeg bor nederst på siden, hvor ingen kigger, men hvor alt det vigtige står." },
         { "taler": "aeseloere", "tekst": "Hun er meget lille." },
-        { "taler": "fodnote", "tekst": "¹ Jeg er ikke lille. Jeg er skrevet med en mindre skrift. Det er en vigtig forskel." },
+        { "taler": "fodnote", "tekst": "¹ Jeg er ikke lille. Jeg er skrevet med en mindre skrift. Det er en vigtig forskel.", "udtryk": "vred" },
         { "taler": "fodnote", "tekst": "Mine bøger er blandet sammen. Nogle er fortalt af en, der siger jeg. Andre fortæller om en, der hedder han eller hun. Vil du hjælpe mig med at sortere dem?" },
         { "taler": "aeseloere", "tekst": "En jeg-fortæller er selv med i historien. En han- eller hun-fortæller fortæller om en anden. Det er lettere, end hun får det til at lyde." },
-        { "taler": "fodnote", "tekst": "¹ Han har ret. Det irriterer mig. ² Det her er en fodnote til min fodnote. Den siger bare, at det stadig irriterer mig." }
+        { "taler": "fodnote", "tekst": "¹ Han har ret. Det irriterer mig. ² Det her er en fodnote til min fodnote. Den siger bare, at det stadig irriterer mig.", "udtryk": "vred" }
       ]
     },
     {
@@ -164,7 +164,7 @@
       "objekt": null,
       "slutDel": 1,
       "replikker": [
-        { "taler": "fodnote", "tekst": "Perfekt sorteret. Jeg har næsten ingen fodnoter til det. ¹ Næsten." },
+        { "taler": "fodnote", "tekst": "Perfekt sorteret. Jeg har næsten ingen fodnoter til det. ¹ Næsten.", "udtryk": "glad" },
         { "taler": "fodnote", "tekst": "Men vi har et andet problem. Kartoteksskabet er låst, og bag det er lemmen til det inderste arkiv. Der skal tre små messingskilte i låsen. Jeg har mistet dem. Igen." },
         { "taler": "aeseloere", "tekst": "Så leder vi. Kig i kasserne og bunkerne." },
         { "taler": "fodnote", "tekst": "¹ Husk i øvrigt at gemme dit spil i menuen. Din gemmekode er noget af det smukkeste, jeg har set længe. Især bindestregerne." }
@@ -228,7 +228,7 @@
       "sted": "arkivet",
       "objekt": null,
       "replikker": [
-        { "taler": "fodnote", "tekst": "¹ Jeg vidste godt, at koden var 312. Jeg ville bare se, om du kunne finde den. ² Det er ikke sandt. Jeg havde glemt den." },
+        { "taler": "fodnote", "tekst": "¹ Jeg vidste godt, at koden var 312. Jeg ville bare se, om du kunne finde den. ² Det er ikke sandt. Jeg havde glemt den.", "udtryk": "glad" },
         { "taler": "aeseloere", "tekst": "Lemmen fører ned til det inderste arkiv. Kom." }
       ]
     },
@@ -323,7 +323,7 @@
         { "taler": "fortaeller", "tekst": "Den Ufærdige står mellem reolerne. Den er lavet af streger af blyant, der aldrig blev tegnet færdige." },
         { "taler": "fortaeller", "tekst": "For første gang vender den sig helt om og kigger på dig." },
         { "taler": "ufaerdige", "tekst": "Der er du jo." },
-        { "taler": "aeseloere", "tekst": "Kom væk herfra. Nu." },
+        { "taler": "aeseloere", "tekst": "Kom væk herfra. Nu.", "udtryk": "bange" },
         { "taler": "fortaeller", "tekst": "Men du bliver stående. For nu forstår du det. Den Ufærdige er ikke en fremmed. Den er din historie. Den, du aldrig skrev færdig." },
         { "taler": "ufaerdige", "tekst": "Og så ..." },
         { "taler": "fortaeller", "tekst": "Så er den væk. Tilbage i støvet står kun to ord: Og så." },
@@ -341,22 +341,22 @@
       "titel": "Fru Fodnotes tal",
       "intro": "Vælg det ord, der holder fast i den samme fortæller, så fodnoterne passer til sætningerne.",
       "start": [
-        { "taler": "fodnote", "tekst": "Hør her. Mine tre fodnotetal er væk. Et, to og tre. Uden dem ved ingen, hvilken fodnote der hører til hvor." },
-        { "taler": "fodnote", "tekst": "¹ Det er en katastrofe. ² En lille en." },
+        { "taler": "fodnote", "tekst": "Hør her. Mine tre fodnotetal er væk. Et, to og tre. Uden dem ved ingen, hvilken fodnote der hører til hvor.", "udtryk": "bange" },
+        { "taler": "fodnote", "tekst": "¹ Det er en katastrofe. ² En lille en.", "udtryk": "bange" },
         { "taler": "aeseloere", "tekst": "Små, hvide lapper. De ligger nok rundt omkring i arkivet." }
       ],
       "mangler": [
         { "taler": "fodnote", "tekst": "Har du fundet mine tal? Kig efter små, hvide lapper på gulvet." }
       ],
       "klar": [
-        { "taler": "fodnote", "tekst": "Du fandt dem alle tre! Nu skal de på plads. Hjælp mig med at gøre sætningerne færdige, så fortælleren ikke skifter undervejs." }
+        { "taler": "fodnote", "tekst": "Du fandt dem alle tre! Nu skal de på plads. Hjælp mig med at gøre sætningerne færdige, så fortælleren ikke skifter undervejs.", "udtryk": "glad" }
       ],
       "faerdig": [
-        { "taler": "fodnote", "tekst": "Et, to, tre. Alt er på plads. ¹ Jeg er rørt. ² Det står ingen steder, men det er jeg." },
+        { "taler": "fodnote", "tekst": "Et, to, tre. Alt er på plads. ¹ Jeg er rørt. ² Det står ingen steder, men det er jeg.", "udtryk": "glad" },
         { "taler": "fortaeller", "tekst": "Ud af en fodnote falder en lille, lysende papirstump. Det er et hukommelsesskår." }
       ],
       "efter": [
-        { "taler": "fodnote", "tekst": "¹ Tak igen. Jeg har skrevet en fodnote om dig. Den er meget pæn." }
+        { "taler": "fodnote", "tekst": "¹ Tak igen. Jeg har skrevet en fodnote om dig. Den er meget pæn.", "udtryk": "glad" }
       ]
     }
   }

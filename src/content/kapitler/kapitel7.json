@@ -104,7 +104,7 @@
         "nej": "Ikke nu",
         "faerdig": [
           { "taler": "fortaeller", "tekst": "For enden af broen, hvor stregen stopper, ligger en lille, lysende papirstump. Det er et hukommelsesskår." },
-          { "taler": "vims", "tekst": "Du gik på en bro, der ikke var der. Undskyld, men det var ret sejt." }
+          { "taler": "vims", "tekst": "Du gik på en bro, der ikke var der. Undskyld, men det var ret sejt.", "udtryk": "glad" }
         ],
         "igen": [
           { "taler": "aeseloere", "tekst": "Igen? Broen er stadig kun halv. Det er du ikke." }
@@ -123,7 +123,7 @@
         { "taler": "fortaeller", "tekst": "På den anden side af Blæksøen begynder De halve lande. Alt her er kun tegnet halvt. Træer uden toppe. Huse med kun to vægge." },
         {
           "taler": "klatten",
-          "tekst": "Jeg sejlede jer over i min båd. Den er lavet af en avis. Den Frygtelige har sans for stil.",
+          "tekst": "Jeg sejlede jer over i min båd. Den er lavet af en avis. Den Frygtelige har sans for stil.", "udtryk": "glad",
           "hvis": {
             "venlighed": 1
           }
@@ -131,7 +131,7 @@
         { "taler": "aeseloere", "tekst": "Her havner alle de historier, der aldrig blev skrevet færdige. Eventyr, krimier, gysere. Alle mangler de noget." },
         { "taler": "fodnote", "tekst": "¹ Jeg tog bussen. ² Der går ingen bus hertil. Jeg tog den alligevel." },
         { "taler": "rimfod", "tekst": "Jeg kom med, for jeg er ikke dum. Det er her, det hele skal ende og begynde." },
-        { "taler": "vims", "tekst": "Alle er her. Det er rart. Undskyld, at jeg synes, det er rart." },
+        { "taler": "vims", "tekst": "Alle er her. Det er rart. Undskyld, at jeg synes, det er rart.", "udtryk": "glad" },
         { "taler": "fortaeller", "tekst": "Fire historier er strandet her. Hver af dem mangler det vigtigste. Måske kan du hjælpe dem." }
       ]
     },
@@ -250,7 +250,7 @@
       "replikker": [
         { "taler": "bip", "tekst": "Rumskibe, robotter og opfindelser. Min fremtid kører igen. Bip bip." },
         { "taler": "fortaeller", "tekst": "Rundt om dig begynder De halve lande at tegne sig færdige. Træerne får toppe. Husene får fire vægge." },
-        { "taler": "aeseloere", "tekst": "Fire historier, der fik det, de manglede. Du er god til det her. Bedre, end du tror." }
+        { "taler": "aeseloere", "tekst": "Fire historier, der fik det, de manglede. Du er god til det her. Bedre, end du tror.", "udtryk": "glad" }
       ]
     },
     {
@@ -267,7 +267,7 @@
         { "taler": "fortaeller", "tekst": "Så bliver alt stille. Midt på vejen står Den Ufærdige." },
         { "taler": "ufaerdige", "tekst": "Jeg kan give jer en slutning. Hver af jer. Alt, I skal gøre, er at gå med mig." },
         { "taler": "ufaerdige", "tekst": "Vims. Du kan få en slutning, hvor du aldrig er bange." },
-        { "taler": "vims", "tekst": "Undskyld. Men nej. Jeg er bange sammen med mine venner. Det er bedre." },
+        { "taler": "vims", "tekst": "Undskyld. Men nej. Jeg er bange sammen med mine venner. Det er bedre.", "udtryk": "bange" },
         { "taler": "ufaerdige", "tekst": "Fodnote. Du kan få en slutning øverst på siden." },
         { "taler": "fodnote", "tekst": "¹ Nej tak. Alt det vigtige står nederst." },
         {
@@ -279,7 +279,7 @@
         },
         {
           "taler": "klatten",
-          "tekst": "Den Frygtelige har allerede en slutning. Den hedder venner. Den er frygtelig god.",
+          "tekst": "Den Frygtelige har allerede en slutning. Den hedder venner. Den er frygtelig god.", "udtryk": "glad",
           "hvis": {
             "venlighed": 1
           }
@@ -294,7 +294,7 @@
         },
         {
           "taler": "aeseloere",
-          "tekst": "Jeg ... undskyld. Jeg kommer tilbage. Det lover jeg.",
+          "tekst": "Jeg ... undskyld. Jeg kommer tilbage. Det lover jeg.", "udtryk": "bange",
           "hvis": {
             "ikkeValg": "aeseloere.tilgivet"
           }
@@ -341,14 +341,14 @@
         { "taler": "fortaeller", "tekst": "Væsnerne falder til ro, og Den Ufærdige glider væk mellem de halve træer." },
         {
           "taler": "vims",
-          "tekst": "Vi klarede det. Også selvom vi var færre. Undskyld, at jeg siger det højt.",
+          "tekst": "Vi klarede det. Også selvom vi var færre. Undskyld, at jeg siger det højt.", "udtryk": "glad",
           "hvis": {
             "ikkeValg": "aeseloere.tilgivet"
           }
         },
         {
           "taler": "aeseloere",
-          "tekst": "Du stod helt fast. Jeg var stolt. Det må du ikke sige til nogen.",
+          "tekst": "Du stod helt fast. Jeg var stolt. Det må du ikke sige til nogen.", "udtryk": "glad",
           "hvis": {
             "valg": "aeseloere.tilgivet"
           }
@@ -375,7 +375,7 @@
         { "taler": "fortaeller", "tekst": "Du tager det grønne hæfte frem. Den sidste side er stadig tom. Men den venter på dig." },
         {
           "taler": "klatten",
-          "tekst": "Jeg går med til den sidste side. Den Frygtelige vil ikke gå glip af slutningen.",
+          "tekst": "Jeg går med til den sidste side. Den Frygtelige vil ikke gå glip af slutningen.", "udtryk": "glad",
           "hvis": {
             "venlighed": 1
           }

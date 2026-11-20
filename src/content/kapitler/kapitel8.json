@@ -99,7 +99,7 @@
         },
         {
           "taler": "aeseloere",
-          "tekst": "Jeg sagde jo, at jeg kom tilbage. Den Ufærdige kunne ikke glatte mig ud. Det kan kun en slutning.",
+          "tekst": "Jeg sagde jo, at jeg kom tilbage. Den Ufærdige kunne ikke glatte mig ud. Det kan kun en slutning.", "udtryk": "glad",
           "hvis": {
             "ikkeValg": "aeseloere.tilgivet"
           }
@@ -118,11 +118,11 @@
             "valg": "aeseloere.tilgivet"
           }
         },
-        { "taler": "vims", "tekst": "Her er så stille. Undskyld, at jeg hvisker." },
+        { "taler": "vims", "tekst": "Her er så stille. Undskyld, at jeg hvisker.", "udtryk": "bange" },
         { "taler": "fodnote", "tekst": "¹ Det er helt normalt at hviske på en tom side. Den er ikke vant til lyde." },
         {
           "taler": "klatten",
-          "tekst": "Den Frygtelige er her også. Selvfølgelig. Hvem skulle ellers lave klatter?",
+          "tekst": "Den Frygtelige er her også. Selvfølgelig. Hvem skulle ellers lave klatter?", "udtryk": "glad",
           "hvis": {
             "venlighed": 1
           }
@@ -372,7 +372,7 @@
         { "taler": "fortaeller", "tekst": "Den Ufærdige ryster lidt. Så er den ikke ufærdig mere. Den er bare Skyggen. Den er lille, rund og meget glad." },
         {
           "taler": "aeseloere",
-          "tekst": "Mærker du det? Jeg bliver glat. Helt glat. Tak fordi du tilgav mig. Det var den bedste slutning, jeg kunne få.",
+          "tekst": "Mærker du det? Jeg bliver glat. Helt glat. Tak fordi du tilgav mig. Det var den bedste slutning, jeg kunne få.", "udtryk": "glad",
           "hvis": {
             "valg": "aeseloere.tilgivet"
           }
@@ -385,7 +385,7 @@
           }
         },
         { "taler": "vims", "tekst": "Jeg græder ikke. Det er bare støv fra blyanten. Undskyld." },
-        { "taler": "fodnote", "tekst": "¹ Den bedste slutning er den, der bliver skrevet." }
+        { "taler": "fodnote", "tekst": "¹ Den bedste slutning er den, der bliver skrevet.", "udtryk": "glad" }
       ]
     },
     {
@@ -482,7 +482,7 @@
         { "taler": "holm", "tekst": "Jeg gemte det, fordi det var for godt til at smide ud. Selv med alle fejlene. Næsten alle gode historier har mange fejl i første udkast." },
         { "taler": "fortaeller", "tekst": "Han rækker dig et nyt, tomt kladdehæfte. Det er grønt." },
         { "taler": "holm", "tekst": "Til den næste historie." },
-        { "taler": "fodnote", "tekst": "¹ Slut. ² Eller rettere: begyndelsen." }
+        { "taler": "fodnote", "tekst": "¹ Slut. ² Eller rettere: begyndelsen.", "udtryk": "glad" }
       ]
     }
   ]
