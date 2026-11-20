@@ -23,7 +23,7 @@ Kort overblik. Hvornår og hvordan hver ting blev lavet, står i `docs/logbog.md
 
 ## Beslutninger (Henrik)
 
-- 20. november 2026: Natten beholder sin nuværende farve. Lånt grafik kommer fra Ninja Adventure (CC0). Pennedal-skoven er prøven med ny skovbund, før andre steder følger.
+- 20. november 2026: Natten beholder sin nuværende farve. Lånt grafik kommer fra Ninja Adventure (CC0). Den nye skovbund gælder alle udendørs steder undtagen Rimbjerget, Halvelande og Sidste side.
 
 - 19. november 2026: Ingen fine figurer. Kampens og introens figurer forstørres kun i hele trin (2 gange).
 
