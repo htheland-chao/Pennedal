@@ -60,6 +60,7 @@ Kort overblik. Hvornår og hvordan hver ting blev lavet, står i `docs/logbog.md
 
 ## Ikke testet
 - **Portrætter:** alle figurer, der taler, har en 24 x 24-buste, der fylder rammen.
+- **Filmsekvenser:** kernen findes (`src/engine/film/`, afspiller og tjek med tests). Mangler: arbejderne i Phaser og React, trintypen `film` og den første sekvens (ankomsten til Pennedal).
 - **Slag i kampen:** kort stop, hvidt glimt på det ramte væsen og farvede tal (guld, rød, grøn, grå).
 - **Udtryk** (glad, bange, vred) findes for Æseløre, Klatten, Vims, Fru Fodnote, Rimfod og Den Ufærdige. Andre figurer viser altid det faste portræt.
 - **Masterpaletten** gælder kun figurerne på grafikarket. Verdenens jord, huse, lys og CSS bruger stadig egne farver og er ikke tjekket mod paletten.
