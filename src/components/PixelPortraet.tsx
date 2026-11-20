@@ -5,6 +5,7 @@ import { portraetBilleder, type Billeder, type PortraetFigur } from '../game/pix
 import { PORTRAETTER } from '../game/pixel/portraetter';
 import type { Tegnkort } from '../game/pixel/sprites';
 import { TING_IKONER } from '../game/pixel/ting';
+import { medUdtryk, type Udtryk } from '../game/pixel/udtryk';
 
 const cache = new Map<string, string | null>();
 
@@ -30,10 +31,11 @@ export function PixelPortraet({ figur }: { figur: keyof typeof PORTRAETTER }) {
   return <img className="pixel-portraet" src={url} alt="" width={24} height={24} />;
 }
 
-const billedCache = new Map<PortraetFigur, Billeder>();
-function billederFor(figur: PortraetFigur): Billeder {
-  if (!billedCache.has(figur)) billedCache.set(figur, portraetBilleder(figur));
-  return billedCache.get(figur)!;
+const billedCache = new Map<string, Billeder>();
+function billederFor(figur: PortraetFigur, udtryk?: Udtryk): Billeder {
+  const noegle = `${figur}.${udtryk ?? ''}`;
+  if (!billedCache.has(noegle)) billedCache.set(noegle, portraetBilleder(figur, medUdtryk(figur, udtryk)));
+  return billedCache.get(noegle)!;
 }
 
 function brugerMindreBevaegelse(): boolean {
@@ -48,8 +50,8 @@ function brugerMindreBevaegelse(): boolean {
  * Et levende portræt i dialogen (13. november 2026): figuren blinker en gang imellem og bevæger munden,
  * mens den taler. Under "reduceret bevægelse" i styresystemet står portrættet stille. Rent pynt.
  */
-export function LevendePortraet({ figur, taler }: { figur: PortraetFigur; taler: boolean }) {
-  const b = billederFor(figur);
+export function LevendePortraet({ figur, taler, udtryk }: { figur: PortraetFigur; taler: boolean; udtryk?: Udtryk }) {
+  const b = billederFor(figur, udtryk);
   const [blinker, setBlinker] = useState(false);
   const [aaben, setAaben] = useState(false);
   const stille = brugerMindreBevaegelse();
@@ -85,10 +87,11 @@ export function LevendePortraet({ figur, taler }: { figur: PortraetFigur; taler:
   }, [taler, stille]);
 
   const navn = blinker ? (aaben ? 'blinkTale' : 'blink') : aaben ? 'tale' : 'hvile';
-  const hvile = useBillede(`portraet.${figur}`, b.hvile);
-  const blink = useBillede(`portraet.${figur}.blink`, b.blink);
-  const tale = useBillede(`portraet.${figur}.tale`, b.tale);
-  const blinkTale = useBillede(`portraet.${figur}.blinkTale`, b.blinkTale);
+  const u = udtryk ? `.${udtryk}` : '';
+  const hvile = useBillede(`portraet.${figur}${u}`, b.hvile);
+  const blink = useBillede(`portraet.${figur}${u}.blink`, b.blink);
+  const tale = useBillede(`portraet.${figur}${u}.tale`, b.tale);
+  const blinkTale = useBillede(`portraet.${figur}${u}.blinkTale`, b.blinkTale);
   const url = { hvile, blink, tale, blinkTale }[navn] ?? hvile;
   if (!url) return null;
   return (

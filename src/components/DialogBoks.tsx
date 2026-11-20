@@ -90,7 +90,7 @@ export function DialogBoks({ replikker: grund, onFaerdig, onTaler, valg, onValg 
     <Modal titel={navn} klasse={`dialogboks taler-${r.taler}`}>
       <div className="dialog-indhold">
         <div className="portraet" aria-hidden="true">
-          <LevendePortraet figur={r.taler} taler={taler || nyReplik} />
+          <LevendePortraet figur={r.taler} taler={taler || nyReplik} udtryk={r.udtryk} />
         </div>
         <div className="dialog-tekst">
           <p className="taler-navn">

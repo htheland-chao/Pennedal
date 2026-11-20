@@ -262,7 +262,7 @@
       "slutDel": 1,
       "tilSted": "pennedal",
       "replikker": [
-        { "taler": "aeseloere", "tekst": "Seks formularer. Ikke dårligt for et menneske." },
+        { "taler": "aeseloere", "tekst": "Seks formularer. Ikke dårligt for et menneske.", "udtryk": "glad" },
         { "taler": "fortaeller", "tekst": "Skuffen bliver større og større. Et hvidt lys fylder hele kælderen, og pludselig falder du." }
       ]
     },
@@ -275,7 +275,7 @@
       "replikker": [
         { "taler": "fortaeller", "tekst": "Du lander blødt i en bunke visne blade. Over dig hænger tre måner, og træerne har blade af papir." },
         { "taler": "aeseloere", "tekst": "Velkommen til Pennedal. Her blev alt skrevet til live engang. Også mig, desværre." },
-        { "taler": "aeseloere", "tekst": "Men nogen er begyndt at tage historiernes slutninger. Uden slutninger falmer Pennedal, og bøgerne i din verden bliver tomme. Det er derfor, dit bibliotek mister ord." },
+        { "taler": "aeseloere", "tekst": "Men nogen er begyndt at tage historiernes slutninger. Uden slutninger falmer Pennedal, og bøgerne i din verden bliver tomme. Det er derfor, dit bibliotek mister ord.", "udtryk": "bange" },
         { "taler": "aeseloere", "tekst": "Vi skal finde ud af, hvem det er, og stoppe det. Og skuffen kaldte på dig. Det gør den ikke uden grund." },
         { "taler": "aeseloere", "tekst": "Hov. Der står nogen på stien. Gå hen og se, hvem det er." }
       ]
@@ -288,9 +288,9 @@
       "objekt": "klatten",
       "opgavetekst": "Gå hen til skikkelsen på stien.",
       "replikker": [
-        { "taler": "klatten", "tekst": "Stop! Ingen kommer forbi Klatten den Frygtelige!" },
-        { "taler": "aeseloere", "tekst": "Han er ikke frygtelig. Han er bare klattet." },
-        { "taler": "klatten", "tekst": "Jeg har skrevet en ny vejviser og den er perfekt og den er lang og den slutter aldrig og ...", "bevidstFejl": true },
+        { "taler": "klatten", "tekst": "Stop! Ingen kommer forbi Klatten den Frygtelige!", "udtryk": "vred" },
+        { "taler": "aeseloere", "tekst": "Han er ikke frygtelig. Han er bare klattet.", "udtryk": "glad" },
+        { "taler": "klatten", "tekst": "Jeg har skrevet en ny vejviser og den er perfekt og den er lang og den slutter aldrig og ...", "bevidstFejl": true, "udtryk": "glad" },
         { "taler": "aeseloere", "tekst": "Det er Og-ormen. Hver gang nogen binder sætninger sammen med \"og\", bliver den længere. Til sidst spærrer den hele vejen." },
         { "taler": "aeseloere", "tekst": "Klip den over med punktummer. Og husk: Ordet efter et punktum vågner kun, hvis det får stort begyndelsesbogstav." }
       ]
@@ -316,10 +316,10 @@
       "laaserOp": ["toej.kappe"],
       "giver": ["kappe"],
       "replikker": [
-        { "taler": "klatten", "tekst": "Min orm! Den var jo så flot." },
-        { "taler": "klatten", "tekst": "Det her skal jeg fortælle til ... Nej. Det må jeg ikke sige." },
+        { "taler": "klatten", "tekst": "Min orm! Den var jo så flot.", "udtryk": "bange" },
+        { "taler": "klatten", "tekst": "Det her skal jeg fortælle til ... Nej. Det må jeg ikke sige.", "udtryk": "bange" },
         { "taler": "fortaeller", "tekst": "Klatten løber sin vej og efterlader en lang stribe blæk på stien. Bag skiltet ligger en kappe, som han har tabt." },
-        { "taler": "aeseloere", "tekst": "Tag den bare. Han har alligevel aldrig vasket den." }
+        { "taler": "aeseloere", "tekst": "Tag den bare. Han har alligevel aldrig vasket den.", "udtryk": "glad" }
       ]
     },
     {
@@ -356,7 +356,7 @@
       "objekt": null,
       "replikker": [
         { "taler": "fortaeller", "tekst": "Blæklingen bliver til en lille, rolig dråbe og triller ned i græsset." },
-        { "taler": "aeseloere", "tekst": "Sådan. Hvert rigtigt svar er et slag, og tre i træk giver et stort slag. Husk det, når vi møder større væsner." }
+        { "taler": "aeseloere", "tekst": "Sådan. Hvert rigtigt svar er et slag, og tre i træk giver et stort slag. Husk det, når vi møder større væsner.", "udtryk": "glad" }
       ]
     },
     {
@@ -377,7 +377,7 @@
       "replikker": [
         { "taler": "fortaeller", "tekst": "Stien ender ved en flod. Broen er brudt, og plankerne driver rundt i vandet." },
         { "taler": "aeseloere", "tekst": "Hver planke er en del af en historie. Læg dem i den rigtige rækkefølge, så holder broen." },
-        { "taler": "aeseloere", "tekst": "Og nej, jeg kan ikke bare flyve dig over. Jeg er lavet af papir. Har du nogensinde set papir bære et menneske?" }
+        { "taler": "aeseloere", "tekst": "Og nej, jeg kan ikke bare flyve dig over. Jeg er lavet af papir. Har du nogensinde set papir bære et menneske?", "udtryk": "vred" }
       ]
     },
     {
@@ -416,7 +416,7 @@
         { "taler": "lanterne", "tekst": "Men nogen stjæler slutningerne. Hver nat bliver lyset lidt svagere." },
         { "taler": "lanterne", "tekst": "Her, tag den her lanterne. Du får brug for den." },
         { "taler": "fortaeller", "tekst": "Ude i mørket hvisker en stemme: \"Og så ...\"" },
-        { "taler": "aeseloere", "tekst": "Det lød ikke godt. Det lød slet ikke godt." }
+        { "taler": "aeseloere", "tekst": "Det lød ikke godt. Det lød slet ikke godt.", "udtryk": "bange" }
       ]
     }
   ]
