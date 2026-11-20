@@ -181,11 +181,11 @@
       "opgavetekst": "Gå hen til Den Ufærdige.",
       "uhygge": true,
       "replikker": [
-        { "taler": "ufaerdige", "tekst": "Der er du. Du kom tilbage." },
+        { "taler": "ufaerdige", "tekst": "Der er du. Du kom tilbage.", "udtryk": "glad" },
         { "taler": "fortaeller", "tekst": "Den Ufærdige er ikke stor mere. Den er en lille skygge med store, runde øjne. Den, du tegnede på hæftet for længe siden." },
         { "taler": "ufaerdige", "tekst": "Jeg ledte efter et sted at høre til. Og så ... stoppede du. Jeg har ventet lige siden." },
         { "taler": "ufaerdige", "tekst": "Jeg tog slutningerne fra de andre historier, fordi jeg ikke selv havde en. Det var ikke pænt. Undskyld." },
-        { "taler": "ufaerdige", "tekst": "Vil du skrive min slutning?" }
+        { "taler": "ufaerdige", "tekst": "Vil du skrive min slutning?", "udtryk": "glad" }
       ]
     },
     {
@@ -231,7 +231,7 @@
       "sted": "sidstesiden",
       "objekt": null,
       "replikker": [
-        { "taler": "ufaerdige", "tekst": "Hvem er der, når jeg kommer frem?" }
+        { "taler": "ufaerdige", "tekst": "Hvem er der, når jeg kommer frem?", "udtryk": "bange" }
       ],
       "valg": {
         "spoergsmaal": "Hvem er der, når historien slutter?",

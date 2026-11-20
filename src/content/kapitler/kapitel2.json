@@ -928,7 +928,7 @@
         },
         {
           "taler": "ufaerdige",
-          "tekst": "Du er kommet langt for at finde noget, der ikke er dit."
+          "tekst": "Du er kommet langt for at finde noget, der ikke er dit.", "udtryk": "vred"
         },
         {
           "taler": "ufaerdige",
@@ -940,7 +940,7 @@
         },
         {
           "taler": "ufaerdige",
-          "tekst": "De gav mig en begyndelse. De gav mig en midte. Men ingen gav mig en slutning. Så tager jeg deres."
+          "tekst": "De gav mig en begyndelse. De gav mig en midte. Men ingen gav mig en slutning. Så tager jeg deres.", "udtryk": "vred"
         },
         {
           "taler": "fortaeller",
