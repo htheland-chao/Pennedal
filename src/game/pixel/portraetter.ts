@@ -9,19 +9,23 @@ import { TVIVL } from './arkiv';
 import { POSTSNEGL } from './blaeksoe';
 import { BIP, GRUMSEN } from './halvelande';
 import { HALVSAETNING, LILLE_SKYGGE } from './sidstesiden';
+import { VAESEN_BUSTER } from './vaesenbuster';
+
+/** En buste fra vaesenbuster.ts med farverne fra væsnets figur. */
+const buste = (raekker: string[], figur: Tegnkort): Tegnkort => ({ raekker, palet: figur.palet });
 
 export const PORTRAETTER: Record<'holm' | 'lanterne' | 'klatten' | 'aeseloere' | 'fortaeller' | 'portvagt' | 'raaber' | 'borgmester' | 'ufaerdige' | 'vims' | 'tomordet' | 'stumming' | 'halvfugl' | 'rimfod' | 'ekko' | 'fodnote' | 'tvivl' | 'snegl' | 'prinsesse' | 'lup' | 'grumsen' | 'bip' | 'skyggen' | 'halvsaetning', Tegnkort> = {
-  tvivl: somPortraet(TVIVL),
-  snegl: somPortraet(POSTSNEGL),
-  grumsen: somPortraet(GRUMSEN),
-  bip: somPortraet(BIP),
-  skyggen: somPortraet(LILLE_SKYGGE),
-  halvsaetning: somPortraet(HALVSAETNING),
+  tvivl: buste(VAESEN_BUSTER.tvivl, TVIVL),
+  snegl: buste(VAESEN_BUSTER.snegl, POSTSNEGL),
+  grumsen: buste(VAESEN_BUSTER.grumsen, GRUMSEN),
+  bip: buste(VAESEN_BUSTER.bip, BIP),
+  skyggen: buste(VAESEN_BUSTER.skyggen, LILLE_SKYGGE),
+  halvsaetning: buste(VAESEN_BUSTER.halvsaetning, HALVSAETNING),
   rimfod: somPortraet(RIMFOD),
-  ekko: somPortraet(EKKO),
-  halvfugl: somPortraet(HALVFUGL),
-  tomordet: somPortraet(TOMORD),
-  stumming: somPortraet(STUMMING),
+  ekko: buste(VAESEN_BUSTER.ekko, EKKO),
+  halvfugl: buste(VAESEN_BUSTER.halvfugl, HALVFUGL),
+  tomordet: buste(VAESEN_BUSTER.tomordet, TOMORD),
+  stumming: buste(VAESEN_BUSTER.stumming, STUMMING),
   // Buster (20. november 2026): samme beskæring som Holm og Lanterne, så alle, der taler meget, ser ens ud.
   vims: {
     raekker: [

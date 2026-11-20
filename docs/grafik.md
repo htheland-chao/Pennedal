@@ -68,7 +68,7 @@ Prototypen, der viser stilen: "Pennedal set oppefra" (Claude-artefakt). Den er t
 - De vender sig mod hinanden. Den, der taler, vipper lidt og har en lille taleboble med tre prikker (ingen bogstaver) over billedets øverste kant. Træer foran en figur bliver halvt gennemsigtige.
 - Fortælleren og figurer, der ikke er på stedet, zoomer ikke.
 - Med "Reducer bevægelse" i styresystemet skifter zoomen uden glidning og uden vippen.
-- Portrætter i dialogen: 24 x 24 pixel i `src/game/pixel/portraetter.ts`.
+- Portrætter i dialogen: 24 x 24 pixel i `src/game/pixel/portraetter.ts`. Væsnernes buster står i `src/game/pixel/vaesenbuster.ts` og bruger farverne fra væsnets figur. Et portræt skal fylde rammen, ikke stå som en lille figur nederst.
 
 ## Stemning og liv (9. november 2026)
 
