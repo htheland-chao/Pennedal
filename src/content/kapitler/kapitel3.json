@@ -93,8 +93,8 @@
         "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
       ],
       "intro": [
-        { "taler": "aeseloere", "tekst": "Hov. Stien er væk. Plankerne er visket ud." },
-        { "taler": "vims", "tekst": "Undskyld! Det var mig. Jeg blev bange for en sky, og så kom jeg til at viske. Undskyld, at jeg undskylder." },
+        { "taler": "aeseloere", "tekst": "Hov. Stien er væk. Plankerne er visket ud.", "udtryk": "bange" },
+        { "taler": "vims", "tekst": "Undskyld! Det var mig. Jeg blev bange for en sky, og så kom jeg til at viske. Undskyld, at jeg undskylder.", "udtryk": "bange" },
         { "taler": "aeseloere", "tekst": "Se de hvide sten ved hullerne. Det er ordsten. Giv dem et ord, der betyder det samme, så skriver de plankerne tilbage." },
         { "taler": "fortaeller", "tekst": "Lanternen lyser lidt op i den hvide tåge. Gå hen til en ordsten for at skrive en planke tilbage." }
       ],
@@ -135,10 +135,10 @@
         "nej": "Ikke nu",
         "faerdig": [
           { "taler": "fortaeller", "tekst": "For enden af stien ligger en lille, lysende papirstump i en bunke krummer fra et viskelæder. Det er et hukommelsesskår." },
-          { "taler": "aeseloere", "tekst": "Du klarede den. Jeg sagde ingenting hele vejen. Det var svært for mig." }
+          { "taler": "aeseloere", "tekst": "Du klarede den. Jeg sagde ingenting hele vejen. Det var svært for mig.", "udtryk": "glad" }
         ],
         "igen": [
-          { "taler": "aeseloere", "tekst": "Du klarede den igen. Skåret har du allerede, men nu ved vi, at det ikke var held." }
+          { "taler": "aeseloere", "tekst": "Du klarede den igen. Skåret har du allerede, men nu ved vi, at det ikke var held.", "udtryk": "glad" }
         ]
       },
       "objekter": [
@@ -169,7 +169,7 @@
       "opgavetekst": "Læs skiltet ved stien.",
       "replikker": [
         { "taler": "fortaeller", "tekst": "Skiltet er helt hvidt. Der har stået noget, men ordene er visket ud. Kun to ord er tilbage: Pas på." },
-        { "taler": "aeseloere", "tekst": "Pas på hvad? Det er det dårligste skilt, jeg nogensinde har læst." },
+        { "taler": "aeseloere", "tekst": "Pas på hvad? Det er det dårligste skilt, jeg nogensinde har læst.", "udtryk": "vred" },
         { "taler": "fortaeller", "tekst": "Henne på stien står noget og vugger frem og tilbage. Det ligner et ord, men der er ingenting inden i det." }
       ]
     },
@@ -222,16 +222,16 @@
       "giver": ["krummer"],
       "tilbageblik": { "id": "koekkenbord", "foer": 5 },
       "replikker": [
-        { "taler": "vims", "tekst": "Undskyld! Undskyld, at jeg sidder her. Og undskyld, at jeg undskylder." },
+        { "taler": "vims", "tekst": "Undskyld! Undskyld, at jeg sidder her. Og undskyld, at jeg undskylder.", "udtryk": "bange" },
         { "taler": "aeseloere", "tekst": "Et viskelæder. Selvfølgelig. Hvad laver du her?" },
         { "taler": "vims", "tekst": "Jeg hedder Vims. Når jeg bliver bange, kommer jeg til at viske ting ud. Træer. Skilte. Næsten en hel fugl." },
-        { "taler": "vims", "tekst": "Hov. Nu blev jeg bange igen." },
+        { "taler": "vims", "tekst": "Hov. Nu blev jeg bange igen.", "udtryk": "bange" },
         { "taler": "fortaeller", "tekst": "Vims nyser. Et træ ved siden af dig bliver hvidt og forsvinder. Bag det står et køkkenbord, du kender." },
         { "taler": "aeseloere", "tekst": "Hallo? Du stod og stirrede ud i luften igen." },
         { "taler": "fortaeller", "tekst": "Du ryster på hovedet. Træet er væk, og køkkenbordet med." },
-        { "taler": "vims", "tekst": "Var det mig? Undskyld. Jeg tror, jeg kom til at viske et hul i noget, der ikke var skoven." },
-        { "taler": "vims", "tekst": "Må jeg komme med? Jeg kan godt være modig. Næsten. Og jeg har krummer med, hvis noget skal viskes ud." },
-        { "taler": "aeseloere", "tekst": "Fint. Men hvis du visker mig ud, kommer jeg efter dig." }
+        { "taler": "vims", "tekst": "Var det mig? Undskyld. Jeg tror, jeg kom til at viske et hul i noget, der ikke var skoven.", "udtryk": "bange" },
+        { "taler": "vims", "tekst": "Må jeg komme med? Jeg kan godt være modig. Næsten. Og jeg har krummer med, hvis noget skal viskes ud.", "udtryk": "glad" },
+        { "taler": "aeseloere", "tekst": "Fint. Men hvis du visker mig ud, kommer jeg efter dig.", "udtryk": "vred" }
       ]
     },
     {
@@ -252,9 +252,9 @@
       "replikker": [
         { "taler": "fortaeller", "tekst": "Stien ender i en lysning. Alt er hvidt her, også himlen." },
         { "taler": "fortaeller", "tekst": "Midt i lysningen sidder Klatten. Han kan ikke komme væk. Han sidder fast i en sætning, der aldrig blev skrevet færdig." },
-        { "taler": "klatten", "tekst": "Jeg sider ikke fast! Jeg hviler mig bare. Med vilje.", "bevidstFejl": true },
-        { "taler": "aeseloere", "tekst": "Det hedder sidder, med to d'er. Og jo, du sidder fast." },
-        { "taler": "vims", "tekst": "Der står noget mellem os og ham. Noget, der hvisker. Undskyld, det er ikke mig denne gang." }
+        { "taler": "klatten", "tekst": "Jeg sider ikke fast! Jeg hviler mig bare. Med vilje.", "udtryk": "vred", "bevidstFejl": true },
+        { "taler": "aeseloere", "tekst": "Det hedder sidder, med to d'er. Og jo, du sidder fast.", "udtryk": "glad" },
+        { "taler": "vims", "tekst": "Der står noget mellem os og ham. Noget, der hvisker. Undskyld, det er ikke mig denne gang.", "udtryk": "bange" }
       ]
     },
     {
@@ -302,11 +302,11 @@
       "objekt": "klatten",
       "opgavetekst": "Gå hen til Klatten.",
       "replikker": [
-        { "taler": "klatten", "tekst": "Hvad glor du på? Jeg er den Frygtelige. Jeg har bare travlt med at sidde stille." },
+        { "taler": "klatten", "tekst": "Hvad glor du på? Jeg er den Frygtelige. Jeg har bare travlt med at sidde stille.", "udtryk": "vred" },
         { "taler": "fortaeller", "tekst": "Rundt om Klatten svæver to ord fra en halv sætning: Og så. De holder ham fast som et reb." },
-        { "taler": "aeseloere", "tekst": "Det er Den Ufærdige. Han efterlader altid noget, der ikke er færdigt." },
+        { "taler": "aeseloere", "tekst": "Det er Den Ufærdige. Han efterlader altid noget, der ikke er færdigt.", "udtryk": "bange" },
         { "taler": "klatten", "tekst": "Han sagde, at jeg var en dårlig tjener. At jeg aldrig bliver færdig med noget." },
-        { "taler": "vims", "tekst": "Det var ikke pænt sagt. Undskyld, at jeg siger det." }
+        { "taler": "vims", "tekst": "Det var ikke pænt sagt. Undskyld, at jeg siger det.", "udtryk": "vred" }
       ],
       "valg": {
         "spoergsmaal": "Hvad gør du?",
@@ -317,16 +317,16 @@
             "venlighed": 1,
             "replikker": [
               { "taler": "fortaeller", "tekst": "Du sætter et punktum efter de to ord. Nu er sætningen færdig, og rebet af ord falder af." },
-              { "taler": "klatten", "tekst": "Hvad? Hvorfor gjorde du det? Jeg er jo din fjende." },
-              { "taler": "klatten", "tekst": "Den Frygtelige siger aldrig tak. Aldrig. Men ... tak." },
+              { "taler": "klatten", "tekst": "Hvad? Hvorfor gjorde du det? Jeg er jo din fjende.", "udtryk": "bange" },
+              { "taler": "klatten", "tekst": "Den Frygtelige siger aldrig tak. Aldrig. Men ... tak.", "udtryk": "glad" },
               { "taler": "fortaeller", "tekst": "Klatten løber ind i skoven. Ved stien vender han sig om et kort øjeblik." }
             ]
           },
           {
             "tekst": "Lad ham sidde",
             "replikker": [
-              { "taler": "aeseloere", "tekst": "Han har drillet os hele vejen. Lad ham bare sidde lidt." },
-              { "taler": "klatten", "tekst": "Fint. Jeg gider heller ikke jeres hjælp." },
+              { "taler": "aeseloere", "tekst": "Han har drillet os hele vejen. Lad ham bare sidde lidt.", "udtryk": "vred" },
+              { "taler": "klatten", "tekst": "Fint. Jeg gider heller ikke jeres hjælp.", "udtryk": "vred" },
               { "taler": "fortaeller", "tekst": "Da I går, løsner ordene sig af sig selv. Klatten kommer fri, men han kigger ikke på dig." }
             ]
           }
@@ -346,7 +346,7 @@
         { "taler": "fortaeller", "tekst": "Så bliver det koldt. Det hvide i skoven bliver gråt, og alle lyde forsvinder." },
         { "taler": "ufaerdige", "tekst": "Og så ..." },
         { "taler": "fortaeller", "tekst": "Mellem træerne står en skygge med store, runde øjne. Den kigger på dig, som om den kender dig." },
-        { "taler": "vims", "tekst": "Undskyld. Undskyld. Jeg tror, jeg skal viske mig selv ud nu." },
+        { "taler": "vims", "tekst": "Undskyld. Undskyld. Jeg tror, jeg skal viske mig selv ud nu.", "udtryk": "bange" },
         { "taler": "aeseloere", "tekst": "Ingen visker noget ud. Se, den er væk igen. Kom, vi følger sporet videre." },
         { "taler": "fortaeller", "tekst": "Langt borte, over træerne, rejser et bjerg sig. Det lyder, som om det synger." }
       ]

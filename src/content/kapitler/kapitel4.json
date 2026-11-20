@@ -160,10 +160,10 @@
         "nej": "Ikke nu",
         "faerdig": [
           { "taler": "fortaeller", "tekst": "For enden af kammen sidder en lille, lysende papirstump fast i isen. Det er et hukommelsesskår." },
-          { "taler": "aeseloere", "tekst": "Du gik hele vejen. Jeg kiggede væk de svære steder. Det hjalp ikke." }
+          { "taler": "aeseloere", "tekst": "Du gik hele vejen. Jeg kiggede væk de svære steder. Det hjalp ikke.", "udtryk": "glad" }
         ],
         "igen": [
-          { "taler": "aeseloere", "tekst": "Igen? Du er godt nok sej. Skåret har du allerede." }
+          { "taler": "aeseloere", "tekst": "Igen? Du er godt nok sej. Skåret har du allerede.", "udtryk": "glad" }
         ]
       },
       "objekter": [
@@ -181,8 +181,8 @@
       "replikker": [
         { "taler": "fortaeller", "tekst": "Sporet fører ud af skoven og op mod et bjerg. Sneen knirker under dine fødder." },
         { "taler": "fortaeller", "tekst": "Vinden suser, og det lyder næsten, som om den siger noget: Kom op, kom op, til bjergets top." },
-        { "taler": "aeseloere", "tekst": "Rimbjerget. Her taler alt på rim. Stenene, vinden, sneen. Det er utroligt irriterende." },
-        { "taler": "vims", "tekst": "Undskyld, men jeg synes, det er lidt hyggeligt." },
+        { "taler": "aeseloere", "tekst": "Rimbjerget. Her taler alt på rim. Stenene, vinden, sneen. Det er utroligt irriterende.", "udtryk": "vred" },
+        { "taler": "vims", "tekst": "Undskyld, men jeg synes, det er lidt hyggeligt.", "udtryk": "glad" },
         { "taler": "fortaeller", "tekst": "Midt på stien ligger en kæmpe sten. Den sukker." }
       ]
     },
@@ -198,11 +198,11 @@
       "replikker": [
         { "taler": "rimfod", "tekst": "Godmorgen, I små. Hvor skal I mon gå?" },
         { "taler": "rimfod", "tekst": "Øv. Nu gjorde jeg det igen. Jeg rimer og rimer, min ven." },
-        { "taler": "aeseloere", "tekst": "En trold, der taler på rim. Det er værre end en ordbog med hikke." },
+        { "taler": "aeseloere", "tekst": "En trold, der taler på rim. Det er værre end en ordbog med hikke.", "udtryk": "vred" },
         { "taler": "rimfod", "tekst": "Jeg hedder Rimfod, bjergets gamle trold. Jeg prøver ikke at rime, men det går ... øh ... bold. Øv." },
         { "taler": "rimfod", "tekst": "Ekkoet i kløften har stjålet min ro. Det råber forkerte rim, både én gang og to." },
         { "taler": "rimfod", "tekst": "Øverst på toppen står bjergets ældste vers. Nu mangler et stykke, og alting går på tværs." },
-        { "taler": "vims", "tekst": "Vi kan hjælpe! Tror jeg. Undskyld, hvis vi ikke kan." },
+        { "taler": "vims", "tekst": "Vi kan hjælpe! Tror jeg. Undskyld, hvis vi ikke kan.", "udtryk": "glad" },
         { "taler": "rimfod", "tekst": "Tag denne sten. Den er glat og god. Den bærer en bro, når du mangler mod." },
         { "taler": "rimfod", "tekst": "Jeg tager den lange vej og venter på jer der. Øv. Der og her. Det er bare ikke fair." }
       ]
@@ -318,7 +318,7 @@
         { "taler": "fortaeller", "tekst": "Du finder det sidste rim. Stregerne på stenen gløder et øjeblik." },
         { "taler": "rimfod", "tekst": "Tak, I små. Nu står de vers, som de skal stå." },
         { "taler": "fortaeller", "tekst": "Men det sidste vers er stadig væk. Under tavlen ligger kun to ord og blafrer i vinden: Og så." },
-        { "taler": "aeseloere", "tekst": "Den Ufærdige. Han har taget det sidste vers. Endnu en slutning, der er forsvundet." }
+        { "taler": "aeseloere", "tekst": "Den Ufærdige. Han har taget det sidste vers. Endnu en slutning, der er forsvundet.", "udtryk": "bange" }
       ]
     },
     {

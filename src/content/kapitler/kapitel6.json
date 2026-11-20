@@ -106,7 +106,7 @@
         "nej": "Ikke nu",
         "faerdig": [
           { "taler": "fortaeller", "tekst": "Midt ude på søen, på den sidste sten, ligger en lille, lysende papirstump. Det er et hukommelsesskår." },
-          { "taler": "vims", "tekst": "Du hoppede helt derud. Jeg kiggede ikke. Jo, jeg gjorde." }
+          { "taler": "vims", "tekst": "Du hoppede helt derud. Jeg kiggede ikke. Jo, jeg gjorde.", "udtryk": "glad" }
         ],
         "igen": [
           { "taler": "aeseloere", "tekst": "Igen? Pas på fødderne. Blæk går ikke af." }
@@ -154,7 +154,7 @@
         },
         {
           "taler": "klatten",
-          "tekst": "Gå væk! Her bor ingen. Især ikke Klatten den Frygtelige.",
+          "tekst": "Gå væk! Her bor ingen. Især ikke Klatten den Frygtelige.", "udtryk": "vred",
           "hvis": {
             "ikkeValg": "klatten.hjulpet"
           }
@@ -177,7 +177,7 @@
             "venlighed": 1,
             "replikker": [
               { "taler": "fortaeller", "tekst": "Du lægger kappen foran døren. Døren går op på klem, og en sort hånd tager kappen ind." },
-              { "taler": "klatten", "tekst": "Min kappe! Den har jeg ledt efter i ... Jeg har ikke ledt efter den. Den Frygtelige leder aldrig." },
+              { "taler": "klatten", "tekst": "Min kappe! Den har jeg ledt efter i ... Jeg har ikke ledt efter den. Den Frygtelige leder aldrig.", "udtryk": "glad" },
               { "taler": "klatten", "tekst": "Kom bare ind. Men tør fødderne af. Med blæk." }
             ]
           },
@@ -197,7 +197,7 @@
             },
             "replikker": [
               { "taler": "fortaeller", "tekst": "Du tager Klattens kappe på. Den er sort og alt for stor, men nu ligner du næsten en blækklat." },
-              { "taler": "vims", "tekst": "Jeg kan viske låsen ud. Undskyld, lås." },
+              { "taler": "vims", "tekst": "Jeg kan viske låsen ud. Undskyld, lås.", "udtryk": "glad" },
               { "taler": "fortaeller", "tekst": "Vims visker, og låsen forsvinder. Døren går op uden en lyd." }
             ]
           }
@@ -223,19 +223,19 @@
         { "taler": "fortaeller", "tekst": "Indenfor er der varmt og rodet. Overalt står kasser, stablet helt op til loftet." },
         {
           "taler": "klatten",
-          "tekst": "Hov! Hvem er du? Du har min kappe på! Den Frygtelige lader sig ikke snyde.",
+          "tekst": "Hov! Hvem er du? Du har min kappe på! Den Frygtelige lader sig ikke snyde.", "udtryk": "vred",
           "hvis": {
             "venlighedUnder": 1
           }
         },
         {
           "taler": "klatten",
-          "tekst": "Nå. Du ligner mig faktisk lidt i den. Bliv bare. Men rør ikke ved noget.",
+          "tekst": "Nå. Du ligner mig faktisk lidt i den. Bliv bare. Men rør ikke ved noget.", "udtryk": "glad",
           "hvis": {
             "venlighedUnder": 1
           }
         },
-        { "taler": "klatten", "tekst": "Velkommen til mit hjem. Det er ikke et rodet hjem. Det er et hjem med mange kasser." },
+        { "taler": "klatten", "tekst": "Velkommen til mit hjem. Det er ikke et rodet hjem. Det er et hjem med mange kasser.", "udtryk": "glad" },
         { "taler": "aeseloere", "tekst": "Hvad er der i dem?" },
         { "taler": "klatten", "tekst": "Fejl. Alle mine fejl. Chefen sagde, at jeg skulle gemme dem, så ingen kunne se dem." }
       ]
@@ -250,11 +250,11 @@
       "replikker": [
         { "taler": "fortaeller", "tekst": "Du løfter låget. Kassen er fuld af små papirlapper. På hver lap står et ord, der er stavet lidt forkert." },
         { "taler": "fortaeller", "tekst": "Du kender dem. Hvor uden h. Lille med ét l. Det er de samme fejl, som du selv lavede engang." },
-        { "taler": "klatten", "tekst": "Hvorfor kigger du sådan? De er mine. Jeg har haft dem, så længe jeg kan huske." },
+        { "taler": "klatten", "tekst": "Hvorfor kigger du sådan? De er mine. Jeg har haft dem, så længe jeg kan huske.", "udtryk": "vred" },
         { "taler": "aeseloere", "tekst": "Det er da ikke svært. Man skal bare stave rigtigt. Det hedder hvor med h, Klatten." },
-        { "taler": "vims", "tekst": "Det var ikke pænt sagt. Undskyld, at jeg siger det. Igen." },
+        { "taler": "vims", "tekst": "Det var ikke pænt sagt. Undskyld, at jeg siger det. Igen.", "udtryk": "vred" },
         { "taler": "fortaeller", "tekst": "Klatten bliver lille og grå. Du ved, hvordan det føles. Fejl er ikke farlige. Det er grinet, der gør ondt." },
-        { "taler": "klatten", "tekst": "Kan du lære mig det? Ikke fordi jeg har brug for det. Bare sådan for sjov." }
+        { "taler": "klatten", "tekst": "Kan du lære mig det? Ikke fordi jeg har brug for det. Bare sådan for sjov.", "udtryk": "glad" }
       ]
     },
     {
@@ -276,9 +276,9 @@
       "objekt": null,
       "slutDel": 1,
       "replikker": [
-        { "taler": "klatten", "tekst": "Jeg har lige rettet mine egne tekster. Næsten selv. Det er det mest frygtelige, jeg nogensinde har gjort." },
+        { "taler": "klatten", "tekst": "Jeg har lige rettet mine egne tekster. Næsten selv. Det er det mest frygtelige, jeg nogensinde har gjort.", "udtryk": "glad" },
         { "taler": "vims", "tekst": "Han mener, at det var godt." },
-        { "taler": "klatten", "tekst": "Fejlene er ikke væk. Men nu er de noget, jeg kan lære af. De bor i en pæn kasse nu." },
+        { "taler": "klatten", "tekst": "Fejlene er ikke væk. Men nu er de noget, jeg kan lære af. De bor i en pæn kasse nu.", "udtryk": "glad" },
         { "taler": "fortaeller", "tekst": "Du kigger dig om efter Æseløre. Han er ikke i hytten." },
         { "taler": "vims", "tekst": "Han gik ud til søen. Han så trist ud. Undskyld, at jeg lagde mærke til det." }
       ]
@@ -302,12 +302,12 @@
       "tilbageblik": { "id": "foldet", "foer": 3 },
       "replikker": [
         { "taler": "fortaeller", "tekst": "Æseløre sidder helt ude ved vandet. Han har foldet det ene øre ned." },
-        { "taler": "aeseloere", "tekst": "Jeg har ikke været helt ærlig over for dig." },
+        { "taler": "aeseloere", "tekst": "Jeg har ikke været helt ærlig over for dig.", "udtryk": "bange" },
         { "taler": "aeseloere", "tekst": "Jeg er ikke en side fra en ordbog. Det har jeg aldrig været." },
         { "taler": "aeseloere", "tekst": "Kan du huske hæftet? Den aften, du stoppede, foldede du hjørnet på siden ned, så du kunne finde den igen." },
         { "taler": "aeseloere", "tekst": "Det hjørne er mig. Jeg er et æseløre. Et bogmærke." },
         { "taler": "aeseloere", "tekst": "Jeg har ventet på den side i lang tid. Jeg lokkede dig herhen, fordi jeg kun kan blive glattet ud, hvis historien bliver færdig." },
-        { "taler": "aeseloere", "tekst": "Jeg burde have sagt det fra starten. Undskyld." }
+        { "taler": "aeseloere", "tekst": "Jeg burde have sagt det fra starten. Undskyld.", "udtryk": "bange" }
       ],
       "valg": {
         "spoergsmaal": "Hvad svarer du Æseløre?",
@@ -316,7 +316,7 @@
             "tekst": "Jeg tilgiver dig",
             "saet": "aeseloere.tilgivet",
             "replikker": [
-              { "taler": "aeseloere", "tekst": "Tak. Det ... tak. Jeg ved ikke, hvad man siger nu. Det står ikke i nogen ordbog." },
+              { "taler": "aeseloere", "tekst": "Tak. Det ... tak. Jeg ved ikke, hvad man siger nu. Det står ikke i nogen ordbog.", "udtryk": "glad" },
               { "taler": "aeseloere", "tekst": "Det var en dårlig joke. Jeg øver mig." }
             ]
           },
@@ -344,18 +344,18 @@
       "uhygge": true,
       "replikker": [
         { "taler": "fortaeller", "tekst": "Så begynder søen at boble. Op af blækket kravler små, sorte kruseduller. De er tegnet så hurtigt, at de ikke ved, hvad de skal være." },
-        { "taler": "klatten", "tekst": "Det er chefens kruseduller! Han sender dem, når nogen er ved at blive færdig med noget." },
+        { "taler": "klatten", "tekst": "Det er chefens kruseduller! Han sender dem, når nogen er ved at blive færdig med noget.", "udtryk": "bange" },
         { "taler": "aeseloere", "tekst": "Den Ufærdige vil ikke have, at noget bliver færdigt. Heller ikke Klattens tekster." },
         {
           "taler": "klatten",
-          "tekst": "Den Frygtelige gemmer sig ikke. Ikke i dag. Jeg hjælper jer!",
+          "tekst": "Den Frygtelige gemmer sig ikke. Ikke i dag. Jeg hjælper jer!", "udtryk": "vred",
           "hvis": {
             "venlighed": 1
           }
         },
         {
           "taler": "klatten",
-          "tekst": "Jeg gemmer mig bare under bordet. Det er en strategi.",
+          "tekst": "Jeg gemmer mig bare under bordet. Det er en strategi.", "udtryk": "bange",
           "hvis": {
             "venlighedUnder": 1
           }
@@ -389,17 +389,17 @@
         { "taler": "fortaeller", "tekst": "Den sidste Krusedulle retter sig ud. Den bliver til et lille, pænt ord og flyder væk på søen." },
         {
           "taler": "klatten",
-          "tekst": "Så I det? Jeg viste dem mine gamle fejl, og så blev de helt forvirrede. Det var et frygtelig godt trick.",
+          "tekst": "Så I det? Jeg viste dem mine gamle fejl, og så blev de helt forvirrede. Det var et frygtelig godt trick.", "udtryk": "glad",
           "hvis": {
             "venlighed": 1
           }
         },
-        { "taler": "aeseloere", "tekst": "Det var godt gjort, Klatten." },
-        { "taler": "klatten", "tekst": "Hvad? Du siger aldrig noget pænt." },
+        { "taler": "aeseloere", "tekst": "Det var godt gjort, Klatten.", "udtryk": "glad" },
+        { "taler": "klatten", "tekst": "Hvad? Du siger aldrig noget pænt.", "udtryk": "bange" },
         { "taler": "aeseloere", "tekst": "Nej. Det er noget, jeg øver mig på. Ligesom stavning." },
         {
           "taler": "klatten",
-          "tekst": "Jeg tager med jer. Ikke fordi I er mine venner. Den Frygtelige har bare ikke andet at lave.",
+          "tekst": "Jeg tager med jer. Ikke fordi I er mine venner. Den Frygtelige har bare ikke andet at lave.", "udtryk": "glad",
           "hvis": {
             "venlighed": 1
           }
