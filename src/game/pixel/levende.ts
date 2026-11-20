@@ -12,11 +12,11 @@ export type PortraetFigur = keyof typeof PORTRAETTER;
 
 /** Hvilke farver der er øjne og mund i hvert portræt. Bogstaverne er paletbogstaverne i portraetter.ts. */
 export const LIV: Record<PortraetFigur, Liv> = {
-  vims: { oejne: { bogstaver: 'E' }, mund: { bogstaver: 'o' } },
+  vims: { oejne: { bogstaver: 'EW', y: [9, 11] }, mund: { bogstaver: 'o' } },
   fodnote: { oejne: { bogstaver: 'E' }, mund: { bogstaver: 'm' } },
   tvivl: { oejne: { bogstaver: 'E' } },
   snegl: { oejne: { bogstaver: 'E' } },
-  prinsesse: { oejne: { bogstaver: 'E' }, mund: { bogstaver: 'm' } },
+  prinsesse: { oejne: { bogstaver: 'EW', y: [9, 10] }, mund: { bogstaver: 'm' } },
   lup: { oejne: { bogstaver: 'E' }, mund: { bogstaver: 'm' } },
   grumsen: { oejne: { bogstaver: 'WE', y: [14, 15] } },
   bip: { oejne: { bogstaver: 'B' } },
