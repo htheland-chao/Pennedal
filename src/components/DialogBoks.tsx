@@ -20,9 +20,14 @@ type DialogProps = {
   /** Et valg efter den sidste replik. Den valgte muligheds replikker kommer bagefter. */
   valg?: DialogValg;
   onValg?: (m: ValgMulighed) => void;
+  /**
+   * Filmsekvenser (20. november 2026): hver replik venter på "Videre", også når eleven har valgt, at dialogen går
+   * videre af sig selv efter oplæsningen (krav 5). Og der er en knap "Spring over", som Escape også trykker på.
+   */
+  film?: { springOver: () => void };
 };
 
-export function DialogBoks({ replikker: grund, onFaerdig, onTaler, valg, onValg }: DialogProps) {
+export function DialogBoks({ replikker: grund, onFaerdig, onTaler, valg, onValg, film }: DialogProps) {
   const [nr, setNr] = useState(0);
   const [valgt, setValgt] = useState<ValgMulighed | null>(null);
   const replikker = valgt ? [...grund, ...valgt.replikker] : grund;
@@ -76,7 +81,7 @@ export function DialogBoks({ replikker: grund, onFaerdig, onTaler, valg, onValg 
     const ned = (e: KeyboardEvent) => {
       if (e.code !== 'Space' || e.repeat || e.ctrlKey || e.altKey || e.metaKey || skalVaelge) return;
       const el = e.target as HTMLElement | null;
-      if (el?.closest('input, textarea, select, [contenteditable], .dialog-valg') || el?.dataset.videre !== undefined) return;
+      if (el?.closest('input, textarea, select, [contenteditable], .dialog-valg') || el?.dataset.videre !== undefined || el?.dataset.spring !== undefined) return;
       e.preventDefault();
       // Browseren klikker på en knap med fokus, når mellemrum slippes. Det skal ikke også ske.
       window.addEventListener('keyup', (u) => u.code === 'Space' && u.preventDefault(), { capture: true, once: true });
@@ -85,9 +90,9 @@ export function DialogBoks({ replikker: grund, onFaerdig, onTaler, valg, onValg 
     window.addEventListener('keydown', ned, true);
     return () => window.removeEventListener('keydown', ned, true);
   }, [skalVaelge]);
-  const vedFaerdig = indstillinger.autoVidere && !skalVaelge ? () => setNaeste(sidste ? SLUT : nr + 1) : undefined;
+  const vedFaerdig = indstillinger.autoVidere && !skalVaelge && !film ? () => setNaeste(sidste ? SLUT : nr + 1) : undefined;
   return (
-    <Modal titel={navn} klasse={`dialogboks taler-${r.taler}`}>
+    <Modal titel={navn} klasse={`dialogboks taler-${r.taler}${film ? ' i-film' : ''}`} onLuk={film?.springOver}>
       <div className="dialog-indhold">
         <div className="portraet" aria-hidden="true">
           <LevendePortraet figur={r.taler} taler={taler || nyReplik} udtryk={r.udtryk} />
@@ -140,6 +145,11 @@ export function DialogBoks({ replikker: grund, onFaerdig, onTaler, valg, onValg 
         >
           {t('dialog.videre')}
         </button>
+        )}
+        {film && (
+          <button type="button" className="knap film-spring" data-spring="" aria-keyshortcuts="Escape" onClick={film.springOver}>
+            {t('film.springOver')}
+          </button>
         )}
       </div>
     </Modal>

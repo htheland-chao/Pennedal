@@ -1,0 +1,61 @@
+/*
+ * Filmsekvenser (20. november 2026): sorte filmbjælker og knappen "Spring over" over spilfladen.
+ * Bjælkerne glider ind på 450 ms (BJAELKE_MS i src/components/film/useFilm.ts). Med "reducer bevægelse" kommer de bare frem.
+ */
+.film {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+.film-bjaelker {
+  position: absolute;
+  inset: 0;
+}
+.film-bjaelke {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 11%;
+  background: #07060d;
+  transition: transform 450ms cubic-bezier(0.45, 0, 0.25, 1);
+}
+.film-bjaelke-top {
+  top: 0;
+  transform: translateY(-101%);
+}
+.film-bjaelke-bund {
+  bottom: 0;
+  transform: translateY(101%);
+}
+.film-bjaelker.vis .film-bjaelke {
+  transform: none;
+}
+.knap.film-spring-fri {
+  /* Nederst til venstre i den nederste bjælke. Foroven står stednavnet, tasken og menuen. */
+  position: absolute;
+  bottom: 0.6rem;
+  left: 0.75rem;
+  pointer-events: auto;
+  /* Samme udseende som tasken og menuen foroven. */
+  min-height: 2.75rem;
+  padding: 0.1rem 0.8rem;
+  font-weight: 600;
+}
+.knap.film-spring-fri kbd {
+  font: inherit;
+  font-size: 0.75rem;
+  opacity: 0.8;
+  margin-left: 0.3rem;
+  border: 1px solid currentColor;
+  border-radius: 4px;
+  padding: 0 0.25rem;
+}
+.dialogboks .knap.film-spring {
+  margin-left: auto;
+}
+@media (prefers-reduced-motion: reduce) {
+  .film-bjaelke {
+    transition: none;
+  }
+}

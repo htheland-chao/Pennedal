@@ -5,6 +5,7 @@ import type { Avatar } from '../data/gem';
 import { BaneScene } from './BaneScene';
 import { brugSkala, KortScene, SKALA, skalaFraAdresse, VIS_B, VIS_H } from './KortScene';
 import type { VerdenKroge } from './typer';
+import { phaserFilm, type PhaserFilm } from './kort/film';
 
 /** Det, React kan bede en platformbane om. */
 export type BaneStyring = { styr: (knap: 'venstre' | 'hoejre' | 'hop', nede: boolean) => void; baerOver: () => void; genskab: (nr: number) => void };
@@ -43,6 +44,8 @@ type Props = {
   skala: number;
   /** Kaldes én gang, hvis fin grafik går for langsomt på denne computer. */
   onLangsom?: () => void;
+  /** Filmsekvenser: Phasers del af arbejdet (kamera, figurer, ton, rystelse, blink og stemning). */
+  filmRef?: MutableRefObject<PhaserFilm | null>;
 };
 
 export function PhaserVerden(props: Props) {
@@ -183,6 +186,11 @@ export function PhaserVerden(props: Props) {
   });
 
   useEffect(() => {
+    if (props.filmRef)
+      props.filmRef.current = phaserFilm(() => {
+        const s = scene();
+        return s instanceof KortScene && s.sys.isActive() ? s : null;
+      });
     if (props.gaaTilRef) {
       props.gaaTilRef.current = (id: string) => {
         scene()?.gaaTilObjekt(id);

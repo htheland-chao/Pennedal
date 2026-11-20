@@ -49,7 +49,8 @@ for (const skala of SKALAER) {
       const findes = existsSync(info.snapshotPath(navn, { kind: 'screenshot' }));
       test.skip(!findes && !process.env.BILLEDER_OPDATER, 'Billederne laves af GitHub-jobbet Billeder');
       await gørEns(page);
-      await page.goto(`/?hop=${sted}&skala=${skala}`);
+      // Pennedal: efter ankomsten (en filmsekvens fra 20. november 2026), så billedet viser kortet, ikke filmen.
+      await page.goto(`/?hop=${sted === 'pennedal' ? 'k1-klatten' : sted}&skala=${skala}`);
       const verden = page.locator('main.verden');
       for (let i = 0; i < 200 && !(await verden.isVisible()); i++) await page.clock.runFor(100);
       await expect(verden).toBeVisible();

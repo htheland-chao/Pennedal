@@ -1,13 +1,11 @@
 import { type CSSProperties, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { avatarnavn, hentKapitel, kapitler, t, type RumTrin, type Trin, type ValgMulighed } from '../content';
-import { erFaerdighed } from '../engine/faerdigheder';
 import { opfyldt } from '../engine/betingelse';
 import type { GemtSpil, Indstillinger } from '../data/gem';
 import { afslutTrin, aktueltSted, aktueltTrin, kapitelSlut } from '../engine/kapitel';
-import { MAKS_VENLIGHED, minderFor, nyeTing, taskeFor, type TingId } from '../engine/taske';
+import { minderFor, nyeTing, taskeFor, type TingId } from '../engine/taske';
 import { medSkaar } from '../engine/frivillig';
 import { KampVindue } from '../components/KampVindue';
-import { registrerSvar, type Haendelse } from '../engine/tilpasning';
 import { PhaserVerden, type BaneStyring } from '../game/PhaserVerden';
 import { erMinde, SKAAR_MINDE, skaarMinder, type MindeId } from '../content/minder';
 import { DialogBoks } from '../components/DialogBoks';
@@ -32,6 +30,9 @@ import { hvadKanUndersoeges } from './verden/undersoeg';
 import { MindeBeskeder } from './verden/MindeBeskeder';
 import { useTestKroge } from './verden/useTestKroge';
 import { useOvergang } from './verden/useOvergang';
+import { useGemning } from './verden/useGemning';
+import { FilmLag } from '../components/film/FilmLag';
+import type { PhaserFilm } from '../game/kort/film';
 
 type Props = {
   spil: GemtSpil;
@@ -71,6 +72,7 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
   const fpsRef = useRef<() => number>(() => 0);
   const { gaaTilRef, spillerXRef, baneKameraRef } = useTestKroge();
   const baneRef = useRef<BaneStyring | null>(null);
+  const filmRef = useRef<PhaserFilm | null>(null);
   /** Viskeskovens bane: den ordsten, eleven står ved og svarer på. */
   const [ordsten, setOrdsten] = useState<number | null>(null);
   /** Steder, hvis intro er vist i denne omgang. */
@@ -90,7 +92,7 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
   const [dialogIGang, setDialogIGang] = useState<string | null>(null);
   useEffect(() => {
     if (!aktivtTrin) setDialogIGang(null);
-    else if (aktivtTrin.type === 'dialog' && !overgang && !andetVindueAabent) setDialogIGang(aktivtTrin.id);
+    else if ((aktivtTrin.type === 'dialog' || aktivtTrin.type === 'film') && !overgang && !andetVindueAabent) setDialogIGang(aktivtTrin.id);
   }, [aktivtTrin, overgang, andetVindueAabent]);
   const { taskeKnap, skaarFlyv, taskePuls, flyvTilTasken } = useSkaarFlyv();
   const [nyTing, setNyTing] = useState<TingId | null>(null);
@@ -247,34 +249,9 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
     startTrin(trin);
   }
 
-  /** Et valg i en dialog: gemmes i spil.valg, og venlighed lægges til Klattens venlighed. */
-  function vaelg(m: ValgMulighed) {
-    const s = spilRef.current;
-    const nyt: GemtSpil = {
-      ...s,
-      valg: m.saet ? { ...s.valg, [m.saet]: 'ja' } : s.valg,
-      venlighed: Math.min(MAKS_VENLIGHED, s.venlighed + (m.venlighed ?? 0)),
-    };
-    spilRef.current = nyt;
-    opdater(nyt);
-  }
+  const { vaelg, saet, kampFremskridt, onSvar } = useGemning(spilRef, opdater);
 
   const niveauFor = (faerdighed: string) => spil.faerdigheder[faerdighed as keyof GemtSpil['faerdigheder']]?.niveau ?? 1;
-
-  /** Kampen gemmer den skade, holdet har givet væsnerne, så den kan fortsætte senere (højst 98). */
-  function kampFremskridt(givet: number) {
-    const nyt: GemtSpil = { ...spilRef.current, trinFremskridt: Math.min(98, Math.max(0, givet)) };
-    spilRef.current = nyt;
-    opdater(nyt);
-  }
-
-  function onSvar(faerdighed: string, rigtigt: boolean, forsoeg: number): Haendelse {
-    if (!erFaerdighed(faerdighed)) return null;
-    const s = spilRef.current;
-    const r = registrerSvar(s.faerdigheder[faerdighed], { rigtigt, forsoeg });
-    opdater({ ...s, faerdigheder: { ...s.faerdigheder, [faerdighed]: r.status } });
-    return r.haendelse;
-  }
 
   function onLoest(antal: number, info?: { ord?: string; historie?: boolean }) {
     const s = spilRef.current;
@@ -322,6 +299,7 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
           gaaTilRef={gaaTilRef}
           spillerXRef={spillerXRef}
           baneKameraRef={baneKameraRef}
+          filmRef={filmRef}
         />
         {sted.bane && !laast && <BaneKnapper baneRef={baneRef} />}
         {hint && naer && objektNavn && !laast && (
@@ -338,6 +316,10 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
           </button>
         )}
         <NyTingBesked ting={nyTing} onFaerdig={glemNyTing} />
+        {/* En filmsekvens starter, når overgangen er færdig og ingen andre vinduer er åbne, og bliver så stående. */}
+        {aktivtTrin?.type === 'film' && !overgang && (dialogIGang === aktivtTrin.id || !andetVindueAabent) && (
+          <FilmLag key={aktivtTrin.id} handlinger={aktivtTrin.handlinger} phaser={filmRef} spilRef={spilRef} onSaet={saet} onTaler={setTaler} onFaerdig={afslut} />
+        )}
         <span className="pladsholder-maerke">{t('verden.pladsholder')}</span>
         {DEBUG && <Ydelse fps={() => fpsRef.current()} />}
       </div>

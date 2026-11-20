@@ -1,6 +1,6 @@
 # Korrekturliste - Pennedal
 
-Lavet 2026-11-10. 1919 tekster.
+Lavet 2026-11-20. 2055 tekster.
 
 Sæt kryds, når en tekst er læst. Bevidste fejl står under "Bevidste fejl" og skal ikke rettes.
 Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), så læs hele teksten.
@@ -48,8 +48,22 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `avatar.toej`: Tøj
 - [ ] `avatar.toejfarve`: Tøjfarve
 - [ ] `avatar.tilbehoer`: Tilbehør
+- [ ] `avatar.bukser`: Bukser
+- [ ] `avatar.sko`: Sko
+- [ ] `avatar.ansigt`: Ansigt
+- [ ] `avatar.oejenfarve`: Øjenfarve
+- [ ] `avatar.taske`: Taske
 - [ ] `avatar.nummer`: Nummer {nr} af {antal}
 - [ ] `avatar.laast`: {valg} er låst. Du finder den senere i spillet.
+- [ ] `avatar.laaste`: {valg} er låst. Du finder dem senere i spillet.
+- [ ] `avatar.og`: og
+- [ ] `avatar.gruppe.krop`: Krop og ansigt
+- [ ] `avatar.gruppe.haar`: Hår
+- [ ] `avatar.gruppe.toej`: Tøj
+- [ ] `avatar.gruppe.ting`: Ting
+- [ ] `avatar.drej`: Drej figuren
+- [ ] `avatar.drej.venstre`: Drej figuren mod venstre
+- [ ] `avatar.drej.hoejre`: Drej figuren mod højre
 - [ ] `avatar.forrige`: Forrige
 - [ ] `avatar.naeste`: Næste
 - [ ] `avatar.faerdig`: Klar til eventyret
@@ -76,12 +90,25 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `intro.4`: Nu forsvinder slutningerne. Én efter én.
 - [ ] `intro.5`: I en kælder under et skolebibliotek er der en skuffe, som er begyndt at hviske.
 - [ ] `intro.5.slut`: Den hvisker til dig.
+- [ ] `intro.6`: Det er din skole. Og på dit skolebibliotek er bøgerne ved at blive tomme. Ord forsvinder, og historier stopper midt i en sætning.
+- [ ] `intro.6.slut`: Nogen inde i historierne tager deres slutninger. Find ud af, hvem det er, og stop det. Og find ud af, hvorfor skuffen kalder på netop dig.
+- [ ] `intro.trailer.1`: Rejs gennem skove, bjerge og søer af blæk.
+- [ ] `intro.trailer.2`: Hop over tagene i en by af ord.
+- [ ] `intro.trailer.3`: Find venner, der vil hjælpe dig.
+- [ ] `intro.trailer.4`: Og kæmp mod væsner, der har mistet deres ord.
 - [ ] `intro.af`: Et spil af Theland Studios
 - [ ] `intro.begynd`: Begynd eventyret
 - [ ] `intro.spring`: Spring introen over
 - [ ] `intro.videre`: Videre
 - [ ] `intro.titel`: Intro
-- [ ] `intro.styring`: Tryk Enter eller mellemrum for at gå videre.
+- [ ] `kapitelkort.titel`: Nyt kapitel
+- [ ] `kapitelkort.kapitel`: Kapitel {nr}
+- [ ] `kapitelkort.maal`: Dit mål
+- [ ] `kapitelkort.sidst`: Sidst i Pennedal
+- [ ] `kapitelkort.naeste`: Det næste, du skal gøre
+- [ ] `kapitelkort.begynd`: Begynd kapitlet
+- [ ] `kapitelkort.fortsaet`: Videre
+- [ ] `intro.styring`: Tryk på billedet, Enter eller mellemrum for at gå videre. Krydset i hjørnet springer introen over.
 - [ ] `start.intro`: Se introen
 - [ ] `taske.knap`: Taske
 - [ ] `taske.titel`: Din taske
@@ -124,6 +151,9 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `menu.forside`: Til forsiden
 - [ ] `menu.luk`: Luk menuen
 - [ ] `dialog.videre`: Videre
+- [ ] `film.springOver`: Spring over
+- [ ] `film.tast`: Esc
+- [ ] `film.navn`: Film
 - [ ] `dialog.laes.op`: Læs op
 - [ ] `dialog.stop`: Stop oplæsning
 - [ ] `feedback.regel`: Regel
@@ -224,6 +254,9 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `bro.traek.hjemkomst`: Hjemkomst
 - [ ] `bro.regel`: En fantasyfortælling har et problem, en portal, en magisk verden, en konflikt, en løsning og en hjemkomst. Hovedpersonen løser selv problemet.
 - [ ] `bro.eksempel`: Problem: Lyset er stjålet. Hjemkomst: Frøen hopper hjem med lyset.
+- [ ] `gem.fodnote.1`: ¹ En gemmekode er bare en meget lang fodnote til dit eventyr. Skriv den pænt af. ² Ja, også bindestregerne.
+- [ ] `gem.fodnote.2`: ¹ Jeg har læst din kode tre gange. Den er fuldkommen ulæselig. Det er meningen. ² Skriv den af alligevel.
+- [ ] `gem.fodnote.3`: ¹ Pas godt på koden. Hvis du mister den, kan selv jeg ikke finde dit spil. ² Og jeg kan finde alt.
 - [ ] `gem.titel`: Din gemmekode
 - [ ] `gem.del.slut`: Du har klaret del {nr}. Godt gået!
 - [ ] `gem.del.kvittering`: Du har klaret del {nr}. Spillet er gemt på denne computer. Vil du fortsætte et andet sted, så vælg Gem spillet i menuen.
@@ -254,7 +287,12 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `samling.ingen.ting`: Du har ikke fundet noget endnu.
 - [ ] `samling.ting.toej.kappe`: Klattens kappe
 - [ ] `samling.ting.tilbehoer.lanterne`: Mor Lanternes lanterne
+- [ ] `samling.ting.hoved.kasket`: En kasket fra byens hattemager
+- [ ] `samling.ting.hoved.troldmandshat`: En spids hat fra Rimbjerget
+- [ ] `samling.ting.hoved.fjer`: En fjerpen fra Blæksøen
 - [ ] `samling.kapitel.slut`: Kapitel {nr} er slut.
+- [ ] `kapitel.slut.kvittering`: Kapitel {nr} er slut. Spillet er gemt.
+- [ ] `kapitel.slut.fundet`: Nyt til dit udseende: {ting}.
 - [ ] `samling.kapitel.paa.vej`: Kapitel {nr} er på vej.
 - [ ] `samling.naeste`: Fortsæt til kapitel {nr}
 - [ ] `samling.tilbage`: Tilbage
@@ -293,6 +331,12 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `indst.autovidere`: Gå selv videre, når en replik er læst op
 - [ ] `indst.musik`: Baggrundsmusik
 - [ ] `indst.musik.styrke`: Lydstyrke for musik
+- [ ] `indst.effekter`: Lydeffekter (skridt, svar og slag)
+- [ ] `indst.effekter.styrke`: Styrke for lydeffekter
+- [ ] `indst.grafik`: Grafik
+- [ ] `indst.grafik.fin`: Fin (blødt lys, kræver lidt mere af computeren)
+- [ ] `indst.grafik.hurtig`: Hurtig (til ældre computere)
+- [ ] `indst.grafik.forklaring`: Går spillet for langsomt med fin grafik, skifter det selv til hurtig.
 - [ ] `indst.musik.forklaring`: Musikken bliver skruet ned, mens nogen taler.
 - [ ] `indst.indtalt`: Brug spillets indtalte stemmer
 - [ ] `indst.indtalt.forklaring`: Figurerne har hver sin stemme. Slår du det fra, bruger spillet computerens egen stemme.
@@ -313,6 +357,9 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `indst.luk`: Luk
 - [ ] `uhygge.ryst`: Pludselig bliver alt mørkt et øjeblik.
 - [ ] `debug.fps`: Billeder pr. sekund
+- [ ] `debug.snit`: snit over 10 sekunder
+- [ ] `debug.laveste`: laveste
+- [ ] `debug.skala`: skala
 - [ ] `debug.hukommelse`: Hukommelse
 - [ ] `faerdighed.stav.stumme`: Stumme bogstaver
 - [ ] `faerdighed.stav.bortfald`: Særlige bortfald
@@ -359,6 +406,7 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `minde.videre`: Tilbage til Pennedal
 - [ ] `minder.titel`: Minder
 - [ ] `minder.intro`: Glimt af noget, du har glemt. Du kan se dem igen her.
+- [ ] `minder.skaar`: Hukommelsesskår: {antal} af {ialt}. Find dem alle, så kan du huske hele historien.
 - [ ] `minder.tom`: Du har ingen minder endnu. Måske kommer de tilbage.
 - [ ] `minder.se`: Se mindet igen
 - [ ] `laerer.minder.titel`: Minder i spillet
@@ -428,6 +476,8 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `kamp.kort.slaaet`: Holdet er slået tilbage.
 - [ ] `kamp.varsel.kort`: {skade} mod {hvem}
 - [ ] `kamp.varsel.kort.alle`: {skade} mod alle
+- [ ] `kamp.varsel.kort.stort`: Stort angreb: {skade} mod alle
+- [ ] `kamp.varsel.stort`: {navn} samler kræfter til et stort angreb på hele holdet: {skade} skade til hver. Forsvar halverer det.
 - [ ] `kamp.liv.kort`: {liv}/{maks}
 - [ ] `kamp.spring`: Spring over
 - [ ] `kamp.slaa.nu`: Slå!
@@ -502,10 +552,13 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `ordsten.igen`: Prøv igen
 - [ ] `ordsten.vaek`: Gå væk fra stenen
 - [ ] `ordopgave.nr`: Ord {nr} af {antal}
+- [ ] `ordopgave.ekstra`: Du fandt svaret ved at prøve dig frem. Tag et nyt ord mere, så du er sikker på reglen.
+- [ ] `ordopgave.ekstra.knap`: Prøv et nyt ord
 - [ ] `ordopgave.videre`: Næste ord
 - [ ] `ordopgave.faerdig`: Færdig
 - [ ] `mission.blad`: Du fandt et hvidt blad med et ord ({antal} af {ialt}).
-- [ ] `skaar.fundet`: Et hukommelsesskår: {titel}
+- [ ] `skaar.fundet`: Et hukommelsesskår: {titel} ({antal} af {ialt})
+- [ ] `skaar.forklaring`: Skår er små stumper af det, du har glemt. Find dem alle, så kan du huske hele historien.
 - [ ] `udflugt.tilbage`: Gå tilbage
 - [ ] `minde.skaar3a.titel`: Viskelæderet
 - [ ] `minde.skaar3a.1`: Du sidder ved køkkenbordet igen. Det grønne hæfte ligger åbent foran dig.
@@ -535,6 +588,7 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `rytme.eksempel`: Klap ordet banan langsomt. Det giver to klap, så banan har to stavelser. Elefant giver tre klap.
 - [ ] `ordsten.rim.titel`: Ekkostenen
 - [ ] `ordsten.rim.intro`: Ekkoet har gjort stenene væk. Find det ord, der rimer, så kommer stenen tilbage.
+- [ ] `ordsten.ikkerim.intro`: Ordstenen viser nogle ord. Find det ord, der ikke rimer på de andre.
 - [ ] `kamp.ekko.navn`: Ekkoet
 - [ ] `kamp.ekko.angreb`: Ekkoet råber forkerte rim.
 - [ ] `kamp.ekko.spoergsmaal`: Hvilket ord rimer på {ord}?
@@ -614,7 +668,7 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `korrektur.instruks`: Klatten har lavet {antal} fejl i teksten. Tryk på et ord, der er stavet forkert.
 - [ ] `korrektur.instruks.en`: Klatten har lavet én fejl mere. Tryk på det ord, der er stavet forkert.
 - [ ] `korrektur.faerdig`: Hele teksten er rettet.
-- [ ] `korrektur.ikke.fejl`: {ord} er stavet rigtigt. Prøv et andet ord.
+- [ ] `korrektur.ikke.fejl`: Det ord er stavet rigtigt. Prøv et andet ord.
 - [ ] `korrektur.find.regel`: Læs langsomt, ord for ord. Spørg dig selv, om ordet ser ud, som det plejer.
 - [ ] `korrektur.find.eksempel`: Klatten skriver lille med ét l. Ser det rigtigt ud? Nej, lille skal have to l'er.
 - [ ] `korrektur.spoergsmaal`: Hvordan staves {ord} rigtigt?
@@ -696,6 +750,13 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `kamp.halvsaetning.lyt`: Halvsætningen begyndte på noget og stoppede. Den mangler enten en slutning, der passer, eller et tegn til sidst.
 - [ ] `kamp.halvsaetning.rigtig`: Ja. Nu er sætningen færdig: {svar}
 - [ ] `kamp.halvsaetning.fejl`: {valgt} passer ikke helt. Læs sætningen igen, og se på reglen.
+- [ ] `kamp.blaekling.navn`: Blæklingen
+- [ ] `kamp.blaekling.angreb`: Blæklingen sprøjter en lille klat blæk.
+- [ ] `kamp.blaekling.spoergsmaal`: Hvilket stumt bogstav mangler i {vist}?
+- [ ] `kamp.blaekling.rigtig`: Ja. Der skal stå {ord}. Du kan ikke høre {svar}, men det skal med.
+- [ ] `kamp.blaekling.fejl`: Der mangler ikke et {valgt} her. Kig på bogstavet lige før eller lige efter hullet.
+- [ ] `kamp.blaekling.lyt`: Lad være med at kigge så meget på mig. Jeg er lavet af ord med bogstaver, man ikke kan høre. Find det stumme bogstav, så bliver jeg stille.
+- [ ] `kamp.blaekling.rolig`: Blæklingen bliver til en lille, rolig dråbe og triller ned i græsset.
 - [ ] `kamp.halvsaetning.rolig`: Halvsætningen sætter et punktum og bliver helt rolig.
 - [ ] `kamp.slag.slut`: Slå med en slutning
 - [ ] `kamp.svaghed.slut`: svagt punkt: en slutning, der passer
@@ -710,6 +771,63 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `minde.skuffen.2`: Lige før grinede nogen af din historie, og det svier stadig.
 - [ ] `minde.skuffen.3`: Du lægger hæftet i skuffen og skubber den i. Så hårdt, at den smækker.
 - [ ] `minde.skuffen.4`: Nu ved du noget, du ikke vidste dengang. Historien var ikke dårlig. Den var bare ikke færdig.
+- [ ] `start.menu`: Hovedmenu
+- [ ] `start.dybet`: Blækdybet
+- [ ] `dybet.titel`: Blækdybet
+- [ ] `dybet.intro`: Under den sidste side ligger Blækdybet. Her bor resterne af Den Ufærdiges halve historier. Gå så dybt ned, som du kan.
+- [ ] `dybet.regel.blaek`: Du har blæk. Et forkert svar koster en dråbe. Når blækket er brugt, er turen slut.
+- [ ] `dybet.regel.gaver`: Efter det første rum og siden hvert tredje rum vælger du én af tre gaver.
+- [ ] `dybet.regel.rekord`: Din rekord er, hvor dybt du kommer, og hvor mange rigtige svar du får. Tiden tæller ikke.
+- [ ] `dybet.din.rekord`: Din rekord: dybde {dybde} med {rigtige} rigtige.
+- [ ] `dybet.ny.tur`: Ny tur
+- [ ] `dybet.kode.felt`: Har du en udfordringskode fra din lærer?
+- [ ] `dybet.kode.eksempel`: DYB-1234
+- [ ] `dybet.kode.spil`: Spil koden
+- [ ] `dybet.kode.fejl`: Koden skal være DYB og fire tal, for eksempel DYB-4821.
+- [ ] `dybet.tilbage`: Tilbage til forsiden
+- [ ] `dybet.tilbage.dybet`: Tilbage
+- [ ] `dybet.blaek`: Blæk: {blaek} af {maks}
+- [ ] `dybet.dybde`: Dybde {dybde}
+- [ ] `dybet.rigtige`: Rigtige: {rigtige} (i træk: {stribe})
+- [ ] `dybet.kode`: Kode: {kode}
+- [ ] `dybet.dine.gaver`: Dine gaver
+- [ ] `dybet.rum.nr`: Rum {nr}
+- [ ] `dybet.rum.kamp.titel`: Væsner i mørket
+- [ ] `dybet.rum.kamp.tekst`: Halve væsner kryber frem af blækket. Slå dem med de rigtige ord.
+- [ ] `dybet.rum.ordsten.titel`: En ordsten
+- [ ] `dybet.rum.ordsten.tekst`: En gammel ordsten står i vejen. Den lader dig kun komme forbi, hvis du finder de rigtige ord.
+- [ ] `dybet.rum.hvile.titel`: Et lille lys
+- [ ] `dybet.rum.hvile.tekst`: Mor Lanterne har stillet en lygte her. I lyset kan du hvile dig og få en dråbe blæk tilbage.
+- [ ] `dybet.rum.bane.titel`: En sti over blækket
+- [ ] `dybet.rum.bane.tekst`: En smal sti fører hen over sort blæk. Hop fra sten til sten, og nå frem til den anden side.
+- [ ] `dybet.rum.bane.hjaelp`: Pilene eller A og D går. Mellemrum eller W hopper. Ved en ordsten trykker du E. Æseløre kan ikke bære dig her.
+- [ ] `dybet.gaa.ind`: Gå ind
+- [ ] `dybet.hvil`: Hvil dig
+- [ ] `dybet.stop`: Stop turen her
+- [ ] `dybet.videre`: Videre ned
+- [ ] `dybet.forlad`: Gå tilbage (koster en dråbe)
+- [ ] `dybet.gave.titel`: Vælg en gave
+- [ ] `dybet.gave.tekst`: Du klarede rummet. Vælg én gave, før du går dybere ned.
+- [ ] `dybet.gave.blaek.navn`: Fyldt blækhus
+- [ ] `dybet.gave.blaek.tekst`: Du får to dråber blæk tilbage.
+- [ ] `dybet.gave.beholder.navn`: Større blækhus
+- [ ] `dybet.gave.beholder.tekst`: Du kan have en dråbe mere, og du får den med det samme.
+- [ ] `dybet.gave.vims.navn`: Vims følger med
+- [ ] `dybet.gave.vims.tekst`: Vims er med i alle kampe resten af turen.
+- [ ] `dybet.gave.klatten.navn`: Klatten følger med
+- [ ] `dybet.gave.klatten.tekst`: Klatten er med i alle kampe resten af turen.
+- [ ] `dybet.gave.skjold.navn`: Viskelæderskjold
+- [ ] `dybet.gave.skjold.tekst`: To skjolde. Et skjold betaler en dråbe for dig, når du svarer forkert.
+- [ ] `dybet.gave.stribe.navn`: Fejlfri fjerpen
+- [ ] `dybet.gave.stribe.tekst`: Klarer du et rum uden fejl, får du en dråbe blæk tilbage.
+- [ ] `dybet.slut.titel`: Blækket er brugt
+- [ ] `dybet.slut.tal`: Dybde {dybde}, {rigtige} rigtige, {stribe} i træk som det bedste.
+- [ ] `dybet.ny.rekord`: Ny rekord!
+- [ ] `dybet.slut.tekst`: Du kravler op til den sidste side igen. Dybet venter, når du er klar.
+- [ ] `dybet.rekordkode`: Din rekordkode. Vis den til din lærer, eller skriv den på klassens liste:
+- [ ] `dybet.igen.kode`: Prøv {kode} igen
+- [ ] `dybet.skjold`: Skjolde: {antal}
+- [ ] `dybet.tryk`: Så dybt nede trykker blækket: et forkert svar koster to dråber.
 
 ## Kapitel 1
 
@@ -726,6 +844,7 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `objekt.sti`: stien mod floden
 - [ ] `sted.floden`: Floden
 - [ ] `objekt.bro`: den brudte bro
+- [ ] `objekt.broen`: broen
 - [ ] `sted.fyrtaarn`: Mor Lanternes fyrtårn
 - [ ] `objekt.lanterne`: Mor Lanterne
 - [ ] `k1-holm.opgavetekst`: Tal med hr. Holm.
@@ -739,6 +858,7 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `k1-logbog.saetning.2`: Onsdag: Bogstaverne på skiltet ved døren var falmet.
 - [ ] `k1-logbog.saetning.3`: Torsdag: Jeg hørte en lyd fra kælderen. Det lød, som om nogen hviskede.
 - [ ] `k1-logbog.saetning.4`: Fredag: Døren til kælderen stod på klem.
+- [ ] `k1-logbog.saetning.5`: Lørdag: Jeg kiggede efter det grønne kladdehæfte, som jeg gemte i det gamle kartoteksskab for mange år siden. Det lå der stadig.
 - [ ] `k1-logbog-1`: Hvad skete der med ordbogen?
 - [ ] `k1-logbog-1.standard`: Læs sætningerne én ad gangen, og find den, der nævner ordbogen.
 - [ ] `k1-logbog-1.forkert.0`: Den sætning handler om bøger, der mangler en side. Find sætningen, der nævner ordbogen.
@@ -757,16 +877,19 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `k1-aeseloere.1 (fortaeller)`: Du trækker skuffen ud. Det lugter af blæk og regnvejr, og en lille papirfugl flyver op i dit ansigt.
 - [ ] `k1-aeseloere.2 (aeseloere)`: Hallo? Du stod helt stille. Hvad så du?
 - [ ] `k1-aeseloere.3 (fortaeller)`: Du ved det ikke. Det er allerede væk, ligesom en drøm, når man vågner.
-- [ ] `k1-aeseloere.4 (aeseloere)`: Endelig. Du har været længe om det.
-- [ ] `k1-aeseloere.5 (aeseloere)`: Jeg hedder Æseløre. Jeg er foldet af en side fra en meget gammel ordbog, så jeg ved alt om ord. Næsten alt.
-- [ ] `k1-aeseloere.6 (aeseloere)`: Skuffen er en dør til Pennedal. Men den åbner kun for hviskeformularer.
-- [ ] `k1-aeseloere.7 (aeseloere)`: En hviskeformular er et ord med et stumt bogstav. Bogstavet siger ingenting, men det skal med. Ellers virker formularen ikke.
+- [ ] `k1-aeseloere.4 (fortaeller)`: Det er mærkeligt. Skuffen virker bekendt, men du kan ikke huske hvorfor. Det er, som om der mangler stykker i din hukommelse.
+- [ ] `k1-aeseloere.5 (aeseloere)`: Endelig. Du har været længe om det.
+- [ ] `k1-aeseloere.6 (aeseloere)`: Jeg hedder Æseløre. Jeg er foldet af en side fra en meget gammel ordbog, så jeg ved alt om ord. Næsten alt.
+- [ ] `k1-aeseloere.7 (aeseloere)`: Skuffen er en dør til Pennedal. Men den åbner kun for hviskeformularer.
+- [ ] `k1-aeseloere.8 (aeseloere)`: En hviskeformular er et ord med et stumt bogstav. Bogstavet siger ingenting, men det skal med. Ellers virker formularen ikke.
 - [ ] `k1-hviske.opgavetekst`: Stav seks hviskeformularer, så skuffen åbner sig.
 - [ ] `k1-fald.1 (aeseloere)`: Seks formularer. Ikke dårligt for et menneske.
 - [ ] `k1-fald.2 (fortaeller)`: Skuffen bliver større og større. Et hvidt lys fylder hele kælderen, og pludselig falder du.
 - [ ] `k1-ankomst.1 (fortaeller)`: Du lander blødt i en bunke visne blade. Over dig hænger tre måner, og træerne har blade af papir.
 - [ ] `k1-ankomst.2 (aeseloere)`: Velkommen til Pennedal. Her blev alt skrevet til live engang. Også mig, desværre.
-- [ ] `k1-ankomst.3 (aeseloere)`: Hov. Der står nogen på stien. Gå hen og se, hvem det er.
+- [ ] `k1-ankomst.3 (aeseloere)`: Men nogen er begyndt at tage historiernes slutninger. Uden slutninger falmer Pennedal, og bøgerne i din verden bliver tomme. Det er derfor, dit bibliotek mister ord.
+- [ ] `k1-ankomst.4 (aeseloere)`: Vi skal finde ud af, hvem det er, og stoppe det. Og skuffen kaldte på dig. Det gør den ikke uden grund.
+- [ ] `k1-ankomst.5 (aeseloere)`: Hov. Der står nogen på stien. Gå hen og se, hvem det er.
 - [ ] `k1-klatten.opgavetekst`: Gå hen til skikkelsen på stien.
 - [ ] `k1-klatten.1 (klatten)`: Stop! Ingen kommer forbi Klatten den Frygtelige!
 - [ ] `k1-klatten.2 (aeseloere)`: Han er ikke frygtelig. Han er bare klattet.
@@ -777,6 +900,14 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `k1-klatten-flygter.2 (klatten)`: Det her skal jeg fortælle til ... Nej. Det må jeg ikke sige.
 - [ ] `k1-klatten-flygter.3 (fortaeller)`: Klatten løber sin vej og efterlader en lang stribe blæk på stien. Bag skiltet ligger en kappe, som han har tabt.
 - [ ] `k1-klatten-flygter.4 (aeseloere)`: Tag den bare. Han har alligevel aldrig vasket den.
+- [ ] `k1-blaekling-moede.1 (fortaeller)`: Striben af blæk på stien begynder at boble. En lille klat rejser sig og kigger på dig med to store øjne.
+- [ ] `k1-blaekling-moede.2 (aeseloere)`: En Blækling. Klatten taber dem, når han har travlt. Den er mere bange end farlig, men den kan godt finde på at sprøjte.
+- [ ] `k1-blaekling-moede.3 (aeseloere)`: Vi skiftes til at gøre noget. Når det er din tur, vælger du Slå og svarer på en opgave. Et rigtigt svar er et slag.
+- [ ] `k1-blaekling-moede.4 (aeseloere)`: Der er ingen tid. Blæklingen viser altid, hvad den gør næste gang. Et forkert svar rammer ved siden af, men det koster ikke liv.
+- [ ] `k1-blaekling-moede.5 (aeseloere)`: Den er lavet af ord med stumme bogstaver, ligesom dem i skuffen. Find det stumme bogstav, så falder den til ro.
+- [ ] `k1-blaekling.opgavetekst`: Kæmp mod Blæklingen.
+- [ ] `k1-blaekling-slut.1 (fortaeller)`: Blæklingen bliver til en lille, rolig dråbe og triller ned i græsset.
+- [ ] `k1-blaekling-slut.2 (aeseloere)`: Sådan. Hvert rigtigt svar er et slag, og tre i træk giver et stort slag. Husk det, når vi møder større væsner.
 - [ ] `k1-til-floden.opgavetekst`: Følg stien mod floden.
 - [ ] `k1-floden.1 (fortaeller)`: Stien ender ved en flod. Broen er brudt, og plankerne driver rundt i vandet.
 - [ ] `k1-floden.2 (aeseloere)`: Hver planke er en del af en historie. Læg dem i den rigtige rækkefølge, så holder broen.
@@ -1942,13 +2073,18 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `krop.valg`: Smal, Mellem, Bred
 - [ ] `oejne.valg`: Runde, Smalle, Glade, Store
 - [ ] `mund.valg`: Smil, Stort smil, Rolig, Overrasket
-- [ ] `haar.valg`: Kort, Langt, Krøller, Fletninger, Afro, Hestehale, Knold, Meget kort
-- [ ] `haarfarve.valg`: Sort, Mørkebrun, Brun, Rødbrun, Lys, Grå, Blå, Lilla
-- [ ] `hoved.valg`: Intet, Tørklæde, Hue, Kasket
+- [ ] `haar.valg`: Kort, Langt, Krøller, Fletninger, Afro, Hestehale, Knold, Meget kort, Pandehår, Hanekam, Skilning, Skaldet
+- [ ] `haarfarve.valg`: Sort, Mørkebrun, Brun, Rødbrun, Lys, Grå, Blå, Lilla, Hvid, Rød, Grøn, Pink
+- [ ] `hoved.valg`: Intet, Tørklæde, Hue, Kasket, Hårbånd, Spids hat, Fjerpen
 - [ ] `hovedfarve.valg`: Rød, Orange, Gul, Grøn, Blå, Lilla, Grå, Sort
-- [ ] `toej.valg`: T-shirt, Hættetrøje, Kjole, Kappe
+- [ ] `toej.valg`: T-shirt, Hættetrøje, Kjole, Kappe, Vest, Overall, Stribet trøje, Regnfrakke
 - [ ] `toejfarve.valg`: Rød, Orange, Gul, Grøn, Blå, Lilla, Grå, Sort
 - [ ] `tilbehoer.valg`: Intet, Briller, Halstørklæde, Lanterne
+- [ ] `bukser.valg`: Mørkeblå, Sort, Brun, Grå, Grøn, Rød, Beige, Lyseblå
+- [ ] `sko.valg`: Brune, Sorte, Røde, Hvide, Blå, Grønne, Gule, Lilla
+- [ ] `ansigt.valg`: Intet, Fregner, Røde kinder, Fregner og kinder
+- [ ] `oejenfarve.valg`: Mørke, Brune, Blå, Grønne
+- [ ] `taske.valg`: Ingen, Rygsæk, Skuldertaske
 
 ## Fælles Mål
 

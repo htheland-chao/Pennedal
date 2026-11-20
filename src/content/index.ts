@@ -1,4 +1,5 @@
 import type { Betingelse } from '../engine/betingelse';
+import type { Handling } from '../engine/film/typer';
 import type { FejlType, KorrekturTekst } from '../mechanics/korrektur';
 import type { Genre, GenreData } from '../mechanics/genre';
 import type { HalvData } from '../mechanics/halvsaetning';
@@ -184,6 +185,11 @@ export type KampTrin = FaellesTrin & {
   slag?: ('synonym' | 'stumt' | 'rim' | 'fortaeller' | 'ret' | 'slut')[];
 };
 export type SkiftTrin = FaellesTrin & { type: 'skift'; tilSted: string };
+/**
+ * En filmsekvens (20. november 2026): kamera, figurer, bjælker, musik og replikker efter et manuskript.
+ * Afspilles af src/engine/film/afspiller.ts. Replikkerne venter altid på "Videre", og alt kan springes over.
+ */
+export type FilmTrin = FaellesTrin & { type: 'film'; handlinger: Handling[] };
 export type OpgaveTrin = FaellesTrin & {
   type: 'opgave';
   mekanik: 'hviske' | 'ogorm' | 'historiebro' | 'raaber' | 'rim' | 'synsvinkel' | 'korrektur' | 'genre';
@@ -241,7 +247,7 @@ export type RumTrin = FaellesTrin & {
   };
 };
 
-export type Trin = DialogTrin | SkiftTrin | OpgaveTrin | BevisjagtTrin | RumTrin | KampTrin;
+export type Trin = DialogTrin | SkiftTrin | OpgaveTrin | BevisjagtTrin | RumTrin | KampTrin | FilmTrin;
 
 export type Kapitel = {
   kapitel: number;

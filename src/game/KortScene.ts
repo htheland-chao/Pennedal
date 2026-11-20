@@ -15,6 +15,7 @@ import { opdaterFigurer, visOgSkjul } from './kort/effekter';
 import { fuglFoelger, gaaSkridt, gaaTilObjekt, kanUndersoeges, opdaterNaer, saetVej, sendHint } from './kort/gang';
 import { flytKamera, gennemsigtigeTraeer, opdaterTalerZoom, vendModTaler } from './kort/kameraet';
 import { lavStemning, opdaterLuft } from './kort/luft';
+import { filmKamera, type FilmTilstand } from './kort/film';
 import { byggGloed, lavFaesteLys, tegnLyslag } from './kort/lys';
 
 // Opløsningen bruges også af BaneScene og PhaserVerden, så den kan stadig hentes herfra.
@@ -89,6 +90,10 @@ export class KortScene extends Phaser.Scene {
   levende: { billede: Phaser.GameObjects.Image; noegle: string; fase: number }[] = [];
   /** Træerne, så de kan blive gennemsigtige, når de står foran en figur. */
   traeBilleder: Phaser.GameObjects.Image[] = [];
+  /** Filmsekvens i gang (kort/film.ts): kameraet, lagene og figurerne, filmen styrer. */
+  film: FilmTilstand | null = null;
+  /** Hovedpersonen går i en filmsekvens, mens spillet er låst. */
+  filmGaar = false;
   roligt = typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
 
   constructor() {
@@ -118,6 +123,8 @@ export class KortScene extends Phaser.Scene {
     this.taage = [];
     this.levende = [];
     this.traeBilleder = [];
+    this.film = null;
+    this.filmGaar = false;
   }
 
   get kroge(): VerdenKroge {
@@ -321,7 +328,7 @@ export class KortScene extends Phaser.Scene {
     sendHint(this);
 
     // Kamera og lys. Zoomen klipper i hele trin, mens kameraet glider hen til figurerne.
-    this.zoom = skarpZoom(this.zoomMaal);
+    this.zoom = skarpZoom(filmKamera(this)?.zoom ?? this.zoomMaal);
     const { vx, vy, z } = flytKamera(this, dt, this.taler ? 6 : 7);
     this.lysLag.setPosition(vx, vy).setScale(1 / (z * SKALA));
     if (this.lygteGloed)

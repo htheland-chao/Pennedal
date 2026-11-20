@@ -167,8 +167,8 @@ export function gaaSkridt(s: KortScene, dt: number): boolean {
     if (t && s.naer && (Phaser.Input.Keyboard.JustDown(t.e) || Phaser.Input.Keyboard.JustDown(t.enter) || Phaser.Input.Keyboard.JustDown(t.mellemrum))) {
       s.kroge?.onInteraktion(s.naer);
     }
-  } else if (s.gaarTilTaler && s.vej.length > 0) {
-    // Under dialog går hovedpersonen selv hen til den, der taler.
+  } else if ((s.gaarTilTaler || s.filmGaar) && s.vej.length > 0) {
+    // Under dialog går hovedpersonen selv hen til den, der taler. I en filmsekvens går den, hvor filmen siger.
     const skridt = FART * dt;
     const m = feltMidte(s.vej[0]);
     const ax = m.x - s.spiller.x;

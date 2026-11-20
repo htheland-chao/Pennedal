@@ -268,16 +268,50 @@
     },
     {
       "id": "k1-ankomst",
-      "type": "dialog",
+      "type": "film",
       "del": 2,
       "sted": "pennedal",
       "objekt": null,
-      "replikker": [
-        { "taler": "fortaeller", "tekst": "Du lander blødt i en bunke visne blade. Over dig hænger tre måner, og træerne har blade af papir." },
-        { "taler": "aeseloere", "tekst": "Velkommen til Pennedal. Her blev alt skrevet til live engang. Også mig, desværre." },
-        { "taler": "aeseloere", "tekst": "Men nogen er begyndt at tage historiernes slutninger. Uden slutninger falmer Pennedal, og bøgerne i din verden bliver tomme. Det er derfor, dit bibliotek mister ord.", "udtryk": "bange" },
-        { "taler": "aeseloere", "tekst": "Vi skal finde ud af, hvem det er, og stoppe det. Og skuffen kaldte på dig. Det gør den ikke uden grund." },
-        { "taler": "aeseloere", "tekst": "Hov. Der står nogen på stien. Gå hen og se, hvem det er." }
+      "handlinger": [
+        {
+          "type": "samtidig",
+          "handlinger": [
+            { "type": "bjaelker", "til": true },
+            { "type": "kamera", "til": { "felt": [22, 3] }, "ms": 0 },
+            { "type": "musik", "tema": "stille", "overtoning": 600 }
+          ]
+        },
+        {
+          "type": "samtidig",
+          "handlinger": [
+            { "type": "kamera", "til": { "figur": "spiller" }, "ms": 4500 },
+            { "type": "musik", "tema": null, "overtoning": 4000 }
+          ]
+        },
+        {
+          "type": "replikker",
+          "replikker": [
+            { "taler": "fortaeller", "tekst": "Du lander blødt i en bunke visne blade. Over dig hænger tre måner, og træerne har blade af papir." }
+          ]
+        },
+        { "type": "figur", "id": "aeseloere", "toner": "frem" },
+        { "type": "kamera", "til": { "figur": "spiller" }, "zoom": 2, "ms": 400 },
+        {
+          "type": "replikker",
+          "replikker": [
+            { "taler": "aeseloere", "tekst": "Velkommen til Pennedal. Her blev alt skrevet til live engang. Også mig, desværre." },
+            { "taler": "aeseloere", "tekst": "Men nogen er begyndt at tage historiernes slutninger. Uden slutninger falmer Pennedal, og bøgerne i din verden bliver tomme. Det er derfor, dit bibliotek mister ord.", "udtryk": "bange" },
+            { "taler": "aeseloere", "tekst": "Vi skal finde ud af, hvem det er, og stoppe det. Og skuffen kaldte på dig. Det gør den ikke uden grund." },
+            { "taler": "aeseloere", "tekst": "Hov. Der står nogen på stien. Gå hen og se, hvem det er." }
+          ]
+        },
+        {
+          "type": "samtidig",
+          "handlinger": [
+            { "type": "bjaelker", "til": false },
+            { "type": "kamera", "til": { "figur": "spiller" }, "zoom": 1, "ms": 600 }
+          ]
+        }
       ]
     },
     {
