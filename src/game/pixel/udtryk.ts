@@ -91,17 +91,17 @@ const OPSKRIFTER: Partial<Record<keyof typeof PORTRAETTER, Partial<Record<Udtryk
       pixel: [[6, 7, 'K'], [7, 8, 'K'], [8, 8, 'K'], [17, 7, 'K'], [16, 8, 'K'], [15, 8, 'K'], [11, 15, 'm'], [12, 15, 'm'], [10, 16, 'm'], [13, 16, 'm']],
     },
   },
-  // Rimfod: stentrold med øjne (x 7-8 og 15-16, rækkerne 6-7) og en mund af mørke sten (K, række 11, x 8-15).
+  // Rimfod: stentrold med øjne (x 7-8 og 15-16, rækkerne 8-9) og en mund af mørke sten (K, række 14, x 8-15).
   rimfod: {
-    glad: { pixel: [[7, 7, 'G'], [8, 7, 'G'], [15, 7, 'G'], [16, 7, 'G'], [7, 6, 'E'], [8, 6, 'E'], [15, 6, 'E'], [16, 6, 'E'], [8, 11, 'G'], [15, 11, 'G'], [8, 10, 'K'], [15, 10, 'K']] },
+    glad: { pixel: [[7, 9, 'G'], [8, 9, 'G'], [15, 9, 'G'], [16, 9, 'G'], [7, 8, 'E'], [8, 8, 'E'], [15, 8, 'E'], [16, 8, 'E'], [8, 14, 'G'], [15, 14, 'G'], [8, 13, 'K'], [15, 13, 'K']] },
     bange: {
       pixel: [
-        [7, 5, 'W'], [8, 5, 'W'], [15, 5, 'W'], [16, 5, 'W'],
-        ...[8, 9, 14, 15].map((x) => [x, 11, 'G'] as Pixel),
-        [10, 12, 'K'], [11, 12, 'K'], [12, 12, 'K'], [13, 12, 'K'],
+        [7, 7, 'W'], [8, 7, 'W'], [15, 7, 'W'], [16, 7, 'W'],
+        ...[8, 9, 14, 15].map((x) => [x, 14, 'G'] as Pixel),
+        [10, 15, 'K'], [11, 15, 'K'], [12, 15, 'K'], [13, 15, 'K'],
       ],
     },
-    vred: { pixel: [[6, 4, 'K'], [7, 5, 'K'], [8, 5, 'K'], [17, 4, 'K'], [16, 5, 'K'], [15, 5, 'K'], [8, 11, 'G'], [15, 11, 'G'], [8, 12, 'K'], [15, 12, 'K']] },
+    vred: { pixel: [[6, 6, 'K'], [7, 7, 'K'], [8, 7, 'K'], [17, 6, 'K'], [16, 7, 'K'], [15, 7, 'K'], [8, 14, 'G'], [15, 14, 'G'], [8, 15, 'K'], [15, 15, 'K']] },
   },
   // Den Ufærdige: mørk skikkelse med lyse øjne (O, rækkerne 6-7) og ingen mund. Udtrykket bærer øjnene og en lys mund (k).
   ufaerdige: {

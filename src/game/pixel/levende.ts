@@ -22,7 +22,7 @@ export const LIV: Record<PortraetFigur, Liv> = {
   bip: { oejne: { bogstaver: 'B' } },
   skyggen: { oejne: { bogstaver: 'E' }, mund: { bogstaver: 'm' } },
   halvsaetning: { oejne: { bogstaver: 'WE' } },
-  rimfod: { oejne: { bogstaver: 'WE', y: [6, 7] } },
+  rimfod: { oejne: { bogstaver: 'WE', y: [8, 9] } },
   ekko: { oejne: { bogstaver: 'E' }, mund: { bogstaver: 'o' } },
   halvfugl: { oejne: { bogstaver: 'E' } },
   tomordet: { oejne: { bogstaver: 'E' } },

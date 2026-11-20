@@ -298,6 +298,17 @@
 .fx-tal.fx-liv {
   color: #7be08a;
 }
+/* Slag på et væsen er guld, store slag er større og varmere, 0 er gråt (20. november 2026). */
+.fx-tal.fx-slag {
+  color: #f0c45a;
+}
+.fx-tal.fx-kritisk {
+  color: #f0c45a;
+  font-size: clamp(1.8rem, 4.8cqw, 3.8rem);
+}
+.fx-tal.fx-info {
+  color: #b9bfcf;
+}
 @keyframes fx-tal {
   from { transform: translate(-50%, 0) scale(0.6); opacity: 0; }
   20% { transform: translate(-50%, -2cqh) scale(1.3); opacity: 1; }

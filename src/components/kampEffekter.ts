@@ -49,8 +49,14 @@ export function lydForTrin(tr: { effekter: { type: EffektType }[]; oploest?: num
   return null;
 }
 
+/**
+ * Tallenes farver (20. november 2026): slag på et væsen er guld, et stort slag eller et slag på en svaghed er større,
+ * skade på holdet er rød, liv er grøn, og 0 er grå.
+ */
+export type TalSlags = 'slag' | 'kritisk' | 'skade' | 'liv' | 'info';
+
 /** Placeringer er i procent af scenen (0-100). tx/ty er målet for noget, der flyver. */
-export type Effekt = { type: EffektType; x: number; y: number; tx?: number; ty?: number; tekst?: string; slags?: 'skade' | 'liv' | 'info' };
+export type Effekt = { type: EffektType; x: number; y: number; tx?: number; ty?: number; tekst?: string; slags?: TalSlags };
 
 export type Trin = {
   effekter: Effekt[];
@@ -105,7 +111,7 @@ export function trinFor(hs: Haendelse[], p: Pladser, navn: { fjende: (nr: number
         } else if (!h.stort) effekter.push({ type: 'straale', x: avatar[0], y: avatar[1], tx: x, ty: y });
         effekter.push({ type: 'nedslag', x, y });
         if (h.svag) effekter.push({ type: 'svag', x, y: y - 22 });
-        effekter.push({ type: 'tal', x, y: y - 12, tekst: `-${h.skade}`, slags: 'skade' });
+        effekter.push({ type: 'tal', x, y: y - 12, tekst: `-${h.skade}`, slags: h.stort || h.svag ? 'kritisk' : 'slag' });
         ud.push({
           effekter,
           linje: { noegle: h.svag ? 'kamp.kort.svag' : 'kamp.kort.ramt', vaerdier: { navn: navn.fjende(h.fjende), skade: h.skade } },
@@ -194,7 +200,7 @@ export function trinFor(hs: Haendelse[], p: Pladser, navn: { fjende: (nr: number
         for (const a of samme) {
           const [mx, my] = p.medlem(a.hvem);
           effekter.push({ type: `angreb-${a.angreb}`, x, y, tx: mx, ty: my });
-          effekter.push({ type: 'tal', x: mx, y: my - 14, tekst: a.skade > 0 ? `-${a.skade}` : '0', slags: 'skade' });
+          effekter.push({ type: 'tal', x: mx, y: my - 14, tekst: a.skade > 0 ? `-${a.skade}` : '0', slags: a.skade > 0 ? 'skade' : 'info' });
         }
         const ramte = samme.filter((a) => a.skade > 0);
         ud.push({
