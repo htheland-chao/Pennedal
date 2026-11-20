@@ -3,7 +3,7 @@
  * Hvert bogstav er en farve i paletten, punktum er gennemsigtigt.
  */
 import type { Tegnkort } from './sprites';
-import { HALVFUGL, somPortraet, STUMMING, TOMORD } from './viskeskov';
+import { HALVFUGL, STUMMING, TOMORD } from './viskeskov';
 import { EKKO, RIMFOD } from './rimbjerg';
 import { TVIVL } from './arkiv';
 import { POSTSNEGL } from './blaeksoe';
@@ -21,7 +21,7 @@ export const PORTRAETTER: Record<'holm' | 'lanterne' | 'klatten' | 'aeseloere' |
   bip: buste(VAESEN_BUSTER.bip, BIP),
   skyggen: buste(VAESEN_BUSTER.skyggen, LILLE_SKYGGE),
   halvsaetning: buste(VAESEN_BUSTER.halvsaetning, HALVSAETNING),
-  rimfod: somPortraet(RIMFOD),
+  rimfod: buste(VAESEN_BUSTER.rimfod, RIMFOD),
   ekko: buste(VAESEN_BUSTER.ekko, EKKO),
   halvfugl: buste(VAESEN_BUSTER.halvfugl, HALVFUGL),
   tomordet: buste(VAESEN_BUSTER.tomordet, TOMORD),

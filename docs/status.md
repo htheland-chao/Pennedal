@@ -59,7 +59,8 @@ Kort overblik. Hvornår og hvordan hver ting blev lavet, står i `docs/logbog.md
 - **Hovedfarve i designeren** har kun virkning, når hovedet har hætte eller kasket.
 
 ## Ikke testet
-- **Portrætter:** alle figurer, der taler, har en 24 x 24-buste, der fylder rammen, undtagen Rimfod (hele figuren).
+- **Portrætter:** alle figurer, der taler, har en 24 x 24-buste, der fylder rammen.
+- **Slag i kampen:** kort stop, hvidt glimt på det ramte væsen og farvede tal (guld, rød, grøn, grå).
 - **Udtryk** (glad, bange, vred) findes for Æseløre, Klatten, Vims, Fru Fodnote, Rimfod og Den Ufærdige. Andre figurer viser altid det faste portræt.
 - **Masterpaletten** gælder kun figurerne på grafikarket. Verdenens jord, huse, lys og CSS bruger stadig egne farver og er ikke tjekket mod paletten.
 - **Udseende-editoren:** set i Chrome i 1366 x 768 og 390 x 844, ikke på en Chromebook. De nye valg er kun set på arket `avatar-nye` og i editoren, ikke i alle kapitlernes scener.

@@ -1,5 +1,5 @@
 /**
- * Buster til væsnerne (20. november 2026): tegnet i 24 x 24, så de fylder rammen i dialogen som de andre figurer.
+ * Buster til væsnerne og Rimfod (20. november 2026): tegnet i 24 x 24, så de fylder rammen i dialogen som de andre figurer.
  * Farverne er de samme som i væsnernes figurer (paletten følger med i portraetter.ts). Ingen bogstaver i grafikken.
  */
 
@@ -274,5 +274,32 @@ export const VAESEN_BUSTER = {
     '...KK..KK...KK..KK......',
     '........................',
     '........................',
+  ],
+  // Rimfod, stentrolden på Rimbjerget.
+  rimfod: [
+    '.......KKKKKKKKKK.......',
+    '.....KKggggggggggKK.....',
+    '....KgGGGGGGGGGGGGgK....',
+    '...KgGGmGGGGGGGGmGGgK...',
+    '..KGGGGGGGGGGGGGGGGGGK..',
+    '..KGGGGGGGGGGGGGGGGGGK..',
+    '..KGGGGGGGGGGGGGGGGGGK..',
+    '..KGGgggGGGGGGGGgggGGK..',
+    '..KGGGGWEGGGGGGWEGGGGK..',
+    '..KGGGGWWGGGGGGWWGGGGK..',
+    '..KGGGGGGGGnnGGGGGGGGK..',
+    '..KGGGGGGGnnnnGGGGGGGK..',
+    '..KGGGGGGGGGGGGGGGGGGK..',
+    '..KGGGGGGGGGGGGGGGGGGK..',
+    '..KGGGGGKKKKKKKKGGGGGK..',
+    '...KGGGGGGGGGGGGGGGGK...',
+    '....KgGGGGGGGGGGGGgK....',
+    '..KKKKgGGGGGGGGGGgKKKK..',
+    '.KGGGKgGGGGGGGGGGgKGGGK.',
+    'KGGGGGKgGGGmmGGGgKGGGGGK',
+    'KGGGGGKgGGGGGGGGgKGGGGGK',
+    'KGGgGGKgGGGGGGGGgKGGgGGK',
+    'KGGGGGKgGGGGGGGGgKGGGGGK',
+    'KGGGGGKgGGGGGGGGgKGGGGGK',
   ],
 };

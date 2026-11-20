@@ -50,6 +50,23 @@ export function useAfspilning({ kamp, setKamp, setVisning, setNotat, setLinje, n
     );
   }, [ryst]);
 
+  // Et kort stop ved hvert slag (20. november 2026): alt andet på scenen fryser et øjeblik, mens den ramte lyser op.
+  // Ikke ved rolig bevægelse. Selve trinnets tid ændres ikke.
+  useEffect(() => {
+    if (!ryst.fjender.length && !ryst.hold.length) return;
+    if (roligBevaegelse() || !felt.current?.getAnimations) return;
+    const andre = felt.current.getAnimations({ subtree: true }).filter((x) => {
+      const maal = (x.effect as KeyframeEffect | null)?.target;
+      return !(maal instanceof Element && maal.classList.contains('ramt'));
+    });
+    andre.forEach((x) => x.pause());
+    const ur = window.setTimeout(() => andre.forEach((x) => x.playState === 'paused' && x.play()), 90);
+    return () => {
+      window.clearTimeout(ur);
+      andre.forEach((x) => x.playState === 'paused' && x.play());
+    };
+  }, [ryst]);
+
   useEffect(() => () => {
     if (afspilning.current.ur !== null) window.clearTimeout(afspilning.current.ur);
   }, []);
