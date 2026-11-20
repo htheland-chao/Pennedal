@@ -4,7 +4,7 @@
  * Ren logik. Bruges af testene, der læser alle kapitler.
  */
 import { billedtid } from './afspiller';
-import { HANDLINGER, type Handling } from './typer';
+import { HANDLINGER, STILLE, type Handling } from './typer';
 
 /** Det, en sekvens må henvise til. */
 export type Kendte = { figurer: ReadonlySet<string>; temaer: ReadonlySet<string>; effekter: ReadonlySet<string> };
@@ -44,6 +44,8 @@ export function tjekFilm(handlinger: Handling[], kendte: Kendte): string[] {
       case 'figur':
         figur(h.id);
         if (!h.gaaTil && !h.vend && !h.toner) fejl.push(`figur ${h.id} gør ingenting`);
+        if (h.gaaTil && h.id !== 'spiller') fejl.push(`kun hovedpersonen kan gå, ikke ${h.id}`);
+        if (h.vend && h.id === 'aeseloere') fejl.push('Æseløre kan ikke vende sig, han følger hovedpersonen');
         break;
       case 'replikker':
         if (h.replikker.length === 0) fejl.push('replikker uden replikker');
@@ -56,11 +58,14 @@ export function tjekFilm(handlinger: Handling[], kendte: Kendte): string[] {
         tid('ryst', h.ms);
         break;
       case 'musik':
-        if (h.tema !== null && !kendte.temaer.has(h.tema)) fejl.push(`ukendt musik: ${h.tema}`);
+        if (h.tema !== null && h.tema !== STILLE && !kendte.temaer.has(h.tema)) fejl.push(`ukendt musik: ${h.tema}`);
         tid('overtoning', h.overtoning);
         break;
       case 'lyd':
         if (!kendte.effekter.has(h.effekt)) fejl.push(`ukendt lyd: ${h.effekt}`);
+        break;
+      case 'stemning':
+        if (h.moerke === undefined && h.partikler === undefined) fejl.push('stemning gør ingenting');
         break;
       case 'saet':
         if (!h.valg) fejl.push('saet uden valg');

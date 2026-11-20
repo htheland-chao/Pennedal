@@ -1,5 +1,6 @@
 // Samler al dansk tekst i spillet ét sted, så den kan stavetjekkes og læses korrektur på.
 import { readdirSync, readFileSync } from 'node:fs';
+import { trinReplikker } from '../src/content/filmreplikker.mjs';
 
 const laes = (sti) => JSON.parse(readFileSync(new URL(`../src/content/${sti}`, import.meta.url), 'utf8'));
 
@@ -42,7 +43,7 @@ export function alleTekster() {
     }
     for (const trin of k.trin) {
       if (trin.opgavetekst) ud.push({ kilde, id: `${trin.id}.opgavetekst`, tekst: trin.opgavetekst });
-      (trin.replikker ?? []).forEach((r, i) => replik(`${trin.id}.${i + 1}`, r));
+      trinReplikker(trin).forEach((r, i) => replik(`${trin.id}.${i + 1}`, r));
       if (trin.valg) {
         ud.push({ kilde, id: `${trin.id}.valg`, tekst: trin.valg.spoergsmaal });
         trin.valg.muligheder.forEach((m, j) => {

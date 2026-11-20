@@ -3,6 +3,7 @@ import type { KortScene } from '../KortScene';
 import { VIS_B, VIS_H, SKALA, skarpZoom } from './skala';
 import { FELT, type Felt, feltMidte, feltVed, felterVed, findVej } from '../kort';
 import { glid } from '../kamera';
+import { filmKamera } from './film';
 
 /**
  * Kameraet og dialogen: hvor kameraet kigger hen, zoom ind på den der taler, og træer der bliver gennemsigtige foran figurerne.
@@ -22,7 +23,8 @@ export function vendModTaler(s: KortScene, taler: string | null) {
     s.gaarTilTaler = false;
     return;
   }
-  // Står hovedpersonen langt fra den, der taler, går den derhen.
+  // Står hovedpersonen langt fra den, der taler, går den derhen. Ikke i en filmsekvens: der bestemmer filmen.
+  if (s.film) return;
   const o = s.data_.sted.objekter.find((x) => x.id === taler && x.felt && !s.data_.skjulte?.includes(x.id));
   if (o?.felt && foer !== taler) {
     const m = feltMidte(o.felt);
@@ -93,8 +95,10 @@ export function flytKamera(s: KortScene, dt: number, fart = 7) {
     // Kameraet sigter lidt under figurerne, så de står over dialogboksen nederst.
     my = (p ? (s.spiller.y + p.y) / 2 : s.spiller.y) + 6;
   }
-  s.kam.x = glid(s.kam.x, mx, dt, fart);
-  s.kam.y = glid(s.kam.y, my, dt, fart);
+  // En filmsekvens styrer kameraet selv og glider efter tid (kort/film.ts).
+  const film = filmKamera(s);
+  s.kam.x = film ? film.x : glid(s.kam.x, mx, dt, fart);
+  s.kam.y = film ? film.y : glid(s.kam.y, my, dt, fart);
   const z = skarpZoom(s.zoom);
   const bw = VIS_B / z;
   const bh = VIS_H / z;

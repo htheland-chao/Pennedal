@@ -265,8 +265,18 @@ test('kapitel 1 kan spilles fra start til slut, og gemmekoden virker', async ({ 
   await billede(page, '07-gemmekode');
   await page.getByRole('button', { name: 'Spil videre' }).click();
 
-  // Del 2: Pennedal.
+  // Del 2: Pennedal. Ankomsten er en filmsekvens (20. november 2026), og her ses den hele vejen igennem:
+  // bjælker, kameraet over byen, fortælleren, Æseløre, der dukker op, hans replikker og bjælkerne ud igen.
+  const film = page.locator('.film');
+  await expect(page.locator('.film-bjaelker.vis')).toBeVisible();
+  await page.waitForTimeout(2500);
+  await billede(page, '07b-film-ankomst');
+  await expect(page.locator('dialog.dialogboks')).toContainText('Du lander blødt', { timeout: 10_000 });
   await laesDialog(page);
+  await expect(page.locator('dialog.dialogboks')).toContainText('Velkommen til Pennedal', { timeout: 10_000 });
+  await billede(page, '07c-film-aeseloere');
+  await laesDialog(page);
+  await expect(film).toHaveCount(0);
   await page.waitForTimeout(300);
   await billede(page, '08-pennedal');
   await undersoeg(page, 'Klatten');
@@ -337,8 +347,12 @@ test('kapitel 1 kan spilles fra start til slut, og gemmekoden virker', async ({ 
   await expect(sidst).toContainText('Det næste, du skal gøre');
   await billede(page, '13-sidst-i-pennedal');
   await sidst.getByRole('button', { name: 'Videre' }).click();
-  // Koden er gemt fra menuen i Pennedal, så spillet fortsætter dér: enten ankomsten eller mødet med Klatten.
-  await expect(page.locator('dialog.dialogboks').filter({ hasText: 'Du lander blødt' }).or(page.locator('.panel').getByRole('button', { name: 'Undersøg Klatten' }))).toBeVisible();
+  // Koden er gemt fra menuen i Pennedal, så spillet fortsætter dér: enten ankomsten (en film, som gennemspillet
+  // springer over) eller mødet med Klatten.
+  const klatten = page.locator('.panel').getByRole('button', { name: 'Undersøg Klatten' });
+  await expect(page.locator('.film').or(klatten)).toBeVisible();
+  if (await page.locator('.film').isVisible()) await page.keyboard.press('Escape');
+  await expect(klatten).toBeVisible();
 
   expect(fejl, fejl.join('\n')).toEqual([]);
 });

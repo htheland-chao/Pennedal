@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { delTekst, findOrdkort, harTekst, hentKapitel, renTekst, type Trin } from '../content';
 import { afslutTrin, aktueltSted, kapitelSlut, spilVed } from './kapitel';
+import { trinReplikker } from '../content/filmreplikker.mjs';
 import { nytSpil, STANDARD_AVATAR } from '../data/gem';
 import { erFaerdighed, OPLAASNINGER } from './faerdigheder';
 
@@ -41,7 +42,7 @@ describe('kapitel 1', () => {
       if (t.type === 'opgave' || t.type === 'bevisjagt') expect(erFaerdighed(t.faerdighed), t.id).toBe(true);
       for (const id of t.laaserOp ?? []) expect((OPLAASNINGER as readonly string[]).includes(id), id).toBe(true);
       const tekster: string[] = [];
-      if (t.type === 'dialog') tekster.push(...t.replikker.map((r) => r.tekst));
+      tekster.push(...trinReplikker(t).map((r) => r.tekst));
       if (t.type === 'bevisjagt') {
         tekster.push(...t.saetninger);
         for (const id of t.forforstaaelse) expect(findOrdkort(id), id).toBeTruthy();
@@ -49,7 +50,7 @@ describe('kapitel 1', () => {
       }
       for (const tekst of tekster)
         for (const s of delTekst(tekst)) if (s.type === 'ord') expect(findOrdkort(s.id), s.id).toBeTruthy();
-      if (t.type === 'dialog') for (const r of t.replikker) expect(harTekst(`taler.${r.taler}`), r.taler).toBe(true);
+      for (const r of trinReplikker(t)) expect(harTekst(`taler.${r.taler}`), r.taler).toBe(true);
     });
   });
 

@@ -9,6 +9,7 @@ import { describe, expect, it } from 'vitest';
 import { renTekst } from '../src/content';
 import kapitel1 from '../src/content/kapitler/kapitel1.json';
 import { lydNoegle } from '../src/content/lydnoegle.mjs';
+import { trinReplikker } from '../src/content/filmreplikker.mjs';
 import stemmer from '../src/content/stemmer.json';
 import { alleLydtekster, erDialog } from '../scripts/lydtekster.mjs';
 
@@ -25,7 +26,7 @@ describe('lydklip', () => {
 
   it('dækker alle replikker i kapitel 1 med den rigtige figur', () => {
     for (const trin of kapitel1.trin) {
-      const replikker = (trin as { replikker?: { taler: string; tekst: string }[] }).replikker ?? [];
+      const replikker = trinReplikker(trin);
       for (const r of replikker) {
         const p = poster.find((x) => x.figur === r.taler && x.tekst === renTekst(r.tekst));
         expect(p, `${trin.id}: ${r.tekst}`).toBeDefined();

@@ -2,6 +2,7 @@ import type { Kapitel, Sted } from '../../content';
 import { opfyldt } from '../../engine/betingelse';
 import { skjulteBlade } from '../../engine/frivillig';
 import type { GemtSpil } from '../../data/gem';
+import { skjultFoerFilm } from '../../engine/film/sekvens';
 
 /**
  * Hvilke objekter på stedet der er skjult lige nu, også Æseløre.
@@ -31,5 +32,9 @@ export function skjulteObjekter(spil: GemtSpil, kapitel: Kapitel, sted: Sted, ak
   const fuglSkjult = fuglVaek || (fuglNr >= 0 && (spil.trin < fuglNr || (spil.trin === fuglNr && aktivtTrinId !== kapitel.fuglFra)));
   // Sidder Æseløre selv på kortet (kapitel 6, ved søen), følger han ikke efter hovedpersonen imens.
   const fuglPaaKortet = sted.objekter.some((o) => o.form === 'fugl' && o.felt && !vaek.includes(o.id));
-  return [...(fuglSkjult || fuglPaaKortet ? [...vaek, 'aeseloere'] : vaek), ...skjulteBlade(spil, kapitel)];
+  // En filmsekvens: figurer, der toner frem i filmen, er skjult, fra trinnet begynder (20. november 2026).
+  const trin = kapitel.trin[spil.trin];
+  const film = trin?.type === 'film' ? skjultFoerFilm(trin.handlinger) : [];
+  const ud = [...(fuglSkjult || fuglPaaKortet ? [...vaek, 'aeseloere'] : vaek), ...skjulteBlade(spil, kapitel)];
+  return [...ud, ...film.filter((id) => !ud.includes(id))];
 }

@@ -2,6 +2,7 @@
 // Kun spillets egne, faste tekster fra src/content. Elevtekster kommer aldrig med her.
 import { readdirSync, readFileSync } from 'node:fs';
 import { lydNoegle } from '../src/content/lydnoegle.mjs';
+import { trinReplikker } from '../src/content/filmreplikker.mjs';
 import { renTekst } from './tekster.mjs';
 
 const laes = (sti) => JSON.parse(readFileSync(new URL(`../src/content/${sti}`, import.meta.url), 'utf8'));
@@ -43,7 +44,7 @@ export function alleLydtekster(stemmer = hentStemmer()) {
   for (const k of kapitler)
     for (const trin of k.trin) {
       const navn = `Kapitel ${k.kapitel}`;
-      (trin.replikker ?? []).forEach((r, i) => tilfoej(r.taler, r.tekst, `${navn} / ${trin.id}.${i + 1}`));
+      trinReplikker(trin).forEach((r, i) => tilfoej(r.taler, r.tekst, `${navn} / ${trin.id}.${i + 1}`));
       // Valg i en dialog: hver mulighed har sine egne replikker.
       (trin.valg?.muligheder ?? []).forEach((m, j) =>
         m.replikker.forEach((r, i) => tilfoej(r.taler, r.tekst, `${navn} / ${trin.id}.valg${j + 1}.${i + 1}`)),

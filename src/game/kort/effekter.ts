@@ -64,6 +64,8 @@ export function fuglFremkomst(s: KortScene) {
     duration: 650,
     ease: 'Back.Out',
     onComplete: () => {
+      // En filmsekvens kan have stoppet fremkomsten ("Spring over").
+      if (!s.fuglAnim) return;
       // Og flagrer i en bue op til hovedpersonen.
       const fra = { x: f.x, y: f.y };
       const bue = { t: 0 };
@@ -73,6 +75,7 @@ export function fuglFremkomst(s: KortScene) {
         duration: 1100,
         ease: 'Sine.InOut',
         onUpdate: () => {
+          if (!s.fuglAnim) return;
           const til = { x: s.spiller.x - 14, y: s.spiller.y + 4 };
           const kx = (fra.x + til.x) / 2;
           const ky = Math.min(fra.y, til.y) - 34;

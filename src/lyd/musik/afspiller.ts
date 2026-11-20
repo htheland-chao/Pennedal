@@ -44,6 +44,21 @@ export function saetMusikOverride(tema: string | null): void {
   if (ctx) anvend();
 }
 
+/** Temaet uden musik (filmsekvenser, fx før en sang toner frem). Samme navn som STILLE i src/engine/film/typer.ts. */
+const STILLE = 'stille';
+/** Overtoningens længde i sekunder. Kun et skift med overtonMusik bruger en anden end FADE. */
+let fade = FADE;
+
+/**
+ * Filmsekvenser (20. november 2026): skift sang med overtoning. Den gamle sang toner ud, mens den nye toner frem
+ * over ms millisekunder. tema null er stedets egen sang, "stille" er ingen musik. ms 0 skifter med det samme.
+ */
+export function overtonMusik(tema: string | null, ms: number): void {
+  fade = Math.max(0.01, ms / 1000);
+  saetMusikOverride(tema);
+  fade = FADE;
+}
+
 function lydFindes(): boolean {
   return typeof window !== 'undefined' && 'AudioContext' in window;
 }
@@ -100,13 +115,14 @@ function anvend() {
   hoved.gain.setTargetAtTime(styrke, ctx.currentTime, 0.3);
   const oensketTema = override ?? oensket.tema;
   const tema = SANGE[oensketTema] ? oensketTema : 'forside';
-  const noegle = `${tema}|${oensket.mild}`;
+  const noegle = `${oensketTema === STILLE ? STILLE : tema}|${oensket.mild}`;
   if (!oensket.til) {
     stopSang();
     return;
   }
   if (nu && `${nu.tema}|${oensket.mild}` === noegle) return;
   stopSang();
+  if (oensketTema === STILLE) return;
   startSang(tema, oensket.mild);
 }
 
@@ -115,7 +131,7 @@ function startSang(tema: string, mild: boolean) {
   const sang = SANGE[tema];
   const gain = ctx.createGain();
   gain.gain.setValueAtTime(0, ctx.currentTime);
-  gain.gain.linearRampToValueAtTime(1, ctx.currentTime + FADE);
+  gain.gain.linearRampToValueAtTime(1, ctx.currentTime + fade);
   gain.connect(daemper);
   const spor = sang.spor
     .filter((s) => !(mild && s.uhygge))
@@ -131,8 +147,10 @@ function stopSang() {
   const g = nu.gain;
   g.gain.cancelScheduledValues(ctx.currentTime);
   g.gain.setValueAtTime(g.gain.value, ctx.currentTime);
-  g.gain.linearRampToValueAtTime(0, ctx.currentTime + FADE / 2);
-  window.setTimeout(() => g.disconnect(), FADE * 1000);
+  // Ved en almindelig skift toner den gamle sang ud på det halve af tiden. En films overtoning bruger hele tiden.
+  const ud = fade === FADE ? FADE / 2 : fade;
+  g.gain.linearRampToValueAtTime(0, ctx.currentTime + ud);
+  window.setTimeout(() => g.disconnect(), (ud + 0.1) * 1000);
   nu = null;
 }
 

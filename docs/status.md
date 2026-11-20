@@ -1,6 +1,6 @@
 # Status for Pennedal
 
-Overdragelsesfil til hver ny session (Claude eller Henrik). Læs den først, og opdatér den i hver pull request, der ændrer noget af det, der står her. Sidst opdateret 19. november 2026.
+Overdragelsesfil til hver ny session (Claude eller Henrik). Læs den først, og opdatér den i hver pull request, der ændrer noget af det, der står her. Sidst opdateret 20. november 2026.
 
 Regler og stak står i `CLAUDE.md`. Historien står i `docs/historie.md`, grafikken i `docs/grafik.md`, og hvad der er lavet hvornår i `docs/logbog.md`.
 
@@ -60,7 +60,7 @@ Kort overblik. Hvornår og hvordan hver ting blev lavet, står i `docs/logbog.md
 
 ## Ikke testet
 - **Portrætter:** alle figurer, der taler, har en 24 x 24-buste, der fylder rammen.
-- **Filmsekvenser:** kernen findes (`src/engine/film/`, afspiller og tjek med tests). Mangler: arbejderne i Phaser og React, trintypen `film` og den første sekvens (ankomsten til Pennedal).
+- **Filmsekvenser:** trintypen `film` findes, og ankomsten til Pennedal (`k1-ankomst`) er den første sekvens. Kerne i `src/engine/film/`, Phaser i `src/game/kort/film.ts`, React i `src/components/film/`. Henrik har ikke set den endnu. Ryst, blink, ton, stemning og en figur, der går, er skrevet, men ikke brugt i en sekvens og ikke set. Næste: fase 5 (flere sekvenser) efter Henriks vurdering.
 - **Slag i kampen:** kort stop, hvidt glimt på det ramte væsen og farvede tal (guld, rød, grøn, grå).
 - **Udtryk** (glad, bange, vred) findes for Æseløre, Klatten, Vims, Fru Fodnote, Rimfod og Den Ufærdige. Andre figurer viser altid det faste portræt.
 - **Masterpaletten** gælder kun figurerne på grafikarket. Verdenens jord, huse, lys og CSS bruger stadig egne farver og er ikke tjekket mod paletten.
