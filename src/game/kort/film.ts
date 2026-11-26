@@ -12,14 +12,13 @@ import { lagHandling, lagRyd, tonFigur, vent, type PhaserHandling } from '../fil
  *
  * Regler: kameraet zoomer kun i hele trin og står på hele pixel (kortets egne regler). Med rolig bevægelse hopper
  * kameraet, og intet ryster. Med "Mindre uhygge" er der intet blink og intet mørke. Alt, filmen lægger på kortet
- * (kamera, ton, mørke, figurer, der toner væk), fjernes i oprydningen.
+ * (kamera, ton, mørke), fjernes i oprydningen. En figur, der toner væk, bliver væk: stedet skal skjule den
+ * fra det næste trin (skjulFra), og det tjekker src/engine/film/kapitler.test.ts.
  */
 
 export type FilmKamera = { fra: { x: number; y: number }; maal: KameraMaal; start: number; ms: number; zoom: number; nyZoom: number };
 export type FilmTilstand = {
   kamera: FilmKamera | null;
-  /** Objekter, der er tonet væk i filmen. De kommer tilbage i oprydningen. */
-  vaek: Set<string>;
   /** Kaldes i oprydningen, fx for at stoppe en lytter. */
   stop: (() => void)[];
 };
@@ -56,7 +55,7 @@ function billeder(s: KortScene, id: string): Phaser.GameObjects.Image[] {
 
 /** Gør filmens tilstand klar: spillet låses, og kameraet tages over. */
 export function filmStart(s: KortScene) {
-  s.film = { kamera: null, vaek: new Set(), stop: [] };
+  s.film = { kamera: null, stop: [] };
   s.laas(true);
 }
 
@@ -87,7 +86,6 @@ function saetPartikler(s: KortScene, synlige: boolean) {
 }
 
 function figur(s: KortScene, h: Extract<PhaserHandling, { type: 'figur' }>, roligt: boolean): Promise<void> {
-  const f = s.film!;
   const ventes: Promise<void>[] = [];
   const bs = billeder(s, h.id);
   if (bs.length === 0) console.warn(`Filmen: figuren ${h.id} findes ikke på stedet`);
@@ -103,7 +101,6 @@ function figur(s: KortScene, h: Extract<PhaserHandling, { type: 'figur' }>, roli
     }
   } else if (h.toner) {
     const frem = h.toner === 'frem';
-    if (h.id !== 'spiller') f.vaek[frem ? 'delete' : 'add'](h.id);
     ventes.push(tonFigur(s, bs, frem, roligt));
   }
   if (h.gaaTil && h.id === 'spiller') ventes.push(gaa(s, h.gaaTil, roligt));
@@ -161,7 +158,6 @@ export function filmOprydning(s: KortScene) {
   stopFremkomst(s);
   if (s.spiller) {
     for (const b of billeder(s, 'spiller')) b.setVisible(true).setAlpha(1);
-    for (const id of f.vaek) if (!(s.data_.skjulte ?? []).includes(id)) for (const b of billeder(s, id)) b.setVisible(true).setAlpha(1);
     saetPartikler(s, true);
     // Kameraet glider videre herfra, som det plejer.
     s.kam = { x: s.cameras.main.midPoint.x, y: s.cameras.main.midPoint.y };

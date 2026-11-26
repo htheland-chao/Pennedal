@@ -33,8 +33,8 @@
       ],
       "objekter": [
         { "id": "halvsaetning", "navn": "sætningen, der stopper midt i", "x": 0, "y": 0, "w": 0, "h": 0, "form": "halvsaetning", "farve": "#d9b56f", "felt": [9, 9], "skjulFra": "k8-kamp-slut" },
-        { "id": "ufaerdige", "navn": "Den Ufærdige", "x": 0, "y": 0, "w": 0, "h": 0, "form": "ufaerdige", "farve": "#d9b56f", "felt": [14, 4], "skjulFra": "k8-oplaesning" },
-        { "id": "skyggen", "navn": "Skyggen", "x": 0, "y": 0, "w": 0, "h": 0, "form": "skygge", "farve": "#d9b56f", "felt": [14, 4], "visFra": "k8-oplaesning" },
+        { "id": "ufaerdige", "navn": "Den Ufærdige", "x": 0, "y": 0, "w": 0, "h": 0, "form": "ufaerdige", "farve": "#d9b56f", "felt": [14, 4], "skjulFra": "k8-skyggen" },
+        { "id": "skyggen", "navn": "Skyggen", "x": 0, "y": 0, "w": 0, "h": 0, "form": "skygge", "farve": "#d9b56f", "felt": [14, 4], "visFra": "k8-skyggen" },
         { "id": "vims", "navn": "Vims", "x": 0, "y": 0, "w": 0, "h": 0, "form": "vims", "farve": "#d9b56f", "felt": [11, 12] },
         { "id": "fodnote", "navn": "Fru Fodnote", "x": 0, "y": 0, "w": 0, "h": 0, "form": "fodnote", "farve": "#d9b56f", "felt": [17, 12] },
         {
@@ -298,94 +298,77 @@
     },
     {
       "id": "k8-oplaesning",
-      "type": "dialog",
+      "type": "film",
       "del": 2,
       "sted": "sidstesiden",
       "objekt": null,
-      "tilbageblik": { "id": "skuffen", "foer": 1 },
-      "replikker": [
-        { "taler": "fortaeller", "tekst": "Du læser hele slutningen højt. Der var engang en lille skygge, der ledte efter et sted at høre til." },
+      "tilbageblik": {"id": "skuffen", "foer": 1},
+      "handlinger": [
         {
-          "taler": "fortaeller",
-          "tekst": "Den fandt et sted på den sidste side i det grønne hæfte.",
-          "hvis": {
-            "valg": "slut.sted.haefte"
-          }
+          "type": "samtidig",
+          "handlinger": [
+            {"type": "bjaelker", "til": true},
+            {"type": "musik", "tema": "stille", "overtoning": 1500},
+            {"type": "kamera", "til": {"figur": "ufaerdige"}, "ms": 1500}
+          ]
         },
         {
-          "taler": "fortaeller",
-          "tekst": "Den fandt et sted i biblioteket, mellem alle bøgerne.",
-          "hvis": {
-            "valg": "slut.sted.bibliotek"
-          }
+          "type": "replikker",
+          "replikker": [
+            {"taler": "fortaeller", "tekst": "Du læser hele slutningen højt. Der var engang en lille skygge, der ledte efter et sted at høre til."},
+            {"taler": "fortaeller", "tekst": "Den fandt et sted på den sidste side i det grønne hæfte.", "hvis": {"valg": "slut.sted.haefte"}},
+            {"taler": "fortaeller", "tekst": "Den fandt et sted i biblioteket, mellem alle bøgerne.", "hvis": {"valg": "slut.sted.bibliotek"}},
+            {"taler": "fortaeller", "tekst": "Den fandt et sted lige ved siden af dig, hvor du går.", "hvis": {"valg": "slut.sted.dig"}},
+            {"taler": "fortaeller", "tekst": "Der ventede alle hjælperne, og de havde gemt en plads til den.", "hvis": {"valg": "slut.hvem.hjaelpere"}},
+            {"taler": "fortaeller", "tekst": "Der var kun to, Skyggen og den, der havde tegnet den.", "hvis": {"valg": "slut.hvem.os"}},
+            {"taler": "fortaeller", "tekst": "Der sad et helt bibliotek af læsere, som gerne ville høre historien.", "hvis": {"valg": "slut.hvem.laesere"}},
+            {"taler": "fortaeller", "tekst": "Og så var Skyggen ikke alene mere.", "hvis": {"valg": "slut.ogsaa.alene"}},
+            {"taler": "fortaeller", "tekst": "Og så fik Skyggen et sted at høre til.", "hvis": {"valg": "slut.ogsaa.hjem"}},
+            {"taler": "fortaeller", "tekst": "Og så begyndte en helt ny historie.", "hvis": {"valg": "slut.ogsaa.ny"}},
+            {"taler": "fortaeller", "tekst": "Du sætter et punktum. Så bliver der helt stille på siden."}
+          ]
+        },
+        {"type": "vent", "ms": 1000},
+        {
+          "type": "samtidig",
+          "handlinger": [
+            {"type": "kamera", "til": {"figur": "ufaerdige"}, "zoom": 2, "ms": 600},
+            {"type": "ryst", "ms": 300}
+          ]
         },
         {
-          "taler": "fortaeller",
-          "tekst": "Den fandt et sted lige ved siden af dig, hvor du går.",
-          "hvis": {
-            "valg": "slut.sted.dig"
-          }
+          "type": "replikker",
+          "replikker": [
+            {"taler": "fortaeller", "tekst": "Den Ufærdige ryster lidt. Så er den ikke ufærdig mere. Den er bare Skyggen. Den er lille, rund og meget glad."}
+          ]
         },
         {
-          "taler": "fortaeller",
-          "tekst": "Der ventede alle hjælperne, og de havde gemt en plads til den.",
-          "hvis": {
-            "valg": "slut.hvem.hjaelpere"
-          }
+          "type": "samtidig",
+          "handlinger": [
+            {"type": "blink"},
+            {"type": "figur", "id": "ufaerdige", "toner": "vaek"},
+            {"type": "figur", "id": "skyggen", "toner": "frem"},
+            {"type": "musik", "tema": null, "overtoning": 3000}
+          ]
+        },
+        {"type": "vent", "ms": 1200},
+        {"type": "kamera", "til": {"figur": "spiller"}, "zoom": 2, "ms": 800},
+        {
+          "type": "replikker",
+          "replikker": [
+            {"taler": "aeseloere", "tekst": "Mærker du det? Jeg bliver glat. Helt glat. Tak fordi du tilgav mig. Det var den bedste slutning, jeg kunne få.", "udtryk": "glad", "hvis": {"valg": "aeseloere.tilgivet"}},
+            {"taler": "aeseloere", "tekst": "Mærker du det? Jeg bliver glat. Jeg fortjente det måske ikke. Men tak.", "hvis": {"ikkeValg": "aeseloere.tilgivet"}},
+            {"taler": "vims", "tekst": "Jeg græder ikke. Det er bare støv fra blyanten. Undskyld."},
+            {"taler": "fodnote", "tekst": "¹ Den bedste slutning er den, der bliver skrevet.", "udtryk": "glad"}
+          ]
         },
         {
-          "taler": "fortaeller",
-          "tekst": "Der var kun to, Skyggen og den, der havde tegnet den.",
-          "hvis": {
-            "valg": "slut.hvem.os"
-          }
-        },
-        {
-          "taler": "fortaeller",
-          "tekst": "Der sad et helt bibliotek af læsere, som gerne ville høre historien.",
-          "hvis": {
-            "valg": "slut.hvem.laesere"
-          }
-        },
-        {
-          "taler": "fortaeller",
-          "tekst": "Og så var Skyggen ikke alene mere.",
-          "hvis": {
-            "valg": "slut.ogsaa.alene"
-          }
-        },
-        {
-          "taler": "fortaeller",
-          "tekst": "Og så fik Skyggen et sted at høre til.",
-          "hvis": {
-            "valg": "slut.ogsaa.hjem"
-          }
-        },
-        {
-          "taler": "fortaeller",
-          "tekst": "Og så begyndte en helt ny historie.",
-          "hvis": {
-            "valg": "slut.ogsaa.ny"
-          }
-        },
-        { "taler": "fortaeller", "tekst": "Du sætter et punktum. Så bliver der helt stille på siden." },
-        { "taler": "fortaeller", "tekst": "Den Ufærdige ryster lidt. Så er den ikke ufærdig mere. Den er bare Skyggen. Den er lille, rund og meget glad." },
-        {
-          "taler": "aeseloere",
-          "tekst": "Mærker du det? Jeg bliver glat. Helt glat. Tak fordi du tilgav mig. Det var den bedste slutning, jeg kunne få.", "udtryk": "glad",
-          "hvis": {
-            "valg": "aeseloere.tilgivet"
-          }
-        },
-        {
-          "taler": "aeseloere",
-          "tekst": "Mærker du det? Jeg bliver glat. Jeg fortjente det måske ikke. Men tak.",
-          "hvis": {
-            "ikkeValg": "aeseloere.tilgivet"
-          }
-        },
-        { "taler": "vims", "tekst": "Jeg græder ikke. Det er bare støv fra blyanten. Undskyld." },
-        { "taler": "fodnote", "tekst": "¹ Den bedste slutning er den, der bliver skrevet.", "udtryk": "glad" }
+          "type": "samtidig",
+          "handlinger": [
+            {"type": "bjaelker", "til": false},
+            {"type": "kamera", "til": {"figur": "spiller"}, "zoom": 1, "ms": 600}
+          ]
+        }
       ]
     },
     {

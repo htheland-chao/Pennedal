@@ -93,3 +93,17 @@ test('fristelsen (kapitel 7) starter ved Den Ufærdige og kan springes over med 
   await expect(page.locator('.panel').getByRole('button', { name: /Den Ufærdige/ })).toBeVisible({ timeout: 10_000 });
   expect(fejl, fejl.join('\n')).toEqual([]);
 });
+
+test('slutningen (kapitel 8) kan springes over: Den Ufærdige er blevet til Skyggen, og mindet kommer', async ({ page }) => {
+  const fejl: string[] = [];
+  page.on('pageerror', (e) => fejl.push(e.message));
+  await page.goto('/?hop=k8-oplaesning');
+  const dialog = page.locator('dialog.dialogboks');
+  await expect(dialog).toContainText('Du læser hele slutningen højt', { timeout: 15_000 });
+  await page.screenshot({ path: `${BILLEDER}/film-06-k8-oplaesning.png` });
+  await page.keyboard.press('Escape');
+  await expect(page.locator('.film')).toHaveCount(0);
+  await expect(page.locator('.kvittering').filter({ hasText: 'Skuffen' })).toBeVisible({ timeout: 15_000 });
+  await expect(page.locator('.panel').getByRole('button', { name: /Skyggen/ })).toBeVisible({ timeout: 10_000 });
+  expect(fejl, fejl.join('\n')).toEqual([]);
+});

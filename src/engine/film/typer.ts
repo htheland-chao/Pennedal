@@ -22,7 +22,8 @@ export type Handling =
   /**
    * En figur går til et felt, vender sig eller toner frem eller væk. id er et objekt på stedet, "spiller" eller
    * "aeseloere". Kun hovedpersonen kan gå, og Æseløre kan ikke vende sig (han følger selv hovedpersonen).
-   * En figur, der toner frem i en film, er skjult, fra trinnet begynder. Toner en figur væk, varer det kun filmen ud.
+   * En figur, der toner frem i en film, er skjult, fra trinnet begynder. En figur, der toner væk, bliver væk:
+   * stedet skal skjule den fra det næste trin (skjulFra). Hovedpersonen kommer altid frem igen.
    */
   | { type: 'figur'; id: string; gaaTil?: FeltXY; vend?: 'venstre' | 'hoejre'; toner?: 'frem' | 'vaek' }
   /** Dialog som i et dialogtrin. Hver replik venter på "Videre". */
