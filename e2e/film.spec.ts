@@ -69,3 +69,23 @@ test('mørket over tagene (kapitel 2) kan springes over på platformbanen, og ka
   await expect(page.getByText('Kapitel 2 er slut.')).toBeVisible();
   expect(fejl, fejl.join('\n')).toEqual([]);
 });
+
+test('fristelsen (kapitel 7) starter ved Den Ufærdige og kan springes over med knappen i dialogen', async ({ page }) => {
+  const fejl: string[] = [];
+  page.on('pageerror', (e) => fejl.push(e.message));
+  await page.goto('/?hop=k7-fristelse');
+  await page.evaluate(() => (window as unknown as { __pennedal: { gaaTil: (id: string) => void } }).__pennedal.gaaTil('ufaerdige'));
+  const dialog = page.locator('dialog.dialogboks');
+  await expect(dialog).toContainText('Så bliver alt stille', { timeout: 15_000 });
+  const tilbud = dialog.getByText('Jeg kan give jer en slutning');
+  for (let i = 0; i < 10 && !(await tilbud.isVisible()); i++)
+    await dialog.getByRole('button', { name: 'Videre' }).click({ timeout: 2_000 }).catch(() => undefined);
+  await expect(tilbud).toBeVisible();
+  await page.waitForTimeout(500);
+  await page.screenshot({ path: `${BILLEDER}/film-05-k7-fristelse.png` });
+  await dialog.getByRole('button', { name: 'Spring over' }).click();
+  await expect(page.locator('.film')).toHaveCount(0);
+  // Bagefter: kampen hos Den Ufærdige er næste trin.
+  await expect(page.locator('.panel').getByRole('button', { name: /Den Ufærdige/ })).toBeVisible({ timeout: 10_000 });
+  expect(fejl, fejl.join('\n')).toEqual([]);
+});

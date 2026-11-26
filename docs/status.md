@@ -60,7 +60,7 @@ Kort overblik. Hvornår og hvordan hver ting blev lavet, står i `docs/logbog.md
 
 ## Ikke testet
 - **Portrætter:** alle figurer, der taler, har en 24 x 24-buste, der fylder rammen.
-- **Filmsekvenser:** trintypen `film` findes. Sekvenser: ankomsten til Pennedal (`k1-ankomst`, Henrik synes tempoet er fint) og mørket over tagene (`k2-moerke`, også på platformbaner). På vej: fristelsen i kapitel 7 og slutningen i kapitel 8. Kerne i `src/engine/film/`, Phaser i `src/game/kort/film.ts` og `src/game/bane/film.ts`, React i `src/components/film/`. Ton til sort, stemning og en figur, der går, er skrevet, men ikke brugt i en sekvens.
+- **Filmsekvenser:** trintypen `film` findes. Sekvenser: ankomsten til Pennedal (`k1-ankomst`, Henrik synes tempoet er fint) mørket over tagene (`k2-moerke`, også på platformbaner) og fristelsen (`k7-fristelse`, starter ved Den Ufærdige). På vej: slutningen i kapitel 8. Et klik på "Videre" blev én gang ikke til noget i en test af fristelsen (ikke genskabt). Kerne i `src/engine/film/`, Phaser i `src/game/kort/film.ts` og `src/game/bane/film.ts`, React i `src/components/film/`. Ton til sort, stemning og en figur, der går, er skrevet, men ikke brugt i en sekvens.
 - **Slag i kampen:** kort stop, hvidt glimt på det ramte væsen og farvede tal (guld, rød, grøn, grå).
 - **Udtryk** (glad, bange, vred) findes for Æseløre, Klatten, Vims, Fru Fodnote, Rimfod og Den Ufærdige. Andre figurer viser altid det faste portræt.
 - **Masterpaletten** gælder kun figurerne på grafikarket. Verdenens jord, huse, lys og CSS bruger stadig egne farver og er ikke tjekket mod paletten.
