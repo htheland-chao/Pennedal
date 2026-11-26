@@ -1,6 +1,6 @@
 # Status for Pennedal
 
-Overdragelsesfil til hver ny session (Claude eller Henrik). Læs den først, og opdatér den i hver pull request, der ændrer noget af det, der står her. Sidst opdateret 20. november 2026.
+Overdragelsesfil til hver ny session (Claude eller Henrik). Læs den først, og opdatér den i hver pull request, der ændrer noget af det, der står her. Sidst opdateret 26. november 2026.
 
 Regler og stak står i `CLAUDE.md`. Historien står i `docs/historie.md`, grafikken i `docs/grafik.md`, og hvad der er lavet hvornår i `docs/logbog.md`.
 
@@ -47,16 +47,12 @@ Kort overblik. Hvornår og hvordan hver ting blev lavet, står i `docs/logbog.md
 
 ## Åbent og mangler
 
-- **Lyd:** Halvsangen er en ny figur med stemmen Leda. Hendes replikker, banens intro og udflugtens replikker mangler klip, til lydjobbet har kørt.
+- **Lyd:** alle 2164 klip findes (26. november 2026). Nye eller ændrede tekster får klip, næste gang lydjobbet kører (`npm run lyd:status`).
 - **Grafik i Viskeskovens bane** er en første udgave: bleg skovbund, hvidt tomrum og tåge. Henrik bør se den.
-- **Lyd:** Den nye Og-orm-instruks (`ogorm.klip.instruks`) mangler sit klip. Tilføj den til testen i `src/components/oplaesning.test.ts`, når lydjobbet har lavet den.
-
-- **Lyd:** Mange klip mangler stadig (13. november 2026: 939 af 2148). Googles grænse er 100 klip om dagen pr. model (Tier 1, Tier 2 kræver 100 USD brugt). Status: `npm run lyd:status` eller `public/lyd/manifest.json`.
-- **Kapitel 8, nyt og ikke set af Henrik:** Den sidste side (linjeret papir), Halvsætningen og den lille Skygge, sangen `siden` og de fire navneforslag (Skumring, Pip, Lille Mørk, Fnug). Klippene mangler, til lydjobbet har kørt.
-- **Kapitel 7, nyt og ikke set af Henrik:** De halve lande (pletter, der kun er tegnet med blyant), fire nye figurer (Prinsesse Hilde, Kommissær Lup, Grumsen og Bip) med nye stemmer, sangen `halve` og banen Den halve bro. Genreteksterne står i `src/content/ord/genre.json`. Klippene mangler, til lydjobbet har kørt.
-- **Kapitel 6, nyt og ikke set af Henrik:** grafikken til Blæksøen (sort sø, Klattens hytte, Krusedullerne, Postsneglen), banen Stenene over Blæksøen, kampens baggrund og sangene `blaeksoe` og `hytte`. Postsneglen (stemmen Gacrux) og Krusedullerne (Sadachbia) er nye stemmer, og kapitel 6-klippene mangler, til lydjobbet har kørt. Korrekturopgavens fejl (16 tekster) bør ses igennem af Henrik: står i `src/content/ord/korrektur.json` og i korrekturlisten.
-- **Kapitel 5, nyt og ikke set af Henrik:** grafikken til arkivet (reoler, Fru Fodnote, Den Tvivlende Sætning, Den Ufærdiges blege øjne i mørket), banen De høje reoler, kampens baggrund og sangen `arkiv`. Fru Fodnote (stemmen Pulcherrima) og Den Tvivlende Sætning (Puck) er nye stemmer, og alle kapitel 5-klip mangler, til lydjobbet har kørt.
-- **Hovedfarve i designeren** har kun virkning, når hovedet har hætte eller kasket.
+- **Kapitel 8, nyt og ikke set af Henrik:** Den sidste side (linjeret papir), Halvsætningen og den lille Skygge, sangen `siden` og de fire navneforslag (Skumring, Pip, Lille Mørk, Fnug).
+- **Kapitel 7, nyt og ikke set af Henrik:** De halve lande (pletter, der kun er tegnet med blyant), fire nye figurer (Prinsesse Hilde, Kommissær Lup, Grumsen og Bip) med nye stemmer, sangen `halve` og banen Den halve bro. Genreteksterne står i `src/content/ord/genre.json`.
+- **Kapitel 6, nyt og ikke set af Henrik:** grafikken til Blæksøen (sort sø, Klattens hytte, Krusedullerne, Postsneglen), banen Stenene over Blæksøen, kampens baggrund og sangene `blaeksoe` og `hytte`. Postsneglen (stemmen Gacrux) og Krusedullerne (Sadachbia) er nye stemmer. Korrekturopgavens fejl (16 tekster) bør ses igennem af Henrik: står i `src/content/ord/korrektur.json` og i korrekturlisten.
+- **Kapitel 5, nyt og ikke set af Henrik:** grafikken til arkivet (reoler, Fru Fodnote, Den Tvivlende Sætning, Den Ufærdiges blege øjne i mørket), banen De høje reoler, kampens baggrund og sangen `arkiv`. Fru Fodnote (stemmen Pulcherrima) og Den Tvivlende Sætning (Puck) er nye stemmer.
 
 ## Ikke testet
 - **Portrætter:** alle figurer, der taler, har en 24 x 24-buste, der fylder rammen.

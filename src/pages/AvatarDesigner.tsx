@@ -3,7 +3,7 @@ import { avatarDele, navne, t, type TekstId } from '../content';
 import { AVATAR_GRAENSER, type Avatar } from '../data/gem';
 import { figurRammer } from '../game/pixel/kampliv';
 import { lerred, tegnkortTilLerred } from '../game/pixel/lerred';
-import { avatarPixel, LANTERNE, type Retning } from '../game/pixel/sprites';
+import { avatarPixel, brugerHovedfarve, LANTERNE, type Retning } from '../game/pixel/sprites';
 
 /**
  * Udseende-editoren (ny 14. november 2026): den fine figur med lys og skygge, som i spillet. Den trækker vejret
@@ -156,11 +156,13 @@ export function AvatarDesigner({ avatar: start, navn: startNavn, laasteOp, ny, o
                     <legend>{t(g.id)}</legend>
                     {g.dele.map((del) => {
                       const etiket = t(`avatar.${del}` as TekstId);
-                      const farve = avatarDele[del]?.farver?.[avatar[del]];
+                      // Farven på hovedet kan kun ses med hovedbeklædning eller halstørklæde. Ellers er valget slået fra.
+                      const ubrugt = del === 'hovedfarve' && !brugerHovedfarve(avatar);
+                      const farve = ubrugt ? undefined : avatarDele[del]?.farver?.[avatar[del]];
                       return (
                         <div className="avatar-raekke" key={del} role="group" aria-label={etiket}>
                           <span className="avatar-etiket">{etiket}</span>
-                          <button type="button" className="knap knap-lille avatar-pil" onClick={() => skift(del, -1)}>
+                          <button type="button" className="knap knap-lille avatar-pil" onClick={() => skift(del, -1)} disabled={ubrugt}>
                             <span aria-hidden="true">◀</span>
                             <span className="sr-only">
                               {t('avatar.forrige')} {etiket}
@@ -168,9 +170,9 @@ export function AvatarDesigner({ avatar: start, navn: startNavn, laasteOp, ny, o
                           </button>
                           <span className="avatar-vaerdi" aria-live="polite">
                             {farve && <span className="avatar-farve" style={{ '--farve': farve } as CSSProperties} aria-hidden="true" />}
-                            {valgNavn(del, avatar[del])}
+                            {ubrugt ? <span className="lille-tekst">{t('avatar.hovedfarve.ubrugt')}</span> : valgNavn(del, avatar[del])}
                           </span>
-                          <button type="button" className="knap knap-lille avatar-pil" onClick={() => skift(del, 1)}>
+                          <button type="button" className="knap knap-lille avatar-pil" onClick={() => skift(del, 1)} disabled={ubrugt}>
                             <span aria-hidden="true">▶</span>
                             <span className="sr-only">
                               {t('avatar.naeste')} {etiket}
