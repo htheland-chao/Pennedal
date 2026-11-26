@@ -3,7 +3,7 @@
  * Delt ud af banetegn.ts 17. november 2026 (Henriks regel: ingen fil over 500 linjer, én opgave pr. fil).
  */
 import { BFELT, erFast, type Bane } from '../../bane';
-import { hash, lerred } from '../lerred';
+import { ditherHimmel, hash, lerred } from '../lerred';
 import { hx, PLANKE, BLAEK, VISKET } from './farver';
 
 const SOESTEN = { top: hx('#8a8a8a'), a: hx('#6a6487'), b: hx('#5b5663'), mos: hx('#356c4d'), fuge: hx('#2a2f48') };
@@ -59,12 +59,7 @@ export function tegnSoebane(bane: Bane): HTMLCanvasElement {
 export function tegnSoeBaggrund(bredde: number, hoejde: number): HTMLCanvasElement {
   const c = lerred(bredde, hoejde);
   const g = c.getContext('2d')!;
-  const himmel = g.createLinearGradient(0, 0, 0, hoejde);
-  himmel.addColorStop(0, '#2a2442');
-  himmel.addColorStop(0.6, '#5a4a7a');
-  himmel.addColorStop(1, '#a0708a');
-  g.fillStyle = himmel;
-  g.fillRect(0, 0, bredde, hoejde);
+  ditherHimmel(g, bredde, hoejde, ['#2a2f48', '#3a3560', '#6a6487']);
   // De halve lande: bakker og træer, der kun er tegnet med en streg.
   const bund = Math.round(hoejde * 0.62);
   g.fillStyle = '#3a3560';

@@ -16,20 +16,20 @@ export function felt(g: CanvasRenderingContext2D, x: number, y: number, w: numbe
 
 /** Varm og falmet, som et gammelt fotografi. */
 export const P = {
-  lys: '#efe0bf',
-  mellem: '#dcc59a',
-  moerk: '#bf9f74',
-  skygge: '#9a7b58',
-  kontur: '#6e5440',
-  hud: '#e3b991',
-  hudLys: '#f1d2b0',
-  hudSkygge: '#c2916c',
-  knoer: '#f8eadb',
-  papir: '#f6ecd6',
-  papirSkygge: '#e2d3b2',
-  linje: '#b9a78a',
-  roed: '#c25446',
-  blaek: '#3e3a5c',
+  lys: '#f3ead2',
+  mellem: '#e0c995',
+  moerk: '#c4ab7c',
+  skygge: '#8a7656',
+  kontur: '#7a4e33',
+  hud: '#eec1a0',
+  hudLys: '#f6d7c3',
+  hudSkygge: '#c98d63',
+  knoer: '#f4efe0',
+  papir: '#f4efe0',
+  papirSkygge: '#d9d2bd',
+  linje: '#c4ab7c',
+  roed: '#c0503e',
+  blaek: '#3a3560',
 };
 
 /**
@@ -60,7 +60,7 @@ const HAAND: Tegnkort = {
     '..........kggk..........',
     '...........kk...........',
   ],
-  palet: { k: '#6e5440', h: '#e3b991', s: '#c2916c', W: '#f8eadb', t: '#d9a87f', T: '#efcaa6', y: '#e0a93c', Y: '#f0c45a', g: '#e8c89a', a: '#8796ad' },
+  palet: { k: '#7a4e33', h: '#eec1a0', s: '#c98d63', W: '#f4efe0', t: '#e0a982', T: '#f6d7c3', y: '#d9b56f', Y: '#f0c45a', g: '#e0c995', a: '#8a8a8a' },
 };
 
 /** Tegner hånden med blyanten forstørret, med spidsen mod papiret i (x, y). */

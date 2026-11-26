@@ -13,8 +13,8 @@ const hx = (h: string): [number, number, number] => [parseInt(h.slice(1, 3), 16)
 const BAYER = [0, 8, 2, 10, 12, 4, 14, 6, 3, 11, 1, 9, 15, 7, 13, 5];
 const bay = (x: number, y: number) => BAYER[(y % 4) * 4 + (x % 4)] / 16;
 
-const HIMMEL = ['#c9dcf2', '#dde6ee', '#f3ead2'].map(hx);
-const HIMMEL_MOERK = ['#2a2f48', '#3a3a5e', '#4f4a6e'].map(hx);
+const HIMMEL = ['#c9dcf2', '#f3ead2'].map(hx);
+const HIMMEL_MOERK = ['#2a2f48', '#3a3560', '#4f4a57'].map(hx);
 const GRAES = ['#3d7a57', '#468a60', '#356c4d', '#4f9467'].map(hx);
 const STRAA = hx('#5aa572');
 const LYSNING = ['#4f9467', '#5aa572'].map(hx);
@@ -41,7 +41,7 @@ export function tegnKampBaggrund(tema: string, moerk: boolean): HTMLCanvasElemen
   for (let y = 0; y < KAMP_H; y++)
     for (let x = 0; x < KAMP_B; x++) {
       if (y < HORISONT) {
-        // Tre bånd med dither imellem, ingen bløde overgange.
+        // Bånd med dither imellem, ingen bløde overgange.
         const t = (y / HORISONT) * (himmel.length - 1);
         const a = Math.floor(t);
         saet(x, y, himmel[Math.min(himmel.length - 1, a + (t - a > bay(x, y) ? 1 : 0))]);
@@ -82,11 +82,11 @@ function tegnArkivKamp(c: HTMLCanvasElement, moerk: boolean): HTMLCanvasElement 
   const g = c.getContext('2d')!;
   const d = g.createImageData(KAMP_B, KAMP_H);
   const p = d.data;
-  const VAEG = (moerk ? ['#16121e', '#1e1828'] : ['#2a2236', '#332a40']).map(hx);
-  const STEN = ['#4a4452', '#544c5c', '#3e3946'].map(hx);
-  const LYS = ['#6a6070', '#7a6e7a'].map(hx);
-  const FUGE = hx('#2a2530');
-  const RYGGE = ['#7a2e2e', '#2e4a6b', '#4e6a3a', '#8a6a2e', '#5a3a6b'].map(hx);
+  const VAEG = (moerk ? ['#070912', '#1b1b24'] : ['#2a2f48', '#3a3560']).map(hx);
+  const STEN = ['#4f4a57', '#5b5663', '#3a3560'].map(hx);
+  const LYS = ['#6a6487', '#7a7468'].map(hx);
+  const FUGE = hx('#222222');
+  const RYGGE = ['#7a2e1f', '#28467c', '#356c4d', '#8a7656', '#603979'].map(hx);
   for (let y = 0; y < KAMP_H; y++)
     for (let x = 0; x < KAMP_B; x++) {
       const i = (y * KAMP_B + x) * 4;
@@ -129,10 +129,10 @@ function tegnBlaeksoeKamp(c: HTMLCanvasElement, moerk: boolean): HTMLCanvasEleme
   const g = c.getContext('2d')!;
   const d = g.createImageData(KAMP_B, KAMP_H);
   const p = d.data;
-  const HIMMEL_AFTEN = (moerk ? ['#1c1a30', '#2a2442', '#3a2e52'] : ['#3a3a6a', '#5a4a7a', '#a0708a']).map(hx);
-  const SOE = ['#0f0e1c', '#15132a'].map(hx);
-  const GLIMT = hx('#5a4f8a');
-  const BRED = hx('#2a2030');
+  const HIMMEL_AFTEN = (moerk ? ['#1a1e36', '#2a2f48', '#3a3560'] : ['#2a2f48', '#3a3560', '#6a6487']).map(hx);
+  const SOE = ['#070912', '#1b1b24'].map(hx);
+  const GLIMT = hx('#6a6487');
+  const BRED = hx('#1a1e36');
   const SOE_BUND = HORISONT + 26;
   for (let y = 0; y < KAMP_H; y++)
     for (let x = 0; x < KAMP_B; x++) {
@@ -173,11 +173,11 @@ function tegnDybetKamp(c: HTMLCanvasElement, moerk: boolean): HTMLCanvasElement 
   const g = c.getContext('2d')!;
   const d = g.createImageData(KAMP_B, KAMP_H);
   const p = d.data;
-  const DYB = (moerk ? ['#07060f', '#0c0a18', '#14112a', '#1d1838'] : ['#0e0c1c', '#161330', '#211b44', '#2c2456']).map(hx);
-  const FLADE = ['#0b0a16', '#110f22'].map(hx);
-  const SPEJL = ['#2a2456', '#3a3270'].map(hx);
-  const LYS = ['#463c82', '#5a4f9a'].map(hx);
-  const KANT = hx('#5a4f8a');
+  const DYB = (moerk ? ['#070912', '#1b1b24', '#1a1e36'] : ['#070912', '#1a1e36', '#2a2f48']).map(hx);
+  const FLADE = ['#070912', '#1b1b24'].map(hx);
+  const SPEJL = ['#2a2f48', '#3a3560'].map(hx);
+  const LYS = ['#3a3560', '#6a6487'].map(hx);
+  const KANT = hx('#6a6487');
   const BUND = HORISONT + 4;
   for (let y = 0; y < KAMP_H; y++)
     for (let x = 0; x < KAMP_B; x++) {
@@ -207,7 +207,7 @@ function tegnDybetKamp(c: HTMLCanvasElement, moerk: boolean): HTMLCanvasElement 
     }
   g.putImageData(d, 0, 0);
   // Dryp fra loftet: tynde, mørke tråde med en dråbe for enden.
-  g.fillStyle = '#05040b';
+  g.fillStyle = '#070912';
   for (let i = 0; i < 18; i++) {
     const x = Math.round(hash(i, 11) * (KAMP_B - 4)) + 2;
     const l = 4 + Math.floor(hash(i, 5) * 22);
@@ -219,7 +219,7 @@ function tegnDybetKamp(c: HTMLCanvasElement, moerk: boolean): HTMLCanvasElement 
   for (let i = 0; i < 40; i++) {
     const x = Math.round(hash(i, 23) * KAMP_B);
     const y = Math.round(10 + hash(i, 29) * (BUND - 14));
-    g.fillStyle = i % 3 === 0 ? '#b8b0f0' : '#6a5fb0';
+    g.fillStyle = i % 3 === 0 ? '#b9bfcf' : '#7b4bb3';
     g.fillRect(x, y, 1, 1);
   }
   return c;
