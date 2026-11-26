@@ -1,276 +1,224 @@
 /**
  * Anden halvdel af minderne (tilbageblik), 320 x 180, i samme rækkefølge som i historien.
- * Delt ud af minder.ts 16. november 2026. Fælles farver og hånden står i faelles.ts.
+ * Tegnet om 26. november 2026 sammen med tidlige.ts: ét tydeligt motiv, lys, omrids og skygge.
  */
-import { hash, lerred } from '../lerred';
-import { B, H, P, felt, haandMedBlyant } from './faelles';
+import { B, H, faerdig, felt, nytMinde } from './faelles';
+import { OMRIDS, ellipse, firkant, fyld, form, kapsel, lysfelt, ordlinjer, polygon, vignet } from './kit';
+import { VAEG_AFTEN, VAEG_DAG, bordOppefra, bordplade, gulv, vaeg } from './rum';
+import {
+  AERME_BARN, AERME_BRUN, HUD, HUD_VOKSEN, PAPIR, TRAE, TRAE_LYS, boeger, bordlampe, doer, haandAaben,
+  haandSkriver, haefteAabent, haefteLukket, papkasse, skyggen, vindue,
+} from './ting';
 
-/** Kapitel 5, Skyggen bliver tegnet: skrivebordet om aftenen, det grønne hæfte og en lille skygge på forsiden. Blyanten ligger stille. */
+const nyt = nytMinde;
+
+/** Skrivebord set forfra med en skuffe. Returnerer skuffens kasse. */
+function skrivebord(g: CanvasRenderingContext2D, x: number, y: number, w: number, h: number, skuffeUd = 0) {
+  form(g, firkant(x, y, w, 8, 1), TRAE_LYS);
+  form(g, firkant(x + 6, y + 8, w - 12, h - 8), TRAE);
+  const sx = x + w / 2 - 40;
+  const sy = y + 14;
+  if (skuffeUd > 0) {
+    fyld(g, firkant(sx, sy, 80, 20), '#1b1b24');
+    form(g, polygon([[sx - 6, sy + 20 + skuffeUd], [sx + 86, sy + 20 + skuffeUd], [sx + 80, sy + 20], [sx, sy + 20]]), TRAE, 1);
+    form(g, firkant(sx - 6, sy + 20 + skuffeUd, 92, 18, 1), TRAE_LYS, 1);
+    form(g, firkant(sx + 36, sy + 26 + skuffeUd, 20, 4, 1), { kontur: OMRIDS, skygge: '#d9b56f', mid: '#e5c03a', lys: '#f0c45a' }, 1);
+  } else {
+    form(g, firkant(sx, sy, 80, 20, 1), TRAE_LYS, 1);
+    form(g, firkant(sx + 30, sy + 8, 20, 4, 1), { kontur: OMRIDS, skygge: '#d9b56f', mid: '#e5c03a', lys: '#f0c45a' }, 1);
+  }
+  return { sx, sy };
+}
+
+/** Skyggen bliver tegnet: sent om aftenen ved skrivebordet. En hånd tegner Skyggen på forsiden af det grønne hæfte. */
 export function tegnSkyggen(): HTMLCanvasElement {
-  const c = lerred(B, H);
-  const g = c.getContext('2d')!;
-  for (let y = 0; y < H; y++) for (let x = 0; x < B; x++) felt(g, x, y, 1, 1, hash(x, y) > 0.93 ? '#2a2f48' : '#1a1e36');
-  // Lyskeglen fra lampen.
-  for (let y = 20; y < 120; y++)
-    for (let x = 0; x < B; x++) {
-      const d = Math.hypot((x - 160) / 1.8, y - 120);
-      if (d < 70) felt(g, x, y, 1, 1, '#4a3426');
-      else if (d < 86 && (x + y) % 2 === 0) felt(g, x, y, 1, 1, '#2a2f48');
-    }
-  // Bordpladen.
-  felt(g, 0, 120, B, 60, '#6b4a2b');
-  for (let x = 0; x < B; x += 3) if (hash(x, 1) > 0.5) felt(g, x, 124 + Math.floor(hash(x, 2) * 40), 2, 1, '#6b3f27');
-  // Hæftet, grønt omslag, åbent.
-  felt(g, 70, 70, 180, 90, P.kontur);
-  felt(g, 72, 72, 86, 86, P.papir);
-  felt(g, 162, 72, 86, 86, P.papir);
-  felt(g, 158, 72, 4, 86, '#3d7a57');
-  for (let r = 0; r < 7; r++) felt(g, 78, 80 + r * 9, 70 - (r === 6 ? 40 : 0), 1, '#7a7468');
-  // Skyggen tegnet på højre side: rund, med store øjne.
-  for (let y = -16; y <= 16; y++) for (let x = -14; x <= 14; x++) if ((x * x) / 196 + (y * y) / 256 <= 1) felt(g, 205 + x, 112 + y, 1, 1, hash(x + 50, y) > 0.15 ? '#3a3560' : '#5b5663');
-  for (const ox of [-6, 6]) {
-    felt(g, 202 + ox, 104, 6, 6, P.papir);
-    felt(g, 204 + ox, 106, 3, 3, '#222222');
-  }
-  // Blyanten ligger stille ved den sidste, korte linje.
-  haandMedBlyant(g, 112, 126, 2);
-  return c;
+  const { c, g } = nyt();
+  vaeg(g, 0, 100, VAEG_AFTEN, 70, 60, 230);
+  bordplade(g, 100, 70, 100, 230);
+  bordlampe(g, 56, 116);
+  haefteLukket(g, 112, 108, 120, 66);
+  form(g, firkant(146, 116, 52, 48, 2), PAPIR, 1);
+  skyggen(g, 172, 138, 15, true);
+  haandSkriver(g, 190, 150);
+  vignet(g, '#1b1b24', 0.65);
+  return faerdig(c, g);
 }
 
-/** Skår 5a, Fodnoten i hæftet: en side med linjer og nederst en lille, lille skrift og en stjerne. */
+/** Fodnoten i hæftet: nederst på siden står noget med meget lille skrift og en stjerne ved siden af. */
 export function tegnFodnotenIHaeftet(): HTMLCanvasElement {
-  const c = lerred(B, H);
-  const g = c.getContext('2d')!;
-  for (let y = 0; y < H; y++) for (let x = 0; x < B; x++) felt(g, x, y, 1, 1, hash(x, y) > 0.92 ? '#a99068' : '#c4ab7c');
-  felt(g, 40, 6, 240, 168, P.kontur);
-  felt(g, 41, 7, 238, 166, P.papir);
-  felt(g, 41, 7, 6, 166, '#3d7a57');
-  for (let r = 0; r < 11; r++) for (let k = 0; k < 5; k++) if (hash(r + 9, k) > 0.15) felt(g, 58 + k * 42, 18 + r * 11, 34, 2, '#4f4a57');
-  // En streg over fodnoten.
-  felt(g, 58, 145, 60, 1, '#7a7468');
-  // Den lille skrift nederst.
-  for (let k = 0; k < 14; k++) felt(g, 60 + k * 12, 152, 9, 1, '#4f4a57');
-  for (let k = 0; k < 8; k++) felt(g, 60 + k * 12, 158, 9, 1, '#4f4a57');
+  const { c, g } = nyt();
+  bordOppefra(g, 70, 30, 300);
+  fyld(g, firkant(30, 8, 270, 172, 2), '#4a3426');
+  form(g, firkant(26, 4, 270, 176, 2), { ...PAPIR, kontur: '#8a7656' }, 2);
+  fyld(g, firkant(26, 4, 6, 176), '#3d7a57');
+  ordlinjer(g, 46, 18, 220, 13, 9, '#7a7468', 6);
+  // Fodnoten: en tynd streg og små ord.
+  felt(g, 46, 140, 80, 1, '#a99068');
+  ordlinjer(g, 46, 148, 150, 2, 5, '#2a2f48', 9, false);
   // Stjernen.
-  const sx = 166;
-  const sy = 156;
-  felt(g, sx - 1, sy - 5, 3, 11, P.roed);
-  felt(g, sx - 5, sy - 1, 11, 3, P.roed);
-  felt(g, sx - 3, sy - 3, 2, 2, P.roed);
-  felt(g, sx + 2, sy - 3, 2, 2, P.roed);
-  felt(g, sx - 3, sy + 2, 2, 2, P.roed);
-  felt(g, sx + 2, sy + 2, 2, 2, P.roed);
-  return c;
+  const sx = 218;
+  const sy = 151;
+  form(g, polygon([[sx, sy - 9], [sx + 3, sy - 3], [sx + 9, sy - 2], [sx + 4, sy + 2], [sx + 6, sy + 9], [sx, sy + 5], [sx - 6, sy + 9], [sx - 4, sy + 2], [sx - 9, sy - 2], [sx - 3, sy - 3]]), { kontur: '#8e3428', skygge: '#c0503e', mid: '#e5c03a', lys: '#f0c45a' }, 1);
+  haandSkriver(g, sx + 12, sy + 6);
+  vignet(g, '#4a3426', 0.45);
+  return faerdig(c, g);
 }
 
-/** Skår 5b, Hvad skriver du?: vindueskarmen, regn på ruden og et lukket, grønt hæfte på knæene. Ingen ansigter. */
+/** Hvad skriver du? En vindueskarm i regnvejr, det grønne hæfte på knæene og hænder, der holder det lukket. */
 export function tegnVindueskarmen(): HTMLCanvasElement {
-  const c = lerred(B, H);
-  const g = c.getContext('2d')!;
-  // Ruden: grå himmel med regndråber.
-  felt(g, 0, 0, B, 120, '#a7aab8');
-  for (let y = 0; y < 120; y++) for (let x = 0; x < B; x++) if (hash(x, y) > 0.985) felt(g, x, y, 1, 3, '#c9dcf2');
-  // Vinduesrammen.
-  felt(g, 0, 0, B, 6, '#d9d2bd');
-  felt(g, 156, 0, 8, 120, '#d9d2bd');
-  felt(g, 0, 114, B, 10, '#d9d2bd');
-  // Karmen og væggen.
-  felt(g, 0, 124, B, 56, '#c4ab7c');
-  for (let y = 124; y < H; y++) for (let x = 0; x < B; x++) if (hash(x + 3, y) > 0.95) felt(g, x, y, 1, 1, '#a99068');
-  // Knæene under et tæppe og det lukkede hæfte.
-  felt(g, 90, 120, 140, 44, P.kontur);
-  felt(g, 92, 122, 136, 40, '#a96e48');
-  felt(g, 120, 110, 80, 24, P.kontur);
-  felt(g, 122, 112, 76, 20, '#3d7a57');
-  felt(g, 122, 112, 76, 2, '#5aa572');
-  // Hænderne holder hæftet lukket.
-  felt(g, 112, 116, 14, 12, P.hud);
-  felt(g, 194, 116, 14, 12, P.hud);
-  felt(g, 112, 126, 14, 2, P.hudSkygge);
-  felt(g, 194, 126, 14, 2, P.hudSkygge);
-  return c;
+  const { c, g } = nyt();
+  vaeg(g, 0, H, VAEG_DAG, 160, 60, 260);
+  vindue(g, 30, 6, 260, 116, ['#6a6487', '#a7aab8', '#b9bfcf'], 60);
+  form(g, firkant(0, 120, B, 12, 1), TRAE_LYS);
+  form(g, firkant(0, 132, B, 48), TRAE);
+  // Knæene i blå bukser og hæftet ovenpå.
+  form(g, ellipse(116, 178, 44, 28), AERME_BARN);
+  form(g, ellipse(206, 178, 44, 28), AERME_BARN);
+  haefteLukket(g, 102, 128, 120, 44);
+  haandAaben(g, 104, 156, -0.35, [56, H + 24], HUD, AERME_BARN, 1, 0.6);
+  haandAaben(g, 220, 152, Math.PI + 0.35, [268, H + 24], HUD, AERME_BARN, 1, 0.6);
+  vignet(g, '#5d5243', 0.45);
+  return faerdig(c, g);
 }
 
-/** Kapitel 6, Hjørnet bliver foldet: en side i det grønne hæfte, hvor det øverste hjørne er foldet ned. Det er sent. */
+/** Hjørnet bliver foldet: sent om aftenen, det åbne hæfte og hjørnet af siden, der bliver foldet ned. */
 export function tegnFoldet(): HTMLCanvasElement {
-  const c = lerred(B, H);
-  const g = c.getContext('2d')!;
-  for (let y = 0; y < H; y++) for (let x = 0; x < B; x++) felt(g, x, y, 1, 1, hash(x, y) > 0.94 ? '#2a2f48' : '#1a1e36');
-  // Bordet i lampens lys.
-  for (let y = 60; y < H; y++)
-    for (let x = 0; x < B; x++) {
-      const d = Math.hypot((x - 160) / 1.7, y - 120);
-      felt(g, x, y, 1, 1, d < 80 ? '#6b4a2b' : d < 96 && (x + y) % 2 === 0 ? '#6b3f27' : '#3a2a20');
-    }
-  // Siden.
-  felt(g, 90, 30, 140, 130, P.kontur);
-  felt(g, 92, 32, 136, 126, P.papir);
-  felt(g, 92, 32, 4, 126, '#3d7a57');
-  for (let r = 0; r < 9; r++) felt(g, 104, 46 + r * 11, r === 8 ? 40 : 110, 2, '#4f4a57');
-  // Det foldede hjørne: en trekant, der er bøjet ned over siden.
-  for (let y = 0; y < 30; y++)
-    for (let x = 0; x < 30 - y; x++) {
-      felt(g, 228 - x, 32 + y, 1, 1, '#1a1e36');
-      if (x < 30 - y - 1) felt(g, 198 + y, 32 + x, 1, 1, x + y > 26 ? P.kontur : '#d9d2bd');
-    }
-  for (let i = 0; i < 30; i++) felt(g, 198 + i, 32 + i, 1, 1, P.kontur);
-  // En finger, der holder hjørnet nede.
-  felt(g, 214, 36, 16, 8, P.hud);
-  felt(g, 214, 43, 16, 2, P.hudSkygge);
-  felt(g, 226, 36, 4, 8, P.hudLys);
-  return c;
+  const { c, g } = nyt();
+  bordOppefra(g, 60, 20, 280);
+  const { hoejre } = haefteAabent(g, 26, 22, 252, 146, { venstre: true, hoejre: false });
+  const [hx, hy, hw] = hoejre;
+  ordlinjer(g, hx + 6, hy + 7, hw - 16, 5, 7, '#7a7468', 3, false);
+  ordlinjer(g, hx + 6, hy + 46, 26, 1, 7, '#2a2f48', 8, false);
+  // Det foldede hjørne øverst til højre.
+  const kx = hx + hw;
+  fyld(g, polygon([[kx - 30, hy], [kx, hy], [kx, hy + 30]]), '#4a3426');
+  form(g, polygon([[kx - 30, hy], [kx, hy + 30], [kx - 30, hy + 30]]), { kontur: '#8a7656', skygge: '#c4ab7c', mid: '#d9d2bd', lys: '#f3ead2' }, 1);
+  haandAaben(g, kx - 10, hy + 46, -Math.PI * 0.6, [B + 10, H + 20], HUD, AERME_BARN, 0.9, 0.5);
+  vignet(g, '#1b1b24', 0.6);
+  return faerdig(c, g);
 }
 
-/** Skår 6a, Klatten på siden: en side med en stor blækklat, der har fået tegnet ben og små øjne på. Fyldepennen ligger ved siden af. */
+/** Klatten på siden: en stor blækklat midt på siden, der har fået ben og små øjne, og fyldepennen ved siden af. */
 export function tegnKlattenPaaSiden(): HTMLCanvasElement {
-  const c = lerred(B, H);
-  const g = c.getContext('2d')!;
-  for (let y = 0; y < H; y++) for (let x = 0; x < B; x++) felt(g, x, y, 1, 1, hash(x, y) > 0.92 ? '#a99068' : '#c4ab7c');
-  felt(g, 50, 8, 220, 164, P.kontur);
-  felt(g, 51, 9, 218, 162, P.papir);
-  for (let r = 0; r < 13; r++) if (r < 4 || r > 9) felt(g, 64, 20 + r * 12, 190, 1, '#c9dcf2');
-  // Klatten: en rund klat med sprøjt omkring.
-  for (let y = -26; y <= 26; y++)
-    for (let x = -30; x <= 30; x++) {
-      const v = Math.atan2(y, x);
-      const r = 22 + Math.sin(v * 5) * 3 + Math.sin(v * 9 + 1) * 2;
-      if (Math.hypot(x, y * 1.1) <= r) felt(g, 160 + x, 92 + y, 1, 1, '#1a1e36');
-    }
-  for (const [x, y, r] of [[112, 70, 4], [205, 112, 3], [196, 60, 2], [124, 120, 3]])
-    for (let yy = -r; yy <= r; yy++) for (let xx = -r; xx <= r; xx++) if (xx * xx + yy * yy <= r * r) felt(g, x + xx, y + yy, 1, 1, '#1a1e36');
-  // Øjnene og benene, tegnet med blyant.
-  for (const ox of [-8, 8]) {
-    felt(g, 156 + ox, 84, 7, 7, '#f4efe0');
-    felt(g, 158 + ox, 86, 3, 3, '#070912');
+  const { c, g } = nyt();
+  bordOppefra(g, 160, 60, 300);
+  fyld(g, firkant(56, 8, 216, 172, 2), '#4a3426');
+  form(g, firkant(52, 4, 216, 176, 2), PAPIR, 2);
+  for (let y = 18; y < 176; y += 10) felt(g, 62, y, 196, 1, '#c9dcf2');
+  // Klatten: en rund klat med små stænk omkring.
+  const klat = [ellipse(160, 84, 30, 24), ellipse(138, 72, 12, 12), ellipse(184, 70, 11, 10), ellipse(182, 98, 12, 10), ellipse(140, 100, 11, 9)];
+  for (const k of klat) fyld(g, k, '#070912');
+  for (const k of klat) form(g, k, { skygge: '#070912', mid: '#1b1b24', lys: '#2a2f48' }, 2);
+  for (const [sx, sy, r] of [[114, 58, 3], [204, 54, 2.5], [210, 112, 3], [120, 118, 2], [168, 46, 2]] as [number, number, number][]) fyld(g, ellipse(sx, sy, r, r), '#1b1b24');
+  // Ben og øjne, tegnet med pen.
+  for (const bx of [148, 172]) {
+    felt(g, bx, 106, 2, 18, '#1b1b24');
+    felt(g, bx - 3, 123, 6, 2, '#1b1b24');
   }
-  for (const ox of [-10, 8]) {
-    felt(g, 160 + ox, 114, 2, 16, '#4f4a57');
-    felt(g, 160 + ox - 2, 129, 6, 2, '#4f4a57');
+  for (const ox of [150, 170]) {
+    fyld(g, ellipse(ox, 80, 5, 5.5), '#f4efe0');
+    fyld(g, ellipse(ox + 1.5, 81, 2.4, 2.6), '#070912');
   }
   // Fyldepennen.
-  for (let i = 0; i < 70; i++) felt(g, 230 - i, 160 - Math.floor(i * 0.35), 4, 3, i < 12 ? '#c4ab7c' : '#2a2f48');
-  return c;
+  form(g, kapsel(214, 150, 286, 122, 4), { kontur: '#070912', skygge: '#1a1e36', mid: '#2a2f48', lys: '#4f4a57' });
+  form(g, polygon([[214, 146], [214, 154], [202, 154]]), { kontur: OMRIDS, skygge: '#d9b56f', mid: '#e5c03a', lys: '#f0c45a' }, 1);
+  vignet(g, '#4a3426', 0.4);
+  return faerdig(c, g);
 }
 
-/** Skår 6b, Kassen ved døren: en papkasse med bøger ved en dør, og øverst noget grønt. Ingen ansigter. */
+/** Kassen ved døren: et ryddet værelse, en kasse med bøger, der skal gives væk, og noget grønt øverst. */
 export function tegnKassenVedDoeren(): HTMLCanvasElement {
-  const c = lerred(B, H);
-  const g = c.getContext('2d')!;
-  for (let y = 0; y < H; y++) for (let x = 0; x < B; x++) felt(g, x, y, 1, 1, y < 130 ? (hash(x, y) > 0.95 ? '#c4ab7c' : '#e0c995') : (x + (y >> 2) * 3) % 24 === 0 ? '#7a4e33' : '#a96e48');
-  // Døren.
-  felt(g, 40, 10, 84, 122, P.kontur);
-  felt(g, 44, 14, 76, 118, '#a99068');
-  felt(g, 52, 24, 60, 40, '#a96e48');
-  felt(g, 52, 74, 60, 50, '#a96e48');
-  felt(g, 108, 76, 6, 6, '#e5c03a');
-  // Kassen.
-  felt(g, 150, 92, 120, 70, P.kontur);
-  felt(g, 152, 94, 116, 66, '#c4ab7c');
-  felt(g, 152, 94, 116, 4, '#e0c995');
-  felt(g, 140, 86, 20, 10, '#a99068');
-  felt(g, 260, 86, 20, 10, '#a99068');
-  // Bøger, der stikker op, og øverst det grønne hæfte.
-  const ryg = ['#c0503e', '#2c6fbb', '#7b4bb3', '#e5c03a', '#3d7a57'];
-  for (let i = 0; i < 9; i++) felt(g, 160 + i * 11, 72 + (i % 3) * 4, 9, 24, ryg[i % ryg.length]);
-  felt(g, 186, 64, 60, 12, P.kontur);
-  felt(g, 187, 65, 58, 10, '#3d7a57');
-  felt(g, 187, 65, 58, 2, '#5aa572');
-  return c;
+  const { c, g } = nyt();
+  vaeg(g, 0, 120, VAEG_DAG, 220, 40, 260);
+  gulv(g, 120, ['#6b4a2b', '#8a5a3a', '#a96e48', '#c98d63'], 200, 120, 240, 100);
+  doer(g, 36, 22, 62, 98);
+  // Den tomme skrivebordsskuffe ude til højre.
+  skrivebord(g, 240, 70, 90, 50, 12);
+  // Kassen med bøger og hæftet øverst.
+  boeger(g, 114, 118, 70, 26, 1);
+  papkasse(g, 106, 116, 86, 50);
+  haefteLukket(g, 120, 96, 52, 18);
+  vignet(g, '#5d5243', 0.4);
+  return faerdig(c, g);
 }
 
-/** Kapitel 7, Søskendet: en åben skuffe i et skrivebord og to hænder, der leder mellem papirerne. Ingen ansigter. */
+/** Nogen ved skuffen: eftermiddag, skuffen er trukket ud, og to hænder leder mellem papirerne. */
 export function tegnSoeskendet(): HTMLCanvasElement {
-  const c = lerred(B, H);
-  const g = c.getContext('2d')!;
-  for (let y = 0; y < H; y++) for (let x = 0; x < B; x++) felt(g, x, y, 1, 1, hash(x, y) > 0.94 ? '#c4ab7c' : '#e0c995');
-  // Skrivebordet.
-  felt(g, 30, 40, 260, 20, P.kontur);
-  felt(g, 32, 42, 256, 16, '#8a7656');
-  felt(g, 40, 60, 240, 120, P.kontur);
-  felt(g, 42, 62, 236, 118, '#6b4a2b');
-  // Den åbne skuffe.
-  felt(g, 70, 96, 180, 70, P.kontur);
-  felt(g, 72, 98, 176, 66, '#8a5a3a');
-  felt(g, 80, 104, 160, 50, '#4a3426');
-  // Papirer i skuffen, men intet grønt.
-  for (const [x, y, w, h, f] of [[90, 110, 50, 30, P.papir], [130, 116, 60, 26, P.papirSkygge], [190, 108, 40, 34, P.papir]] as const) felt(g, x, y, w, h, f);
-  for (let r = 0; r < 3; r++) felt(g, 94, 116 + r * 7, 40, 1, P.linje);
-  // To hænder, der leder.
-  for (const [x, y] of [[110, 100], [196, 98]] as const) {
-    felt(g, x, y, 22, 14, P.hud);
-    felt(g, x, y + 12, 22, 2, P.hudSkygge);
-    felt(g, x + 4, y - 6, 5, 8, P.hud);
-    felt(g, x + 11, y - 7, 5, 9, P.hud);
-  }
-  return c;
+  const { c, g } = nyt();
+  vaeg(g, 0, 70, VAEG_DAG, 60, 10, 260);
+  form(g, firkant(10, 66, 300, 10, 1), TRAE_LYS);
+  form(g, firkant(20, 76, 280, 104), TRAE);
+  // Skuffen set lidt oppefra med papirer i.
+  form(g, firkant(50, 92, 220, 76, 2), TRAE, 1);
+  lysfelt(g, firkant(56, 98, 208, 60), ['#1b1b24', '#3a2a20', '#4a3426'], (_, y) => (y - 98) / 60);
+  for (const [px, py, pw, ph, v] of [[64, 104, 70, 46, 0], [120, 100, 80, 50, 1], [184, 108, 70, 44, 2], [96, 120, 60, 34, 3]] as number[][])
+    form(g, polygon([[px + v * 2, py], [px + pw, py + v], [px + pw - v, py + ph], [px, py + ph - v * 2]]), PAPIR, 1);
+  ordlinjer(g, 128, 108, 60, 5, 6, '#a99068', 2, false);
+  form(g, firkant(50, 156, 220, 18, 1), TRAE_LYS, 1);
+  form(g, firkant(146, 162, 28, 4, 1), { kontur: OMRIDS, skygge: '#d9b56f', mid: '#e5c03a', lys: '#f0c45a' }, 1);
+  const aerme = { kontur: OMRIDS, skygge: '#7a2e1f', mid: '#8e3428', lys: '#a83b33' };
+  haandAaben(g, 110, 120, Math.PI * 0.6, [70, -30], HUD, aerme, 1.1, 0.4);
+  haandAaben(g, 212, 124, Math.PI * 0.4, [250, -30], HUD, aerme, 1.1, 0.4);
+  vignet(g, '#5d5243', 0.45);
+  return faerdig(c, g);
 }
 
-/** Skår 7a, Kassen på biblioteket: en disk, en kasse med bøger og en stor hånd, der holder det grønne hæfte. */
+/** Kassen på biblioteket: reoler bagved, en kasse med gamle bøger på disken og en stor, rolig hånd, der løfter noget grønt op. */
 export function tegnKassenPaaBiblioteket(): HTMLCanvasElement {
-  const c = lerred(B, H);
-  const g = c.getContext('2d')!;
-  for (let y = 0; y < H; y++) for (let x = 0; x < B; x++) felt(g, x, y, 1, 1, y < 70 ? (x % 40 < 2 ? '#4a3426' : hash(x, y) > 0.9 ? '#c0503e' : '#8a7656') : '#e0c995');
-  // Disken.
-  felt(g, 0, 120, B, 60, P.kontur);
-  felt(g, 0, 122, B, 58, '#a96e48');
-  // Kassen.
-  felt(g, 60, 80, 110, 44, P.kontur);
-  felt(g, 62, 82, 106, 40, '#c4ab7c');
-  const ryg = ['#c0503e', '#2c6fbb', '#7b4bb3', '#e5c03a'];
-  for (let i = 0; i < 8; i++) felt(g, 66 + i * 12, 70, 10, 14, ryg[i % 4]);
-  // Hånden med hæftet.
-  felt(g, 200, 70, 70, 46, P.kontur);
-  felt(g, 202, 72, 66, 42, '#3d7a57');
-  felt(g, 202, 72, 66, 3, '#5aa572');
-  felt(g, 192, 96, 26, 22, P.hud);
-  felt(g, 192, 116, 26, 3, P.hudSkygge);
-  felt(g, 210, 92, 14, 6, P.hud);
-  return c;
+  const { c, g } = nyt();
+  vaeg(g, 0, 104, VAEG_DAG, 160, 30, 280);
+  for (const hy of [36, 70, 104]) {
+    form(g, firkant(0, hy, B, 5), TRAE, 1);
+    boeger(g, 2, hy, B - 4, 28, hy);
+  }
+  form(g, firkant(0, 104, B, 10, 1), TRAE_LYS);
+  form(g, firkant(0, 114, B, 66), TRAE);
+  boeger(g, 52, 114, 96, 24, 3);
+  papkasse(g, 44, 112, 110, 52);
+  haefteLukket(g, 160, 76, 62, 40, true);
+  haandAaben(g, 192, 122, -Math.PI * 0.5, [236, H + 20], HUD_VOKSEN, AERME_BRUN, 1.3, 0.75);
+  vignet(g, '#5d5243', 0.4);
+  return faerdig(c, g);
 }
 
-/** Skår 7b, Skyggen på vejen: et busvindue med regnstriber, en vej og en lille skygge, der glider forbi. */
+/** Skyggen på vejen: mange år senere, et busvindue, en våd vej udenfor og en lille skygge, der glider hen over den. */
 export function tegnSkyggenPaaVejen(): HTMLCanvasElement {
-  const c = lerred(B, H);
-  const g = c.getContext('2d')!;
-  felt(g, 0, 0, B, H, '#2a2f48');
-  // Vinduet.
-  felt(g, 30, 20, 260, 130, '#222222');
-  for (let y = 24; y < 146; y++)
-    for (let x = 34; x < 286; x++) {
-      const f = y < 90 ? (hash(x >> 3, y >> 3) > 0.5 ? '#a7aab8' : '#b9bfcf') : y < 96 ? '#7a7468' : '#5b5663';
-      felt(g, x, y, 1, 1, f);
-    }
-  // Vejen med striber.
-  for (let x = 40; x < 280; x += 30) felt(g, x, 120, 16, 3, '#f3ead2');
-  // Skyggen på vejen: rund med to små, lyse øjne.
-  for (let y = -8; y <= 8; y++) for (let x = -10; x <= 10; x++) if ((x * x) / 100 + (y * y) / 64 <= 1) felt(g, 180 + x, 108 + y, 1, 1, '#2a2f48');
-  for (const ox of [-4, 4]) felt(g, 180 + ox, 105, 2, 2, '#f4efe0');
-  // Regnstriber på ruden.
-  for (let i = 0; i < 40; i++) felt(g, 40 + Math.floor(hash(i, 3) * 240), 26 + Math.floor(hash(i, 5) * 100), 1, 6, '#c9dcf2');
-  // Vinduesrammen.
-  felt(g, 158, 20, 4, 130, '#222222');
-  return c;
+  const { c, g } = nyt();
+  lysfelt(g, firkant(0, 0, B, H), ['#2a2f48', '#3a3560', '#4f4a57'], (_, y) => y / H);
+  // Udsigten: grå himmel, træer og vejen.
+  const ud = firkant(24, 16, 272, 120, 8);
+  lysfelt(g, ud, ['#a7aab8', '#b9bfcf', '#c9dcf2'], (_, y) => 1 - (y - 16) / 70);
+  for (let i = 0; i < 9; i++) {
+    const tx = 30 + i * 32 + ((i * 7) % 11);
+    form(g, polygon([[tx, 84], [tx + 9, 50 + ((i * 5) % 12)], [tx + 18, 84]]), { skygge: '#356c4d', mid: '#468a60', lys: '#5aa572' }, 2);
+  }
+  fyld(g, firkant(24, 84, 272, 6), '#7a7468');
+  lysfelt(g, firkant(24, 90, 272, 46), ['#4f4a57', '#5b5663', '#716b60'], (_, y) => (y - 90) / 46);
+  for (let x = 30; x < 290; x += 30) felt(g, x, 112, 16, 2, '#f3ead2');
+  fyld(g, ellipse(170, 108, 12, 5), '#2a2f48');
+  skyggen(g, 170, 100, 7);
+  // Regndråber på ruden og vinduets ramme.
+  for (let i = 0; i < 40; i++) felt(g, 30 + ((i * 53) % 260), 20 + ((i * 31) % 110), 1, 3, '#c9dcf2');
+  const ramme = { kontur: '#070912', skygge: '#1b1b24', mid: '#2a2f48', lys: '#4f4a57' };
+  form(g, firkant(16, 8, 288, 6, 3), ramme, 1);
+  form(g, firkant(16, 134, 288, 10, 3), ramme, 1);
+  form(g, firkant(156, 12, 6, 126), ramme, 1);
+  // Sædet foran.
+  form(g, firkant(-10, 150, 180, 40, 10), { kontur: '#070912', skygge: '#203a6b', mid: '#245c99', lys: '#4f6fa8' });
+  vignet(g, '#070912', 0.5);
+  return faerdig(c, g);
 }
 
-/** Kapitel 8, Skuffen: en hånd skubber det grønne hæfte ind i en skuffe. Ingen ansigter. */
+/** Skuffen: det grønne hæfte bliver skubbet ind i skuffen så hårdt, at den smækker. */
 export function tegnSkuffen(): HTMLCanvasElement {
-  const c = lerred(B, H);
-  const g = c.getContext('2d')!;
-  for (let y = 0; y < H; y++) for (let x = 0; x < B; x++) felt(g, x, y, 1, 1, hash(x, y) > 0.94 ? '#c4ab7c' : '#e0c995');
-  // Skrivebordet forfra med en halvt lukket skuffe.
-  felt(g, 20, 30, 280, 150, P.kontur);
-  felt(g, 22, 32, 276, 146, '#6b4a2b');
-  felt(g, 60, 80, 200, 60, P.kontur);
-  felt(g, 62, 82, 196, 56, '#8a7656');
-  felt(g, 70, 90, 180, 14, '#3a2a20');
-  felt(g, 150, 118, 20, 6, '#e5c03a');
-  // Hæftet, der forsvinder ind i skuffen.
-  felt(g, 110, 76, 80, 18, P.kontur);
-  felt(g, 111, 77, 78, 16, '#3d7a57');
-  felt(g, 111, 77, 78, 2, '#5aa572');
-  // Hånden, der skubber.
-  felt(g, 186, 70, 30, 22, P.hud);
-  felt(g, 186, 90, 30, 3, P.hudSkygge);
-  felt(g, 182, 74, 8, 10, P.hud);
-  return c;
+  const { c, g } = nyt();
+  vaeg(g, 0, 60, VAEG_DAG, 260, 0, 280);
+  const { sx, sy } = skrivebord(g, 20, 56, 280, 124, 18);
+  haefteLukket(g, sx + 4, sy + 14, 58, 22);
+  haandAaben(g, sx + 72, sy + 32, Math.PI * 1.45, [sx + 120, H + 30], HUD, AERME_BARN, 1.2, 0.2);
+  // Små streger, der viser, at skuffen smækker.
+  for (const [lx, ly, l] of [[sx - 18, sy + 26, 10], [sx - 22, sy + 36, 14], [sx - 18, sy + 46, 10]] as number[][]) felt(g, lx, ly, l, 2, '#3a2a20');
+  vignet(g, '#5d5243', 0.45);
+  return faerdig(c, g);
 }
+
