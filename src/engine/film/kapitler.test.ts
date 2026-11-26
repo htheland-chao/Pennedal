@@ -3,15 +3,15 @@ import { kapitler, type FilmTrin } from '../../content';
 import { SANGE } from '../../lyd/musik/sange';
 import { EFFEKTER } from '../../lyd/effekter';
 import { tjekFilm } from './tjek';
-import { skjultFoerFilm } from './sekvens';
+import { skjultFoerFilm, vaekEfterFilm } from './sekvens';
 import { filmReplikker } from '../../content/filmreplikker.mjs';
 
 // Alle filmsekvenser i kapitlerne (20. november 2026): navne, regler og tider tjekkes, før de kommer i spillet.
 const film = kapitler.flatMap((k) => k.trin.filter((t): t is FilmTrin => t.type === 'film').map((t) => ({ k, t })));
 
 describe('filmsekvenserne i kapitlerne', () => {
-  it('findes: ankomsten til Pennedal og mørket over tagene', () => {
-    expect(film.map(({ t }) => t.id)).toEqual(expect.arrayContaining(['k1-ankomst', 'k2-moerke']));
+  it('findes: ankomsten, mørket over tagene, fristelsen og slutningen', () => {
+    expect(film.map(({ t }) => t.id)).toEqual(expect.arrayContaining(['k1-ankomst', 'k2-moerke', 'k7-fristelse', 'k8-oplaesning']));
   });
 
   for (const { k, t } of film)
@@ -29,6 +29,14 @@ describe('filmsekvenserne i kapitlerne', () => {
       expect(filmReplikker(t.handlinger).length).toBeGreaterThan(0);
       // På en platformbane følger kameraet hovedpersonen, og ingen går eller vender sig (src/game/bane/film.ts).
       if (sted.bane) expect(JSON.stringify(t.handlinger), t.id).not.toMatch(/"type":"kamera"|"gaaTil"|"vend"/);
+      // En figur, der toner væk, bliver væk: stedet skal skjule den fra det næste trin (ikke hvis kapitlet slutter).
+      if (!t.slutKapitel) {
+        const naeste = k.trin[k.trin.indexOf(t) + 1]?.id;
+        for (const id of vaekEfterFilm(t.handlinger)) {
+          const o = sted.objekter.find((x) => x.id === id);
+          expect(o?.skjulFra, `${t.id}: ${id} skal have skjulFra ${naeste}`).toBe(naeste);
+        }
+      }
       // Filmen slutter uden bjælker, så eleven har styringen igen.
       const bjaelker = JSON.stringify(t.handlinger).match(/"type":"bjaelker","til":(true|false)/g) ?? [];
       expect(bjaelker.at(-1), t.id).toBe('"type":"bjaelker","til":false');

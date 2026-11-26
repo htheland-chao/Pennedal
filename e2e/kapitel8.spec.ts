@@ -17,14 +17,26 @@ async function laesDialog(page: Page) {
   await expect(dialog).toHaveCount(0);
 }
 
+/** Ser en filmsekvens til ende: trykker "Videre" ved hver replik, til filmen er slut. */
+async function seFilm(page: Page) {
+  const film = page.locator('.film');
+  const dialog = page.locator('dialog.dialogboks');
+  for (let i = 0; i < 120 && (await film.count()) > 0; i++) {
+    if (await dialog.isVisible()) await dialog.getByRole('button', { name: 'Videre' }).click({ timeout: 2_000 }).catch(() => undefined);
+    else await page.waitForTimeout(300);
+  }
+  await expect(film).toHaveCount(0);
+}
+
 async function venterPaa(page: Page, tekst: string) {
   const dialog = page.locator('dialog.dialogboks');
   await expect(dialog).toBeVisible({ timeout: 30_000 });
-  for (let i = 0; i < 20 && !(await dialog.getByText(tekst).isVisible()); i++)
-    await dialog
-      .getByRole('button', { name: 'Videre' })
-      .click({ timeout: 3_000 })
-      .catch(() => undefined);
+  // Klik kun, mens en dialog står der. I en filmsekvens er der pauser mellem replikkerne, og et klik, der venter,
+  // ville ellers trykke "Videre" forbi den replik, der ventes på.
+  for (let i = 0; i < 60 && !(await dialog.getByText(tekst).isVisible()); i++) {
+    if (await dialog.isVisible()) await dialog.getByRole('button', { name: 'Videre' }).click({ timeout: 1_000 }).catch(() => undefined);
+    else await page.waitForTimeout(300);
+  }
   await expect(dialog).toContainText(tekst);
 }
 
@@ -123,7 +135,8 @@ test('kapitel 8: Den sidste side, slutningen, den sande slutning og epilogen', a
   await venterPaa(page, 'Der ventede alle hjælperne');
   await venterPaa(page, 'Og så var Skyggen ikke alene mere.');
   await venterPaa(page, 'Tak fordi du tilgav mig');
-  await laesDialog(page);
+  // Oplæsningen er en filmsekvens (26. november 2026), og her ses den hele vejen igennem.
+  await seFilm(page);
   await expect(page.locator('.kvittering').filter({ hasText: 'Skuffen' })).toBeVisible({ timeout: 15_000 });
 
   // Den sande slutning: Skyggen får et navn, og sedlen ligger i hæftet.
