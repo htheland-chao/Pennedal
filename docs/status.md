@@ -47,7 +47,7 @@ Kort overblik. Hvornår og hvordan hver ting blev lavet, står i `docs/logbog.md
 
 ## Åbent og mangler
 
-- **Tilbageblikkene tegnet om** (PR fra 26. november 2026) venter på, at Henrik ser dem (Claude-artefakt "Pennedal - tilbageblik før og nu"). Ikke set i selve tilbageblik-vinduet med korn og sepia, kun som rene billeder.
+- **Tilbageblik fra Gemini:** Henrik laver billederne gratis i Gemini-appen ud fra `docs/gemini-billeder.md` (stilark først). Ingen er lavet endnu, så alle 18 bruger de tegnede fra koden (merget 26. november 2026). Et billede kommer i brug, når dets id står i `src/game/pixel/minder/gemini.ts`.
 - **Lyd:** alle 2164 klip findes (26. november 2026). Nye eller ændrede tekster får klip, næste gang lydjobbet kører (`npm run lyd:status`).
 - **Grafik i Viskeskovens bane** er en første udgave: bleg skovbund, hvidt tomrum og tåge. Henrik bør se den.
 - **Kapitel 8, nyt og ikke set af Henrik:** Den sidste side (linjeret papir), Halvsætningen og den lille Skygge, sangen `siden` og de fire navneforslag (Skumring, Pip, Lille Mørk, Fnug).

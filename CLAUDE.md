@@ -45,7 +45,7 @@ Opdatér kun en version efter at have slået den op i npm og kørt alle tests.
 6. **Feedback forklarer altid** med en regel og et eksempel. Skriv aldrig bare "forkert".
 7. **Alt kan styres med tastatur og touch.** Synligt fokus. Indstillingen "Mindre uhygge" respekteres.
 8. **Chromebook-budget:** højst 1366 x 768, mål 60 og aldrig under 30 billeder pr. sekund på Gen 2 med 4 GB RAM, første indlæsning under 10 MB.
-9. **Eget univers, lånt grafik tilladt** (Henrik, 19. november 2026). Navne, figurernes navne og historien er vores egne. Grafik og lyd må lånes, men kun under CC0, så længe repoet er offentligt (pakker, der forbyder videredeling, kan ikke ligge her). Hver pakke står i `LICENSER.md` med navn, link og licens, og farves om til spillets palet, før den bruges. Ingen genkendelige figurer fra andre spil, film eller bøger.
+9. **Eget univers, lånt grafik tilladt** (Henrik, 19. november 2026). Navne, figurernes navne og historien er vores egne. Grafik og lyd må lånes, men kun under CC0, så længe repoet er offentligt (pakker, der forbyder videredeling, kan ikke ligge her). Hver pakke står i `LICENSER.md` med navn, link og licens, og farves om til spillets palet, før den bruges. Ingen genkendelige figurer fra andre spil, film eller bøger. Billeder lavet af Gemini er også tilladt (Henrik, 26. november 2026), men kun gratis i Gemini-appen, aldrig noget, der koster ekstra. Fremgangsmåden står i `docs/gemini-billeder.md`.
 10. **Ingen fritekst mellem elever**, heller ikke senere i en lobby.
 
 ## Indhold og opbygning
