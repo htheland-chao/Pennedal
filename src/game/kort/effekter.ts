@@ -100,7 +100,7 @@ export function blaekStribe(s: KortScene, x: number, y: number) {
   for (let i = 0; i < 9; i++)
     s.time.delayedCall(i * 70, () => {
       const klat = s.add
-        .rectangle(Math.round(x + i * 8 + (i % 2) * 2), Math.round(y - 1 - (i % 3)), i % 3 === 0 ? 3 : 2, 2, 0x14121f)
+        .rectangle(Math.round(x + i * 8 + (i % 2) * 2), Math.round(y - 1 - (i % 3)), i % 3 === 0 ? 3 : 2, 2, 0x1b1b24)
         .setDepth(-99970)
         .setAlpha(0.9);
       s.tweens.add({ targets: klat, alpha: 0, delay: 2200, duration: 1800, onComplete: () => klat.destroy() });

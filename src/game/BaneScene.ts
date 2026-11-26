@@ -202,7 +202,7 @@ export class BaneScene extends Phaser.Scene {
     if (this.roligt) return;
     for (let k = 0; k < antal; k++) {
       const side = k % 2 === 0 ? -1 : 1;
-      const p = this.add.rectangle(Math.round(x + side * (2 + k)), Math.round(y - 1), 2, 1, 0xe8dfc8).setDepth(6).setAlpha(0.9);
+      const p = this.add.rectangle(Math.round(x + side * (2 + k)), Math.round(y - 1), 2, 1, 0xf3ead2).setDepth(6).setAlpha(0.9);
       this.tweens.add({ targets: p, x: p.x + side * (5 + k * 2), y: p.y - 2 - (k % 3), alpha: 0, duration: 280 + k * 30, onComplete: () => p.destroy() });
     }
   }

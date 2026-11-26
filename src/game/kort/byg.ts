@@ -34,11 +34,11 @@ export function moebel(s: KortScene, c: string, tx: number, ty: number, kaelder:
   else if (c === 'D' && k.tegn(tx - 1, ty) !== 'D') {
     let n = 0;
     while (k.tegn(tx + n, ty) === 'D') n++;
-    saet(s.tekstur(`px-disk-${n}`, bordflade(n * FELT, 14, '#a07a4a', '#6b4a2b')), tx * FELT, ty * FELT + 16);
+    saet(s.tekstur(`px-disk-${n}`, bordflade(n * FELT, 14, '#a96e48', '#6b4a2b')), tx * FELT, ty * FELT + 16);
   } else if (c === 'B' && k.tegn(tx - 1, ty) !== 'B' && k.tegn(tx, ty - 1) !== 'B') {
     let n = 0;
     while (k.tegn(tx + n, ty) === 'B') n++;
-    saet(s.tekstur(`px-bord-${n}`, bordflade(n * FELT, 30, '#b98b5a', '#7a5636')), tx * FELT, (ty + 2) * FELT);
+    saet(s.tekstur(`px-bord-${n}`, bordflade(n * FELT, 30, '#c98d63', '#7a4e33')), tx * FELT, (ty + 2) * FELT);
   }
 }
 
@@ -268,7 +268,7 @@ export function byggObjekter(s: KortScene) {
           // Hvert tredje fnug er blegt og ses også i mørket (det ligger over lyslaget som øjnene).
           const bleg = n % 3 === 0;
           const fnug = s.add
-            .rectangle(fx, fy, bleg ? 1 : 2, 1, bleg ? 0x9a90d0 : 0x0b0a14)
+            .rectangle(fx, fy, bleg ? 1 : 2, 1, bleg ? 0xa7aab8 : 0x070912)
             .setDepth(bleg ? 1_000_000 : midte.y + 1)
             .setAlpha(bleg ? 0.55 : 0.85);
           s.tweens.add({

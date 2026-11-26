@@ -47,6 +47,7 @@ Kort overblik. Hvornår og hvordan hver ting blev lavet, står i `docs/logbog.md
 
 ## Åbent og mangler
 
+- **Verdenens farver i masterpaletten** (PR fra 26. november 2026) venter på, at Henrik ser før og efter (Claude-artefakt "Pennedal - verdenens farver før og efter") og vælger, om paletten skal have kolde lyse grå til Viskeskoven og Rimbjerget.
 - **Lyd:** alle 2164 klip findes (26. november 2026). Nye eller ændrede tekster får klip, næste gang lydjobbet kører (`npm run lyd:status`).
 - **Grafik i Viskeskovens bane** er en første udgave: bleg skovbund, hvidt tomrum og tåge. Henrik bør se den.
 - **Kapitel 8, nyt og ikke set af Henrik:** Den sidste side (linjeret papir), Halvsætningen og den lille Skygge, sangen `siden` og de fire navneforslag (Skumring, Pip, Lille Mørk, Fnug).
@@ -59,7 +60,7 @@ Kort overblik. Hvornår og hvordan hver ting blev lavet, står i `docs/logbog.md
 - **Filmsekvenser:** trintypen `film` findes. Sekvenser: ankomsten til Pennedal (`k1-ankomst`, Henrik synes tempoet er fint), mørket over tagene (`k2-moerke`, også på platformbaner), fristelsen (`k7-fristelse`, starter ved Den Ufærdige) og slutningen (`k8-oplaesning`). Kerne i `src/engine/film/`, Phaser i `src/game/kort/film.ts` og `src/game/bane/film.ts`, React i `src/components/film/`. En figur, der toner væk, bliver væk (test). Ton til sort, stemning og en figur, der går, er skrevet, men ikke brugt i en sekvens. "Mindre uhygge" er testet (lagene i `filmlag.test.ts` og fristelsen i `e2e/film.spec.ts`). Et klik på "Videre" blev én gang ikke til noget i en test af fristelsen (ikke genskabt, se logbogen). Næste: fase 6 (editor) først ved 5-10 sekvenser.
 - **Slag i kampen:** kort stop, hvidt glimt på det ramte væsen og farvede tal (guld, rød, grøn, grå).
 - **Udtryk** (glad, bange, vred) findes for Æseløre, Klatten, Vims, Fru Fodnote, Rimfod og Den Ufærdige. Andre figurer viser altid det faste portræt.
-- **Masterpaletten** gælder kun figurerne på grafikarket. Verdenens jord, huse, lys og CSS bruger stadig egne farver og er ikke tjekket mod paletten.
+- **Masterpaletten** gælder figurerne på grafikarket og verdenens jord, huse, vand, rum og baner (testen `verdenspalet.test.ts`). Undtaget: Viskeskovens og Rimbjergets bane (paletten mangler kolde lyse grå, venter på Henrik), himle, lys, nat og toning. Intro, titel, minder, kampens baggrunde og CSS er ikke tjekket.
 - **Udseende-editoren:** set i Chrome i 1366 x 768 og 390 x 844, ikke på en Chromebook. De nye valg er kun set på arket `avatar-nye` og i editoren, ikke i alle kapitlernes scener.
 - **Introens trailer:** kun set i Chrome på en server, ikke på en Chromebook. Med "reducer bevægelse" står klippene stille.
 - **Pergament og blæk:** kun set på forsiden, i dialogen, menuen, tasken og Blækdybet i Chrome. Ikke prøvet på en Chromebook eller med høj kontrast (Windows). Knapperne er 6 pixel højere end før.

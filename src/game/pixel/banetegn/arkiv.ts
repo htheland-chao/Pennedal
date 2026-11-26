@@ -6,9 +6,9 @@ import { BFELT, erFast, type Bane } from '../../bane';
 import { hash, lerred } from '../lerred';
 import { hx, PLANKE, BLAEK, VISKET } from './farver';
 
-const REOL = { kant: hx('#5a3a28'), kantLys: hx('#8a6a45'), bag: hx('#2a2030'), skygge: hx('#1c1624') };
-const RYGGE = ['#7a2e2e', '#2e4a6b', '#4e6a3a', '#8a6a2e', '#5a3a6b', '#6b4a2b', '#3a5a5a'].map(hx);
-const KAELDERDYB = { a: hx('#0c0a14'), b: hx('#120f1c'), stoev: hx('#2a2438') };
+const REOL = { kant: hx('#6b3f27'), kantLys: hx('#8a7656'), bag: hx('#222222'), skygge: hx('#1b1b24') };
+const RYGGE = ['#7a2e1f', '#28467c', '#356c4d', '#8a7656', '#603979', '#6b4a2b', '#2a5a40'].map(hx);
+const KAELDERDYB = { a: hx('#070912'), b: hx('#1b1b24'), stoev: hx('#2a2f48') };
 
 /**
  * Reolerne i Fodnoternes kælder (kapitel 5): man klatrer på hylder fulde af bogrygge, og mellem dem er der et mørkt dyb.
@@ -72,9 +72,9 @@ export function tegnArkivbane(bane: Bane): HTMLCanvasElement {
 export function tegnArkivBaggrund(bredde: number, hoejde: number): HTMLCanvasElement {
   const c = lerred(bredde, hoejde);
   const g = c.getContext('2d')!;
-  g.fillStyle = '#16121e';
+  g.fillStyle = '#070912';
   g.fillRect(0, 0, bredde, hoejde);
-  const lag: [string, string, number, number][] = [['#221c2c', '#2a2236', 56, 0.18], ['#2c2436', '#362c42', 40, 0.32]];
+  const lag: [string, string, number, number][] = [['#1b1b24', '#2a2f48', 56, 0.18], ['#2a2f48', '#3a3560', 40, 0.32]];
   lag.forEach(([farve, hylde, bredd, top], li) => {
     for (let x0 = 0; x0 < bredde; x0 += bredd + 10) {
       const y0 = Math.round(hoejde * top + hash(x0, li) * 20);
@@ -92,11 +92,11 @@ export function tegnArkivBaggrund(bredde: number, hoejde: number): HTMLCanvasEle
       for (let x = -10; x <= 10; x++) {
         const d = Math.hypot(x, y);
         if (d < 10 && hash(lx + x, ly + y) > 0.35 + d / 14) {
-          g.fillStyle = '#4a3e3a';
+          g.fillStyle = '#4a3426';
           g.fillRect(lx + x, ly + y, 1, 1);
         }
       }
-    g.fillStyle = '#f6d98a';
+    g.fillStyle = '#ffe9a8';
     g.fillRect(lx - 1, ly - 1, 3, 3);
   }
   return c;
