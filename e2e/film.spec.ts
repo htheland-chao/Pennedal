@@ -107,3 +107,25 @@ test('slutningen (kapitel 8) kan springes over: Den Ufærdige er blevet til Skyg
   await expect(page.locator('.panel').getByRole('button', { name: /Skyggen/ })).toBeVisible({ timeout: 10_000 });
   expect(fejl, fejl.join('\n')).toEqual([]);
 });
+
+test('med "Mindre uhygge" kører fristelsen uden fejl, og der kommer ingen besked om uhygge', async ({ page }) => {
+  const fejl: string[] = [];
+  page.on('pageerror', (e) => fejl.push(e.message));
+  await page.addInitScript(() => {
+    const n = 'pennedal.indstillinger.v1';
+    const i = JSON.parse(localStorage.getItem(n) ?? '{}') as Record<string, unknown>;
+    localStorage.setItem(n, JSON.stringify({ ...i, mindreUhygge: true }));
+  });
+  await page.goto('/?hop=k7-fristelse');
+  await page.evaluate(() => (window as unknown as { __pennedal: { gaaTil: (id: string) => void } }).__pennedal.gaaTil('ufaerdige'));
+  const dialog = page.locator('dialog.dialogboks');
+  await expect(dialog).toContainText('Så bliver alt stille', { timeout: 15_000 });
+  // Hele filmen: blink og rystelse er slået fra, men replikkerne kommer som ellers.
+  for (let i = 0; i < 80 && (await page.locator('.film').count()) > 0; i++) {
+    if (await dialog.isVisible()) await dialog.getByRole('button', { name: 'Videre' }).click({ timeout: 1_000 }).catch(() => undefined);
+    else await page.waitForTimeout(300);
+  }
+  await expect(page.locator('.film')).toHaveCount(0);
+  await expect(page.getByText('Pludselig bliver alt mørkt et øjeblik.')).toHaveCount(0);
+  expect(fejl, fejl.join('\n')).toEqual([]);
+});
