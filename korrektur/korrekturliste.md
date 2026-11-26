@@ -1,6 +1,6 @@
 # Korrekturliste - Pennedal
 
-Lavet 2026-11-20. 2055 tekster.
+Lavet 2026-11-26. 2056 tekster.
 
 Sæt kryds, når en tekst er læst. Bevidste fejl står under "Bevidste fejl" og skal ikke rettes.
 Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), så læs hele teksten.
@@ -45,6 +45,7 @@ Stavetjekket fanger ikke rigtige ord brugt forkert (fx "landet" for "landede"), 
 - [ ] `avatar.haarfarve`: Hårfarve
 - [ ] `avatar.hoved`: På hovedet
 - [ ] `avatar.hovedfarve`: Farve på hovedet
+- [ ] `avatar.hovedfarve.ubrugt`: Vælg noget på hovedet eller et halstørklæde først
 - [ ] `avatar.toej`: Tøj
 - [ ] `avatar.toejfarve`: Tøjfarve
 - [ ] `avatar.tilbehoer`: Tilbehør
