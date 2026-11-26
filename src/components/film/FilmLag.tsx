@@ -2,7 +2,7 @@ import type { MutableRefObject } from 'react';
 import { t, type Replik } from '../../content';
 import type { GemtSpil } from '../../data/gem';
 import type { Handling } from '../../engine/film/typer';
-import type { PhaserFilm } from '../../game/kort/film';
+import type { PhaserFilm } from '../../game/film';
 import { DialogBoks } from '../DialogBoks';
 import { Filmbjaelker } from './Filmbjaelker';
 import { useFilm } from './useFilm';

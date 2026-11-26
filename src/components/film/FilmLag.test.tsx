@@ -3,7 +3,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { Kontekst } from '../Kontekst';
 import { STANDARD_INDSTILLINGER, nytSpil, STANDARD_AVATAR, type GemtSpil } from '../../data/gem';
 import type { EnkelHandling, Handling } from '../../engine/film/typer';
-import type { PhaserFilm } from '../../game/kort/film';
+import type { PhaserFilm } from '../../game/film';
 import { FilmLag } from './FilmLag';
 
 const SEKVENS: Handling[] = [

@@ -1,8 +1,9 @@
 import Phaser from 'phaser';
 import type { KortScene } from '../KortScene';
-import type { EnkelHandling, KameraMaal } from '../../engine/film/typer';
+import type { KameraMaal } from '../../engine/film/typer';
 import { feltMidte, feltVed, findVej } from '../kort';
 import { fuglFremkomst } from './effekter';
+import { lagHandling, lagRyd, tonFigur, vent, type PhaserHandling } from '../filmlag';
 
 /**
  * Phaser-arbejderen til filmsekvenser (20. november 2026): kamera, figurer, ton til sort, rystelse, blink og stemning
@@ -14,26 +15,15 @@ import { fuglFremkomst } from './effekter';
  * (kamera, ton, mørke, figurer, der toner væk), fjernes i oprydningen.
  */
 
-/** De handlinger, Phaser udfører. */
-export const PHASER_HANDLINGER = ['kamera', 'figur', 'ton', 'ryst', 'blink', 'stemning'] as const;
-type PhaserHandling = Extract<EnkelHandling, { type: (typeof PHASER_HANDLINGER)[number] }>;
-export function erPhaserHandling(h: EnkelHandling): h is PhaserHandling {
-  return (PHASER_HANDLINGER as readonly string[]).includes(h.type);
-}
-
 export type FilmKamera = { fra: { x: number; y: number }; maal: KameraMaal; start: number; ms: number; zoom: number; nyZoom: number };
 export type FilmTilstand = {
   kamera: FilmKamera | null;
-  /** Lag over hele billedet: sort (ton), mørke og hvidt (blink). */
-  lag: Partial<Record<'ton' | 'moerke' | 'blink', Phaser.GameObjects.Rectangle>>;
   /** Objekter, der er tonet væk i filmen. De kommer tilbage i oprydningen. */
   vaek: Set<string>;
   /** Kaldes i oprydningen, fx for at stoppe en lytter. */
   stop: (() => void)[];
 };
 
-const TONING = 500;
-const BLINK = 180;
 const FREMKOMST = 1800;
 
 /** Hvor kameraet skal stå lige nu i filmen, og med hvilken zoom. null: filmen styrer ikke kameraet. */
@@ -64,28 +54,9 @@ function billeder(s: KortScene, id: string): Phaser.GameObjects.Image[] {
   return s.objektBilleder.get(id) ?? [];
 }
 
-const vent = (s: KortScene, ms: number) => new Promise<void>((r) => (ms <= 0 ? r() : s.time.delayedCall(ms, () => r())));
-
-/** Et lag over hele billedet, der følger kameraet. Stort nok til at dække alt, også med zoom. */
-function lag(s: KortScene, navn: 'ton' | 'moerke' | 'blink', farve: number): Phaser.GameObjects.Rectangle {
-  const f = s.film!;
-  const dybde = { moerke: 2_900_000, ton: 3_000_000, blink: 3_000_001 }[navn];
-  f.lag[navn] ??= s.add.rectangle(0, 0, 20_000, 20_000, farve).setScrollFactor(0).setDepth(dybde).setAlpha(0);
-  return f.lag[navn]!;
-}
-
-function tonLag(s: KortScene, r: Phaser.GameObjects.Rectangle, alpha: number, ms: number): Promise<void> {
-  s.tweens.killTweensOf(r);
-  if (ms <= 0) {
-    r.setAlpha(alpha);
-    return Promise.resolve();
-  }
-  return new Promise((ok) => s.tweens.add({ targets: r, alpha, duration: ms, ease: 'Sine.InOut', onComplete: () => ok() }));
-}
-
 /** Gør filmens tilstand klar: spillet låses, og kameraet tages over. */
 export function filmStart(s: KortScene) {
-  s.film = { kamera: null, lag: {}, vaek: new Set(), stop: [] };
+  s.film = { kamera: null, vaek: new Set(), stop: [] };
   s.laas(true);
 }
 
@@ -104,25 +75,9 @@ export function filmUdfoer(s: KortScene, h: PhaserHandling, slut = false): Promi
     }
     case 'figur':
       return figur(s, h, roligt);
-    case 'ton':
-      return tonLag(s, lag(s, 'ton', 0x000000), h.til === 'sort' ? 1 : 0, slut ? 0 : (h.ms ?? TONING));
-    case 'ryst': {
-      if (roligt || mild) return Promise.resolve();
-      const ms = h.ms ?? 300;
-      s.cameras.main.shake(ms, 0.004);
-      return vent(s, ms);
-    }
-    case 'blink': {
-      if (mild || slut) return Promise.resolve();
-      const b = lag(s, 'blink', 0xfff6e0).setAlpha(0.85);
-      return tonLag(s, b, 0, BLINK);
-    }
-    case 'stemning': {
-      const ventes: Promise<void>[] = [];
-      if (h.moerke !== undefined && !mild) ventes.push(tonLag(s, lag(s, 'moerke', 0x0b0a1a), h.moerke ? 0.5 : 0, slut ? 0 : 800));
-      if (h.partikler !== undefined) saetPartikler(s, h.partikler);
-      return Promise.all(ventes).then(() => undefined);
-    }
+    default:
+      if (h.type === 'stemning' && h.partikler !== undefined) saetPartikler(s, h.partikler);
+      return lagHandling(s, h, mild, slut);
   }
 }
 
@@ -149,20 +104,7 @@ function figur(s: KortScene, h: Extract<PhaserHandling, { type: 'figur' }>, roli
   } else if (h.toner) {
     const frem = h.toner === 'frem';
     if (h.id !== 'spiller') f.vaek[frem ? 'delete' : 'add'](h.id);
-    for (const b of bs) {
-      s.tweens.killTweensOf(b);
-      if (frem && !b.visible) b.setAlpha(0);
-      b.setVisible(true);
-      if (roligt) {
-        b.setAlpha(frem ? 1 : 0).setVisible(frem);
-        continue;
-      }
-      ventes.push(
-        new Promise((ok) =>
-          s.tweens.add({ targets: b, alpha: frem ? 1 : 0, duration: TONING, onComplete: () => (b.setVisible(frem), ok()) }),
-        ),
-      );
-    }
+    ventes.push(tonFigur(s, bs, frem, roligt));
   }
   if (h.gaaTil && h.id === 'spiller') ventes.push(gaa(s, h.gaaTil, roligt));
   return Promise.all(ventes).then(() => undefined);
@@ -215,16 +157,12 @@ export function filmOprydning(s: KortScene) {
   const f = s.film;
   if (!f) return;
   f.stop.forEach((stop) => stop());
-  for (const r of Object.values(f.lag)) {
-    s.tweens.killTweensOf(r);
-    r.destroy();
-  }
+  lagRyd(s);
   stopFremkomst(s);
   if (s.spiller) {
     for (const b of billeder(s, 'spiller')) b.setVisible(true).setAlpha(1);
     for (const id of f.vaek) if (!(s.data_.skjulte ?? []).includes(id)) for (const b of billeder(s, id)) b.setVisible(true).setAlpha(1);
     saetPartikler(s, true);
-    s.cameras.main.shakeEffect.reset();
     // Kameraet glider videre herfra, som det plejer.
     s.kam = { x: s.cameras.main.midPoint.x, y: s.cameras.main.midPoint.y };
   }
@@ -233,30 +171,3 @@ export function filmOprydning(s: KortScene) {
   s.laas(false);
 }
 
-/** Det, React-arbejderen får fra Phaser. hent giver kortets scene, eller null, hvis stedet ikke er et kort. */
-export type PhaserFilm = {
-  start(): void;
-  udfoer(h: EnkelHandling): Promise<void>;
-  slut(h: EnkelHandling): void;
-  oprydning(): void;
-};
-export function phaserFilm(hent: () => KortScene | null): PhaserFilm {
-  return {
-    start: () => {
-      const s = hent();
-      if (s) filmStart(s);
-    },
-    udfoer: (h) => {
-      const s = hent();
-      return s && erPhaserHandling(h) ? filmUdfoer(s, h) : Promise.resolve();
-    },
-    slut: (h) => {
-      const s = hent();
-      if (s && erPhaserHandling(h)) filmSlut(s, h);
-    },
-    oprydning: () => {
-      const s = hent();
-      if (s) filmOprydning(s);
-    },
-  };
-}

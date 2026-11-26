@@ -189,7 +189,12 @@ export type SkiftTrin = FaellesTrin & { type: 'skift'; tilSted: string };
  * En filmsekvens (20. november 2026): kamera, figurer, bjælker, musik og replikker efter et manuskript.
  * Afspilles af src/engine/film/afspiller.ts. Replikkerne venter altid på "Videre", og alt kan springes over.
  */
-export type FilmTrin = FaellesTrin & { type: 'film'; handlinger: Handling[] };
+export type FilmTrin = FaellesTrin & {
+  type: 'film';
+  handlinger: Handling[];
+  /** Et tilbageblik, eleven får besked om, når filmen er slut (som i et dialogtrin). */
+  tilbageblik?: { id: string; foer: number };
+};
 export type OpgaveTrin = FaellesTrin & {
   type: 'opgave';
   mekanik: 'hviske' | 'ogorm' | 'historiebro' | 'raaber' | 'rim' | 'synsvinkel' | 'korrektur' | 'genre';
