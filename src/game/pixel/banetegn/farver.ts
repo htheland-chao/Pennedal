@@ -11,6 +11,6 @@ export const PLANKE = { top: hx('#c4ab7c'), a: hx('#a96e48'), kant: hx('#6b3f27'
 export const BLAEK = { a: hx('#1b1b24'), b: hx('#2a2f48'), glans: hx('#4f6fa8') };
 export const VAND = { a: hx('#1a1e36'), b: hx('#2a2f48'), krus: hx('#28467c') };
 
-export const SKOVBUND = { top: hx('#e8e6ee'), graes: hx('#c9cfc4'), a: hx('#b8ad9c'), b: hx('#a99f8e'), sten: hx('#8f8a80') };
-export const TOMRUM = { a: hx('#eceaf2'), b: hx('#e2e0ea'), streg: hx('#d2cfdc') };
-export const VISKET = hx('#b9b4c8');
+export const SKOVBUND = { top: hx('#f4efe0'), graes: hx('#d9d2bd'), a: hx('#c4ab7c'), b: hx('#a99068'), sten: hx('#8a8a8a') };
+export const TOMRUM = { a: hx('#f4efe0'), b: hx('#f3ead2'), streg: hx('#d9d2bd') };
+export const VISKET = hx('#b9bfcf');

@@ -177,7 +177,7 @@ export function tegnSkovBaggrund(bredde: number, hoejde: number): HTMLCanvasElem
   himmel.addColorStop(1, '#f1f0f5');
   g.fillStyle = himmel;
   g.fillRect(0, 0, bredde, hoejde);
-  const lag: [string, number, number][] = [['#e4e2ec', 70, 9], ['#d6d3e0', 52, 13], ['#c4c0d2', 36, 17]];
+  const lag: [string, number, number][] = [['#c9dcf2', 70, 9], ['#b9bfcf', 52, 13], ['#a7aab8', 36, 17]];
   lag.forEach(([farve, hoej, afstand], li) => {
     g.fillStyle = farve;
     for (let x = 0; x < bredde; x += afstand) {
@@ -224,9 +224,9 @@ export const NY_PLANKE: Tegnkort = {
   palet: { T: '#e0c995', P: '#c4ab7c', k: '#8a5a3a' },
 };
 
-const KLIPPE = { sne: hx('#f2f6fb'), sneSkygge: hx('#cdd9e8'), a: hx('#7d7f8c'), b: hx('#6a6c7a'), lys: hx('#9a9cab') };
-const DYB = { a: hx('#3a4562'), b: hx('#2f3854'), streg: hx('#4c5878') };
-const STENSPOR = hx('#9aa3b8');
+const KLIPPE = { sne: hx('#f4efe0'), sneSkygge: hx('#c9dcf2'), a: hx('#8a8a8a'), b: hx('#6a6487'), lys: hx('#a7aab8') };
+const DYB = { a: hx('#4f4a57'), b: hx('#2a2f48'), streg: hx('#5b5663') };
+const STENSPOR = hx('#a7aab8');
 
 /**
  * Rimbjergets bane (kapitel 4, 9. november 2026): grå klippe med sne på toppen, en mørk kløft under stien
@@ -284,7 +284,7 @@ export function tegnBjergBaggrund(bredde: number, hoejde: number): HTMLCanvasEle
   himmel.addColorStop(1, '#e8eef6');
   g.fillStyle = himmel;
   g.fillRect(0, 0, bredde, hoejde);
-  const lag: [string, number, number][] = [['#c9d3e4', 0.45, 90], ['#a3afc7', 0.6, 70], ['#7f8aa6', 0.75, 54]];
+  const lag: [string, number, number][] = [['#c9dcf2', 0.45, 90], ['#a7aab8', 0.6, 70], ['#8a8a8a', 0.75, 54]];
   lag.forEach(([farve, bund, afstand], li) => {
     for (let x0 = -afstand; x0 < bredde + afstand; x0 += afstand) {
       const top = Math.round(hoejde * (bund - 0.25) - hash(x0, li) * 30);
@@ -292,7 +292,7 @@ export function tegnBjergBaggrund(bredde: number, hoejde: number): HTMLCanvasEle
       const halv = Math.round(afstand * 0.7);
       for (let y = top; y < fod; y++) {
         const w = Math.round(((y - top) / (fod - top)) * halv);
-        g.fillStyle = y - top < 10 ? '#f2f6fb' : farve;
+        g.fillStyle = y - top < 10 ? '#f4efe0' : farve;
         g.fillRect(x0 - w, y, w * 2 + 1, 1);
       }
     }
@@ -318,7 +318,7 @@ export const VARDE: Tegnkort = {
     'KGGGGGGgGGGGGK',
     'KKKKKKKKKKKKKK',
   ],
-  palet: { K: '#2a2c38', G: '#8d8a86', g: '#6c6a68', s: '#f2f6fb' },
+  palet: { K: '#2a2f48', G: '#8a8a8a', g: '#716b60', s: '#f4efe0' },
 };
 
 /** Baggrunden over den halve bro: skovens bleg baggrund, men kun halvt tegnet. */
