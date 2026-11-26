@@ -17,6 +17,7 @@ Læs først `docs/grafik.md` (mål, palet, lys). Reglerne her er de vigtigste.
 - **Ingen bogstaver** i grafikken (krav 1).
 - **Variation:** gentagne ting får flere varianter, men aldrig blandede stilarter på samme sted (Henrik, 19. november 2026: runde, lånte træer mellem papirgraner var rodet).
 - **Lånt grafik** kun under CC0 og farvet om til paletten (krav 9). Skriv den i `LICENSER.md`.
+- **Billeder fra Gemini** (illustrationer som minderne): kun gratis i Gemini-appen, se `docs/gemini-billeder.md`. Gøres klar med `scripts/billede-til-palet.mjs`. Vær kritisk: afvis forkerte hænder, bogstaver, voksne ansigter og anden stil.
 
 ## Fremgangsmåde
 
