@@ -255,58 +255,74 @@
     },
     {
       "id": "k7-fristelse",
-      "type": "dialog",
+      "type": "film",
       "del": 2,
       "sted": "halvelande",
       "objekt": "ufaerdige",
       "opgavetekst": "Gå hen til den mørke skikkelse midt på vejen.",
       "uhygge": true,
       "moerke": true,
-      "tilbageblik": { "id": "soeskendet", "foer": 2 },
-      "replikker": [
-        { "taler": "fortaeller", "tekst": "Så bliver alt stille. Midt på vejen står Den Ufærdige." },
-        { "taler": "ufaerdige", "tekst": "Jeg kan give jer en slutning. Hver af jer. Alt, I skal gøre, er at gå med mig.", "udtryk": "glad" },
-        { "taler": "ufaerdige", "tekst": "Vims. Du kan få en slutning, hvor du aldrig er bange." },
-        { "taler": "vims", "tekst": "Undskyld. Men nej. Jeg er bange sammen med mine venner. Det er bedre.", "udtryk": "bange" },
-        { "taler": "ufaerdige", "tekst": "Fodnote. Du kan få en slutning øverst på siden." },
-        { "taler": "fodnote", "tekst": "¹ Nej tak. Alt det vigtige står nederst." },
+      "tilbageblik": {"id": "soeskendet", "foer": 2},
+      "handlinger": [
         {
-          "taler": "ufaerdige",
-          "tekst": "Klatten. Du har aldrig fået en slutning. Jeg kan give dig en.",
-          "hvis": {
-            "venlighed": 1
-          }
+          "type": "samtidig",
+          "handlinger": [
+            {"type": "bjaelker", "til": true},
+            {"type": "musik", "tema": "stille", "overtoning": 1200},
+            {"type": "stemning", "partikler": false},
+            {"type": "kamera", "til": {"figur": "ufaerdige"}, "zoom": 2, "ms": 1500}
+          ]
         },
         {
-          "taler": "klatten",
-          "tekst": "Den Frygtelige har allerede en slutning. Den hedder venner. Den er frygtelig god.", "udtryk": "glad",
-          "hvis": {
-            "venlighed": 1
-          }
-        },
-        { "taler": "ufaerdige", "tekst": "Bogmærke. Jeg kan glatte dig ud. Det er det, du altid har ønsket." },
-        {
-          "taler": "aeseloere",
-          "tekst": "Det er sandt. Men jeg vil hellere glattes ud sammen med den, der tilgav mig.",
-          "hvis": {
-            "valg": "aeseloere.tilgivet"
-          }
+          "type": "replikker",
+          "replikker": [
+            {"taler": "fortaeller", "tekst": "Så bliver alt stille. Midt på vejen står Den Ufærdige."}
+          ]
         },
         {
-          "taler": "aeseloere",
-          "tekst": "Jeg ... undskyld. Jeg kommer tilbage. Det lover jeg.", "udtryk": "bange",
-          "hvis": {
-            "ikkeValg": "aeseloere.tilgivet"
-          }
+          "type": "samtidig",
+          "handlinger": [
+            {"type": "musik", "tema": "ufaerdige", "overtoning": 2000},
+            {"type": "ryst", "ms": 300}
+          ]
         },
         {
-          "taler": "fortaeller",
-          "tekst": "Æseløre flyver hen til Den Ufærdige. Han kigger ikke på dig.",
-          "hvis": {
-            "ikkeValg": "aeseloere.tilgivet"
-          }
+          "type": "replikker",
+          "replikker": [
+            {"taler": "ufaerdige", "tekst": "Jeg kan give jer en slutning. Hver af jer. Alt, I skal gøre, er at gå med mig.", "udtryk": "glad"},
+            {"taler": "ufaerdige", "tekst": "Vims. Du kan få en slutning, hvor du aldrig er bange."},
+            {"taler": "vims", "tekst": "Undskyld. Men nej. Jeg er bange sammen med mine venner. Det er bedre.", "udtryk": "bange"},
+            {"taler": "ufaerdige", "tekst": "Fodnote. Du kan få en slutning øverst på siden."},
+            {"taler": "fodnote", "tekst": "¹ Nej tak. Alt det vigtige står nederst."},
+            {"taler": "ufaerdige", "tekst": "Klatten. Du har aldrig fået en slutning. Jeg kan give dig en.", "hvis": {"venlighed": 1}},
+            {"taler": "klatten", "tekst": "Den Frygtelige har allerede en slutning. Den hedder venner. Den er frygtelig god.", "udtryk": "glad", "hvis": {"venlighed": 1}},
+            {"taler": "ufaerdige", "tekst": "Bogmærke. Jeg kan glatte dig ud. Det er det, du altid har ønsket."},
+            {"taler": "aeseloere", "tekst": "Det er sandt. Men jeg vil hellere glattes ud sammen med den, der tilgav mig.", "hvis": {"valg": "aeseloere.tilgivet"}},
+            {"taler": "aeseloere", "tekst": "Jeg ... undskyld. Jeg kommer tilbage. Det lover jeg.", "udtryk": "bange", "hvis": {"ikkeValg": "aeseloere.tilgivet"}},
+            {"taler": "fortaeller", "tekst": "Æseløre flyver hen til Den Ufærdige. Han kigger ikke på dig.", "hvis": {"ikkeValg": "aeseloere.tilgivet"}}
+          ]
         },
-        { "taler": "ufaerdige", "tekst": "Så er I færre. Vi ses på den sidste side.", "udtryk": "vred" }
+        {
+          "type": "samtidig",
+          "handlinger": [
+            {"type": "blink"},
+            {"type": "ryst", "ms": 400}
+          ]
+        },
+        {
+          "type": "replikker",
+          "replikker": [
+            {"taler": "ufaerdige", "tekst": "Så er I færre. Vi ses på den sidste side.", "udtryk": "vred"}
+          ]
+        },
+        {
+          "type": "samtidig",
+          "handlinger": [
+            {"type": "bjaelker", "til": false},
+            {"type": "stemning", "partikler": true},
+            {"type": "kamera", "til": {"figur": "spiller"}, "zoom": 1, "ms": 800}
+          ]
+        }
       ]
     },
     {

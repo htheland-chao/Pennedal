@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { trinReplikker } from '../content/filmreplikker.mjs';
 import { harTekst, kapitler, type Kapitel } from '../content';
 import { TING_IKONER } from '../game/pixel/ting';
 import { nytSpil, STANDARD_AVATAR } from '../data/gem';
@@ -62,17 +63,17 @@ describe('minder (tilbageblik)', () => {
 
   it('hvert minde i et kapitel findes i minder.ts, har tekst og kommer før en replik, der findes', () => {
     for (const t of allerTrin) {
-      if (t.type !== 'dialog' || !t.tilbageblik) continue;
+      if ((t.type !== 'dialog' && t.type !== 'film') || !t.tilbageblik) continue;
       expect(erMinde(t.tilbageblik.id), t.id).toBe(true);
       expect(t.tilbageblik.foer, t.id).toBeGreaterThanOrEqual(0);
-      expect(t.tilbageblik.foer, t.id).toBeLessThan(t.replikker.length);
+      expect(t.tilbageblik.foer, t.id).toBeLessThan(trinReplikker(t).length);
     }
     for (const id of MINDER) {
       expect(harTekst(`minde.${id}.titel`), id).toBe(true);
       for (let nr = 1; nr <= MINDE_INFO[id].dele; nr++) expect(harTekst(`minde.${id}.${nr}`), `${id}.${nr}`).toBe(true);
       for (const nr of MINDE_INFO[id].mild) expect(harTekst(`minde.${id}.${nr}.mild`), `${id}.${nr}.mild`).toBe(true);
       // Et minde bruges enten i et trin eller låses op af et hukommelsesskår.
-      const iTrin = allerTrin.some((t) => t.type === 'dialog' && t.tilbageblik?.id === id);
+      const iTrin = allerTrin.some((t) => (t.type === 'dialog' || t.type === 'film') && t.tilbageblik?.id === id);
       expect(iTrin || Object.values(SKAAR_MINDE).includes(id), `${id} bruges i et kapitel eller af et skår`).toBe(true);
     }
     // Hvert skår med et minde findes i SKAAR, og hver mission eller udflugt giver et skår, der findes.

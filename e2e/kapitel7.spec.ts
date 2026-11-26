@@ -20,14 +20,26 @@ async function laesDialog(page: Page) {
   await expect(dialog).toHaveCount(0);
 }
 
+/** Ser en filmsekvens til ende: trykker "Videre" ved hver replik, til filmen er slut. */
+async function seFilm(page: Page) {
+  const film = page.locator('.film');
+  const dialog = page.locator('dialog.dialogboks');
+  for (let i = 0; i < 120 && (await film.count()) > 0; i++) {
+    if (await dialog.isVisible()) await dialog.getByRole('button', { name: 'Videre' }).click({ timeout: 2_000 }).catch(() => undefined);
+    else await page.waitForTimeout(300);
+  }
+  await expect(film).toHaveCount(0);
+}
+
 async function venterPaa(page: Page, tekst: string) {
   const dialog = page.locator('dialog.dialogboks');
   await expect(dialog).toBeVisible({ timeout: 30_000 });
-  for (let i = 0; i < 15 && !(await dialog.getByText(tekst).isVisible()); i++)
-    await dialog
-      .getByRole('button', { name: 'Videre' })
-      .click({ timeout: 3_000 })
-      .catch(() => undefined);
+  // Klik kun, mens en dialog står der. I en filmsekvens er der pauser mellem replikkerne, og et klik, der venter,
+  // ville ellers trykke "Videre" forbi den replik, der ventes på.
+  for (let i = 0; i < 45 && !(await dialog.getByText(tekst).isVisible()); i++) {
+    if (await dialog.isVisible()) await dialog.getByRole('button', { name: 'Videre' }).click({ timeout: 1_000 }).catch(() => undefined);
+    else await page.waitForTimeout(300);
+  }
   await expect(dialog).toContainText(tekst);
 }
 
@@ -220,10 +232,12 @@ test('kapitel 7: De halve lande, fire genrer, fristelsen og kampen med hele hold
   await expect(page.locator('.kvittering').filter({ hasText: 'Et hukommelsesskår: Skyggen på vejen' })).toBeVisible();
 
   // Fristelsen: Den Ufærdige står midt på vejen. Alle bliver.
+  // Fristelsen er en filmsekvens (26. november 2026). Gennemspillet springer over, når replikken er set.
   await gaaTil(page, 'ufaerdige');
   await venterPaa(page, 'glattes ud sammen med den, der tilgav mig');
   await page.screenshot({ path: `${BILLEDER}/k7-04-fristelse.png` });
-  await laesDialog(page);
+  await page.keyboard.press('Escape');
+  await expect(page.locator('.film')).toHaveCount(0);
   const kamp = await startKamp(page);
   for (const navn of ['Æseløre', 'Vims', 'Klatten']) await expect(kamp.locator('.kamp-navn').filter({ hasText: navn })).toHaveCount(1);
   await kaemp(page, 'k7-kamp');
@@ -246,8 +260,11 @@ test('kapitel 7: uden tilgivelse går Æseløre med Den Ufærdige, og kampen er 
   page.on('pageerror', (e) => fejl.push(e.message));
   await page.goto('/?hop=k7-fristelse');
   await gaaTil(page, 'ufaerdige');
+  // Her ses hele filmen.
+  await expect(page.locator('.film-bjaelker.vis')).toBeVisible({ timeout: 15_000 });
   await venterPaa(page, 'Jeg kommer tilbage. Det lover jeg.');
-  await laesDialog(page);
+  await seFilm(page);
+  await expect(page.getByText(/Nogen ved skuffen/).first()).toBeVisible({ timeout: 15_000 });
   const kamp = await startKamp(page);
   await expect(kamp.locator('.kamp-navn').filter({ hasText: 'Æseløre' })).toHaveCount(0);
   await expect(kamp.locator('.kamp-navn').filter({ hasText: 'Klatten' })).toHaveCount(0);
