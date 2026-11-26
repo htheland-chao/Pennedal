@@ -34,11 +34,12 @@ async function seFilm(page: Page) {
 async function venterPaa(page: Page, tekst: string) {
   const dialog = page.locator('dialog.dialogboks');
   await expect(dialog).toBeVisible({ timeout: 30_000 });
-  for (let i = 0; i < 15 && !(await dialog.getByText(tekst).isVisible()); i++)
-    await dialog
-      .getByRole('button', { name: 'Videre' })
-      .click({ timeout: 3_000 })
-      .catch(() => undefined);
+  // Klik kun, mens en dialog står der. I en filmsekvens er der pauser mellem replikkerne, og et klik, der venter,
+  // ville ellers trykke "Videre" forbi den replik, der ventes på.
+  for (let i = 0; i < 45 && !(await dialog.getByText(tekst).isVisible()); i++) {
+    if (await dialog.isVisible()) await dialog.getByRole('button', { name: 'Videre' }).click({ timeout: 1_000 }).catch(() => undefined);
+    else await page.waitForTimeout(300);
+  }
   await expect(dialog).toContainText(tekst);
 }
 

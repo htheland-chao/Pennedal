@@ -78,8 +78,12 @@ test('fristelsen (kapitel 7) starter ved Den Ufærdige og kan springes over med 
   const dialog = page.locator('dialog.dialogboks');
   await expect(dialog).toContainText('Så bliver alt stille', { timeout: 15_000 });
   const tilbud = dialog.getByText('Jeg kan give jer en slutning');
-  for (let i = 0; i < 10 && !(await tilbud.isVisible()); i++)
-    await dialog.getByRole('button', { name: 'Videre' }).click({ timeout: 2_000 }).catch(() => undefined);
+  // Klik kun, mens den første replik står der, så klikket ikke springer forbi tilbuddet.
+  const foerste = dialog.getByText('Så bliver alt stille');
+  for (let i = 0; i < 30 && !(await tilbud.isVisible()); i++) {
+    if (await foerste.isVisible()) await dialog.getByRole('button', { name: 'Videre' }).click({ timeout: 1_000 }).catch(() => undefined);
+    else await page.waitForTimeout(300);
+  }
   await expect(tilbud).toBeVisible();
   await page.waitForTimeout(500);
   await page.screenshot({ path: `${BILLEDER}/film-05-k7-fristelse.png` });
