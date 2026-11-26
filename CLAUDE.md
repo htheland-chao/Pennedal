@@ -5,8 +5,10 @@ Danskfagligt fantasy-læringsspil til en 5. klasse. Ejer: Henrik (klasselærer o
 ## Kommunikation med Henrik
 
 - Skriv på dansk, kort og konkret. Brug bindestreg (-), aldrig tankestreg.
-- Spørg hellere end at gætte.
-- Ved vigtige valg: beskriv først, hvordan det kan gå galt, og giv derefter en konkret anbefaling.
+- Beslut selv, og skriv dine antagelser kort i opsummeringen, så Henrik kan rette bagefter. Spørg ikke om hans mening til noget, du selv kan vurdere.
+- Spørg kun om det, kun Henrik ved (elever, hans smag, hans budget), eller før noget, der ikke kan fortrydes eller koster penge. Undersøg selv først, om du kan finde svaret.
+- Tænk gerne over, hvordan en løsning kan gå galt, men skriv det ikke ud som en særskilt analyse. Giv beslutningen og højst én linje om risikoen.
+- Mind ikke Henrik om at teste - han tester løbende. Fortsæt med de næste skridt.
 - Påstå aldrig, at noget virker, uden at have kørt og tjekket det. Sig tydeligt, hvad der ikke er testet.
 
 ## Start her
