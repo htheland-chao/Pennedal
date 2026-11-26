@@ -47,7 +47,7 @@ Kort overblik. Hvornår og hvordan hver ting blev lavet, står i `docs/logbog.md
 
 ## Åbent og mangler
 
-- **Verdenens farver i masterpaletten** (PR fra 26. november 2026) venter på, at Henrik ser før og efter (Claude-artefakt "Pennedal - verdenens farver før og efter") og vælger, om paletten skal have kolde lyse grå til Viskeskoven og Rimbjerget.
+- **Kolde lyse grå til Viskeskoven og Rimbjerget:** paletten mangler dem, så de to baner bruger stadig egne farver. Henrik skal vælge, om paletten skal udvides. Før og efter: Claude-artefakt "Pennedal - verdenens farver før og efter".
 - **Lyd:** alle 2164 klip findes (26. november 2026). Nye eller ændrede tekster får klip, næste gang lydjobbet kører (`npm run lyd:status`).
 - **Grafik i Viskeskovens bane** er en første udgave: bleg skovbund, hvidt tomrum og tåge. Henrik bør se den.
 - **Kapitel 8, nyt og ikke set af Henrik:** Den sidste side (linjeret papir), Halvsætningen og den lille Skygge, sangen `siden` og de fire navneforslag (Skumring, Pip, Lille Mørk, Fnug).
