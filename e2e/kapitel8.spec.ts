@@ -1,4 +1,5 @@
 import { expect, test, type Page } from '@playwright/test';
+import { venterPaa } from './hjaelp/venterPaa';
 import { readFileSync } from 'node:fs';
 
 const laes = <T,>(sti: string) => JSON.parse(readFileSync(new URL(`../src/content/${sti}`, import.meta.url), 'utf8')) as T;
@@ -26,18 +27,6 @@ async function seFilm(page: Page) {
     else await page.waitForTimeout(300);
   }
   await expect(film).toHaveCount(0);
-}
-
-async function venterPaa(page: Page, tekst: string) {
-  const dialog = page.locator('dialog.dialogboks');
-  await expect(dialog).toBeVisible({ timeout: 30_000 });
-  // Klik kun, mens en dialog står der. I en filmsekvens er der pauser mellem replikkerne, og et klik, der venter,
-  // ville ellers trykke "Videre" forbi den replik, der ventes på.
-  for (let i = 0; i < 60 && !(await dialog.getByText(tekst).isVisible()); i++) {
-    if (await dialog.isVisible()) await dialog.getByRole('button', { name: 'Videre' }).click({ timeout: 1_000 }).catch(() => undefined);
-    else await page.waitForTimeout(300);
-  }
-  await expect(dialog).toContainText(tekst);
 }
 
 async function vaelg(page: Page, svar: string) {
