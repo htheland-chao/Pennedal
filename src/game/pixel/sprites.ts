@@ -500,3 +500,11 @@ export const SKYGGE: Tegnkort = {
   ],
   palet: { U: '#070912', k: '#3a3560', O: '#f4efe0' },
 };
+
+/**
+ * Bruges farven på hovedet? Hovedbeklædning (alt andet end "Intet"), halstørklædet og elastikkerne i fletninger
+ * og hestehale har den farve (26. november 2026). Udseende-editoren slår valget fra, når farven ikke kan ses.
+ */
+export function brugerHovedfarve(a: Pick<Avatar, 'hoved' | 'tilbehoer' | 'haar'>): boolean {
+  return a.hoved !== 0 || a.tilbehoer === 2 || a.haar === 3 || a.haar === 5;
+}
