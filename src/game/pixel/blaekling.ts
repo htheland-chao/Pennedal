@@ -19,5 +19,5 @@ export const BLAEKLING: Tegnkort = {
     'KbKbbbbbbKbbK.',
     '.K.KKbbKK.KK..',
   ],
-  palet: { K: '#0b0a14', b: '#1f2a44', B: '#33416a', W: '#e8eef8', E: '#0b0a14', m: '#0b0a14' },
+  palet: { K: '#070912', b: '#2a2f48', B: '#28467c', W: '#f4efe0', E: '#070912', m: '#070912' },
 };

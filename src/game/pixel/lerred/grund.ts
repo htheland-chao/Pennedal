@@ -12,20 +12,20 @@ const STRAA = hx('#5aa572');
 const STI = { f: hx('#c4ab7c'), m: hx('#a99068'), k: hx('#8a7656'), l: hx('#e0c995') };
 const VAND = { a: hx('#203a6b'), b: hx('#28467c'), krus: hx('#4f6fa8'), bred: hx('#3a2a20'), skum: hx('#698fc1'), lav: hx('#245c99') };
 /** Blæksøen (kapitel 6): sort, blankt blæk med violette glimt. */
-const BLAEKVAND = { a: hx('#0f0e1c'), b: hx('#15132a'), krus: hx('#5a4f8a'), bred: hx('#2a2030'), skum: hx('#5a4f8a'), lav: hx('#1a1e36') };
+const BLAEKVAND = { a: hx('#070912'), b: hx('#1b1b24'), krus: hx('#6a6487'), bred: hx('#222222'), skum: hx('#6a6487'), lav: hx('#1a1e36') };
 const MAANER = ['#f3ead2', '#f0c45a', '#c9dcf2'].map(hx);
 const MAANE_R = [5, 3, 4];
 
-const BLOMST = ['#e5c03a', '#f4efe0', '#c0503e', '#7b4bb3', '#e8a0b8'].map(hx);
-const BROSTEN = { a: hx('#9c9488'), b: hx('#8a8276'), fuge: hx('#5f5a52'), lys: hx('#b3ab9e') };
-const BLAEKPLET = hx('#141629');
-const TAGFARVER = [['#b0413e', '#8e3428'], ['#2f7a6b', '#1f5a4e'], ['#2c6fbb', '#1f4f86'], ['#c97a3a', '#a05a28'], ['#7b4bb3', '#5a3488']].map((p) => p.map(hx));
-const FACADER = ['#e8dcc0', '#f0d0a0', '#d9e3f0', '#e8c0b0', '#f4efe0'].map(hx);
+const BLOMST = ['#e5c03a', '#f4efe0', '#c0503e', '#7b4bb3', '#e595a9'].map(hx);
+const BROSTEN = { a: hx('#8a8a8a'), b: hx('#7a7468'), fuge: hx('#5d5243'), lys: hx('#a7aab8') };
+const BLAEKPLET = hx('#1b1b24');
+const TAGFARVER = [['#a83b33', '#8e3428'], ['#2e8b57', '#24503a'], ['#2c6fbb', '#245c99'], ['#c98d63', '#8a5a3a'], ['#7b4bb3', '#603979']].map((p) => p.map(hx));
+const FACADER = ['#f6d7c3', '#e0c995', '#c9dcf2', '#eec1a0', '#f4efe0'].map(hx);
 const BJAELKE = hx('#4a3426');
-const RUDE = hx('#2a3a66');
-const RUDE_LYS = hx('#9ec3e6');
+const RUDE = hx('#2a2f48');
+const RUDE_LYS = hx('#698fc1');
 const DOER = hx('#6b4a2b');
-const MURSTEN = { a: hx('#8f8a80'), b: hx('#7f7a70'), fuge: hx('#55514a'), top: hx('#a8a297') };
+const MURSTEN = { a: hx('#8a8a8a'), b: hx('#7a7468'), fuge: hx('#5d5243'), top: hx('#a7aab8') };
 
 /** Brosten i små, skæve sten. Med blæk er der en sort plet. */
 function brosten(X: number, Y: number, _r: number, blaek: boolean): [number, number, number] {
@@ -93,11 +93,11 @@ function stiAfstand(u: number, v: number, op: boolean, ned: boolean, venstre: bo
 }
 
 type RGB = [number, number, number];
-const STEN = { a: hx('#8f8a80'), b: hx('#6f6a62'), lys: hx('#b3ab9e') };
-const TUE = { m: hx('#2f6448'), l: hx('#6fb585') };
-const SVAMP = { hat: hx('#c0503e'), prik: hx('#f4efe0'), fod: hx('#e0d6be') };
+const STEN = { a: hx('#8a8a8a'), b: hx('#716b60'), lys: hx('#a7aab8') };
+const TUE = { m: hx('#2f6448'), l: hx('#5aa572') };
+const SVAMP = { hat: hx('#c0503e'), prik: hx('#f4efe0'), fod: hx('#d9d2bd') };
 const KVIST = hx('#6b4a2b');
-const MOS = hx('#5a7a4a');
+const MOS = hx('#3d7a57');
 
 /**
  * Små ting på jorden (Henrik, 9. november 2026): sten, tuer, blomster, svampe og kviste på græsset,

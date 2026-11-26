@@ -6,8 +6,8 @@ import { BFELT, erFast, type Bane } from '../../bane';
 import { hash, lerred } from '../lerred';
 import { hx, PLANKE, BLAEK, VISKET } from './farver';
 
-const SOESTEN = { top: hx('#9a96a8'), a: hx('#6a6678'), b: hx('#5a5668'), mos: hx('#4f6f44'), fuge: hx('#3a3646') };
-const BLAEKSOE = { a: hx('#0f0e1c'), b: hx('#15132a'), glimt: hx('#5a4f8a') };
+const SOESTEN = { top: hx('#8a8a8a'), a: hx('#6a6487'), b: hx('#5b5663'), mos: hx('#356c4d'), fuge: hx('#2a2f48') };
+const BLAEKSOE = { a: hx('#070912'), b: hx('#1b1b24'), glimt: hx('#6a6487') };
 
 /**
  * Stenene over Blæksøen (kapitel 6): grå sten med mos på toppen, sort blæk imellem.
@@ -67,18 +67,18 @@ export function tegnSoeBaggrund(bredde: number, hoejde: number): HTMLCanvasEleme
   g.fillRect(0, 0, bredde, hoejde);
   // De halve lande: bakker og træer, der kun er tegnet med en streg.
   const bund = Math.round(hoejde * 0.62);
-  g.fillStyle = '#3a3050';
+  g.fillStyle = '#3a3560';
   for (let x = 0; x < bredde; x++) {
     const h = Math.round(10 + Math.sin(x / 37) * 6 + Math.sin(x / 13) * 3);
     g.fillRect(x, bund - h, 1, h);
   }
-  g.fillStyle = '#c9c2d6';
+  g.fillStyle = '#b9bfcf';
   for (let x0 = 20; x0 < bredde; x0 += 70) {
     const h = 14 + Math.floor(hash(x0, 2) * 10);
     for (let y = 0; y < h; y++) g.fillRect(x0, bund - 8 - y, 1, 1);
     for (let i = 0; i < 8; i++) g.fillRect(x0 - 4 + i, bund - 8 - h + Math.abs(4 - i), 1, 1);
   }
-  g.fillStyle = '#0f0e1c';
+  g.fillStyle = '#070912';
   g.fillRect(0, bund, bredde, hoejde - bund);
   return c;
 }

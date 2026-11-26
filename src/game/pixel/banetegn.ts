@@ -91,11 +91,11 @@ export function tegnByBaggrund(bredde: number, hoejde: number): HTMLCanvasElemen
   while (x < bredde) {
     const w = 18 + Math.floor(hash(i, 5) * 22);
     const h = 40 + Math.floor(hash(i, 6) * 50);
-    g.fillStyle = '#1d2448';
+    g.fillStyle = '#1a1e36';
     g.fillRect(x, hoejde - h, w, h);
     // Spidst tag.
     for (let k = 0; k < w / 2; k++) g.fillRect(x + k, hoejde - h - k / 1.5, w - 2 * k, 1);
-    g.fillStyle = '#e8b85a';
+    g.fillStyle = '#d9b56f';
     for (let wy = hoejde - h + 8; wy < hoejde - 8; wy += 10)
       for (let wx = x + 4; wx < x + w - 5; wx += 7) if (hash(wx, wy) > 0.55) g.fillRect(wx, wy, 3, 4);
     x += w + 2 + Math.floor(hash(i, 7) * 10);
@@ -108,7 +108,7 @@ export function tegnByBaggrund(bredde: number, hoejde: number): HTMLCanvasElemen
 export function checkpoint(taendt: boolean): Tegnkort {
   return {
     raekker: ['..lll..', '.lLLLl.', '.lLLLl.', '.lLLLl.', '..lll..', '...s...', '...s...', '...s...', '...s...', '...s...', '...s...', '..sss..'],
-    palet: { l: '#3a2a20', L: taendt ? '#ffe9a8' : '#4a4a5a', s: '#6b4a2b' },
+    palet: { l: '#3a2a20', L: taendt ? '#ffe9a8' : '#4f4a57', s: '#6b4a2b' },
   };
 }
 
@@ -118,7 +118,7 @@ export const MAAL: Tegnkort = {
     'KKKKKKKKKKKKKK', 'KWWWWWWWWWWWWK', 'KWYYYYYYYYYYWK', 'KWYyyyyyyyyYWK', 'KWYyyyyyyyyYWK', 'KWYyyyyyyyyYWK',
     'KWYyyyyyyyyYWK', 'KWYYYYYYYYYYWK', 'KWWWWWWWWWWWWK', 'KKKKKKKKKKKKKK',
   ],
-  palet: { K: '#2a170f', W: '#6b4a2b', Y: '#e5b84c', y: '#ffe9a8' },
+  palet: { K: '#222222', W: '#6b4a2b', Y: '#e5c03a', y: '#ffe9a8' },
 };
 
 /**
@@ -221,7 +221,7 @@ export function tegnTaage(b: number, h: number, hul: number): HTMLCanvasElement 
 /** En ny planke, der lige er skrevet tilbage. */
 export const NY_PLANKE: Tegnkort = {
   raekker: ['TTTTTTTTTTTTTTTT', 'PPPPPPPkPPPPPPPk', 'PPPPPPPkPPPPPPPk', 'PPPPPPPkPPPPPPPk', 'kkkkkkkkkkkkkkkk'],
-  palet: { T: '#e8cf9a', P: '#c9a46a', k: '#7a5a3a' },
+  palet: { T: '#e0c995', P: '#c4ab7c', k: '#8a5a3a' },
 };
 
 const KLIPPE = { sne: hx('#f2f6fb'), sneSkygge: hx('#cdd9e8'), a: hx('#7d7f8c'), b: hx('#6a6c7a'), lys: hx('#9a9cab') };

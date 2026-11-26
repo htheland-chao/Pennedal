@@ -69,7 +69,7 @@ export function PhaserVerden(props: Props) {
       parent: beholder.current,
       width: stoerrelse()[0],
       height: stoerrelse()[1],
-      backgroundColor: '#1f2a44',
+      backgroundColor: '#2a2f48',
       scale: { mode: Phaser.Scale.FIT, autoCenter: Phaser.Scale.CENTER_BOTH },
       input: { keyboard: { target: beholder.current } },
       disableContextMenu: true,

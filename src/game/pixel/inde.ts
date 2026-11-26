@@ -11,14 +11,14 @@ const rgb = (c: [number, number, number]) => `rgb(${c[0]}, ${c[1]}, ${c[2]})`;
 
 export type Gulv = 'trae' | 'sten';
 
-const TRAE = { a: hx('#b98b5a'), b: hx('#a97d50'), fuge: hx('#8a6340'), knast: hx('#7a5636') };
-const STEN = { a: hx('#7a7468'), b: hx('#716b60'), fuge: hx('#4a453e'), plet: hx('#8a8476') };
-const TAEPPE = { a: hx('#7a2e1f'), b: hx('#8e3428'), kant: hx('#c9a24a'), moenster: hx('#e0c995') };
-const VAEG = { a: hx('#8a5a3a'), b: hx('#7a4e33'), panel: hx('#5a3a28'), liste: hx('#3a2a20') };
-const STENVAEG = { a: hx('#5b5663'), b: hx('#4f4a57'), fuge: hx('#332f3a') };
+const TRAE = { a: hx('#c98d63'), b: hx('#a96e48'), fuge: hx('#8a5a3a'), knast: hx('#7a4e33') };
+const STEN = { a: hx('#7a7468'), b: hx('#716b60'), fuge: hx('#4f4a57'), plet: hx('#8a8a8a') };
+const TAEPPE = { a: hx('#7a2e1f'), b: hx('#8e3428'), kant: hx('#d9b56f'), moenster: hx('#e0c995') };
+const VAEG = { a: hx('#8a5a3a'), b: hx('#7a4e33'), panel: hx('#6b3f27'), liste: hx('#3a2a20') };
+const STENVAEG = { a: hx('#5b5663'), b: hx('#4f4a57'), fuge: hx('#2a2f48') };
 const MOERK = hx('#3a2a20');
-const MOERK2 = hx('#2a170f');
-const BOGFARVER = ['#c0503e', '#2f7a6b', '#2c6fbb', '#e5c03a', '#7b4bb3', '#e0c995', '#8e3428', '#3d7a57'].map(hx);
+const MOERK2 = hx('#222222');
+const BOGFARVER = ['#c0503e', '#2e8b57', '#2c6fbb', '#e5c03a', '#7b4bb3', '#e0c995', '#8e3428', '#3d7a57'].map(hx);
 
 /** Et kort er indendørs, hvis det har mørke ydervægge (K). */
 export const erInde = (kort: Kort) => {
@@ -97,9 +97,9 @@ export function tegnRum(kort: Kort, gulv: Gulv): HTMLCanvasElement {
     const h = 22;
     g.fillStyle = '#3a2a20';
     g.fillRect(x - 2, y - 2, w + 4, h + 4);
-    g.fillStyle = '#9ec3e6';
+    g.fillStyle = '#698fc1';
     g.fillRect(x, y, w, h);
-    g.fillStyle = '#cfe3f5';
+    g.fillStyle = '#c9dcf2';
     for (let i = 0; i < 6; i++) g.fillRect(x + 4 + i, y + 2 + i * 2, 2, 2);
     g.fillStyle = '#3a2a20';
     g.fillRect(x + w / 2 - 1, y, 2, h);
@@ -129,7 +129,7 @@ export function reol(hoejde: number, gammel = false): HTMLCanvasElement {
   const hylder = Math.floor((hoejde - 3) / 7);
   for (let i = 0; i < hylder; i++) {
     const y0 = 2 + i * 7;
-    g.fillStyle = '#2a170f';
+    g.fillStyle = '#222222';
     g.fillRect(2, y0, w - 4, 6);
     let x = 2;
     while (x < w - 2) {
@@ -143,7 +143,7 @@ export function reol(hoejde: number, gammel = false): HTMLCanvasElement {
       }
       x += bw;
     }
-    g.fillStyle = gammel ? '#5a4a3a' : '#8a6a45';
+    g.fillStyle = gammel ? '#5d5243' : '#8a7656';
     g.fillRect(1, y0 + 6, w - 2, 1);
   }
   if (gammel) {
@@ -160,16 +160,16 @@ export function reol(hoejde: number, gammel = false): HTMLCanvasElement {
 export function bordflade(bredde: number, dybde: number, top: string, front: string): HTMLCanvasElement {
   const c = lerred(bredde, dybde + 6);
   const g = c.getContext('2d')!;
-  g.fillStyle = '#2a170f';
+  g.fillStyle = '#222222';
   g.fillRect(0, 0, bredde, dybde + 6);
   g.fillStyle = top;
   g.fillRect(1, 1, bredde - 2, dybde - 2);
-  g.fillStyle = '#c9a46a';
+  g.fillStyle = '#c4ab7c';
   g.fillRect(1, 1, bredde - 2, 1);
   g.fillStyle = front;
   g.fillRect(1, dybde, bredde - 2, 5);
   for (let x = 6; x < bredde - 4; x += 10) {
-    g.fillStyle = '#5a3a28';
+    g.fillStyle = '#6b3f27';
     g.fillRect(x, dybde + 1, 1, 4);
   }
   return c;
@@ -179,30 +179,30 @@ export function bordflade(bredde: number, dybde: number, top: string, front: str
 export function trappe(op: boolean): HTMLCanvasElement {
   const c = lerred(16, 22);
   const g = c.getContext('2d')!;
-  g.fillStyle = '#1a0e09';
+  g.fillStyle = '#070912';
   g.fillRect(0, 0, 16, 22);
-  const farver = ['#6b4a2b', '#5a3a28', '#4a3426', '#3a2a20', '#2a170f'];
+  const farver = ['#6b4a2b', '#6b3f27', '#4a3426', '#3a2a20', '#222222'];
   if (op) farver.reverse();
   for (let i = 0; i < 5; i++) {
     g.fillStyle = farver[i];
     g.fillRect(1, 2 + i * 4, 14, 3);
   }
-  g.fillStyle = '#8a6a45';
+  g.fillStyle = '#8a7656';
   g.fillRect(0, 0, 1, 22);
   g.fillRect(15, 0, 1, 22);
-  g.fillStyle = '#c9a46a';
+  g.fillStyle = '#c4ab7c';
   g.fillRect(0, 0, 16, 1);
   return c;
 }
 
 export const PLANTE: Tegnkort = {
   raekker: ['...g.gg..', '..gGgGgg.', '.gGgGGgGg', '..gGgGgg.', '...gGg...', '..KKKKK..', '..KppppK.', '..KppppK.', '...KKKK..'],
-  palet: { g: '#2f6448', G: '#4f9467', K: '#5a3a28', p: '#a0522d' },
+  palet: { g: '#2f6448', G: '#4f9467', K: '#6b3f27', p: '#8a5536' },
 };
 
 export const LOGBOG: Tegnkort = {
   raekker: ['.KKKKKKKKKK.', 'KPPPPKPPPPPK', 'KPllPKPllPPK', 'KPPPPKPPPPPK', 'KPllPKPlllPK', 'KPPPPKPPPPPK', '.KKKKKKKKKK.'],
-  palet: { K: '#5a3a28', P: '#f4efe0', l: '#8f8a9e' },
+  palet: { K: '#6b3f27', P: '#f4efe0', l: '#8a8a8a' },
 };
 
 /** Hr. Holm: gråt hår, briller og brun cardigan over en lys skjorte. */
@@ -213,7 +213,7 @@ export const HOLM: Tegnkort = {
     '.KTtTTWWWTTtTK..', '.KStTTWWWTTtSK..', '.KTtTTTTTTTtTK..', '.KTTTTTTTTTTTK..', '..KPPPPPPPPPK...', '..KPPPPKPPPPK...',
     '..KPPPK.KPPPK...', '..KPPPK.KPPPK...', '..KPPPK.KPPPK...', '..KBBBK.KBBBK...', '..KKKKK.KKKKK...', '................',
   ],
-  palet: { K: '#1b1b24', H: '#d6d6d6', h: '#a9a9a9', S: '#e0a982', s: '#c98d63', E: '#1b1b24', G: '#2a2f48', T: '#7a5c3e', t: '#5c442c', W: '#e8dcc0', P: '#3a3550', B: '#3a2a20' },
+  palet: { K: '#1b1b24', H: '#d9d2bd', h: '#a7aab8', S: '#e0a982', s: '#c98d63', E: '#1b1b24', G: '#2a2f48', T: '#8a5a3a', t: '#6b3f27', W: '#f6d7c3', P: '#3a3560', B: '#3a2a20' },
 };
 
 /**
@@ -227,7 +227,7 @@ export const BORGMESTER: Tegnkort = {
     '.KTTTTHHHTTTTK..', '.KTTTYTTTYTTTK..', '.KSTTTYYYTTTSK..', '.KTTTTTYTTTTTK..', '..KPPPPPPPPPK...', '..KPPPPKPPPPK...',
     '..KPPPK.KPPPK...', '..KPPPK.KPPPK...', '..KPPPK.KPPPK...', '..KBBBK.KBBBK...', '..KKKKK.KKKKK...', '................',
   ],
-  palet: { K: '#1b1b24', C: '#2b2433', c: '#7b4bb3', S: '#e0a982', h: '#a9a9a9', H: '#d6d6d6', E: '#1b1b24', m: '#8e3428', T: '#4f3a6b', Y: '#f0c45a', P: '#2b2433', B: '#1b1b24' },
+  palet: { K: '#1b1b24', C: '#2a2f48', c: '#7b4bb3', S: '#e0a982', h: '#a7aab8', H: '#d9d2bd', E: '#1b1b24', m: '#8e3428', T: '#603979', Y: '#f0c45a', P: '#2a2f48', B: '#1b1b24' },
 };
 
 /** Kartoteksskabet med mange små skuffer. Ingen bogstaver, kun små messinggreb. */
@@ -238,7 +238,7 @@ export const KARTOTEK: Tegnkort = {
     'KWdgKdgKdgKdgWWK', 'KWddKddKddKddWWK', 'KWKKKKKKKKKKKWWK', 'KWddKddKddKddWWK', 'KWdgKdgKdgKdgWWK', 'KWddKddKddKddWWK',
     'KWKKKKKKKKKKKWWK', 'KWWWWWWWWWWWWWWK', 'KWWKWWWWWWWWKWWK', 'KKKK........KKKK',
   ],
-  palet: { K: '#2a170f', W: '#6b4a2b', w: '#8a6a45', d: '#4a3426', g: '#f0c45a' },
+  palet: { K: '#222222', W: '#6b4a2b', w: '#8a7656', d: '#4a3426', g: '#f0c45a' },
 };
 
 /** Trækasse til kælderen. */
@@ -247,7 +247,7 @@ export const KASSE: Tegnkort = {
     'KKKKKKKKKKKKKK', 'KllllllllllllK', 'KLLLLLLLLLLLLK', 'KllllllllllllK', 'KKKKKKKKKKKKKK', 'KWWWWWWWWWWWWK',
     'KWWwWWWWWWwWWK', 'KWWWwWWWWwWWWK', 'KWWWWwWWwWWWWK', 'KWWWWWwwWWWWWK', 'KWWWWwWWwWWWWK', 'KKKKKKKKKKKKKK',
   ],
-  palet: { K: '#2a170f', l: '#8a6a45', L: '#a07a4a', W: '#6b4a2b', w: '#4a3426' },
+  palet: { K: '#222222', l: '#8a7656', L: '#a96e48', W: '#6b4a2b', w: '#4a3426' },
 };
 
 /**
@@ -282,7 +282,7 @@ export const PORT: Tegnkort = {
     'KMIIIIIIIIIIIIMK', 'KMWwWWwWWwWWwWMK', 'KMWwWWwWWwWWwWMK', 'KMWwWWwWWwWWwWMK', 'KMWwWWwWWwWWwWMK', 'KMWwWWwWWwWWwWMK',
     'KMWWWWWWWWWWWWMK', 'KKKKKKKKKKKKKKKK',
   ],
-  palet: { K: '#2a170f', M: '#7f7a70', W: '#8a5a3a', w: '#6b4a2b', I: '#3a3d55', Y: '#e5b84c' },
+  palet: { K: '#222222', M: '#7a7468', W: '#8a5a3a', w: '#6b4a2b', I: '#3a3560', Y: '#e5c03a' },
 };
 
 /** Det tørre springvand på torvet, 32 x 28. */
@@ -295,7 +295,7 @@ export const SPRINGVAND: Tegnkort = {
     '.KSsddddddddbbdddddddddddddsSK..', '.KSsddddddddddddddddddddddddsSK.', '.KSsddddddddddddddddddddddddsSK.', '..KSssssssssssssssssssssssssSK..',
     '..KSSSSSSSSSSSSSSSSSSSSSSSSSSK..', '...KkkkkkkkkkkkkkkkkkkkkkkkkK...', '....KKKKKKKKKKKKKKKKKKKKKKKK....',
   ].map((r) => r.padEnd(32, '.').slice(0, 32)),
-  palet: { K: '#3a3530', S: '#b3ab9e', s: '#8f8a80', d: '#6b6358', b: '#141629', k: '#7f7a70' },
+  palet: { K: '#4a3426', S: '#a7aab8', s: '#8a8a8a', d: '#716b60', b: '#1b1b24', k: '#7a7468' },
 };
 
 /** En trykpresse i trykkeriet. */
@@ -305,11 +305,11 @@ export const PRESSE: Tegnkort = {
     'KKMKKKKMKKKKMKK', 'KWWWWWWWWWWWWWK', 'KWPPPPPPPPPPPWK', 'KWPPPPPPPPPPPWK', 'KWWWWWWWWWWWWWK', 'KWK.........KWK',
     'KWK.........KWK', 'KKK.........KKK',
   ],
-  palet: { K: '#1b1b24', M: '#3a3d55', W: '#6b4a2b', P: '#f4efe0' },
+  palet: { K: '#1b1b24', M: '#3a3560', W: '#6b4a2b', P: '#f4efe0' },
 };
 
 /** En stige op til lemmen i loftet. */
 export const STIGE: Tegnkort = {
   raekker: ['K......K', 'KWWWWWWK', 'K......K', 'K......K', 'KWWWWWWK', 'K......K', 'K......K', 'KWWWWWWK', 'K......K', 'K......K', 'KWWWWWWK', 'K......K', 'K......K', 'KWWWWWWK', 'K......K', 'K......K', 'KWWWWWWK', 'K......K', 'K......K', 'KWWWWWWK', 'K......K', 'K......K'],
-  palet: { K: '#4a3426', W: '#a07a4a' },
+  palet: { K: '#4a3426', W: '#a96e48' },
 };

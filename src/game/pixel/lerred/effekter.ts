@@ -81,11 +81,11 @@ export function partikelBilleder(art: string): [HTMLCanvasElement, HTMLCanvasEle
       return [c, c];
     }
     case 'pollen': {
-      const c = t(['Y'], { Y: '#f0d870' });
+      const c = t(['Y'], { Y: '#f0c45a' });
       return [c, c];
     }
     default: {
-      const c = t(['S'], { S: '#efe6d4' });
+      const c = t(['S'], { S: '#f3ead2' });
       return [c, c];
     }
   }
