@@ -3,9 +3,9 @@ import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { iPaletten } from "./palet";
 
-// Verdenens grafik (jord, huse, vand, baner, rum, partikler) må kun bruge masterpalettens farver (26. november 2026).
-// Undtaget: himmelforløb (addColorStop), gennemsigtige farver (rgba) og lys, toning og nat, som ligger i lys.ts,
-// stemning.ts og filmlag.ts. Intro, titel, minder og kampens baggrunde er ikke tjekket endnu.
+// Verdenens grafik (jord, huse, vand, baner, rum, partikler, intro, titel, minder, kampe) må kun bruge masterpalettens farver (26. november 2026).
+// Himlene tegnes med dither (ditherHimmel). Undtaget: gennemsigtige farver (rgba) og lys, toning og nat, som ligger i lys.ts,
+// stemning.ts og filmlag.ts. Intro, titel, minder og kampens baggrunde kom med samme dag.
 const VERDEN = [
   "src/game/pixel/lerred",
   "src/game/pixel/banetegn",
@@ -13,6 +13,10 @@ const VERDEN = [
   "src/game/pixel/inde.ts",
   "src/game/pixel/blaekling.ts",
   "src/game/pixel/ogorm.ts",
+  "src/game/pixel/intro.ts",
+  "src/game/pixel/titel.ts",
+  "src/game/pixel/kampscene.ts",
+  "src/game/pixel/minder",
   "src/game/kort",
   "src/game/PhaserVerden.tsx",
 ];
@@ -36,7 +40,7 @@ describe("verdenens farver", () => {
       readFileSync(fil, "utf8")
         .split("\n")
         .forEach((linje, i) => {
-          if (/addColorStop|rgba\(/.test(linje)) return;
+          if (/rgba\(/.test(linje)) return;
           for (const m of linje.matchAll(/(#|0x)([0-9a-fA-F]{6})\b/g))
             if (!iPaletten(`#${m[2]}`)) fejl.push(`${fil}:${i + 1} #${m[2]}`);
         });

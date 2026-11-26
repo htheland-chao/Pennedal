@@ -1,6 +1,6 @@
 /** Tegner platformbaner set fra siden: byens tage om natten og Viskeskovens hvide sti. Kræver en browser. */
 import { BFELT, erFast, type Bane } from '../bane';
-import { halvtTegnet, hash, lerred } from './lerred';
+import { ditherHimmel, halvtTegnet, hash, lerred } from './lerred';
 import type { Tegnkort } from './sprites';
 import { hx, TAG, MUR, PLANKE, BLAEK, VAND, SKOVBUND, TOMRUM, VISKET } from './banetegn/farver';
 import { tegnArkivbane, tegnArkivBaggrund } from './banetegn/arkiv';
@@ -71,11 +71,7 @@ export function tegnBane(bane: Bane, tema = ''): HTMLCanvasElement {
 export function tegnByBaggrund(bredde: number, hoejde: number): HTMLCanvasElement {
   const c = lerred(bredde, hoejde);
   const g = c.getContext('2d')!;
-  const himmel = g.createLinearGradient(0, 0, 0, hoejde);
-  himmel.addColorStop(0, '#141a33');
-  himmel.addColorStop(1, '#2c3a66');
-  g.fillStyle = himmel;
-  g.fillRect(0, 0, bredde, hoejde);
+  ditherHimmel(g, bredde, hoejde, ['#1a1e36', '#2a2f48', '#203a6b']);
   for (let i = 0; i < bredde / 6; i++) {
     g.fillStyle = hash(i, 3) > 0.5 ? '#ffe9a8' : '#c9dcf2';
     g.fillRect(Math.floor(hash(i, 1) * bredde), Math.floor(hash(i, 2) * hoejde * 0.6), 1, 1);
@@ -172,11 +168,7 @@ function tegnSkovbane(bane: Bane): HTMLCanvasElement {
 export function tegnSkovBaggrund(bredde: number, hoejde: number): HTMLCanvasElement {
   const c = lerred(bredde, hoejde);
   const g = c.getContext('2d')!;
-  const himmel = g.createLinearGradient(0, 0, 0, hoejde);
-  himmel.addColorStop(0, '#dcdbe6');
-  himmel.addColorStop(1, '#f1f0f5');
-  g.fillStyle = himmel;
-  g.fillRect(0, 0, bredde, hoejde);
+  ditherHimmel(g, bredde, hoejde, ['#f4efe0']);
   const lag: [string, number, number][] = [['#c9dcf2', 70, 9], ['#b9bfcf', 52, 13], ['#a7aab8', 36, 17]];
   lag.forEach(([farve, hoej, afstand], li) => {
     g.fillStyle = farve;
@@ -279,11 +271,7 @@ function tegnBjergbane(bane: Bane): HTMLCanvasElement {
 export function tegnBjergBaggrund(bredde: number, hoejde: number): HTMLCanvasElement {
   const c = lerred(bredde, hoejde);
   const g = c.getContext('2d')!;
-  const himmel = g.createLinearGradient(0, 0, 0, hoejde);
-  himmel.addColorStop(0, '#b9cbe6');
-  himmel.addColorStop(1, '#e8eef6');
-  g.fillStyle = himmel;
-  g.fillRect(0, 0, bredde, hoejde);
+  ditherHimmel(g, bredde, hoejde, ['#698fc1', '#c9dcf2']);
   const lag: [string, number, number][] = [['#c9dcf2', 0.45, 90], ['#a7aab8', 0.6, 70], ['#8a8a8a', 0.75, 54]];
   lag.forEach(([farve, bund, afstand], li) => {
     for (let x0 = -afstand; x0 < bredde + afstand; x0 += afstand) {
