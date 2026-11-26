@@ -5,7 +5,7 @@ import type { Avatar } from '../data/gem';
 import { BaneScene } from './BaneScene';
 import { brugSkala, KortScene, SKALA, skalaFraAdresse, VIS_B, VIS_H } from './KortScene';
 import type { VerdenKroge } from './typer';
-import { phaserFilm, type PhaserFilm } from './kort/film';
+import { phaserFilm, type PhaserFilm } from './film';
 
 /** Det, React kan bede en platformbane om. */
 export type BaneStyring = { styr: (knap: 'venstre' | 'hoejre' | 'hop', nede: boolean) => void; baerOver: () => void; genskab: (nr: number) => void };
@@ -189,7 +189,7 @@ export function PhaserVerden(props: Props) {
     if (props.filmRef)
       props.filmRef.current = phaserFilm(() => {
         const s = scene();
-        return s instanceof KortScene && s.sys.isActive() ? s : null;
+        return s?.sys.isActive() ? s : null;
       });
     if (props.gaaTilRef) {
       props.gaaTilRef.current = (id: string) => {

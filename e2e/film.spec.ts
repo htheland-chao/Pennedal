@@ -54,3 +54,18 @@ test('med rolig bevægelse hopper kameraet, så replikken kommer hurtigt', async
   for (let i = 0; i < 4; i++) await page.locator('dialog.dialogboks').getByRole('button', { name: 'Videre' }).click();
   await efterFilmen(page);
 });
+
+test('mørket over tagene (kapitel 2) kan springes over på platformbanen, og kapitlet slutter', async ({ page }) => {
+  const fejl: string[] = [];
+  page.on('pageerror', (e) => fejl.push(e.message));
+  await page.goto('/?hop=k2-moerke');
+  await expect(page.locator('dialog.dialogboks')).toContainText('Pludselig bliver alt stille', { timeout: 15_000 });
+  await page.locator('dialog.dialogboks').getByRole('button', { name: 'Videre' }).click();
+  // Mørket lægger sig, og den næste replik kommer.
+  await expect(page.locator('dialog.dialogboks')).toContainText('Farverne løber ud', { timeout: 5_000 });
+  await page.screenshot({ path: `${BILLEDER}/film-04-k2-moerke.png` });
+  await page.keyboard.press('Escape');
+  await expect(page.locator('.film')).toHaveCount(0);
+  await expect(page.getByText('Kapitel 2 er slut.')).toBeVisible();
+  expect(fejl, fejl.join('\n')).toEqual([]);
+});

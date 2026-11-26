@@ -897,7 +897,7 @@
     },
     {
       "id": "k2-moerke",
-      "type": "dialog",
+      "type": "film",
       "del": 3,
       "sted": "tagene",
       "objekt": null,
@@ -905,59 +905,79 @@
       "moerke": true,
       "slutKapitel": true,
       "laaserOp": ["hoved.kasket"],
-      "replikker": [
+      "handlinger": [
         {
-          "taler": "fortaeller",
-          "tekst": "Pludselig bliver alt stille. Byens larm forsvinder, som når man smækker en bog i."
+          "type": "samtidig",
+          "handlinger": [
+            {"type": "bjaelker", "til": true},
+            {"type": "musik", "tema": "stille", "overtoning": 1500}
+          ]
         },
         {
-          "taler": "fortaeller",
-          "tekst": "Farverne løber ud af tagene. Månerne slukker, én efter én."
+          "type": "replikker",
+          "replikker": [
+            {"taler": "fortaeller", "tekst": "Pludselig bliver alt stille. Byens larm forsvinder, som når man smækker en bog i."}
+          ]
+        },
+        {"type": "vent", "ms": 800},
+        {
+          "type": "replikker",
+          "replikker": [
+            {"taler": "fortaeller", "tekst": "Farverne løber ud af tagene. Månerne slukker, én efter én."},
+            {"taler": "klatten", "tekst": "Nej. Nej, nej. Det var ikke meningen. Jeg tog dem jo. Næsten alle sammen.", "udtryk": "bange"}
+          ]
         },
         {
-          "taler": "klatten",
-          "tekst": "Nej. Nej, nej. Det var ikke meningen. Jeg tog dem jo. Næsten alle sammen.", "udtryk": "bange"
+          "type": "samtidig",
+          "handlinger": [
+            {"type": "figur", "id": "ufaerdige", "toner": "frem"},
+            {"type": "musik", "tema": "ufaerdige", "overtoning": 2000},
+            {"type": "ryst", "ms": 400}
+          ]
         },
         {
-          "taler": "ufaerdige",
-          "tekst": "Næsten. Alt er altid næsten."
+          "type": "replikker",
+          "replikker": [
+            {"taler": "ufaerdige", "tekst": "Næsten. Alt er altid næsten."},
+            {"taler": "fortaeller", "tekst": "Stemmen kommer ikke fra ét sted. Den kommer fra skyggerne mellem tagene, fra revnerne i stenene, fra lige bag dig."},
+            {"taler": "ufaerdige", "tekst": "Du er kommet langt for at finde noget, der ikke er dit.", "udtryk": "vred"},
+            {"taler": "ufaerdige", "tekst": "Ved du, hvordan det er at stoppe midt i en"}
+          ]
+        },
+        {"type": "musik", "tema": "stille", "overtoning": 0},
+        {"type": "vent", "ms": 800},
+        {
+          "type": "replikker",
+          "replikker": [
+            {"taler": "fortaeller", "tekst": "Stemmen holder op midt i sætningen. Stilheden bagefter er værre end ordene."}
+          ]
+        },
+        {"type": "musik", "tema": "ufaerdige", "overtoning": 1200},
+        {
+          "type": "replikker",
+          "replikker": [
+            {"taler": "ufaerdige", "tekst": "De gav mig en begyndelse. De gav mig en midte. Men ingen gav mig en slutning. Så tager jeg deres.", "udtryk": "vred"},
+            {"taler": "fortaeller", "tekst": "Skyggen folder sig om Klatten som en side, der bliver vendt. Så er de væk. Begge to."}
+          ]
         },
         {
-          "taler": "fortaeller",
-          "tekst": "Stemmen kommer ikke fra ét sted. Den kommer fra skyggerne mellem tagene, fra revnerne i stenene, fra lige bag dig."
+          "type": "samtidig",
+          "handlinger": [
+            {"type": "blink"},
+            {"type": "ryst", "ms": 300},
+            {"type": "figur", "id": "klatten", "toner": "vaek"},
+            {"type": "figur", "id": "ufaerdige", "toner": "vaek"}
+          ]
         },
         {
-          "taler": "ufaerdige",
-          "tekst": "Du er kommet langt for at finde noget, der ikke er dit.", "udtryk": "vred"
+          "type": "replikker",
+          "replikker": [
+            {"taler": "aeseloere", "tekst": "Han kaldte ham chef. Klatten stjæler ikke for sig selv."},
+            {"taler": "aeseloere", "tekst": "Jeg har læst mange historier. Ingen af dem havde en stemme, der var så kold.", "udtryk": "bange"},
+            {"taler": "fortaeller", "tekst": "Langt væk over tagene hvisker det stadig: \"Og så ...\""}
+          ]
         },
-        {
-          "taler": "ufaerdige",
-          "tekst": "Ved du, hvordan det er at stoppe midt i en"
-        },
-        {
-          "taler": "fortaeller",
-          "tekst": "Stemmen holder op midt i sætningen. Stilheden bagefter er værre end ordene."
-        },
-        {
-          "taler": "ufaerdige",
-          "tekst": "De gav mig en begyndelse. De gav mig en midte. Men ingen gav mig en slutning. Så tager jeg deres.", "udtryk": "vred"
-        },
-        {
-          "taler": "fortaeller",
-          "tekst": "Skyggen folder sig om Klatten som en side, der bliver vendt. Så er de væk. Begge to."
-        },
-        {
-          "taler": "aeseloere",
-          "tekst": "Han kaldte ham chef. Klatten stjæler ikke for sig selv."
-        },
-        {
-          "taler": "aeseloere",
-          "tekst": "Jeg har læst mange historier. Ingen af dem havde en stemme, der var så kold.", "udtryk": "bange"
-        },
-        {
-          "taler": "fortaeller",
-          "tekst": "Langt væk over tagene hvisker det stadig: \"Og så ...\""
-        }
+        {"type": "bjaelker", "til": false}
       ]
     }
   ]

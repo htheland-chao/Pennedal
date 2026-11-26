@@ -6,6 +6,17 @@ const raaber = (JSON.parse(readFileSync(new URL('../src/content/ord/raaber.json'
 const NAVN = { '.': 'Punktum', '?': 'Spørgsmålstegn', '!': 'Udråbstegn' } as const;
 const BILLEDER = 'test-results/skaermbilleder';
 
+/** Ser en filmsekvens til ende: trykker "Videre" ved hver replik, til filmen er slut. */
+async function seFilm(page: Page) {
+  const film = page.locator('.film');
+  const dialog = page.locator('dialog.dialogboks');
+  for (let i = 0; i < 120 && (await film.count()) > 0; i++) {
+    if (await dialog.isVisible()) await dialog.getByRole('button', { name: 'Videre' }).click({ timeout: 2_000 }).catch(() => undefined);
+    else await page.waitForTimeout(300);
+  }
+  await expect(film).toHaveCount(0);
+}
+
 async function laesDialog(page: Page) {
   const dialog = page.locator('dialog.dialogboks');
   // Dialogen lukker selv efter sidste replik, når den er læst op (8. november 2026). Den kan derfor allerede være væk.
@@ -116,14 +127,18 @@ test('kapitel 2: Råberens tegn, escape room, jagten over tagene og mørket', as
 
   // Byens brev og mørket.
   for (let i = 0; i < 4; i++) await loesRaaber(page);
+  // Mørket er en filmsekvens (26. november 2026), og her ses den hele vejen igennem.
   const dialog = page.locator('dialog.dialogboks');
   await expect(dialog).toBeVisible();
   await expect(page.locator('main.verden')).toHaveClass(/moerke/);
+  await expect(page.locator('.film-bjaelker.vis')).toBeVisible();
   // Den fjerde replik er Den Ufærdiges første.
-  for (let i = 0; i < 3; i++) await dialog.getByRole('button', { name: 'Videre' }).click();
-  await expect(page.locator('dialog.taler-ufaerdige')).toBeVisible();
+  const ufaerdige = page.locator('dialog.taler-ufaerdige');
+  for (let i = 0; i < 20 && !(await ufaerdige.isVisible()); i++)
+    await dialog.getByRole('button', { name: 'Videre' }).click({ timeout: 3_000 }).catch(() => undefined);
+  await expect(ufaerdige).toBeVisible();
   await page.waitForTimeout(2600);
   await page.screenshot({ path: `${BILLEDER}/k2-03-moerke.png` });
-  await laesDialog(page);
+  await seFilm(page);
   await expect(page.getByText('Kapitel 2 er slut.')).toBeVisible();
 });

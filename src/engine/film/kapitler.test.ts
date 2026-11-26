@@ -10,22 +10,25 @@ import { filmReplikker } from '../../content/filmreplikker.mjs';
 const film = kapitler.flatMap((k) => k.trin.filter((t): t is FilmTrin => t.type === 'film').map((t) => ({ k, t })));
 
 describe('filmsekvenserne i kapitlerne', () => {
-  it('findes: ankomsten til Pennedal i kapitel 1', () => {
-    expect(film.map(({ t }) => t.id)).toContain('k1-ankomst');
+  it('findes: ankomsten til Pennedal og mørket over tagene', () => {
+    expect(film.map(({ t }) => t.id)).toEqual(expect.arrayContaining(['k1-ankomst', 'k2-moerke']));
   });
 
   for (const { k, t } of film)
     it(`${t.id} består tjekket`, () => {
       const sted = k.steder[t.sted];
       const kendte = {
-        figurer: new Set(['aeseloere', ...sted.objekter.map((o) => o.id)]),
+        // På en platformbane er Klatten tegnet i banen (K), ikke et objekt.
+        figurer: new Set(['aeseloere', ...sted.objekter.map((o) => o.id), ...(sted.bane?.some((r) => r.includes('K')) ? ['klatten'] : [])]),
         temaer: new Set(Object.keys(SANGE)),
         effekter: new Set(Object.keys(EFFEKTER)),
       };
       expect(tjekFilm(t.handlinger, kendte)).toEqual([]);
-      // En film starter af sig selv, når man kommer til trinnet, og har replikker, eleven læser.
-      expect(t.objekt).toBeNull();
+      // En film starter af sig selv eller ved en figur på stedet, og den har replikker, eleven læser.
+      if (t.objekt) expect(sted.objekter.map((o) => o.id)).toContain(t.objekt);
       expect(filmReplikker(t.handlinger).length).toBeGreaterThan(0);
+      // På en platformbane følger kameraet hovedpersonen, og ingen går eller vender sig (src/game/bane/film.ts).
+      if (sted.bane) expect(JSON.stringify(t.handlinger), t.id).not.toMatch(/"type":"kamera"|"gaaTil"|"vend"/);
       // Filmen slutter uden bjælker, så eleven har styringen igen.
       const bjaelker = JSON.stringify(t.handlinger).match(/"type":"bjaelker","til":(true|false)/g) ?? [];
       expect(bjaelker.at(-1), t.id).toBe('"type":"bjaelker","til":false');

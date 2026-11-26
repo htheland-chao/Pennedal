@@ -32,7 +32,7 @@ import { useTestKroge } from './verden/useTestKroge';
 import { useOvergang } from './verden/useOvergang';
 import { useGemning } from './verden/useGemning';
 import { FilmLag } from '../components/film/FilmLag';
-import type { PhaserFilm } from '../game/kort/film';
+import type { PhaserFilm } from '../game/film';
 
 type Props = {
   spil: GemtSpil;
@@ -318,7 +318,14 @@ export function Verden({ spil, opdater, indstillinger, andetVindueAabent, onMenu
         <NyTingBesked ting={nyTing} onFaerdig={glemNyTing} />
         {/* En filmsekvens starter, når overgangen er færdig og ingen andre vinduer er åbne, og bliver så stående. */}
         {aktivtTrin?.type === 'film' && !overgang && (dialogIGang === aktivtTrin.id || !andetVindueAabent) && (
-          <FilmLag key={aktivtTrin.id} handlinger={aktivtTrin.handlinger} phaser={filmRef} spilRef={spilRef} onSaet={saet} onTaler={setTaler} onFaerdig={afslut} />
+          <FilmLag key={aktivtTrin.id} handlinger={aktivtTrin.handlinger} phaser={filmRef} spilRef={spilRef} onSaet={saet}
+            onTaler={setTaler}
+            onFaerdig={() => {
+              const minde = aktivtTrin.tilbageblik?.id;
+              afslut();
+              if (minde && erMinde(minde)) setNytMinde(minde);
+            }}
+          />
         )}
         <span className="pladsholder-maerke">{t('verden.pladsholder')}</span>
         {DEBUG && <Ydelse fps={() => fpsRef.current()} />}

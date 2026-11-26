@@ -4,7 +4,7 @@ import type { GemtSpil } from '../../data/gem';
 import { opfyldt } from '../../engine/betingelse';
 import { afspil, type Afspilning } from '../../engine/film/afspiller';
 import type { Arbejder, EnkelHandling, Handling } from '../../engine/film/typer';
-import type { PhaserFilm } from '../../game/kort/film';
+import type { PhaserFilm } from '../../game/film';
 import { spilEffekt, type EffektNavn } from '../../lyd/effekter';
 import { overtonMusik, saetMusikOverride } from '../../lyd/musik/afspiller';
 import { roligBevaegelse } from '../kamp/tilgaengelighed';
