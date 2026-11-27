@@ -38,6 +38,14 @@
       "kilde": "Kapitel 5 / k5-rum.seddel.1",
       "lavet": "2026-11-12"
     },
+    "0018d818821257": {
+      "figur": "fortaeller",
+      "tekst": "Hvilken regel passer her? Vælg den, før du prøver igen.",
+      "fil": "0018d818821257.ogg",
+      "kilde": "Beskeder før Æseløre / opgave.vaelg.regel",
+      "lavet": "2026-11-27",
+      "model": "gemini-3.8-flash-tts"
+    },
     "0020340c60cc32": {
       "figur": "fortaeller",
       "tekst": "En kasse med gamle bøger står på disken i skolebiblioteket.",
@@ -860,6 +868,14 @@
       "kilde": "Introen / intro.3",
       "lavet": "2026-11-01"
     },
+    "01cca5ae15d873": {
+      "figur": "fortaeller",
+      "tekst": "Den sætning handler om bøger, der mangler en side. Find sætningen, der nævner ordbogen.",
+      "fil": "01cca5ae15d873.ogg",
+      "kilde": "Kapitel 1 / k1-logbog.k1-logbog-1.forkert.0",
+      "lavet": "2026-11-27",
+      "model": "gemini-3.8-flash-tts"
+    },
     "01d83d4d1a7cfd": {
       "figur": "aeseloere",
       "tekst": "kat rimer faktisk på nat. Sig dem højt. De lyder ens til sidst.",
@@ -937,6 +953,14 @@
       "fil": "01e8844998edfb.ogg",
       "kilde": "Fortæller / f09",
       "lavet": "2026-11-14",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "01ec01ada3eeb2": {
+      "figur": "fortaeller",
+      "tekst": "Regel: Svaret står i teksten. Læs sætningerne én ad gangen, og find den, der passer præcist til spørgsmålet.",
+      "fil": "01ec01ada3eeb2.ogg",
+      "kilde": "Beskeder før Æseløre / bevisjagt.regel",
+      "lavet": "2026-11-27",
       "model": "gemini-3.8-flash-tts"
     },
     "01ee4ba061504b": {
@@ -3209,6 +3233,22 @@
       "lavet": "2026-11-16",
       "model": "gemini-3.8-flash-tts"
     },
+    "06431e12c78a85": {
+      "figur": "fortaeller",
+      "tekst": "Sådan!",
+      "fil": "06431e12c78a85.ogg",
+      "kilde": "Beskeder før Æseløre / opgave.ros.4",
+      "lavet": "2026-11-27",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "0645ab405a9fc0": {
+      "figur": "fortaeller",
+      "tekst": "Find sætningen, hvor hr. Holm fortæller, hvad han hørte.",
+      "fil": "0645ab405a9fc0.ogg",
+      "kilde": "Kapitel 1 / k1-logbog.k1-logbog-2.standard",
+      "lavet": "2026-11-27",
+      "model": "gemini-3.8-flash-tts"
+    },
     "0645f944e0d36e": {
       "figur": "aeseloere",
       "tekst": "Ja, det er den regel. Prøv nu igen.",
@@ -4504,6 +4544,14 @@
       "kilde": "Historiebroen / bro-raeven.fremmed",
       "lavet": "2026-11-05"
     },
+    "0917541070d8ed": {
+      "figur": "fortaeller",
+      "tekst": "Æseløre gør opgaverne lidt lettere, mens du øver dig.",
+      "fil": "0917541070d8ed.ogg",
+      "kilde": "Beskeder før Æseløre / opgave.niveau.ned",
+      "lavet": "2026-11-27",
+      "model": "gemini-3.8-flash-tts"
+    },
     "091e4a5c7a0159": {
       "figur": "fortaeller",
       "tekst": "Da Rimfod endelig sagde noget uden rim, blev han så glad, at han grinede.",
@@ -5110,6 +5158,14 @@
       "fil": "0a70fb1ff43c92.ogg",
       "kilde": "Kampsvar / krusedulle.k15.drømte",
       "lavet": "2026-11-20",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "0a792ed479d220": {
+      "figur": "fortaeller",
+      "tekst": "Prøv igen.",
+      "fil": "0a792ed479d220.ogg",
+      "kilde": "Beskeder før Æseløre / opgave.proev.igen",
+      "lavet": "2026-11-27",
       "model": "gemini-3.8-flash-tts"
     },
     "0a7f5edad01b5a": {
@@ -6075,6 +6131,14 @@
       "kilde": "Minder / minde.skuffen.2",
       "lavet": "2026-11-13"
     },
+    "0c5826c568fd6c": {
+      "figur": "fortaeller",
+      "tekst": "Flot klaret.",
+      "fil": "0c5826c568fd6c.ogg",
+      "kilde": "Beskeder før Æseløre / opgave.ros.2",
+      "lavet": "2026-11-27",
+      "model": "gemini-3.8-flash-tts"
+    },
     "0c59d91d2c22e0": {
       "figur": "fortaeller",
       "tekst": "Hvilket stumt bogstav mangler i il_?",
@@ -6466,6 +6530,14 @@
       "kilde": "Svar / rim.kat.kam",
       "lavet": "2026-11-15",
       "model": "gemini-3.8-flash-lite-tts"
+    },
+    "0cf6f34cd22941": {
+      "figur": "fortaeller",
+      "tekst": "Ikke den. Læs reglerne igen.",
+      "fil": "0cf6f34cd22941.ogg",
+      "kilde": "Beskeder før Æseløre / opgave.regel.forkert",
+      "lavet": "2026-11-27",
+      "model": "gemini-3.8-flash-tts"
     },
     "0cfcb6303d74c8": {
       "figur": "aeseloere",
@@ -7306,6 +7378,14 @@
       "kilde": "Svar / rytme.tomat.fejl",
       "lavet": "2026-11-17",
       "model": "gemini-3.8-flash-lite-tts"
+    },
+    "0ec903dda206c7": {
+      "figur": "fortaeller",
+      "tekst": "Æseløre gør opgaverne lidt sværere.",
+      "fil": "0ec903dda206c7.ogg",
+      "kilde": "Beskeder før Æseløre / opgave.niveau.op",
+      "lavet": "2026-11-27",
+      "model": "gemini-3.8-flash-tts"
     },
     "0ec9ac1c2435b9": {
       "figur": "aeseloere",
@@ -8709,6 +8789,14 @@
       "fil": "113b7d8131dbff.ogg",
       "kilde": "Kampsvar / stumming.land.spoergsmaal",
       "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "113bb1c93bd834": {
+      "figur": "fortaeller",
+      "tekst": "Rigtigt!",
+      "fil": "113bb1c93bd834.ogg",
+      "kilde": "Beskeder før Æseløre / opgave.ros.1",
+      "lavet": "2026-11-27",
       "model": "gemini-3.8-flash-tts"
     },
     "113cb50ea8f4cd": {
@@ -11713,6 +11801,14 @@
       "kilde": "Kapitel 3 / k3-ankomst.2",
       "lavet": "2026-11-01"
     },
+    "171b0e02def7a1": {
+      "figur": "fortaeller",
+      "tekst": "Præcis!",
+      "fil": "171b0e02def7a1.ogg",
+      "kilde": "Beskeder før Æseløre / opgave.ros.3",
+      "lavet": "2026-11-27",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1722e425dd1a37": {
       "figur": "klatten",
       "tekst": "Den Frygtelige er her også. Selvfølgelig. Hvem skulle ellers lave klatter?",
@@ -11861,6 +11957,14 @@
       "fil": "1777486ab60d4d.ogg",
       "kilde": "Kapitel 2 / k2-trykkeri.4",
       "lavet": "2026-10-31"
+    },
+    "177b944cd331b7": {
+      "figur": "fortaeller",
+      "tekst": "Rigtigt i første forsøg. Æseløre er imponeret, men han siger det ikke højt.",
+      "fil": "177b944cd331b7.ogg",
+      "kilde": "Beskeder før Æseløre / opgave.ros.foersteforsoeg",
+      "lavet": "2026-11-27",
+      "model": "gemini-3.8-flash-tts"
     },
     "17878c35494094": {
       "figur": "aeseloere",
@@ -13023,6 +13127,14 @@
       "kilde": "Råberens tegn / raab-1",
       "lavet": "2026-11-03"
     },
+    "19c7559b5cf9dc": {
+      "figur": "fortaeller",
+      "tekst": "Ja, det er den regel. Prøv nu igen.",
+      "fil": "19c7559b5cf9dc.ogg",
+      "kilde": "Beskeder før Æseløre / opgave.regel.rigtig",
+      "lavet": "2026-11-27",
+      "model": "gemini-3.8-flash-tts"
+    },
     "19c926746c45c4": {
       "figur": "fortaeller",
       "tekst": "Dine øjne bliver tunge. Historien slutter, men du drømmer videre på den.",
@@ -13356,6 +13468,14 @@
       "lavet": "2026-11-15",
       "model": "gemini-3.8-flash-lite-tts"
     },
+    "1a4bdedc38b6ed": {
+      "figur": "fortaeller",
+      "tekst": "Den sætning handler om døren, ikke om lyden. Find sætningen, der fortæller, hvad hr. Holm hørte.",
+      "fil": "1a4bdedc38b6ed.ogg",
+      "kilde": "Kapitel 1 / k1-logbog.k1-logbog-2.forkert.4",
+      "lavet": "2026-11-27",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1a4f8f81f20753": {
       "figur": "aeseloere",
       "tekst": "Den kam er glat som glas, og vinden blæser hårdt. Der er kun én lanterne, og jeg bærer dig ikke over.",
@@ -13569,6 +13689,14 @@
       "kilde": "Svar / korrektur.k15.trapen",
       "lavet": "2026-11-18",
       "model": "gemini-3.8-flash-lite-tts"
+    },
+    "1ac0682cc6905b": {
+      "figur": "fortaeller",
+      "tekst": "Eksempel: Spørgsmål: Hvilken farve har papirfuglen? Bevis: \"Papirfuglen er hvid.\"",
+      "fil": "1ac0682cc6905b.ogg",
+      "kilde": "Beskeder før Æseløre / bevisjagt.eksempel",
+      "lavet": "2026-11-27",
+      "model": "gemini-3.8-flash-tts"
     },
     "1acafc2676927a": {
       "figur": "aeseloere",
@@ -13976,6 +14104,14 @@
       "fil": "1ba3806103006c.ogg",
       "kilde": "Kampsvar / stumming.hund.spoergsmaal",
       "lavet": "2026-11-19",
+      "model": "gemini-3.8-flash-tts"
+    },
+    "1baa330ec00f99": {
+      "figur": "fortaeller",
+      "tekst": "Læs sætningerne én ad gangen, og find den, der nævner ordbogen.",
+      "fil": "1baa330ec00f99.ogg",
+      "kilde": "Kapitel 1 / k1-logbog.k1-logbog-1.standard",
+      "lavet": "2026-11-27",
       "model": "gemini-3.8-flash-tts"
     },
     "1bae4ac433cc4c": {
@@ -15462,6 +15598,14 @@
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-tts"
     },
+    "1e80e2b866a2eb": {
+      "figur": "fortaeller",
+      "tekst": "Den sætning handler om skiltet ved døren. Find sætningen, der nævner ordbogen.",
+      "fil": "1e80e2b866a2eb.ogg",
+      "kilde": "Kapitel 1 / k1-logbog.k1-logbog-1.forkert.2",
+      "lavet": "2026-11-27",
+      "model": "gemini-3.8-flash-tts"
+    },
     "1e81873d437349": {
       "figur": "fortaeller",
       "tekst": "midt i floden stod en sten",
@@ -16343,5 +16487,5 @@
   },
   "model": "gemini-3.8-flash-tts",
   "i_alt": 2177,
-  "mangler": 18
+  "mangler": 0
 }
