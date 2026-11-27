@@ -15,7 +15,7 @@ Kort overblik. Hvornår og hvordan hver ting blev lavet, står i `docs/logbog.md
 - **Frivilligt indhold:** sidemissioner, udflugter og fyrtårnet efter kapitlets slutning.
 - **Gemning:** kun i elevens browser. Gemmekode version 4, QR-kode og gemmefil. Fru Fodnote kommenterer koden fra kapitel 5.
 - **Grafik:** 16-bit pixelgrafik skråt oppefra. Fin grafik (640 x 360, standard) og hurtig grafik (320 x 180), der skifter af sig selv, hvis det går for langsomt. Én pixelstørrelse overalt (ingen fine figurer, kampens figurer i hele trin), én masterpalet på 64 farver for figurerne (`src/game/pixel/palet.ts`, testet), fem slags papirgraner, lys, skygger, partikler, vejr og parallakse. Pergament-og-blæk-udseende i menuer og vinduer.
-- **Lyd:** Gemini-stemmer pr. figur (to modeller), rumklang, 19 lydeffekter lavet i kode og én original sang pr. tema.
+- **Lyd:** Gemini-stemmer pr. figur (to modeller), rumklang, 19 lydeffekter lavet i kode og én original sang pr. tema. Beskederne i opgaverne siges af fortælleren, indtil eleven møder Æseløre i kælderen (`src/content/beskedstemme.mjs`).
 - **Tilgængelighed:** oplæsning, skriftvalg og -størrelser, "Mindre uhygge", "reducer bevægelse", tastatur og touch.
 - **Lærerkig** på elevens egen computer med lærerkode (`VITE_LAERERKODE`, se README).
 - **Test og værktøj:** enhedstests, stavetjek, gennemspil af alle kapitler, billedtest (jobbet Billeder), grafikark, `?hop` og `?debug=1`.

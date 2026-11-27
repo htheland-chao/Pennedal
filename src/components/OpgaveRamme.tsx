@@ -5,6 +5,7 @@ import { REGEL_EFTER_FORSOEG, type Haendelse } from '../engine/tilpasning';
 import { Modal } from './Modal';
 import { LaesOpKnap, type Del } from './Tekst';
 import { spilEffekt } from '../lyd/effekter';
+import type { Figur } from '../lyd/lyd';
 
 export type OpgaveApi = {
   /** Kaldes af mekanikken, når eleven har svaret. */
@@ -25,6 +26,8 @@ type Props = {
   onSvar: (rigtigt: boolean, forsoeg: number) => Haendelse;
   onLoest: () => void;
   onPause: () => void;
+  /** Stemmen til beskederne. Æseløre, undtagen før eleven har mødt ham. */
+  figur?: Figur;
   children: (api: OpgaveApi) => ReactNode;
 };
 
@@ -34,6 +37,7 @@ const ROS = ['opgave.ros.1', 'opgave.ros.2', 'opgave.ros.3', 'opgave.ros.4'] as 
 
 /**
  * Det, Æseløre læser op efter et svar: beskeden, reglen og eksemplet og til sidst en besked om niveauet.
+ * Før eleven har mødt Æseløre, læser fortælleren dem (figur, se src/content/beskedstemme.mjs).
  * Teksterne skal stå præcis sådan i scripts/lydtekster.mjs, ellers findes der ikke et klip.
  */
 export function beskedDele(
@@ -41,19 +45,20 @@ export function beskedDele(
   regel: { regel: string; eksempel: string } | null,
   niveau: string | null,
   vaelgRegel: boolean,
+  figur: Figur = 'aeseloere',
 ): Del[] {
-  const dele: Del[] = [{ tekst, figur: 'aeseloere' }];
+  const dele: Del[] = [{ tekst, figur }];
   if (regel) {
-    dele.push({ tekst: `${t('feedback.regel')}: ${regel.regel}`, figur: 'aeseloere' });
-    dele.push({ tekst: `${t('feedback.eksempel')}: ${regel.eksempel}`, figur: 'aeseloere' });
+    dele.push({ tekst: `${t('feedback.regel')}: ${regel.regel}`, figur });
+    dele.push({ tekst: `${t('feedback.eksempel')}: ${regel.eksempel}`, figur });
   }
-  if (niveau) dele.push({ tekst: niveau, figur: 'aeseloere' });
-  if (vaelgRegel) dele.push({ tekst: t('opgave.vaelg.regel'), figur: 'aeseloere' });
+  if (niveau) dele.push({ tekst: niveau, figur });
+  if (vaelgRegel) dele.push({ tekst: t('opgave.vaelg.regel'), figur });
   return dele;
 }
 
 export function OpgaveRamme(props: Props) {
-  const { titel, antal, loeste, regel, eksempel, andreRegler, onSvar, onLoest, onPause, children } = props;
+  const { titel, antal, loeste, regel, eksempel, andreRegler, onSvar, onLoest, onPause, figur = 'aeseloere', children } = props;
   const [forsoeg, setForsoeg] = useState(1);
   const [fejlSidenRegel, setFejlSidenRegel] = useState(0);
   const [fase, setFase] = useState<Fase>('svar');
@@ -148,7 +153,7 @@ export function OpgaveRamme(props: Props) {
           <LaesOpKnap
             key={beskedNr}
             auto
-            dele={beskedDele(besked.tekst, besked.visRegel ? { regel, eksempel } : null, niveauBesked, fase === 'regel')}
+            dele={beskedDele(besked.tekst, besked.visRegel ? { regel, eksempel } : null, niveauBesked, fase === 'regel', figur)}
           />
         )}
       </div>
