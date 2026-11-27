@@ -43,6 +43,18 @@ async function vaelg(page: Page, svar: string) {
   await dialog.getByRole('button', { name: svar }).click();
 }
 
+/** Ser en filmsekvens til ende: trykker "Videre" ved hver replik, til filmen er slut. */
+async function seFilm(page: Page) {
+  const film = page.locator('.film');
+  const dialog = page.locator('dialog.dialogboks');
+  await expect(film).toHaveCount(1, { timeout: 30_000 });
+  for (let i = 0; i < 120 && (await film.count()) > 0; i++) {
+    if (await dialog.isVisible()) await dialog.getByRole('button', { name: 'Videre' }).click({ timeout: 2_000 }).catch(() => undefined);
+    else await page.waitForTimeout(300);
+  }
+  await expect(film).toHaveCount(0);
+}
+
 async function gaaTil(page: Page, id: string) {
   await page.evaluate((x) => (window as unknown as { __pennedal: { gaaTil: (id: string) => void } }).__pennedal.gaaTil(x), id);
 }
@@ -213,10 +225,11 @@ test('kapitel 6: Blæksøen, Klattens tekster, twist 2, Krusedullerne med Klatte
   await page.screenshot({ path: `${BILLEDER}/k6-05-twist.png` });
   await vaelg(page, 'Jeg tilgiver dig');
   await laesDialog(page);
-  await expect(page.locator('.kvittering').filter({ hasText: 'Hjørnet bliver foldet' })).toBeVisible({ timeout: 15_000 });
 
-  // Krusedullerne kommer op af søen. Klatten er med på holdet.
-  await laesDialog(page);
+  // Krusedullerne kommer op af søen i en filmsekvens (27. november 2026). Klatten er med på holdet.
+  // Beskeden om det nye minde venter, til filmen er slut.
+  await seFilm(page);
+  await expect(page.locator('.kvittering').filter({ hasText: 'Hjørnet bliver foldet' })).toBeVisible({ timeout: 15_000 });
   await gaaTil(page, 'krusedulle');
   await kaemp(page, true);
   await laesDialog(page);

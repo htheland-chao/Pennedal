@@ -323,20 +323,71 @@
     },
     {
       "id": "k4-moerke",
+      "type": "film",
       "laaserOp": ["hoved.troldmandshat"],
-      "type": "dialog",
       "del": 2,
       "sted": "toppen",
       "objekt": null,
       "uhygge": true,
       "moerke": true,
       "slutKapitel": true,
-      "replikker": [
-        { "taler": "fortaeller", "tekst": "Vinden holder op med at rime. Det bliver helt stille på toppen." },
-        { "taler": "ufaerdige", "tekst": "Og så ..." },
-        { "taler": "fortaeller", "tekst": "Nede i dalen, under bjerget, ligger noget mørkt og fladt. Det ligner en kælder fuld af gammelt papir." },
-        { "taler": "rimfod", "tekst": "Pas godt på jer, I små. Jeg står her på toppen og kigger på.", "udtryk": "glad" },
-        { "taler": "aeseloere", "tekst": "Kom. Sporet fører ned. Mod noget, der lugter af gammelt papir og blyant." }
+      "handlinger": [
+        {
+          "type": "samtidig",
+          "handlinger": [
+            {"type": "bjaelker", "til": true},
+            {"type": "musik", "tema": "stille", "overtoning": 1500}
+          ]
+        },
+        {
+          "type": "replikker",
+          "replikker": [
+            {"taler": "fortaeller", "tekst": "Vinden holder op med at rime. Det bliver helt stille på toppen."}
+          ]
+        },
+        {
+          "type": "samtidig",
+          "handlinger": [
+            {"type": "musik", "tema": "ufaerdige", "overtoning": 1500},
+            {"type": "ryst", "ms": 300}
+          ]
+        },
+        {
+          "type": "replikker",
+          "replikker": [
+            {"taler": "ufaerdige", "tekst": "Og så ..."}
+          ]
+        },
+        {
+          "type": "kamera",
+          "til": {"felt": [13, 12]},
+          "ms": 2200
+        },
+        {
+          "type": "replikker",
+          "replikker": [
+            {"taler": "fortaeller", "tekst": "Nede i dalen, under bjerget, ligger noget mørkt og fladt. Det ligner en kælder fuld af gammelt papir."}
+          ]
+        },
+        {
+          "type": "samtidig",
+          "handlinger": [
+            {
+              "type": "kamera",
+              "til": {"figur": "spiller"},
+              "ms": 1500
+            },
+            {"type": "musik", "tema": null, "overtoning": 2000}
+          ]
+        },
+        {
+          "type": "replikker",
+          "replikker": [
+            {"taler": "rimfod", "tekst": "Pas godt på jer, I små. Jeg står her på toppen og kigger på.", "udtryk": "glad"},
+            {"taler": "aeseloere", "tekst": "Kom. Sporet fører ned. Mod noget, der lugter af gammelt papir og blyant."}
+          ]
+        },
+        {"type": "bjaelker", "til": false}
       ]
     }
   ],

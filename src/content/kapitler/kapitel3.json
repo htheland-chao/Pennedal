@@ -69,7 +69,8 @@
         { "id": "blad1", "navn": "et hvidt blad", "x": 0, "y": 0, "w": 0, "h": 0, "form": "ordblad", "farve": "#f4efe0", "felt": [12, 4], "frivillig": "blad" },
         { "id": "blad2", "navn": "et hvidt blad", "x": 0, "y": 0, "w": 0, "h": 0, "form": "ordblad", "farve": "#f4efe0", "felt": [3, 10], "frivillig": "blad" },
         { "id": "blad3", "navn": "et hvidt blad", "x": 0, "y": 0, "w": 0, "h": 0, "form": "ordblad", "farve": "#f4efe0", "felt": [21, 12], "frivillig": "blad" },
-        { "id": "hvidsti", "navn": "den lange hvide sti", "x": 0, "y": 0, "w": 0, "h": 0, "form": "grenport", "farve": "#f4efe0", "felt": [22, 9], "frivillig": "udflugt", "udflugt": "hvidesti" }
+        { "id": "hvidsti", "navn": "den lange hvide sti", "x": 0, "y": 0, "w": 0, "h": 0, "form": "grenport", "farve": "#f4efe0", "felt": [22, 9], "frivillig": "udflugt", "udflugt": "hvidesti" },
+        { "id": "ufaerdige", "navn": "Den Ufærdige", "x": 0, "y": 0, "w": 0, "h": 0, "form": "ufaerdige", "farve": "#d9b56f", "felt": [10, 3], "visFra": "k3-moerke" }
       ]
     },
     "viskestien": {
@@ -335,20 +336,71 @@
     },
     {
       "id": "k3-moerke",
-      "type": "dialog",
+      "type": "film",
       "del": 2,
       "sted": "lysningen",
       "objekt": null,
       "uhygge": true,
       "moerke": true,
       "slutKapitel": true,
-      "replikker": [
-        { "taler": "fortaeller", "tekst": "Så bliver det koldt. Det hvide i skoven bliver gråt, og alle lyde forsvinder." },
-        { "taler": "ufaerdige", "tekst": "Og så ..." },
-        { "taler": "fortaeller", "tekst": "Mellem træerne står en skygge med store, runde øjne. Den kigger på dig, som om den kender dig." },
-        { "taler": "vims", "tekst": "Undskyld. Undskyld. Jeg tror, jeg skal viske mig selv ud nu.", "udtryk": "bange" },
-        { "taler": "aeseloere", "tekst": "Ingen visker noget ud. Se, den er væk igen. Kom, vi følger sporet videre." },
-        { "taler": "fortaeller", "tekst": "Langt borte, over træerne, rejser et bjerg sig. Det lyder, som om det synger." }
+      "handlinger": [
+        {
+          "type": "samtidig",
+          "handlinger": [
+            {"type": "bjaelker", "til": true},
+            {"type": "musik", "tema": "stille", "overtoning": 1500},
+            {"type": "stemning", "partikler": false}
+          ]
+        },
+        {
+          "type": "replikker",
+          "replikker": [
+            {"taler": "fortaeller", "tekst": "Så bliver det koldt. Det hvide i skoven bliver gråt, og alle lyde forsvinder."}
+          ]
+        },
+        {"type": "vent", "ms": 600},
+        {
+          "type": "samtidig",
+          "handlinger": [
+            {"type": "figur", "id": "ufaerdige", "toner": "frem"},
+            {
+              "type": "kamera",
+              "til": {"figur": "ufaerdige"},
+              "zoom": 2,
+              "ms": 1800
+            },
+            {"type": "musik", "tema": "ufaerdige", "overtoning": 2000}
+          ]
+        },
+        {
+          "type": "replikker",
+          "replikker": [
+            {"taler": "ufaerdige", "tekst": "Og så ..."},
+            {"taler": "fortaeller", "tekst": "Mellem træerne står en skygge med store, runde øjne. Den kigger på dig, som om den kender dig."},
+            {"taler": "vims", "tekst": "Undskyld. Undskyld. Jeg tror, jeg skal viske mig selv ud nu.", "udtryk": "bange"}
+          ]
+        },
+        {
+          "type": "samtidig",
+          "handlinger": [
+            {"type": "figur", "id": "ufaerdige", "toner": "vaek"},
+            {
+              "type": "kamera",
+              "til": {"figur": "spiller"},
+              "zoom": 1,
+              "ms": 1200
+            },
+            {"type": "musik", "tema": null, "overtoning": 2000}
+          ]
+        },
+        {
+          "type": "replikker",
+          "replikker": [
+            {"taler": "aeseloere", "tekst": "Ingen visker noget ud. Se, den er væk igen. Kom, vi følger sporet videre."},
+            {"taler": "fortaeller", "tekst": "Langt borte, over træerne, rejser et bjerg sig. Det lyder, som om det synger."}
+          ]
+        },
+        {"type": "bjaelker", "til": false}
       ]
     }
   ],
