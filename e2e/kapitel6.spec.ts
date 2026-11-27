@@ -1,4 +1,5 @@
 import { expect, test, type Page } from '@playwright/test';
+import { venterPaa } from './hjaelp/venterPaa';
 import { readFileSync } from 'node:fs';
 
 type Fejl = { skrevet: string; rigtig: string; ekstra: string };
@@ -40,18 +41,6 @@ async function vaelg(page: Page, svar: string) {
       .click({ timeout: 3_000 })
       .catch(() => undefined);
   await dialog.getByRole('button', { name: svar }).click();
-}
-
-/** Klikker videre i dialogen, til teksten står der. */
-async function venterPaa(page: Page, tekst: string) {
-  const dialog = page.locator('dialog.dialogboks');
-  await expect(dialog).toBeVisible({ timeout: 30_000 });
-  for (let i = 0; i < 12 && !(await dialog.getByText(tekst).isVisible()); i++)
-    await dialog
-      .getByRole('button', { name: 'Videre' })
-      .click({ timeout: 3_000 })
-      .catch(() => undefined);
-  await expect(dialog).toContainText(tekst);
 }
 
 /** Ser en filmsekvens til ende: trykker "Videre" ved hver replik, til filmen er slut. */
