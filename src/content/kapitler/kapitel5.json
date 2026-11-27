@@ -311,23 +311,91 @@
     },
     {
       "id": "k5-twist",
-      "type": "dialog",
+      "type": "film",
       "del": 2,
       "sted": "dybarkivet",
       "objekt": null,
       "uhygge": true,
       "moerke": true,
       "slutKapitel": true,
-      "replikker": [
-        { "taler": "fortaeller", "tekst": "Lanternen blafrer. Bag dig er der nogen." },
-        { "taler": "fortaeller", "tekst": "Den Ufærdige står mellem reolerne. Den er lavet af streger af blyant, der aldrig blev tegnet færdige." },
-        { "taler": "fortaeller", "tekst": "For første gang vender den sig helt om og kigger på dig." },
-        { "taler": "ufaerdige", "tekst": "Der er du jo.", "udtryk": "glad" },
-        { "taler": "aeseloere", "tekst": "Kom væk herfra. Nu.", "udtryk": "bange" },
-        { "taler": "fortaeller", "tekst": "Men du bliver stående. For nu forstår du det. Den Ufærdige er ikke en fremmed. Den er din historie. Den, du aldrig skrev færdig." },
-        { "taler": "ufaerdige", "tekst": "Og så ..." },
-        { "taler": "fortaeller", "tekst": "Så er den væk. Tilbage i støvet står kun to ord: Og så." },
-        { "taler": "fodnote", "tekst": "¹ Jeg er ikke overrasket. Det stod i min fodnote på den allerførste side. ² Ingen læser fodnoter. Derfor vidste ingen det." }
+      "handlinger": [
+        {
+          "type": "samtidig",
+          "handlinger": [
+            {"type": "bjaelker", "til": true},
+            {"type": "musik", "tema": "stille", "overtoning": 800}
+          ]
+        },
+        {
+          "type": "replikker",
+          "replikker": [
+            {"taler": "fortaeller", "tekst": "Lanternen blafrer. Bag dig er der nogen."}
+          ]
+        },
+        {
+          "type": "samtidig",
+          "handlinger": [
+            {"type": "figur", "id": "ufaerdige", "toner": "frem"},
+            {
+              "type": "kamera",
+              "til": {"figur": "ufaerdige"},
+              "zoom": 2,
+              "ms": 1800
+            },
+            {"type": "musik", "tema": "ufaerdige", "overtoning": 2500}
+          ]
+        },
+        {
+          "type": "replikker",
+          "replikker": [
+            {"taler": "fortaeller", "tekst": "Den Ufærdige står mellem reolerne. Den er lavet af streger af blyant, der aldrig blev tegnet færdige."},
+            {"taler": "fortaeller", "tekst": "For første gang vender den sig helt om og kigger på dig."}
+          ]
+        },
+        {"type": "ryst", "ms": 300},
+        {
+          "type": "replikker",
+          "replikker": [
+            {"taler": "ufaerdige", "tekst": "Der er du jo.", "udtryk": "glad"},
+            {"taler": "aeseloere", "tekst": "Kom væk herfra. Nu.", "udtryk": "bange"},
+            {"taler": "fortaeller", "tekst": "Men du bliver stående. For nu forstår du det. Den Ufærdige er ikke en fremmed. Den er din historie. Den, du aldrig skrev færdig."},
+            {"taler": "ufaerdige", "tekst": "Og så ..."}
+          ]
+        },
+        {
+          "type": "samtidig",
+          "handlinger": [
+            {"type": "blink"},
+            {"type": "figur", "id": "ufaerdige", "toner": "vaek"},
+            {"type": "musik", "tema": "stille", "overtoning": 0}
+          ]
+        },
+        {"type": "vent", "ms": 900},
+        {
+          "type": "replikker",
+          "replikker": [
+            {"taler": "fortaeller", "tekst": "Så er den væk. Tilbage i støvet står kun to ord: Og så."}
+          ]
+        },
+        {
+          "type": "samtidig",
+          "handlinger": [
+            {
+              "type": "kamera",
+              "til": {"figur": "spiller"},
+              "zoom": 1,
+              "ms": 1200
+            },
+            {"type": "musik", "tema": null, "overtoning": 1500}
+          ]
+        },
+        {
+          "type": "replikker",
+          "replikker": [
+            {"taler": "fodnote", "tekst": "¹ Jeg er ikke overrasket. Det stod i min fodnote på den allerførste side. ² Ingen læser fodnoter. Derfor vidste ingen det."}
+          ]
+        },
+        {"type": "bjaelker", "til": false}
       ]
     }
   ],

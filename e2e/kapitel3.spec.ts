@@ -21,6 +21,18 @@ async function laesDialog(page: Page) {
   await expect(dialog).toHaveCount(0);
 }
 
+/** Ser en filmsekvens til ende: trykker "Videre" ved hver replik, til filmen er slut. */
+async function seFilm(page: Page) {
+  const film = page.locator('.film');
+  const dialog = page.locator('dialog.dialogboks');
+  await expect(film).toHaveCount(1, { timeout: 30_000 });
+  for (let i = 0; i < 120 && (await film.count()) > 0; i++) {
+    if (await dialog.isVisible()) await dialog.getByRole('button', { name: 'Videre' }).click({ timeout: 2_000 }).catch(() => undefined);
+    else await page.waitForTimeout(300);
+  }
+  await expect(film).toHaveCount(0);
+}
+
 async function gaaTil(page: Page, id: string) {
   await page.evaluate((x) => (window as unknown as { __pennedal: { gaaTil: (id: string) => void } }).__pennedal.gaaTil(x), id);
 }
@@ -233,13 +245,16 @@ test('kapitel 3: Viskeskoven, turbaserede kampe, Vims, mindet og Klattens valg',
   for (let i = 0; i < 12 && !/moerke/.test((await verden.getAttribute('class')) ?? ''); i++)
     await dialog.getByRole('button', { name: 'Videre' }).click();
 
-  // Mørket og kapitlets slutning.
+  // Mørket og kapitlets slutning er en filmsekvens (27. november 2026). Klik kun, mens en replik står der.
   await expect(verden).toHaveClass(/moerke/);
-  for (let i = 0; i < 3 && !((await dialog.textContent()) ?? '').includes('Og så'); i++) await dialog.getByRole('button', { name: 'Videre' }).click();
+  for (let i = 0; i < 40 && !((await dialog.textContent()) ?? '').includes('Og så'); i++) {
+    if (await dialog.isVisible()) await dialog.getByRole('button', { name: 'Videre' }).click({ timeout: 1_000 }).catch(() => undefined);
+    else await page.waitForTimeout(300);
+  }
   await expect(dialog).toContainText('Og så');
   await page.waitForTimeout(800);
   await page.screenshot({ path: `${BILLEDER}/k3-05-moerke.png` });
-  await laesDialog(page);
+  await seFilm(page);
   await expect(page.getByText('Kapitel 3 er slut.')).toBeVisible();
   expect(fejl).toEqual([]);
 });
