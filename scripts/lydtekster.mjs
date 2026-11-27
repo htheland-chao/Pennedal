@@ -4,6 +4,7 @@ import { readdirSync, readFileSync } from 'node:fs';
 import { lydNoegle } from '../src/content/lydnoegle.mjs';
 import { trinReplikker } from '../src/content/filmreplikker.mjs';
 import { renTekst } from './tekster.mjs';
+import { beskedFigur } from '../src/content/beskedstemme.mjs';
 
 const laes = (sti) => JSON.parse(readFileSync(new URL(`../src/content/${sti}`, import.meta.url), 'utf8'));
 
@@ -80,8 +81,9 @@ export function alleLydtekster(stemmer = hentStemmer()) {
     if (trin.opgavetekst) tilfoej('fortaeller', trin.opgavetekst, `Kapitel ${k.kapitel} / ${trin.id}.opgavetekst`);
     for (const spg of trin.spoergsmaal ?? []) {
       tilfoej('fortaeller', spg.tekst, `Kapitel ${k.kapitel} / ${trin.id}.${spg.id}`);
-      if (spg.standard) tilfoej('aeseloere', spg.standard, `Kapitel ${k.kapitel} / ${trin.id}.${spg.id}.standard`);
-      for (const [nr, tekst] of Object.entries(spg.forkert ?? {})) tilfoej('aeseloere', tekst, `Kapitel ${k.kapitel} / ${trin.id}.${spg.id}.forkert.${nr}`);
+      const figur = beskedFigur(kapitler, trin.id);
+      if (spg.standard) tilfoej(figur, spg.standard, `Kapitel ${k.kapitel} / ${trin.id}.${spg.id}.standard`);
+      for (const [nr, tekst] of Object.entries(spg.forkert ?? {})) tilfoej(figur, tekst, `Kapitel ${k.kapitel} / ${trin.id}.${spg.id}.forkert.${nr}`);
     }
   }
   // Escape room: det, fortælleren siger ved hvert fund, sedler og låsen. Æseløre siger reglen ved forkert kode.
@@ -151,6 +153,13 @@ export function alleLydtekster(stemmer = hentStemmer()) {
     'bro.fejl.fremmed', 'bro.fejl.fjernet',
   ])
     tilfoej('aeseloere', t(id), `Beskeder / ${id}`);
+  // Før eleven har mødt Æseløre, siger fortælleren beskederne (Bevisjagten i biblioteket, src/content/beskedstemme.mjs).
+  if (kapitler.some((k) => k.trin.some((tr) => tr.type === 'bevisjagt' && beskedFigur(kapitler, tr.id) === 'fortaeller'))) {
+    for (const id of ['opgave.ros.1', 'opgave.ros.2', 'opgave.ros.3', 'opgave.ros.4', 'opgave.ros.foersteforsoeg', 'opgave.proev.igen', 'opgave.regel.rigtig', 'opgave.regel.forkert', 'opgave.niveau.op', 'opgave.niveau.ned', 'opgave.vaelg.regel'])
+      tilfoej('fortaeller', t(id), `Beskeder før Æseløre / ${id}`);
+    tilfoej('fortaeller', `${t('feedback.regel')}: ${t('bevisjagt.regel')}`, 'Beskeder før Æseløre / bevisjagt.regel');
+    tilfoej('fortaeller', `${t('feedback.eksempel')}: ${t('bevisjagt.eksempel')}`, 'Beskeder før Æseløre / bevisjagt.eksempel');
+  }
   const traek = ['problem', 'portal', 'verden', 'konflikt', 'loesning', 'hjemkomst'];
   for (let nr = 1; nr <= traek.length; nr++)
     for (const tr of traek) tilfoej('aeseloere', t('bro.fejl.placering', { nr, hint: t(`bro.hint.${tr}`) }), `Beskeder / bro.fejl.placering.${nr}.${tr}`);

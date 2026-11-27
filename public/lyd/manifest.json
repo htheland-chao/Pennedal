@@ -8374,13 +8374,6 @@
       "lavet": "2026-11-14",
       "model": "gemini-3.8-flash-lite-tts"
     },
-    "10b344642ebe7a": {
-      "figur": "aeseloere",
-      "tekst": "Den sætning handler om døren, ikke om lyden. Find sætningen, der fortæller, hvad hr. Holm hørte.",
-      "fil": "10b344642ebe7a.ogg",
-      "kilde": "Kapitel 1 / k1-logbog.k1-logbog-2.forkert.4",
-      "lavet": "2026-11-01"
-    },
     "10b7aec2af4800": {
       "figur": "fortaeller",
       "tekst": "en ugle tudede i mørket.",
@@ -9419,13 +9412,6 @@
       "kilde": "Kampsvar / krusedulle.k01.hjemme",
       "lavet": "2026-11-19",
       "model": "gemini-3.8-flash-lite-tts"
-    },
-    "129f5175016127": {
-      "figur": "aeseloere",
-      "tekst": "Den sætning handler om bøger, der mangler en side. Find sætningen, der nævner ordbogen.",
-      "fil": "129f5175016127.ogg",
-      "kilde": "Kapitel 1 / k1-logbog.k1-logbog-1.forkert.0",
-      "lavet": "2026-11-01"
     },
     "12a34d10f162b2": {
       "figur": "fortaeller",
@@ -11142,13 +11128,6 @@
       "lavet": "2026-11-16",
       "model": "gemini-3.8-flash-lite-tts"
     },
-    "1601c3a93c91c0": {
-      "figur": "aeseloere",
-      "tekst": "Den sætning handler om skiltet ved døren. Find sætningen, der nævner ordbogen.",
-      "fil": "1601c3a93c91c0.ogg",
-      "kilde": "Kapitel 1 / k1-logbog.k1-logbog-1.forkert.2",
-      "lavet": "2026-11-01"
-    },
     "1602392109a09e": {
       "figur": "fortaeller",
       "tekst": "Det blev mørkt i skoven",
@@ -12327,13 +12306,6 @@
       "kilde": "Svar / fortsaet.f02.rigtig",
       "lavet": "2026-11-17",
       "model": "gemini-3.8-flash-lite-tts"
-    },
-    "1858627461ad65": {
-      "figur": "aeseloere",
-      "tekst": "Find sætningen, hvor hr. Holm fortæller, hvad han hørte.",
-      "fil": "1858627461ad65.ogg",
-      "kilde": "Kapitel 1 / k1-logbog.k1-logbog-2.standard",
-      "lavet": "2026-11-01"
     },
     "18586514375850": {
       "figur": "aeseloere",
@@ -14193,13 +14165,6 @@
       "kilde": "Svar / rytme.tomat.spoergsmaal",
       "lavet": "2026-11-17",
       "model": "gemini-3.8-flash-lite-tts"
-    },
-    "1bec0151e447ac": {
-      "figur": "aeseloere",
-      "tekst": "Læs sætningerne én ad gangen, og find den, der nævner ordbogen.",
-      "fil": "1bec0151e447ac.ogg",
-      "kilde": "Kapitel 1 / k1-logbog.k1-logbog-1.standard",
-      "lavet": "2026-11-01"
     },
     "1bed35c6fea7e3": {
       "figur": "fortaeller",
@@ -16377,6 +16342,6 @@
     }
   },
   "model": "gemini-3.8-flash-tts",
-  "i_alt": 2164,
-  "mangler": 0
+  "i_alt": 2177,
+  "mangler": 18
 }

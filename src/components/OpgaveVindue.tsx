@@ -1,5 +1,6 @@
 import { useMemo, useRef, useState } from 'react';
-import { fortaellersaetninger, genreData, historiebro, korrekturData, ogorm, raaber, rimord, stumme, t, type BevisjagtTrin, type OpgaveTrin } from '../content';
+import { fortaellersaetninger, kapitler, genreData, historiebro, korrekturData, ogorm, raaber, rimord, stumme, t, type BevisjagtTrin, type OpgaveTrin } from '../content';
+import { beskedFigur } from '../content/beskedstemme.mjs';
 import type { Haendelse, Niveau } from '../engine/tilpasning';
 import { lavHviskeOpgave, type HviskeOpgave as HOpgave } from '../mechanics/hviske';
 import { vaelgOgTekst } from '../mechanics/ogorm';
@@ -310,6 +311,7 @@ export function BevisjagtVindue({
       onSvar={onSvar}
       onPause={onPause}
       onLoest={() => onLoest()}
+      figur={beskedFigur(kapitler, trin.id)}
     >
       {(api) => <Bevisjagt key={loeste} trin={trin} nr={loeste} api={api} />}
     </OpgaveRamme>
