@@ -337,29 +337,72 @@
     },
     {
       "id": "k6-krusedul",
-      "type": "dialog",
+      "type": "film",
       "del": 2,
       "sted": "soebred",
       "objekt": null,
       "uhygge": true,
-      "replikker": [
-        { "taler": "fortaeller", "tekst": "Så begynder søen at boble. Op af blækket kravler små, sorte kruseduller. De er tegnet så hurtigt, at de ikke ved, hvad de skal være." },
-        { "taler": "klatten", "tekst": "Det er chefens kruseduller! Han sender dem, når nogen er ved at blive færdig med noget.", "udtryk": "bange" },
-        { "taler": "aeseloere", "tekst": "Den Ufærdige vil ikke have, at noget bliver færdigt. Heller ikke Klattens tekster." },
+      "handlinger": [
         {
-          "taler": "klatten",
-          "tekst": "Den Frygtelige gemmer sig ikke. Ikke i dag. Jeg hjælper jer!", "udtryk": "vred",
-          "hvis": {
-            "venlighed": 1
-          }
+          "type": "samtidig",
+          "handlinger": [
+            {"type": "bjaelker", "til": true},
+            {"type": "musik", "tema": "stille", "overtoning": 1000},
+            {
+              "type": "kamera",
+              "til": {"felt": [12, 8]},
+              "zoom": 2,
+              "ms": 1500
+            }
+          ]
         },
         {
-          "taler": "klatten",
-          "tekst": "Jeg gemmer mig bare under bordet. Det er en strategi.", "udtryk": "bange",
-          "hvis": {
-            "venlighedUnder": 1
-          }
-        }
+          "type": "samtidig",
+          "handlinger": [
+            {"type": "figur", "id": "krusedulle", "toner": "frem"},
+            {"type": "ryst", "ms": 400},
+            {"type": "lyd", "effekt": "smelter"}
+          ]
+        },
+        {
+          "type": "replikker",
+          "replikker": [
+            {"taler": "fortaeller", "tekst": "Så begynder søen at boble. Op af blækket kravler små, sorte kruseduller. De er tegnet så hurtigt, at de ikke ved, hvad de skal være."}
+          ]
+        },
+        {
+          "type": "samtidig",
+          "handlinger": [
+            {"type": "musik", "tema": "ufaerdige", "overtoning": 1500},
+            {
+              "type": "kamera",
+              "til": {"figur": "spiller"},
+              "zoom": 1,
+              "ms": 1200
+            }
+          ]
+        },
+        {
+          "type": "replikker",
+          "replikker": [
+            {"taler": "klatten", "tekst": "Det er chefens kruseduller! Han sender dem, når nogen er ved at blive færdig med noget.", "udtryk": "bange"},
+            {"taler": "aeseloere", "tekst": "Den Ufærdige vil ikke have, at noget bliver færdigt. Heller ikke Klattens tekster."},
+            {
+              "taler": "klatten",
+              "tekst": "Den Frygtelige gemmer sig ikke. Ikke i dag. Jeg hjælper jer!",
+              "udtryk": "vred",
+              "hvis": {"venlighed": 1}
+            },
+            {
+              "taler": "klatten",
+              "tekst": "Jeg gemmer mig bare under bordet. Det er en strategi.",
+              "udtryk": "bange",
+              "hvis": {"venlighedUnder": 1}
+            }
+          ]
+        },
+        {"type": "musik", "tema": null, "overtoning": 1000},
+        {"type": "bjaelker", "til": false}
       ]
     },
     {

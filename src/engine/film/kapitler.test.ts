@@ -10,8 +10,10 @@ import { filmReplikker } from '../../content/filmreplikker.mjs';
 const film = kapitler.flatMap((k) => k.trin.filter((t): t is FilmTrin => t.type === 'film').map((t) => ({ k, t })));
 
 describe('filmsekvenserne i kapitlerne', () => {
-  it('findes: ankomsten, mørket over tagene, fristelsen og slutningen', () => {
-    expect(film.map(({ t }) => t.id)).toEqual(expect.arrayContaining(['k1-ankomst', 'k2-moerke', 'k7-fristelse', 'k8-oplaesning']));
+  it('findes: ankomsten, mørket i kapitel 2-4, twistet i arkivet, Krusedullerne, fristelsen og slutningen', () => {
+    expect(film.map(({ t }) => t.id)).toEqual(
+      expect.arrayContaining(['k1-ankomst', 'k2-moerke', 'k3-moerke', 'k4-moerke', 'k5-twist', 'k6-krusedul', 'k7-fristelse', 'k8-oplaesning']),
+    );
   });
 
   for (const { k, t } of film)
